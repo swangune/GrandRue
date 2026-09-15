@@ -1,0 +1,17 @@
+package mainstreet.onboarding;
+
+/**
+ * Stable recovery categories for durable Onboarding Case persistence.
+ */
+public enum OnboardingPersistenceFailureCategory {
+    CASE_NOT_FOUND,
+    CASE_REVISION_NOT_FOUND,
+    CASE_NOT_IN_PROGRESS,
+    CASE_REVISION_CONFLICT,
+    CASE_IDENTITY_CONFLICT,
+    REVISION_IDENTITY_CONFLICT,
+    ANSWER_EVIDENCE_IDENTITY_CONFLICT,
+    INITIAL_CONFIGURATION_INTENT_IDENTITY_CONFLICT,
+    INITIAL_CONFIGURATION_INTENT_NOT_FOUND,
+    REQUEST_IDENTITY_CONFLICT
+}

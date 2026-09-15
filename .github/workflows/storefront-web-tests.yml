@@ -1,0 +1,48 @@
+name: Storefront Web Tests
+
+on:
+  push:
+    branches:
+      - master
+      - development
+    paths:
+      - 'storefront-web/**'
+      - '.github/workflows/storefront-web-tests.yml'
+  pull_request:
+    branches:
+      - master
+      - development
+    paths:
+      - 'storefront-web/**'
+      - '.github/workflows/storefront-web-tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: storefront-web
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: storefront-web/package.json
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Run storefront composition tests
+        run: npm test
+
+      - name: Build storefront application
+        run: npm run build

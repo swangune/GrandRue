@@ -1,0 +1,185 @@
+# GrandRue
+
+GrandRue is a capability-based operating platform for merchants. It is designed to represent materially different merchant operations from one controlled semantic/runtime architecture rather than accumulating business-type-specific code paths.
+
+## Authority and implementation status
+
+Accepted semantic and architecture authority lives under `designs/` and is navigated through `designs/AUTHORITY-INDEX.md`. Repository source code implements that authority; it does not redefine it. Current implementation navigation and executable evidence are recorded in:
+
+- `docs/development/implementation-status.md`
+- `docs/development/implementation-programme-state.json`
+
+`docs/development/design-implementation-conformance.md` is a retired historical snapshot. It remains useful as preserved evidence for its dated baseline, but it must not be used to determine the current READY frontier, macro completion or current implementation target.
+
+`development` is the canonical implementation branch. `master` is the stable promotion branch and receives only explicitly promoted, verified development baselines.
+
+The current programme target is `IMP-08C — Durable Execution Foundation`, which is `IN_PROGRESS`. The active node is `IMP-08C-C3 — Execution failures/outcome ledger`, also `IN_PROGRESS`. `IMP-00` through `IMP-07` are `CONFORMING_COMPLETE`. Current READY nodes, dependency gates and the exact implementation frontier are intentionally not duplicated here; resolve them through `docs/development/implementation-status.md` and the canonical `docs/development/implementation-programme-state.json` graph.
+
+## Repository and product identity
+
+**GrandRue** and `swangune/GrandRue` are the current product and repository identities.
+
+Existing stable accepted authority identifiers (`MS-*`), historical evidence, Maven coordinates (`mainstreet:mainstreet`) and Java package names (`mainstreet.*`) retain their existing identifiers until a separately governed migration changes them. The product/repository rename does not silently amend authority identifiers, semantic meaning, package identity or historical provenance.
+
+References to **Main Street** or `swangune/MainStreet` in historical handoff/provenance material, including provenance metadata retained in `SEQUENCE.md`, therefore identify the source context in which that material was created; they do not supersede the current GrandRue repository identity or resolve the current repository location.
+
+## Architecture
+
+The backend is a modular monolith with four deliberately separated concerns:
+
+1. **Registered semantics** — platform-owned capabilities, Operational Objects, schemas, relationships, operations, effects, policies, requirements and related semantic definitions.
+2. **Merchant configuration** — versioned merchant choices constrained to registered semantics.
+3. **Compilation and activation** — a pinned semantic registry release plus a validated merchant configuration revision resolves through the canonical `mainstreet.semantic.compiler.ConfigurationCompiler` into an immutable `ExecutableMerchantModel`; activation is explicit, versioned and evidence-backed.
+4. **Runtime fulfilment** — scoped execution resolves operations against one active release, composes independent access/eligibility guards, and delegates authoritative mutation to the owning capability/domain boundary.
+
+Important invariants include:
+
+- capability semantics are not merchant categories or subscription plans;
+- `MerchantScope` is explicit at tenant-sensitive boundaries;
+- historical commitments retain the configuration/semantic context that governed them;
+- semantic registry transitions fail closed unless exact directional MS-PROT-054 compatibility/migration evidence permits them;
+- authority-sensitive mutation is revalidated against current authority at the owning consistency boundary;
+- Domain Events are post-commit facts, not mutation authority;
+- Notifications owns generic notification delivery semantics rather than each capability building a parallel delivery stack;
+- infrastructure implements domain/application contracts and must not become semantic authority;
+- the core semantic/domain model remains plain Java rather than depending on Spring or SQL to express business meaning.
+
+## Technology baseline
+
+The accepted technology architecture is MS-PROT-030.
+
+| Area | Accepted baseline | Repository state |
+|---|---|---|
+| Backend | Java 25 LTS, Spring Boot 4.1, Maven | Implemented |
+| Database | PostgreSQL | Implemented and exercised in CI |
+| Persistence | jOOQ + Flyway + Spring transactions | Implemented |
+| Merchant web | TypeScript, React 19, Next.js 16 | Accepted, not yet implemented in this repository |
+| Storefront web | TypeScript, React 19, Next.js 16 | Prototype implemented, tested and built in CI |
+
+Current Maven configuration targets Java 25 and Spring Boot 4.1.1. PostgreSQL 18 is the current verification target; CI currently exercises PostgreSQL 18.6. jOOQ and Flyway are the production persistence/migration path. Docker is disposable CI/test infrastructure, not a domain or persistence architecture decision.
+
+## Current backend implementation
+
+Production source currently includes foundations for:
+
+- semantic registry, configuration and executable-model compilation;
+- immutable initial configuration-revision persistence plus configuration publication, approval, activation and durable semantic compatibility foundations;
+- scoped runtime dispatch, current actor authorisation and commercial-entitlement guards;
+- allocation, inventory, scheduling, booking and customer context;
+- Merchant Account establishment, Controller authority, authentication/session foundations and post-establishment lifecycle;
+- Merchant Profile identity, onboarding case/discovery/handoff authority and the complete establishment-to-active configuration path;
+- commercial agreement, plan/trial entitlement and Standing Free baseline authority;
+- workforce membership, groups, roles and merchant operational-device authorisation;
+- resource-protection admission;
+- generic notification intent/dispatch/delivery evidence;
+- media metadata/rendition authority;
+- personal-data-use basis and personal-media eligibility foundations;
+- append-only audit evidence;
+- durable background work;
+- credential/security metadata;
+- money/payment authority foundations;
+- resilience/execution-uncertainty and observability models;
+- application-level cross-capability orchestration primitives;
+- PostgreSQL/jOOQ adapters backed by Flyway migrations.
+
+This does **not** mean every accepted MS-PROT capability or product-delivery surface is complete. Resolve the explicit current implementation frontier through `docs/development/implementation-status.md` and `docs/development/implementation-programme-state.json`.
+
+## Production versus historical prototype code
+
+The accepted production compiler is:
+
+```text
+MerchantConfiguration
+    + pinned SemanticRegistrySnapshot
+    -> mainstreet.semantic.compiler.ConfigurationCompiler
+    -> ExecutableMerchantModel
+```
+
+Earlier mutable-capability/compiler/composition experiments are retained under `experiments/` and in quarantined historical test fixtures under `src/test`. They are not production extension points.
+
+Likewise, the earlier Booking-specific notification gateway/delivery prototype is retained only in `src/test`. Production notification delivery is owned by `mainstreet.notification` under MS-PROT-075.
+
+`mainstreet.governance.ImplementationBoundaryConformanceTest` mechanically protects these boundaries.
+
+## Repository structure
+
+```text
+src/main/java/mainstreet/
+├── application/       cross-capability application coordination
+├── audit/             audit evidence contracts
+├── background/        durable background-work semantics
+├── booking/           booking capability/application boundary
+├── businesshours/     business-hours resolution
+├── commercial/        commercial agreement and entitlement authority
+├── credential/        credential/security metadata contracts
+├── customer/          customer-context authority
+├── fulfilment/        fulfilment requirements, plans and bindings
+├── infrastructure/    PostgreSQL/jOOQ and other contract implementations
+├── inventory/         inventory/allocation authority
+├── media/             media asset/rendition semantics
+├── merchantaccount/   merchant-account establishment/lifecycle
+├── merchantprofile/   merchant public-profile identity
+├── money/             money/payment authority
+├── notification/      generic notification semantics and delivery coordination
+├── observability/     operational observability model
+├── onboarding/        IMP-05 case, discovery and immutable handoff authority
+├── ordering/          ordering commitment and execution authority
+├── privacy/           personal-data-use/retention foundations
+├── protection/        resource-protection admission
+├── prototype/         bounded prototype delivery/runtime surfaces
+├── resilience/        uncertainty/retry/resilience model
+├── runtime/           scoped operation dispatch and execution guards
+├── scheduling/        scheduling/appointment semantics
+├── semantic/          registry, configuration, compiler and executable model
+├── surface/           public/merchant surface composition contracts
+└── workforce/         merchant workforce/delegated authority
+
+src/main/resources/db/migration/
+└── versioned Flyway migrations
+
+src/test/java/mainstreet/
+├── governance/        design/repository boundary conformance tests
+├── infrastructure/    PostgreSQL integration tests
+└── ...                unit tests plus quarantined historical prototypes
+
+storefront-web/
+└── tested Next.js prototype storefront and bounded public-interaction client
+```
+
+## Verification
+
+The authoritative CI command is:
+
+```bash
+mvn --batch-mode clean verify -Ppostgres-it
+```
+
+The PostgreSQL integration-test profile expects:
+
+```text
+MAINSTREET_TEST_POSTGRES_URL
+MAINSTREET_TEST_POSTGRES_USER
+MAINSTREET_TEST_POSTGRES_PASSWORD
+```
+
+For ordinary local unit tests:
+
+```bash
+mvn test
+```
+
+GitHub Actions runs the clean backend verification suite using Java 25 and a PostgreSQL 18 service. Storefront changes also run the dedicated Node 24 workflow, which executes the Vitest suite and a production Next.js build.
+
+## Development rule
+
+For implementation work:
+
+1. identify the applicable accepted authority;
+2. classify the requested work as implementation, defect correction, or a genuinely unresolved design decision;
+3. write the falsifying business/architecture test first where practical;
+4. implement the smallest conformant behaviour;
+5. run focused tests and the complete verification suite;
+6. update implementation evidence when the verified frontier changes;
+7. promote from `development` to `master` only through an explicit verified promotion.
+
+If accepted documents do not determine a consequential semantic or architectural choice, stop and use the governed design process rather than deciding it accidentally in code.

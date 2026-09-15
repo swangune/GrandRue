@@ -1,0 +1,31 @@
+package mainstreet.merchantprofile;
+
+import mainstreet.application.MerchantScope;
+import mainstreet.runtime.TrustedExecutionContext;
+
+import java.util.Optional;
+
+/** Authoritative Merchant Location mutation, revision and currentness boundary. */
+public interface MerchantLocationAuthority {
+    MerchantLocationRevision create(
+            CreateMerchantLocationCommand command,
+            TrustedExecutionContext trustedContext
+    );
+
+    MerchantLocationRevision correct(
+            CorrectMerchantLocationCommand command,
+            TrustedExecutionContext trustedContext
+    );
+
+    MerchantLocationRevision retire(
+            RetireMerchantLocationCommand command,
+            TrustedExecutionContext trustedContext
+    );
+
+    Optional<MerchantLocationRevision> current(
+            MerchantScope merchantScope,
+            String locationIdentity
+    );
+
+    Optional<MerchantLocationRevision> revision(String revisionIdentity);
+}

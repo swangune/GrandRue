@@ -1,0 +1,54 @@
+# Maven build output
+/target/
+
+# Compiled Java artifacts
+*.class
+
+# Packaged artifacts
+*.jar
+*.war
+*.ear
+
+# Local source archive generated during development
+/src.zip
+
+# Frontend dependency and build output
+node_modules/
+.next/
+coverage/
+
+# IDE metadata
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Java tooling
+.factorypath
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and runtime noise
+*.log
+*.pid
+*.tmp
+*.swp
+*.swo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Test/runtime scratch data
+*.db
+*.mv.db
+*.trace.db
+
+# Maven wrapper download/cache noise
+.mvn/timing.properties

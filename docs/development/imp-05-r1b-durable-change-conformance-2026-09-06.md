@@ -1,0 +1,44 @@
+# IMP-05-R1B — Durable Configuration change/revision boundary
+
+**Rules:** IMPLEMENTATION-RULES v1.7. **Baseline:** clean `development@3bbfa85d6b888869446bfb76f9f33d3c42f77d56`, equal to origin at entry. Full baseline CI `34013263307`: 1129 unit/governance + 388 PostgreSQL tests, zero failures/errors/skips.
+
+**Current state:** CONFORMING_COMPLETE for durable intent/revision persistence and common immutable-content lookup. This does not certify approval, impact production, activation or a deployed caller. Final implementation baseline `bc19f8d9dd1f9bee4c4ccc40cdf0e7c90a124da3`, GitHub Actions run `34027581876`, job `101471204445`: SUCCESS on Java 25/PostgreSQL 18, 1130 unit/governance + 398 integration tests, zero failures/errors/skips. R1C is READY after this closure is committed.
+
+## Exact governing authority
+
+- `designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md`, v1.0 §13 Change set; §14 Change-set provenance; §15 Merchant-initiated changes; §16 Inference-proposed changes; §19 Candidate generation; §44 Base-revision concurrency invariant; §45 Automatic merge is not assumed; §49 Configuration history.
+- `designs/MS-PROT-040 v1.1 — Configuration Revision, Resolved Package & Atomic Activation Amendment.md`, §2 Ownership; §3 Configuration Revision identity and immutability; §4 Semantic-registry affinity; §8 First activation concurrency. The current-active predicate belongs to activation; preparation does not silently rebase or activate.
+- `designs/MS-PROT-040 v1.5 — Release-Purpose Admission & Ordinary Release Reference Amendment.md`, §9 Configuration-Revision Creation and Validation: consume the ordinary reference for new creation; retain a created revision's pinned release after reference advance.
+- `designs/MS-PROT-028 — Identity, Actor, Customer & Access Boundary Model.md`, v1.1 §3 Identity is not authority; `designs/IMPLEMENTATION-RULES.md`, v1.7 §21 Security and Authority Rule, §§46–48, §§52.14–52.19 and §53.2 Paradigm-fit gate.
+
+## Implementation and ownership
+
+`src/main/java/mainstreet/infrastructure/persistence/configuration/JooqConfigurationChangeAuthority.java`, methods `materialise`, `materialiseInside`, `revisionForChange` and `insert`: explicit transaction-scoped source authorization; exact scope/principal binding; merchant lock shared with the initial writer; immutable change identity and complete-content retry comparison; owner-resolved stored base; monotonic per-merchant version allocation; ordinary release pinning; atomic root/capability/policy persistence and durable reconstruction.
+
+`src/main/java/mainstreet/semantic/configuration/ConfigurationChangeAuthority.java`, `ConfigurationChangeAuthorizationAuthority.java`, `MaterialiseConfigurationChangeCommand.java` and `ChangedConfigurationRevision.java` define the bounded owner port, mandatory current authorization port, command and exact persisted provenance shape. No permissive authorization implementation or caller wiring is added. The authorization implementation must validate origin/source/current actor within the transaction and fence mutable authority; the adapter independently rejects mismatched merchant/principal. The production caller/policy binding remains required in R2/R3, not proven by storage tests using supplied authorization decisions.
+
+`src/main/resources/db/migration/V61__configuration__support_base_affined_changes.sql`: forward-only extension of the existing owner table. Initial rows retain required initial provenance, version one/no base/no binding shape. Changed rows require a same-merchant base, version above one and explicit change provenance, and prohibit onboarding provenance. Applied V36/V37 remain untouched. `change_proposed_at` stores canonical Instant text to preserve exact proposal nanoseconds; physical materialisation uses the existing PostgreSQL timestamp and is read back as committed. Retry does not compare a new physical materialisation time.
+
+Schema falsification found that V36's old binding-pair CHECK could evaluate to SQL UNKNOWN for a half-present binding. Initial rows previously prohibited bindings altogether; replacements make that dormant constraint gap relevant. Forward migration `V62__configuration__enforce_complete_binding_reference.sql` adds explicit non-null checks for both components. The PostgreSQL schema rejection case tests both half-reference forms. No published migration is rewritten to hide this finding.
+
+`JooqConfigurationRevisionAuthority.configuration` and `toConfiguration` provide common immutable contents. The existing `revision` reader remains initial-provenance-specific and now explicitly filters initial rows. Initial handoff behavior and old return types remain intact. R1C must change the validation consumer to use the common reader and prove the actual replacement validation path.
+
+Paradigm fit: Configuration owns the mutation and immutable declarative input; one local database transaction secures revision/change/selections; ports isolate persistence and current authorization. No event or compiler result becomes mutation authority. No new library or runtime semantic branching is introduced.
+
+## Verification and falsification scope
+
+New cases in `src/test/java/mainstreet/infrastructure/persistence/configuration/JooqConfigurationRevisionAuthorityIT.java` exercise truthful replacement provenance, common lookup, retained initial lookup, no activation side effect, historical release/time retry, changed identity/content rejection, missing base/release, denied and forged authority, enclosing rollback, concurrent duplicate delivery, distinct same-base versions, all origin/policy/binding/nanosecond round trips and SQL rejection of mixed/missing provenance.
+
+Tests-first RED was compilation on the missing writer/command/authorization contract and failure categories. The first full local suite after implementation passed 1129 tests; PostgreSQL cases compiled but were not executed locally. Subsequent governance and falsification additions require the final full gate.
+
+Final local full `mvn --batch-mode -Dmaven.repo.local=<workspace>/work/m2 test`: **1130 tests, zero failures/errors/skips**, BUILD SUCCESS. After V62, 14 focused graph/change-set tests passed locally. Final CI `mvn --batch-mode clean verify -Ppostgres-it` passed all 398 PostgreSQL cases, including the ten new writer cases and both half-binding rejections. `git diff --check` passes. Exact trace locations: writer `materialise` :44, `materialiseInside` :62, `revisionForChange` :105, `insert` :126; common reader `JooqConfigurationRevisionAuthority.configuration` :183; PostgreSQL test methods begin at :361, :378, :389, :407, :420, :441, :453, :473, :483 and :499 (method names above remain stable navigation anchors).
+
+Counterevidence sought: an interface or immutable value alone cannot establish durable creation; this node exercises the actual PostgreSQL writer. A typed source is not authorization; mandatory authorization remains a separate port with negative tests, and concrete policy composition is not claimed. A reconstructed revision is not validation; R1C stays open. Source origin retention is not proof that each source owner has a production caller. Impact retention is not impact production; R4 below remains required. Duplicate physical delivery must not create another revision or re-pin the release. Same-base distinct changes must not merge automatically. Initial provenance must not become optional for initial rows through SQL NULL-check loopholes.
+
+## Review findings reconciled into scheduled work
+
+- IMP-05-R4 explicitly owns production impact analysis for exact initial/replacement validation results, business-facing effects and applicable commitment findings, under MS-PROT-040 v1.0 §§20–24 and v1.3 §11. R2 requires R4 before approval composition can close. Existing D2c evidence-retention proof is preserved.
+- IMP-10-N1 retains the accepted provider-effect identity correction and now explicitly includes duplicate-start/concurrent-send control under MS-PROT-075 v1.1 §§18–19 and §54. No provider execution is introduced ahead of its macro gates.
+- `ImplementationGraphIntegrityTest` now additionally checks completed/active child prerequisites and child cycles, including an injected false parent completion. It still does not claim automatic completeness of every semantic obligation.
+- DDR `MS-PROT-052-V12-DQ-001`, `-002`, `-004` are reconciled to existing V34–V37/jOOQ persistence and `imp-05-onboarding-case-evidence-store-2026-08-28.md`; no new Onboarding semantic decision is made. Snapshot optimization, transport and UI rows remain deferred.
+- Other Provider/Payment/Shipment/Returns/lifecycle/operability/recovery gaps remain their existing scheduled macros. IMP-05 remains PARTIALLY_CONFORMING and downstream execution remains blocked.

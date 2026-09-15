@@ -1,0 +1,614 @@
+> **Governance note (21 August 2026):** Retained as early design evidence. MS-PROT-023 is the accepted command-evaluation and runtime-execution contract; its capability-owned fulfilment boundary supersedes any generic-domain-implementation wording below.
+
+Operation Execution Contract
+
+This is the point where Main Street becomes executable rather than conceptual.
+
+We will define one generic operation pipeline that works for any merchant configuration. The domain supplies the configuration; the runtime supplies the execution machinery.
+
+1. Canonical operation request
+
+Every operation enters the backend in the same conceptual form:
+
+OperationRequest
+├── request_id
+├── merchant_id
+├── actor
+├── operation_id
+├── target
+├── input
+└── context
+
+Example:
+
+operation_id = "reservation.create"
+target       = "resource_definition:reservation"
+
+input:
+    date
+    time
+    party_size
+
+The runtime doesn't care whether this represents a restaurant reservation, a solicitor appointment, or something else.
+
+The target is discriminated by operation kind:
+
+Creation operation
+    → targets a resource definition
+
+Existing-instance operation
+    → targets a resource instance
+
+A creation request cannot target an instance that does not yet exist. The
+runtime resolves the configured resource definition, creates one stable
+instance identity inside the transaction and returns that identity in the
+committed result. Subsequent operations target the created instance, for
+example:
+
+operation_id = "reservation.confirm"
+target       = "resource:BKG-001"
+
+
+---
+
+2. Actor
+
+The actor is the entity performing the operation.
+
+Actor
+├── type
+├── id
+└── authentication_context
+
+Possible types include:
+
+customer
+merchant
+staff
+system
+
+The actor's identity and their privileges are separate.
+
+For staff, this directly supports the principle we established earlier:
+
+Staff member
+    +
+merchant-assigned privileges
+    +
+merchant-assigned job title
+
+The runtime doesn't care whether the person is called:
+
+> Manager, Receptionist, Chef, Case Assistant, Technician
+
+
+
+The privileges determine what they can do.
+
+
+---
+
+3. Operation resolution
+
+The runtime resolves:
+
+merchant_id
+      ↓
+active executable model
+      ↓
+operation_id
+      ↓
+OperationDefinition
+
+If the operation doesn't exist or isn't enabled:
+
+OperationNotAvailable
+
+No domain-specific code is required.
+
+
+---
+
+4. Authorization
+
+Authorization comes before execution.
+
+Conceptually:
+
+Actor
+  +
+Operation
+  +
+Target
+  +
+Context
+       ↓
+Authorization Policy
+       ↓
+ALLOW / DENY
+
+For example:
+
+Customer
+    → create reservation     ALLOW
+
+Customer
+    → modify another staff member's privileges
+                             DENY
+
+The authorization mechanism remains generic.
+
+Merchant configuration determines the privileges and policies.
+
+
+---
+
+5. Input validation
+
+Once authorized:
+
+input
+  ↓
+operation input schema
+  ↓
+valid / invalid
+
+This is structural validation.
+
+For example:
+
+party_size = "hello"
+
+fails before execution.
+
+This is distinct from business constraints.
+
+
+---
+
+6. Constraint evaluation
+
+Now we evaluate semantic conditions.
+
+For example:
+
+Reservation.create
+
+requires:
+    resource available
+    requested time valid
+    party_size within permitted range
+
+These are declarative conditions in the executable model.
+
+The runtime evaluates them.
+
+all constraints satisfied?
+        │
+    ┌───┴───┐
+   yes      no
+    │        │
+ execute    reject
+
+
+---
+
+7. Transaction boundary
+
+This is the most important part.
+
+Once authorization, validation and preconditions have passed, the actual state transition occurs inside a transaction.
+
+BEGIN
+   │
+   ├── read required state
+   ├── verify concurrency conditions
+   ├── apply state transition
+   ├── persist changes
+   ├── record event
+   └── COMMIT
+
+If anything fails:
+
+ROLLBACK
+
+No partial business operation is exposed.
+
+
+---
+
+8. State transition
+
+The operation doesn't arbitrarily manipulate state.
+
+It requests a transition defined by the executable model.
+
+Current state
+      ↓
+Operation
+      ↓
+Allowed transition?
+      ↓
+New state
+
+Creation is the one transition form without a source state:
+
+Resource definition
+      ↓
+Create operation
+      ↓
+Configured initial state
+
+`none` is not a stored lifecycle state. It denotes the absence of an instance
+before the transaction. The create operation atomically creates the instance
+in its configured initial state and records the corresponding event.
+
+For example:
+
+pending
+   │
+   │ confirm
+   ▼
+confirmed
+
+But:
+
+completed
+   │
+   │ confirm
+   ▼
+INVALID
+
+unless the merchant's configuration explicitly permits that transition.
+
+
+---
+
+9. Concurrency
+
+This needs to be a runtime responsibility.
+
+Suppose two customers attempt:
+
+Customer A → reserve table 7
+Customer B → reserve table 7
+
+simultaneously.
+
+Both may initially observe:
+
+available
+
+The runtime must guarantee that only one transaction can successfully establish the conflicting state.
+
+The exact mechanism—optimistic concurrency, locking, isolation level, etc.—is an implementation decision.
+
+The semantic contract simply says:
+
+> The configured invariant must hold after every committed operation.
+
+
+
+That's the right abstraction boundary.
+
+
+---
+
+10. Event creation
+
+When the transaction changes state, the corresponding event is created.
+
+Operation
+     ↓
+State transition
+     ↓
+Event
+
+For example:
+
+ReservationCreated
+
+The event describes a fact, not an instruction.
+
+It should contain sufficient information for downstream consumers to understand what happened.
+
+
+---
+
+11. Transactional event recording
+
+We should use an outbox-style boundary for Prototype 1.
+
+Conceptually:
+
+DATABASE TRANSACTION
+
+┌──────────────────────────────┐
+│ operational state change     │
+│                              │
+│ event/outbox record          │
+└──────────────────────────────┘
+             │
+           COMMIT
+             │
+             ▼
+       event publisher
+
+This prevents the dangerous situation:
+
+database updated ✓
+event lost        ✗
+
+or:
+
+event published ✓
+database rolled back ✗
+
+The event becomes durable before asynchronous processing begins.
+
+
+---
+
+12. Event processing
+
+After commit:
+
+Outbox
+   ↓
+Event publisher
+   ↓
+Event consumers
+
+Consumers may include:
+
+notification
+experience update
+analytics
+search/indexing
+merchant activity feed
+other platform capabilities
+
+These are downstream.
+
+The operation itself has already succeeded.
+
+
+---
+
+13. Response
+
+The synchronous response should describe the committed result.
+
+Conceptually:
+
+OperationResult
+├── request_id
+├── operation_id
+├── status
+├── target
+├── resulting_state
+├── resource representation
+└── errors
+
+For successful execution:
+
+status = succeeded
+
+For rejection:
+
+status = rejected
+
+For infrastructure failure:
+
+status = failed
+
+We should keep business rejection separate from technical failure.
+
+
+---
+
+14. Idempotency
+
+This is mandatory.
+
+Customers and merchant applications will retry requests because of:
+
+network failures;
+
+timeouts;
+
+mobile connectivity;
+
+browser retries;
+
+client crashes.
+
+
+Without idempotency:
+
+Customer clicks "Pay"
+       ↓
+request succeeds
+       ↓
+response lost
+       ↓
+client retries
+       ↓
+second operation
+
+That is unacceptable for operations where duplication matters.
+
+So operations that are mutation commands should support:
+
+request_id / idempotency_key
+
+The runtime records the result associated with the request.
+
+A retry of the same request returns the existing result rather than executing the operation again.
+
+For creation, that existing result contains the same created resource
+identity. A retry must never create a second instance.
+
+
+---
+
+15. Failure taxonomy
+
+We should establish this now.
+
+Validation failure
+
+InvalidInput
+
+Authorization failure
+
+Unauthorized
+Forbidden
+
+Semantic constraint failure
+
+ConstraintViolation
+
+Concurrency conflict
+
+Conflict
+
+Resource not found
+
+TargetNotFound
+
+Configuration problem
+
+OperationUnavailable
+InvalidExecutableModel
+
+Infrastructure failure
+
+InternalFailure
+DependencyUnavailable
+Timeout
+
+The client should never need to understand internal implementation details.
+
+
+---
+
+16. Complete execution pipeline
+
+We can now lock this down:
+
+Operation Request
+                        │
+                        ▼
+                 Resolve Merchant
+                        │
+                        ▼
+                Resolve ESM Version
+                        │
+                        ▼
+                  Resolve Actor
+                        │
+                        ▼
+                Resolve Operation
+                        │
+                        ▼
+                  Authorization
+                        │
+                        ▼
+                 Input Validation
+                        │
+                        ▼
+              Semantic Constraints
+                        │
+                        ▼
+               Begin Transaction
+                        │
+                        ▼
+             Concurrency Validation
+                        │
+                        ▼
+                State Transition
+                        │
+                        ▼
+              Persist State Changes
+                        │
+                        ▼
+                Record Outbox Event
+                        │
+                        ▼
+                     COMMIT
+                        │
+             ┌──────────┴──────────┐
+             ▼                     ▼
+       Operation Result       Event Publisher
+                                   │
+                                   ▼
+                              Subscribers
+
+This is now an actual backend execution model.
+
+
+---
+
+17. What we deliberately have NOT designed
+
+We are not going to design yet:
+
+distributed execution machinery;
+
+advanced workflow engines;
+
+sophisticated scheduling algorithms;
+
+every possible constraint type;
+
+every possible event type;
+
+every possible integration;
+
+advanced analytics;
+
+multi-location enterprise administration.
+
+
+Those are extension territory.
+
+Prototype 1 needs the execution contract above.
+
+
+---
+
+18. One final architectural decision
+
+I recommend we make this invariant explicit:
+
+> Every business-changing action in Main Street is represented as an operation against the semantic model.
+
+
+
+That gives us one consistent route for:
+
+customer actions
+merchant actions
+staff actions
+system actions
+
+rather than creating separate business-logic pathways for each client.
+
+So:
+
+Customer Web ──────┐
+Merchant Web ──────┤
+Merchant Mobile ───┤
+Merchant Desktop ──┤
+System ────────────┘
+             │
+             ▼
+      Operation Contract
+             │
+             ▼
+       Generic Runtime
+
+That is an important simplification.
+
+Next, we should design the persistence model around this execution contract. We can now determine exactly which data is configuration, executable model, operational state, event/outbox data, identity/authorization data, and audit data—without guessing.

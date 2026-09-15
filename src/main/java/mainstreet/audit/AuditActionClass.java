@@ -1,0 +1,15 @@
+package mainstreet.audit;
+
+/** Evidence classifications accepted by MS-PROT-064. */
+public enum AuditActionClass {
+    EXECUTION_ACCEPTED,
+    EXECUTION_REJECTED,
+    AUTHENTICATION_SECURITY,
+    AUTHORISATION_SECURITY,
+    CONFIGURATION_CHANGE,
+    ADMINISTRATIVE_ACTION,
+    INTEGRATION_RECONCILIATION,
+    BREAK_GLASS_ACTION,
+    DATA_ACCESS,
+    DATA_EXPORT
+}
