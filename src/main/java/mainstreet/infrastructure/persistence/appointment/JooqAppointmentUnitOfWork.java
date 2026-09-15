@@ -1,11 +1,12 @@
 package mainstreet.infrastructure.persistence.appointment;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.booking.CommandIdentityConflictException;
+
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.DomainEvent;
 import mainstreet.semantic.TimeWindowAllocationScope;
 import mainstreet.scheduling.Appointment;
+import mainstreet.scheduling.AppointmentCommandIdentityConflictException;
 import mainstreet.scheduling.AppointmentConfirmation;
 import mainstreet.scheduling.AppointmentTransaction;
 import mainstreet.scheduling.AppointmentUnitOfWork;
@@ -105,7 +106,7 @@ public final class JooqAppointmentUnitOfWork implements AppointmentUnitOfWork {
             if (handled.isPresent()) {
                 HandledCommand existing = handled.orElseThrow();
                 if (!existing.command().equals(command)) {
-                    throw new CommandIdentityConflictException(command.identifier());
+                    throw new AppointmentCommandIdentityConflictException(command.identifier());
                 }
                 return loadConfirmation(existing);
             }

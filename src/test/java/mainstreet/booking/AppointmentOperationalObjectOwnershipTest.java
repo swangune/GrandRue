@@ -20,6 +20,7 @@ import mainstreet.semantic.executable.ExecutableRelationshipEstablishmentEffect;
 import mainstreet.semantic.registry.RelationshipCardinality;
 import mainstreet.semantic.registry.RelationshipScopeConstraint;
 import mainstreet.scheduling.AppointmentApplicationService;
+import mainstreet.scheduling.AppointmentCommandIdentityConflictException;
 import mainstreet.scheduling.ConfirmAppointmentCommand;
 import mainstreet.scheduling.InMemoryAppointmentUnitOfWork;
 import mainstreet.testing.TestConfigurationReleases;
@@ -31,6 +32,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AppointmentOperationalObjectOwnershipTest {
@@ -92,6 +94,73 @@ class AppointmentOperationalObjectOwnershipTest {
                 MERCHANT_SCOPE,
                 "appointment-123"
         ).isPresent());
+    }
+
+    @Test
+    void appointment_command_identifier_cannot_be_reused_for_different_intent() {
+        ExecutableMerchantModel model = model();
+
+        InMemoryAppointmentUnitOfWork unitOfWork =
+                new InMemoryAppointmentUnitOfWork();
+        InMemoryCustomerContextAuthority customerContexts =
+                new InMemoryCustomerContextAuthority();
+        customerContexts.register(new CustomerContext(
+                MERCHANT_SCOPE,
+                "customer-123",
+                Instant.parse("2026-08-20T10:16:00Z")
+        ));
+
+        AppointmentApplicationService handler = new AppointmentApplicationService(
+                unitOfWork,
+                customerContexts,
+                (scope, operation, interval) -> { },
+                (scope, principal, operation) -> { },
+                java.time.Clock.systemUTC()
+        );
+        TestConfigurationReleases releases = new TestConfigurationReleases();
+        releases.activate(model);
+        ScopedOperationDispatcher<ConfirmAppointmentCommand> dispatcher =
+                new ScopedOperationDispatcher<>(
+                        new ActiveOperationResolver(releases.activation()),
+                        List.of((scope, principal, operation) -> { }),
+                        handler
+                );
+
+        TrustedExecutionContext executionContext =
+                new TrustedExecutionContext(
+                        MERCHANT_SCOPE,
+                        new ExecutionPrincipal("staff-1"),
+                        Optional.empty()
+                );
+
+        dispatcher.dispatch(
+                executionContext,
+                "appointment.confirm",
+                command()
+        );
+
+        ConfirmAppointmentCommand conflictingCommand =
+                new ConfirmAppointmentCommand(
+                        MERCHANT_SCOPE,
+                        "command-001",
+                        "appointment-123",
+                        "customer-123",
+                        "consultation.perform",
+                        new TimeWindowAllocationScope(
+                                "consultant-capacity-1",
+                                Instant.parse("2026-08-20T15:00:00Z"),
+                                Instant.parse("2026-08-20T15:30:00Z")
+                        )
+                );
+
+        assertThrows(
+                AppointmentCommandIdentityConflictException.class,
+                () -> dispatcher.dispatch(
+                        executionContext,
+                        "appointment.confirm",
+                        conflictingCommand
+                )
+        );
     }
 
     private static ExecutableMerchantModel model() {

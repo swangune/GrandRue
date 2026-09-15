@@ -1,7 +1,6 @@
 package mainstreet.scheduling;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.booking.CommandIdentityConflictException;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.AllocationConflictException;
 import mainstreet.semantic.AllocationScope;
@@ -35,7 +34,7 @@ public final class InMemoryAppointmentUnitOfWork implements AppointmentUnitOfWor
         HandledCommand handled = state.handledCommands().get(key);
         if (handled != null) {
             if (!handled.command().equals(command)) {
-                throw new CommandIdentityConflictException(command.identifier());
+                throw new AppointmentCommandIdentityConflictException(command.identifier());
             }
             return handled.confirmation();
         }
