@@ -529,6 +529,8 @@ Prefer the smallest implementation satisfying accepted contracts while preservin
 
 Production/test identifiers SHOULD use canonical semantic vocabulary and qualifiers where bare terms are ambiguous. Public/persisted renames with migration/contract impact require the applicable approval process.
 
+Production and test source code MUST use explicit imports. Wildcard imports (`*`), including static wildcard imports, are prohibited because they obscure symbol provenance and can create ambiguous references as packages evolve. Every imported type or static member MUST be named explicitly. Tooling and IDE configuration SHOULD preserve explicit imports rather than automatically collapsing them into wildcard imports.
+
 ---
 
 ## 30. Comment, Documentation & Design-Traceability Rule
