@@ -1,5 +1,6 @@
 package mainstreet.infrastructure.persistence.ordering;
 
+import mainstreet.ordering.OrderingTransaction;
 import mainstreet.application.MerchantScope;
 import mainstreet.infrastructure.persistence.inventory.JooqQuantityAllocationAuthority;
 import mainstreet.money.CurrencyIdentity;
@@ -108,7 +109,7 @@ public final class JooqOrderingUnitOfWork implements OrderingUnitOfWork {
     @Override
     public OrderConfirmation execute(
             CommitOrderCommand command,
-            Function<mainstreet.ordering.OrderingTransaction, OrderConfirmation> work
+           Function<OrderingTransaction, OrderConfirmation> work
     ) {
         Objects.requireNonNull(command, "command");
         Objects.requireNonNull(work, "work");

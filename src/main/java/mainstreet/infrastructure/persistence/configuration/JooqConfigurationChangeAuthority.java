@@ -3,7 +3,16 @@ package mainstreet.infrastructure.persistence.configuration;
 import mainstreet.application.MerchantScope;
 import mainstreet.fulfilment.FulfilmentBindingSetRevisionReference;
 import mainstreet.runtime.TrustedExecutionContext;
-import mainstreet.semantic.configuration.*;
+import mainstreet.semantic.configuration.ChangedConfigurationRevision;
+import mainstreet.semantic.configuration.ConfigurationChangeAuthority;
+import mainstreet.semantic.configuration.ConfigurationChangeAuthorizationAuthority;
+import mainstreet.semantic.configuration.ConfigurationChangeSet;
+import mainstreet.semantic.configuration.ConfigurationRevisionAuthority;
+import mainstreet.semantic.configuration.ConfigurationRevisionFailureCategory;
+import mainstreet.semantic.configuration.ConfigurationRevisionPersistenceException;
+import mainstreet.semantic.configuration.MaterialiseConfigurationChangeCommand;
+import mainstreet.semantic.configuration.MerchantConfiguration;
+import mainstreet.semantic.configuration.OrdinaryNewConfigurationSemanticReleaseAuthority;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.exception.DataAccessException;
@@ -42,7 +51,7 @@ public final class JooqConfigurationChangeAuthority implements ConfigurationChan
 
     @Override
     public ChangedConfigurationRevision materialise(MaterialiseConfigurationChangeCommand command,
-                                                    TrustedExecutionContext context) {
+                                                     TrustedExecutionContext context) {
         Objects.requireNonNull(command, "command");
         var change = command.changeSet();
         if (context == null || !change.merchantScope().equals(context.merchantScope())
@@ -60,7 +69,7 @@ public final class JooqConfigurationChangeAuthority implements ConfigurationChan
     }
 
     private ChangedConfigurationRevision materialiseInside(MaterialiseConfigurationChangeCommand command,
-                                                           TrustedExecutionContext context) {
+                                                            TrustedExecutionContext context) {
         var change = command.changeSet();
         String merchant = change.merchantScope().merchantIdentifier();
         // Share the initial writer's merchant lock so version allocation has one serialization boundary.
@@ -151,7 +160,9 @@ public final class JooqConfigurationChangeAuthority implements ConfigurationChan
         }
     }
 
-    private static ConfigurationRevisionPersistenceException failure(ConfigurationRevisionFailureCategory category, String message) {
+    private static ConfigurationRevisionPersistenceException failure(
+            ConfigurationRevisionFailureCategory category,
+            String message) {
         return new ConfigurationRevisionPersistenceException(category, message);
     }
 }
