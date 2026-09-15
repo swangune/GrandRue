@@ -1521,3 +1521,30 @@ IMP-06        BLOCKED_DEPENDENCY
 ```
 
 No macro dependency edge changes. Implementation resumes tests first under composite MS-PROT-040 through v1.8 and current `designs/IMPLEMENTATION-RULES.md`.
+
+---
+
+## Current repository-status overlay — 15 September 2026 commercial-access synchronisation
+
+This section is the newest repository-status overlay in `SEQUENCE.md`. Where an earlier section of this file describes a **current repository overlay**, **current frontier**, or **current commercial/deferred status** differently, this section supersedes that status statement only. Historical handoff-snapshot sections remain historical evidence and are not rewritten by this overlay.
+
+Accepted authority now includes:
+
+- composite `MS-PROT-050` through **v1.6**: v1.5 supplies dated `BusinessOperatingOverride` mutation, revision/currentness, concurrency, idempotency and actor-authority semantics; v1.6 classifies Public Business Hours commercial access, with `MAINTAIN_MERCHANT_PRESENCE` protecting stable-hours authoring and dated-override maintenance while bounded public/merchant observation and standard withdrawal require no independent Commercial Entitlement;
+- composite `MS-PROT-080` through **v1.4**: v1.4 resolves `MS-PROT-080-V11-DQ-016` for owner-qualified Workforce Compensation / Payroll commercial access, including protected `MAINTAIN_WORKFORCE_COMPENSATION_TERMS` and `ADMINISTER_WORKFORCE_COMPENSATION` purposes for BUSINESS + GROWTH and bounded no-entitlement preparation/observation/residual-resolution contracts;
+- composite `MS-PROT-081` through **v1.4**: v1.4 resolves `MS-PROT-081-DQ-020` for owner-qualified Workforce Scheduling / Timekeeping / Leave commercial access, including protected `MAINTAIN_WORKFORCE_SCHEDULING_TERMS`, `PLAN_WORKFORCE_SCHEDULE`, `COMMIT_OFFERED_WORK` and `REQUEST_WORKFORCE_LEAVE` purposes for BUSINESS + GROWTH and bounded no-entitlement observation/resolution/ending contracts; and
+- composite `MS-PROT-091` through **v1.1**: v1.1 classifies Workforce Rota commercial access, protecting `PLAN_WORKFORCE_SCHEDULE`, `PARTICIPATE_IN_OPEN_ROTA_SELECTION` and `DECLARE_OPERATIONAL_SCHEDULING_UNAVAILABILITY` for BUSINESS + GROWTH while retaining bounded no-entitlement observation/resolution contracts.
+
+These accepted owner classifications narrow the outstanding Commercial catalogue work but do **not** close it:
+
+```text
+MS-PROT-056-V17-DQ-001
+    = OPEN
+    = exact CommercialEntitlementIdentity definitions
+      + exact target bindings
+      + complete standard catalogue / manifest
+```
+
+No runtime grant may be inferred from a tier-allocation or owner-classification table alone. The executable Commercial catalogue remains not implementation-ready, and the accepted v1.4/v1.1/v1.6 amendments above all retain **Implementation activation: NONE**.
+
+For current authority navigation, use `designs/AUTHORITY-INDEX.md`; for current deferred/resolved status, use `designs/DEFERRED-DECISION-REGISTER.md`. This sequencing overlay does not create semantic authority, implementation activation, or a new next design node.

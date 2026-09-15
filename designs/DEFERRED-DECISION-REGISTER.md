@@ -1,7 +1,7 @@
 # Main Street Deferred Decision Register
 
 **Document ID:** MS-DEFERRED-DECISION-REGISTER-001
-**Version:** 4.91
+**Version:** 4.92
 **Status:** Accepted governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Provide the single current work-queue view of unresolved, deferred, resolved and deliberately promoted Main Street design decisions while using Git history and accepted resolving authorities as provenance.
@@ -162,13 +162,15 @@ MS-PROT-080
     v1.1 Workforce Compensation, Jurisdiction Pay Treatment, Payroll & Compensation Document Model
     completely superseding MS-PROT-080 v1.0 within the MS-PROT-080 authority scope
     plus accepted v1.2 Worked-Time, Break & Paid-Leave Compensation Amendment
-    and accepted v1.3 Workforce Compensation Affinity, Break Consequence & Self-Service Amendment
+    plus accepted v1.3 Workforce Compensation Affinity, Break Consequence & Self-Service Amendment
+    and accepted v1.4 Workforce Compensation & Payroll Commercial Access Contracts Amendment
 
 MS-PROT-081
     Workforce Scheduling, Timekeeping, Break & Leave Model
     plus accepted v1.1 Workforce Scheduling Arrangement & Evidence Affinity Amendment
     plus accepted v1.2 Cross-Arrangement Overlap & Merchant Scheduling-Buffer Amendment
-    and accepted v1.3 Workforce Scheduling, Leave Notification & Reminder Contract Portfolio Amendment
+    plus accepted v1.3 Workforce Scheduling, Leave Notification & Reminder Contract Portfolio Amendment
+    and accepted v1.4 Workforce Scheduling, Timekeeping & Leave Commercial Access Contracts Amendment
 
 MS-PROT-082
     Jurisdiction, Regulatory Knowledge & Regulatory Administration Model
@@ -194,13 +196,13 @@ MS-PROT-085
 MS-PROT-086
     Customer Messaging, Conversation Continuity and Customer-Service Handoff Model
     plus accepted v1.1 Initial Customer Messaging Channel Portfolio
-    and accepted v1.2 Conversation Browser Access, Resume & View Contract Amendment
+    plus accepted v1.2 Conversation Browser Access, Resume & View Contract Amendment
     and accepted v1.3 Initial Customer-Service Response Contract Portfolio Amendment
 
 MS-PROT-087
     Merchant Marketing Campaign, Audience Eligibility and Governed Outreach Model
     plus accepted v1.1 Initial Campaign Purpose & Outreach Portfolio Amendment
-    and accepted v1.2 Initial Audience Definition & Attribute Portfolio Amendment
+    plus accepted v1.2 Initial Audience Definition & Attribute Portfolio Amendment
     and accepted v1.3 Direct Outreach Safety & Automated Campaign Execution Amendment
 
 MS-PROT-088
@@ -288,6 +290,12 @@ MS-PROT-040 v1.8
 
 MS-PROT-050 v1.4
     Stable Business Hours Mutation, Revision & Currentness Amendment
+
+MS-PROT-050 v1.5
+    Dated Business Operating Override Mutation, Revision & Currentness Amendment
+
+MS-PROT-050 v1.6
+    Public Business Hours Commercial Access Contracts Amendment
 
 MS-PROT-043 v1.4
     Production Enquiry Submission, Provenance & Merchant Observation Amendment
@@ -400,6 +408,9 @@ MS-PROT-080 v1.2
 MS-PROT-080 v1.3
     Workforce Compensation Affinity, Break Consequence & Self-Service Amendment
 
+MS-PROT-080 v1.4
+    Workforce Compensation & Payroll Commercial Access Contracts Amendment
+
 MS-PROT-081 v1.1
     Workforce Scheduling Arrangement & Evidence Affinity Amendment
 
@@ -408,6 +419,12 @@ MS-PROT-081 v1.2
 
 MS-PROT-081 v1.3
     Workforce Scheduling, Leave Notification & Reminder Contract Portfolio Amendment
+
+MS-PROT-081 v1.4
+    Workforce Scheduling, Timekeeping & Leave Commercial Access Contracts Amendment
+
+MS-PROT-091 v1.1
+    Workforce Rota Commercial Access Contracts Amendment
 
 MS-PROT-082 v1.1
     Initial Commercial Jurisdiction, Regulatory Purpose & Filing Scope Portfolio Amendment
@@ -635,7 +652,7 @@ MS-PROT-074 through v1.2
     general HR semantics outside the accepted Workforce Scheduling/Compensation boundaries
     cross-merchant workforce administration
 
-MS-PROT-080 through v1.3
+MS-PROT-080 through v1.4
     MS-PROT-080-V11-DQ-001 first Workforce Compensation jurisdiction rollout
     MS-PROT-080-V11-DQ-002 exact jurisdiction treatment-resolution mechanism
     MS-PROT-080-V11-DQ-003 exact jurisdiction-specific fact/evidence schema
@@ -650,13 +667,13 @@ MS-PROT-080 through v1.3
     MS-PROT-080-V11-DQ-013 exact generic Payee Compensation Self-Service authentication, API/Surface/Audience representation and legal-entity representative-access mechanism
     MS-PROT-080-V11-DQ-014 exact merchant/Payee onboarding wording
     MS-PROT-080-V11-DQ-015 exact generic professional/licensing capability
-    MS-PROT-080-V11-DQ-016 commercial packaging and entitlement
+    MS-PROT-080-V11-DQ-016 RESOLVED by v1.4 — commercial packaging and entitlement
     MS-PROT-080-V11-DQ-017 RESOLVED by MS-PROT-082 v1.0 — jurisdiction support is purpose-specific, partial territorial support is valid, and whole-country support MUST NOT be inferred from one supported capability/purpose
     MS-PROT-080-V11-DQ-018 exact digital-signature/e-signature technology and assurance requirements per jurisdiction
     MS-PROT-080-V11-DQ-019 exact document rendering/storage technology
     MS-PROT-080-V11-DQ-020 exact jurisdiction document templates and legally required clauses/content
 
-MS-PROT-081 through v1.3
+MS-PROT-081 through v1.4
     MS-PROT-081-DQ-001 exact Java/persistence representation
     MS-PROT-081-DQ-002 exact shift-swap / shift-cover workflow
     MS-PROT-081-DQ-003 exact overtime authority and jurisdiction rules
@@ -676,7 +693,7 @@ MS-PROT-081 through v1.3
     MS-PROT-081-DQ-017 exact remediation workflow when leave/workforce changes conflict with committed Appointments
     MS-PROT-081-DQ-018 exact legal/commercial treatment of shift cancellation after acceptance
     MS-PROT-081-DQ-019 exact native-mobile/offline workforce support — generic first-party native client and offline authority boundaries are now governed by MS-PROT-093; workforce-specific support remains deferred
-    MS-PROT-081-DQ-020 commercial entitlement/tier packaging
+    MS-PROT-081-DQ-020 RESOLVED by v1.4 — commercial entitlement/tier packaging
     MS-PROT-081-DQ-021 RESOLVED by v1.2 — exact symmetric cross-Arrangement overlap policy, one-off override and optional merchant-owned MinimumInterCommitmentBuffer
     MS-PROT-081-DQ-022 exact retrospective time/compensation attribution mechanism when historical workforce evidence had no Compensation Relationship affinity
 
@@ -1303,7 +1320,7 @@ Traceability rules:
 
 ### 4.12 MS-PROT-080 v1.1 Deferred Question Catalogue
 
-MS-PROT-080 v1.1 accepts the generic Workforce Compensation architecture while deliberately retaining the following jurisdiction, implementation, integration, presentation and future-capability questions. MS-PROT-080 v1.2 resolves the Timekeeping/payable-time ownership question, MS-PROT-080 v1.3 requires exact Workforce Scheduling Arrangement/Compensation Relationship affinity, independently governs related-Payee Compensation self-service, removes `Paid Break Entitlement` as a canonical generic concept and narrows generic Payee access mechanics, and MS-PROT-082 v1.0 resolves only the product semantics of partial versus full jurisdiction support without resolving Payroll-specific rules or implementation.
+Composite MS-PROT-080 through v1.4 accepts the generic Workforce Compensation architecture and its commercial-access classification while deliberately retaining the following jurisdiction, implementation, integration, presentation and future-capability questions. MS-PROT-080 v1.2 resolves the Timekeeping/payable-time ownership question, MS-PROT-080 v1.3 requires exact Workforce Scheduling Arrangement/Compensation Relationship affinity, independently governs related-Payee Compensation self-service, removes `Paid Break Entitlement` as a canonical generic concept and narrows generic Payee access mechanics, MS-PROT-080 v1.4 resolves DQ-016 for exact owner-qualified commercial-access classification without minting concrete Commercial Entitlement identities or activating implementation, and MS-PROT-082 v1.0 resolves only the product semantics of partial versus full jurisdiction support without resolving Payroll-specific rules or implementation.
 
 | ID | Status | Deferred question | Classification / future owner | Revisit condition |
 |---|---|---|---|---|
@@ -1322,7 +1339,7 @@ MS-PROT-080 v1.1 accepts the generic Workforce Compensation architecture while d
 | MS-PROT-080-V11-DQ-013 | **DEFERRED — INACTIVE** | Exact generic Payee Compensation Self-Service authentication, API/Surface/Audience representation and legal-entity representative-access mechanism | API/security/presentation/access implementation | Current Membership-bound staff self-service trust is governed by composite MS-PROT-063/MS-PROT-074 and Compensation relationship eligibility by MS-PROT-080; revisit Payees without Merchant Membership, former Payees without current Membership, legal-entity representatives and any required new API/Exposure audience/context before generic Payee self-service is production-enabled |
 | MS-PROT-080-V11-DQ-014 | **DEFERRED — INACTIVE** | Exact merchant/Payee onboarding wording | Presentation/localisation | During jurisdiction-specific Workforce Compensation UX design |
 | MS-PROT-080-V11-DQ-015 | **DEFERRED — INACTIVE** | Exact generic professional/licensing capability | Future regulated-work capability | When cross-domain professional/licensing evidence requires a generic owner |
-| MS-PROT-080-V11-DQ-016 | **DEFERRED — INACTIVE** | Commercial packaging and entitlement | Commercial authority | Before Workforce Compensation pricing/entitlement is designed |
+| MS-PROT-080-V11-DQ-016 | **RESOLVED** | Commercial packaging and entitlement | Resolved by MS-PROT-080 v1.4 | Accepted 15 September 2026: exact Workforce Compensation commercial access contracts and protected purposes `MAINTAIN_WORKFORCE_COMPENSATION_TERMS` and `ADMINISTER_WORKFORCE_COMPENSATION` are classified for BUSINESS + GROWTH with bounded no-entitlement preparation/observation/residual-resolution contracts; exact Commercial Entitlement identities and the complete catalogue remain under `MS-PROT-056-V17-DQ-001` |
 | MS-PROT-080-V11-DQ-017 | **RESOLVED** | Exact product semantics for partial versus full jurisdiction support | Resolved by MS-PROT-082 v1.0 | Support is declared per exact Regulatory Purpose + Jurisdiction scope + Jurisdiction Pack Release + effective support interval; partial territorial support is valid, and whole-country support cannot be inferred from payments, currency, website delivery, one provider or one supported purpose |
 | MS-PROT-080-V11-DQ-018 | **DEFERRED — INACTIVE** | Exact digital-signature/e-signature technology and assurance requirements per jurisdiction | Security/legal/document implementation | Before agreement e-signature is production-enabled |
 | MS-PROT-080-V11-DQ-019 | **DEFERRED — INACTIVE** | Exact document rendering/storage technology | Document implementation | Before production Compensation Document generation/storage |
@@ -1334,12 +1351,12 @@ Traceability rules:
 2. These questions remain inactive while Workforce Compensation is post-MVP and unsequenced unless a later sequencing authority promotes them.
 3. Promotion of a material semantic/architecture question follows `DESIGN-RULES.md`; implementation details follow `IMPLEMENTATION-RULES.md` where applicable.
 4. Resolution MUST record the resolving accepted authority or implementation evidence, as applicable.
-5. No deferred item may weaken composite MS-PROT-080 through v1.3's relationship-scoped treatment, Payroll/Non-Payroll separation, deterministic calculation, document-authority, exact Workforce Scheduling Arrangement/Compensation Relationship affinity, related-Payee self-service boundary, historical-affinity, privacy or provider-neutrality invariants.
+5. No deferred item may weaken composite MS-PROT-080 through v1.4's relationship-scoped treatment, Payroll/Non-Payroll separation, deterministic calculation, document-authority, exact Workforce Scheduling Arrangement/Compensation Relationship affinity, related-Payee self-service boundary, historical-affinity, privacy, provider-neutrality or commercial-access ownership boundaries.
 6. Git history preserves status transitions in this canonical register.
 
 ### 4.13 MS-PROT-081 Deferred Question Catalogue
 
-Composite MS-PROT-081 through v1.3 accepts Workforce Scheduling, Timekeeping, Scheduled Break, Leave, arrangement-affinity, cross-Arrangement overlap/buffer, and the bounded Scheduling/Leave/Scheduled Work reminder Notification Contract portfolio while deliberately retaining the following implementation, jurisdiction, attendance-mechanism, presentation and later-policy questions. v1.2 resolves DQ-021. v1.3 partially resolves DQ-015 for Scheduling/Leave/Scheduled Work reminders while leaving exact Timekeeping notification/reminder semantics deferred pending DQ-009 through DQ-012. The identifiers remain stable across the amendment chain.
+Composite MS-PROT-081 through v1.4 accepts Workforce Scheduling, Timekeeping, Scheduled Break, Leave, arrangement-affinity, cross-Arrangement overlap/buffer, the bounded Scheduling/Leave/Scheduled Work reminder Notification Contract portfolio, and exact owner-qualified commercial-access classifications while deliberately retaining the following implementation, jurisdiction, attendance-mechanism, presentation and later-policy questions. v1.2 resolves DQ-021. v1.3 partially resolves DQ-015 for Scheduling/Leave/Scheduled Work reminders while leaving exact Timekeeping notification/reminder semantics deferred pending DQ-009 through DQ-012. v1.4 resolves DQ-020 without minting concrete Commercial Entitlement identities or activating implementation. The identifiers remain stable across the amendment chain.
 
 | ID | Status | Deferred question | Classification / future owner | Revisit condition |
 |---|---|---|---|---|
@@ -1362,7 +1379,7 @@ Composite MS-PROT-081 through v1.3 accepts Workforce Scheduling, Timekeeping, Sc
 | MS-PROT-081-DQ-017 | **DEFERRED — INACTIVE** | Exact remediation workflow when leave/workforce changes conflict with committed Appointments | Workforce/Appointment orchestration design | Before production schedule changes can encounter committed-customer conflicts |
 | MS-PROT-081-DQ-018 | **DEFERRED — INACTIVE** | Exact legal/commercial treatment of shift cancellation after acceptance | Jurisdiction/workforce policy | Before cancellation compensation/notice consequences are implemented |
 | MS-PROT-081-DQ-019 | **DEFERRED — INACTIVE** | Exact native-mobile/offline workforce support | Workforce delivery/application design constrained by MS-PROT-093 | Before native/offline workforce operation is introduced; MS-PROT-093 already governs the generic first-party native-client portfolio, native session transport, cached-read non-authority and default `ONLINE REQUIRED` mutation boundary, while workforce-specific UX/authority mechanics remain deferred here |
-| MS-PROT-081-DQ-020 | **DEFERRED — INACTIVE** | Commercial entitlement/tier packaging | Commercial authority | Before Workforce Scheduling/Timekeeping commercial packaging is designed |
+| MS-PROT-081-DQ-020 | **RESOLVED** | Commercial entitlement/tier packaging | Resolved by MS-PROT-081 v1.4 | Accepted 15 September 2026: exact Workforce Scheduling/Timekeeping/Leave access contracts are commercially classified, including protected `MAINTAIN_WORKFORCE_SCHEDULING_TERMS`, `PLAN_WORKFORCE_SCHEDULE`, `COMMIT_OFFERED_WORK` and `REQUEST_WORKFORCE_LEAVE` purposes for BUSINESS + GROWTH with bounded no-entitlement observation/resolution/ending contracts; exact Commercial Entitlement identities and the complete catalogue remain under `MS-PROT-056-V17-DQ-001` |
 | MS-PROT-081-DQ-021 | **RESOLVED** | Exact cross-Arrangement scheduling-overlap policy | Resolved by MS-PROT-081 v1.2 | Accepted 9 September 2026: symmetric exact Arrangement-pair policy, explicit one-off override, no universal allow/reject, and optional merchant-owned Membership-wide `MinimumInterCommitmentBuffer`; future material change requires governed amendment |
 | MS-PROT-081-DQ-022 | **DEFERRED — INACTIVE** | Exact retrospective time/compensation attribution mechanism when historical workforce evidence had no Compensation Relationship affinity | Workforce Scheduling/Compensation correction design | Before retrospective compensation attribution is required; silent later binding remains prohibited |
 
@@ -1372,7 +1389,7 @@ Traceability rules:
 2. Unresolved questions remain inactive until deliberately promoted by product/implementation sequencing or a concrete jurisdiction requirement; resolved/partially resolved rows retain their accepted status and narrower remainder where applicable.
 3. Promotion of a material semantic/architecture question follows `DESIGN-RULES.md`; implementation details follow `IMPLEMENTATION-RULES.md` where applicable.
 4. Resolution MUST record the resolving accepted authority or implementation evidence, as applicable.
-5. No deferred item may weaken composite MS-PROT-081 through v1.3's separation of Merchant Membership, Workforce Scheduling Arrangement, Scheduling/Timekeeping/Leave, Appointment Scheduling and Workforce Compensation/Payroll authority, its exact evidence-affinity and cross-Arrangement overlap/buffer rules, or its source-owned workforce Notification boundaries.
+5. No deferred item may weaken composite MS-PROT-081 through v1.4's separation of Merchant Membership, Workforce Scheduling Arrangement, Scheduling/Timekeeping/Leave, Appointment Scheduling and Workforce Compensation/Payroll authority, its exact evidence-affinity and cross-Arrangement overlap/buffer rules, source-owned workforce Notification boundaries or commercial-access ownership boundaries.
 6. Git history preserves status transitions in this canonical register.
 
 ### 4.14 MS-PROT-082 Deferred Decision Catalogue
@@ -1560,9 +1577,17 @@ MS-PROT-088 v1.5, accepted 15 September 2026, supplies bounded website DNS/certi
 
 MS-PROT-046 v1.5, accepted 15 September 2026, supplies four exact Publication access contracts: `publication/merchant-preparation-access@1`, `publication/merchant-observation-access@1`, `publication/merchant-authoring-access@1` and `publication/merchant-withdrawal-access@1`. §§1–7 classify bounded preparation, authorised observation and existing withdrawal without independent paid requirements; initial draft establishment, material revision, publication and explicit republication require `AUTHOR_AND_PUBLISH_INFORMATION` through the exact authoring access target, allocated to FREE with explicit BUSINESS/GROWTH inclusion. §§8–12 preserve existing lifecycle/concurrency/history, current-authority checks, receipt recovery without replay, and independently governed Exposure, delivery, Enquiry, Marketing, Notification and provider responsibilities. Exact entitlement identity and the complete manifest remain outstanding. DQ-001 remains OPEN; existing Publication deferred decisions are unchanged, and no production activation or C3 completion is authorised.
 
+MS-PROT-081 v1.4, accepted 15 September 2026, resolves `MS-PROT-081-DQ-020` for owner-qualified Workforce Scheduling, Timekeeping and Leave commercial access. It classifies protected `MAINTAIN_WORKFORCE_SCHEDULING_TERMS`, `PLAN_WORKFORCE_SCHEDULE`, `COMMIT_OFFERED_WORK` and `REQUEST_WORKFORCE_LEAVE` purposes for BUSINESS + GROWTH and bounded no-entitlement observation/resolution/ending contracts. Concrete `CommercialEntitlementIdentity` values and the complete standard catalogue remain outstanding under DQ-001; implementation activation remains NONE.
+
+MS-PROT-080 v1.4, accepted 15 September 2026, resolves `MS-PROT-080-V11-DQ-016` for owner-qualified Workforce Compensation and Payroll commercial access. It classifies protected `MAINTAIN_WORKFORCE_COMPENSATION_TERMS` and `ADMINISTER_WORKFORCE_COMPENSATION` purposes for BUSINESS + GROWTH and bounded no-entitlement preparation/observation/residual-resolution contracts. Concrete `CommercialEntitlementIdentity` values and the complete standard catalogue remain outstanding under DQ-001; implementation activation remains NONE.
+
+MS-PROT-091 v1.1, accepted 15 September 2026, classifies the Workforce Rota commercial-access portfolio: `PLAN_WORKFORCE_SCHEDULE`, `PARTICIPATE_IN_OPEN_ROTA_SELECTION` and `DECLARE_OPERATIONAL_SCHEDULING_UNAVAILABILITY` are protected for BUSINESS + GROWTH, with bounded no-entitlement observation/resolution contracts. It does not mint concrete entitlement identities or close the complete catalogue. DQ-001 remains OPEN and implementation activation remains NONE.
+
+MS-PROT-050 v1.5, accepted 15 September 2026, supplies the dated `BusinessOperatingOverride` mutation/currentness owner-operation contract required before that capability could be commercially classified. It does not itself resolve DQ-001 or define Commercial Entitlement identity/binding. MS-PROT-050 v1.6, accepted 15 September 2026, then classifies Business Hours commercial access: `MAINTAIN_MERCHANT_PRESENCE` protects stable-hours authoring and dated-override maintenance for FREE + BUSINESS + GROWTH, while bounded public/merchant observation and standard withdrawal require no independent Commercial Entitlement. Concrete entitlement identities and the complete catalogue remain outstanding. DQ-001 remains OPEN and implementation activation remains NONE.
+
 | ID | Status | Deferred question | Authority / admission barrier |
 |---|---|---|---|
-| MS-PROT-056-V17-DQ-001 | **OPEN** | Exact entitlement definitions, target bindings and complete standard catalogue | MS-PROT-056 v1.7 §§4, 11–12; v1.8 §§3–8, 12 narrows analytical allocation uncertainty without supplying exact bindings or the complete catalogue; MS-PROT-051 v1.6 supplies bounded Profile access classifications without concrete entitlement identities or complete catalogue approval; runtime grants must not be inferred from allocation tables |
+| MS-PROT-056-V17-DQ-001 | **OPEN** | Exact entitlement definitions, target bindings and complete standard catalogue | MS-PROT-056 v1.7 §§4, 11–12 and v1.8 §§3–8, 12; bounded owner classifications now additionally include Profile v1.6, Publication v1.4/v1.5, Enquiry v1.5/v1.6, Attention v1.3, Storefront/Merchant Brand Infrastructure amendments, Workforce Scheduling v1.4, Workforce Compensation v1.4, Workforce Rota v1.1 and Business Hours v1.6. Concrete `CommercialEntitlementIdentity` definitions, exact bindings and the complete standard manifest remain outstanding; runtime grants must not be inferred from allocation/classification tables |
 | MS-PROT-056-V17-DQ-002 | **RESOLVED — CATALOGUE-PUBLICATION AND TEMPORAL-SELECTION POLICY ONLY** | Catalogue publication, initial effective start and historical resolution | MS-PROT-056 v1.9 §§8–13, 17; initial start derives from the first successful authoritative publication, subsequent generations retain half-open historical selection, and uncovered history fails explicitly; no production catalogue, implementation activation or C3 completion is authorised |
 | MS-PROT-056-V17-DQ-003 | **OPEN** | Prices, quantitative allowances and commercial feasibility | MS-PROT-056 v1.7 §§3, 12, 15; no sale-ready pricing or unlimited-use claims |
 | MS-PROT-056-V17-DQ-004 | **OPEN** | Exact reserved service portfolios and their admission dependencies | MS-PROT-056 v1.7 §§5–6, 9, 12; reservations must not be activated as features |
@@ -2365,7 +2390,13 @@ Composite MS-PROT-086 through v1.3 is accepted post-baseline authority but is no
 
 Composite MS-PROT-087 through v1.3 is accepted post-baseline authority but is not currently implementation-promoted. v1.1 resolves `MS-PROT-087-DQ-001` with exactly four initial purpose families and exactly `WEBSITE_ANNOUNCEMENT_V1` plus `DIRECT_EMAIL_MARKETING_V1`; standalone website Announcements remain Publication-owned and the initial direct Campaign portfolio remains relationship-based. v1.2 resolves `MS-PROT-087-DQ-002` with exactly three relationship/recency Audience Definition families using CustomerContext plus owner-qualified Order, Booking and Appointment commitment evidence while preserving fail-closed `UNRESOLVED` negative-evidence handling and anti-CRM boundaries. `MS-PROT-087-DQ-003` and `MS-PROT-087-DQ-004` are resolved together by v1.3 / `MKT-GRP-01`; `MS-PROT-087-DQ-005` is resolved by MS-PROT-083 v1.1 / `MKT-GRP-02` with a deterministic direct-execution measurement portfolio and no commercial-causation authority. `MS-PROT-087-DQ-006` is now the sole retained Marketing production gate. The accepted authorities do not reprioritise the current production implementation graph.
 
-Composite MS-PROT-081 through v1.3 is accepted post-baseline Workforce Scheduling/Timekeeping/Leave authority but is not currently implementation-promoted. v1.2 resolves `MS-PROT-081-DQ-021`. v1.3 partially resolves `MS-PROT-081-DQ-015` for the bounded Scheduling/Leave/Scheduled Work reminder Notification Contract portfolio while leaving the exact Timekeeping notification/reminder remainder deferred pending DQ-009 through DQ-012. Neither amendment activates or reprioritises production implementation.
+Composite MS-PROT-081 through v1.4 is accepted post-baseline Workforce Scheduling/Timekeeping/Leave authority but is not currently implementation-promoted. v1.2 resolves `MS-PROT-081-DQ-021`; v1.3 partially resolves `MS-PROT-081-DQ-015` for the bounded Scheduling/Leave/Scheduled Work reminder Notification Contract portfolio while leaving the exact Timekeeping notification/reminder remainder deferred pending DQ-009 through DQ-012; v1.4 resolves `MS-PROT-081-DQ-020` for owner-qualified commercial-access classification while leaving concrete entitlement identities and the complete catalogue under `MS-PROT-056-V17-DQ-001`. None of these amendments activates or reprioritises production implementation.
+
+Composite MS-PROT-080 through v1.4 is accepted post-baseline Workforce Compensation/Payroll authority but is not currently implementation-promoted. v1.4 resolves `MS-PROT-080-V11-DQ-016` for owner-qualified commercial-access classification while leaving concrete entitlement identities and the complete catalogue under `MS-PROT-056-V17-DQ-001`. The remaining Workforce Compensation deferred tail retains the Section 4.12 states and no implementation activation follows.
+
+MS-PROT-091 through v1.1 is accepted post-baseline Workforce Rota authority but is not currently implementation-promoted. v1.1 supplies bounded owner-qualified commercial-access classifications without creating concrete entitlement identities, closing the complete catalogue or activating implementation.
+
+Composite MS-PROT-050 through v1.6 is accepted Business Hours authority. v1.5 supplies dated-override mutation/currentness authority and v1.6 supplies bounded owner-qualified commercial-access classifications. Neither closes `MS-PROT-056-V17-DQ-001` or activates implementation.
 
 MS-PROT-093 v1.0 is accepted post-baseline first-party merchant-client architecture but is not currently implementation-promoted. It resolves `ADR-014-DQ-014` and the former first-party merchant-client SDK-generation deferral, admits merchant-web plus Android/iOS/Windows/macOS delivery classes, and constrains any later client implementation through installed-client compatibility, generated-artifact provenance, conformance, native-session and offline-authority rules. It does not reprioritise the current production implementation graph or close workforce-specific DQ-019.
 
@@ -2469,7 +2500,7 @@ This differs deliberately from scope-aware MS-PROT amendment chains, whose separ
 
 ## 11. Current Next Action
 
-MS-PROT-079 governed and Design-Closed the remaining-backend design programme. Later implementation-discovered amendments, including composite MS-PROT-027 through v1.14, MS-PROT-051 v1.5, MS-PROT-049 v1.4, the accepted composite Workforce Scheduling/Timekeeping/Leave/Compensation-affinity package through MS-PROT-081 v1.3, composite MS-PROT-082 through v1.1, composite MS-PROT-083 through v1.3, accepted MS-PROT-084 v1.1, composite MS-PROT-053 through v1.3, composite MS-PROT-085 through v1.2, composite MS-PROT-086 through v1.3, composite MS-PROT-087 through v1.3, accepted MS-PROT-090 v1.0 and accepted MS-PROT-093 v1.0 refine the accepted corpus without reopening the completed 21-target programme or reprioritising production implementation.
+MS-PROT-079 governed and Design-Closed the remaining-backend design programme. Later implementation-discovered amendments, including composite MS-PROT-027 through v1.14, MS-PROT-051 v1.5, MS-PROT-049 v1.4, the accepted composite Workforce Scheduling/Timekeeping/Leave/Compensation-affinity package through MS-PROT-081 v1.4 and MS-PROT-080 v1.4, MS-PROT-091 through v1.1, composite MS-PROT-050 through v1.6, composite MS-PROT-082 through v1.1, composite MS-PROT-083 through v1.3, accepted MS-PROT-084 v1.1, composite MS-PROT-053 through v1.3, composite MS-PROT-085 through v1.2, composite MS-PROT-086 through v1.3, composite MS-PROT-087 through v1.3, accepted MS-PROT-090 v1.0 and accepted MS-PROT-093 v1.0 refine the accepted corpus without reopening the completed 21-target programme or reprioritising production implementation.
 
 The binding design sequence remains complete:
 
@@ -2514,7 +2545,7 @@ OPERATIONS
 
 **Current active MS-PROT-079 target:** None — the 21-target remaining-backend design programme is complete.
 
-**Current promoted design work:** None for the E3/E4/S2/T1b4/S3 sequence. `IMP-06-E3-DG-002`, `IMP-06-E4-DG-001`, `IMP-06-E4-DG-002`, `IMP-06-S2-T1B4-DG-001` and `IMP-06-S3-DG-001` are resolved. The accepted composite MS-PROT-081 through v1.3 workforce package is not implementation-promoted: DQ-021 is resolved by v1.2 and DQ-015 is partially resolved by v1.3 with the Timekeeping notification/reminder remainder deferred. Composite MS-PROT-083 through v1.3 is also not implementation-promoted: DQ-001 and DQ-015 are resolved while DQ-002 through DQ-014 remain governed by Section 4.15. Composite MS-PROT-082 through v1.1 and accepted MS-PROT-084 v1.1 are likewise not implementation-promoted; their unresolved tails remain in Sections 4.14 and 4.15A. Composite MS-PROT-053 through v1.3 lifecycle, composite MS-PROT-085 through v1.2 Merchant Attention, composite MS-PROT-086 through v1.3 Customer Communication, composite MS-PROT-087 through v1.3 Marketing and MS-PROT-093 first-party merchant-client architecture are likewise not implementation-promoted. ADR-014-DQ-011 remains the active-before-production guest credential-representation gate; ADR-014-DQ-014 is resolved by MS-PROT-093.
+**Current promoted design work:** None for the E3/E4/S2/T1b4/S3 sequence. `IMP-06-E3-DG-002`, `IMP-06-E4-DG-001`, `IMP-06-E4-DG-002`, `IMP-06-S2-T1B4-DG-001` and `IMP-06-S3-DG-001` are resolved. The accepted composite MS-PROT-081 through v1.4 workforce package is not implementation-promoted: DQ-021 is resolved by v1.2, DQ-015 is partially resolved by v1.3 with the Timekeeping notification/reminder remainder deferred, and DQ-020 is resolved by v1.4 while the concrete entitlement manifest remains under `MS-PROT-056-V17-DQ-001`. Composite MS-PROT-080 through v1.4 and MS-PROT-091 through v1.1 are likewise not implementation-promoted; their accepted commercial-access classifications do not activate production. Composite MS-PROT-050 through v1.6 supplies dated-override ownership and Business Hours commercial classification without closing the Commercial catalogue. Composite MS-PROT-083 through v1.3 is also not implementation-promoted: DQ-001 and DQ-015 are resolved while DQ-002 through DQ-014 remain governed by Section 4.15. Composite MS-PROT-082 through v1.1 and accepted MS-PROT-084 v1.1 are likewise not implementation-promoted; their unresolved tails remain in Sections 4.14 and 4.15A. Composite MS-PROT-053 through v1.3 lifecycle, composite MS-PROT-085 through v1.2 Merchant Attention, composite MS-PROT-086 through v1.3 Customer Communication, composite MS-PROT-087 through v1.3 Marketing and MS-PROT-093 first-party merchant-client architecture are likewise not implementation-promoted. ADR-014-DQ-011 remains the active-before-production guest credential-representation gate; ADR-014-DQ-014 is resolved by MS-PROT-093.
 
 **Current implementation work under `IMPLEMENTATION-RULES.md`:** after the MS-PROT-049 v1.4 formalisation/corpus-conformance head verifies successfully, S3 generic Public Interaction participation-source and binding-projection infrastructure is the smallest READY production-code node. Its production source registry may be empty and must fail closed to zero bindings; tests must also prove the positive generic mechanics through test-only owner source fixtures. S3 must compose only independently established participation with already-governed serviceability/Exposure-selected material, reject wrong scope/release/contribution/subject affinity and duplicate ownership, preserve many-to-many participation, and own no availability or execution authority. Concrete `Opportunity → enquiry/send-enquiry` production participation remains with IMP-07 and must not be pulled into IMP-06.
 

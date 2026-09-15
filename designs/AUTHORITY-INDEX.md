@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.23
+**Version:** 4.24
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -89,7 +89,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-047 | v1.0 |
 | MS-PROT-048 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 |
 | MS-PROT-049 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + MS-PROT-094 within storefront presentation-profile and website-presentation recommendation scope |
-| MS-PROT-050 | v1.2 + v1.3 + v1.4 |
+| MS-PROT-050 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
 | MS-PROT-051 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
 | MS-PROT-052 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-053 | v1.0 + v1.1 + v1.2 + v1.3 |
@@ -119,8 +119,8 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-077 | v1.0 + v1.1 |
 | MS-PROT-078 | v1.0 |
 | MS-PROT-079 | v1.0 + v1.1 |
-| MS-PROT-080 | v1.1 + v1.2 + v1.3 |
-| MS-PROT-081 | v1.0 + v1.1 + v1.2 + v1.3 |
+| MS-PROT-080 | v1.1 + v1.2 + v1.3 + v1.4 |
+| MS-PROT-081 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 |
 | MS-PROT-082 | v1.0 + v1.1 |
 | MS-PROT-083 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 |
 | MS-PROT-084 | v1.1 complete composition; earlier standalone targeted amendment retained as historical evidence |
@@ -130,7 +130,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-088 | v1.0 + v1.1 within website namespace-use commercial access + v1.2 within website-binding selection, disconnection and supporting commercial requirements + v1.3 within website-qualified platform namespace allocation, naming and retirement + v1.4 within Website Connection Request and bounded deferred local completion + v1.5 within website DNS/certificate execution, maintenance and recovery |
 | MS-PROT-089 | v1.0 |
 | MS-PROT-090 | v1.0 |
-| MS-PROT-091 | v1.0 |
+| MS-PROT-091 | v1.0 + v1.1 |
 | MS-PROT-092 | v1.0 |
 | MS-PROT-093 | v1.0 |
 | MS-PROT-094 | v1.0 |
