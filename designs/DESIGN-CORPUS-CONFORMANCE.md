@@ -1,7 +1,7 @@
 # Main Street Design Corpus Conformance Contract
 
 **Document ID:** MS-DESIGN-CORPUS-CONFORMANCE-001  
-**Version:** 2.5  
+**Version:** 2.6  
 **Status:** Accepted governance conformance authority  
 **Governed by:** `DOCUMENT-GOVERNANCE.md`  
 **Purpose:** Define mechanically checkable structural rules that prevent fundamental-product-purpose authority drift, authority-navigation drift, competing current governance documents and selected high-confidence terminology defects without pretending automation can prove semantic or product-purpose correctness of arbitrary design prose.
@@ -479,3 +479,242 @@ prevent future drift
 Main Street corpus conformance enforces the accepted Fundamental Vision authority, the single-current-document governance model and scope-aware semantic amendment chains while preserving the distinction between mechanically provable structural defects and human review of substantive product/semantic truth.
 
 > **One current fundamental product purpose; one current governance source per responsibility; structural automation for navigation integrity; human review for product-purpose and semantic truth.**
+
+---
+
+## 26. Recursive Corpus Scan
+
+Structural conformance MUST scan the complete applicable design corpus recursively.
+
+A checker MUST NOT assume:
+
+```text
+designs/*.md
+```
+
+is the complete authority corpus.
+
+After the approved migration completes, accepted authority scanning MUST include:
+
+```text
+designs/authorities/**
+```
+
+and the canonical governance files.
+
+Historical/non-authoritative areas SHALL be classified separately rather than silently treated as current authority.
+
+During the bounded migration transition, the checker MAY recognise accepted authority in both the legacy flat location and the target stable-ID location, but it MUST still reject duplicate competing authority identities.
+
+---
+
+## 27. Authority Identity Structural Errors
+
+The following SHALL be `ERROR`:
+
+```text
+duplicate accepted Document ID + Version
+
+same Document ID + Version represented by conflicting files
+
+accepted MS-PROT outside its canonical authority directory
+    after migration completion
+
+authority-directory ID != document metadata ID
+
+accepted authority absent from AUTHORITY-INDEX
+
+AUTHORITY-INDEX version/composition referring to a missing authority
+
+two canonical directories for one stable Document ID
+
+unapproved/proposed authority persisted in the accepted authority store
+
+single-current governance authority duplicated by a companion CURRENT/LATEST file
+```
+
+The checker SHOULD also warn where a non-accepted file occupies a candidate stable version in a way likely to cause future authoring collision.
+
+---
+
+## 28. Preflight Mode
+
+The deterministic checker SHALL support an authority-preflight operation conceptually equivalent to:
+
+```text
+preflight
+    Document ID
+    candidate Version
+```
+
+Its output MUST identify at least:
+
+```text
+existing versions
+their repository locations
+their lifecycle statuses
+current indexed composition
+candidate collision result
+canonical destination
+```
+
+A candidate version already occupied by any repository document claiming that same stable Document ID + Version SHALL produce a non-success collision result, regardless of whether the occupant is ACCEPTED, SUPERSEDED, HISTORICAL, PROPOSED, DRAFT or another lifecycle state.
+
+---
+
+## 29. Full-Conformance Mode
+
+The checker SHALL support a full-corpus mode validating at least:
+
+```text
+required canonical governance files
+
+stable-ID directory placement
+
+metadata/path affinity
+
+duplicate ID/version detection
+
+accepted-index coverage
+
+index-to-file existence
+
+canonical DDR presence
+
+prohibited duplicate current governance files
+
+broken repository-relative Markdown authority links
+    where mechanically detectable
+```
+
+Semantic contradiction detection remains a human design-review responsibility.
+
+Mechanical success MUST NOT be represented as semantic proof.
+
+---
+
+## 30. Local Deterministic Tool
+
+The initial checker SHOULD be implemented as:
+
+```text
+tools/DesignCorpusCheck.java
+```
+
+using only the Java standard library where practical.
+
+The repository currently targets Java 25.
+
+The checker SHOULD therefore be runnable without Maven, Spring, PostgreSQL or GitHub Actions, conceptually:
+
+```text
+java tools/DesignCorpusCheck.java --full
+
+java tools/DesignCorpusCheck.java \
+    --preflight MS-PROT-044 \
+    --candidate-version 1.3
+```
+
+Exact command syntax MAY be refined during implementation provided the governance behaviours remain unchanged.
+
+The checker is governance tooling.
+
+It is not semantic authority.
+
+---
+
+## 31. ChatGPT / GitHub-Connector Equivalence
+
+When design work is performed remotely through ChatGPT rather than a checked-out repository, the same preflight obligations apply.
+
+The executor MAY satisfy them using repository reads/searches rather than the local Java tool.
+
+The evidence standard remains:
+
+```text
+exact branch
+exact HEAD
+current authority composition
+repository-resident versions
+candidate collision result
+```
+
+The local checker therefore strengthens the workflow without making local-machine access mandatory.
+
+---
+
+## 32. Migration Link Integrity
+
+Before a path-migration commit is complete, structural conformance MUST identify repository-local Markdown references to moved paths where reasonably mechanically detectable.
+
+A migration that leaves authoritative navigation pointing to nonexistent files is non-conforming.
+
+Stable-ID prose references that do not depend on physical paths need no artificial rewrite.
+
+---
+
+## 33. Pilot-Migration Conformance
+
+Before any accepted MS-PROT bulk migration, the checker MUST validate the MS-PROT-044 pilot under both identity and reference-integrity rules.
+
+The pilot passes only when:
+
+```text
+all three accepted MS-PROT-044 constituents exist in the canonical stable-ID directory
++
+no competing legacy copies remain after the move completes
++
+Document ID / Version / Status metadata remains unchanged
++
+AUTHORITY-INDEX resolves the moved chain
++
+repository-local path references to the old locations have been repaired where required
++
+no semantic-content modification occurred during the move
+```
+
+Bulk authority movement remains blocked while any pilot condition fails.
+
+---
+
+## 34. Updated Severity Examples
+
+The Section 22 severity classes remain unchanged and are extended by the following examples:
+
+```text
+ERROR candidate preflight version already occupied
+ERROR two files claim the same Document ID + Version with conflicting content
+ERROR accepted authority stored under the wrong stable-ID directory after migration completion
+ERROR stable-ID directory name disagrees with authority metadata
+ERROR accepted Authority Index constituent missing from repository
+ERROR pilot migration leaves both old and new accepted copies
+WARNING non-accepted document occupies a version likely to collide with future authoring
+INFO historical evidence remains outside the accepted authority store
+```
+
+---
+
+## 35. Revised Governance Completion Gate
+
+For a newly accepted material design change, governance completion additionally requires:
+
+```text
+pre-design identity preflight performed
+    ✓
+post-approval latest-head identity revalidation performed
+    ✓
+accepted authority formalised without collision
+    ✓
+recursive structural conformance
+    PASS
+```
+
+Where the authority is formalised during a multi-commit governance cycle, intermediate commits do not count as governance completion and MUST NOT be used as the basis for dependent formalisation until the cycle is complete.
+
+---
+
+## 36. Revised Acceptance Statement
+
+Main Street corpus conformance enforces the accepted Fundamental Vision authority, single-current governance, scope-aware semantic amendment chains, stable authority identity, recursive authority discovery and deterministic collision prevention while preserving the distinction between mechanically provable structural defects and human review of substantive product/semantic truth.
+
+> **One current product purpose; one current governance source per responsibility; one stable authority identity per version; recursive structural checks for navigation integrity; human review for semantic truth.**
