@@ -18,8 +18,7 @@ import static mainstreet.commercial.CatalogueResolutionException.Reason.*;
  * that read with publication; caller-supplied data is not publication authority.
  * This snapshot cannot answer beyond its read instant or establish a catalogue.
  *
- * <p>MS-PROT-056 v1.9,
- * designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * <p>MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §§9–11, 13. This class implements the pure selection rules, not the storage
  * coordination or retained binding/approval evidence required by those sections.</p>
  */

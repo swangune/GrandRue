@@ -7,8 +7,7 @@ import java.util.Optional;
 /**
  * Read projection of a retained publication's plan snapshots and predecessor.
  * This value is not manifest approval or permission to publish a catalogue.
- * MS-PROT-056 v1.9,
- * designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §§8–10, 13.
  */
 public record PublishedStandardPlanCatalogueRevision(

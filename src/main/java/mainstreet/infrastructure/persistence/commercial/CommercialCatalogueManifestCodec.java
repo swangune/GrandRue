@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  * Versioned, deterministic retained-value encoding, independent of live registration.
- * MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §13 — Retention, recovery and runtime boundaries. This is not an approval signature.
  */
 final class CommercialCatalogueManifestCodec {

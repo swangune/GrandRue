@@ -3,7 +3,7 @@ package mainstreet.commercial;
 import java.util.Objects;
 
 /** Explicit non-fallback outcomes under MS-PROT-056 v1.9,
- * designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §10 — Historical resolution. */
 public final class CatalogueResolutionException extends IllegalStateException {
     public enum Reason {

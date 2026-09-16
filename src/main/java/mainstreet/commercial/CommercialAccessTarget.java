@@ -2,7 +2,7 @@ package mainstreet.commercial;
 
 /**
  * Exact owner-qualified target reference, not a registration or permission.
- * MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §§4–5 — Exact binding requirements; Binding identity and satisfaction.
  */
 public record CommercialAccessTarget(String owner, String targetIdentity, String contractRevision) {

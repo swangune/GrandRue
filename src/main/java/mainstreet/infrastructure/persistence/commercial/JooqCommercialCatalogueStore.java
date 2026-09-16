@@ -23,11 +23,11 @@ import java.util.function.Supplier;
 /**
  * Commercial-owned atomic publication and serialized historical resolution.
  * No Spring registration or production admission implementation is supplied here.
- * MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §7 — Publication authority; §8 — Publication operation;
  * §9 — Initial effective start and succession; §10 — Historical resolution;
  * §12 — Idempotency, concurrency and failure; §13 — Retention, recovery and runtime boundaries.
- * MS-PROT-072 v1.0, designs/MS-PROT-072 — Cross-Capability Application Orchestration & Consistency Model.md,
+ * MS-PROT-072 v1.0 — Cross-Capability Application Orchestration & Consistency Model,
  * §5 — Transaction boundary rule; §8 — Layered idempotency.
  */
 public final class JooqCommercialCatalogueStore implements CommercialCatalogueStore {

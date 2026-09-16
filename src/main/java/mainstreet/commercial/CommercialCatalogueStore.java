@@ -6,7 +6,7 @@ import java.util.Optional;
 
 /**
  * Commercial's atomic publication and authoritative historical-read boundary.
- * MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §8 — Publication operation; §9 — Initial effective start and succession;
  * §10 — Historical resolution; §12 — Idempotency, concurrency and failure.
  */

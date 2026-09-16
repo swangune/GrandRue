@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 
-/** Retained committed evidence under MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md, §§8–9, 12–13. */
+/** Retained committed evidence under MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment, §§8–9, 12–13. */
 public record CommercialCataloguePublication(
         String requestIdentifier,
         CommercialCatalogueManifest manifest,

@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Immutable binding evidence, not target registration or runtime permission.
  * Authority references must still be resolved and their meaning checked at publication.
- * MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §§4–5 — Exact binding requirements; Binding identity and satisfaction.
  */
 public record CommercialAccessBinding(

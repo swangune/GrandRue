@@ -15,8 +15,7 @@ import java.util.Set;
  * The publisher must validate the evidence and exact-content approval affinity
  * at its trusted boundary; a nonblank evidence reference is not proof.</p>
  *
- * <p>MS-PROT-056 v1.9,
- * designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * <p>MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §5 — Binding identity and satisfaction; §6 — Manifest completeness;
  * §8 — Publication operation; §13 — Retention, recovery and runtime boundaries.</p>
  */

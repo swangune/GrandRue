@@ -2,7 +2,7 @@ package mainstreet.commercial;
 
 import java.util.Objects;
 
-/** MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md, §12 — Idempotency, concurrency and failure. */
+/** MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment, §12 — Idempotency, concurrency and failure. */
 public final class CataloguePublicationException extends IllegalStateException {
     public enum Reason {
         AUTHORISATION_REJECTED, VALIDATION_REJECTED, PREDECESSOR_CONFLICT,

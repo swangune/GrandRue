@@ -5,7 +5,7 @@ import mainstreet.application.TrustedPlatformExecutionContext;
 /**
  * Required trusted admission boundary; deliberately has no permissive default.
  * Implementations must reject with the appropriate CataloguePublicationException.
- * MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
+ * MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
  * §7 — Publication authority; §8 — Publication operation; §12 — Idempotency, concurrency and failure.
  */
 public interface CommercialCataloguePublicationAdmission {

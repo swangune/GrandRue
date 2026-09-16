@@ -10,9 +10,8 @@ import java.util.Set;
  * Each plan nevertheless retains its own explicit entitlement snapshot, so
  * historical interpretation never depends on mutable live inheritance.</p>
  *
- * <p>Plan identity cardinality: MS-PROT-056 v1.9,
- * designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md,
- * §6 — Manifest completeness.</p>
+ * <p>Plan identity cardinality: MS-PROT-056 v1.9 — Commercial Catalogue Binding,
+ * Publication & Historical Resolution Amendment, §6 — Manifest completeness.</p>
  */
 public record StandardPlanCatalogueRevision(
         String catalogueRevisionIdentifier,
