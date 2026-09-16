@@ -239,10 +239,19 @@ The pervasive ordinary `mainstreet.*` package/import population is already estab
 
 | Node | Kind | Scope | State | Done when |
 |---|---|---|---|---|
-| `GR-REN-01B-01` | TASK | production entrypoint/package-root/Spring scan assumptions | `READY` | application entrypoint and any explicit component/entity/repository scan roots are identified |
-| `GR-REN-01B-02` | TASK | `src/main/**` string/reflection/FQCN/class-persistence namespace consumers | `NOT_STARTED` | every non-mechanical production namespace consumer is recorded or zero-result proven |
+| `GR-REN-01B-01` | TASK | production entrypoint/package-root/Spring scan assumptions | `COMPLETE` | `src/main/java/mainstreet/GrandRueApplication.java` is the sole production `@SpringBootApplication`; implicit Spring scan root is package `mainstreet`; no explicit `@ComponentScan`, `@EntityScan`, `@EnableJpaRepositories`, `@ConfigurationPropertiesScan`, `basePackages`, or `scanBasePackages` override found |
+| `GR-REN-01B-02` | TASK | `src/main/**` string/reflection/FQCN/class-persistence namespace consumers | `READY` | every non-mechanical production namespace consumer is recorded or zero-result proven |
 | `GR-REN-01B-03` | TASK | `src/test/**` string/reflection/FQCN/package-sensitive test consumers | `NOT_STARTED` | every non-mechanical test namespace consumer is recorded or zero-result proven |
 | `GR-REN-01B-04` | GATE | freeze dependency-safe Java namespace migration boundary | `NOT_STARTED` | mechanical wave plus exceptional consumers are explicit |
+
+#### `GR-REN-01B-01` result
+
+- Production entrypoint: `src/main/java/mainstreet/GrandRueApplication.java`.
+- Declared package: `mainstreet`.
+- `@SpringBootApplication` has no explicit scan attributes, so its conventional component-scan root is the entrypoint package `mainstreet`.
+- Repository searches found no production explicit `@ComponentScan`, `@EntityScan`, `@EnableJpaRepositories`, `@ConfigurationPropertiesScan`, `basePackages`, or `scanBasePackages` override.
+- Migration consequence: move `GrandRueApplication` with the namespace root (`mainstreet` → `grandrue`). No separate Spring scan-root configuration requires migration.
+- No rename was performed.
 
 ### Remaining inventory/classification groups
 
@@ -295,6 +304,7 @@ On restart, reconcile `development` HEAD with `last_verified_head`; inspect any 
 | `GR-REN-01A-06` | `15b98ef041f35a326fd0f6a7661dca0d8b86a0e1`, reconciled by direct source inspection |
 | `GR-REN-01A-07` | `219ac801ef2eb09a8f15d9e99c6403ebf34c39b7` |
 | `GR-REN-01A-13` | reconciled from complete `GR-REN-01A` evidence + exclusions |
+| `GR-REN-01B-01` | evidence recorded in ledger task commit; checkpoint SHA recorded by subsequent ledger update |
 
 ---
 
@@ -309,13 +319,13 @@ model: HIERARCHICAL_DEPENDENCY_GRAPH
 scope: MINIMUM_EXECUTABLE_PLUS_ACTIVE_CONTROLS_AND_CANONICAL_GOVERNANCE
 status: IN_PROGRESS
 active_group: GR-REN-01B
-selected_execution_leaf: GR-REN-01B-01
-last_completed_task: GR-REN-01A-13
-last_verified_head: 219ac801ef2eb09a8f15d9e99c6403ebf34c39b7
-last_task_commit: 219ac801ef2eb09a8f15d9e99c6403ebf34c39b7
+selected_execution_leaf: GR-REN-01B-02
+last_completed_task: GR-REN-01B-01
+last_verified_head: 5bf193ba57b6b994fc809f4d4cea2a7603101e63
+last_task_commit: 5bf193ba57b6b994fc809f4d4cea2a7603101e63
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01B-01 only. Identify the production application entrypoint, package root and any explicit Spring component/entity/repository scan roots. Do not enumerate ordinary imports and do not rename anything.
+next_action: Execute GR-REN-01B-02 only. Inspect `src/main/**` for non-mechanical string/reflection/FQCN/class-persistence consumers of the `mainstreet` namespace. Do not enumerate ordinary package/import occurrences and do not rename anything.
 ```
 
 ---
