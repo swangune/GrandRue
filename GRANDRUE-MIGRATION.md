@@ -207,14 +207,14 @@ Do **not** blindly rename:
 
 ### `GR-REN-01C` — executable build/runtime/config naming inventory
 
-State: `OPEN`
+State: `COMPLETE`
 
 | Node | Kind | State | Scope |
 |---|---|---|---|
 | `GR-REN-01C-01` | TASK | `COMPLETE` | backend Maven + CI/test PostgreSQL naming |
 | `GR-REN-01C-02` | TASK | `COMPLETE` | prototype runtime naming: compose + application properties + coupled test |
 | `GR-REN-01C-03` | TASK | `COMPLETE` | storefront package/runtime environment naming |
-| `GR-REN-01C-04` | GATE | `READY` | freeze executable build/runtime rename boundary |
+| `GR-REN-01C-04` | GATE | `COMPLETE` | executable build/runtime rename boundary frozen below |
 
 #### `GR-REN-01C-01` result
 
@@ -310,13 +310,40 @@ The PostgreSQL host port `55432`, image `postgres:18-alpine`, `/var/lib/postgres
 - `MAINSTREET_BACKEND_URL` can therefore be supplied outside the source tree by a deployment/runtime environment. It is compatibility-sensitive external configuration and must not be blindly renamed.
 - `01F` must decide whether to preserve the old name, support a compatibility alias/fallback while introducing `GRANDRUE_BACKEND_URL`, or otherwise define an explicit cutover. The localhost fallback is not product naming and requires no change.
 
-No rename was performed.
+#### `GR-REN-01C-04` frozen executable naming boundary
+
+Repository-local naming that can be migrated only as coherent producer/consumer units after `01F` classification:
+
+1. Maven build identity `mainstreet:mainstreet` in `pom.xml`.
+2. PostgreSQL integration-test wiring: workflow `POSTGRES_*` values, `MAINSTREET_TEST_POSTGRES_*` producer names, JDBC/database/user values, health check, and all executable test consumers of those environment-variable names.
+3. Prototype local runtime: Compose database/user/password/health-check/volume, Spring prototype defaults, and exact contract-test assertions.
+4. Storefront npm identity `mainstreet-storefront-web` in `package.json` and root lockfile metadata.
+
+Compatibility-sensitive environment contracts that may already exist outside the source tree and therefore require explicit `01F` disposition before rename:
+
+- `MAINSTREET_TEST_POSTGRES_{URL,USER,PASSWORD}` — repository CI produces them, but local/external test execution can also supply them;
+- `MAINSTREET_PROTOTYPE_POSTGRES_{URL,USER,PASSWORD}` — explicitly externally overridable by Spring property expressions;
+- `MAINSTREET_BACKEND_URL` — external storefront runtime/deployment configuration with no repository producer.
+
+No naming action is required for `.github/workflows/storefront-web-tests.yml`, `http://localhost:8080`, ports `5432`/`55432`, PostgreSQL image/version, or `/var/lib/postgresql`; these are executable wiring but not legacy product naming.
+
+No mutation was performed by `GR-REN-01C`.
+
+### `GR-REN-01D` — compatibility-sensitive persisted/external identity inventory
+
+State: `OPEN`
+
+| Node | Kind | State | Scope |
+|---|---|---|---|
+| `GR-REN-01D-01` | TASK | `READY` | known persisted/serialized naming: payment correlation column, delivery failure class-name evidence, enquiry binding AAD |
+| `GR-REN-01D-02` | TASK | `NOT_STARTED` | active API/event/command/contract/provider/entitlement identifiers containing legacy product naming |
+| `GR-REN-01D-03` | TASK | `NOT_STARTED` | immutable Flyway/protected persistence boundary and live-code consumers |
+| `GR-REN-01D-04` | GATE | `NOT_STARTED` | freeze compatibility-sensitive identity boundary |
 
 ### Remaining inventory/classification groups
 
 | Group | Purpose | State |
 |---|---|---|
-| `GR-REN-01D` | persisted/API/serialized/event/command/contract/provider/entitlement identity inventory reachable from executable paths | `EXPANSION_REQUIRED` |
 | `GR-REN-01E` | active controls + seven canonical governance files + protected-reference boundary classification | `EXPANSION_REQUIRED` |
 | `GR-REN-01F` | reconcile/classify minimal inventory and freeze action map | `NOT_STARTED` |
 
@@ -355,7 +382,8 @@ No rename was performed.
 | `GR-REN-01B-04` | `ec4602c85075f2470c2363fc3996578eb0f2b439` |
 | `GR-REN-01C-01` | `8f8bd71510e5b68b9a22bd06284c7de269652d2d` |
 | `GR-REN-01C-02` | `4f3725ae5686a1de6395559bee33162b9a1b79bf` |
-| `GR-REN-01C-03` | evidence recorded in this task commit; checkpoint SHA recorded by the next ledger update |
+| `GR-REN-01C-03` | `6a83c624ecb2bff17b9cb4e8d30a0388d0cb0058` |
+| `GR-REN-01C-04` | evidence recorded in this task commit; checkpoint SHA recorded by the next ledger update |
 
 ---
 
@@ -369,14 +397,14 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 model: HIERARCHICAL_DEPENDENCY_GRAPH
 scope: MINIMUM_EXECUTABLE_PLUS_ACTIVE_CONTROLS_AND_CANONICAL_GOVERNANCE
 status: IN_PROGRESS
-active_group: GR-REN-01C
-selected_execution_leaf: GR-REN-01C-04
-last_completed_task: GR-REN-01C-03
-last_verified_head: 4f3725ae5686a1de6395559bee33162b9a1b79bf
-last_task_commit: 4f3725ae5686a1de6395559bee33162b9a1b79bf
+active_group: GR-REN-01D
+selected_execution_leaf: GR-REN-01D-01
+last_completed_task: GR-REN-01C-04
+last_verified_head: 6a83c624ecb2bff17b9cb4e8d30a0388d0cb0058
+last_task_commit: 6a83c624ecb2bff17b9cb4e8d30a0388d0cb0058
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01C-04 only. Freeze the executable build/runtime rename boundary from the established backend CI/test, prototype runtime and storefront mappings. Do not rename anything.
+next_action: Execute GR-REN-01D-01 only. Inspect the known persisted/serialized naming cases: payment correlation column/live code, delivery failure class-name evidence, and Opportunity enquiry binding v1 AAD. Do not rename anything.
 ```
 
 ---
