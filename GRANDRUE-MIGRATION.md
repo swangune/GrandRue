@@ -212,8 +212,8 @@ State: `OPEN`
 | Node | Kind | State | Scope |
 |---|---|---|---|
 | `GR-REN-01C-01` | TASK | `COMPLETE` | backend Maven + CI/test PostgreSQL naming |
-| `GR-REN-01C-02` | TASK | `READY` | prototype runtime naming: compose + application properties + coupled test |
-| `GR-REN-01C-03` | TASK | `NOT_STARTED` | storefront package/runtime environment naming |
+| `GR-REN-01C-02` | TASK | `COMPLETE` | prototype runtime naming: compose + application properties + coupled test |
+| `GR-REN-01C-03` | TASK | `READY` | storefront package/runtime environment naming |
 | `GR-REN-01C-04` | GATE | `NOT_STARTED` | freeze executable build/runtime rename boundary |
 
 #### `GR-REN-01C-01` result
@@ -248,6 +248,52 @@ Its health check also uses `mainstreet` / `mainstreet_test`, and the workflow ex
 **Coupling consequence**
 
 If these test environment names are renamed, the workflow producer and all executable test lookup strings must change atomically. Database name/user/password/JDBC URL/health-check values must remain mutually coherent. Historical docs/README occurrences are reference-only and do not join this migration wave.
+
+#### `GR-REN-01C-02` result
+
+The prototype runtime has one tightly coupled naming contract across Compose, Spring prototype configuration, and its executable contract test.
+
+**Compose producer** — `compose.prototype.yml`:
+
+```text
+POSTGRES_DB=mainstreet
+POSTGRES_USER=mainstreet
+POSTGRES_PASSWORD=mainstreet
+healthcheck: pg_isready -U mainstreet -d mainstreet
+volume: mainstreet-prototype-postgres-v18
+```
+
+**Spring prototype configuration** — `src/main/resources/application-prototype.properties`:
+
+```text
+MAINSTREET_PROTOTYPE_POSTGRES_URL
+    default = jdbc:postgresql://localhost:55432/mainstreet
+MAINSTREET_PROTOTYPE_POSTGRES_USER
+    default = mainstreet
+MAINSTREET_PROTOTYPE_POSTGRES_PASSWORD
+    default = mainstreet
+```
+
+The file therefore has two naming layers: the externally overridable environment-variable contract and its current local defaults.
+
+**Executable coupling test** — `PrototypeLocalRuntimeConfigurationTest`:
+
+- directly reads `compose.prototype.yml` and `application-prototype.properties`;
+- asserts the prototype JDBC default contains `jdbc:postgresql://localhost:55432/mainstreet`;
+- asserts the Compose volume is exactly `mainstreet-prototype-postgres-v18:/var/lib/postgresql`;
+- independently protects the PostgreSQL 18 parent mount and host-port contract.
+
+**Coupling consequence**
+
+The future prototype rename must update atomically:
+
+1. Compose database/user/password/health-check values;
+2. Compose versioned volume name;
+3. `MAINSTREET_PROTOTYPE_POSTGRES_{URL,USER,PASSWORD}` names if `01F` classifies them for rename;
+4. Spring defaults embedded in those property expressions;
+5. exact naming assertions in `PrototypeLocalRuntimeConfigurationTest`.
+
+The PostgreSQL host port `55432`, image `postgres:18-alpine`, `/var/lib/postgresql` mount path, and profile semantics are not product naming and must remain unchanged unless separately required.
 
 No rename was performed.
 
@@ -292,7 +338,8 @@ No rename was performed.
 | `GR-REN-01B-02` | `c3fc871bbe2d2e32ee3e327bf07fcb6d33880e48` + addendum `a52661553c15bfd38e4d9bb4fb911ba73f90f84c` |
 | `GR-REN-01B-03` | `a52661553c15bfd38e4d9bb4fb911ba73f90f84c` |
 | `GR-REN-01B-04` | `ec4602c85075f2470c2363fc3996578eb0f2b439` |
-| `GR-REN-01C-01` | evidence recorded in this task commit; checkpoint SHA recorded by the next ledger update |
+| `GR-REN-01C-01` | `8f8bd71510e5b68b9a22bd06284c7de269652d2d` |
+| `GR-REN-01C-02` | evidence recorded in this task commit; checkpoint SHA recorded by the next ledger update |
 
 ---
 
@@ -307,13 +354,13 @@ model: HIERARCHICAL_DEPENDENCY_GRAPH
 scope: MINIMUM_EXECUTABLE_PLUS_ACTIVE_CONTROLS_AND_CANONICAL_GOVERNANCE
 status: IN_PROGRESS
 active_group: GR-REN-01C
-selected_execution_leaf: GR-REN-01C-02
-last_completed_task: GR-REN-01C-01
-last_verified_head: ec4602c85075f2470c2363fc3996578eb0f2b439
-last_task_commit: ec4602c85075f2470c2363fc3996578eb0f2b439
+selected_execution_leaf: GR-REN-01C-03
+last_completed_task: GR-REN-01C-02
+last_verified_head: 8f8bd71510e5b68b9a22bd06284c7de269652d2d
+last_task_commit: 8f8bd71510e5b68b9a22bd06284c7de269652d2d
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01C-02 only. Map prototype database/user/password/volume/environment naming across compose.prototype.yml, application-prototype.properties and PrototypeLocalRuntimeConfigurationTest. Do not rename anything.
+next_action: Execute GR-REN-01C-03 only. Map storefront npm package/lockfile naming and the runtime backend URL environment identifier. Do not rename anything.
 ```
 
 ---
