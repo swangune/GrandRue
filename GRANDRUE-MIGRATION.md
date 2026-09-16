@@ -21,7 +21,7 @@ A file/path is a migration target only when:
 2. it is an active repository-control/navigation file: `AGENTS.md`, `SEQUENCE.md`, or this ledger; or
 3. it is one of the seven canonical current governance files in root `designs/`.
 
-Everything else is reference-only unless concrete dependency evidence proves otherwise. A lexical match alone is not migration scope.
+Everything else is reference-only unless concrete dependency evidence proves otherwise.
 
 ### Essential executable surfaces
 
@@ -46,24 +46,9 @@ Everything else is reference-only unless concrete dependency evidence proves oth
 - `designs/DESIGN-CORPUS-CONFORMANCE.md`
 - `designs/IMPLEMENTATION-RULES.md`
 
-### Reference-only by default
-
-- non-canonical `designs/**`, including authorities/system/historical/watch-list;
-- `docs/**` except migration evidence;
-- `experiments/**`;
-- `README*`, `build_configuration/**`, `tools/**`, `lifecycle.md`, `operational-rules.md`, `workflow-tree.md`;
-- historical implementation evidence and handoffs.
-
 ### Protected identities
 
-Do not mechanically rename:
-
-- `MS-PROT-*`, `MS-IMP-*`, `MS-IMPLEMENTATION-RULES-*`, `MS-DESIGN-RULES-*`;
-- accepted DQ IDs and accepted contract/version identifiers;
-- applied Flyway migrations;
-- stable compatibility/storage/serialization identifiers listed by the action map below.
-
-Never rewrite an applied Flyway migration.
+Do not mechanically rename stable `MS-*`/DQ/contract identifiers, applied Flyway migrations, or compatibility/storage/serialization identifiers frozen by `GR-REN-01F`.
 
 ---
 
@@ -76,182 +61,75 @@ Never rewrite an applied Flyway migration.
 - smallest conforming change only;
 - no semantic redesign or unrelated cleanup.
 
-`GR-REN-01F` is now complete. Mutation is authorised only within the frozen action map below.
+Mutation is authorised only within the frozen `GR-REN-01F` action map.
 
 ---
 
-## 3. Dispositions
+## 3. Frozen Pre-Mutation Action Map
 
-- `RENAME_CURRENT_PRODUCT`
-- `RENAME_CODE_NAMESPACE`
-- `RENAME_CURRENT_DOCUMENTATION`
-- `COMPATIBILITY_ALIAS_REQUIRED`
-- `PRESERVE_COMPATIBILITY_ID`
-- `PRESERVE_STABLE_GOVERNANCE_ID`
-- `PRESERVE_HISTORICAL_EVIDENCE`
-- `PRESERVE_IMMUTABLE_MIGRATION`
-- `REVIEW_REQUIRED`
+`GR-REN-01A` through `GR-REN-01F` are complete.
 
-`REVIEW_REQUIRED` is not rename authority.
+Key authorised actions:
 
----
+- production/test Java package roots `mainstreet` → `grandrue` with package/import/path-sensitive test changes;
+- Maven/build/CI/prototype/storefront current product naming → GrandRue equivalents;
+- preferred `GRANDRUE_PROTOTYPE_POSTGRES_*` and `GRANDRUE_BACKEND_URL` with legacy external-env fallbacks where frozen by `01F`;
+- current wording in `AGENTS.md`, `SEQUENCE.md`, and seven canonical governance files → GrandRue.
 
-## 4. Completed Inventory
+Key preserved identities:
 
-### `GR-REN-01A` — minimal surface discovery — `COMPLETE`
-
-Evidence: `a5bb4ed9`, `29a7811c`, `afc06e36`, `9a0f69e8`, `25b1ba12`, `15b98ef0` + reconciliation, `219ac801`.
-
-### `GR-REN-01B` — Java namespace exceptional consumers — `COMPLETE`
-
-Evidence: `a7fc9d4a`, `c3fc871b`, `a5266155`, `ec4602c8`.
-
-Key boundary:
-
-- production/test filesystem roots, package declarations and imports migrate `mainstreet` → `grandrue`;
-- `GrandRueApplication` moves with root so implicit Spring scan root follows `grandrue`;
-- package/FQCN/path-sensitive conformance tests migrate atomically with namespace;
-- compatibility-sensitive strings are excluded from blind namespace replacement.
-
-### `GR-REN-01C` — executable build/runtime/config naming — `COMPLETE`
-
-Evidence: `8f8bd715`, `4f3725ae`, `6a83c624`, `9c6c5ec4`.
-
-Mapped:
-
-- Maven `mainstreet:mainstreet`;
-- CI `mainstreet_test`/`mainstreet` PostgreSQL values and `MAINSTREET_TEST_POSTGRES_*`;
-- prototype Compose/Spring names and `MAINSTREET_PROTOTYPE_POSTGRES_*`;
-- storefront npm `mainstreet-storefront-web`;
-- storefront external `MAINSTREET_BACKEND_URL`.
-
-### `GR-REN-01D` — compatibility-sensitive identity inventory — `COMPLETE`
-
-Evidence: `8191a439e1fd2a6af0aa935bdfe709b0115d14ec`.
-
-Protected compatibility boundary:
-
-- `provider_payment_evidence.mainstreet_correlation_identifier` + `ProviderPaymentEvidence.mainStreetCorrelationIdentity`;
-- historical notification failure-reference values containing `mainstreet.*` FQCNs;
+- applied Flyway contents;
+- `mainstreet_correlation_identifier` / `mainStreetCorrelationIdentity`;
+- historical notification failure FQCN evidence;
 - Opportunity binding v1 AAD `mainstreet/enquiry/opportunity-binding/v1/`;
-- `mainstreet-semantic-bundle-v1` / `mainstreet-semantic-bundle-v2`;
+- `mainstreet-semantic-bundle-v1/v2`;
 - `mainstreet-exposure-definitions-v1`;
-- `calendar/current-main-street-commitments`.
+- `calendar/current-main-street-commitments`;
+- stable `MS-*`, accepted DQ/rule/contract IDs and historical evidence.
 
-### `GR-REN-01E` — controls/canonical governance boundary — `COMPLETE`
-
-Evidence: `c7c33f3e3032ce578dd597745f1b354585b34c4e`.
-
-Boundary:
-
-- current product/repository/governance wording in active controls and seven canonical governance files may rename to GrandRue;
-- `MS-*`, DQ/rule/accepted contract IDs remain unchanged;
-- historical source references such as `Main_Street_Handoff_...` remain unchanged;
-- accepted identifiers such as `HANDLED_OUTSIDE_MAIN_STREET_RECORDED` remain unchanged.
+Final action-map evidence: `08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52`.
 
 ---
 
-## 5. `GR-REN-01F` — Final Pre-Mutation Action Map
-
-State: `COMPLETE`
-
-### `GR-REN-01F-01` — mechanical/current-product dispositions — `COMPLETE`
-
-#### `RENAME_CODE_NAMESPACE`
-
-- `src/main/java/mainstreet/**` → `src/main/java/grandrue/**`;
-- `src/test/java/mainstreet/**` → `src/test/java/grandrue/**`;
-- all corresponding package declarations/imports;
-- `GrandRueApplication` package/root;
-- package/path/FQCN-sensitive structural test strings established by `01B`.
-
-#### `RENAME_CURRENT_PRODUCT`
-
-- Maven project identity `mainstreet:mainstreet` → GrandRue-equivalent coordinates;
-- repository-local CI PostgreSQL database/user/password/health-check values `mainstreet_test` / `mainstreet` → GrandRue equivalents;
-- prototype Compose DB/user/password/health-check/default database and volume `mainstreet-prototype-postgres-v18` → GrandRue equivalents;
-- storefront npm identity `mainstreet-storefront-web` → `grandrue-storefront-web`;
-- current runtime-visible/product wording in already-touched executable files, including storefront metadata and current source comments where the wording denotes the product rather than a stable identifier.
-
-#### `RENAME_CURRENT_DOCUMENTATION`
-
-- current product/repository/governance wording in `AGENTS.md`;
-- current title/product/repository/navigation wording in `SEQUENCE.md`;
-- ordinary current product wording in the seven canonical root governance files;
-- current implementation-navigation `mainstreet.*` references in those governance files when they describe the package namespace being migrated.
-
-### `GR-REN-01F-02` — compatibility/persisted/external dispositions — `COMPLETE`
-
-#### Direct cutover with coherent producer/consumer change
-
-`RENAME_CURRENT_PRODUCT`:
-
-- `MAINSTREET_TEST_POSTGRES_URL` → `GRANDRUE_TEST_POSTGRES_URL`;
-- `MAINSTREET_TEST_POSTGRES_USER` → `GRANDRUE_TEST_POSTGRES_USER`;
-- `MAINSTREET_TEST_POSTGRES_PASSWORD` → `GRANDRUE_TEST_POSTGRES_PASSWORD`.
-
-Reason: these are test-only execution configuration controlled by the repository/authorised local verification workflow; all executable producers/consumers are already bounded and can change atomically. Historical docs remain untouched.
-
-#### `COMPATIBILITY_ALIAS_REQUIRED`
-
-- `MAINSTREET_PROTOTYPE_POSTGRES_{URL,USER,PASSWORD}`: introduce `GRANDRUE_PROTOTYPE_POSTGRES_*` as preferred names while retaining old-name fallback in Spring property resolution;
-- `MAINSTREET_BACKEND_URL`: introduce `GRANDRUE_BACKEND_URL` as preferred runtime variable with `MAINSTREET_BACKEND_URL` fallback before localhost default.
-
-Reason: these values may be supplied outside the repository by existing local/deployment environments. Alias fallback is low-cost and avoids unnecessary breakage.
-
-#### `PRESERVE_COMPATIBILITY_ID`
-
-Do **not** rename merely for branding consistency:
-
-- physical DB column `mainstreet_correlation_identifier`;
-- domain component/accessor `mainStreetCorrelationIdentity` and its persistence mapping, because it corresponds to the accepted platform-correlation concept and renaming it would add schema/semantic churn without executable benefit;
-- old notification `failure_reference` values containing `mainstreet.*` FQCNs;
-- Opportunity binding v1 AAD `mainstreet/enquiry/opportunity-binding/v1/`;
-- `mainstreet-semantic-bundle-v1` / `mainstreet-semantic-bundle-v2` format IDs;
-- `mainstreet-exposure-definitions-v1` format ID;
-- `calendar/current-main-street-commitments` policy identity.
-
-New Java exception FQCN evidence naturally reflects `grandrue.*` after namespace migration; old persisted values remain valid evidence and require no rewrite.
-
-#### `PRESERVE_IMMUTABLE_MIGRATION`
-
-- every existing applied Flyway migration, including V24.
-
-### `GR-REN-01F-03` — protected governance/history reconciliation — `COMPLETE`
-
-#### `PRESERVE_STABLE_GOVERNANCE_ID`
-
-- all `MS-PROT-*`, `MS-IMP-*`, `MS-IMPLEMENTATION-RULES-*`, `MS-DESIGN-RULES-*`;
-- accepted DQ/rule/contract/version identifiers;
-- accepted semantic identifiers containing `MAIN_STREET`, including `HANDLED_OUTSIDE_MAIN_STREET_RECORDED`.
-
-#### `PRESERVE_HISTORICAL_EVIDENCE`
-
-- historical implementation evidence/handoffs;
-- historical source roadmap/file references, including `Main_Street_Handoff_MS-PROT-084_and_Digital_Operating_Infrastructure_Roadmap.md`;
-- excluded designs/docs/history even where they contain legacy naming.
-
-### `GR-REN-01F-04` — final gate — `COMPLETE`
-
-The mutation action map is frozen. No unresolved naming decision blocks the minimal executable migration.
-
-`mutation_authorised: true`
-
-Mutation must follow dependency-safe groups and preserve all compatibility/protected exclusions above.
-
----
-
-## 6. Mutation Programme
+## 4. Mutation Programme
 
 ### `GR-REN-02` — production Java namespace migration
 
 State: `OPEN`
 
+`GR-REN-02-01` is a parent group. Production package moves must be executed as bounded package leaves with all production cross-package consumers included atomically. Do not migrate test packages in this group; test namespace migration is `GR-REN-03`.
+
 | Node | Kind | State | Scope |
 |---|---|---|---|
-| `GR-REN-02-01` | TASK | `READY` | move production Java namespace root + package/import declarations + `GrandRueApplication` coherently |
-| `GR-REN-02-02` | TASK | `NOT_STARTED` | reconcile production current-product comments/wording only in touched source files; preserve compatibility IDs |
+| `GR-REN-02-01` | GROUP | `OPEN` | production Java namespace root migration, decomposed below |
+| `GR-REN-02-01A` | TASK | `READY` | `identitysecurity/**` + bounded production consumers |
+| `GR-REN-02-01B+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-02` | TASK | `NOT_STARTED` | reconcile current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
+
+#### `GR-REN-02-01A` scope
+
+Move these eight owner files from `src/main/java/mainstreet/identitysecurity/` to `src/main/java/grandrue/identitysecurity/`, changing only their package declarations:
+
+- `IdentitySecurityGeneration.java`
+- `IdentitySecurityGenerationException.java`
+- `IdentitySecurityGenerationFailureCategory.java`
+- `IdentitySecurityGenerationInitializer.java`
+- `IdentitySecurityGenerationManagement.java`
+- `IdentitySecurityGenerationService.java`
+- `IdentitySecurityRotationCommand.java`
+- `IdentitySecurityRotationReason.java`
+
+Update the exact production consumers discovered by bounded search:
+
+- `src/main/java/mainstreet/infrastructure/persistence/identitysecurity/JooqIdentitySecurityGenerationManagement.java`
+- `src/main/java/mainstreet/infrastructure/security/webauthn/WebAuthnAuthenticationSubjectService.java`
+
+Reference-only `build_configuration/package_boundary.md` and historical implementation evidence remain untouched. Test consumers remain under `GR-REN-03`.
+
+`done_when`: all eight production owner files exist only under `grandrue.identitysecurity`, the two bounded production consumers import `grandrue.identitysecurity`, and no production import/package declaration still uses `mainstreet.identitysecurity`.
+
+No compatibility identity in the frozen action map may change in this leaf.
 
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
@@ -279,28 +157,26 @@ State: `NOT_STARTED`
 
 ---
 
-## 7. Checkpoint
+## 5. Checkpoint
 
 ```yaml
 migration: MAIN_STREET_TO_GRANDRUE
 repository: swangune/GrandRue
 branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
-model: HIERARCHICAL_DEPENDENCY_GRAPH
-scope: MINIMUM_EXECUTABLE_PLUS_ACTIVE_CONTROLS_AND_CANONICAL_GOVERNANCE
 status: IN_PROGRESS
-active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01
-last_completed_task: GR-REN-01F-04
-last_verified_head: c7c33f3e3032ce578dd597745f1b354585b34c4e
-last_task_commit: c7c33f3e3032ce578dd597745f1b354585b34c4e
 mutation_authorised: true
-next_action: Execute GR-REN-02-01 only. Move the production Java namespace root from mainstreet to grandrue and update production package/import declarations plus GrandRueApplication coherently. Preserve all compatibility identifiers frozen by GR-REN-01F. Do not run Maven tests or GitHub Actions.
+active_group: GR-REN-02
+selected_execution_leaf: GR-REN-02-01A
+last_completed_task: GR-REN-01F-04
+last_verified_head: 08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52
+last_task_commit: 08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52
+next_action: Execute GR-REN-02-01A only. Move identitysecurity production package plus the two bounded production consumer imports. Structural verification only; do not run Maven tests or GitHub Actions.
 ```
 
 ---
 
-## 8. Restart and Verification
+## 6. Restart and Verification
 
 1. inspect `AGENTS.md` and this ledger;
 2. inspect current `development` HEAD;
@@ -315,4 +191,4 @@ DO NOT run Maven tests
 DO NOT run GitHub Actions
 ```
 
-Structural verification is permitted and must not be represented as passed Maven/integration/runtime verification.
+Structural verification must not be represented as passed Maven/integration/runtime verification.
