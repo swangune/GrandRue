@@ -15,10 +15,10 @@ import java.util.Objects;
  * Assesses Booking activation membership and residual management only.
  * Policy, scheduling and other capability consequences require their own assessments.
  *
- * Authority: designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
- * v1.0 §§20–24 impact and protected commitments; §26 Capability deactivation;
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
+ * §§20–24 impact and protected commitments; §26 Capability deactivation;
  * §56 Booking capability deactivation validation;
- * designs/MS-PROT-042 v1.4 — Booking Residual Obligation & Discharge Amendment.md,
+ * MS-PROT-042 v1.4 — Booking Residual Obligation & Discharge Amendment,
  * §§1–5 Booking-owned obligations and discharge.
  */
 public final class BookingAvailabilityImpactAssessment implements ConfigurationImpactAssessment {

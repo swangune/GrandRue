@@ -14,11 +14,11 @@ import java.util.Objects;
  * Assesses Payment capability membership for new activity only.
  * Existing obligations, provider evidence, payment applications and refunds remain independently owned Payment truth.
  *
- * Authority: designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
- * v1.0 §§20–28 impact analysis, existing-commitment protection and capability deactivation;
- * designs/MS-PROT-055 — Money, Commercial Terms, Payment Obligations & Payment Evidence Model.md,
- * v1.0 §§18–26 committed commercial truth, Payment Obligation and provider-payment boundaries;
- * designs/MS-PROT-055 v1.1 — Payment Obligation, Provider Execution, Reconciliation & Refund Execution Contract Amendment.md,
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
+ * §§20–28 impact analysis, existing-commitment protection and capability deactivation;
+ * MS-PROT-055 v1.0 — Money, Commercial Terms, Payment Obligations & Payment Evidence Model,
+ * §§18–26 committed commercial truth, Payment Obligation and provider-payment boundaries;
+ * MS-PROT-055 v1.1 — Payment Obligation, Provider Execution, Reconciliation & Refund Execution Contract Amendment,
  * §§1–5 and §§14–25 Payment ownership, immutable obligation truth and execution boundaries.
  */
 public final class PaymentAvailabilityImpactAssessment implements ConfigurationImpactAssessment {

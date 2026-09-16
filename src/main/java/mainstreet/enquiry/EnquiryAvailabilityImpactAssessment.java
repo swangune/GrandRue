@@ -14,11 +14,11 @@ import java.util.Objects;
  * Assesses Enquiry capability membership for new activity only.
  * Subject participation, public binding, current availability and existing Enquiry history remain independently owned.
  *
- * Authority: designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
- * v1.0 §§20–22 impact analysis/classification and §26 capability deactivation;
- * designs/MS-PROT-043 v1.4 — Production Enquiry Submission, Provenance & Merchant Observation Amendment.md,
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
+ * §§20–22 impact analysis/classification and §26 capability deactivation;
+ * MS-PROT-043 v1.4 — Production Enquiry Submission, Provenance & Merchant Observation Amendment,
  * §§2–6 canonical submission, merchant-general/subject-specific Enquiry and current-participation revalidation;
- * designs/MS-PROT-049 v1.2 — Public Interaction Subject Participation & Binding Amendment.md,
+ * MS-PROT-049 v1.2 — Public Interaction Subject Participation & Binding Amendment,
  * §§4, 17–18 interaction applicability, execution revalidation and stale-binding behaviour.
  */
 public final class EnquiryAvailabilityImpactAssessment implements ConfigurationImpactAssessment {

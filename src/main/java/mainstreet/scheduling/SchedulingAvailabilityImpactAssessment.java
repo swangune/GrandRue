@@ -15,11 +15,11 @@ import java.util.Objects;
  * Current schedulability, Business Hours, Scheduling constraints, staff/resource availability,
  * capacity and existing Appointment truth remain independently owned runtime/domain concerns.
  *
- * Authority: designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
- * v1.0 §§20–30 configuration impact, existing-commitment protection and Scheduling change semantics;
- * designs/MS-PROT-042 v1.6 — Production Scheduling Evidence, Appointment Admission & Customer Surface Requirement Amendment.md,
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
+ * §§20–30 configuration impact, existing-commitment protection and Scheduling change semantics;
+ * MS-PROT-042 v1.6 — Production Scheduling Evidence, Appointment Admission & Customer Surface Requirement Amendment,
  * §§1–4 Scheduling-owned current Appointment Scheduling Evaluation and non-persistent availability boundary;
- * designs/MS-PROT-050 v1.1 — Business Operating Hours, Scheduling-Time & Digital Contactability Amendment.md,
+ * MS-PROT-050 v1.1 — Business Operating Hours, Scheduling-Time & Digital Contactability Amendment,
  * §§1–4 separation of Business Hours, Scheduling constraints, staff/resource availability and Enquiry.
  */
 public final class SchedulingAvailabilityImpactAssessment implements ConfigurationImpactAssessment {

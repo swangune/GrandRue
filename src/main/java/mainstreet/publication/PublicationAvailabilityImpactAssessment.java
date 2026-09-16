@@ -13,14 +13,11 @@ import java.util.Objects;
 /**
  * Publication-owned new-activity impact; membership does not publish or withdraw content
  * and does not determine public Exposure or Enquiry participation.
- * Authority: MS-PROT-040 v1.0,
- * designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
  * §21 Impact analysis, §22 Impact classifications, §26 Capability deactivation;
- * MS-PROT-040 v1.1,
- * designs/MS-PROT-040 v1.1 — Configuration Revision, Resolved Package & Atomic Activation Amendment.md,
+ * MS-PROT-040 v1.1 — Configuration Revision, Resolved Package & Atomic Activation Amendment,
  * §4 Semantic-registry affinity;
- * MS-PROT-046 v1.2,
- * designs/MS-PROT-046 v1.2 — Production Publication Revision, Exposure & Public Interaction Amendment.md,
+ * MS-PROT-046 v1.2 — Production Publication Revision, Exposure & Public Interaction Amendment,
  * §1 Publication ownership remains unchanged, §8 Publication state and Exposure remain distinct.
  */
 public final class PublicationAvailabilityImpactAssessment implements ConfigurationImpactAssessment {

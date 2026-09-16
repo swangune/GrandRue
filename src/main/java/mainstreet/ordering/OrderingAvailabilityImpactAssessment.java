@@ -14,9 +14,9 @@ import java.util.Objects;
  * Assesses Ordering capability membership for new activity only.
  * Existing Order commitment, release, fulfilment and policy truth remain independently owned.
  *
- * Authority: designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
- * v1.0 §§20–22 impact analysis/classification and §26 capability deactivation;
- * composite designs/MS-PROT-077 through v1.1 — Order Commitment, Amendment & Lifecycle Model,
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
+ * §§20–22 impact analysis/classification and §26 capability deactivation;
+ * composite MS-PROT-077 through v1.1 — Order Commitment, Amendment & Lifecycle Model,
  * Ordering ownership, independent capability activation and historical Order-commitment boundaries.
  */
 public final class OrderingAvailabilityImpactAssessment implements ConfigurationImpactAssessment {

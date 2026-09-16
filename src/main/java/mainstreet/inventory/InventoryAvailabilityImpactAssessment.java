@@ -14,10 +14,10 @@ import java.util.Objects;
  * Assesses Inventory capability membership for new activity only.
  * Existing stock positions, claims, resolutions and movements remain independently owned Inventory truth.
  *
- * Authority: designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
- * v1.0 §§20–23 and §26 impact analysis, existing-commitment protection and capability deactivation;
- * designs/MS-PROT-058 — Inventory Authority, Stock Claims & Availability Model.md, v1.0 §§1–9;
- * designs/MS-PROT-058 v1.1 — Inventory Position, Mutation & Quantity Claim Execution Contract Amendment.md,
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
+ * §§20–23 and §26 impact analysis, existing-commitment protection and capability deactivation;
+ * MS-PROT-058 v1.0 — Inventory Authority, Stock Claims & Availability Model, §§1–9;
+ * MS-PROT-058 v1.1 — Inventory Position, Mutation & Quantity Claim Execution Contract Amendment,
  * §§1–3 Inventory ownership, optionality and surviving authority boundaries.
  */
 public final class InventoryAvailabilityImpactAssessment implements ConfigurationImpactAssessment {
