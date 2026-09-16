@@ -213,8 +213,8 @@ State: `OPEN`
 |---|---|---|---|
 | `GR-REN-01C-01` | TASK | `COMPLETE` | backend Maven + CI/test PostgreSQL naming |
 | `GR-REN-01C-02` | TASK | `COMPLETE` | prototype runtime naming: compose + application properties + coupled test |
-| `GR-REN-01C-03` | TASK | `READY` | storefront package/runtime environment naming |
-| `GR-REN-01C-04` | GATE | `NOT_STARTED` | freeze executable build/runtime rename boundary |
+| `GR-REN-01C-03` | TASK | `COMPLETE` | storefront package/runtime environment naming |
+| `GR-REN-01C-04` | GATE | `READY` | freeze executable build/runtime rename boundary |
 
 #### `GR-REN-01C-01` result
 
@@ -295,6 +295,21 @@ The future prototype rename must update atomically:
 
 The PostgreSQL host port `55432`, image `postgres:18-alpine`, `/var/lib/postgresql` mount path, and profile semantics are not product naming and must remain unchanged unless separately required.
 
+#### `GR-REN-01C-03` result
+
+**npm package identity**
+
+- `storefront-web/package.json` declares `name: "mainstreet-storefront-web"`.
+- `storefront-web/package-lock.json` repeats `mainstreet-storefront-web` at the lockfile root and root-package metadata.
+- These are one repository/build identity and must remain coherent; if classified for rename they change together.
+
+**runtime backend origin**
+
+- `storefront-web/src/lib/grandrue-api.ts` reads `process.env.MAINSTREET_BACKEND_URL` and falls back to `http://localhost:8080`.
+- No executable repository producer for `MAINSTREET_BACKEND_URL` was found. The only other indexed occurrence is `docs/development/prototype-runbook.md`, which is reference-only under the migration contract.
+- `MAINSTREET_BACKEND_URL` can therefore be supplied outside the source tree by a deployment/runtime environment. It is compatibility-sensitive external configuration and must not be blindly renamed.
+- `01F` must decide whether to preserve the old name, support a compatibility alias/fallback while introducing `GRANDRUE_BACKEND_URL`, or otherwise define an explicit cutover. The localhost fallback is not product naming and requires no change.
+
 No rename was performed.
 
 ### Remaining inventory/classification groups
@@ -339,7 +354,8 @@ No rename was performed.
 | `GR-REN-01B-03` | `a52661553c15bfd38e4d9bb4fb911ba73f90f84c` |
 | `GR-REN-01B-04` | `ec4602c85075f2470c2363fc3996578eb0f2b439` |
 | `GR-REN-01C-01` | `8f8bd71510e5b68b9a22bd06284c7de269652d2d` |
-| `GR-REN-01C-02` | evidence recorded in this task commit; checkpoint SHA recorded by the next ledger update |
+| `GR-REN-01C-02` | `4f3725ae5686a1de6395559bee33162b9a1b79bf` |
+| `GR-REN-01C-03` | evidence recorded in this task commit; checkpoint SHA recorded by the next ledger update |
 
 ---
 
@@ -354,13 +370,13 @@ model: HIERARCHICAL_DEPENDENCY_GRAPH
 scope: MINIMUM_EXECUTABLE_PLUS_ACTIVE_CONTROLS_AND_CANONICAL_GOVERNANCE
 status: IN_PROGRESS
 active_group: GR-REN-01C
-selected_execution_leaf: GR-REN-01C-03
-last_completed_task: GR-REN-01C-02
-last_verified_head: 8f8bd71510e5b68b9a22bd06284c7de269652d2d
-last_task_commit: 8f8bd71510e5b68b9a22bd06284c7de269652d2d
+selected_execution_leaf: GR-REN-01C-04
+last_completed_task: GR-REN-01C-03
+last_verified_head: 4f3725ae5686a1de6395559bee33162b9a1b79bf
+last_task_commit: 4f3725ae5686a1de6395559bee33162b9a1b79bf
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01C-03 only. Map storefront npm package/lockfile naming and the runtime backend URL environment identifier. Do not rename anything.
+next_action: Execute GR-REN-01C-04 only. Freeze the executable build/runtime rename boundary from the established backend CI/test, prototype runtime and storefront mappings. Do not rename anything.
 ```
 
 ---
