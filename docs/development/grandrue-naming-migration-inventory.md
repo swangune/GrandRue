@@ -466,3 +466,72 @@ Targeted repository-index checks for `MAINSTREET`, `main-street` and `Main_Stree
 ### Completion evidence
 
 All six and only the six in-scope `designs/**` governance files were inspected for the required naming forms. Ordinary current governance wording, the explicit legacy package reference in the Authority Index and the protected DDR contract identifier are recorded. Excluded design material was not traversed, renamed or classified.
+
+---
+
+## GR-REN-01A-06E — Current build/test/run essential-path manifest
+
+**Inspection baseline:** `7cf719855bba0d55b4c15db7afe1dc14829337d1`  
+**Parent:** `GR-REN-01A`  
+**Kind:** `GATE`  
+**Rename performed:** `false`  
+**Semantic classification performed:** `false`
+
+`GR-REN-01A-06` was already used by commit `1aab28d5d8b42746eacad2bf694d762e3d584023` under the superseded pre-minimisation task model for the six-file governance lexical inventory above. Historical evidence is not rewritten. The current essentiality gate therefore uses `GR-REN-01A-06E` to keep task identity unambiguous.
+
+### Dependency evidence used
+
+- The backend standard verification command is `mvn --batch-mode clean verify -Ppostgres-it`.
+- Root `pom.xml` directly owns Maven coordinates, dependencies, Spring Boot packaging, unit-test execution and the `postgres-it` Failsafe profile. It does not invoke `compose.prototype.yml`, `build_configuration/**`, `tools/**`, root documentation, or GitHub workflow files.
+- PostgreSQL integration tests obtain connection details from process environment variables; an external PostgreSQL instance can satisfy them without `compose.prototype.yml`.
+- `storefront-web/package.json` defines the active `dev`, `build`, `start`, and `test` commands.
+- The currently recorded storefront automation executes `npm install`, `npm test`, and `npm run build`. `npm install` consumes the package manifest and lockfile when the lockfile is present.
+- Next.js build/start uses `storefront-web/next.config.ts`; the TypeScript build configuration is `storefront-web/tsconfig.json`, which explicitly includes `next-env.d.ts`.
+- GitHub Actions remain unauthorised for this migration. Workflow files were read only as dependency evidence and are not part of the authorised local build/test/run execution path.
+
+### ESSENTIAL repository files/paths
+
+| Path | Essentiality evidence | Migration consequence |
+|---|---|---|
+| `pom.xml` | Maven build/test/package/profile entry point | In scope; its current `mainstreet` Maven coordinates must later be classified. |
+| `src/main/**` | Maven production source/resource set | Already in scope from `GR-REN-01A-02`; includes runtime properties and Flyway resources subject to protected-migration rules. |
+| `src/test/**` | Maven unit/integration test source/resource set | Already in scope from `GR-REN-01A-03`; includes PostgreSQL environment-variable consumers. |
+| `storefront-web/package.json` | npm command/dependency manifest for dev/test/build/start | In scope; package name is a current naming occurrence. |
+| `storefront-web/package-lock.json` | consumed by npm dependency installation and must remain coherent with the package manifest | In scope; root package name must track any approved package-name migration. |
+| `storefront-web/next.config.ts` | loaded by Next.js build/start; `output: "standalone"` affects runtime packaging | Essential path, but current inventory records no legacy naming occurrence; no naming action unless a later dependency change introduces one. |
+| `storefront-web/tsconfig.json` | TypeScript/Next build configuration | Essential path, but current inventory records no legacy naming occurrence. |
+| `storefront-web/next-env.d.ts` | included by `tsconfig.json` as a current type/build input | Essential path, but contains no legacy naming occurrence and is not to be edited merely for migration. |
+| `storefront-web/app/**` and `storefront-web/src/**` | current storefront runtime/application source | Already in scope from `GR-REN-01A-04`; only recorded naming occurrences require later classification. |
+
+### REFERENCE_ONLY repository files/paths
+
+| Path | Reason |
+|---|---|
+| `.github/workflows/maven-tests.yml` | CI orchestration only; not consumed by Maven and GitHub Actions are not authorised for this migration. Revisit only if Actions becomes an authorised/current verification path. |
+| `.github/workflows/storefront-web-tests.yml` | CI orchestration only; not required by local npm/Next execution and Actions are not authorised. |
+| `compose.prototype.yml` | optional PostgreSQL convenience environment; neither Maven nor the storefront commands invoke it. External PostgreSQL supplied through environment variables satisfies the integration-test dependency. |
+| `build_configuration/package_boundary.md` | documentation/navigation only; no build/test/runtime consumer found. |
+| `tools/DesignCorpusCheck.java` | design-corpus governance/conformance utility, not a dependency of the current Maven or storefront run/test commands. |
+| `.gitignore` | repository hygiene only; no naming occurrence and no runtime/test dependency. |
+| `README*` | documentation only; not required to build/test/run GrandRue. |
+| `lifecycle.md` | historical/operational documentation; not consumed by build/test/run. |
+| `operational-rules.md` | root operational documentation; current repository execution is governed through `AGENTS.md` and canonical governance, not this file as a runtime dependency. |
+| `workflow-tree.md` | documentation/navigation only; not consumed by build/test/run. |
+| other unproven scripts/tools/infrastructure files | remain reference-only until concrete dependency evidence demonstrates current build/test/run consumption. |
+
+### Standing non-runtime exceptions
+
+The essentiality classifications above do not remove the explicit migration exceptions established by the ledger:
+
+- `AGENTS.md`;
+- `SEQUENCE.md`;
+- `GRANDRUE-MIGRATION.md`;
+- the seven canonical current governance files in the root of `designs/`.
+
+These remain in scope because they govern current GrandRue repository work, not because Maven, npm, Next.js, or the runtime consumes them.
+
+### Gate result
+
+`GR-REN-01A-06E` is satisfied. The minimal non-source executable surface is now bounded to `pom.xml` plus the active storefront package/build configuration files listed as `ESSENTIAL`; source/resource trees remain in their already-established scopes. All other discovered root/build/infrastructure paths remain reference-only unless later dependency evidence proves otherwise.
+
+No naming mutation or semantic classification was performed.
