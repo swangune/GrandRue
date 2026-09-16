@@ -331,6 +331,7 @@ On restart, compare `development` HEAD with the checkpoint. Expected descendant 
 | `f711bda24417140b3941b2a3412e494492f15518` | checkpointed runtime-centred scope model |
 | `9b9843a0df3ef7ccc9da985c558ca037f83fd54e` | compacted the operational ledger without changing migration semantics |
 | `af555d420ef6da9d1dd53fdb5f02820c8266b6e1` | checkpointed completed root governance/navigation inventory before scope minimisation |
+| `f8a2a42c18926e2af33bdd279755e53115efc96c` | constrained migration to build/test/run essentials plus the seven canonical root `designs/` governance files |
 
 ---
 
@@ -347,9 +348,9 @@ status: IN_PROGRESS
 active_group: GR-REN-01A
 selected_execution_leaf: GR-REN-01A-06
 last_completed_task: GR-REN-01A-05
-last_verified_head: af555d420ef6da9d1dd53fdb5f02820c8266b6e1
+last_verified_head: f8a2a42c18926e2af33bdd279755e53115efc96c
 last_task_commit: 25b1ba128d8ea47cf864c41e531de7482c1ba93c
-last_inspected_ledger_model_head: af555d420ef6da9d1dd53fdb5f02820c8266b6e1
+last_inspected_ledger_model_head: f8a2a42c18926e2af33bdd279755e53115efc96c
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
 next_action: Execute GR-REN-01A-06 only. Derive the exact non-source files and paths consumed by the current GrandRue build/test/run path; mark each ESSENTIAL or REFERENCE_ONLY. Do not rename or classify naming occurrences.
