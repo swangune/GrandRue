@@ -1,9 +1,9 @@
 # Main Street Document Governance
 
 **Document ID:** MS-DOCUMENT-GOVERNANCE-001  
-**Version:** 2.3  
+**Version:** 2.4  
 **Status:** Accepted  
-**Applies from:** 5 September 2026  
+**Applies from:** 16 September 2026  
 **Purpose:** Define how Main Street fundamental product-purpose, design, architecture and implementation authorities are created, navigated, changed, validated and kept unambiguous while maintaining one canonical current governance/rule document per responsibility.
 
 ---
@@ -453,3 +453,329 @@ No ambiguity audit may silently reinterpret accepted semantics or weaken the Fun
 Main Street governance uses `MS-FUNDAMENTAL-VISION-001` as the upstream product-purpose authority, a single-current-document model for design rules, document governance, navigation, terminology, deferred decisions, corpus conformance and implementation rules, and scope-aware semantic amendment chains where those chains are necessary to determine meaning.
 
 > **One fundamental product purpose; one live governance document per responsibility; one navigable semantic authority graph; Git history for governance revisions; explicit semantic provenance where meaning depends on it.**
+
+---
+
+## 23. Canonical Design-Corpus Layout
+
+GrandRue SHALL organise current design material by governance responsibility and stable authority identity.
+
+The canonical shape SHALL be:
+
+```text
+designs/
+│
+├── DESIGN-RULES.md
+├── DOCUMENT-GOVERNANCE.md
+├── AUTHORITY-INDEX.md
+├── DEFERRED-DECISION-REGISTER.md
+├── CANONICAL-SEMANTIC-LEXICON.md
+├── DESIGN-CORPUS-CONFORMANCE.md
+├── IMPLEMENTATION-RULES.md
+│
+├── authorities/
+│   ├── ms-prot/
+│   │   ├── MS-PROT-020/
+│   │   ├── MS-PROT-021/
+│   │   ├── ...
+│   │   └── MS-PROT-094/
+│   │
+│   └── programme/
+│       └── MS-IMP-001/
+│
+└── historical/
+    └── <classified non-current design evidence>
+```
+
+The seven single-current governance files remain at `designs/` root.
+
+This avoids unnecessary path churn for the most frequently referenced governance authorities.
+
+---
+
+## 24. Stable Authority Directory Rule
+
+Every accepted MS-PROT authority chain SHALL have exactly one canonical directory derived from its stable Document ID.
+
+Example:
+
+```text
+designs/authorities/ms-prot/MS-PROT-044/
+```
+
+shall contain the accepted files constituting the MS-PROT-044 chain, for example:
+
+```text
+MS-PROT-044 — Offering, Listing & Published Subject Model.md
+MS-PROT-044 v1.1 — Product, Offering & Variant Boundary Amendment.md
+MS-PROT-044 v1.2 — Merchant Offering & Product Definition Access Contract Amendment.md
+```
+
+All versions of one stable authority are therefore physically colocated.
+
+A later v1.3 belongs in the same directory.
+
+---
+
+## 25. Directory Does Not Determine Authority
+
+Physical location improves discovery.
+
+It does not replace the authority graph.
+
+Canonical authority remains determined by:
+
+```text
+stable Document ID
++
+Version
++
+lifecycle status
++
+accepted amendment/supersession scope
++
+AUTHORITY-INDEX navigation
+```
+
+Moving a byte-identical authority into its canonical directory is not a semantic amendment.
+
+---
+
+## 26. No Business-Domain Authority Folders
+
+Primary authority storage MUST NOT be organised by mutable or overlapping business labels such as:
+
+```text
+commerce/
+workforce/
+marketing/
+website/
+finance/
+customer/
+```
+
+as the authoritative home.
+
+Reason: one authority may legitimately coordinate several domains, and its scope may evolve.
+
+Domain classifications MAY exist as derived navigation views.
+
+They MUST NOT become competing authority ownership.
+
+Stable Document ID is the authoritative physical grouping key.
+
+---
+
+## 27. No Per-Authority Current README Requirement
+
+The corpus SHALL NOT require a separate:
+
+```text
+README
+CURRENT
+LATEST
+manifest
+summary
+```
+
+file inside every authority directory.
+
+Such files would duplicate `AUTHORITY-INDEX.md` and create another stale-navigation surface.
+
+The directory itself groups provenance.
+
+The Authority Index identifies current composition.
+
+---
+
+## 28. Canonical Navigation Remains Singular
+
+`AUTHORITY-INDEX.md` remains the one current accepted-authority navigation source.
+
+`DEFERRED-DECISION-REGISTER.md` remains the one current deferred/work-queue source.
+
+They MUST NOT be split into independently current domain registers merely to reduce file size.
+
+For example, the following are prohibited:
+
+```text
+COMMERCIAL-AUTHORITY-INDEX.md
+WORKFORCE-AUTHORITY-INDEX.md
+MARKETING-DDR.md
+BOOKING-DDR.md
+```
+
+as independent current governance sources.
+
+This prevents cross-register drift.
+
+---
+
+## 29. Navigation Compression Rule
+
+Canonical navigation documents SHOULD contain only the information necessary to identify current authority and current decision state.
+
+They SHOULD NOT become duplicate semantic specifications.
+
+`AUTHORITY-INDEX.md` SHOULD favour:
+
+```text
+stable authority
+current accepted composition
+material scope-aware cross-authority link
+supersession/closure information where necessary
+```
+
+over long restatements already owned by the source authority.
+
+`DEFERRED-DECISION-REGISTER.md` SHOULD favour:
+
+```text
+stable decision identity
+current status
+resolving authority/current owner
+revisit condition
+```
+
+over long historical narrative where Git history and accepted source authorities already preserve that provenance.
+
+Removing redundant navigation prose MUST NOT remove substantive authority or an unresolved decision.
+
+---
+
+## 30. Historical Evidence Classification
+
+Historical, prototype, review and non-authoritative design material MUST NOT be moved into:
+
+```text
+designs/authorities/
+```
+
+merely because its filename resembles an MS-PROT authority.
+
+Before migration it must be classified as:
+
+```text
+accepted authority constituent
+or
+historical/non-authoritative evidence
+```
+
+Only the first class belongs in the accepted authority store.
+
+This is especially important for the earlier MS-PROT-001..019 stratum and other prototype/review documents.
+
+---
+
+## 31. Mechanical Move Rule
+
+A corpus reorganisation MAY move accepted authority files without a new semantic lifecycle when all of the following are true:
+
+```text
+file bytes unchanged
+Document ID unchanged
+Version unchanged
+Status unchanged
+authority composition unchanged
+supersession/amendment scope unchanged
+```
+
+The migration MUST update repository-local path references where required.
+
+Git history remains migration provenance.
+
+A path-only move MUST NOT be described as a semantic amendment.
+
+---
+
+## 32. No Mixed Semantic-and-Path Migration
+
+A mechanical authority relocation commit MUST NOT simultaneously introduce substantive semantic changes to the relocated authority.
+
+If semantic change is required:
+
+```text
+semantic lifecycle first
+or
+separate governed semantic change
+```
+
+The filesystem migration remains independently reviewable.
+
+---
+
+## 33. Corpus-Migration Sequence
+
+The approved one-time corpus migration SHALL proceed in this order:
+
+1. repair known current navigation defects before changing physical layout;
+2. integrate the approved governance changes into the canonical governance files;
+3. establish a deterministic recursive corpus checker capable of understanding both the current flat layout and the target stable-ID layout during transition;
+4. migrate exactly one authority chain as a pilot;
+5. verify content identity, navigation resolution, reference integrity and recursive conformance for that pilot;
+6. only after the pilot passes, mechanically relocate the remaining accepted MS-PROT authority chains;
+7. relocate implementation-programme authority under its stable programme identifier;
+8. classify historical/prototype/review material separately; and
+9. only after physical migration succeeds, perform navigation-only compaction of the Authority Index and DDR where separately safe.
+
+Bulk migration MUST NOT begin before the pilot proves the migration mechanics.
+
+---
+
+## 34. Pilot Authority
+
+The initial migration pilot SHALL be:
+
+```text
+MS-PROT-044
+```
+
+Its currently accepted constituents are:
+
+```text
+MS-PROT-044 — Offering, Listing & Published Subject Model.md
+MS-PROT-044 v1.1 — Product, Offering & Variant Boundary Amendment.md
+MS-PROT-044 v1.2 — Merchant Offering & Product Definition Access Contract Amendment.md
+```
+
+The pilot SHALL move them to:
+
+```text
+designs/authorities/ms-prot/MS-PROT-044/
+```
+
+with byte-identical authority content.
+
+The pilot MUST prove:
+
+```text
+content identity
+index resolution
+repository-reference integrity
+recursive checker success
+no semantic diff
+```
+
+before any bulk movement.
+
+---
+
+## 35. Updated Hard Governance Invariants
+
+The Section 21 invariants remain authoritative and are extended by the following:
+
+15. Accepted MS-PROT authority chains MUST converge on one stable-Document-ID directory after the approved migration completes.
+16. Physical directory location MUST NOT become semantic authority.
+17. Business-domain folders MUST NOT become primary authority ownership or require duplicate authority copies.
+18. `AUTHORITY-INDEX.md` and `DEFERRED-DECISION-REGISTER.md` MUST remain singular current navigation sources.
+19. Mechanical path migration MUST preserve authority bytes and MUST NOT be combined with semantic amendment.
+20. Historical/non-authoritative evidence MUST be classified before relocation and MUST NOT masquerade as accepted authority merely because of its filename.
+21. Bulk accepted-authority migration MUST remain blocked until the MS-PROT-044 pilot passes the approved migration checks.
+
+---
+
+## 36. Revised Acceptance Statement
+
+Main Street governance uses `MS-FUNDAMENTAL-VISION-001` as the upstream product-purpose authority, a single-current-document model for governance/navigation responsibilities, scope-aware semantic amendment chains where provenance affects current meaning, and stable-Document-ID physical colocation for accepted authority chains.
+
+> **One fundamental product purpose; one live governance document per responsibility; one stable physical home per accepted authority chain; one Authority Index; one DDR; Git history for governance revisions; explicit semantic provenance where meaning depends on it.**
