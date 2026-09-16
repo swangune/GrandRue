@@ -13,12 +13,13 @@ This file is the canonical resumable execution registry for the Main Street → 
 
 ## 1. Migration Contract
 
-The migration is a **minimum executable migration**.
+The migration is a **minimum executable migration with active repository-control migration**.
 
 A file or path is a migration target only when at least one of these conditions is true:
 
-1. it is directly required to **build, test, start, configure, or serve the current GrandRue runtime**; or
-2. it is one of the canonical current governance files in the root of `designs/` defined by `designs/DOCUMENT-GOVERNANCE.md`.
+1. it is directly required to **build, test, start, configure, or serve the current GrandRue runtime**;
+2. it is an active repository-control/navigation file required to govern continuing GrandRue work: `AGENTS.md` or `SEQUENCE.md`; or
+3. it is one of the canonical current governance files in the root of `designs/` defined by `designs/DOCUMENT-GOVERNANCE.md`.
 
 Everything else is **reference-only by default**. A file does not enter migration scope merely because it contains `Main Street`, `mainstreet`, an `MS-*` identifier, or other legacy naming.
 
@@ -33,6 +34,10 @@ MS-PROT-* / MS-IMP-* / other stable MS-* identifiers
 minimum executable surface
     = migrate only what current build/test/run paths actually require
 
+active repository controls
+    = AGENTS.md + SEQUENCE.md
+    = migrate because they govern current execution/navigation
+
 reference-only design/history/evidence
     = consult when needed
     = do not migrate merely for naming consistency
@@ -42,7 +47,7 @@ Never perform a blind global replacement. A naming change must not silently alte
 
 ### Essentiality gate
 
-Before inventorying or mutating a candidate outside the obvious source/runtime surface, ask:
+Before inventorying or mutating a candidate outside the obvious source/runtime surface and the explicit active-control/governance exceptions, ask:
 
 > Would GrandRue fail to build, execute the authorised tests, start, configure, or serve correctly if this file/path were left unchanged?
 
@@ -51,6 +56,8 @@ Before inventorying or mutating a candidate outside the obvious source/runtime s
 - `UNKNOWN` → inspect the actual build/test/run dependency before adding it to scope.
 
 A textual naming match is never sufficient evidence of essentiality.
+
+`AGENTS.md`, `SEQUENCE.md`, and the seven canonical root `designs/` governance files do not require runtime-essentiality proof; they are explicit current-control/governance exceptions.
 
 ### In-scope surfaces
 
@@ -62,6 +69,8 @@ The in-scope surface is intentionally small:
 - `pom.xml` and any specific build/configuration/runtime file proven to be consumed by the current build/test/run path;
 - current runtime configuration, container/database configuration, scripts, or infrastructure files only when the selected build/test/run path directly consumes them;
 - `GRANDRUE-MIGRATION.md` — operational migration ledger;
+- `AGENTS.md` — active repository execution/navigation adapter;
+- `SEQUENCE.md` — active design/implementation sequence and dependency navigation;
 - the canonical current governance set in the root of `designs/`:
   - `designs/DESIGN-RULES.md`
   - `designs/DOCUMENT-GOVERNANCE.md`
@@ -71,7 +80,7 @@ The in-scope surface is intentionally small:
   - `designs/DESIGN-CORPUS-CONFORMANCE.md`
   - `designs/IMPLEMENTATION-RULES.md`
 
-The seven `designs/` files above are the explicit governance exception to the run/test-only rule because they are the canonical current governance/navigation/rule set.
+The two active root controls and the seven `designs/` files above are explicit exceptions to the run/test-only rule because they govern current GrandRue repository work.
 
 ### Reference-only by default
 
@@ -84,8 +93,7 @@ Do **not** inventory, rename, restructure, or rewrite these merely to replace Ma
 - any other non-canonical-governance file under `designs/**`;
 - `docs/**` except `docs/development/grandrue-naming-migration-inventory.md`, which is writable migration evidence rather than a branding target;
 - `experiments/**`;
-- `README*`, `SEQUENCE.md`, and other root documentation/navigation not required by the build/test/run path;
-- `AGENTS.md` as a naming target; it remains an operational adapter to consult during repository work;
+- `README*` and other root documentation/navigation except `AGENTS.md`, `SEQUENCE.md`, and `GRANDRUE-MIGRATION.md`;
 - `.github/**`, `tools/**`, `build_configuration/**`, scripts, compose files, and other infrastructure merely because they exist — they become migration targets only when an authorised/current build/test/run path actually consumes them;
 - historical implementation evidence, old conformance records, and handoffs.
 
@@ -105,7 +113,7 @@ If current persisted database state must change, use a forward migration after c
 
 ## 2. Execution Constraints
 
-Before work, follow `AGENTS.md` and the current canonical governance set listed in Section 1.
+Before work, follow `AGENTS.md`, `SEQUENCE.md` where programme/design sequencing applies, and the current canonical governance set listed in Section 1.
 
 - work on `development`;
 - do not create a branch unless explicitly authorised;
@@ -113,7 +121,7 @@ Before work, follow `AGENTS.md` and the current canonical governance set listed 
 - **do not run Maven tests unless explicitly authorised**;
 - **do not run GitHub Actions unless explicitly authorised**;
 - make the smallest conforming change;
-- prove essentiality before widening migration scope;
+- prove essentiality before widening migration scope beyond the explicit active-control/governance exceptions;
 - inspect before renaming;
 - do not combine naming migration with semantic redesign or unrelated cleanup;
 - stop an affected path when semantics or compatibility are materially unresolved.
@@ -214,7 +222,7 @@ The dependency graph, not numeric ordering, determines safe execution.
 
 Cost control rule:
 
-> Do not create an inventory, classification, mutation, verification, or checkpoint task for a reference-only path unless evidence first proves that the path is required by the current build/test/run dependency or by the seven-file canonical governance exception.
+> Do not create an inventory, classification, mutation, verification, or checkpoint task for a reference-only path unless evidence first proves that the path is required by the current build/test/run dependency. `AGENTS.md`, `SEQUENCE.md`, and the seven-file canonical governance set are the only standing non-runtime exceptions.
 
 ---
 
@@ -227,7 +235,7 @@ Cost control rule:
 - Baseline: `c4153441d8340b229a29884967d796280d949a7d`
 - Ledger-establishment commit: `26d22025fc536b010e29327724b47f0a4b34b12a`
 
-### `GR-REN-01` — minimal runtime/governance inventory and classification
+### `GR-REN-01` — minimal runtime/control/governance inventory and classification
 
 State: `OPEN`
 
@@ -241,17 +249,17 @@ State: `OPEN`
 | `GR-REN-01A-02` | TASK | `src/main/**` | `COMPLETE` | `29a7811c737508ec80214ceff1bb1b28b7762bac` |
 | `GR-REN-01A-03` | TASK | `src/test/**` | `COMPLETE` | `afc06e36d4091977b3d8bfb29b02e2eed6343003` |
 | `GR-REN-01A-04` | TASK | `storefront-web/**` | `COMPLETE` | `9a0f69e80561a400b963582195d5c75437cc13bb` |
-| `GR-REN-01A-05` | TASK | historical inventory of `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `COMPLETE` | `25b1ba128d8ea47cf864c41e531de7482c1ba93c` |
+| `GR-REN-01A-05` | TASK | inventory of `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `COMPLETE` | `25b1ba128d8ea47cf864c41e531de7482c1ba93c` |
 | `GR-REN-01A-06` | GATE | prune discovered root/build/infrastructure matches to an exact build/test/run essential-path manifest | `READY` | — |
 | `GR-REN-01A-07` | TASK | seven canonical governance files in root `designs/` listed in Section 1 | `NOT_STARTED` | — |
 | `GR-REN-01A-08` | GROUP | non-governance `designs/**` and `designs/watch-list.md` | `EXCLUDED` | reference-only |
-| `GR-REN-01A-09` | GROUP | root docs/navigation including `README*`, `SEQUENCE.md`, and `AGENTS.md` as naming targets | `EXCLUDED` | reference-only |
+| `GR-REN-01A-09` | GROUP | root docs/navigation except `AGENTS.md`, `SEQUENCE.md`, and `GRANDRUE-MIGRATION.md` | `EXCLUDED` | reference-only |
 | `GR-REN-01A-10` | GROUP | `docs/**` except migration evidence artifact | `EXCLUDED` | reference-only |
 | `GR-REN-01A-11` | GROUP | `experiments/**` | `EXCLUDED` | reference-only |
 | `GR-REN-01A-12` | GROUP | unproven `.github/**`, tools, scripts, build/infrastructure/configuration paths | `EXCLUDED` | reference-only unless essentiality is proven |
-| `GR-REN-01A-13` | GATE | reconcile minimal runtime/governance coverage + explicit exclusions | `NOT_STARTED` | — |
+| `GR-REN-01A-13` | GATE | reconcile minimal runtime/control/governance coverage + explicit exclusions | `NOT_STARTED` | — |
 
-Completed discovery evidence is retained even where the new essentiality gate excludes a discovered match from migration. Prior inventory does not authorise mutation.
+Completed discovery evidence is retained even where the essentiality gate excludes a discovered match from migration. Prior inventory does not authorise mutation.
 
 `GR-REN-01A-06` `done_when`:
 
@@ -270,7 +278,7 @@ Canonical evidence artifact: `docs/development/grandrue-naming-migration-invento
 | `GR-REN-01B` | Java namespace/import/FQCN/Spring/reflection inventory within essential source/test runtime paths | `EXPANSION_REQUIRED` |
 | `GR-REN-01C` | exact build/runtime/config/env/container/database-name inventory for files proven essential by `GR-REN-01A-06` | `EXPANSION_REQUIRED` |
 | `GR-REN-01D` | persisted/API/serialized/event/command/contract/provider/entitlement inventory reachable from essential runtime paths | `EXPANSION_REQUIRED` |
-| `GR-REN-01E` | seven canonical governance files + protected-reference boundary inventory | `EXPANSION_REQUIRED` |
+| `GR-REN-01E` | `AGENTS.md`, `SEQUENCE.md`, seven canonical governance files + protected-reference boundary inventory | `EXPANSION_REQUIRED` |
 | `GR-REN-01F` | reconcile/classify only the minimal in-scope inventory and freeze the action map | `NOT_STARTED` |
 
 ### Post-inventory groups
@@ -284,10 +292,10 @@ These remain `EXPANSION_REQUIRED` until inventory evidence is sufficient to defi
 | `GR-REN-04` | build naming/wiring required by the selected build/test/run path |
 | `GR-REN-05` | runtime/configuration/infrastructure naming required to start/serve GrandRue |
 | `GR-REN-06` | persisted/external identity compatibility and approved migrations/aliases encountered by essential runtime paths |
-| `GR-REN-07` | runtime-visible product wording + seven canonical root `designs/` governance files |
-| `GR-REN-08` | residual audits limited to the minimal in-scope surface |
+| `GR-REN-07` | runtime-visible product wording + `AGENTS.md` + `SEQUENCE.md` + seven canonical root `designs/` governance files |
+| `GR-REN-08` | residual audits limited to the minimal runtime/control/governance surface |
 | `GR-REN-09` | compatibility/semantic falsification using excluded design authority only as read-only evidence when needed |
-| `GR-REN-10` | structural consistency verification of build/test/run-critical paths |
+| `GR-REN-10` | structural consistency verification of build/test/run-critical paths and active controls |
 | `GR-REN-11` | final authorised verification and closeout |
 
 `GR-REN-11` does not grant Maven/GitHub Actions permission.
@@ -332,6 +340,7 @@ On restart, compare `development` HEAD with the checkpoint. Expected descendant 
 | `9b9843a0df3ef7ccc9da985c558ca037f83fd54e` | compacted the operational ledger without changing migration semantics |
 | `af555d420ef6da9d1dd53fdb5f02820c8266b6e1` | checkpointed completed root governance/navigation inventory before scope minimisation |
 | `f8a2a42c18926e2af33bdd279755e53115efc96c` | constrained migration to build/test/run essentials plus the seven canonical root `designs/` governance files |
+| `d247740c14b92732da5ecd0674f3750f8d00fbe2` | checkpointed the minimum executable migration model before active-control correction |
 
 ---
 
@@ -343,17 +352,17 @@ repository: swangune/GrandRue
 branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
 model: HIERARCHICAL_DEPENDENCY_GRAPH
-scope: MINIMUM_RUN_TEST_PLUS_CANONICAL_GOVERNANCE
+scope: MINIMUM_RUN_TEST_PLUS_ACTIVE_CONTROLS_AND_CANONICAL_GOVERNANCE
 status: IN_PROGRESS
 active_group: GR-REN-01A
 selected_execution_leaf: GR-REN-01A-06
 last_completed_task: GR-REN-01A-05
-last_verified_head: f8a2a42c18926e2af33bdd279755e53115efc96c
+last_verified_head: d247740c14b92732da5ecd0674f3750f8d00fbe2
 last_task_commit: 25b1ba128d8ea47cf864c41e531de7482c1ba93c
-last_inspected_ledger_model_head: f8a2a42c18926e2af33bdd279755e53115efc96c
+last_inspected_ledger_model_head: d247740c14b92732da5ecd0674f3750f8d00fbe2
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01A-06 only. Derive the exact non-source files and paths consumed by the current GrandRue build/test/run path; mark each ESSENTIAL or REFERENCE_ONLY. Do not rename or classify naming occurrences.
+next_action: Execute GR-REN-01A-06 only. Derive the exact non-source files and paths consumed by the current GrandRue build/test/run path; mark each ESSENTIAL or REFERENCE_ONLY. `AGENTS.md`, `SEQUENCE.md`, and the seven canonical root `designs/` governance files remain in scope independently of this gate. Do not rename or classify naming occurrences.
 ```
 
 ---
@@ -363,10 +372,11 @@ next_action: Execute GR-REN-01A-06 only. Derive the exact non-source files and p
 At every restart:
 
 1. inspect `AGENTS.md` and this ledger;
-2. fetch current `development` HEAD;
-3. reconcile HEAD against `last_verified_head` and expected ledger-only descendants;
-4. verify the selected leaf scope/dependencies/readiness;
-5. execute only that leaf.
+2. inspect `SEQUENCE.md` when current design/implementation sequencing or dependency selection matters;
+3. fetch current `development` HEAD;
+4. reconcile HEAD against `last_verified_head` and expected ledger-only descendants;
+5. verify the selected leaf scope/dependencies/readiness;
+6. execute only that leaf.
 
 When execution reaches `EXPANSION_REQUIRED`, inspect real runtime/inventory evidence, create bounded child tasks, and select one eligible leaf. Never execute a group directly.
 
@@ -379,6 +389,6 @@ DO NOT run Maven tests
 DO NOT run GitHub Actions
 ```
 
-Permitted structural verification includes Git diff/commit inspection, package/import/path consistency, duplicate-source checks, residual-name searches within the minimal in-scope runtime/governance surface, protected-reference checks, dependency/readiness validation, exclusion coverage, and ledger updates.
+Permitted structural verification includes Git diff/commit inspection, package/import/path consistency, duplicate-source checks, residual-name searches within the minimal runtime/control/governance surface, protected-reference checks, dependency/readiness validation, exclusion coverage, and ledger updates.
 
 Structural inspection must never be represented as passed Maven/integration/runtime verification.
