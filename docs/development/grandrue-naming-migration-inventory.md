@@ -213,3 +213,103 @@ No rename or semantic classification was performed.
 ### Completion evidence
 
 The current `src/main/**` tree and all required Section 4 lexical forms were inspected using the bounded methods above. Pervasive namespace/path forms, explicit current-product prose, uppercase runtime/persistence identifiers, hyphenated policy identifiers, immutable-migration occurrences and zero-result forms are recorded without mutation or semantic disposition.
+
+---
+
+## GR-REN-01A-03 — Test-source lexical inventory
+
+**Inspection baseline:** `fbaa1571dbdf38c29a025b43bea934daa0f22719`  
+**Parent:** `GR-REN-01A`  
+**Kind:** `TASK`  
+**Scope:** `src/test/**`  
+**Rename performed:** `false`  
+**Semantic classification performed:** `false`
+
+### Scope and method
+
+The current `development` tree contains exactly two direct `src/test/` source-set roots:
+
+- `src/test/java/**`
+- `src/test/resources/**`
+
+The Java test tree is rooted at `src/test/java/mainstreet/**`. The scan combined direct current-branch tree inspection, repository-index searches constrained to `src/test`, and direct `development` fetches for case-sensitive candidates. The test-resource tree contains one SQL fixture, `src/test/resources/db/persistence-foundation/V1__create_persistence_foundation_probe.sql`, and that file contains none of the required naming forms.
+
+The default-branch index was used only as occurrence-set evidence. Branch divergence was checked separately: the changed test surface was inspected directly on `development`, including `src/test/java/mainstreet/booking/AppointmentOperationalObjectOwnershipTest.java`.
+
+### Search forms
+
+```text
+mainstreet
+mainstreet.*
+Main Street
+MAIN_STREET
+MAINSTREET
+main-street
+Main_Street
+```
+
+### Matches
+
+#### `mainstreet`
+
+- `src/test/java/mainstreet/**`
+  - the test filesystem namespace itself contains `mainstreet`.
+  - package declarations and imports throughout the Java test tree use the `mainstreet` namespace.
+  - repository-index search constrained to `src/test` returned 426 files containing the lexical form.
+
+#### `mainstreet.*`
+
+- `src/test/java/mainstreet/**`
+  - package declarations/imports use namespace-style forms beginning `mainstreet.` across the test tree.
+  - repository-index search constrained to `src/test` returned 422 files matching the namespace-style `mainstreet.` form.
+
+#### `Main Street`
+
+Exact product-name prose occurs in test comments and descriptive wording. The indexed candidate set contains 10 files. Confirmed examples include:
+
+- `src/test/java/mainstreet/infrastructure/security/webauthn/SpringWebAuthnSessionBridgeTest.java`
+  - comment states that Spring authorities are ignored by Main Street Session authority.
+- test classes whose names/comments describe Main Street-owned identity, session or capability behaviour.
+
+These occurrences remain unclassified until the later classification gate.
+
+#### `MAINSTREET`
+
+Uppercase test/runtime environment-variable names are widespread in PostgreSQL integration tests:
+
+- `MAINSTREET_TEST_POSTGRES_URL`
+- `MAINSTREET_TEST_POSTGRES_USER`
+- `MAINSTREET_TEST_POSTGRES_PASSWORD`
+
+Repository-index search for `MAINSTREET_TEST_POSTGRES_URL` returned 79 test files. Direct current-`development` examples include:
+
+- `src/test/java/mainstreet/infrastructure/persistence/audit/JooqAuditStoreIT.java`
+- `src/test/java/mainstreet/infrastructure/persistence/webauthn/JooqWebAuthnAuthenticationSubjectRepositoryIT.java`
+- `src/test/java/mainstreet/surface/MerchantEnquiryQueryT3IT.java`
+
+### Underscore candidate inspection
+
+GitHub code search is case-insensitive, so searches for `MAIN_STREET` and `Main_Street` surfaced six lowercase `main_street` test-method names. Direct current-branch inspection confirmed these are lowercase descriptive method identifiers, not occurrences of either required uppercase/title-case form. Confirmed candidates include:
+
+- `src/test/java/mainstreet/merchantaccount/MerchantAccountTest.java` — `exposes_the_immutable_main_street_merchant_identity`
+- `src/test/java/mainstreet/workforce/MerchantWorkforceModelTest.java` — `role_definition_accepts_only_privileges_registered_by_main_street_semantics`
+- `src/test/java/mainstreet/infrastructure/persistence/audit/JooqAuditStoreIT.java` — `platform_and_merchant_evidence_remain_distinct_without_fake_main_street_merchant`
+- `src/test/java/mainstreet/infrastructure/security/webauthn/SpringWebAuthnSessionBridgeTest.java` — `verified_webauthn_establishes_a_fresh_main_street_session_from_authoritative_identity_mapping` and `repeated_successful_webauthn_proofs_create_independent_main_street_sessions`
+- `src/test/java/mainstreet/infrastructure/security/session/PrivilegedSessionRequestResolverTest.java` — `exact_privileged_cookie_is_resolved_through_main_street_session_authority`
+- `src/test/java/mainstreet/infrastructure/persistence/webauthn/JooqWebAuthnAuthenticationSubjectRepositoryIT.java` — `main_street_establishes_one_opaque_subject_handle_for_one_identity`
+
+### Zero-result forms in this scope
+
+After direct case-sensitive inspection of the indexed candidates, no exact occurrences were found for:
+
+- `MAIN_STREET`
+- `main-street`
+- `Main_Street`
+
+The single test-resource SQL fixture also contains none of the required naming forms.
+
+No rename or semantic classification was performed.
+
+### Completion evidence
+
+The complete `src/test/**` surface was accounted for through its Java and resource roots; all Section 4 lexical forms were searched; namespace, prose and uppercase environment-variable occurrences were recorded; case-insensitive underscore false positives were resolved by direct current-branch inspection; zero-result forms were recorded; and no mutation or semantic classification was performed.
