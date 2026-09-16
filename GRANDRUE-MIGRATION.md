@@ -523,7 +523,7 @@ excluded_scopes:
 last_completed_task: GR-REN-00
 last_verified_head: 26d22025fc536b010e29327724b47f0a4b34b12a
 last_task_commit: 26d22025fc536b010e29327724b47f0a4b34b12a
-last_inspected_ledger_model_head: 84c9637fca39df636799537a910fafa7f8f7cdcf
+last_inspected_ledger_model_head: 6a907f85d8134a93af464692067389b6f6295760
 mutation_authorised: false
 next_action: Execute GR-REN-01A-01 only. Search its exact scope for every Section 4 naming form, record matches and zero-results, and perform no rename or semantic classification.
 ```
@@ -563,7 +563,7 @@ next_action: Execute GR-REN-01A-01 only. Search its exact scope for every Sectio
 | Bounded phase decomposition | `b46394ba2ce57412481fa0d3436dc52e802a3318` | Split the original broad phase model into smaller named phase families |
 | Dependency-safe namespace refinement | `38124236816186368190dccfb23a5bdd221aee9a` | Replaced path/package/import-only namespace checkpoints with atomic dependency-safe waves |
 | Hierarchical dependency task model | `84c9637fca39df636799537a910fafa7f8f7cdcf` | Introduced parent/child decomposition, explicit dependency edges, leaf-only execution, scope coverage and evidence rules |
-| Accepted-authority corpus exclusion | `PENDING_CHECKPOINT` | Removed `designs/authorities/**` from lexical inventory, rename, decomposition and completion scope while retaining stable governance references and read-only consultation where required |
+| Accepted-authority corpus exclusion | `6a907f85d8134a93af464692067389b6f6295760` | Removed `designs/authorities/**` from lexical inventory, rename, decomposition and completion scope while retaining stable governance references and read-only consultation where required |
 
 ### Task checkpoint history
 
