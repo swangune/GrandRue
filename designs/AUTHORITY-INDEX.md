@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.33
+**Version:** 4.34
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -83,7 +83,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-041 | through v1.1 |
 | MS-PROT-042 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 + v1.7 + v1.8 + v1.9 + v1.10 + v1.11 + v1.12 + v1.13 + v1.14 + v1.15 + v1.16 |
 | MS-PROT-043 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
-| MS-PROT-044 | base + v1.1 |
+| MS-PROT-044 | base + v1.1 + v1.2 within Offering/Product/ProductVariant owner-qualified merchant-definition access scope |
 | MS-PROT-045 | through v1.1 |
 | MS-PROT-046 | v1.1 + v1.2 + v1.3 + v1.4 + v1.5 |
 | MS-PROT-047 | v1.0 |
@@ -138,6 +138,8 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 ### 3.1 Key scope-aware links
 
 The following cross-authority links are retained explicitly because they materially affect current navigation:
+
+- MS-PROT-044 v1.2 — `MS-PROT-044 v1.2 — Merchant Offering & Product Definition Access Contract Amendment.md` — supplies exact owner-qualified merchant definition observation and authoring access contracts for Offering and Product/ProductVariant source truth. It preserves Product optionality, keeps Inventory and downstream transaction authority independent, explicitly excludes Listing and public-source access, makes no commercial classification, leaves `MS-PROT-056-V17-DQ-001` OPEN and activates no implementation.
 
 - MS-PROT-083 v1.7 — `MS-PROT-083 v1.7 — Business Intelligence Commercial Access Classification Amendment.md` — classifies `business-intelligence/business-analytics-evaluation-access@1` / `USE_BUSINESS_ANALYTICS` for BUSINESS + GROWTH, `business-intelligence/campaign-analytics-evaluation-access@1` / `USE_CAMPAIGN_ANALYTICS` for GROWTH, and `business-intelligence/merchant-analytics-presentation-access@1` with no independent Commercial Entitlement. It preserves source-capability ownership, analytical applicability/coverage, retained-history and downgrade boundaries, keeps Campaign execution and source mutation independently governed, and leaves report/export commercial classification plus the final concrete DQ-001 catalogue manifest open.
 
