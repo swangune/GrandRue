@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.30
+**Version:** 4.31
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -124,7 +124,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-082 | v1.0 + v1.1 |
 | MS-PROT-083 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 + v1.7 + v1.8 |
 | MS-PROT-084 | v1.1 complete composition + v1.2 Financial Operations commercial-access classification; earlier standalone targeted amendment retained as historical evidence |
-| MS-PROT-085 | v1.0 + v1.1 + v1.2 + v1.3 |
+| MS-PROT-085 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 |
 | MS-PROT-086 | v1.0 + v1.1 + v1.2 + v1.3 |
 | MS-PROT-087 | v1.0 + v1.1 + v1.2 + v1.3 |
 | MS-PROT-088 | v1.0 + v1.1 within website namespace-use commercial access + v1.2 within website-binding selection, disconnection and supporting commercial requirements + v1.3 within website-qualified platform namespace allocation, naming and retirement + v1.4 within Website Connection Request and bounded deferred local completion + v1.5 within website DNS/certificate execution, maintenance and recovery |
@@ -158,6 +158,7 @@ The following cross-authority links are retained explicitly because they materia
 
 - MS-PROT-085 v1.3 §§1–12 resolves commercial classification only for `enquiry/initial-submission-review@1`: qualified post-commit progression requires no Commercial Entitlement; merchant observation, acknowledgement and recording review require `OBSERVE_ENQUIRY` through MS-PROT-043 v1.5 without an independent Attention entitlement. Controller/source-access requirements and other Attention families remain unchanged. `MS-PROT-056-V17-DQ-001` remains OPEN; no implementation activation is authorised.
 
+- MS-PROT-085 v1.4 — `MS-PROT-085 v1.4 — Customer Communication Human Response Commercial Access Amendment.md` — classifies exactly `customer-communication/human-response-required@1` as a supporting Merchant Attention path with no independent Commercial Entitlement. Merchant observation and response remain gated by the exact independently valid Customer Communication access and actor requirements; the classification does not make Customer Communication FREE, mint a new entitlement identity or permit tier-name runtime checks. It completes the commercial classification of the currently accepted two-family Merchant Attention portfolio while leaving Customer Communication exact bindings and the complete `MS-PROT-056-V17-DQ-001` catalogue manifest OPEN; no implementation activation is authorised.
 - MS-PROT-043 v1.5 §§1–12 establishes three exact Enquiry-owned commercial access contracts for general submission, Opportunity-linked submission and merchant observation. It preserves MS-PROT-056 v1.7 FREE placement and v1.9 binding authority; exact entitlement definitions, supporting-contract closure and the complete catalogue remain open under `MS-PROT-056-V17-DQ-001`. No production activation or implementation-node completion is authorised.
 
 - MS-PROT-094 v1.0 establishes the presentation asymmetry between first-party merchant software and merchant-branded customer-facing websites: merchant clients converge around a coherent Main Street operational identity while remaining environment-optimised under MS-PROT-093; customer-facing websites are merchant-specific compositions over shared centrally evolvable storefront engines, own no authoritative business data, and MUST NOT be selected from templates, themes, reusable styles, domain layouts, presentation profiles or hidden finite site archetypes. It amends composite MS-PROT-036 within storefront composition/data-non-ownership/central evolution scope, composite MS-PROT-037 within merchant presentation-consistency scope, composite MS-PROT-049 within storefront presentation-profile/recommendation scope and composite MS-PROT-057 within website presentation-assistance scope; MS-PROT-093 remains unchanged.
@@ -257,7 +258,6 @@ opaque WebAuthn Authentication Subject Handle
         |
         0..N WebAuthn credentials
 ```
-
 The handle is Main Street-generated, opaque and non-PII; it is not the semantic Identity identifier and carries no Merchant Scope, Controller, role, privilege or entitlement semantics. Spring user-entity persistence and handle-to-Identity resolution remain authentication infrastructure only. High-risk hardware/attestation policy remains deferred under `ADR-014-DQ-002`.
 
 ---
