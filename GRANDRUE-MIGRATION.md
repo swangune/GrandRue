@@ -233,7 +233,7 @@ Canonical discovery evidence remains `docs/development/grandrue-naming-migration
 
 ### `GR-REN-01B` — Java namespace exceptional-consumer inventory
 
-State: `OPEN`
+State: `COMPLETE`
 
 The pervasive ordinary `mainstreet.*` package/import population is already established by `GR-REN-01A-02/03`; do not enumerate it again.
 
@@ -242,7 +242,7 @@ The pervasive ordinary `mainstreet.*` package/import population is already estab
 | `GR-REN-01B-01` | TASK | production entrypoint/package-root/Spring scan assumptions | `COMPLETE` | sole application entrypoint and implicit Spring scan root identified; no explicit scan override found |
 | `GR-REN-01B-02` | TASK | `src/main/**` string/reflection/FQCN/class-persistence namespace consumers | `COMPLETE_WITH_ADDENDUM` | non-mechanical production consumers recorded; late cryptographic-AAD exception added below |
 | `GR-REN-01B-03` | TASK | `src/test/**` string/reflection/FQCN/package-sensitive test consumers | `COMPLETE` | package/FQCN/path-sensitive test families recorded without enumerating ordinary imports |
-| `GR-REN-01B-04` | GATE | freeze dependency-safe Java namespace migration boundary | `READY` | mechanical wave plus exceptional consumers are explicit |
+| `GR-REN-01B-04` | GATE | freeze dependency-safe Java namespace migration boundary | `COMPLETE` | boundary frozen below |
 
 #### `GR-REN-01B-01` result
 
@@ -251,7 +251,6 @@ The pervasive ordinary `mainstreet.*` package/import population is already estab
 - `@SpringBootApplication` has no explicit scan attributes, so its conventional component-scan root is the entrypoint package `mainstreet`.
 - Repository searches found no production explicit `@ComponentScan`, `@EntityScan`, `@EnableJpaRepositories`, `@ConfigurationPropertiesScan`, `basePackages`, or `scanBasePackages` override.
 - Migration consequence: move `GrandRueApplication` with the namespace root (`mainstreet` → `grandrue`). No separate Spring scan-root configuration requires migration.
-- No rename was performed.
 
 #### `GR-REN-01B-02` result and corrective addendum
 
@@ -268,45 +267,59 @@ Confirmed non-mechanical production consumers:
    - mechanically renaming this literal would break outstanding/retryable bindings encrypted under the current format;
    - preserve the v1 AAD or introduce an explicitly compatible/versioned decode strategy; classify under `GR-REN-01D/01F` before mutation.
 
-The AAD finding was discovered while scanning path-sensitive tests after `GR-REN-01B-02` had been committed. It corrects the prior bounded-search statement; historical commit evidence remains unchanged.
-
 No production `Class.forName`, class-loader/service-loader namespace string, or explicit Spring scan-root namespace override was found. Ordinary package/import declarations remain mechanical migration material.
-
-No rename was performed.
 
 #### `GR-REN-01B-03` result
 
-The test namespace has several **migration-coupled structural consumers** that must move with the Java namespace wave:
+Package/FQCN/path-sensitive test consumers include:
 
-- `src/test/java/mainstreet/runtime/ScopedRuntimeAuthorisationConformanceTest.java`
-  - `Class.forName(...)` uses six literal `mainstreet.runtime.*` legacy FQCNs to prove removed production types stay absent.
-- `src/test/java/mainstreet/governance/ModuleDependencyConformanceTest.java`
-  - production source root is hard-coded as `src/main/java/mainstreet`;
-  - import regex and import-string checks match `mainstreet.*` and `mainstreet.infrastructure.*`.
-- `src/test/java/mainstreet/governance/TimeDeterminismConformanceTest.java`
-  - scans production source under hard-coded `src/main/java/mainstreet`.
-- `src/test/java/mainstreet/governance/ProfileSurfaceDependencyConformanceTest.java`
-  - scans `src/main/java/mainstreet/surface` and searches source for `mainstreet.merchantprofile.`.
-- `src/test/java/mainstreet/governance/SemanticReleaseBoundaryConformanceTest.java`
-  - scans `src/main/java/mainstreet/semantic/release` and checks forbidden `mainstreet.*` import prefixes.
-- `src/test/java/mainstreet/governance/ImplementationBoundaryConformanceTest.java`
-  - checks literal relative production/test class paths rooted under `mainstreet/...`.
-- `src/test/java/mainstreet/surface/ExposureSubmissionAffinityArchitectureConformanceTest.java`
-  - exact `mainstreet.surface` package assertions, exact generic type-name strings, and `getPackageName()` prefix checks for multiple `mainstreet.*` owner packages.
-- `src/test/java/mainstreet/surface/ExposureEvaluatorSubmissionAffinityContractTest.java`
-  - exact generic type-name assertions include `java.util.List<mainstreet.surface.ExposureCandidateEvaluationSubmission>`.
+- `ScopedRuntimeAuthorisationConformanceTest` — literal legacy `mainstreet.runtime.*` FQCN absence checks;
+- `ModuleDependencyConformanceTest` — hard-coded `src/main/java/mainstreet`, `mainstreet.*` import regex and infrastructure-prefix checks;
+- `TimeDeterminismConformanceTest` — hard-coded production namespace source root;
+- `ProfileSurfaceDependencyConformanceTest` — hard-coded surface path and `mainstreet.merchantprofile.` source check;
+- `SemanticReleaseBoundaryConformanceTest` — hard-coded release package path and `mainstreet.*` forbidden import prefixes;
+- `ImplementationBoundaryConformanceTest` — literal `mainstreet/...` production/test paths;
+- `ExposureSubmissionAffinityArchitectureConformanceTest` — exact package/generic type strings and package-prefix checks;
+- `ExposureEvaluatorSubmissionAffinityContractTest` — exact generic type-name strings.
 
-These test strings are structural namespace assertions, not stable external identities. They should be updated atomically with the corresponding production/test package move so the tests continue to express the same architecture after migration.
+These are structural namespace assertions, not stable external identities. Update them atomically with the package/path move. Incidental example/temp paths that do not depend on repository namespace semantics need not be renamed merely for lexical consistency.
 
-Incidental temporary/example paths whose semantics do not depend on the product namespace need not be renamed merely for lexical consistency.
+#### `GR-REN-01B-04` frozen Java namespace boundary
 
-No rename was performed.
+The future Java namespace migration may proceed only after `GR-REN-01F` authorises mutation and must use one coherent dependency-safe wave containing:
+
+1. `src/main/java/mainstreet/**` filesystem root → `src/main/java/grandrue/**`;
+2. production package declarations/imports `mainstreet.*` → `grandrue.*`;
+3. `GrandRueApplication` moved with the root so implicit Spring scanning follows `grandrue`;
+4. `src/test/java/mainstreet/**` filesystem root → `src/test/java/grandrue/**`;
+5. test package declarations/imports and the package/path/FQCN-sensitive structural assertions listed in `GR-REN-01B-03` updated to `grandrue`;
+6. any directly coupled source-set/build references discovered by `GR-REN-01C` included in the same atomic wave where separation would break compilation/test discovery/runtime scanning.
+
+Explicit exclusions from blind namespace replacement:
+
+- `OpportunityEnquiryBindingCodec` v1 AES-GCM AAD literal `mainstreet/enquiry/opportunity-binding/v1/` — compatibility-sensitive protocol/crypto input; preserve until `GR-REN-01D/01F` decides an explicit strategy;
+- historical/reference-only documents and stable `MS-*` authority identifiers;
+- persisted/external identifiers and class-name evidence pending `GR-REN-01D/01F` classification.
+
+`NotificationDeliveryCoordinator` does not contain a fixed `mainstreet.*` literal, but package migration changes future `getClass().getName()` output. That behavioural consequence remains a compatibility-classification input for `GR-REN-01D/01F`.
+
+No rename was performed by `GR-REN-01B`.
+
+### `GR-REN-01C` — executable build/runtime/config naming inventory
+
+State: `OPEN`
+
+| Node | Kind | Scope | State | Done when |
+|---|---|---|---|---|
+| `GR-REN-01C-01` | TASK | backend Maven + CI/test naming: `pom.xml`, `.github/workflows/maven-tests.yml`, coupled test env consumers | `READY` | Maven coordinates and test database/environment identifiers are mapped with exact producers/consumers |
+| `GR-REN-01C-02` | TASK | prototype runtime naming: `compose.prototype.yml`, `src/main/resources/application-prototype.properties`, coupled prototype test | `NOT_STARTED` | database/user/password/volume/env identifiers and exact coherence constraints are mapped |
+| `GR-REN-01C-03` | TASK | storefront executable naming: package manifests + runtime backend URL env reference | `NOT_STARTED` | npm package name/lockfile and storefront runtime env identifier are mapped |
+| `GR-REN-01C-04` | GATE | freeze executable build/runtime rename boundary | `NOT_STARTED` | all essential non-persisted build/runtime naming changes and coupling are explicit |
 
 ### Remaining inventory/classification groups
 
 | Group | Purpose | State |
 |---|---|---|
-| `GR-REN-01C` | exact build/runtime/config/env/container/database-name inventory on proven executable paths | `EXPANSION_REQUIRED` |
 | `GR-REN-01D` | persisted/API/serialized/event/command/contract/provider/entitlement identity inventory reachable from executable paths | `EXPANSION_REQUIRED` |
 | `GR-REN-01E` | `AGENTS.md`, `SEQUENCE.md`, seven canonical governance files + protected-reference boundary classification | `EXPANSION_REQUIRED` |
 | `GR-REN-01F` | reconcile/classify minimal inventory and freeze action map | `NOT_STARTED` |
@@ -354,8 +367,9 @@ On restart, reconcile `development` HEAD with `last_verified_head`; inspect any 
 | `GR-REN-01A-07` | `219ac801ef2eb09a8f15d9e99c6403ebf34c39b7` |
 | `GR-REN-01A-13` | reconciled from complete `GR-REN-01A` evidence + exclusions |
 | `GR-REN-01B-01` | `a7fc9d4a022e62f2023673f7e4c61fb201a1e9df` |
-| `GR-REN-01B-02` | `c3fc871bbe2d2e32ee3e327bf07fcb6d33880e48`, plus corrective addendum in `GR-REN-01B-03` task commit |
-| `GR-REN-01B-03` | evidence recorded in ledger task commit; checkpoint SHA recorded by subsequent ledger update |
+| `GR-REN-01B-02` | `c3fc871bbe2d2e32ee3e327bf07fcb6d33880e48`, plus corrective addendum in `a52661553c15bfd38e4d9bb4fb911ba73f90f84c` |
+| `GR-REN-01B-03` | `a52661553c15bfd38e4d9bb4fb911ba73f90f84c` |
+| `GR-REN-01B-04` | evidence recorded in ledger task commit; checkpoint SHA recorded by subsequent ledger update |
 
 ---
 
@@ -369,14 +383,14 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 model: HIERARCHICAL_DEPENDENCY_GRAPH
 scope: MINIMUM_EXECUTABLE_PLUS_ACTIVE_CONTROLS_AND_CANONICAL_GOVERNANCE
 status: IN_PROGRESS
-active_group: GR-REN-01B
-selected_execution_leaf: GR-REN-01B-04
-last_completed_task: GR-REN-01B-03
-last_verified_head: c3fc871bbe2d2e32ee3e327bf07fcb6d33880e48
-last_task_commit: c3fc871bbe2d2e32ee3e327bf07fcb6d33880e48
+active_group: GR-REN-01C
+selected_execution_leaf: GR-REN-01C-01
+last_completed_task: GR-REN-01B-04
+last_verified_head: a52661553c15bfd38e4d9bb4fb911ba73f90f84c
+last_task_commit: a52661553c15bfd38e4d9bb4fb911ba73f90f84c
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01B-04 only. Freeze the dependency-safe Java namespace migration boundary from the established mechanical package/path wave, Spring-root result, production compatibility-sensitive consumers and package-sensitive tests. Do not rename anything.
+next_action: Execute GR-REN-01C-01 only. Map backend Maven coordinates plus active CI/test PostgreSQL environment/database identifiers and their exact producers/consumers. Do not rename anything.
 ```
 
 ---
