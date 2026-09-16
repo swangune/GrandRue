@@ -1,4 +1,4 @@
-package mainstreet.identitysecurity;
+package grandrue.identitysecurity;
 
 import mainstreet.runtime.IdentitySecurityGenerationAuthority;
 
