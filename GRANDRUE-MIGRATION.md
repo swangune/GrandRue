@@ -226,6 +226,8 @@ Prefer one coherent commit per micro-phase. A small auditable commit series is a
 
 A micro-phase may complete with no non-ledger repository change when inspection proves that no applicable occurrence exists. The evidence and conclusion must still be recorded in this ledger.
 
+Java namespace mutation is a special atomicity case. Do not split one bounded namespace wave into separate path-only, package-declaration-only and import-only checkpoints when doing so would intentionally leave the repository incoherent. Instead, partition the namespace into dependency-safe waves and change the filesystem path, package declaration, direct imports and safe non-persisted FQCN references for that wave together. Each wave MUST remain small enough to inspect independently and SHOULD be represented by its own child phase.
+
 ### 8.2 Inventory and classification
 
 | Phase | Purpose | State |
@@ -244,18 +246,22 @@ No rename phase below may start before `GR-REN-01F` is complete.
 
 | Phase | Purpose | State |
 |---|---|---|
-| `GR-REN-02A` | Move production Java source directory tree to `grandrue` | `NOT_STARTED` |
-| `GR-REN-02B` | Rename production package declarations | `NOT_STARTED` |
-| `GR-REN-02C` | Rename production imports and safe non-persisted FQCN references | `NOT_STARTED` |
-| `GR-REN-02D` | Repair production Spring scanning, reflection and runtime class wiring | `NOT_STARTED` |
+| `GR-REN-02A` | Partition production Java namespace into dependency-safe rename waves and record the exact child-phase order | `NOT_STARTED` |
+| `GR-REN-02B-*` | Execute one production namespace wave per child phase: path + package declaration + direct imports + safe non-persisted FQCN references | `NOT_STARTED` |
+| `GR-REN-02C` | Reconcile remaining cross-wave production namespace references | `NOT_STARTED` |
+| `GR-REN-02D` | Repair and verify production Spring scanning, reflection and runtime class wiring | `NOT_STARTED` |
+
+`GR-REN-02B-*` is a phase family, not one large task. `GR-REN-02A` MUST instantiate concrete children such as `GR-REN-02B-01`, `GR-REN-02B-02` from the classified inventory. Each child must be independently completable and inspectable.
 
 ### 8.4 Test Java namespace
 
 | Phase | Purpose | State |
 |---|---|---|
-| `GR-REN-03A` | Move test Java source directory tree to `grandrue` | `NOT_STARTED` |
-| `GR-REN-03B` | Rename test package declarations and imports | `NOT_STARTED` |
-| `GR-REN-03C` | Update safe test fixtures, resources and class-name references | `NOT_STARTED` |
+| `GR-REN-03A` | Partition test Java namespace into dependency-safe rename waves after production namespace changes are known | `NOT_STARTED` |
+| `GR-REN-03B-*` | Execute one test namespace wave per child phase: path + package declaration + direct imports + safe non-persisted FQCN references | `NOT_STARTED` |
+| `GR-REN-03C` | Reconcile remaining test fixtures, resources and class-name references | `NOT_STARTED` |
+
+`GR-REN-03B-*` follows the same child-phase rule as production namespace work. Do not create one repository-wide test namespace rename task when smaller dependency-safe waves are available.
 
 ### 8.5 Build and runtime naming
 
@@ -390,6 +396,7 @@ next_action: Complete GR-REN-01A only: inventory the required lexical naming for
 - Reason: the original `GR-REN-01` through `GR-REN-11` model combined multiple discovery, decision, mutation and verification concerns into phases that were too large for reliable bounded completion.
 - Effect: the migration scope and protected-identity rules are unchanged; only execution granularity and checkpointability are refined.
 - Prior broad `GR-REN-01` had not completed and is replaced by `GR-REN-01A` through `GR-REN-01F` before rename work begins.
+- Java namespace work is additionally constrained to small dependency-safe atomic waves so phase boundaries do not deliberately create half-renamed source states.
 
 ### Checkpoint history
 
