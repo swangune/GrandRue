@@ -62,7 +62,7 @@ Execution constraints for this migration:
 
 ## 3. Protected Identity Rules
 
-### 3.1 Preserve stable governance identity
+### 3.1 Preserve stable governance and authority identity
 
 Do not mechanically rename:
 
@@ -74,6 +74,10 @@ Do not mechanically rename:
 - accepted contract versions
 
 These are durable governance/authority identities unless a separately approved authority explicitly changes them.
+
+The accepted authority corpus under `designs/authorities/**` is **outside the scope of this naming migration**. Do not lexical-inventory, rename, restructure or rewrite those files merely to replace Main Street terminology.
+
+Current governance and navigation documents may continue to point to accepted authority files by their stable `MS-*` identifiers and existing repository paths. Authority files may be read when a semantic, ownership or compatibility question requires consultation, but such consultation does not make the authority files migration targets.
 
 ### 3.2 Preserve historical evidence
 
@@ -96,7 +100,7 @@ If database state contains a current value that must change, use a new forward m
 
 ## 4. Naming Forms Requiring Inventory
 
-The `GR-REN-01A` through `GR-REN-01F` inventory track MUST collectively inventory at least these forms:
+The `GR-REN-01A` through `GR-REN-01F` inventory track MUST collectively inventory at least these forms within the **in-scope migration surface**:
 
 ```text
 mainstreet
@@ -129,13 +133,15 @@ The inventory track MUST also inspect naming embedded in:
 - reflection/class-name persistence;
 - Spring component scanning and build/plugin wiring.
 
-No mutation task may begin until `GR-REN-01F` has reconciled and classified the complete material inventory.
+`designs/authorities/**` is explicitly excluded from this inventory. References to accepted authorities that appear in in-scope governance or navigation documents may be inventoried as references, but the referenced authority files themselves are not migration work.
+
+No mutation task may begin until `GR-REN-01F` has reconciled and classified the complete **in-scope** material inventory.
 
 ---
 
 ## 5. Classification Vocabulary
 
-Every material occurrence identified by the `GR-REN-01A` through `GR-REN-01F` inventory track MUST be classified as exactly one of:
+Every material in-scope occurrence identified by the `GR-REN-01A` through `GR-REN-01F` inventory track MUST be classified as exactly one of:
 
 - `RENAME_CURRENT_PRODUCT`
 - `RENAME_CODE_NAMESPACE`
@@ -146,6 +152,8 @@ Every material occurrence identified by the `GR-REN-01A` through `GR-REN-01F` in
 - `PRESERVE_HISTORICAL_EVIDENCE`
 - `PRESERVE_IMMUTABLE_MIGRATION`
 - `REVIEW_REQUIRED`
+
+Occurrences inside the excluded `designs/authorities/**` subtree do not require migration classification.
 
 `REVIEW_REQUIRED` occurrences MUST NOT be renamed until their semantics and compatibility requirements are established.
 
@@ -253,7 +261,8 @@ Groups use:
 
 - `EXPANSION_REQUIRED` — scope exists but must be decomposed further before execution reaches it;
 - `OPEN` — children exist and the group is not yet complete;
-- `COMPLETE` — the complete group scope is accounted for and all required descendants/closeout conditions are satisfied.
+- `COMPLETE` — the complete group scope is accounted for and all required descendants/closeout conditions are satisfied;
+- `EXCLUDED` — the complete group scope is deliberately outside this migration and requires no execution or child decomposition.
 
 `READY` is valid only when all explicit dependencies are satisfied, the node scope is concrete, required authority/decisions are available, no blocker is open, and the requested action is authorised.
 
@@ -279,11 +288,12 @@ Rules:
 1. Record `parent` once. Children and ancestors are derived; do not maintain independent ancestor lists.
 2. A node may have multiple `depends_on` edges.
 3. Parentage does not by itself imply execution order.
-4. A `GROUP` is complete only when its entire declared scope has been allocated, all required descendants are `COMPLETE` or validly `NOT_APPLICABLE`, and any group closeout gate is complete.
+4. A `GROUP` is complete only when its entire declared in-scope work has been allocated, all required descendants are `COMPLETE` or validly `NOT_APPLICABLE`, any excluded child scope is explicitly recorded as `EXCLUDED`, and any group closeout gate is complete.
 5. An unexpanded group may remain in the plan, but execution MUST NOT enter it while it is `EXPANSION_REQUIRED`.
 6. If an unstarted task proves too large, preserve its identifier as the parent `GROUP`, create children, and record the decomposition. Do not silently redefine the old task boundary.
 7. If a started task must be decomposed, preserve already-created evidence, allocate the unfinished scope explicitly to children, and retain traceability to the original node.
 8. A completed task is historical evidence. Corrective work receives a new task; completion history is not rewritten.
+9. An `EXCLUDED` group is not a deferred task. It is an explicit scope boundary and MUST NOT later be treated as unfinished migration work unless the migration contract is deliberately amended.
 
 ### 8.4 Task sizing and safe stopping points
 
@@ -348,6 +358,7 @@ Additional rules:
 - A decision result of `PRESERVE` or equivalent may make a planned mutation node `NOT_APPLICABLE`; it does not authorise the mutation.
 - On the shared `development` branch, execute one mutation leaf at a time. Independent inspection/planning leaves may exist concurrently in the graph, but the ledger must identify one selected execution leaf.
 - When several leaves are eligible, choose the smallest coherent leaf that advances the active group without crossing an unresolved dependency. Do not infer that the next numeric identifier is automatically correct.
+- Excluded authority files may be consulted read-only when required to resolve a semantic or compatibility dependency; no dependency may convert that consultation into authority-file migration work.
 
 ### 8.7 Canonical hierarchy
 
@@ -362,8 +373,8 @@ Additional rules:
 | `GR-REN-01B` | `GR-REN-01` | `GROUP` | Java namespace/import/FQCN/Spring/reflection inventory | `EXPANSION_REQUIRED` |
 | `GR-REN-01C` | `GR-REN-01` | `GROUP` | Build/runtime/config/environment/container/database-name inventory | `EXPANSION_REQUIRED` |
 | `GR-REN-01D` | `GR-REN-01` | `GROUP` | Persisted/API/serialized/event/command/contract/provider/entitlement inventory | `EXPANSION_REQUIRED` |
-| `GR-REN-01E` | `GR-REN-01` | `GROUP` | Documentation/governance/historical/immutable-migration terminology inventory | `EXPANSION_REQUIRED` |
-| `GR-REN-01F` | `GR-REN-01` | `GATE` | Reconcile all inventory, classify every material occurrence and freeze the action map | `NOT_STARTED` |
+| `GR-REN-01E` | `GR-REN-01` | `GROUP` | Current governance/documentation, historical and immutable-migration terminology outside the accepted authority corpus | `EXPANSION_REQUIRED` |
+| `GR-REN-01F` | `GR-REN-01` | `GATE` | Reconcile all in-scope inventory, classify every material occurrence and freeze the action map | `NOT_STARTED` |
 | `GR-REN-02` | `GR-REN` | `GROUP` | Production Java namespace migration | `EXPANSION_REQUIRED` |
 | `GR-REN-02A` | `GR-REN-02` | `GROUP` | Partition production namespace into dependency-safe waves | `EXPANSION_REQUIRED` |
 | `GR-REN-02B` | `GR-REN-02` | `GROUP` | Execute production namespace waves | `EXPANSION_REQUIRED` |
@@ -394,17 +405,17 @@ Additional rules:
 | `GR-REN-07A` | `GR-REN-07` | `GROUP` | Runtime-visible non-identity product wording | `EXPANSION_REQUIRED` |
 | `GR-REN-07B` | `GR-REN-07` | `GROUP` | Source comments and non-authoritative current development docs | `EXPANSION_REQUIRED` |
 | `GR-REN-07C` | `GR-REN-07` | `GROUP` | AGENTS/README/SEQUENCE/active navigation wording | `EXPANSION_REQUIRED` |
-| `GR-REN-07D` | `GR-REN-07` | `GROUP` | Current non-historical design/authority prose classified safe for naming replacement | `EXPANSION_REQUIRED` |
-| `GR-REN-07E` | `GR-REN-07` | `GROUP` | Current-authority wording requiring non-mechanical review | `EXPANSION_REQUIRED` |
+| `GR-REN-07D` | `GR-REN-07` | `GROUP` | Current non-historical governance/design-navigation prose outside `designs/authorities/**` that is safe for naming replacement | `EXPANSION_REQUIRED` |
+| `GR-REN-07E` | `GR-REN-07` | `GROUP` | Current governance/navigation wording outside the authority corpus requiring non-mechanical review | `EXPANSION_REQUIRED` |
 | `GR-REN-08` | `GR-REN` | `GROUP` | Residual audits | `EXPANSION_REQUIRED` |
 | `GR-REN-08A` | `GR-REN-08` | `GROUP` | Code namespace/FQCN residual audit | `EXPANSION_REQUIRED` |
 | `GR-REN-08B` | `GR-REN-08` | `GROUP` | Build/runtime/config/environment residual audit | `EXPANSION_REQUIRED` |
 | `GR-REN-08C` | `GR-REN-08` | `GROUP` | Persisted/API/serialized/compatibility residual audit | `EXPANSION_REQUIRED` |
-| `GR-REN-08D` | `GR-REN-08` | `GROUP` | Documentation residual audit | `EXPANSION_REQUIRED` |
-| `GR-REN-08E` | `GR-REN-08` | `GROUP` | Protected-governance/historical/Flyway immutability audit | `EXPANSION_REQUIRED` |
+| `GR-REN-08D` | `GR-REN-08` | `GROUP` | In-scope documentation residual audit | `EXPANSION_REQUIRED` |
+| `GR-REN-08E` | `GR-REN-08` | `GROUP` | Protected stable-reference, historical-evidence and Flyway-immutability audit outside the accepted authority corpus | `EXPANSION_REQUIRED` |
 | `GR-REN-09` | `GR-REN` | `GROUP` | Falsification | `EXPANSION_REQUIRED` |
 | `GR-REN-09A` | `GR-REN-09` | `GROUP` | Persistence/replay/idempotency/external compatibility falsification | `EXPANSION_REQUIRED` |
-| `GR-REN-09B` | `GR-REN-09` | `GROUP` | Semantic-authority contradiction/ownership falsification | `EXPANSION_REQUIRED` |
+| `GR-REN-09B` | `GR-REN-09` | `GROUP` | Semantic-authority contradiction/ownership falsification using accepted authorities as read-only evidence where required | `EXPANSION_REQUIRED` |
 | `GR-REN-10` | `GR-REN` | `GROUP` | Structural verification | `EXPANSION_REQUIRED` |
 | `GR-REN-10A` | `GR-REN-10` | `GROUP` | Filesystem/package/import/source-set consistency | `EXPANSION_REQUIRED` |
 | `GR-REN-10B` | `GR-REN-10` | `GROUP` | Spring/build/config/runtime wiring consistency | `EXPANSION_REQUIRED` |
@@ -413,7 +424,7 @@ Additional rules:
 | `GR-REN-11A` | `GR-REN-11` | `GATE` | Full implementation verification where separately authorised and required | `NOT_STARTED` |
 | `GR-REN-11B` | `GR-REN-11` | `GATE` | Final migration closeout | `NOT_STARTED` |
 
-`GR-REN-07E` MUST NOT silently amend semantic authority. Any material authority change discovered there follows its governing design/document lifecycle separately.
+`GR-REN-07E` MUST NOT silently amend semantic authority. Accepted authority files themselves remain outside migration scope; if an in-scope governance/document change would require a material authority amendment, that issue follows its governing design/document lifecycle separately rather than widening this naming migration into the authority corpus.
 
 `GR-REN-11A` does not itself grant permission to run Maven tests or GitHub Actions. Section 14 continues to govern those actions.
 
@@ -421,7 +432,7 @@ Additional rules:
 
 `GR-REN-01A` is the first group expanded into bounded executable work. The repository tree inspected at pre-model-update HEAD `38124236816186368190dccfb23a5bdd221aee9a` is the scope baseline for this decomposition.
 
-Every lexical task below searches all required forms from Section 4 within its exact scope and records both matches and an evidenced zero-match result where applicable. These tasks perform **no rename** and make **no semantic classification decision**.
+Every lexical task below searches all required forms from Section 4 within its exact in-scope surface and records both matches and an evidenced zero-match result where applicable. These tasks perform **no rename** and make **no semantic classification decision**.
 
 | Node | Parent | Kind | Exact scope | Depends on | State |
 |---|---|---|---|---|---|
@@ -430,25 +441,25 @@ Every lexical task below searches all required forms from Section 4 within its e
 | `GR-REN-01A-03` | `GR-REN-01A` | `TASK` | `src/test/**` | `GR-REN-00` | `NOT_STARTED` |
 | `GR-REN-01A-04` | `GR-REN-01A` | `TASK` | `storefront-web/**` | `GR-REN-00` | `NOT_STARTED` |
 | `GR-REN-01A-05` | `GR-REN-01A` | `TASK` | Root current-navigation files: `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-06` | `GR-REN-01A` | `TASK` | Direct child Markdown files under `designs/` only | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-07` | `GR-REN-01A` | `GROUP` | `designs/authorities/**` | — | `EXPANSION_REQUIRED` |
+| `GR-REN-01A-06` | `GR-REN-01A` | `TASK` | Direct child Markdown files under `designs/` only, excluding descendants of `designs/authorities/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-07` | `GR-REN-01A` | `GROUP` | `designs/authorities/**` — accepted authority corpus excluded from naming migration | — | `EXCLUDED` |
 | `GR-REN-01A-08` | `GR-REN-01A` | `TASK` | `designs/system/**` | `GR-REN-00` | `NOT_STARTED` |
 | `GR-REN-01A-09` | `GR-REN-01A` | `TASK` | `designs/historical/**` | `GR-REN-00` | `NOT_STARTED` |
 | `GR-REN-01A-10` | `GR-REN-01A` | `TASK` | `docs/**` | `GR-REN-00` | `NOT_STARTED` |
 | `GR-REN-01A-11` | `GR-REN-01A` | `TASK` | `experiments/**` | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-12` | `GR-REN-01A` | `GATE` | Reconcile lexical-inventory coverage against the complete repository top-level tree and every expanded `GR-REN-01A` child | all required `GR-REN-01A` leaves | `NOT_STARTED` |
+| `GR-REN-01A-12` | `GR-REN-01A` | `GATE` | Reconcile lexical-inventory coverage against the complete repository top-level tree, every required in-scope `GR-REN-01A` leaf and every explicitly excluded scope | all required in-scope `GR-REN-01A` leaves | `NOT_STARTED` |
 
-The exact `done_when` condition for `GR-REN-01A-01` through `GR-REN-01A-11` is:
+The exact `done_when` condition for executable lexical tasks `GR-REN-01A-01` through `GR-REN-01A-06` and `GR-REN-01A-08` through `GR-REN-01A-11` is:
 
 > Every path in the node scope has been searched for every required Section 4 naming form; repository locations of every match are recorded; zero-result searches are recorded; and no rename or semantic classification has been performed.
 
-`GR-REN-01A-07` MUST be decomposed before it can be executed. Its immediate known children are `designs/authorities/ms-prot/**` and `designs/authorities/programme/**`; the `ms-prot` subtree must be further batched into inspectable leaf scopes rather than treated as one repository-scale task.
+`GR-REN-01A-07` is intentionally `EXCLUDED`. It MUST NOT be decomposed or executed as part of this migration. Governance/navigation references to stable accepted authorities remain valid migration evidence without requiring the authority corpus itself to be inventoried or renamed.
 
-`GR-REN-01A-12` may complete only when the top-level repository tree is fully accounted for by the active lexical inventory nodes with no unallocated path.
+`GR-REN-01A-12` may complete only when the repository top-level tree is fully accounted for by in-scope lexical inventory nodes plus explicitly recorded excluded scopes, with no unallocated path.
 
 ### 8.9 Dependency gates after inventory
 
-`GR-REN-01F` depends on completion of the full `GR-REN-01A` through `GR-REN-01E` inventory/classification track.
+`GR-REN-01F` depends on completion of the full **in-scope** `GR-REN-01A` through `GR-REN-01E` inventory/classification track. Explicitly excluded authority-corpus scope does not block this gate.
 
 After `GR-REN-01F` is complete:
 
@@ -507,6 +518,8 @@ active_path:
   - GR-REN-01
   - GR-REN-01A
   - GR-REN-01A-01
+excluded_scopes:
+  - designs/authorities/**
 last_completed_task: GR-REN-00
 last_verified_head: 26d22025fc536b010e29327724b47f0a4b34b12a
 last_task_commit: 26d22025fc536b010e29327724b47f0a4b34b12a
@@ -550,6 +563,7 @@ next_action: Execute GR-REN-01A-01 only. Search its exact scope for every Sectio
 | Bounded phase decomposition | `b46394ba2ce57412481fa0d3436dc52e802a3318` | Split the original broad phase model into smaller named phase families |
 | Dependency-safe namespace refinement | `38124236816186368190dccfb23a5bdd221aee9a` | Replaced path/package/import-only namespace checkpoints with atomic dependency-safe waves |
 | Hierarchical dependency task model | `84c9637fca39df636799537a910fafa7f8f7cdcf` | Introduced parent/child decomposition, explicit dependency edges, leaf-only execution, scope coverage and evidence rules |
+| Accepted-authority corpus exclusion | `PENDING_CHECKPOINT` | Removed `designs/authorities/**` from lexical inventory, rename, decomposition and completion scope while retaining stable governance references and read-only consultation where required |
 
 ### Task checkpoint history
 
@@ -561,7 +575,9 @@ next_action: Execute GR-REN-01A-01 only. Search its exact scope for every Sectio
 
 ## 12. Naming Inventory
 
-Inventory evidence is recorded by the active `GR-REN-01A` through `GR-REN-01E` task hierarchy.
+Inventory evidence is recorded by the active `GR-REN-01A` through `GR-REN-01E` task hierarchy for the in-scope migration surface.
+
+`designs/authorities/**` is not part of the naming inventory. Stable authority references encountered in governance/navigation files may be recorded without traversing or changing the authority corpus.
 
 No occurrence is safe to rename merely because its spelling matches a migration search term.
 
@@ -633,6 +649,8 @@ DO NOT execute the group
 → choose one eligible leaf
 ```
 
+An `EXCLUDED` group is not expanded or executed. It remains visible only to preserve an explicit scope boundary and audit trail.
+
 ---
 
 ## 14. Verification Constraints
@@ -650,10 +668,10 @@ Structural verification remains required and may include:
 - package/import consistency checks;
 - path existence checks;
 - duplicate-source detection;
-- residual-name searches;
-- stable-identifier checks;
+- residual-name searches within the in-scope migration surface;
+- stable-identifier/reference checks in in-scope governance/navigation files;
 - dependency/readiness validation;
-- hierarchy coverage checks;
+- hierarchy coverage checks including explicit excluded scopes;
 - migration-ledger updates.
 
 Structural inspection MUST NOT be represented as a passed Maven, integration or runtime verification gate.
