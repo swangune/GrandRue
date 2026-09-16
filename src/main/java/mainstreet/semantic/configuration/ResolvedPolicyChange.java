@@ -6,9 +6,9 @@ import java.util.Optional;
 /**
  * A change in applicable value or governing release, scoped to the policy's owner.
  * Absence means no applicable value; it is not an inferred default.
- * Authority: designs/MS-PROT-047 — Capability Configuration Contract.md, v1.0 §4 Semantic ownership,
+ * Authority: MS-PROT-047 — Capability Configuration Contract, v1.0 §4 Semantic ownership,
  * §11 Resolution states and provenance;
- * designs/MS-PROT-040 v1.1 — Configuration Revision, Resolved Package & Atomic Activation Amendment.md,
+ * MS-PROT-040 v1.1 — Configuration Revision, Resolved Package & Atomic Activation Amendment,
  * §4 Semantic-registry affinity.
  */
 public record ResolvedPolicyChange(

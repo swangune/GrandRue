@@ -15,12 +15,10 @@ import java.util.Set;
  * This value carries proposed intent; the owner must resolve its stored base,
  * authorize its source and supply the applicable pinned release separately.
  *
- * Authority: MS-PROT-040 v1.0,
- * designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
  * §13 — Change set; §19 — Candidate generation; §20 — Configuration diff;
  * §44 — Base-revision concurrency invariant; §45 — Automatic merge is not assumed.
- * Immutable candidate identity: MS-PROT-040 v1.1,
- * designs/MS-PROT-040 v1.1 — Configuration Revision, Resolved Package & Atomic Activation Amendment.md,
+ * Immutable candidate identity: MS-PROT-040 v1.1 — Configuration Revision, Resolved Package & Atomic Activation Amendment,
  * §3 — Configuration Revision identity and immutability.
  */
 public record ConfigurationChangeSet(
@@ -87,8 +85,7 @@ public record ConfigurationChangeSet(
     }
 
     /**
-     * Authority: MS-PROT-040 v1.0,
-     * designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
+     * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
      * §14 — Change-set provenance.
      */
     public enum Origin {

@@ -5,9 +5,9 @@ import java.util.Optional;
 
 /**
  * Exact immutable candidate, historical base and validated package presented for analysis.
- * Authority: designs/MS-PROT-040 — Merchant Configuration Review, Approval, Activation & Change Model.md,
- * v1.0 §20 Configuration diff; §24 Existing commitments retain semantic affinity;
- * designs/MS-PROT-040 v1.3 — Configuration Validation, Impact Review & Approval Evidence Amendment.md,
+ * Authority: MS-PROT-040 v1.0 — Merchant Configuration Review, Approval, Activation & Change Model,
+ * §20 Configuration diff; §24 Existing commitments retain semantic affinity;
+ * MS-PROT-040 v1.3 — Configuration Validation, Impact Review & Approval Evidence Amendment,
  * §11 Impact-Evidence Production Predicate.
  */
 public record ConfigurationImpactContext(
