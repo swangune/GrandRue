@@ -96,7 +96,7 @@ If database state contains a current value that must change, use a new forward m
 
 ## 4. Naming Forms Requiring Inventory
 
-`GR-REN-01` MUST inventory at least these forms:
+The `GR-REN-01A` through `GR-REN-01F` inventory track MUST collectively inventory at least these forms:
 
 ```text
 mainstreet
@@ -108,7 +108,7 @@ main-street
 Main_Street
 ```
 
-It MUST also inspect naming embedded in:
+The inventory track MUST also inspect naming embedded in:
 
 - environment-variable prefixes;
 - Spring properties/configuration keys;
@@ -129,11 +129,13 @@ It MUST also inspect naming embedded in:
 - reflection/class-name persistence;
 - Spring component scanning and build/plugin wiring.
 
+No rename phase may begin until `GR-REN-01F` has reconciled and classified the complete material inventory.
+
 ---
 
 ## 5. Classification Vocabulary
 
-Every material occurrence identified by `GR-REN-01` MUST be classified as exactly one of:
+Every material occurrence identified by the `GR-REN-01A` through `GR-REN-01F` inventory track MUST be classified as exactly one of:
 
 - `RENAME_CURRENT_PRODUCT`
 - `RENAME_CODE_NAMESPACE`
@@ -179,7 +181,7 @@ Values participating in equality, persistence, replay, idempotency or external c
 
 ## 7. Java Namespace Rule
 
-The expected current-code namespace target, subject to `GR-REN-01` classification and compatibility review, is:
+The expected current-code namespace target, subject to `GR-REN-01F` classification and compatibility review, is:
 
 ```text
 package mainstreet.*
@@ -205,26 +207,123 @@ The repository MUST NOT be left indefinitely in an ambiguous half-package state.
 
 ## 8. Phase Model
 
+### 8.1 Phase-sizing rule
+
+A migration phase MUST represent one dominant concern with one bounded evidence set and one readily inspectable completion condition.
+
+A phase MUST be subdivided before execution when it would otherwise:
+
+- mix discovery with mutation;
+- mix compatibility decisions with implementation;
+- span unrelated identity categories;
+- combine production, test, runtime and documentation changes unnecessarily;
+- require a diff too large to inspect confidently in one bounded pass; or
+- make restart state ambiguous.
+
+Sub-phases MAY be introduced at any point using an additional suffix such as `GR-REN-05C-01`, `GR-REN-05C-02` when the discovered repository scope is still too large. Do not force a large change merely to preserve the phase table.
+
+Prefer one coherent commit per micro-phase. A small auditable commit series is acceptable only when a single repository operation cannot safely be represented by one commit.
+
+A micro-phase may complete with no non-ledger repository change when inspection proves that no applicable occurrence exists. The evidence and conclusion must still be recorded in this ledger.
+
+### 8.2 Inventory and classification
+
 | Phase | Purpose | State |
 |---|---|---|
 | `GR-REN-00` | Baseline and migration contract | `COMPLETE` |
-| `GR-REN-01` | Repository-wide naming inventory/classification | `IN_PROGRESS` |
-| `GR-REN-02` | Production Java package namespace | `NOT_STARTED` |
-| `GR-REN-03` | Test Java package namespace | `NOT_STARTED` |
-| `GR-REN-04` | Imports, filesystem layout, Spring and build wiring | `NOT_STARTED` |
-| `GR-REN-05` | Runtime/configuration/environment naming | `NOT_STARTED` |
-| `GR-REN-06` | Persisted/API/serialized identifier assessment and migration | `NOT_STARTED` |
-| `GR-REN-07` | Current product wording and source documentation | `NOT_STARTED` |
-| `GR-REN-08` | AGENTS / README / SEQUENCE / active repository navigation | `NOT_STARTED` |
-| `GR-REN-09` | Residual-name audit | `NOT_STARTED` |
-| `GR-REN-10` | Compatibility and semantic falsification | `NOT_STARTED` |
-| `GR-REN-11` | Verification gate | `NOT_STARTED` |
+| `GR-REN-01A` | Lexical search-form and repository-path inventory | `IN_PROGRESS` |
+| `GR-REN-01B` | Java namespace, import, FQCN, Spring and reflection inventory | `NOT_STARTED` |
+| `GR-REN-01C` | Build, runtime, configuration, environment, container and database-name inventory | `NOT_STARTED` |
+| `GR-REN-01D` | Persisted, API, serialized, event, command, contract, provider and entitlement identity inventory | `NOT_STARTED` |
+| `GR-REN-01E` | Current documentation, governance, historical and immutable-migration terminology inventory | `NOT_STARTED` |
+| `GR-REN-01F` | Inventory reconciliation, classification and frozen rename/action map | `NOT_STARTED` |
 
-Prefer one coherent commit or a small auditable commit series per phase.
+No rename phase below may start before `GR-REN-01F` is complete.
+
+### 8.3 Production Java namespace
+
+| Phase | Purpose | State |
+|---|---|---|
+| `GR-REN-02A` | Move production Java source directory tree to `grandrue` | `NOT_STARTED` |
+| `GR-REN-02B` | Rename production package declarations | `NOT_STARTED` |
+| `GR-REN-02C` | Rename production imports and safe non-persisted FQCN references | `NOT_STARTED` |
+| `GR-REN-02D` | Repair production Spring scanning, reflection and runtime class wiring | `NOT_STARTED` |
+
+### 8.4 Test Java namespace
+
+| Phase | Purpose | State |
+|---|---|---|
+| `GR-REN-03A` | Move test Java source directory tree to `grandrue` | `NOT_STARTED` |
+| `GR-REN-03B` | Rename test package declarations and imports | `NOT_STARTED` |
+| `GR-REN-03C` | Update safe test fixtures, resources and class-name references | `NOT_STARTED` |
+
+### 8.5 Build and runtime naming
+
+| Phase | Purpose | State |
+|---|---|---|
+| `GR-REN-04A` | Maven current-product coordinates, artifact and module naming | `NOT_STARTED` |
+| `GR-REN-04B` | Build/source-set/plugin wiring affected by renamed paths or classes | `NOT_STARTED` |
+| `GR-REN-05A` | Spring application property and configuration-key naming | `NOT_STARTED` |
+| `GR-REN-05B` | Environment-variable prefix and variable naming | `NOT_STARTED` |
+| `GR-REN-05C` | Docker, container and local/test infrastructure naming | `NOT_STARTED` |
+| `GR-REN-05D` | Runtime database/connection naming that is not immutable migration history | `NOT_STARTED` |
+| `GR-REN-05E` | URLs, domains, provider configuration and other current runtime product strings | `NOT_STARTED` |
+
+### 8.6 Persisted and externally visible identity
+
+These phases separate decision from mutation deliberately.
+
+| Phase | Purpose | State |
+|---|---|---|
+| `GR-REN-06A` | Event, command and contract identity compatibility decisions | `NOT_STARTED` |
+| `GR-REN-06B` | Entitlement, provider and configuration identity compatibility decisions | `NOT_STARTED` |
+| `GR-REN-06C` | API payload, serialized value and persisted/reflected FQCN compatibility decisions | `NOT_STARTED` |
+| `GR-REN-06D` | Database value, outbox, audit and idempotency identity migration decisions | `NOT_STARTED` |
+| `GR-REN-06E` | Implement approved compatibility aliases/adapters only | `NOT_STARTED` |
+| `GR-REN-06F` | Add approved forward database migration(s) only | `NOT_STARTED` |
+| `GR-REN-06G` | Structural replay/idempotency/external-compatibility review of implemented identity changes | `NOT_STARTED` |
+
+A decision phase may conclude `PRESERVE` and therefore require no implementation phase change for that identity.
+
+### 8.7 Current product wording and active documentation
+
+| Phase | Purpose | State |
+|---|---|---|
+| `GR-REN-07A` | Runtime-visible current product wording, messages and non-identity strings | `NOT_STARTED` |
+| `GR-REN-07B` | Source comments and non-authoritative current development documentation | `NOT_STARTED` |
+| `GR-REN-07C` | `AGENTS.md`, README, SEQUENCE and active repository navigation wording | `NOT_STARTED` |
+| `GR-REN-07D` | Current non-historical design/authority prose classified safe for product-name replacement | `NOT_STARTED` |
+| `GR-REN-07E` | Review remaining current-authority Main Street wording that cannot be changed mechanically | `NOT_STARTED` |
+
+`GR-REN-07E` MUST NOT silently amend semantic authority. Any material authority change discovered there follows its governing design/document lifecycle separately.
+
+### 8.8 Residual audits and falsification
+
+| Phase | Purpose | State |
+|---|---|---|
+| `GR-REN-08A` | Production/test code namespace and FQCN residual audit | `NOT_STARTED` |
+| `GR-REN-08B` | Build/runtime/configuration/environment residual audit | `NOT_STARTED` |
+| `GR-REN-08C` | Persisted/API/serialized/compatibility residual audit | `NOT_STARTED` |
+| `GR-REN-08D` | Documentation residual audit against explicit preserve classifications | `NOT_STARTED` |
+| `GR-REN-08E` | Stable governance ID, historical evidence and Flyway immutability audit | `NOT_STARTED` |
+| `GR-REN-09A` | Compatibility falsification across persistence, replay, idempotency and external boundaries | `NOT_STARTED` |
+| `GR-REN-09B` | Semantic-authority contradiction and ownership falsification | `NOT_STARTED` |
+
+### 8.9 Verification and closeout
+
+| Phase | Purpose | State |
+|---|---|---|
+| `GR-REN-10A` | Filesystem/package/import/source-set structural consistency verification | `NOT_STARTED` |
+| `GR-REN-10B` | Spring/build/configuration/runtime wiring structural consistency verification | `NOT_STARTED` |
+| `GR-REN-10C` | Git provenance, checkpoint and migration-ledger consistency verification | `NOT_STARTED` |
+| `GR-REN-11A` | Full implementation verification gate where separately authorised and required | `NOT_STARTED` |
+| `GR-REN-11B` | Final migration closeout and ledger completion | `NOT_STARTED` |
+
+`GR-REN-11A` does not itself grant permission to run Maven tests or GitHub Actions. Section 14 continues to govern those actions.
 
 A phase is complete only when:
 
-1. its intended repository change is committed;
+1. its intended repository change or inspection evidence is committed;
 2. that phase commit is inspected;
 3. this ledger records the inspected phase commit SHA;
 4. the next phase/action is explicit.
@@ -240,7 +339,7 @@ A Git commit cannot contain its own final SHA because the SHA depends on the com
 
 `last_verified_head` means **the latest inspected substantive phase commit recorded by the ledger**, not the SHA of the ledger checkpoint commit containing that field.
 
-On restart, if repository `HEAD` differs from `last_verified_head`, inspect the difference before continuing. A direct descendant whose only change is the expected `GRANDRUE-MIGRATION.md` checkpoint update is an expected reconciliation case; verify it and continue. Any other difference is unexpected and MUST be reconciled before migration work resumes.
+On restart, if repository `HEAD` differs from `last_verified_head`, inspect the difference before continuing. A direct descendant whose only change is an expected `GRANDRUE-MIGRATION.md` operational/checkpoint update is an expected reconciliation case; verify it and continue. Any other difference is unexpected and MUST be reconciled before migration work resumes.
 
 This rule prevents an impossible self-referential commit-SHA requirement while preserving auditable phase provenance.
 
@@ -254,12 +353,12 @@ repository: swangune/GrandRue
 branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
-current_phase: GR-REN-01
+current_phase: GR-REN-01A
 last_completed_phase: GR-REN-00
 last_verified_head: 26d22025fc536b010e29327724b47f0a4b34b12a
 last_phase_commit: 26d22025fc536b010e29327724b47f0a4b34b12a
 last_ledger_checkpoint_commit: SELF_NOT_RECORDABLE
-next_action: Complete repository-wide naming inventory and classify every material occurrence before any namespace or persisted/runtime identifier rename.
+next_action: Complete GR-REN-01A only: inventory the required lexical naming forms and record their repository locations before performing deeper semantic classification or any rename.
 ```
 
 ---
@@ -275,14 +374,22 @@ next_action: Complete repository-wide naming inventory and classify every materi
 - Ledger-establishment commit: `26d22025fc536b010e29327724b47f0a4b34b12a`
 - Commit inspection: `COMPLETE` — only `GRANDRUE-MIGRATION.md` was added; no runtime or accepted-authority file changed
 - Phase status: `COMPLETE`
-- Next phase: `GR-REN-01`
+- Next phase: `GR-REN-01A`
 
-### GR-REN-01 — Repository-wide naming inventory/classification
+### GR-REN-01A — Lexical search-form and repository-path inventory
 
 - Phase status: `IN_PROGRESS`
-- Inventory baseline: current `development` state after the GR-REN-00 ledger checkpoint
+- Inventory baseline: current `development` state after the GR-REN-00 ledger checkpoint and subsequent ledger-only phase-model decomposition
 - Inventory artifact/location: this ledger, Section 12, unless size requires a separately named non-authoritative inventory file explicitly linked here
-- Rename actions authorised by inventory: none until classification is complete
+- Scope: required lexical forms and their repository locations only
+- Rename actions authorised by this phase: none
+- Next phase after completion: `GR-REN-01B`
+
+### Phase-model decomposition
+
+- Reason: the original `GR-REN-01` through `GR-REN-11` model combined multiple discovery, decision, mutation and verification concerns into phases that were too large for reliable bounded completion.
+- Effect: the migration scope and protected-identity rules are unchanged; only execution granularity and checkpointability are refined.
+- Prior broad `GR-REN-01` had not completed and is replaced by `GR-REN-01A` through `GR-REN-01F` before rename work begins.
 
 ### Checkpoint history
 
@@ -294,9 +401,13 @@ next_action: Complete repository-wide naming inventory and classify every materi
 
 ## 12. Naming Inventory
 
-`GR-REN-01` inventory entries will be recorded here.
+Inventory entries are recorded by the active `GR-REN-01A` through `GR-REN-01F` micro-phase.
 
 No occurrence is safe to rename merely because its spelling matches a migration search term.
+
+### GR-REN-01A — Lexical search-form and repository-path inventory
+
+`IN_PROGRESS`
 
 ---
 
