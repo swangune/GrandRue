@@ -250,7 +250,7 @@ State: `OPEN`
 | `GR-REN-01A-03` | TASK | `src/test/**` | `COMPLETE` | `afc06e36d4091977b3d8bfb29b02e2eed6343003` |
 | `GR-REN-01A-04` | TASK | `storefront-web/**` | `COMPLETE` | `9a0f69e80561a400b963582195d5c75437cc13bb` |
 | `GR-REN-01A-05` | TASK | inventory of `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `COMPLETE` | `25b1ba128d8ea47cf864c41e531de7482c1ba93c` |
-| `GR-REN-01A-06` | GATE | prune discovered root/build/infrastructure matches to an exact build/test/run essential-path manifest | `READY` | — |
+| `GR-REN-01A-06` | GATE | prune discovered root/build/infrastructure matches to an exact build/test/run essential-path manifest | `IN_PROGRESS` | evidence recorded below |
 | `GR-REN-01A-07` | TASK | seven canonical governance files in root `designs/` listed in Section 1 | `NOT_STARTED` | — |
 | `GR-REN-01A-08` | GROUP | non-governance `designs/**` and `designs/watch-list.md` | `EXCLUDED` | reference-only |
 | `GR-REN-01A-09` | GROUP | root docs/navigation except `AGENTS.md`, `SEQUENCE.md`, and `GRANDRUE-MIGRATION.md` | `EXCLUDED` | reference-only |
@@ -264,6 +264,30 @@ Completed discovery evidence is retained even where the essentiality gate exclud
 `GR-REN-01A-06` `done_when`:
 
 > The exact non-source files/paths consumed by the current build/test/run path are identified from real dependency/wiring evidence; each candidate is marked `ESSENTIAL` or `REFERENCE_ONLY`; no naming mutation or semantic classification is performed.
+
+### `GR-REN-01A-06` — essential-path evidence
+
+The discovery candidates from `GR-REN-01A-01` were checked against actual Maven, CI, prototype-runtime and executable-test wiring.
+
+| Candidate | Result | Evidence / consequence |
+|---|---|---|
+| `pom.xml` | `ESSENTIAL` | Maven build entry point; current `mainstreet` group/artifact coordinates participate directly in the build. |
+| `.github/workflows/maven-tests.yml` | `ESSENTIAL` | Active CI test path runs `mvn --batch-mode clean verify -Ppostgres-it` and injects the `MAINSTREET_TEST_POSTGRES_*` variables/database values consumed by PostgreSQL integration tests. |
+| `.github/workflows/storefront-web-tests.yml` | `ESSENTIAL` | Active storefront CI path installs, tests and builds `storefront-web`; this file currently contains no legacy naming match, so no naming mutation is implied. |
+| `compose.prototype.yml` | `ESSENTIAL` | Current local prototype PostgreSQL configuration and direct executable input to `PrototypeLocalRuntimeConfigurationTest`; its database/user/volume naming must remain coherent with `src/main/resources/application-prototype.properties` and the coupled test. |
+| `build_configuration/package_boundary.md` | `REFERENCE_ONLY` | `ImplementationBoundaryConformanceTest` reads it only for `test-scope` and `ConfigurationCompiler`; leaving its legacy product/package prose unchanged does not break build/test/run. |
+| `README` | `REFERENCE_ONLY` | `ImplementationBoundaryConformanceTest` checks only Java/PostgreSQL/H2 sentinel statements; legacy naming is not part of that executable assertion. |
+| `workflow-tree.md` | `REFERENCE_ONLY` | Conformance test checks `Non-authoritative` and an obsolete-claim absence only; legacy product naming is not execution-critical. |
+| `lifecycle.md` | `REFERENCE_ONLY` | Conformance test checks only `Non-authoritative`; legacy product naming is not execution-critical. |
+| `operational-rules.md` | `REFERENCE_ONLY` | `AgentInstructionsConformanceTest` checks compatibility-pointer structure/canonical references; its legacy product wording is not part of the executable requirement. |
+| `.gitignore` | `REFERENCE_ONLY` | No legacy naming match and no demonstrated build/test/run naming dependency. |
+| `tools/DesignCorpusCheck.java` | `REFERENCE_ONLY` | No legacy naming match and no current Maven/CI/build/test/run consumer was found. It remains a callable governance helper, not a naming-migration dependency. |
+
+`src/main/resources/application-prototype.properties` is already within the essential `src/main/**` surface and is not a separate non-source candidate for this gate.
+
+The standing control/governance exceptions (`AGENTS.md`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md`, and the seven canonical root `designs/` governance files) are unaffected by this essentiality classification.
+
+No naming mutation or semantic classification was performed.
 
 Lexical task `done_when`:
 
@@ -362,7 +386,7 @@ last_task_commit: 25b1ba128d8ea47cf864c41e531de7482c1ba93c
 last_inspected_ledger_model_head: d247740c14b92732da5ecd0674f3750f8d00fbe2
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01A-06 only. Derive the exact non-source files and paths consumed by the current GrandRue build/test/run path; mark each ESSENTIAL or REFERENCE_ONLY. `AGENTS.md`, `SEQUENCE.md`, and the seven canonical root `designs/` governance files remain in scope independently of this gate. Do not rename or classify naming occurrences.
+next_action: Inspect the committed GR-REN-01A-06 essential-path evidence, checkpoint the task if complete, then advance only to the next eligible leaf.
 ```
 
 ---
