@@ -437,8 +437,8 @@ Every lexical task below searches all required forms from Section 4 within its e
 | Node | Parent | Kind | Exact scope | Depends on | State |
 |---|---|---|---|---|---|
 | `GR-REN-01A-01` | `GR-REN-01A` | `TASK` | `.github/**`, `build_configuration/**`, `tools/**`, `.gitignore`, `compose.prototype.yml`, `lifecycle.md`, `operational-rules.md`, `pom.xml`, `workflow-tree.md` | `GR-REN-00` | `COMPLETE` |
-| `GR-REN-01A-02` | `GR-REN-01A` | `TASK` | `src/main/**` | `GR-REN-00` | `READY` |
-| `GR-REN-01A-03` | `GR-REN-01A` | `TASK` | `src/test/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-02` | `GR-REN-01A` | `TASK` | `src/main/**` | `GR-REN-00` | `COMPLETE` |
+| `GR-REN-01A-03` | `GR-REN-01A` | `TASK` | `src/test/**` | `GR-REN-00` | `READY` |
 | `GR-REN-01A-04` | `GR-REN-01A` | `TASK` | `storefront-web/**` | `GR-REN-00` | `NOT_STARTED` |
 | `GR-REN-01A-05` | `GR-REN-01A` | `TASK` | Root current-navigation files: `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `GR-REN-00` | `NOT_STARTED` |
 | `GR-REN-01A-06` | `GR-REN-01A` | `TASK` | Direct child Markdown files under `designs/` only, excluding descendants of `designs/authorities/**` | `GR-REN-00` | `NOT_STARTED` |
@@ -512,21 +512,21 @@ model: HIERARCHICAL_DEPENDENCY_GRAPH
 status: IN_PROGRESS
 root: GR-REN
 active_group: GR-REN-01A
-selected_execution_leaf: GR-REN-01A-02
+selected_execution_leaf: GR-REN-01A-03
 active_path:
   - GR-REN
   - GR-REN-01
   - GR-REN-01A
-  - GR-REN-01A-02
+  - GR-REN-01A-03
 excluded_scopes:
   - designs/authorities/**
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
-last_completed_task: GR-REN-01A-01
-last_verified_head: a5bb4ed90ee402ce88c46c0707070cb42488f6bb
-last_task_commit: a5bb4ed90ee402ce88c46c0707070cb42488f6bb
+last_completed_task: GR-REN-01A-02
+last_verified_head: 29a7811c737508ec80214ceff1bb1b28b7762bac
+last_task_commit: 29a7811c737508ec80214ceff1bb1b28b7762bac
 last_inspected_ledger_model_head: 6a907f85d8134a93af464692067389b6f6295760
 mutation_authorised: false
-next_action: Execute GR-REN-01A-02 only. Search src/main/** for every Section 4 naming form, append matches and zero-results to the inventory artifact, and perform no rename or semantic classification.
+next_action: Execute GR-REN-01A-03 only. Search src/test/** for every Section 4 naming form, append matches and zero-results to the inventory artifact, and perform no rename or semantic classification.
 ```
 
 ---
@@ -563,8 +563,22 @@ next_action: Execute GR-REN-01A-02 only. Search src/main/** for every Section 4 
 
 - Parent: `GR-REN-01A`
 - Kind: `TASK`
-- State: `READY`
+- State: `COMPLETE`
 - Scope: `src/main/**`
+- Depends on: `GR-REN-00` — satisfied
+- Rename actions performed: none
+- Semantic classification performed: none
+- Evidence artifact: `docs/development/grandrue-naming-migration-inventory.md`
+- Evidence commit: `29a7811c737508ec80214ceff1bb1b28b7762bac`
+- Commit inspection: `COMPLETE` — changed only the non-authoritative inventory evidence artifact; no production source, runtime configuration, immutable migration, accepted authority or other repository file was modified
+- Next selected task: `GR-REN-01A-03`
+
+### GR-REN-01A-03 — Test-source lexical inventory
+
+- Parent: `GR-REN-01A`
+- Kind: `TASK`
+- State: `READY`
+- Scope: `src/test/**`
 - Depends on: `GR-REN-00` — satisfied
 - Rename actions authorised: none
 - Semantic classification authorised: none
@@ -585,7 +599,8 @@ next_action: Execute GR-REN-01A-02 only. Search src/main/** for every Section 4 
 | Task | Verified task commit | Inspection | Ledger checkpoint |
 |---|---|---|---|
 | `GR-REN-00` | `26d22025fc536b010e29327724b47f0a4b34b12a` | `COMPLETE` | recorded by subsequent ledger state |
-| `GR-REN-01A-01` | `a5bb4ed90ee402ce88c46c0707070cb42488f6bb` | `COMPLETE` | recorded by the ledger-only checkpoint commit containing this row |
+| `GR-REN-01A-01` | `a5bb4ed90ee402ce88c46c0707070cb42488f6bb` | `COMPLETE` | recorded by subsequent ledger state |
+| `GR-REN-01A-02` | `29a7811c737508ec80214ceff1bb1b28b7762bac` | `COMPLETE` | recorded by the ledger-only checkpoint commit containing this row |
 
 ---
 
@@ -603,11 +618,12 @@ No occurrence is safe to rename merely because its spelling matches a migration 
 
 State: `OPEN`
 
-Selected execution leaf: `GR-REN-01A-02`
+Selected execution leaf: `GR-REN-01A-03`
 
 Accepted lexical evidence:
 
 - `GR-REN-01A-01` — `COMPLETE`; evidence commit `a5bb4ed90ee402ce88c46c0707070cb42488f6bb`; detailed matches and zero-results recorded in `docs/development/grandrue-naming-migration-inventory.md`.
+- `GR-REN-01A-02` — `COMPLETE`; evidence commit `29a7811c737508ec80214ceff1bb1b28b7762bac`; production namespace, runtime/persistence identifier, immutable-migration, hyphenated-policy and prose occurrences recorded in `docs/development/grandrue-naming-migration-inventory.md` without classification or mutation.
 
 When a lexical leaf completes, record at minimum:
 
