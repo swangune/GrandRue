@@ -510,7 +510,7 @@ active_path:
 last_completed_task: GR-REN-00
 last_verified_head: 26d22025fc536b010e29327724b47f0a4b34b12a
 last_task_commit: 26d22025fc536b010e29327724b47f0a4b34b12a
-last_inspected_ledger_model_head: 38124236816186368190dccfb23a5bdd221aee9a
+last_inspected_ledger_model_head: 84c9637fca39df636799537a910fafa7f8f7cdcf
 mutation_authorised: false
 next_action: Execute GR-REN-01A-01 only. Search its exact scope for every Section 4 naming form, record matches and zero-results, and perform no rename or semantic classification.
 ```
@@ -549,7 +549,7 @@ next_action: Execute GR-REN-01A-01 only. Search its exact scope for every Sectio
 | Initial migration ledger | `26d22025fc536b010e29327724b47f0a4b34b12a` | Established migration contract and checkpoint semantics |
 | Bounded phase decomposition | `b46394ba2ce57412481fa0d3436dc52e802a3318` | Split the original broad phase model into smaller named phase families |
 | Dependency-safe namespace refinement | `38124236816186368190dccfb23a5bdd221aee9a` | Replaced path/package/import-only namespace checkpoints with atomic dependency-safe waves |
-| Hierarchical dependency task model | `PENDING_CHECKPOINT` | Introduced parent/child decomposition, explicit dependency edges, leaf-only execution, scope coverage and evidence rules |
+| Hierarchical dependency task model | `84c9637fca39df636799537a910fafa7f8f7cdcf` | Introduced parent/child decomposition, explicit dependency edges, leaf-only execution, scope coverage and evidence rules |
 
 ### Task checkpoint history
 
