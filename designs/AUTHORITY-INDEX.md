@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.25
+**Version:** 4.26
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -81,26 +81,26 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-039 | through v1.2 |
 | MS-PROT-040 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 + v1.7 + v1.8 |
 | MS-PROT-041 | through v1.1 |
-| MS-PROT-042 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 + v1.7 + v1.8 + v1.9 + v1.10 + v1.11 + v1.12 + v1.13 + v1.14 + v1.15 |
+| MS-PROT-042 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 + v1.7 + v1.8 + v1.9 + v1.10 + v1.11 + v1.12 + v1.13 + v1.14 + v1.15 + v1.16 |
 | MS-PROT-043 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
 | MS-PROT-044 | base + v1.1 |
 | MS-PROT-045 | through v1.1 |
 | MS-PROT-046 | v1.1 + v1.2 + v1.3 + v1.4 + v1.5 |
 | MS-PROT-047 | v1.0 |
-| MS-PROT-048 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 |
+| MS-PROT-048 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
 | MS-PROT-049 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + MS-PROT-094 within storefront presentation-profile and website-presentation recommendation scope |
 | MS-PROT-050 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
 | MS-PROT-051 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
 | MS-PROT-052 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-053 | v1.0 + v1.1 + v1.2 + v1.3 |
 | MS-PROT-054 | v1.0 |
-| MS-PROT-055 | v1.0 + v1.1 |
+| MS-PROT-055 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-056 | v1.0 through v1.9, scope-aware |
 | MS-PROT-057 | v1.0 + v1.1 + v1.2 + MS-PROT-094 within website presentation-assistance scope |
-| MS-PROT-058 | v1.0 + v1.1 + v1.2 |
+| MS-PROT-058 | v1.0 + v1.1 + v1.2 + v1.3 |
 | MS-PROT-059 | v1.0 |
-| MS-PROT-060 | v1.0 + v1.1 |
-| MS-PROT-061 | v1.0 + v1.1 |
+| MS-PROT-060 | v1.0 + v1.1 + v1.2 |
+| MS-PROT-061 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-062 | v1.0 + v1.1 |
 | MS-PROT-063 | v1.0 + v1.1 + v1.2 + MS-PROT-093 within installed-native session-transport scope |
 | MS-PROT-064 | v1.0 |
@@ -116,7 +116,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-074 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-075 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-076 | v1.0 |
-| MS-PROT-077 | v1.0 + v1.1 |
+| MS-PROT-077 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-078 | v1.0 |
 | MS-PROT-079 | v1.0 + v1.1 |
 | MS-PROT-080 | v1.1 + v1.2 + v1.3 + v1.4 |
@@ -138,6 +138,8 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 ### 3.1 Key scope-aware links
 
 The following cross-authority links are retained explicitly because they materially affect current navigation:
+
+- MS-PROT-061 v1.2 — `MS-PROT-061 v1.2 — Returns Commercial Access Classification Amendment.md` — supplies the current Returns owner-qualified commercial classifications: applicable-policy observation, existing-Order return-resolution support, return-label preparation and existing return-label observation/reconciliation require no independent Commercial Entitlement. It preserves Merchant Configuration ownership of Returns applicability and the independent Ordering, Payment, Inventory, Fulfilment/Shipment and provider boundaries; it contributes zero new standard entitlement identities and partially resolves `MS-PROT-056-V17-DQ-001`, which remains OPEN pending the complete concrete manifest.
 
 - MS-PROT-051 v1.6 — `MS-PROT-051 v1.6 — Merchant Profile Commercial Access Amendment.md` — supplies exact commercial classifications for existing Profile public source observation, merchant preparation, observation, presence authoring, retirement and privacy-only restriction. §§1–9 allocate `MAINTAIN_MERCHANT_PRESENCE` to FREE with explicit BUSINESS/GROWTH inclusion and exempt the five bounded non-authoring contracts. §§3, 10–12 preserve the initial PUBLIC portfolio exclusions, source ownership, current authority, lifecycle, concurrency, historical recovery and neighbouring service boundaries. Exact entitlement identities and the complete catalogue remain unresolved under `MS-PROT-056-V17-DQ-001`; existing Profile deferred decisions and C3 status remain unchanged.
 
