@@ -378,3 +378,37 @@ No rename or semantic classification was performed.
 ### Completion evidence
 
 The complete `storefront-web/**` tree was searched for every Section 4 lexical form. All observed package, runtime environment-variable and current metadata occurrences are recorded above; zero-result forms are recorded; and no mutation or semantic classification was performed.
+
+---
+
+## GR-REN-01A-05 — Root governance/navigation lexical inventory
+
+**Inspection baseline:** `9b9843a0df3ef7ccc9da985c558ca037f83fd54e`  
+**Parent:** `GR-REN-01A`  
+**Kind:** `TASK`  
+**Scope:** `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md`  
+**Rename performed:** `false`  
+**Semantic classification performed:** `false`
+
+### Matches by file
+
+- `AGENTS.md`
+  - `Main Street` occurs in the title and current operational/governance prose.
+  - no lowercase `mainstreet`, namespace-style `mainstreet.`, `MAIN_STREET`, `MAINSTREET`, `main-street`, or `Main_Street` occurrence was found.
+- `README`
+  - `mainstreet` and `mainstreet.*` occur in current Maven coordinates, Java package/FQCN references and repository paths.
+  - `MAINSTREET` occurs in the documented PostgreSQL test environment-variable names.
+  - `Main Street` occurs in the repository/product-identity section as an explicitly historical/provenance reference.
+  - no exact `MAIN_STREET`, `main-street`, or `Main_Street` occurrence was found.
+- `SEQUENCE.md`
+  - `Main Street` occurs throughout the design-dependency/provenance graph.
+  - `Main_Street` occurs in the source handoff filename.
+  - `MAIN_STREET` occurs inside an accepted/stable identifier referenced by the graph, including `HANDLED_OUTSIDE_MAIN_STREET_RECORDED`.
+  - no lowercase `mainstreet`, namespace-style `mainstreet.`, `MAINSTREET`, or `main-street` occurrence was found.
+- `GRANDRUE-MIGRATION.md`
+  - all seven required search forms occur deliberately as migration vocabulary, examples, historical source-name notation or protected compatibility references.
+  - these self-referential occurrences are inventory mechanics, not rename authority.
+
+### Completion evidence
+
+All four root governance/navigation files were inspected for every required lexical form. Current governance wording, current runtime/package/env references, historical/provenance references, stable referenced identifiers and self-referential migration vocabulary are recorded without semantic disposition or mutation.
