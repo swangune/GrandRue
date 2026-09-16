@@ -535,3 +535,46 @@ These remain in scope because they govern current GrandRue repository work, not 
 `GR-REN-01A-06E` is satisfied. The minimal non-source executable surface is now bounded to `pom.xml` plus the active storefront package/build configuration files listed as `ESSENTIAL`; source/resource trees remain in their already-established scopes. All other discovered root/build/infrastructure paths remain reference-only unless later dependency evidence proves otherwise.
 
 No naming mutation or semantic classification was performed.
+
+---
+
+## GR-REN-01A-07 — Seven-file canonical governance lexical inventory
+
+**Inspection baseline:** `6e23bd1b022f3c8beb50b96cb9df123ff8dc484f`  
+**Parent:** `GR-REN-01A`  
+**Kind:** `TASK`  
+**Rename performed:** `false`  
+**Semantic classification performed:** `false`
+
+### Reused unchanged evidence
+
+The six files inspected by the historical `GR-REN-01A-06` evidence remain byte-identical on current `development`; their current blob SHAs match the previously inspected blobs. Their prior lexical evidence is therefore reused without rescanning:
+
+- `designs/DESIGN-RULES.md` — `5aed8d791caa2fbb991f91b41ef03790ffc6577d`
+- `designs/DOCUMENT-GOVERNANCE.md` — `7b333f8b65064bf6db00df33ca6754de2d38457e`
+- `designs/AUTHORITY-INDEX.md` — `4891c44b3f8d60e049d263ae385fc488fd06ae0b`
+- `designs/DEFERRED-DECISION-REGISTER.md` — `1e575e90a9f7e9ac457549ef7a87cdd6d3f65a52`
+- `designs/DESIGN-CORPUS-CONFORMANCE.md` — `cc64221aa3597feba7fe70a066477f4f2139d6b7`
+- `designs/IMPLEMENTATION-RULES.md` — `b385e12d33680acc57ed628f69bc2e4e48ea9d50`
+
+No non-governance design file was traversed.
+
+### Newly inspected seventh governance file
+
+`designs/CANONICAL-SEMANTIC-LEXICON.md` — blob `c1d9ca401bdd1642e8cd478c4dc6e96df612ca37`
+
+Required-form results:
+
+- `Main Street` — present throughout current canonical terminology/governance prose, including the document title, purpose, policy/configuration terminology and owner-qualified platform concepts.
+- `mainstreet` — no occurrence.
+- `mainstreet.*` — no namespace-style occurrence.
+- `MAIN_STREET` — no occurrence.
+- `MAINSTREET` — no occurrence.
+- `main-street` — no occurrence.
+- `Main_Street` — no occurrence.
+
+Stable `MS-PROT-*` authority references are present throughout and remain protected authority identifiers; this lexical task makes no rename decision about them.
+
+### Completion evidence
+
+All seven canonical current governance files in the root of `designs/` are now covered by current evidence: six through verified unchanged-blob reuse and `CANONICAL-SEMANTIC-LEXICON.md` through direct current-branch inspection. The required naming forms are accounted for without traversing excluded design material, without semantic classification and without mutation.
