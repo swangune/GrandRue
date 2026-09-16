@@ -207,8 +207,8 @@ The repository MUST NOT be left indefinitely in an ambiguous half-package state.
 
 | Phase | Purpose | State |
 |---|---|---|
-| `GR-REN-00` | Baseline and migration contract | `IN_PROGRESS` |
-| `GR-REN-01` | Repository-wide naming inventory/classification | `NOT_STARTED` |
+| `GR-REN-00` | Baseline and migration contract | `COMPLETE` |
+| `GR-REN-01` | Repository-wide naming inventory/classification | `IN_PROGRESS` |
 | `GR-REN-02` | Production Java package namespace | `NOT_STARTED` |
 | `GR-REN-03` | Test Java package namespace | `NOT_STARTED` |
 | `GR-REN-04` | Imports, filesystem layout, Spring and build wiring | `NOT_STARTED` |
@@ -254,12 +254,12 @@ repository: swangune/GrandRue
 branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
-current_phase: GR-REN-00
-last_completed_phase: NONE
-last_verified_head: c4153441d8340b229a29884967d796280d949a7d
-last_phase_commit: NONE
-last_ledger_checkpoint_commit: NONE
-next_action: Inspect the GR-REN-00 ledger-establishment commit, record its SHA in this ledger, mark GR-REN-00 complete, and begin GR-REN-01 repository-wide naming inventory/classification.
+current_phase: GR-REN-01
+last_completed_phase: GR-REN-00
+last_verified_head: 26d22025fc536b010e29327724b47f0a4b34b12a
+last_phase_commit: 26d22025fc536b010e29327724b47f0a4b34b12a
+last_ledger_checkpoint_commit: SELF_NOT_RECORDABLE
+next_action: Complete repository-wide naming inventory and classify every material occurrence before any namespace or persisted/runtime identifier rename.
 ```
 
 ---
@@ -272,23 +272,29 @@ next_action: Inspect the GR-REN-00 ledger-establishment commit, record its SHA i
 - Baseline commit message: `docs: stabilize remaining production authority trace anchors`
 - Intervening commits before migration start: none
 - Governing files inspected: yes
-- Ledger-establishment commit: `PENDING`
-- Commit inspection: `PENDING`
-- Phase status: `IN_PROGRESS`
+- Ledger-establishment commit: `26d22025fc536b010e29327724b47f0a4b34b12a`
+- Commit inspection: `COMPLETE` — only `GRANDRUE-MIGRATION.md` was added; no runtime or accepted-authority file changed
+- Phase status: `COMPLETE`
 - Next phase: `GR-REN-01`
 
 ### GR-REN-01 — Repository-wide naming inventory/classification
 
-- Phase status: `NOT_STARTED`
-- Inventory baseline: `PENDING`
+- Phase status: `IN_PROGRESS`
+- Inventory baseline: current `development` state after the GR-REN-00 ledger checkpoint
 - Inventory artifact/location: this ledger, Section 12, unless size requires a separately named non-authoritative inventory file explicitly linked here
 - Rename actions authorised by inventory: none until classification is complete
+
+### Checkpoint history
+
+| Phase | Verified phase commit | Inspection | Ledger checkpoint |
+|---|---|---|---|
+| `GR-REN-00` | `26d22025fc536b010e29327724b47f0a4b34b12a` | `COMPLETE` | recorded by the ledger-only commit containing this row |
 
 ---
 
 ## 12. Naming Inventory
 
-`GR-REN-01` inventory entries will be recorded here after `GR-REN-00` is checkpointed.
+`GR-REN-01` inventory entries will be recorded here.
 
 No occurrence is safe to rename merely because its spelling matches a migration search term.
 
