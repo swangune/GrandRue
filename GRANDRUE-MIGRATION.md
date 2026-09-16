@@ -129,7 +129,7 @@ The inventory track MUST also inspect naming embedded in:
 - reflection/class-name persistence;
 - Spring component scanning and build/plugin wiring.
 
-No rename phase may begin until `GR-REN-01F` has reconciled and classified the complete material inventory.
+No mutation task may begin until `GR-REN-01F` has reconciled and classified the complete material inventory.
 
 ---
 
@@ -205,149 +205,288 @@ The repository MUST NOT be left indefinitely in an ambiguous half-package state.
 
 ---
 
-## 8. Phase Model
+## 8. Hierarchical Task and Dependency Model
 
-### 8.1 Phase-sizing rule
+The migration plan is represented as one canonical **hierarchical dependency graph** in this ledger.
 
-A migration phase MUST represent one dominant concern with one bounded evidence set and one readily inspectable completion condition.
+Three relationships are deliberately separate:
 
-A phase MUST be subdivided before execution when it would otherwise:
+```text
+parent
+    = where a node belongs in the migration decomposition
+
+depends_on
+    = what must be satisfied before an executable node may run
+
+evidence
+    = what proves the node actually completed
+```
+
+The hierarchy provides human navigation and scope roll-up. Dependency edges provide safe execution ordering. Git commits plus recorded inspection evidence provide the durable trail.
+
+Phase numbering is navigational. Numeric order alone MUST NOT be treated as execution authority.
+
+### 8.1 Node types
+
+Only three node types are used:
+
+- `GROUP` — a scope container. It is never executed directly.
+- `TASK` — one bounded action or inspection with one coherent stopping point.
+- `GATE` — an explicit condition check whose result controls dependent work.
+
+Only a concrete `TASK` or `GATE` may be the active execution target.
+
+A wildcard or family expression such as `GR-REN-02B-*` is notation only and MUST NOT be treated as an executable node.
+
+### 8.2 Node state
+
+Executable nodes use:
+
+- `NOT_STARTED`
+- `READY`
+- `IN_PROGRESS`
+- `BLOCKED`
+- `COMPLETE`
+- `NOT_APPLICABLE`
+
+Groups use:
+
+- `EXPANSION_REQUIRED` — scope exists but must be decomposed further before execution reaches it;
+- `OPEN` — children exist and the group is not yet complete;
+- `COMPLETE` — the complete group scope is accounted for and all required descendants/closeout conditions are satisfied.
+
+`READY` is valid only when all explicit dependencies are satisfied, the node scope is concrete, required authority/decisions are available, no blocker is open, and the requested action is authorised.
+
+### 8.3 Canonical node record
+
+Every executable node MUST ultimately have these fields recorded in this ledger or in an explicitly linked non-authoritative migration inventory artifact:
+
+```yaml
+id: stable node identifier
+parent: exactly one parent group
+kind: TASK | GATE
+purpose: one bounded outcome
+scope: exact files/paths/inventory entries/identity family
+inputs: relevant inventory entries, authority or prior decisions
+depends_on: zero or more prerequisite node ids
+done_when: objective completion condition
+state: executable-node state
+evidence: result, commit sha where applicable, inspection and verification
+```
+
+Rules:
+
+1. Record `parent` once. Children and ancestors are derived; do not maintain independent ancestor lists.
+2. A node may have multiple `depends_on` edges.
+3. Parentage does not by itself imply execution order.
+4. A `GROUP` is complete only when its entire declared scope has been allocated, all required descendants are `COMPLETE` or validly `NOT_APPLICABLE`, and any group closeout gate is complete.
+5. An unexpanded group may remain in the plan, but execution MUST NOT enter it while it is `EXPANSION_REQUIRED`.
+6. If an unstarted task proves too large, preserve its identifier as the parent `GROUP`, create children, and record the decomposition. Do not silently redefine the old task boundary.
+7. If a started task must be decomposed, preserve already-created evidence, allocate the unfinished scope explicitly to children, and retain traceability to the original node.
+8. A completed task is historical evidence. Corrective work receives a new task; completion history is not rewritten.
+
+### 8.4 Task sizing and safe stopping points
+
+A task MUST be subdivided before execution when it would otherwise:
 
 - mix discovery with mutation;
 - mix compatibility decisions with implementation;
 - span unrelated identity categories;
-- combine production, test, runtime and documentation changes unnecessarily;
-- require a diff too large to inspect confidently in one bounded pass; or
-- make restart state ambiguous.
+- have an unbounded or discover-as-you-go mutation scope;
+- require a diff or evidence set too large to inspect confidently in one bounded pass;
+- make restart state ambiguous; or
+- combine independent changes merely because they share the Main Street spelling.
 
-Sub-phases MAY be introduced at any point using an additional suffix such as `GR-REN-05C-01`, `GR-REN-05C-02` when the discovered repository scope is still too large. Do not force a large change merely to preserve the phase table.
+Task size is determined by a **safe stopping point**, not by an arbitrary file-count limit.
 
-Prefer one coherent commit per micro-phase. A small auditable commit series is acceptable only when a single repository operation cannot safely be represented by one commit.
+A valid executable leaf must have:
 
-A micro-phase may complete with no non-ledger repository change when inspection proves that no applicable occurrence exists. The evidence and conclusion must still be recorded in this ledger.
+1. one identifiable outcome;
+2. an explicit bounded scope;
+3. a coherent repository stopping point;
+4. an objective `done_when` condition; and
+5. a bounded evidence set.
 
-Java namespace mutation is a special atomicity case. Do not split one bounded namespace wave into separate path-only, package-declaration-only and import-only checkpoints when doing so would intentionally leave the repository incoherent. Instead, partition the namespace into dependency-safe waves and change the filesystem path, package declaration, direct imports and safe non-persisted FQCN references for that wave together. Each wave MUST remain small enough to inspect independently and SHOULD be represented by its own child phase.
+For discovery tasks, a bounded search scope is sufficient. For mutation tasks, freeze the intended change manifest before mutation begins.
 
-### 8.2 Inventory and classification
+A task may complete without a non-ledger repository change when inspection proves that no applicable occurrence exists. The zero-result evidence must still be recorded.
 
-| Phase | Purpose | State |
-|---|---|---|
-| `GR-REN-00` | Baseline and migration contract | `COMPLETE` |
-| `GR-REN-01A` | Lexical search-form and repository-path inventory | `IN_PROGRESS` |
-| `GR-REN-01B` | Java namespace, import, FQCN, Spring and reflection inventory | `NOT_STARTED` |
-| `GR-REN-01C` | Build, runtime, configuration, environment, container and database-name inventory | `NOT_STARTED` |
-| `GR-REN-01D` | Persisted, API, serialized, event, command, contract, provider and entitlement identity inventory | `NOT_STARTED` |
-| `GR-REN-01E` | Current documentation, governance, historical and immutable-migration terminology inventory | `NOT_STARTED` |
-| `GR-REN-01F` | Inventory reconciliation, classification and frozen rename/action map | `NOT_STARTED` |
+### 8.5 Atomicity rule
 
-No rename phase below may start before `GR-REN-01F` is complete.
+Do not create smaller tasks by deliberately creating a broken intermediate repository state.
 
-### 8.3 Production Java namespace
+Java namespace migration is the primary example. One dependency-safe namespace wave must include every change required for that bounded wave to be internally coherent, which may include:
 
-| Phase | Purpose | State |
-|---|---|---|
-| `GR-REN-02A` | Partition production Java namespace into dependency-safe rename waves and record the exact child-phase order | `NOT_STARTED` |
-| `GR-REN-02B-*` | Execute one production namespace wave per child phase: path + package declaration + direct imports + safe non-persisted FQCN references | `NOT_STARTED` |
-| `GR-REN-02C` | Reconcile remaining cross-wave production namespace references | `NOT_STARTED` |
-| `GR-REN-02D` | Repair and verify production Spring scanning, reflection and runtime class wiring | `NOT_STARTED` |
+- filesystem path moves;
+- package declarations;
+- direct imports;
+- safe non-persisted FQCN references;
+- directly affected tests;
+- source-set/build wiring; and
+- Spring/reflection wiring required by that same wave.
 
-`GR-REN-02B-*` is a phase family, not one large task. `GR-REN-02A` MUST instantiate concrete children such as `GR-REN-02B-01`, `GR-REN-02B-02` from the classified inventory. Each child must be independently completable and inspectable.
+If those items cannot be separated safely, they belong in one leaf even when they cross the former production/test/build phase boundaries.
 
-### 8.4 Test Java namespace
+Residual-audit nodes are for discovering accidental omissions. They MUST NOT be used as permission to knowingly leave broken references for a later phase.
 
-| Phase | Purpose | State |
-|---|---|---|
-| `GR-REN-03A` | Partition test Java namespace into dependency-safe rename waves after production namespace changes are known | `NOT_STARTED` |
-| `GR-REN-03B-*` | Execute one test namespace wave per child phase: path + package declaration + direct imports + safe non-persisted FQCN references | `NOT_STARTED` |
-| `GR-REN-03C` | Reconcile remaining test fixtures, resources and class-name references | `NOT_STARTED` |
+### 8.6 Dependency and readiness rules
 
-`GR-REN-03B-*` follows the same child-phase rule as production namespace work. Do not create one repository-wide test namespace rename task when smaller dependency-safe waves are available.
+The dependency graph MUST remain acyclic.
 
-### 8.5 Build and runtime naming
+If a dependency cycle appears:
 
-| Phase | Purpose | State |
-|---|---|---|
-| `GR-REN-04A` | Maven current-product coordinates, artifact and module naming | `NOT_STARTED` |
-| `GR-REN-04B` | Build/source-set/plugin wiring affected by renamed paths or classes | `NOT_STARTED` |
-| `GR-REN-05A` | Spring application property and configuration-key naming | `NOT_STARTED` |
-| `GR-REN-05B` | Environment-variable prefix and variable naming | `NOT_STARTED` |
-| `GR-REN-05C` | Docker, container and local/test infrastructure naming | `NOT_STARTED` |
-| `GR-REN-05D` | Runtime database/connection naming that is not immutable migration history | `NOT_STARTED` |
-| `GR-REN-05E` | URLs, domains, provider configuration and other current runtime product strings | `NOT_STARTED` |
+1. inspect whether an artificial ordering constraint created the cycle;
+2. remove the artificial edge when safe; otherwise
+3. redefine the affected work as one atomic task or escalate the unresolved design/compatibility issue.
 
-### 8.6 Persisted and externally visible identity
+Do not break a cycle by ignoring a material prerequisite.
 
-These phases separate decision from mutation deliberately.
+Additional rules:
 
-| Phase | Purpose | State |
-|---|---|---|
-| `GR-REN-06A` | Event, command and contract identity compatibility decisions | `NOT_STARTED` |
-| `GR-REN-06B` | Entitlement, provider and configuration identity compatibility decisions | `NOT_STARTED` |
-| `GR-REN-06C` | API payload, serialized value and persisted/reflected FQCN compatibility decisions | `NOT_STARTED` |
-| `GR-REN-06D` | Database value, outbox, audit and idempotency identity migration decisions | `NOT_STARTED` |
-| `GR-REN-06E` | Implement approved compatibility aliases/adapters only | `NOT_STARTED` |
-| `GR-REN-06F` | Add approved forward database migration(s) only | `NOT_STARTED` |
-| `GR-REN-06G` | Structural replay/idempotency/external-compatibility review of implemented identity changes | `NOT_STARTED` |
+- No rename/mutation leaf may become `READY` before `GR-REN-01F` is `COMPLETE`.
+- A mutation affecting a persisted or externally visible identity must also depend on the specific compatibility-decision task that governs that identity, even when that decision lives under a numerically later group such as `GR-REN-06`.
+- A decision result of `PRESERVE` or equivalent may make a planned mutation node `NOT_APPLICABLE`; it does not authorise the mutation.
+- On the shared `development` branch, execute one mutation leaf at a time. Independent inspection/planning leaves may exist concurrently in the graph, but the ledger must identify one selected execution leaf.
+- When several leaves are eligible, choose the smallest coherent leaf that advances the active group without crossing an unresolved dependency. Do not infer that the next numeric identifier is automatically correct.
 
-A decision phase may conclude `PRESERVE` and therefore require no implementation phase change for that identity.
+### 8.7 Canonical hierarchy
 
-### 8.7 Current product wording and active documentation
+`GR-REN` is the migration root.
 
-| Phase | Purpose | State |
-|---|---|---|
-| `GR-REN-07A` | Runtime-visible current product wording, messages and non-identity strings | `NOT_STARTED` |
-| `GR-REN-07B` | Source comments and non-authoritative current development documentation | `NOT_STARTED` |
-| `GR-REN-07C` | `AGENTS.md`, README, SEQUENCE and active repository navigation wording | `NOT_STARTED` |
-| `GR-REN-07D` | Current non-historical design/authority prose classified safe for product-name replacement | `NOT_STARTED` |
-| `GR-REN-07E` | Review remaining current-authority Main Street wording that cannot be changed mechanically | `NOT_STARTED` |
+| Node | Parent | Kind | Purpose | State |
+|---|---|---|---|---|
+| `GR-REN` | — | `GROUP` | Entire Main Street → GrandRue naming migration | `OPEN` |
+| `GR-REN-00` | `GR-REN` | `TASK` | Baseline and migration contract | `COMPLETE` |
+| `GR-REN-01` | `GR-REN` | `GROUP` | Inventory and classification | `OPEN` |
+| `GR-REN-01A` | `GR-REN-01` | `GROUP` | Lexical search-form and repository-path inventory | `OPEN` |
+| `GR-REN-01B` | `GR-REN-01` | `GROUP` | Java namespace/import/FQCN/Spring/reflection inventory | `EXPANSION_REQUIRED` |
+| `GR-REN-01C` | `GR-REN-01` | `GROUP` | Build/runtime/config/environment/container/database-name inventory | `EXPANSION_REQUIRED` |
+| `GR-REN-01D` | `GR-REN-01` | `GROUP` | Persisted/API/serialized/event/command/contract/provider/entitlement inventory | `EXPANSION_REQUIRED` |
+| `GR-REN-01E` | `GR-REN-01` | `GROUP` | Documentation/governance/historical/immutable-migration terminology inventory | `EXPANSION_REQUIRED` |
+| `GR-REN-01F` | `GR-REN-01` | `GATE` | Reconcile all inventory, classify every material occurrence and freeze the action map | `NOT_STARTED` |
+| `GR-REN-02` | `GR-REN` | `GROUP` | Production Java namespace migration | `EXPANSION_REQUIRED` |
+| `GR-REN-02A` | `GR-REN-02` | `GROUP` | Partition production namespace into dependency-safe waves | `EXPANSION_REQUIRED` |
+| `GR-REN-02B` | `GR-REN-02` | `GROUP` | Execute production namespace waves | `EXPANSION_REQUIRED` |
+| `GR-REN-02C` | `GR-REN-02` | `GROUP` | Reconcile cross-wave production namespace references | `EXPANSION_REQUIRED` |
+| `GR-REN-02D` | `GR-REN-02` | `GROUP` | Production Spring/reflection/runtime wiring closeout | `EXPANSION_REQUIRED` |
+| `GR-REN-03` | `GR-REN` | `GROUP` | Test Java namespace migration | `EXPANSION_REQUIRED` |
+| `GR-REN-03A` | `GR-REN-03` | `GROUP` | Partition test namespace work where it is not already atomic with production waves | `EXPANSION_REQUIRED` |
+| `GR-REN-03B` | `GR-REN-03` | `GROUP` | Execute standalone test namespace waves where safe | `EXPANSION_REQUIRED` |
+| `GR-REN-03C` | `GR-REN-03` | `GROUP` | Test fixture/resource/class-name residual reconciliation | `EXPANSION_REQUIRED` |
+| `GR-REN-04` | `GR-REN` | `GROUP` | Build naming and wiring | `EXPANSION_REQUIRED` |
+| `GR-REN-04A` | `GR-REN-04` | `GROUP` | Maven coordinates/artifact/module naming | `EXPANSION_REQUIRED` |
+| `GR-REN-04B` | `GR-REN-04` | `GROUP` | Build/source-set/plugin wiring not already atomic with namespace leaves | `EXPANSION_REQUIRED` |
+| `GR-REN-05` | `GR-REN` | `GROUP` | Runtime/configuration/infrastructure naming | `EXPANSION_REQUIRED` |
+| `GR-REN-05A` | `GR-REN-05` | `GROUP` | Spring property/configuration-key naming | `EXPANSION_REQUIRED` |
+| `GR-REN-05B` | `GR-REN-05` | `GROUP` | Environment-variable naming | `EXPANSION_REQUIRED` |
+| `GR-REN-05C` | `GR-REN-05` | `GROUP` | Docker/container/local-test infrastructure naming | `EXPANSION_REQUIRED` |
+| `GR-REN-05D` | `GR-REN-05` | `GROUP` | Runtime database/connection naming excluding immutable migration history | `EXPANSION_REQUIRED` |
+| `GR-REN-05E` | `GR-REN-05` | `GROUP` | URLs/domains/provider configuration/current runtime product strings | `EXPANSION_REQUIRED` |
+| `GR-REN-06` | `GR-REN` | `GROUP` | Persisted and externally visible identity compatibility | `EXPANSION_REQUIRED` |
+| `GR-REN-06A` | `GR-REN-06` | `GROUP` | Event/command/contract identity decisions | `EXPANSION_REQUIRED` |
+| `GR-REN-06B` | `GR-REN-06` | `GROUP` | Entitlement/provider/configuration identity decisions | `EXPANSION_REQUIRED` |
+| `GR-REN-06C` | `GR-REN-06` | `GROUP` | API/serialized/persisted-reflected FQCN decisions | `EXPANSION_REQUIRED` |
+| `GR-REN-06D` | `GR-REN-06` | `GROUP` | Database/outbox/audit/idempotency identity decisions | `EXPANSION_REQUIRED` |
+| `GR-REN-06E` | `GR-REN-06` | `GROUP` | Approved compatibility aliases/adapters | `EXPANSION_REQUIRED` |
+| `GR-REN-06F` | `GR-REN-06` | `GROUP` | Approved forward database migrations | `EXPANSION_REQUIRED` |
+| `GR-REN-06G` | `GR-REN-06` | `GROUP` | Structural replay/idempotency/external-compatibility review | `EXPANSION_REQUIRED` |
+| `GR-REN-07` | `GR-REN` | `GROUP` | Current product wording and active documentation | `EXPANSION_REQUIRED` |
+| `GR-REN-07A` | `GR-REN-07` | `GROUP` | Runtime-visible non-identity product wording | `EXPANSION_REQUIRED` |
+| `GR-REN-07B` | `GR-REN-07` | `GROUP` | Source comments and non-authoritative current development docs | `EXPANSION_REQUIRED` |
+| `GR-REN-07C` | `GR-REN-07` | `GROUP` | AGENTS/README/SEQUENCE/active navigation wording | `EXPANSION_REQUIRED` |
+| `GR-REN-07D` | `GR-REN-07` | `GROUP` | Current non-historical design/authority prose classified safe for naming replacement | `EXPANSION_REQUIRED` |
+| `GR-REN-07E` | `GR-REN-07` | `GROUP` | Current-authority wording requiring non-mechanical review | `EXPANSION_REQUIRED` |
+| `GR-REN-08` | `GR-REN` | `GROUP` | Residual audits | `EXPANSION_REQUIRED` |
+| `GR-REN-08A` | `GR-REN-08` | `GROUP` | Code namespace/FQCN residual audit | `EXPANSION_REQUIRED` |
+| `GR-REN-08B` | `GR-REN-08` | `GROUP` | Build/runtime/config/environment residual audit | `EXPANSION_REQUIRED` |
+| `GR-REN-08C` | `GR-REN-08` | `GROUP` | Persisted/API/serialized/compatibility residual audit | `EXPANSION_REQUIRED` |
+| `GR-REN-08D` | `GR-REN-08` | `GROUP` | Documentation residual audit | `EXPANSION_REQUIRED` |
+| `GR-REN-08E` | `GR-REN-08` | `GROUP` | Protected-governance/historical/Flyway immutability audit | `EXPANSION_REQUIRED` |
+| `GR-REN-09` | `GR-REN` | `GROUP` | Falsification | `EXPANSION_REQUIRED` |
+| `GR-REN-09A` | `GR-REN-09` | `GROUP` | Persistence/replay/idempotency/external compatibility falsification | `EXPANSION_REQUIRED` |
+| `GR-REN-09B` | `GR-REN-09` | `GROUP` | Semantic-authority contradiction/ownership falsification | `EXPANSION_REQUIRED` |
+| `GR-REN-10` | `GR-REN` | `GROUP` | Structural verification | `EXPANSION_REQUIRED` |
+| `GR-REN-10A` | `GR-REN-10` | `GROUP` | Filesystem/package/import/source-set consistency | `EXPANSION_REQUIRED` |
+| `GR-REN-10B` | `GR-REN-10` | `GROUP` | Spring/build/config/runtime wiring consistency | `EXPANSION_REQUIRED` |
+| `GR-REN-10C` | `GR-REN-10` | `GROUP` | Git provenance/checkpoint/ledger consistency | `EXPANSION_REQUIRED` |
+| `GR-REN-11` | `GR-REN` | `GROUP` | Final verification and closeout | `EXPANSION_REQUIRED` |
+| `GR-REN-11A` | `GR-REN-11` | `GATE` | Full implementation verification where separately authorised and required | `NOT_STARTED` |
+| `GR-REN-11B` | `GR-REN-11` | `GATE` | Final migration closeout | `NOT_STARTED` |
 
 `GR-REN-07E` MUST NOT silently amend semantic authority. Any material authority change discovered there follows its governing design/document lifecycle separately.
 
-### 8.8 Residual audits and falsification
-
-| Phase | Purpose | State |
-|---|---|---|
-| `GR-REN-08A` | Production/test code namespace and FQCN residual audit | `NOT_STARTED` |
-| `GR-REN-08B` | Build/runtime/configuration/environment residual audit | `NOT_STARTED` |
-| `GR-REN-08C` | Persisted/API/serialized/compatibility residual audit | `NOT_STARTED` |
-| `GR-REN-08D` | Documentation residual audit against explicit preserve classifications | `NOT_STARTED` |
-| `GR-REN-08E` | Stable governance ID, historical evidence and Flyway immutability audit | `NOT_STARTED` |
-| `GR-REN-09A` | Compatibility falsification across persistence, replay, idempotency and external boundaries | `NOT_STARTED` |
-| `GR-REN-09B` | Semantic-authority contradiction and ownership falsification | `NOT_STARTED` |
-
-### 8.9 Verification and closeout
-
-| Phase | Purpose | State |
-|---|---|---|
-| `GR-REN-10A` | Filesystem/package/import/source-set structural consistency verification | `NOT_STARTED` |
-| `GR-REN-10B` | Spring/build/configuration/runtime wiring structural consistency verification | `NOT_STARTED` |
-| `GR-REN-10C` | Git provenance, checkpoint and migration-ledger consistency verification | `NOT_STARTED` |
-| `GR-REN-11A` | Full implementation verification gate where separately authorised and required | `NOT_STARTED` |
-| `GR-REN-11B` | Final migration closeout and ledger completion | `NOT_STARTED` |
-
 `GR-REN-11A` does not itself grant permission to run Maven tests or GitHub Actions. Section 14 continues to govern those actions.
 
-A phase is complete only when:
+### 8.8 Expanded active group — `GR-REN-01A`
 
-1. its intended repository change or inspection evidence is committed;
-2. that phase commit is inspected;
-3. this ledger records the inspected phase commit SHA;
-4. the next phase/action is explicit.
+`GR-REN-01A` is the first group expanded into bounded executable work. The repository tree inspected at pre-model-update HEAD `38124236816186368190dccfb23a5bdd221aee9a` is the scope baseline for this decomposition.
+
+Every lexical task below searches all required forms from Section 4 within its exact scope and records both matches and an evidenced zero-match result where applicable. These tasks perform **no rename** and make **no semantic classification decision**.
+
+| Node | Parent | Kind | Exact scope | Depends on | State |
+|---|---|---|---|---|---|
+| `GR-REN-01A-01` | `GR-REN-01A` | `TASK` | `.github/**`, `build_configuration/**`, `tools/**`, `.gitignore`, `compose.prototype.yml`, `lifecycle.md`, `operational-rules.md`, `pom.xml`, `workflow-tree.md` | `GR-REN-00` | `READY` |
+| `GR-REN-01A-02` | `GR-REN-01A` | `TASK` | `src/main/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-03` | `GR-REN-01A` | `TASK` | `src/test/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-04` | `GR-REN-01A` | `TASK` | `storefront-web/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-05` | `GR-REN-01A` | `TASK` | Root current-navigation files: `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-06` | `GR-REN-01A` | `TASK` | Direct child Markdown files under `designs/` only | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-07` | `GR-REN-01A` | `GROUP` | `designs/authorities/**` | — | `EXPANSION_REQUIRED` |
+| `GR-REN-01A-08` | `GR-REN-01A` | `TASK` | `designs/system/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-09` | `GR-REN-01A` | `TASK` | `designs/historical/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-10` | `GR-REN-01A` | `TASK` | `docs/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-11` | `GR-REN-01A` | `TASK` | `experiments/**` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-12` | `GR-REN-01A` | `GATE` | Reconcile lexical-inventory coverage against the complete repository top-level tree and every expanded `GR-REN-01A` child | all required `GR-REN-01A` leaves | `NOT_STARTED` |
+
+The exact `done_when` condition for `GR-REN-01A-01` through `GR-REN-01A-11` is:
+
+> Every path in the node scope has been searched for every required Section 4 naming form; repository locations of every match are recorded; zero-result searches are recorded; and no rename or semantic classification has been performed.
+
+`GR-REN-01A-07` MUST be decomposed before it can be executed. Its immediate known children are `designs/authorities/ms-prot/**` and `designs/authorities/programme/**`; the `ms-prot` subtree must be further batched into inspectable leaf scopes rather than treated as one repository-scale task.
+
+`GR-REN-01A-12` may complete only when the top-level repository tree is fully accounted for by the active lexical inventory nodes with no unallocated path.
+
+### 8.9 Dependency gates after inventory
+
+`GR-REN-01F` depends on completion of the full `GR-REN-01A` through `GR-REN-01E` inventory/classification track.
+
+After `GR-REN-01F` is complete:
+
+- safe current-product/current-code mutations may become eligible according to their own dependencies;
+- persisted/external identity changes remain blocked until their specific `GR-REN-06*` compatibility decision leaves complete;
+- a compatibility decision may preserve an old identity, require an alias/adapter, require a forward migration, or make a proposed rename not applicable.
+
+This means execution may legitimately traverse the hierarchy non-numerically. The graph, not phase numbering, determines safety.
 
 ---
 
-## 9. Checkpoint Semantics
+## 9. Checkpoint and Commit Semantics
 
 A Git commit cannot contain its own final SHA because the SHA depends on the committed file content. Therefore this ledger distinguishes:
 
-- **phase commit** — the commit containing the substantive phase change;
-- **ledger checkpoint commit** — a subsequent ledger-only commit that records the already-created and inspected phase commit SHA.
+- **task commit** — the commit containing the substantive task change or task evidence;
+- **ledger checkpoint commit** — a subsequent ledger-only commit that records the already-created and inspected task commit SHA;
+- **ledger-model commit** — a ledger-only change to operational migration structure rather than migration substance.
 
-`last_verified_head` means **the latest inspected substantive phase commit recorded by the ledger**, not the SHA of the ledger checkpoint commit containing that field.
+`last_verified_head` means **the latest inspected substantive migration task commit recorded by the ledger**, not necessarily the repository HEAD and not the SHA of a ledger-only checkpoint/model commit.
 
-On restart, if repository `HEAD` differs from `last_verified_head`, inspect the difference before continuing. A direct descendant whose only change is an expected `GRANDRUE-MIGRATION.md` operational/checkpoint update is an expected reconciliation case; verify it and continue. Any other difference is unexpected and MUST be reconciled before migration work resumes.
+On restart, if repository `HEAD` differs from `last_verified_head`, inspect the difference before continuing. A direct descendant consisting only of expected `GRANDRUE-MIGRATION.md` operational/checkpoint/model updates is an expected reconciliation case. Any other difference MUST be reconciled before migration work resumes.
 
-This rule prevents an impossible self-referential commit-SHA requirement while preserving auditable phase provenance.
+For task commits, use a traceable commit message and include the stable task identifier when practical, for example:
+
+```text
+Migration-Task: GR-REN-02B-01
+```
+
+Ledger-only task-model changes are exempt from inventing a migration task id and should identify themselves as ledger/model changes instead.
+
+A task is complete only when:
+
+1. its `done_when` condition is satisfied;
+2. its intended change or inspection evidence is committed where a commit is applicable;
+3. that task commit/evidence is inspected;
+4. this ledger records the evidence and inspected task commit SHA where applicable; and
+5. the selected next executable leaf is explicit.
 
 ---
 
@@ -358,63 +497,102 @@ migration: MAIN_STREET_TO_GRANDRUE
 repository: swangune/GrandRue
 branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
+model: HIERARCHICAL_DEPENDENCY_GRAPH
 status: IN_PROGRESS
-current_phase: GR-REN-01A
-last_completed_phase: GR-REN-00
+root: GR-REN
+active_group: GR-REN-01A
+selected_execution_leaf: GR-REN-01A-01
+active_path:
+  - GR-REN
+  - GR-REN-01
+  - GR-REN-01A
+  - GR-REN-01A-01
+last_completed_task: GR-REN-00
 last_verified_head: 26d22025fc536b010e29327724b47f0a4b34b12a
-last_phase_commit: 26d22025fc536b010e29327724b47f0a4b34b12a
-last_ledger_checkpoint_commit: SELF_NOT_RECORDABLE
-next_action: Complete GR-REN-01A only: inventory the required lexical naming forms and record their repository locations before performing deeper semantic classification or any rename.
+last_task_commit: 26d22025fc536b010e29327724b47f0a4b34b12a
+last_inspected_ledger_model_head: 38124236816186368190dccfb23a5bdd221aee9a
+mutation_authorised: false
+next_action: Execute GR-REN-01A-01 only. Search its exact scope for every Section 4 naming form, record matches and zero-results, and perform no rename or semantic classification.
 ```
 
 ---
 
-## 11. Phase Evidence
+## 11. Task Evidence and Operational Model History
 
 ### GR-REN-00 — Baseline and migration contract
 
+- Parent: `GR-REN`
+- Kind: `TASK`
 - Baseline verified: `c4153441d8340b229a29884967d796280d949a7d`
 - Baseline commit message: `docs: stabilize remaining production authority trace anchors`
 - Intervening commits before migration start: none
 - Governing files inspected: yes
 - Ledger-establishment commit: `26d22025fc536b010e29327724b47f0a4b34b12a`
 - Commit inspection: `COMPLETE` — only `GRANDRUE-MIGRATION.md` was added; no runtime or accepted-authority file changed
-- Phase status: `COMPLETE`
-- Next phase: `GR-REN-01A`
+- Task status: `COMPLETE`
 
-### GR-REN-01A — Lexical search-form and repository-path inventory
+### GR-REN-01A-01 — Root operational/build lexical inventory
 
-- Phase status: `IN_PROGRESS`
-- Inventory baseline: current `development` state after the GR-REN-00 ledger checkpoint and subsequent ledger-only phase-model decomposition
-- Inventory artifact/location: this ledger, Section 12, unless size requires a separately named non-authoritative inventory file explicitly linked here
-- Scope: required lexical forms and their repository locations only
-- Rename actions authorised by this phase: none
-- Next phase after completion: `GR-REN-01B`
+- Parent: `GR-REN-01A`
+- Kind: `TASK`
+- State: `READY`
+- Scope: exactly as recorded in Section 8.8
+- Depends on: `GR-REN-00` — satisfied
+- Rename actions authorised: none
+- Semantic classification authorised: none
+- Evidence: not yet created
 
-### Phase-model decomposition
+### Operational model revision history
 
-- Reason: the original `GR-REN-01` through `GR-REN-11` model combined multiple discovery, decision, mutation and verification concerns into phases that were too large for reliable bounded completion.
-- Effect: the migration scope and protected-identity rules are unchanged; only execution granularity and checkpointability are refined.
-- Prior broad `GR-REN-01` had not completed and is replaced by `GR-REN-01A` through `GR-REN-01F` before rename work begins.
-- Java namespace work is additionally constrained to small dependency-safe atomic waves so phase boundaries do not deliberately create half-renamed source states.
+| Revision | Commit | Effect |
+|---|---|---|
+| Initial migration ledger | `26d22025fc536b010e29327724b47f0a4b34b12a` | Established migration contract and checkpoint semantics |
+| Bounded phase decomposition | `b46394ba2ce57412481fa0d3436dc52e802a3318` | Split the original broad phase model into smaller named phase families |
+| Dependency-safe namespace refinement | `38124236816186368190dccfb23a5bdd221aee9a` | Replaced path/package/import-only namespace checkpoints with atomic dependency-safe waves |
+| Hierarchical dependency task model | `PENDING_CHECKPOINT` | Introduced parent/child decomposition, explicit dependency edges, leaf-only execution, scope coverage and evidence rules |
 
-### Checkpoint history
+### Task checkpoint history
 
-| Phase | Verified phase commit | Inspection | Ledger checkpoint |
+| Task | Verified task commit | Inspection | Ledger checkpoint |
 |---|---|---|---|
-| `GR-REN-00` | `26d22025fc536b010e29327724b47f0a4b34b12a` | `COMPLETE` | recorded by the ledger-only commit containing this row |
+| `GR-REN-00` | `26d22025fc536b010e29327724b47f0a4b34b12a` | `COMPLETE` | recorded by subsequent ledger state |
 
 ---
 
 ## 12. Naming Inventory
 
-Inventory entries are recorded by the active `GR-REN-01A` through `GR-REN-01F` micro-phase.
+Inventory evidence is recorded by the active `GR-REN-01A` through `GR-REN-01E` task hierarchy.
 
 No occurrence is safe to rename merely because its spelling matches a migration search term.
 
 ### GR-REN-01A — Lexical search-form and repository-path inventory
 
-`IN_PROGRESS`
+State: `OPEN`
+
+Selected execution leaf: `GR-REN-01A-01`
+
+No lexical-inventory evidence has yet been accepted under the new leaf model. Existing phase-model work did not itself constitute repository-name inventory evidence.
+
+When a lexical leaf completes, record at minimum:
+
+```yaml
+task: <leaf id>
+scope: <exact scope>
+searched_forms:
+  - mainstreet
+  - mainstreet.*
+  - Main Street
+  - MAIN_STREET
+  - MAINSTREET
+  - main-street
+  - Main_Street
+matches: <recorded repository locations>
+zero_results: <forms with no result in the bounded scope>
+rename_performed: false
+classification_performed: false
+evidence_commit: <sha if applicable>
+inspection: <result>
+```
 
 ---
 
@@ -425,10 +603,13 @@ At the beginning of every migration session:
 1. inspect `AGENTS.md`;
 2. inspect this ledger;
 3. fetch current `development` HEAD;
-4. compare it to `last_verified_head` using Section 9 checkpoint semantics;
-5. inspect any intervening commit(s);
-6. confirm the recorded migration phase;
-7. continue from `next_action`.
+4. compare it with `last_verified_head` using Section 9 checkpoint semantics;
+5. inspect every intervening non-substantive ledger commit or reconcile any unexpected substantive commit;
+6. locate `selected_execution_leaf` and its parent chain;
+7. verify the leaf still has a concrete scope and objective `done_when` condition;
+8. verify every `depends_on` edge is satisfied and no new blocker/authority conflict invalidates readiness;
+9. if the selected leaf is no longer executable, mark/reconcile it appropriately and select another eligible leaf without crossing a dependency; and
+10. execute only the selected leaf.
 
 Never infer migration progress from conversation memory alone.
 
@@ -438,7 +619,18 @@ If HEAD and ledger state disagree unexpectedly:
 STOP
 → inspect the difference
 → reconcile the ledger
+→ recompute executable leaves
 → only then continue
+```
+
+If execution reaches an `EXPANSION_REQUIRED` group:
+
+```text
+DO NOT execute the group
+→ inspect its real repository/inventory scope
+→ create bounded child tasks/gates
+→ record parent + dependency edges + done_when
+→ choose one eligible leaf
 ```
 
 ---
@@ -460,6 +652,10 @@ Structural verification remains required and may include:
 - duplicate-source detection;
 - residual-name searches;
 - stable-identifier checks;
+- dependency/readiness validation;
+- hierarchy coverage checks;
 - migration-ledger updates.
+
+Structural inspection MUST NOT be represented as a passed Maven, integration or runtime verification gate.
 
 The normal full implementation verification gate remains separate and is not implicitly authorised by this migration ledger.
