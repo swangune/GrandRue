@@ -26,6 +26,12 @@ historical Main Street evidence
     = preserve as historical terminology
 ```
 
+The active migration scope is deliberately **runtime-centred**.
+
+A file is an active migration target only when it is directly required to build, configure, test, deploy, serve or govern the current GrandRue runtime/repository operation. Design explanation, historical evidence, implementation evidence, experiments and other reference material are not migration targets merely because they contain Main Street terminology.
+
+Current governance/navigation documents remain in scope where their wording or references must describe the present GrandRue repository accurately. Reference-only files may be consulted without being renamed.
+
 This migration MUST NOT be implemented as a blind global search-and-replace.
 
 A naming change MUST NOT silently alter accepted semantic meaning, authority ownership, persisted identity, replay/idempotency behaviour, external compatibility, database migration history or historical evidence.
@@ -60,7 +66,7 @@ Execution constraints for this migration:
 
 ---
 
-## 3. Protected Identity Rules
+## 3. Protected and Reference-Only Identity Rules
 
 ### 3.1 Preserve stable governance and authority identity
 
@@ -75,22 +81,43 @@ Do not mechanically rename:
 
 These are durable governance/authority identities unless a separately approved authority explicitly changes them.
 
-The accepted authority corpus under `designs/authorities/**` is **outside the scope of this naming migration**. Do not lexical-inventory, rename, restructure or rewrite those files merely to replace Main Street terminology.
+### 3.2 Reference-only design corpus
 
-Current governance and navigation documents may continue to point to accepted authority files by their stable `MS-*` identifiers and existing repository paths. Authority files may be read when a semantic, ownership or compatibility question requires consultation, but such consultation does not make the authority files migration targets.
+Within `designs/**`, only the current governance/navigation documents listed below are active migration surfaces:
 
-### 3.2 Preserve historical evidence
+- `designs/DESIGN-RULES.md`
+- `designs/DOCUMENT-GOVERNANCE.md`
+- `designs/AUTHORITY-INDEX.md`
+- `designs/DEFERRED-DECISION-REGISTER.md`
+- `designs/DESIGN-CORPUS-CONFORMANCE.md`
+- `designs/IMPLEMENTATION-RULES.md`
 
-Do not rewrite historical terminology solely for branding consistency, including:
+All other files under `designs/**` are **outside the scope of this naming migration**, including:
 
-- `designs/historical/**`;
+- `designs/authorities/**`;
+- `designs/system/**`;
+- `designs/historical/**`; and
+- any other non-governance design file.
+
+Do not lexical-inventory, rename, restructure or rewrite those reference-only files merely to replace Main Street terminology. Current governance/navigation documents may continue to reference them by stable identifiers and existing paths.
+
+Reference-only design files may be read when a semantic, ownership, historical or compatibility question requires consultation. Read-only consultation does not make them migration targets.
+
+### 3.3 Preserve historical and implementation evidence
+
+Do not rewrite historical or implementation evidence solely for branding consistency, including:
+
 - historical implementation evidence;
 - old conformance records;
-- handoffs or records describing the project when it was named Main Street.
+- handoffs or records describing the project when it was named Main Street;
+- development evidence under `docs/**` that is not required to run or govern current GrandRue; and
+- experiments or prototypes retained as evidence rather than current runtime surfaces.
 
 Historical terminology is valid repository-evolution evidence.
 
-### 3.3 Preserve immutable database migration history
+The operational migration evidence file `docs/development/grandrue-naming-migration-inventory.md` remains writable because this ledger uses it to record migration evidence. It is not itself a product-branding migration target.
+
+### 3.4 Preserve immutable database migration history
 
 Existing applied Flyway migration files are immutable for this naming migration.
 
@@ -100,7 +127,7 @@ If database state contains a current value that must change, use a new forward m
 
 ## 4. Naming Forms Requiring Inventory
 
-The `GR-REN-01A` through `GR-REN-01F` inventory track MUST collectively inventory at least these forms within the **in-scope migration surface**:
+The `GR-REN-01A` through `GR-REN-01F` inventory track MUST collectively inventory at least these forms within the **in-scope runtime/governance migration surface**:
 
 ```text
 mainstreet
@@ -112,7 +139,7 @@ main-street
 Main_Street
 ```
 
-The inventory track MUST also inspect naming embedded in:
+The inventory track MUST also inspect naming embedded in active runtime/repository surfaces including:
 
 - environment-variable prefixes;
 - Spring properties/configuration keys;
@@ -127,13 +154,14 @@ The inventory track MUST also inspect naming embedded in:
 - contract identities;
 - provider references;
 - entitlement identities;
-- test fixtures;
+- runtime-coupled test fixtures;
 - filenames/directories;
 - fully qualified Java class-name strings;
 - reflection/class-name persistence;
-- Spring component scanning and build/plugin wiring.
+- Spring component scanning and build/plugin wiring; and
+- the current governance/navigation documents explicitly retained by Section 3.2.
 
-`designs/authorities/**` is explicitly excluded from this inventory. References to accepted authorities that appear in in-scope governance or navigation documents may be inventoried as references, but the referenced authority files themselves are not migration work.
+Explicitly excluded reference-only material does not require lexical inventory or migration classification. References to excluded files that appear in in-scope governance/navigation documents may be inventoried as references without traversing or changing the referenced files.
 
 No mutation task may begin until `GR-REN-01F` has reconciled and classified the complete **in-scope** material inventory.
 
@@ -153,7 +181,7 @@ Every material in-scope occurrence identified by the `GR-REN-01A` through `GR-RE
 - `PRESERVE_IMMUTABLE_MIGRATION`
 - `REVIEW_REQUIRED`
 
-Occurrences inside the excluded `designs/authorities/**` subtree do not require migration classification.
+Occurrences inside explicitly excluded reference-only scopes do not require migration classification.
 
 `REVIEW_REQUIRED` occurrences MUST NOT be renamed until their semantics and compatibility requirements are established.
 
@@ -358,7 +386,7 @@ Additional rules:
 - A decision result of `PRESERVE` or equivalent may make a planned mutation node `NOT_APPLICABLE`; it does not authorise the mutation.
 - On the shared `development` branch, execute one mutation leaf at a time. Independent inspection/planning leaves may exist concurrently in the graph, but the ledger must identify one selected execution leaf.
 - When several leaves are eligible, choose the smallest coherent leaf that advances the active group without crossing an unresolved dependency. Do not infer that the next numeric identifier is automatically correct.
-- Excluded authority files may be consulted read-only when required to resolve a semantic or compatibility dependency; no dependency may convert that consultation into authority-file migration work.
+- Excluded reference-only files may be consulted read-only when required to resolve a semantic or compatibility dependency; no dependency may convert that consultation into migration work.
 
 ### 8.7 Canonical hierarchy
 
@@ -368,12 +396,12 @@ Additional rules:
 |---|---|---|---|---|
 | `GR-REN` | — | `GROUP` | Entire Main Street → GrandRue naming migration | `OPEN` |
 | `GR-REN-00` | `GR-REN` | `TASK` | Baseline and migration contract | `COMPLETE` |
-| `GR-REN-01` | `GR-REN` | `GROUP` | Inventory and classification | `OPEN` |
+| `GR-REN-01` | `GR-REN` | `GROUP` | Runtime/governance inventory and classification | `OPEN` |
 | `GR-REN-01A` | `GR-REN-01` | `GROUP` | Lexical search-form and repository-path inventory | `OPEN` |
 | `GR-REN-01B` | `GR-REN-01` | `GROUP` | Java namespace/import/FQCN/Spring/reflection inventory | `EXPANSION_REQUIRED` |
 | `GR-REN-01C` | `GR-REN-01` | `GROUP` | Build/runtime/config/environment/container/database-name inventory | `EXPANSION_REQUIRED` |
 | `GR-REN-01D` | `GR-REN-01` | `GROUP` | Persisted/API/serialized/event/command/contract/provider/entitlement inventory | `EXPANSION_REQUIRED` |
-| `GR-REN-01E` | `GR-REN-01` | `GROUP` | Current governance/documentation, historical and immutable-migration terminology outside the accepted authority corpus | `EXPANSION_REQUIRED` |
+| `GR-REN-01E` | `GR-REN-01` | `GROUP` | Current governance/navigation and protected-reference boundary inventory | `EXPANSION_REQUIRED` |
 | `GR-REN-01F` | `GR-REN-01` | `GATE` | Reconcile all in-scope inventory, classify every material occurrence and freeze the action map | `NOT_STARTED` |
 | `GR-REN-02` | `GR-REN` | `GROUP` | Production Java namespace migration | `EXPANSION_REQUIRED` |
 | `GR-REN-02A` | `GR-REN-02` | `GROUP` | Partition production namespace into dependency-safe waves | `EXPANSION_REQUIRED` |
@@ -383,7 +411,7 @@ Additional rules:
 | `GR-REN-03` | `GR-REN` | `GROUP` | Test Java namespace migration | `EXPANSION_REQUIRED` |
 | `GR-REN-03A` | `GR-REN-03` | `GROUP` | Partition test namespace work where it is not already atomic with production waves | `EXPANSION_REQUIRED` |
 | `GR-REN-03B` | `GR-REN-03` | `GROUP` | Execute standalone test namespace waves where safe | `EXPANSION_REQUIRED` |
-| `GR-REN-03C` | `GR-REN-03` | `GROUP` | Test fixture/resource/class-name residual reconciliation | `EXPANSION_REQUIRED` |
+| `GR-REN-03C` | `GR-REN-03` | `GROUP` | Runtime-coupled test fixture/resource/class-name residual reconciliation | `EXPANSION_REQUIRED` |
 | `GR-REN-04` | `GR-REN` | `GROUP` | Build naming and wiring | `EXPANSION_REQUIRED` |
 | `GR-REN-04A` | `GR-REN-04` | `GROUP` | Maven coordinates/artifact/module naming | `EXPANSION_REQUIRED` |
 | `GR-REN-04B` | `GR-REN-04` | `GROUP` | Build/source-set/plugin wiring not already atomic with namespace leaves | `EXPANSION_REQUIRED` |
@@ -401,21 +429,21 @@ Additional rules:
 | `GR-REN-06E` | `GR-REN-06` | `GROUP` | Approved compatibility aliases/adapters | `EXPANSION_REQUIRED` |
 | `GR-REN-06F` | `GR-REN-06` | `GROUP` | Approved forward database migrations | `EXPANSION_REQUIRED` |
 | `GR-REN-06G` | `GR-REN-06` | `GROUP` | Structural replay/idempotency/external-compatibility review | `EXPANSION_REQUIRED` |
-| `GR-REN-07` | `GR-REN` | `GROUP` | Current product wording and active documentation | `EXPANSION_REQUIRED` |
+| `GR-REN-07` | `GR-REN` | `GROUP` | Current runtime product wording and repository governance | `EXPANSION_REQUIRED` |
 | `GR-REN-07A` | `GR-REN-07` | `GROUP` | Runtime-visible non-identity product wording | `EXPANSION_REQUIRED` |
-| `GR-REN-07B` | `GR-REN-07` | `GROUP` | Source comments and non-authoritative current development docs | `EXPANSION_REQUIRED` |
+| `GR-REN-07B` | `GR-REN-07` | `GROUP` | Source comments and runtime-coupled operational wording | `EXPANSION_REQUIRED` |
 | `GR-REN-07C` | `GR-REN-07` | `GROUP` | AGENTS/README/SEQUENCE/active navigation wording | `EXPANSION_REQUIRED` |
-| `GR-REN-07D` | `GR-REN-07` | `GROUP` | Current non-historical governance/design-navigation prose outside `designs/authorities/**` that is safe for naming replacement | `EXPANSION_REQUIRED` |
-| `GR-REN-07E` | `GR-REN-07` | `GROUP` | Current governance/navigation wording outside the authority corpus requiring non-mechanical review | `EXPANSION_REQUIRED` |
+| `GR-REN-07D` | `GR-REN-07` | `GROUP` | Current prose in the Section 3.2 governance files safe for naming replacement | `EXPANSION_REQUIRED` |
+| `GR-REN-07E` | `GR-REN-07` | `GROUP` | Current governance/navigation wording requiring non-mechanical review | `EXPANSION_REQUIRED` |
 | `GR-REN-08` | `GR-REN` | `GROUP` | Residual audits | `EXPANSION_REQUIRED` |
 | `GR-REN-08A` | `GR-REN-08` | `GROUP` | Code namespace/FQCN residual audit | `EXPANSION_REQUIRED` |
 | `GR-REN-08B` | `GR-REN-08` | `GROUP` | Build/runtime/config/environment residual audit | `EXPANSION_REQUIRED` |
 | `GR-REN-08C` | `GR-REN-08` | `GROUP` | Persisted/API/serialized/compatibility residual audit | `EXPANSION_REQUIRED` |
-| `GR-REN-08D` | `GR-REN-08` | `GROUP` | In-scope documentation residual audit | `EXPANSION_REQUIRED` |
-| `GR-REN-08E` | `GR-REN-08` | `GROUP` | Protected stable-reference, historical-evidence and Flyway-immutability audit outside the accepted authority corpus | `EXPANSION_REQUIRED` |
+| `GR-REN-08D` | `GR-REN-08` | `GROUP` | In-scope governance/navigation residual audit | `EXPANSION_REQUIRED` |
+| `GR-REN-08E` | `GR-REN-08` | `GROUP` | Reference-only boundary, protected stable-reference and Flyway-immutability audit | `EXPANSION_REQUIRED` |
 | `GR-REN-09` | `GR-REN` | `GROUP` | Falsification | `EXPANSION_REQUIRED` |
 | `GR-REN-09A` | `GR-REN-09` | `GROUP` | Persistence/replay/idempotency/external compatibility falsification | `EXPANSION_REQUIRED` |
-| `GR-REN-09B` | `GR-REN-09` | `GROUP` | Semantic-authority contradiction/ownership falsification using accepted authorities as read-only evidence where required | `EXPANSION_REQUIRED` |
+| `GR-REN-09B` | `GR-REN-09` | `GROUP` | Semantic-authority contradiction/ownership falsification using excluded design authorities as read-only evidence where required | `EXPANSION_REQUIRED` |
 | `GR-REN-10` | `GR-REN` | `GROUP` | Structural verification | `EXPANSION_REQUIRED` |
 | `GR-REN-10A` | `GR-REN-10` | `GROUP` | Filesystem/package/import/source-set consistency | `EXPANSION_REQUIRED` |
 | `GR-REN-10B` | `GR-REN-10` | `GROUP` | Spring/build/config/runtime wiring consistency | `EXPANSION_REQUIRED` |
@@ -424,7 +452,7 @@ Additional rules:
 | `GR-REN-11A` | `GR-REN-11` | `GATE` | Full implementation verification where separately authorised and required | `NOT_STARTED` |
 | `GR-REN-11B` | `GR-REN-11` | `GATE` | Final migration closeout | `NOT_STARTED` |
 
-`GR-REN-07E` MUST NOT silently amend semantic authority. Accepted authority files themselves remain outside migration scope; if an in-scope governance/document change would require a material authority amendment, that issue follows its governing design/document lifecycle separately rather than widening this naming migration into the authority corpus.
+`GR-REN-07E` MUST NOT silently amend semantic authority. Excluded design files remain outside migration scope; if an in-scope governance/document change would require a material authority amendment, that issue follows its governing design/document lifecycle separately rather than widening this naming migration.
 
 `GR-REN-11A` does not itself grant permission to run Maven tests or GitHub Actions. Section 14 continues to govern those actions.
 
@@ -440,26 +468,26 @@ Every lexical task below searches all required forms from Section 4 within its e
 | `GR-REN-01A-02` | `GR-REN-01A` | `TASK` | `src/main/**` | `GR-REN-00` | `COMPLETE` |
 | `GR-REN-01A-03` | `GR-REN-01A` | `TASK` | `src/test/**` | `GR-REN-00` | `COMPLETE` |
 | `GR-REN-01A-04` | `GR-REN-01A` | `TASK` | `storefront-web/**` | `GR-REN-00` | `READY` |
-| `GR-REN-01A-05` | `GR-REN-01A` | `TASK` | Root current-navigation files: `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-06` | `GR-REN-01A` | `TASK` | Direct child Markdown files under `designs/` only, excluding descendants of `designs/authorities/**` | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-07` | `GR-REN-01A` | `GROUP` | `designs/authorities/**` — accepted authority corpus excluded from naming migration | — | `EXCLUDED` |
-| `GR-REN-01A-08` | `GR-REN-01A` | `TASK` | `designs/system/**` | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-09` | `GR-REN-01A` | `TASK` | `designs/historical/**` | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-10` | `GR-REN-01A` | `TASK` | `docs/**` | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-11` | `GR-REN-01A` | `TASK` | `experiments/**` | `GR-REN-00` | `NOT_STARTED` |
-| `GR-REN-01A-12` | `GR-REN-01A` | `GATE` | Reconcile lexical-inventory coverage against the complete repository top-level tree, every required in-scope `GR-REN-01A` leaf and every explicitly excluded scope | all required in-scope `GR-REN-01A` leaves | `NOT_STARTED` |
+| `GR-REN-01A-05` | `GR-REN-01A` | `TASK` | Root current governance/navigation files: `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-06` | `GR-REN-01A` | `TASK` | Section 3.2 governance files under `designs/` only | `GR-REN-00` | `NOT_STARTED` |
+| `GR-REN-01A-07` | `GR-REN-01A` | `GROUP` | `designs/authorities/**` and all other non-governance design material not otherwise listed in `GR-REN-01A-06` | — | `EXCLUDED` |
+| `GR-REN-01A-08` | `GR-REN-01A` | `GROUP` | `designs/system/**` | — | `EXCLUDED` |
+| `GR-REN-01A-09` | `GR-REN-01A` | `GROUP` | `designs/historical/**` | — | `EXCLUDED` |
+| `GR-REN-01A-10` | `GR-REN-01A` | `GROUP` | `docs/**` except the maintained migration evidence artifact | — | `EXCLUDED` |
+| `GR-REN-01A-11` | `GR-REN-01A` | `GROUP` | `experiments/**` | — | `EXCLUDED` |
+| `GR-REN-01A-12` | `GR-REN-01A` | `GATE` | Reconcile lexical-inventory coverage against runtime/governance in-scope surfaces and every explicitly excluded reference-only scope | all required in-scope `GR-REN-01A` leaves | `NOT_STARTED` |
 
-The exact `done_when` condition for executable lexical tasks `GR-REN-01A-01` through `GR-REN-01A-06` and `GR-REN-01A-08` through `GR-REN-01A-11` is:
+The exact `done_when` condition for executable lexical tasks `GR-REN-01A-01` through `GR-REN-01A-06` is:
 
 > Every path in the node scope has been searched for every required Section 4 naming form; repository locations of every match are recorded; zero-result searches are recorded; and no rename or semantic classification has been performed.
 
-`GR-REN-01A-07` is intentionally `EXCLUDED`. It MUST NOT be decomposed or executed as part of this migration. Governance/navigation references to stable accepted authorities remain valid migration evidence without requiring the authority corpus itself to be inventoried or renamed.
+`GR-REN-01A-07` through `GR-REN-01A-11` are explicit reference-only exclusions. They MUST NOT be decomposed or executed as migration targets. Their contents may be consulted by reference when necessary. The maintained migration inventory artifact under `docs/development/` is writable operational evidence but is not a lexical migration target.
 
-`GR-REN-01A-12` may complete only when the repository top-level tree is fully accounted for by in-scope lexical inventory nodes plus explicitly recorded excluded scopes, with no unallocated path.
+`GR-REN-01A-12` may complete only when every runtime/governance in-scope surface is accounted for by executable lexical inventory nodes and every non-runtime/reference-only surface is explicitly accounted for as excluded, with no unallocated migration target.
 
 ### 8.9 Dependency gates after inventory
 
-`GR-REN-01F` depends on completion of the full **in-scope** `GR-REN-01A` through `GR-REN-01E` inventory/classification track. Explicitly excluded authority-corpus scope does not block this gate.
+`GR-REN-01F` depends on completion of the full **in-scope runtime/governance** `GR-REN-01A` through `GR-REN-01E` inventory/classification track. Explicitly excluded reference-only scope does not block this gate.
 
 After `GR-REN-01F` is complete:
 
@@ -520,6 +548,11 @@ active_path:
   - GR-REN-01A-04
 excluded_scopes:
   - designs/authorities/**
+  - designs/system/**
+  - designs/historical/**
+  - designs/** except Section 3.2 governance files
+  - docs/** except docs/development/grandrue-naming-migration-inventory.md
+  - experiments/**
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 last_completed_task: GR-REN-01A-03
 last_verified_head: afc06e36d4091977b3d8bfb29b02e2eed6343003
@@ -598,6 +631,10 @@ next_action: Execute GR-REN-01A-04 only. Search storefront-web/** for every Sect
 - Semantic classification authorised: none
 - Evidence: not yet created
 
+### Runtime-centred scope refinement
+
+The migration contract was narrowed after `GR-REN-01A-03` so that only files directly required to build, configure, test, deploy, serve or govern current GrandRue are migration targets. Non-governance design material, historical/development evidence and experiments are reference-only exclusions. Completed inventory evidence remains valid and is not rewritten.
+
 ### Operational model revision history
 
 | Revision | Commit | Effect |
@@ -615,17 +652,17 @@ next_action: Execute GR-REN-01A-04 only. Search storefront-web/** for every Sect
 | `GR-REN-00` | `26d22025fc536b010e29327724b47f0a4b34b12a` | `COMPLETE` | recorded by subsequent ledger state |
 | `GR-REN-01A-01` | `a5bb4ed90ee402ce88c46c0707070cb42488f6bb` | `COMPLETE` | recorded by subsequent ledger state |
 | `GR-REN-01A-02` | `29a7811c737508ec80214ceff1bb1b28b7762bac` | `COMPLETE` | recorded by subsequent ledger state |
-| `GR-REN-01A-03` | `afc06e36d4091977b3d8bfb29b02e2eed6343003` | `COMPLETE` | recorded by the ledger-only checkpoint commit containing this row |
+| `GR-REN-01A-03` | `afc06e36d4091977b3d8bfb29b02e2eed6343003` | `COMPLETE` | recorded by subsequent ledger state |
 
 ---
 
 ## 12. Naming Inventory
 
-Inventory evidence is recorded by the active `GR-REN-01A` through `GR-REN-01E` task hierarchy for the in-scope migration surface.
+Inventory evidence is recorded by the active `GR-REN-01A` through `GR-REN-01E` task hierarchy for the in-scope runtime/governance migration surface.
 
 Canonical operational inventory artifact: `docs/development/grandrue-naming-migration-inventory.md`.
 
-`designs/authorities/**` is not part of the naming inventory. Stable authority references encountered in governance/navigation files may be recorded without traversing or changing the authority corpus.
+Explicitly excluded design, historical, development-evidence and experiment scopes are not part of the naming inventory. Stable references encountered in governance/navigation files may be recorded without traversing or changing the referenced material.
 
 No occurrence is safe to rename merely because its spelling matches a migration search term.
 
@@ -720,10 +757,10 @@ Structural verification remains required and may include:
 - package/import consistency checks;
 - path existence checks;
 - duplicate-source detection;
-- residual-name searches within the in-scope migration surface;
+- residual-name searches within the in-scope runtime/governance migration surface;
 - stable-identifier/reference checks in in-scope governance/navigation files;
 - dependency/readiness validation;
-- hierarchy coverage checks including explicit excluded scopes;
+- hierarchy coverage checks including explicit reference-only exclusions;
 - migration-ledger updates.
 
 Structural inspection MUST NOT be represented as a passed Maven, integration or runtime verification gate.
