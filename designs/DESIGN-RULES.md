@@ -1,9 +1,9 @@
 # Main Street Design Rules
 
 **Document ID:** MS-DESIGN-RULES-001  
-**Version:** 2.4
+**Version:** 2.5
 **Status:** Accepted  
-**Applies from:** 5 September 2026  
+**Applies from:** 16 September 2026  
 **Governed by:** `DOCUMENT-GOVERNANCE.md`  
 **Fundamental product-purpose authority:** `MS-FUNDAMENTAL-VISION-001` — `docs/foundation/Fundamental-Vision-Mission-and-Product-Constitution.md`  
 **Purpose:** Define the mandatory rules for proposing, evaluating, falsifying, presenting, approving, formalising and maintaining Main Street design decisions, including Fundamental Vision Conformance, strict pre-approval repository isolation, established MS-PROT document-format requirements, normative-writing rules and ambiguity-elimination requirements.
@@ -1297,9 +1297,7 @@ A configuration rule MUST state who chooses the value, allowed semantic values/e
 
 ## 50. Entitlement Precision Rule
 
-Design involving commercial access MUST explicitly distinguish Semantic Applicability, Commercial Entitlement, Actor Authorisation, Operational Eligibility, Provider Readiness and Surface Exposure.
-
-One `enabled`, `disabled`, `available`, `active` or `allowed` concept MUST NOT collapse these dimensions.
+Design involving commercial access MUST explicitly distinguish Semantic Applicability, Commercial Entitlement, Actor Authorisation, Operational Eligibility, Provider Readiness and Surface Exposure; these dimensions MUST NOT be collapsed into one generic permission state.
 
 ---
 
@@ -1832,3 +1830,254 @@ The transition between them is explicit manual approval.
 No recommendation, confidence level, prior precedent, model judgement or technical necessity may bypass that boundary.
 
 > **Design here. Review here. Falsify here. Recommend here. Present the complete authority here. Only explicit approval permits the design to enter the repository.**
+
+---
+
+## 84. Mandatory Authority Identity Preflight
+
+Before a material proposal is assigned or presented with a specific:
+
+```text
+Document ID
++
+Version
+```
+
+the executor MUST perform an Authority Identity Preflight against the exact target branch.
+
+For ordinary GrandRue design work the target is:
+
+```text
+development
+```
+
+unless an accepted governance authority explicitly establishes another target.
+
+The preflight MUST establish:
+
+```text
+target branch
+target HEAD commit
+stable Document ID
+current indexed composition
+all repository-resident versions of that Document ID
+lifecycle status of those versions
+highest existing version
+candidate next version
+canonical authority directory
+relevant open/deferred decision identity where applicable
+```
+
+The result MUST be retained in the ChatGPT design context.
+
+A material proposal MUST NOT present a version number based solely on:
+
+```text
+memory
+previous conversation
+numeric assumption
+filename expectation
+earlier branch state
+or the apparent latest document already loaded
+```
+
+---
+
+## 85. Existing-Authority Amendment Preflight
+
+For an amendment to an existing stable authority, preflight MUST inspect:
+
+```text
+AUTHORITY-INDEX.md
++
+repository files carrying that Document ID
++
+applicable DDR references
+```
+
+The candidate version MUST NOT already be occupied by another repository document claiming the same:
+
+```text
+Document ID
++
+Version
+```
+
+unless an explicit accepted governance rule says that the documents are the same authority representation.
+
+A version occupied by:
+
+```text
+ACCEPTED
+SUPERSEDED
+HISTORICAL
+DRAFT
+PROPOSED
+or another lifecycle state
+```
+
+is treated as occupied for version-selection purposes.
+
+Lifecycle status affects authority.
+
+It does not make identifier collision desirable.
+
+---
+
+## 86. New Stable Document ID Preflight
+
+Before assigning a new stable MS-PROT, TAS, ADR or equivalent identifier, the executor MUST search the applicable corpus for prior use of that identifier.
+
+A new identifier SHALL NOT be selected merely by:
+
+```text
+highest identifier remembered + 1
+```
+
+without repository verification.
+
+Once a stable identifier has entered accepted repository history, it SHALL NOT be reassigned to unrelated meaning.
+
+---
+
+## 87. Preflight Does Not Reserve Authority
+
+Authority Identity Preflight is evidence for drafting.
+
+It is not repository authority.
+
+Before manual approval it MUST NOT create:
+
+```text
+reservation files
+lock files
+placeholder MS-PROT documents
+draft Authority Index entries
+draft DDR entries
+GitHub issues used as authority reservations
+design-specific branches
+tags
+or commits
+```
+
+This preserves the existing repository-isolation rule.
+
+Canonical:
+
+```text
+preflight reservation
+    = conversational / working evidence only
+
+repository authority
+    = only after manual approval
+```
+
+---
+
+## 88. Proposal Preflight Metadata
+
+Every material proposed authority presented for final approval SHOULD state its preflight basis conceptually as:
+
+```text
+Authority preflight:
+    branch = development
+    head = <commit>
+    current composition = <authority composition>
+    candidate = <Document ID + Version>
+```
+
+The proposal need not reproduce the entire scan.
+
+Its version must nevertheless be traceable to the scan.
+
+---
+
+## 89. Post-Approval Latest-Head Revalidation
+
+Explicit manual approval does not permit blind formalisation against an older repository state.
+
+Immediately before repository write, the executor MUST:
+
+```text
+resolve current target-branch HEAD
+        ↓
+repeat Authority Identity Preflight
+        ↓
+compare against approved proposal basis
+```
+
+If the target authority is unchanged in a way material to the proposal and the approved identifier/version remains free:
+
+```text
+formalisation may proceed
+```
+
+If another accepted or repository-resident authority has occupied the approved identifier/version:
+
+```text
+STOP
+```
+
+The executor MUST NOT:
+
+```text
+overwrite the existing authority
+silently renumber the approved authority
+silently change its Document ID
+or merge the two designs
+```
+
+The proposal returns to ChatGPT with corrected metadata and receives explicit approval again before writing.
+
+---
+
+## 90. Material Stale-Head Rule
+
+A changed repository HEAD alone does not invalidate approval.
+
+The relevant question is whether intervening changes affect:
+
+```text
+the proposed authority identity
+its dependencies
+its owning semantics
+its deferred-decision basis
+or its approved normative meaning
+```
+
+Unrelated commits do not require artificial reapproval.
+
+Materially relevant intervening authority does.
+
+---
+
+## 91. Governance-Completion Barrier
+
+After an accepted authority is written, no dependent design formalisation may proceed until the governance completion cycle has finished.
+
+The cycle is:
+
+```text
+accepted authority written
+        ↓
+AUTHORITY-INDEX updated
+        ↓
+DDR updated where applicable
+        ↓
+Lexicon updated where applicable
+        ↓
+IMPLEMENTATION-RULES impact reviewed
+        ↓
+structural corpus conformance passed
+```
+
+Where repository tooling can safely create one atomic commit containing these consequences, atomic formalisation SHOULD be preferred.
+
+Where tooling requires more than one commit:
+
+```text
+intermediate commits
+    ≠ governance completion
+```
+
+and no dependent authority may rely on the incomplete intermediate state.
