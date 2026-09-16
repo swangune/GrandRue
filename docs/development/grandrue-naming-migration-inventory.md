@@ -412,3 +412,57 @@ The complete `storefront-web/**` tree was searched for every Section 4 lexical f
 ### Completion evidence
 
 All four root governance/navigation files were inspected for every required lexical form. Current governance wording, current runtime/package/env references, historical/provenance references, stable referenced identifiers and self-referential migration vocabulary are recorded without semantic disposition or mutation.
+
+---
+
+## GR-REN-01A-06 — Current design-governance lexical inventory
+
+**Inspection baseline:** `af555d420ef6da9d1dd53fdb5f02820c8266b6e1`  
+**Parent:** `GR-REN-01A`  
+**Kind:** `TASK`  
+**Scope:** only the six governance files explicitly listed by the migration contract  
+**Rename performed:** `false`  
+**Semantic classification performed:** `false`
+
+### Scope inspected
+
+- `designs/DESIGN-RULES.md`
+- `designs/DOCUMENT-GOVERNANCE.md`
+- `designs/AUTHORITY-INDEX.md`
+- `designs/DEFERRED-DECISION-REGISTER.md`
+- `designs/DESIGN-CORPUS-CONFORMANCE.md`
+- `designs/IMPLEMENTATION-RULES.md`
+
+No referenced non-governance design file was traversed for this task.
+
+### Matches
+
+- `designs/DESIGN-RULES.md`
+  - extensive current `Main Street` governance/product-purpose wording.
+  - no lowercase `mainstreet` or `MAIN_STREET` occurrence was found.
+- `designs/DOCUMENT-GOVERNANCE.md`
+  - current `Main Street` governance wording throughout.
+  - no lowercase `mainstreet` or `MAIN_STREET` occurrence was found.
+- `designs/AUTHORITY-INDEX.md`
+  - current product identity is already stated as GrandRue.
+  - `Main Street` remains as legacy product-name/authority wording.
+  - `mainstreet.*` is explicitly recorded as an implementation/package identifier awaiting separately governed migration.
+  - no `MAIN_STREET` occurrence was found.
+- `designs/DEFERRED-DECISION-REGISTER.md`
+  - current `Main Street` governance/deferred-decision wording.
+  - protected accepted identifier `HANDLED_OUTSIDE_MAIN_STREET_RECORDED` contributes the `MAIN_STREET` form.
+  - no lowercase `mainstreet` occurrence was found.
+- `designs/DESIGN-CORPUS-CONFORMANCE.md`
+  - current `Main Street` governance/conformance wording.
+  - no lowercase `mainstreet` or `MAIN_STREET` occurrence was found.
+- `designs/IMPLEMENTATION-RULES.md`
+  - current `Main Street` implementation-governance wording.
+  - no lowercase `mainstreet` or `MAIN_STREET` occurrence was found.
+
+### Residual separator/case check
+
+Targeted repository-index checks for `MAINSTREET`, `main-street` and `Main_Street` under `designs/` returned matches only in excluded non-governance design material; none of the six in-scope governance files introduced an additional target for those forms.
+
+### Completion evidence
+
+All six and only the six in-scope `designs/**` governance files were inspected for the required naming forms. Ordinary current governance wording, the explicit legacy package reference in the Authority Index and the protected DDR contract identifier are recorded. Excluded design material was not traversed, renamed or classified.
