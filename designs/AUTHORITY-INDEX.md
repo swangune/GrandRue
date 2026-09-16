@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.34
+**Version:** 4.35
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -35,7 +35,7 @@ Accepted product/design/architecture/implementation authorities remain subordina
 
 `MS-FUNDAMENTAL-VISION-001` governs why GrandRue exists (under the historical Main Street name in that authority) and the non-negotiable product-purpose constraints against which downstream product, design, architecture, UX and implementation decisions are evaluated. It does not own capability-specific business semantics.
 
-`designs/DESIGN-RULES.md` v2.4 operationalises that authority through the mandatory Fundamental Vision Conformance Gate and governs design review, including comparative justification against credible alternatives under §2.3.
+`designs/DESIGN-RULES.md` v2.5 operationalises that authority through the mandatory Fundamental Vision Conformance Gate and governs design review, including comparative justification against credible alternatives under §2.3.
 
 The older `docs/foundation/Vision.md` remains historical foundation/product evidence and MUST NOT override `MS-FUNDAMENTAL-VISION-001` within overlapping product-purpose scope.
 
@@ -48,7 +48,8 @@ MS-PROT-001..019
     research / prototype / proposed evidence unless explicitly incorporated
 
 MS-PROT-020..094
-    accepted design series, subject to scope-aware version composition
+    accepted design series where indexed below, subject to scope-aware version composition
+    MS-PROT-078 is non-current historical readiness evidence and is not required current authority
 ```
 
 The absence of MS-PROT-017 is intentional historical sequencing. The numeric upper bound is informational and may be extended by later accepted authority.
@@ -117,7 +118,6 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-075 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-076 | v1.0 |
 | MS-PROT-077 | v1.0 + v1.1 + v1.2 |
-| MS-PROT-078 | v1.0 |
 | MS-PROT-079 | v1.0 + v1.1 |
 | MS-PROT-080 | v1.1 + v1.2 + v1.3 + v1.4 |
 | MS-PROT-081 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 |
@@ -225,7 +225,7 @@ The following cross-authority links are retained explicitly because they materia
 
 ## 3.2 MS-PROT-084 complete Financial Operations authority
 
-MS-PROT-084 v1.1 remains the complete current authority for its Financial Operations / Financial Evidence source scope and Financial Health source composition. MS-PROT-084 v1.2 composes with it only within commercial-access classification scope. The earlier `designs/MS-PROT-084 - Final Targeted Amendment Patch.md` remains historical approval/falsification evidence and no longer constitutes a current incomplete-base blocker.
+MS-PROT-084 v1.1 remains the complete current authority for its Financial Operations / Financial Evidence source scope and Financial Health source composition. MS-PROT-084 v1.2 composes with it only within commercial-access classification scope. The earlier `designs/historical/ms-prot-084/MS-PROT-084 - Final Targeted Amendment Patch.md` remains historical approval/falsification evidence and no longer constitutes a current incomplete-base blocker.
 
 The v1.1 composition closes `MS-PROT-083-DQ-015` and compositionally closes `MS-PROT-082-DQ-007` with MS-PROT-083. It records the exact DQ-001..016 disposition in the canonical DDR. v1.2 adds the exact Financial Operations owner classifications needed by `MS-PROT-056-V17-DQ-001` while preserving those v1.1 semantic and deferred-decision boundaries. Neither authority activates production implementation or requires an `IMPLEMENTATION-RULES.md` amendment.
 
@@ -273,11 +273,13 @@ The handle is Main Street-generated, opaque and non-PII; it is not the semantic 
 
 | Authority | Current accepted composition |
 |---|---|
-| MS-IMP-001 | accepted v1.0 `designs/MS-IMP-001.md` + accepted v1.1 `designs/MS-IMP-001 v1.1 — Post-Baseline Workforce Extension Alignment Amendment.md` |
-| MS-DESIGN-RULES-001 | integrated accepted v2.4 — `designs/DESIGN-RULES.md` |
+| MS-IMP-001 | accepted v1.0 `designs/authorities/programme/MS-IMP-001/MS-IMP-001.md` + accepted v1.1 `designs/authorities/programme/MS-IMP-001/MS-IMP-001 v1.1 — Post-Baseline Workforce Extension Alignment Amendment.md` |
+| MS-DESIGN-RULES-001 | integrated accepted v2.5 — `designs/DESIGN-RULES.md` |
+| MS-DOCUMENT-GOVERNANCE-001 | integrated accepted v2.4 — `designs/DOCUMENT-GOVERNANCE.md` |
+| MS-DESIGN-CORPUS-CONFORMANCE-001 | integrated accepted v2.6 — `designs/DESIGN-CORPUS-CONFORMANCE.md` |
 | MS-IMPLEMENTATION-RULES-001 | integrated accepted v1.9 — `designs/IMPLEMENTATION-RULES.md` |
 
-MS-IMP-001 governs the macro production-implementation graph. DESIGN-RULES governs the design lifecycle and Fundamental Vision Conformance before acceptance. IMPLEMENTATION-RULES governs READY-node execution, tests, minimum conforming code, exact design-to-code traceability, clean-code-preserving documentation, evidence integrity, automatic no-semantic-change improvements, context-efficient authority loading and mandatory escalation for material unresolved decisions. None of these creates capability-specific business semantics.
+MS-IMP-001 governs the macro production-implementation graph. DESIGN-RULES governs the design lifecycle and Fundamental Vision Conformance before acceptance. DOCUMENT-GOVERNANCE governs canonical authority placement and navigation. DESIGN-CORPUS-CONFORMANCE governs deterministic structural validation. IMPLEMENTATION-RULES governs READY-node execution, tests, minimum conforming code, exact design-to-code traceability, clean-code-preserving documentation, evidence integrity, automatic no-semantic-change improvements, context-efficient authority loading and mandatory escalation for material unresolved decisions. None of these creates capability-specific business semantics.
 
 ---
 
@@ -321,7 +323,6 @@ MS-PROT-071
 MS-PROT-074
 MS-PROT-075
 MS-PROT-077
-MS-PROT-078
 MS-PROT-079
 MS-PROT-080
 MS-PROT-081
@@ -343,6 +344,14 @@ MS-PROT-094
 ## 7. Legacy and Historical Evidence
 
 Prototype, PRD, workflow, unindexed foundation ADR and design-review documents remain evidence but do not override `MS-FUNDAMENTAL-VISION-001`, later accepted semantic/design authority, or indexed TAS/ADR/implementation-governance authority within their respective scopes.
+
+The MS-PROT-001..019 prototype/research stratum is retained under `designs/historical/ms-prot-prototypes/`; it is not current accepted semantic/design authority unless a later accepted authority explicitly incorporates a provision.
+
+MS-PROT-078 readiness material is retained only as historical governance/readiness evidence under `docs/development/`. No current MS-PROT-078 authority artifact is required or indexed.
+
+The earlier proposed MS-PROT-043 v1.1 representation is retained under `designs/historical/proposed/`; composite MS-PROT-043 beginning with accepted v1.2 governs current Enquiry/CustomerContext scope.
+
+The earlier MS-PROT-084 targeted amendment patch is retained under `designs/historical/ms-prot-084/`; MS-PROT-084 v1.1 complete composition plus v1.2 govern current scope.
 
 `docs/foundation/Vision.md` remains historical foundation/product evidence and is superseded within overlapping fundamental product-purpose scope by `MS-FUNDAMENTAL-VISION-001`.
 

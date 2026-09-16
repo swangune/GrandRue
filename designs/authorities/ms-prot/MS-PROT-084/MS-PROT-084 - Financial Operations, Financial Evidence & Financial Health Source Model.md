@@ -6,7 +6,7 @@
 **Approved:** 14 September 2026 — explicit manual approval in ChatGPT following complete replacement-composition review  
 **Authority type:** Complete semantic composition and replacement current authority for MS-PROT-084  
 **Governed by:** `DESIGN-RULES.md`; `DOCUMENT-GOVERNANCE.md`; `DESIGN-CORPUS-CONFORMANCE.md`  
-**Historical evidence retained:** `designs/MS-PROT-084 - Final Targeted Amendment Patch.md`  
+**Historical evidence retained:** `designs/historical/ms-prot-084/MS-PROT-084 - Final Targeted Amendment Patch.md`  
 **Implementation activation:** NONE  
 **Current implementation programme:** UNCHANGED
 
@@ -854,6 +854,6 @@ These closures establish architecture only. They do not activate implementation.
 
 MS-PROT-084 v1.1 is the complete current Financial Operations / Financial Evidence source authority and Financial Health source-composition authority within its accepted scope.
 
-The previously committed `MS-PROT-084 - Final Targeted Amendment Patch.md` remains historical evidence of the earlier falsification/amendment path. It no longer represents a current incomplete-base blocker once this complete v1.1 composition is formalised.
+The previously committed `designs/historical/ms-prot-084/MS-PROT-084 - Final Targeted Amendment Patch.md` remains historical evidence of the earlier falsification/amendment path. It no longer represents a current incomplete-base blocker once this complete v1.1 composition is formalised.
 
 > **Main Street may understand and coordinate the financial reality required to operate a small business without silently becoming its accounting ERP.**

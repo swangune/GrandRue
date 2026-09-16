@@ -11,7 +11,7 @@ If this file conflicts with accepted repository authority, the accepted authorit
 - `designs/AUTHORITY-INDEX.md` determines **which** accepted authority currently governs.
 - The applicable accepted authority determines **what** the substantive meaning is.
 - `designs/IMPLEMENTATION-RULES.md` determines **how** accepted authority is implemented.
-- `designs/MS-IMP-001.md` plus its current accepted composition governs the macro implementation programme when applicable.
+- `designs/authorities/programme/MS-IMP-001/MS-IMP-001.md` plus its current accepted composition governs the macro implementation programme when applicable.
 - Tests, production code, implementation evidence, conversation memory, agent judgement, framework behaviour, and this file are not semantic authority.
 
 Never fill a material semantic gap from plausibility, convention, adjacent code, or remembered context.

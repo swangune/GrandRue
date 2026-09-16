@@ -25,7 +25,7 @@ public final class DesignCorpusCheck {
     private static final Pattern DOCUMENT_ID = Pattern.compile("^\\*\\*Document ID:\\*\\*\\s*`?([^`\\s]+)`?.*$");
     private static final Pattern VERSION = Pattern.compile("^\\*\\*Version:\\*\\*\\s*([^\\s]+).*$");
     private static final Pattern STATUS = Pattern.compile("^\\*\\*Status:\\*\\*\\s*(.+?)\\s*$");
-    private static final Pattern INDEX_ROW = Pattern.compile("^\\|\\s*(MS-PROT-\\d{3})\\s*\\|");
+    private static final Pattern INDEX_ROW = Pattern.compile("^\\|\\s*(MS-(?:PROT|IMP)-\\d{3})\\s*\\|");
     private static final Pattern MARKDOWN_LINK = Pattern.compile("\\[[^\\]]*]\\(([^)]+\\.md(?:#[^)\\s]+)?)\\)");
 
     private record Meta(Path path, String id, String version, String status, String content) {
@@ -175,8 +175,13 @@ public final class DesignCorpusCheck {
                 result.error("unapproved/proposed authority persisted in accepted authority store: " + root.relativize(m.path));
             }
 
-            if (m.id.startsWith("MS-PROT-") && m.accepted()) {
-                boolean enforce = a.enforceLayout || (a.pilotId != null && a.pilotId.equals(m.id));
+            boolean governedSeries = (m.id.startsWith("MS-PROT-") && numericProt(m.id) >= 20)
+                    || m.id.startsWith("MS-IMP-");
+            if (governedSeries && m.accepted()) {
+                boolean enforce = true;
+                if (a.pilotId != null && !a.pilotId.equals(m.id) && !a.enforceLayout) {
+                    enforce = true;
+                }
                 if (enforce) {
                     Path expected = canonicalDirectory(designs, m.id).toAbsolutePath().normalize();
                     if (!m.path.startsWith(expected)) {
@@ -204,9 +209,13 @@ public final class DesignCorpusCheck {
             if (m.find()) indexed.add(m.group(1));
         }
         Set<String> accepted = new TreeSet<>();
-        for (Meta m : metadata) if (m.accepted() && m.id.startsWith("MS-PROT-") && numericProt(m.id) >= 20) accepted.add(m.id);
-        for (String id : accepted) if (!indexed.contains(id)) result.error("accepted MS-PROT absent from Authority Index: " + id);
-        for (String id : indexed) if (!accepted.contains(id)) result.error("Authority Index points to no accepted MS-PROT metadata: " + id);
+        for (Meta m : metadata) {
+            if (!m.accepted()) continue;
+            if (m.id.startsWith("MS-PROT-") && numericProt(m.id) >= 20) accepted.add(m.id);
+            if (m.id.startsWith("MS-IMP-")) accepted.add(m.id);
+        }
+        for (String id : accepted) if (!indexed.contains(id)) result.error("accepted authority absent from Authority Index: " + id);
+        for (String id : indexed) if (!accepted.contains(id)) result.error("Authority Index points to no accepted authority metadata: " + id);
     }
 
     private static void checkCanonicalDdr(Path designs, Result result) {
