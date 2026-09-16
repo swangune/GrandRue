@@ -240,8 +240,8 @@ The pervasive ordinary `mainstreet.*` package/import population is already estab
 | Node | Kind | Scope | State | Done when |
 |---|---|---|---|---|
 | `GR-REN-01B-01` | TASK | production entrypoint/package-root/Spring scan assumptions | `COMPLETE` | `src/main/java/mainstreet/GrandRueApplication.java` is the sole production `@SpringBootApplication`; implicit Spring scan root is package `mainstreet`; no explicit `@ComponentScan`, `@EntityScan`, `@EnableJpaRepositories`, `@ConfigurationPropertiesScan`, `basePackages`, or `scanBasePackages` override found |
-| `GR-REN-01B-02` | TASK | `src/main/**` string/reflection/FQCN/class-persistence namespace consumers | `READY` | every non-mechanical production namespace consumer is recorded or zero-result proven |
-| `GR-REN-01B-03` | TASK | `src/test/**` string/reflection/FQCN/package-sensitive test consumers | `NOT_STARTED` | every non-mechanical test namespace consumer is recorded or zero-result proven |
+| `GR-REN-01B-02` | TASK | `src/main/**` string/reflection/FQCN/class-persistence namespace consumers | `COMPLETE` | one non-mechanical production class-name consumer recorded; bounded reflection/FQCN scans otherwise zero-result |
+| `GR-REN-01B-03` | TASK | `src/test/**` string/reflection/FQCN/package-sensitive test consumers | `READY` | every non-mechanical test namespace consumer is recorded or zero-result proven |
 | `GR-REN-01B-04` | GATE | freeze dependency-safe Java namespace migration boundary | `NOT_STARTED` | mechanical wave plus exceptional consumers are explicit |
 
 #### `GR-REN-01B-01` result
@@ -252,6 +252,21 @@ The pervasive ordinary `mainstreet.*` package/import population is already estab
 - Repository searches found no production explicit `@ComponentScan`, `@EntityScan`, `@EnableJpaRepositories`, `@ConfigurationPropertiesScan`, `basePackages`, or `scanBasePackages` override.
 - Migration consequence: move `GrandRueApplication` with the namespace root (`mainstreet` → `grandrue`). No separate Spring scan-root configuration requires migration.
 - No rename was performed.
+
+#### `GR-REN-01B-02` result
+
+Bounded production searches covered explicit class loading (`Class.forName`, `loadClass`, `ServiceLoader`), class/type-name extraction, package-name comparisons and obvious FQCN/class-name persistence markers without enumerating ordinary imports.
+
+One non-mechanical production consumer was found:
+
+- `src/main/java/mainstreet/notification/NotificationDeliveryCoordinator.java`
+  - on provider `RuntimeException`, it records `"provider-exception:" + providerFailure.getClass().getName()` into the `DeliveryAttempt` failure reference before `store.completeAttempt(...)`;
+  - when the exception type is GrandRue-owned, the stored string may embed a `mainstreet.*` FQCN today and a `grandrue.*` FQCN after namespace migration;
+  - this is compatibility-sensitive evidence, not a mechanical import/path rewrite, and must be classified in `GR-REN-01D/01F` before mutation.
+
+No production `Class.forName`, class-loader/service-loader namespace string, explicit `mainstreet.*` package-name comparison, or other production FQCN string consumer was found by the bounded searches. Ordinary package/import declarations remain mechanical migration material and were not re-enumerated.
+
+No rename was performed.
 
 ### Remaining inventory/classification groups
 
@@ -304,7 +319,8 @@ On restart, reconcile `development` HEAD with `last_verified_head`; inspect any 
 | `GR-REN-01A-06` | `15b98ef041f35a326fd0f6a7661dca0d8b86a0e1`, reconciled by direct source inspection |
 | `GR-REN-01A-07` | `219ac801ef2eb09a8f15d9e99c6403ebf34c39b7` |
 | `GR-REN-01A-13` | reconciled from complete `GR-REN-01A` evidence + exclusions |
-| `GR-REN-01B-01` | evidence recorded in ledger task commit; checkpoint SHA recorded by subsequent ledger update |
+| `GR-REN-01B-01` | `a7fc9d4a022e62f2023673f7e4c61fb201a1e9df` |
+| `GR-REN-01B-02` | evidence recorded in ledger task commit; checkpoint SHA recorded by subsequent ledger update |
 
 ---
 
@@ -319,13 +335,13 @@ model: HIERARCHICAL_DEPENDENCY_GRAPH
 scope: MINIMUM_EXECUTABLE_PLUS_ACTIVE_CONTROLS_AND_CANONICAL_GOVERNANCE
 status: IN_PROGRESS
 active_group: GR-REN-01B
-selected_execution_leaf: GR-REN-01B-02
-last_completed_task: GR-REN-01B-01
-last_verified_head: 5bf193ba57b6b994fc809f4d4cea2a7603101e63
-last_task_commit: 5bf193ba57b6b994fc809f4d4cea2a7603101e63
+selected_execution_leaf: GR-REN-01B-03
+last_completed_task: GR-REN-01B-02
+last_verified_head: a7fc9d4a022e62f2023673f7e4c61fb201a1e9df
+last_task_commit: a7fc9d4a022e62f2023673f7e4c61fb201a1e9df
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01B-02 only. Inspect `src/main/**` for non-mechanical string/reflection/FQCN/class-persistence consumers of the `mainstreet` namespace. Do not enumerate ordinary package/import occurrences and do not rename anything.
+next_action: Execute GR-REN-01B-03 only. Inspect `src/test/**` for non-mechanical string/reflection/FQCN/package-sensitive consumers of the `mainstreet` namespace. Do not enumerate ordinary package/import occurrences and do not rename anything.
 ```
 
 ---
