@@ -1,7 +1,7 @@
 # Main Street Deferred Decision Register
 
 **Document ID:** MS-DEFERRED-DECISION-REGISTER-001
-**Version:** 4.93
+**Version:** 4.94
 **Status:** Accepted governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Provide the single current work-queue view of unresolved, deferred, resolved and deliberately promoted Main Street design decisions while using Git history and accepted resolving authorities as provenance.
@@ -185,7 +185,8 @@ MS-PROT-083
     plus accepted v1.3 Initial General Business Intelligence Measure Portfolio Amendment
     plus accepted v1.4 Merchant Analytical Surface, Progressive Disclosure & Presentation Fidelity Amendment
     plus accepted v1.5 Initial Business Health Indicator Portfolio Amendment
-    and accepted v1.6 Initial Merchant Analytical Report Contract Amendment
+    plus accepted v1.6 Initial Merchant Analytical Report Contract Amendment
+    and accepted v1.7 Business Intelligence Commercial Access Classification Amendment
 
 MS-PROT-084
     accepted v1.1 Financial Operations, Financial Evidence & Financial Health Complete Composition
@@ -480,6 +481,9 @@ MS-PROT-083 v1.5
 MS-PROT-083 v1.6
     Initial Merchant Analytical Report Contract Amendment
 
+MS-PROT-083 v1.7
+    Business Intelligence Commercial Access Classification Amendment
+
 MS-PROT-084 v1.1
     Financial Operations, Financial Evidence & Financial Health Complete Composition
 
@@ -748,7 +752,7 @@ MS-PROT-082 through v1.1
     MS-PROT-082-DQ-006 professional escalation network/integration model
     MS-PROT-082-DQ-007 RESOLVED COMPOSITIONALLY by composite MS-PROT-083 + MS-PROT-084 v1.1
 
-MS-PROT-083 through v1.6
+MS-PROT-083 through v1.7
     MS-PROT-083-DQ-001 initial Analytical Measure portfolio — RESOLVED by v1.1 campaign slice + v1.2 customer-return slice + v1.3 initial general Business Intelligence portfolio including Commitment Interaction Origin; future materially different measures require fresh Feature Admission
     MS-PROT-083-DQ-002 initial Business Health Indicator portfolio — RESOLVED by v1.5 for the initial portfolio
     MS-PROT-083-DQ-003 analytical persistence/time-series architecture
@@ -764,6 +768,7 @@ MS-PROT-083 through v1.6
     MS-PROT-083-DQ-013 cross-merchant benchmarking
     MS-PROT-083-DQ-014 currency normalisation
     MS-PROT-083-DQ-015 Financial Health composition — RESOLVED by MS-PROT-084 v1.1
+    v1.7 adds Business Intelligence commercial-access classification only and does not reopen or resolve any MS-PROT-083-DQ-* row
 
 MS-PROT-084 through v1.2
     RESOLVED: DQ-001 Initial Operating Cost Portfolio
@@ -1461,7 +1466,7 @@ Traceability rules:
 
 ### 4.15 MS-PROT-083 Deferred Question Catalogue
 
-Composite MS-PROT-083 through v1.6 establishes the generic analytical-measurement, Business Health, qualified-method and operational-decision-support substrate. v1.1 resolves the campaign slice of the initial Analytical Measure portfolio; v1.2 resolves the customer-return slice; v1.3 resolves the remaining initial general Business Intelligence portfolio. `MS-PROT-083-DQ-001` is resolved. MS-PROT-083 v1.4 resolves the Merchant Analytical Surface under DQ-009, v1.5 resolves the initial Business Health Indicator portfolio under DQ-002, v1.6 resolves the initial on-demand analytical report/export portfolio under DQ-010, and MS-PROT-084 v1.1 resolves complete Financial Health composition under DQ-015. Analytical persistence, methods, recommendation ranking, external context, lifecycle policy, learning, benchmarking and currency normalization remain downstream. MS-PROT-085 v1.0 resolves the registered Merchant Attention integration architecture.
+Composite MS-PROT-083 through v1.7 establishes the generic analytical-measurement, Business Health, qualified-method and operational-decision-support substrate together with its accepted commercial-access classification. v1.1 resolves the campaign slice of the initial Analytical Measure portfolio; v1.2 resolves the customer-return slice; v1.3 resolves the remaining initial general Business Intelligence portfolio. `MS-PROT-083-DQ-001` is resolved. MS-PROT-083 v1.4 resolves the Merchant Analytical Surface under DQ-009, v1.5 resolves the initial Business Health Indicator portfolio under DQ-002, v1.6 resolves the initial on-demand analytical report/export portfolio under DQ-010, and MS-PROT-084 v1.1 resolves complete Financial Health composition under DQ-015. MS-PROT-083 v1.7 adds Business Intelligence owner-qualified commercial-access classification only: `USE_BUSINESS_ANALYTICS` for BUSINESS + GROWTH, `USE_CAMPAIGN_ANALYTICS` for GROWTH, and merchant analytical presentation with no independent Commercial Entitlement. v1.7 does not reopen, close or otherwise change any `MS-PROT-083-DQ-*` state. Analytical persistence, methods, recommendation ranking, external context, lifecycle policy, learning, benchmarking and currency normalization remain downstream. MS-PROT-085 v1.0 resolves the registered Merchant Attention integration architecture.
 
 | ID | Status | Deferred question | Classification / future owner | Revisit condition |
 |---|---|---|---|---|
@@ -1488,7 +1493,8 @@ Traceability rules:
 3. Promotion of material semantic/architecture questions follows `DESIGN-RULES.md`; implementation details follow `IMPLEMENTATION-RULES.md`.
 4. Resolution MUST record the resolving accepted authority or implementation evidence, as applicable.
 5. No deferred item may weaken composite MS-PROT-083's source-ownership, exact-definition/evaluation-affinity, coverage honesty, method-qualification, recommendation non-authority, AI claim-grounding, data-protection, Business/Operational Health separation or no-autonomous-mutation invariants.
-6. Git history preserves status transitions in this canonical register.
+6. MS-PROT-083 v1.7's commercial classification does not convert any deferred analytical expansion or report/export delivery into a commercially available feature.
+7. Git history preserves status transitions in this canonical register.
 
 ### 4.15A MS-PROT-084 Deferred Decision Catalogue
 
@@ -1630,16 +1636,16 @@ MS-PROT-091 v1.1, accepted 15 September 2026, classifies the Workforce Rota comm
 
 MS-PROT-050 v1.5, accepted 15 September 2026, supplies the dated `BusinessOperatingOverride` mutation/currentness owner-operation contract required before that capability could be commercially classified. It does not itself resolve DQ-001 or define Commercial Entitlement identity/binding. MS-PROT-050 v1.6, accepted 15 September 2026, then classifies Business Hours commercial access: `MAINTAIN_MERCHANT_PRESENCE` protects stable-hours authoring and dated-override maintenance for FREE + BUSINESS + GROWTH, while bounded public/merchant observation and standard withdrawal require no independent Commercial Entitlement. Concrete entitlement identities and the complete catalogue remain outstanding. DQ-001 remains OPEN and implementation activation remains NONE.
 
-Later accepted owner-classification amendments further narrow DQ-001 without closing it: Inventory v1.3, Payment v1.2, Ordering v1.2 and Order Fulfilment/Shipment v1.2 classify their protected new-activity boundaries and bounded residual/support paths; Returns v1.2 explicitly contributes no new standard entitlement identity for its bounded applicable-policy observation, existing-Order resolution support, return-label preparation and existing-label observation/reconciliation contracts; and MS-PROT-084 v1.2 classifies `financial-operations/record-establishment-access@1` / `ESTABLISH_FINANCIAL_OPERATIONS_RECORD` for BUSINESS + GROWTH while explicitly classifying bounded Financial Operations preparation, existing-record observation and pure existing-record resolution without an independent Commercial Entitlement. These amendments preserve their owner boundaries, do not mint the final entitlement identities and do not activate implementation.
+Later accepted owner-classification amendments further narrow DQ-001 without closing it: Inventory v1.3, Payment v1.2, Ordering v1.2 and Order Fulfilment/Shipment v1.2 classify their protected new-activity boundaries and bounded residual/support paths; Returns v1.2 explicitly contributes no new standard entitlement identity for its bounded applicable-policy observation, existing-Order resolution support, return-label preparation and existing-label observation/reconciliation contracts; MS-PROT-084 v1.2 classifies `financial-operations/record-establishment-access@1` / `ESTABLISH_FINANCIAL_OPERATIONS_RECORD` for BUSINESS + GROWTH while explicitly classifying bounded Financial Operations preparation, existing-record observation and pure existing-record resolution without an independent Commercial Entitlement; and MS-PROT-083 v1.7 classifies `business-intelligence/business-analytics-evaluation-access@1` / `USE_BUSINESS_ANALYTICS` for BUSINESS + GROWTH, `business-intelligence/campaign-analytics-evaluation-access@1` / `USE_CAMPAIGN_ANALYTICS` for GROWTH, and merchant analytical presentation without an independent Commercial Entitlement. These amendments preserve their owner boundaries, do not mint the final entitlement identities and do not activate implementation. MS-PROT-083 v1.7 also leaves report/export commercial classification separate.
 
 | ID | Status | Deferred question | Authority / admission barrier |
 |---|---|---|---|
-| MS-PROT-056-V17-DQ-001 | **OPEN** | Exact entitlement definitions, target bindings and complete standard catalogue | MS-PROT-056 v1.7 §§4, 11–12 and v1.8 §§3–8, 12; bounded owner classifications now include Profile v1.6, Publication v1.4/v1.5, Enquiry v1.5/v1.6, Attention v1.3, Storefront/Merchant Brand Infrastructure amendments, Workforce Scheduling v1.4, Workforce Compensation v1.4, Workforce Rota v1.1, Business Hours v1.6, Inventory v1.3, Payment v1.2, Ordering v1.2, Order Fulfilment/Shipment v1.2, Returns v1.2 and Financial Operations v1.2. Concrete `CommercialEntitlementIdentity` definitions, exact bindings, remaining owner/supporting classifications and the complete standard manifest remain outstanding; runtime grants must not be inferred from allocation/classification tables |
+| MS-PROT-056-V17-DQ-001 | **OPEN** | Exact entitlement definitions, target bindings and complete standard catalogue | MS-PROT-056 v1.7 §§4, 11–12 and v1.8 §§3–8, 12; bounded owner classifications now include Profile v1.6, Publication v1.4/v1.5, Enquiry v1.5/v1.6, Attention v1.3, Storefront/Merchant Brand Infrastructure amendments, Workforce Scheduling v1.4, Workforce Compensation v1.4, Workforce Rota v1.1, Business Hours v1.6, Inventory v1.3, Payment v1.2, Ordering v1.2, Order Fulfilment/Shipment v1.2, Returns v1.2, Financial Operations v1.2 and Business Intelligence v1.7. Concrete `CommercialEntitlementIdentity` definitions, exact bindings, remaining owner/supporting classifications and the complete standard manifest remain outstanding; runtime grants must not be inferred from allocation/classification tables |
 | MS-PROT-056-V17-DQ-002 | **RESOLVED — CATALOGUE-PUBLICATION AND TEMPORAL-SELECTION POLICY ONLY** | Catalogue publication, initial effective start and historical resolution | MS-PROT-056 v1.9 §§8–13, 17; initial start derives from the first successful authoritative publication, subsequent generations retain half-open historical selection, and uncovered history fails explicitly; no production catalogue, implementation activation or C3 completion is authorised |
 | MS-PROT-056-V17-DQ-003 | **OPEN** | Prices, quantitative allowances and commercial feasibility | MS-PROT-056 v1.7 §§3, 12, 15; no sale-ready pricing or unlimited-use claims |
 | MS-PROT-056-V17-DQ-004 | **OPEN** | Exact reserved service portfolios and their admission dependencies | MS-PROT-056 v1.7 §§5–6, 9, 12; reservations must not be activated as features |
 
-Existing capability deferrals retain their identities and ownership, including `MS-PROT-084-DQ-006` for native Invoice authority. MS-PROT-084 v1.2 changes only Financial Operations commercial classification and leaves all MS-PROT-084 deferred decisions unchanged. The MS-PROT-082 v1.1 lifecycle-status mismatch recorded during allocation-policy approval is no longer current: the amendment now records explicit manual acceptance on 14 September 2026, incorporated from remote commit `24bfeaaf`. This is separate acceptance provenance, not a resolution by MS-PROT-056 v1.7; the approved allocation policy remains unchanged. The executable catalogue and C3 activation remain not implementation-ready under MS-PROT-056 v1.7 §16.
+Existing capability deferrals retain their identities and ownership, including `MS-PROT-084-DQ-006` for native Invoice authority. MS-PROT-084 v1.2 changes only Financial Operations commercial classification and leaves all MS-PROT-084 deferred decisions unchanged. MS-PROT-083 v1.7 changes only Business Intelligence commercial classification and leaves all MS-PROT-083 deferred decisions unchanged. The MS-PROT-082 v1.1 lifecycle-status mismatch recorded during allocation-policy approval is no longer current: the amendment now records explicit manual acceptance on 14 September 2026, incorporated from remote commit `24bfeaaf`. This is separate acceptance provenance, not a resolution by MS-PROT-056 v1.7; the approved allocation policy remains unchanged. The executable catalogue and C3 activation remain not implementation-ready under MS-PROT-056 v1.7 §16.
 
 ---
 
@@ -2425,7 +2431,7 @@ EAC-001, EAC-002, EAC-003, the Order/Ordering authority gap, the Booking/Appoint
 
 Composite MS-PROT-082 through v1.1 is accepted post-baseline authority but is not currently implementation-promoted. DQ-001 and DQ-002 are resolved by v1.1; DQ-007 is resolved compositionally by composite MS-PROT-083 + MS-PROT-084 v1.1. DQ-003 through DQ-006 retain their Section 4.14 states and do not reprioritise the current production implementation graph.
 
-Composite MS-PROT-083 through v1.6 is likewise accepted post-baseline authority but is not currently implementation-promoted. `MS-PROT-083-DQ-001` is resolved by the v1.1 Campaign, v1.2 Customer-Return and v1.3 initial general BI portfolios; DQ-002 is resolved by v1.5; DQ-009 is resolved by v1.4; DQ-010 is resolved for the initial on-demand report/export portfolio by v1.6; and `MS-PROT-083-DQ-015` is resolved by MS-PROT-084 v1.1. The remaining unresolved tail retains the Section 4.15 states and does not reprioritise the current production implementation graph.
+Composite MS-PROT-083 through v1.7 is likewise accepted post-baseline authority but is not currently implementation-promoted. `MS-PROT-083-DQ-001` is resolved by the v1.1 Campaign, v1.2 Customer-Return and v1.3 initial general BI portfolios; DQ-002 is resolved by v1.5; DQ-009 is resolved by v1.4; DQ-010 is resolved for the initial on-demand report/export portfolio by v1.6; and `MS-PROT-083-DQ-015` is resolved by MS-PROT-084 v1.1. v1.7 adds only the Business Intelligence owner-qualified commercial-access classification and partially resolves `MS-PROT-056-V17-DQ-001`; it changes no MS-PROT-083 DQ state, does not classify report/export delivery and does not activate or reprioritise implementation. The remaining unresolved tail retains the Section 4.15 states.
 
 Composite MS-PROT-084 through v1.2 is accepted post-baseline Financial Operations / Financial Evidence / Financial Health authority but is not currently implementation-promoted. v1.1 resolves DQ-001, DQ-002, DQ-004, DQ-013, DQ-014, DQ-015 and DQ-016 and leaves DQ-003, DQ-005, DQ-006, DQ-007, DQ-008, DQ-009, DQ-010, DQ-011 and DQ-012 deferred/inactive. v1.2 adds only the Financial Operations owner-qualified commercial-access classification and partially resolves `MS-PROT-056-V17-DQ-001`; it changes no MS-PROT-084 DQ state and does not activate or reprioritise implementation.
 
@@ -2547,7 +2553,7 @@ This differs deliberately from scope-aware MS-PROT amendment chains, whose separ
 
 ## 11. Current Next Action
 
-MS-PROT-079 governed and Design-Closed the remaining-backend design programme. Later implementation-discovered amendments, including composite MS-PROT-027 through v1.14, MS-PROT-051 v1.5, MS-PROT-049 v1.4, the accepted composite Workforce Scheduling/Timekeeping/Leave/Compensation-affinity package through MS-PROT-081 v1.4 and MS-PROT-080 v1.4, MS-PROT-091 through v1.1, composite MS-PROT-050 through v1.6, composite MS-PROT-082 through v1.1, composite MS-PROT-083 through v1.6, composite MS-PROT-084 through v1.2, composite MS-PROT-053 through v1.3, composite MS-PROT-085 through v1.3, composite MS-PROT-086 through v1.3, composite MS-PROT-087 through v1.3, accepted MS-PROT-090 v1.0 and accepted MS-PROT-093 v1.0 refine the accepted corpus without reopening the completed 21-target programme or reprioritising production implementation.
+MS-PROT-079 governed and Design-Closed the remaining-backend design programme. Later implementation-discovered amendments, including composite MS-PROT-027 through v1.14, MS-PROT-051 v1.5, MS-PROT-049 v1.4, the accepted composite Workforce Scheduling/Timekeeping/Leave/Compensation-affinity package through MS-PROT-081 v1.4 and MS-PROT-080 v1.4, MS-PROT-091 through v1.1, composite MS-PROT-050 through v1.6, composite MS-PROT-082 through v1.1, composite MS-PROT-083 through v1.7, composite MS-PROT-084 through v1.2, composite MS-PROT-053 through v1.3, composite MS-PROT-085 through v1.3, composite MS-PROT-086 through v1.3, composite MS-PROT-087 through v1.3, accepted MS-PROT-090 v1.0 and accepted MS-PROT-093 v1.0 refine the accepted corpus without reopening the completed 21-target programme or reprioritising production implementation.
 
 The binding design sequence remains complete:
 
@@ -2592,13 +2598,15 @@ OPERATIONS
 
 **Current active MS-PROT-079 target:** None — the 21-target remaining-backend design programme is complete.
 
-**Current promoted design work:** None for the E3/E4/S2/T1b4/S3 sequence. `IMP-06-E3-DG-002`, `IMP-06-E4-DG-001`, `IMP-06-E4-DG-002`, `IMP-06-S2-T1B4-DG-001` and `IMP-06-S3-DG-001` are resolved. The accepted composite MS-PROT-081 through v1.4 workforce package is not implementation-promoted: DQ-021 is resolved by v1.2, DQ-015 is partially resolved by v1.3 with the Timekeeping notification/reminder remainder deferred, and DQ-020 is resolved by v1.4 while the concrete entitlement manifest remains under `MS-PROT-056-V17-DQ-001`. Composite MS-PROT-080 through v1.4 and MS-PROT-091 through v1.1 are likewise not implementation-promoted; their accepted commercial-access classifications do not activate production. Composite MS-PROT-050 through v1.6 supplies dated-override ownership and Business Hours commercial classification without closing the Commercial catalogue. Composite MS-PROT-083 through v1.6 is also not implementation-promoted; its resolved and deferred tail remains governed by Section 4.15. Composite MS-PROT-082 through v1.1 and composite MS-PROT-084 through v1.2 are likewise not implementation-promoted; MS-PROT-084 v1.2 supplies Financial Operations commercial classification only and its unresolved semantic tail remains in Section 4.15A. Composite MS-PROT-053 through v1.3 lifecycle, composite MS-PROT-085 through v1.3 Merchant Attention, composite MS-PROT-086 through v1.3 Customer Communication, composite MS-PROT-087 through v1.3 Marketing and MS-PROT-093 first-party merchant-client architecture are likewise not implementation-promoted. ADR-014-DQ-011 remains the active-before-production guest credential-representation gate; ADR-014-DQ-014 is resolved by MS-PROT-093.
+**Current promoted design work:** None for the E3/E4/S2/T1b4/S3 sequence. `IMP-06-E3-DG-002`, `IMP-06-E4-DG-001`, `IMP-06-E4-DG-002`, `IMP-06-S2-T1B4-DG-001` and `IMP-06-S3-DG-001` are resolved. The accepted composite MS-PROT-081 through v1.4 workforce package is not implementation-promoted: DQ-021 is resolved by v1.2, DQ-015 is partially resolved by v1.3 with the Timekeeping notification/reminder remainder deferred, and DQ-020 is resolved by v1.4 while the concrete entitlement manifest remains under `MS-PROT-056-V17-DQ-001`. Composite MS-PROT-080 through v1.4 and MS-PROT-091 through v1.1 are likewise not implementation-promoted; their accepted commercial-access classifications do not activate production. Composite MS-PROT-050 through v1.6 supplies dated-override ownership and Business Hours commercial classification without closing the Commercial catalogue. Composite MS-PROT-083 through v1.7 is also not implementation-promoted; v1.7 adds Business Intelligence commercial classification only and its resolved/deferred analytical tail remains governed by Section 4.15. Composite MS-PROT-082 through v1.1 and composite MS-PROT-084 through v1.2 are likewise not implementation-promoted; MS-PROT-084 v1.2 supplies Financial Operations commercial classification only and its unresolved semantic tail remains in Section 4.15A. Composite MS-PROT-053 through v1.3 lifecycle, composite MS-PROT-085 through v1.3 Merchant Attention, composite MS-PROT-086 through v1.3 Customer Communication, composite MS-PROT-087 through v1.3 Marketing and MS-PROT-093 first-party merchant-client architecture are likewise not implementation-promoted. ADR-014-DQ-011 remains the active-before-production guest credential-representation gate; ADR-014-DQ-014 is resolved by MS-PROT-093.
 
 **Current implementation work under `IMPLEMENTATION-RULES.md`:** after the MS-PROT-049 v1.4 formalisation/corpus-conformance head verifies successfully, S3 generic Public Interaction participation-source and binding-projection infrastructure is the smallest READY production-code node. Its production source registry may be empty and must fail closed to zero bindings; tests must also prove the positive generic mechanics through test-only owner source fixtures. S3 must compose only independently established participation with already-governed serviceability/Exposure-selected material, reject wrong scope/release/contribution/subject affinity and duplicate ownership, preserve many-to-many participation, and own no availability or execution authority. Concrete `Opportunity → enquiry/send-enquiry` production participation remains with IMP-07 and must not be pulled into IMP-06.
 
 T2d and T3c remain ON_DEMAND. T4c remains blocked on a real concrete query adapter and shall not be manufactured merely to close IMP-06. IMP-06 remains PARTIALLY_CONFORMING until S3 implementation and its closure cycle complete; IMP-07 remains HARD-blocked until formal IMP-06 completion. `MS-WATCH-002` remains active.
 
 MS-PROT-084 v1.1 acceptance authorises semantic/design authority and governance composition only. MS-PROT-084 v1.2 additionally authorises Financial Operations commercial-access classification only. Neither activates Financial Operations implementation, financial-account provider integration, outgoing merchant payment execution, statutory accounting or any deferred financial expansion. MS-IMP expansion remains a later implementation-governance step.
+
+MS-PROT-083 v1.7 acceptance authorises Business Intelligence commercial-access classification and governance composition only. It does not activate Business Intelligence implementation, report/export commercial delivery, new analytical methods, Campaign execution, source mutation or any deferred analytical expansion.
 
 MS-PROT-093 acceptance authorises client architecture and governance composition only. It does not by itself activate Android, iOS, Windows, macOS or merchant-web client implementation, choose native UI frameworks, set platform implementation sequence or alter the current backend implementation frontier.
 
