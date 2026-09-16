@@ -492,7 +492,7 @@ The exact `done_when` condition for executable lexical tasks `GR-REN-01A-01` thr
 After `GR-REN-01F` is complete:
 
 - safe current-product/current-code mutations may become eligible according to their own dependencies;
-- persisted/external identity changes remain blocked until their specific `GR-REN-06*` compatibility decision leaves complete;
+- persisted/external identity changes remain blocked until their specific compatibility-decision task that governs that identity is complete;
 - a compatibility decision may preserve an old identity, require an alias/adapter, require a forward migration, or make a proposed rename not applicable.
 
 This means execution may legitimately traverse the hierarchy non-numerically. The graph, not phase numbering, determines safety.
@@ -557,7 +557,7 @@ inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 last_completed_task: GR-REN-01A-03
 last_verified_head: afc06e36d4091977b3d8bfb29b02e2eed6343003
 last_task_commit: afc06e36d4091977b3d8bfb29b02e2eed6343003
-last_inspected_ledger_model_head: 6a907f85d8134a93af464692067389b6f6295760
+last_inspected_ledger_model_head: 2dd6aedbb5418e3ac390873c4000f97f8e5fbc14
 mutation_authorised: false
 next_action: Execute GR-REN-01A-04 only. Search storefront-web/** for every Section 4 naming form, append matches and zero-results to the inventory artifact, and perform no rename or semantic classification.
 ```
@@ -633,7 +633,9 @@ next_action: Execute GR-REN-01A-04 only. Search storefront-web/** for every Sect
 
 ### Runtime-centred scope refinement
 
-The migration contract was narrowed after `GR-REN-01A-03` so that only files directly required to build, configure, test, deploy, serve or govern current GrandRue are migration targets. Non-governance design material, historical/development evidence and experiments are reference-only exclusions. Completed inventory evidence remains valid and is not rewritten.
+- Model commit: `2dd6aedbb5418e3ac390873c4000f97f8e5fbc14`
+- Inspection: `COMPLETE` — ledger-only change; no runtime, test, storefront, build, accepted-authority or other repository file changed.
+- Effect: only files directly required to build, configure, test, deploy, serve or govern current GrandRue are migration targets. Non-governance design material, historical/development evidence and experiments are reference-only exclusions. Completed inventory evidence remains valid and is not rewritten.
 
 ### Operational model revision history
 
@@ -644,6 +646,7 @@ The migration contract was narrowed after `GR-REN-01A-03` so that only files dir
 | Dependency-safe namespace refinement | `38124236816186368190dccfb23a5bdd221aee9a` | Replaced path/package/import-only namespace checkpoints with atomic dependency-safe waves |
 | Hierarchical dependency task model | `84c9637fca39df636799537a910fafa7f8f7cdcf` | Introduced parent/child decomposition, explicit dependency edges, leaf-only execution, scope coverage and evidence rules |
 | Accepted-authority corpus exclusion | `6a907f85d8134a93af464692067389b6f6295760` | Removed `designs/authorities/**` from lexical inventory, rename, decomposition and completion scope while retaining stable governance references and read-only consultation where required |
+| Runtime-centred scope refinement | `2dd6aedbb5418e3ac390873c4000f97f8e5fbc14` | Restricted migration targets to current runtime/build/test/storefront/configuration surfaces plus current repository governance/navigation; all other design/docs/experiments are reference-only |
 
 ### Task checkpoint history
 
