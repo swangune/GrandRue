@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * Registration declares a consumer responsibility; it does not confer execution authority.
- * MS-PROT-026 v1.1, designs/MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment.md,
+ * MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment,
  * §13 — EventReactionContract; §14 — Registration Is Required.
  */
 public record EventReactionContractDefinition(

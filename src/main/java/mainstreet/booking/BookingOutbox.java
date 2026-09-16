@@ -13,8 +13,7 @@ import java.util.List;
  * <p>Recording publication is technical evidence only. It does not acknowledge
  * any Event Reaction or imply that every consumer completed.</p>
  *
- * <p>Authority: MS-PROT-026 v1.1,
- * designs/MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment.md,
+ * <p>Authority: MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment,
  * §11 — Event Publication Is Not Reaction Completion; §12 — Publication Responsibility;
  * §17 — Per-Reaction Acknowledgement.</p>
  */

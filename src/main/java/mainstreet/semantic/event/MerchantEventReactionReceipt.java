@@ -6,8 +6,7 @@ import java.util.Objects;
 
 /**
  * Pins responsibility across physical redelivery without rebinding its historical meaning.
- * Authority: MS-PROT-026 v1.1,
- * designs/MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment.md,
+ * Authority: MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment,
  * §23 — Reaction Deduplication; §32 — Historical Affinity.
  */
 public record MerchantEventReactionReceipt(
