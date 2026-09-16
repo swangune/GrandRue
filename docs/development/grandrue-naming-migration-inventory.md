@@ -313,3 +313,68 @@ No rename or semantic classification was performed.
 ### Completion evidence
 
 The complete `src/test/**` surface was accounted for through its Java and resource roots; all Section 4 lexical forms were searched; namespace, prose and uppercase environment-variable occurrences were recorded; case-insensitive underscore false positives were resolved by direct current-branch inspection; zero-result forms were recorded; and no mutation or semantic classification was performed.
+
+---
+
+## GR-REN-01A-04 — Storefront lexical inventory
+
+**Inspection baseline:** `f711bda24417140b3941b2a3412e494492f15518`  
+**Parent:** `GR-REN-01A`  
+**Kind:** `TASK`  
+**Scope:** `storefront-web/**`  
+**Rename performed:** `false`  
+**Semantic classification performed:** `false`
+
+### Scope and method
+
+The complete `storefront-web/**` tree is byte-identical between `master` and `development` at the time of inspection, so the repository code index is branch-safe for this leaf. The indexed candidate set was then verified directly on current `development` for the material matches.
+
+### Search forms
+
+```text
+mainstreet
+mainstreet.*
+Main Street
+MAIN_STREET
+MAINSTREET
+main-street
+Main_Street
+```
+
+### Matches
+
+#### `mainstreet`
+
+Exactly three files in the storefront scope contain the lexical form:
+
+- `storefront-web/package.json`
+  - npm package name: `mainstreet-storefront-web`.
+- `storefront-web/package-lock.json`
+  - root package name and package metadata repeat `mainstreet-storefront-web`.
+- `storefront-web/src/lib/grandrue-api.ts`
+  - environment-variable reference `MAINSTREET_BACKEND_URL` contains the form case-insensitively.
+
+#### `Main Street`
+
+- `storefront-web/app/layout.tsx`
+  - metadata description is `Main Street capability-driven storefront prototype`.
+
+#### `MAINSTREET`
+
+- `storefront-web/src/lib/grandrue-api.ts`
+  - runtime environment-variable name `MAINSTREET_BACKEND_URL`.
+
+### Zero-result forms in this scope
+
+No occurrences were found for:
+
+- `mainstreet.*`
+- `MAIN_STREET`
+- `main-street`
+- `Main_Street`
+
+No rename or semantic classification was performed.
+
+### Completion evidence
+
+The complete `storefront-web/**` tree was searched for every Section 4 lexical form. All observed package, runtime environment-variable and current metadata occurrences are recorded above; zero-result forms are recorded; and no mutation or semantic classification was performed.
