@@ -97,19 +97,19 @@ Final action-map evidence: `08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52`.
 
 State: `OPEN`
 
-`GR-REN-02-01` is a parent group. Production package moves must be executed as bounded package leaves with all production cross-package consumers included atomically. Do not migrate test packages in this group; test namespace migration is `GR-REN-03`.
+`GR-REN-02-01` is a parent group. Production package moves are bounded package leaves with all production cross-package consumers included atomically. Test packages remain for `GR-REN-03`.
 
 | Node | Kind | State | Scope |
 |---|---|---|---|
-| `GR-REN-02-01` | GROUP | `OPEN` | production Java namespace root migration, decomposed below |
-| `GR-REN-02-01A` | TASK | `READY` | `identitysecurity/**` + bounded production consumers |
+| `GR-REN-02-01` | GROUP | `OPEN` | production Java namespace migration |
+| `GR-REN-02-01A` | TASK | `COMPLETE_PENDING_VERIFICATION` | `identitysecurity/**` + bounded production consumers; code commit `6396afba5fdf3e76e2099536d8a3451184650056` |
 | `GR-REN-02-01B+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
-| `GR-REN-02-02` | TASK | `NOT_STARTED` | reconcile current-product comments/wording only in touched production source files |
+| `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
-#### `GR-REN-02-01A` scope
+#### `GR-REN-02-01A` exact scope
 
-Move these eight owner files from `src/main/java/mainstreet/identitysecurity/` to `src/main/java/grandrue/identitysecurity/`, changing only their package declarations:
+Moved eight owner files from `src/main/java/mainstreet/identitysecurity/` to `src/main/java/grandrue/identitysecurity/`, changing only package declarations:
 
 - `IdentitySecurityGeneration.java`
 - `IdentitySecurityGenerationException.java`
@@ -120,16 +120,14 @@ Move these eight owner files from `src/main/java/mainstreet/identitysecurity/` t
 - `IdentitySecurityRotationCommand.java`
 - `IdentitySecurityRotationReason.java`
 
-Update the exact production consumers discovered by bounded search:
+Updated bounded production consumers:
 
 - `src/main/java/mainstreet/infrastructure/persistence/identitysecurity/JooqIdentitySecurityGenerationManagement.java`
 - `src/main/java/mainstreet/infrastructure/security/webauthn/WebAuthnAuthenticationSubjectService.java`
 
-Reference-only `build_configuration/package_boundary.md` and historical implementation evidence remain untouched. Test consumers remain under `GR-REN-03`.
+No current-product prose/comments, stable identifiers, schema names or compatibility strings were changed. Reference-only docs/history and test consumers were not modified.
 
-`done_when`: all eight production owner files exist only under `grandrue.identitysecurity`, the two bounded production consumers import `grandrue.identitysecurity`, and no production import/package declaration still uses `mainstreet.identitysecurity`.
-
-No compatibility identity in the frozen action map may change in this leaf.
+`done_when`: owner files exist only under `grandrue.identitysecurity`; bounded production consumers import `grandrue.identitysecurity`; no production package/import declaration remains for `mainstreet.identitysecurity`.
 
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
@@ -169,9 +167,9 @@ mutation_authorised: true
 active_group: GR-REN-02
 selected_execution_leaf: GR-REN-02-01A
 last_completed_task: GR-REN-01F-04
-last_verified_head: 08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52
-last_task_commit: 08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52
-next_action: Execute GR-REN-02-01A only. Move identitysecurity production package plus the two bounded production consumer imports. Structural verification only; do not run Maven tests or GitHub Actions.
+last_verified_head: ee39bfa3b204b11779a177f3eaa7bf8e1e6baaa0
+last_task_commit: 6396afba5fdf3e76e2099536d8a3451184650056
+next_action: Structurally verify GR-REN-02-01A only. If complete, checkpoint it and select the next bounded production package leaf. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
