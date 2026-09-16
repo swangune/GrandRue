@@ -200,8 +200,8 @@ State: `OPEN`
 | `GR-REN-01A-02` | TASK | `src/main/**` | `COMPLETE` | `29a7811c737508ec80214ceff1bb1b28b7762bac` |
 | `GR-REN-01A-03` | TASK | `src/test/**` | `COMPLETE` | `afc06e36d4091977b3d8bfb29b02e2eed6343003` |
 | `GR-REN-01A-04` | TASK | `storefront-web/**` | `COMPLETE` | `9a0f69e80561a400b963582195d5c75437cc13bb` |
-| `GR-REN-01A-05` | TASK | `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `READY` | — |
-| `GR-REN-01A-06` | TASK | six governance files listed in Section 1 | `NOT_STARTED` | — |
+| `GR-REN-01A-05` | TASK | `AGENTS.md`, `README`, `SEQUENCE.md`, `GRANDRUE-MIGRATION.md` | `COMPLETE` | `25b1ba128d8ea47cf864c41e531de7482c1ba93c` |
+| `GR-REN-01A-06` | TASK | six governance files listed in Section 1 | `READY` | — |
 | `GR-REN-01A-07` | GROUP | all non-governance `designs/**` | `EXCLUDED` | reference-only |
 | `GR-REN-01A-08` | GROUP | `designs/system/**` | `EXCLUDED` | reference-only |
 | `GR-REN-01A-09` | GROUP | `designs/historical/**` | `EXCLUDED` | reference-only |
@@ -269,6 +269,7 @@ On restart, compare `development` HEAD with the checkpoint. Expected descendant 
 | `GR-REN-01A-02` | `29a7811c737508ec80214ceff1bb1b28b7762bac` | `COMPLETE` |
 | `GR-REN-01A-03` | `afc06e36d4091977b3d8bfb29b02e2eed6343003` | `COMPLETE` |
 | `GR-REN-01A-04` | `9a0f69e80561a400b963582195d5c75437cc13bb` | `COMPLETE` |
+| `GR-REN-01A-05` | `25b1ba128d8ea47cf864c41e531de7482c1ba93c` | `COMPLETE` |
 
 ### Operational model history
 
@@ -280,6 +281,7 @@ On restart, compare `development` HEAD with the checkpoint. Expected descendant 
 | `6a907f85d8134a93af464692067389b6f6295760` | accepted-authority corpus exclusion |
 | `2dd6aedbb5418e3ac390873c4000f97f8e5fbc14` | runtime-centred scope; non-governance designs/docs/experiments reference-only |
 | `f711bda24417140b3941b2a3412e494492f15518` | checkpointed runtime-centred scope model |
+| `9b9843a0df3ef7ccc9da985c558ca037f83fd54e` | compacted the operational ledger without changing migration semantics |
 
 ---
 
@@ -294,14 +296,14 @@ model: HIERARCHICAL_DEPENDENCY_GRAPH
 scope: RUNTIME_AND_GOVERNANCE_ONLY
 status: IN_PROGRESS
 active_group: GR-REN-01A
-selected_execution_leaf: GR-REN-01A-05
-last_completed_task: GR-REN-01A-04
-last_verified_head: 9a0f69e80561a400b963582195d5c75437cc13bb
-last_task_commit: 9a0f69e80561a400b963582195d5c75437cc13bb
-last_inspected_ledger_model_head: 2dd6aedbb5418e3ac390873c4000f97f8e5fbc14
+selected_execution_leaf: GR-REN-01A-06
+last_completed_task: GR-REN-01A-05
+last_verified_head: 25b1ba128d8ea47cf864c41e531de7482c1ba93c
+last_task_commit: 25b1ba128d8ea47cf864c41e531de7482c1ba93c
+last_inspected_ledger_model_head: 9b9843a0df3ef7ccc9da985c558ca037f83fd54e
 inventory_artifact: docs/development/grandrue-naming-migration-inventory.md
 mutation_authorised: false
-next_action: Execute GR-REN-01A-05 only. Inventory the four root governance/navigation files for every required naming form; do not rename or classify.
+next_action: Execute GR-REN-01A-06 only. Inventory the six in-scope governance files under designs/** for every required naming form; do not traverse any other design file and do not rename or classify.
 ```
 
 ---
