@@ -1302,8 +1302,8 @@ No existing consuming-owner deferred decision is resolved merely by this commerc
 **Anti-wildcard entitlement boundary:** PASS  
 **Ambiguity review:** PASS  
 **Recommendation:** ACCEPT  
-**Manual approval:** NOT GRANTED  
-**Repository formalisation:** NONE
+**Manual approval:** GRANTED — 16 September 2026  
+**Repository formalisation:** COMPLETE FOR THIS AUTHORITY DOCUMENT
 
 ---
 
