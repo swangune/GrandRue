@@ -1,16 +1,15 @@
-package mainstreet.infrastructure.persistence.merchantprofile;
+package grandrue.infrastructure.persistence.merchantprofile;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.merchantprofile.CreateMerchantClassificationEntryCommand;
-import mainstreet.merchantprofile.MerchantClassificationEntryAuthority;
-import mainstreet.merchantprofile.MerchantClassificationEntryRevision;
-import mainstreet.merchantprofile.MerchantClassificationEntryV1;
-import mainstreet.merchantprofile.MerchantClassificationExposure;
-import mainstreet.merchantprofile.MerchantClassificationLifecycle;
+import mainstreet.merchantprofile.CreateMerchantExternalPresenceLinkCommand;
+import mainstreet.merchantprofile.MerchantExternalPresenceExposure;
+import mainstreet.merchantprofile.MerchantExternalPresenceLifecycle;
+import mainstreet.merchantprofile.MerchantExternalPresenceLinkAuthority;
+import mainstreet.merchantprofile.MerchantExternalPresenceLinkRevision;
 import mainstreet.merchantprofile.MerchantProfileFailureCategory;
 import mainstreet.merchantprofile.MerchantProfileMutationException;
-import mainstreet.merchantprofile.RetireMerchantClassificationEntryCommand;
-import mainstreet.merchantprofile.UpdateMerchantClassificationEntryCommand;
+import mainstreet.merchantprofile.RetireMerchantExternalPresenceLinkCommand;
+import mainstreet.merchantprofile.UpdateMerchantExternalPresenceLinkCommand;
 import mainstreet.runtime.TrustedExecutionContext;
 import org.jooq.DSLContext;
 import org.jooq.Record;
@@ -23,13 +22,13 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
-/** PostgreSQL authority for immutable Merchant Classification Entry revisions. */
-public final class JooqMerchantClassificationEntryAuthority
-        implements MerchantClassificationEntryAuthority {
+/** PostgreSQL authority for immutable Merchant External Presence revisions. */
+public final class JooqMerchantExternalPresenceLinkAuthority
+        implements MerchantExternalPresenceLinkAuthority {
     private final DSLContext dsl;
     private final TransactionTemplate transactions;
 
-    public JooqMerchantClassificationEntryAuthority(
+    public JooqMerchantExternalPresenceLinkAuthority(
             DSLContext dsl,
             PlatformTransactionManager transactionManager
     ) {
@@ -40,8 +39,8 @@ public final class JooqMerchantClassificationEntryAuthority
     }
 
     @Override
-    public MerchantClassificationEntryRevision create(
-            CreateMerchantClassificationEntryCommand command,
+    public MerchantExternalPresenceLinkRevision create(
+            CreateMerchantExternalPresenceLinkCommand command,
             TrustedExecutionContext trustedContext
     ) {
         Objects.requireNonNull(command, "command");
@@ -53,11 +52,11 @@ public final class JooqMerchantClassificationEntryAuthority
         return mutate(new MutationIntent(
                 OperationKind.CREATE,
                 command.merchantScope(),
-                command.classificationIdentity(),
+                command.presenceIdentity(),
                 Optional.empty(),
-                Optional.of(command.entry()),
-                Optional.empty(),
-                Optional.empty(),
+                Optional.of(command.platformKind()),
+                Optional.of(command.publicUrl()),
+                Optional.of(command.exposure()),
                 command.logicalRequestIdentity(),
                 command.provenanceReference(),
                 command.actingPrincipalIdentity(),
@@ -66,8 +65,8 @@ public final class JooqMerchantClassificationEntryAuthority
     }
 
     @Override
-    public MerchantClassificationEntryRevision update(
-            UpdateMerchantClassificationEntryCommand command,
+    public MerchantExternalPresenceLinkRevision update(
+            UpdateMerchantExternalPresenceLinkCommand command,
             TrustedExecutionContext trustedContext
     ) {
         Objects.requireNonNull(command, "command");
@@ -79,10 +78,10 @@ public final class JooqMerchantClassificationEntryAuthority
         return mutate(new MutationIntent(
                 OperationKind.UPDATE,
                 command.merchantScope(),
-                command.classificationIdentity(),
+                command.presenceIdentity(),
                 Optional.of(command.expectedCurrentRevisionIdentity()),
-                Optional.empty(),
-                Optional.of(command.merchantApprovedLabel()),
+                Optional.of(command.platformKind()),
+                Optional.of(command.publicUrl()),
                 Optional.of(command.exposure()),
                 command.logicalRequestIdentity(),
                 command.provenanceReference(),
@@ -92,8 +91,8 @@ public final class JooqMerchantClassificationEntryAuthority
     }
 
     @Override
-    public MerchantClassificationEntryRevision retire(
-            RetireMerchantClassificationEntryCommand command,
+    public MerchantExternalPresenceLinkRevision retire(
+            RetireMerchantExternalPresenceLinkCommand command,
             TrustedExecutionContext trustedContext
     ) {
         Objects.requireNonNull(command, "command");
@@ -105,7 +104,7 @@ public final class JooqMerchantClassificationEntryAuthority
         return mutate(new MutationIntent(
                 OperationKind.RETIRE,
                 command.merchantScope(),
-                command.classificationIdentity(),
+                command.presenceIdentity(),
                 Optional.of(command.expectedCurrentRevisionIdentity()),
                 Optional.empty(),
                 Optional.empty(),
@@ -118,19 +117,19 @@ public final class JooqMerchantClassificationEntryAuthority
     }
 
     @Override
-    public Optional<MerchantClassificationEntryRevision> current(
+    public Optional<MerchantExternalPresenceLinkRevision> current(
             MerchantScope merchantScope,
-            String classificationIdentity
+            String presenceIdentity
     ) {
         Objects.requireNonNull(merchantScope, "merchantScope");
-        requireIdentifier(classificationIdentity, "classificationIdentity");
+        requireIdentifier(presenceIdentity, "presenceIdentity");
         Record pointer = dsl.fetchOne(
                 "select revision_identifier "
-                        + "from current_merchant_classification_entry "
+                        + "from current_merchant_external_presence_link "
                         + "where merchant_identifier = ? "
-                        + "and classification_identifier = ?",
+                        + "and presence_identifier = ?",
                 merchantScope.merchantIdentifier(),
-                classificationIdentity
+                presenceIdentity
         );
         return pointer == null
                 ? Optional.empty()
@@ -138,24 +137,24 @@ public final class JooqMerchantClassificationEntryAuthority
     }
 
     @Override
-    public Optional<MerchantClassificationEntryRevision> revision(
+    public Optional<MerchantExternalPresenceLinkRevision> revision(
             String revisionIdentity
     ) {
         requireIdentifier(revisionIdentity, "revisionIdentity");
         Record row = dsl.fetchOne(
-                "select * from merchant_classification_entry_revision "
+                "select * from merchant_external_presence_link_revision "
                         + "where revision_identifier = ?",
                 revisionIdentity
         );
         return Optional.ofNullable(row).map(this::toRevision);
     }
 
-    private MerchantClassificationEntryRevision mutate(MutationIntent intent) {
-        MerchantClassificationEntryRevision result = transactions.execute(
+    private MerchantExternalPresenceLinkRevision mutate(MutationIntent intent) {
+        MerchantExternalPresenceLinkRevision result = transactions.execute(
                 status -> {
-                    lock("merchant-classification-request|"
-                            + intent.requestIdentity(), 537);
-                    Optional<MerchantClassificationEntryRevision> replay =
+                    lock("merchant-presence-request|" + intent.requestIdentity(),
+                            525);
+                    Optional<MerchantExternalPresenceLinkRevision> replay =
                             byRequest(intent.requestIdentity());
                     if (replay.isPresent()) {
                         return requireSameIntent(intent, replay.orElseThrow());
@@ -169,10 +168,10 @@ public final class JooqMerchantClassificationEntryAuthority
                             intent.merchantScope(),
                             intent.actorIdentity()
                     );
-                    lock(merchant + "|" + intent.classificationIdentity(), 541);
+                    lock(merchant + "|" + intent.presenceIdentity(), 521);
 
                     Record pointer = currentPointerForUpdate(intent);
-                    Optional<MerchantClassificationEntryRevision> current =
+                    Optional<MerchantExternalPresenceLinkRevision> current =
                             pointer == null
                                     ? Optional.empty()
                                     : revision(pointer.get(
@@ -181,7 +180,7 @@ public final class JooqMerchantClassificationEntryAuthority
                                     ));
                     RevisionMaterial material = resolveMaterial(intent, current);
                     String revisionIdentity =
-                            "merchant-classification-entry-revision-"
+                            "merchant-external-presence-revision-"
                                     + UUID.randomUUID();
                     try {
                         insertRevision(
@@ -200,20 +199,20 @@ public final class JooqMerchantClassificationEntryAuthority
                         throw new MerchantProfileMutationException(
                                 MerchantProfileFailureCategory
                                         .TECHNICAL_FAILURE_BEFORE_COMMIT,
-                                "Classification Entry revision could not commit",
+                                "External Presence revision could not commit",
                                 failure
                         );
                     }
                     return revision(revisionIdentity).orElseThrow(() ->
                             new IllegalStateException(
-                                    "Committed Classification Entry revision is missing"
+                                    "Committed External Presence revision is missing"
                             )
                     );
                 }
         );
         if (result == null) {
             throw new IllegalStateException(
-                    "Classification Entry mutation returned no revision"
+                    "External Presence mutation returned no revision"
             );
         }
         return result;
@@ -221,33 +220,35 @@ public final class JooqMerchantClassificationEntryAuthority
 
     private RevisionMaterial resolveMaterial(
             MutationIntent intent,
-            Optional<MerchantClassificationEntryRevision> current
+            Optional<MerchantExternalPresenceLinkRevision> current
     ) {
         if (intent.operation() == OperationKind.CREATE) {
             if (current.isPresent()) {
                 throw failure(
                         MerchantProfileFailureCategory.PROFILE_REVISION_CONFLICT,
-                        "Classification Entry identity is already established"
+                        "External Presence identity is already established"
                 );
             }
             return new RevisionMaterial(
                     1L,
                     Optional.empty(),
-                    MerchantClassificationLifecycle.ACTIVE,
-                    intent.entry().orElseThrow()
+                    MerchantExternalPresenceLifecycle.ACTIVE,
+                    intent.platformKind().orElseThrow(),
+                    intent.publicUrl().orElseThrow(),
+                    intent.exposure().orElseThrow()
             );
         }
 
-        MerchantClassificationEntryRevision authoritative =
+        MerchantExternalPresenceLinkRevision authoritative =
                 current.orElseThrow(() -> failure(
                         MerchantProfileFailureCategory.PROFILE_FACT_NOT_FOUND,
-                        "Classification Entry identity is not established"
+                        "External Presence identity is not established"
                 ));
         if (authoritative.lifecycle()
-                == MerchantClassificationLifecycle.RETIRED) {
+                == MerchantExternalPresenceLifecycle.RETIRED) {
             throw failure(
                     MerchantProfileFailureCategory.PROFILE_FACT_RETIRED,
-                    "Classification Entry identity is retired"
+                    "External Presence identity is retired"
             );
         }
         if (!intent.expectedRevision().orElseThrow().equals(
@@ -255,7 +256,7 @@ public final class JooqMerchantClassificationEntryAuthority
         )) {
             throw failure(
                     MerchantProfileFailureCategory.PROFILE_REVISION_CONFLICT,
-                    "Classification Entry current revision changed"
+                    "External Presence current revision changed"
             );
         }
         long next = Math.addExact(authoritative.revisionNumber(), 1L);
@@ -263,27 +264,27 @@ public final class JooqMerchantClassificationEntryAuthority
             return new RevisionMaterial(
                     next,
                     Optional.of(authoritative.revisionIdentity()),
-                    MerchantClassificationLifecycle.RETIRED,
-                    authoritative.entry()
+                    MerchantExternalPresenceLifecycle.RETIRED,
+                    authoritative.platformKind(),
+                    authoritative.publicUrl(),
+                    authoritative.exposure()
             );
         }
         return new RevisionMaterial(
                 next,
                 Optional.of(authoritative.revisionIdentity()),
-                MerchantClassificationLifecycle.ACTIVE,
-                new MerchantClassificationEntryV1(
-                        authoritative.entry().kind(),
-                        intent.label().orElseThrow(),
-                        intent.exposure().orElseThrow()
-                )
+                MerchantExternalPresenceLifecycle.ACTIVE,
+                intent.platformKind().orElseThrow(),
+                intent.publicUrl().orElseThrow(),
+                intent.exposure().orElseThrow()
         );
     }
 
-    private Optional<MerchantClassificationEntryRevision> byRequest(
+    private Optional<MerchantExternalPresenceLinkRevision> byRequest(
             String requestIdentity
     ) {
         Record row = dsl.fetchOne(
-                "select * from merchant_classification_entry_revision "
+                "select * from merchant_external_presence_link_revision "
                         + "where logical_request_identifier = ?",
                 requestIdentity
         );
@@ -292,11 +293,11 @@ public final class JooqMerchantClassificationEntryAuthority
 
     private Record currentPointerForUpdate(MutationIntent intent) {
         return dsl.fetchOne(
-                "select * from current_merchant_classification_entry "
+                "select * from current_merchant_external_presence_link "
                         + "where merchant_identifier = ? "
-                        + "and classification_identifier = ? for update",
+                        + "and presence_identifier = ? for update",
                 intent.merchantScope().merchantIdentifier(),
-                intent.classificationIdentity()
+                intent.presenceIdentity()
         );
     }
 
@@ -307,28 +308,26 @@ public final class JooqMerchantClassificationEntryAuthority
             String controllerRelationship
     ) {
         dsl.execute(
-                "insert into merchant_classification_entry_revision "
+                "insert into merchant_external_presence_link_revision "
                         + "(revision_identifier, merchant_identifier, "
-                        + "classification_identifier, revision_number, "
+                        + "presence_identifier, revision_number, "
                         + "predecessor_revision_identifier, operation_kind, "
-                        + "lifecycle, value_schema_identifier, "
-                        + "classification_kind, merchant_approved_label, "
+                        + "lifecycle, platform_kind, public_url, "
                         + "exposure_choice, logical_request_identifier, "
                         + "provenance_reference, acting_principal_identifier, "
                         + "controller_relationship_identifier, committed_at) "
                         + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-                        + "?, cast(? as timestamptz))",
+                        + "cast(? as timestamptz))",
                 revisionIdentity,
                 intent.merchantScope().merchantIdentifier(),
-                intent.classificationIdentity(),
+                intent.presenceIdentity(),
                 material.revisionNumber(),
                 material.predecessorRevisionIdentity().orElse(null),
                 intent.operation().name(),
                 material.lifecycle().name(),
-                material.entry().schemaIdentity(),
-                material.entry().kind().name(),
-                material.entry().merchantApprovedLabel(),
-                material.entry().exposure().name(),
+                material.platformKind(),
+                material.publicUrl(),
+                material.exposure().name(),
                 intent.requestIdentity(),
                 intent.provenanceReference(),
                 intent.actorIdentity(),
@@ -345,14 +344,14 @@ public final class JooqMerchantClassificationEntryAuthority
     ) {
         if (pointer == null) {
             dsl.execute(
-                    "insert into current_merchant_classification_entry "
+                    "insert into current_merchant_external_presence_link "
                             + "(current_pointer_identifier, merchant_identifier, "
-                            + "classification_identifier, revision_identifier, "
+                            + "presence_identifier, revision_identifier, "
                             + "revision_number, lifecycle) "
                             + "values (?, ?, ?, ?, ?, ?)",
-                    "merchant-classification-entry-current-" + UUID.randomUUID(),
+                    "merchant-external-presence-current-" + UUID.randomUUID(),
                     intent.merchantScope().merchantIdentifier(),
-                    intent.classificationIdentity(),
+                    intent.presenceIdentity(),
                     revisionIdentity,
                     material.revisionNumber(),
                     material.lifecycle().name()
@@ -360,7 +359,7 @@ public final class JooqMerchantClassificationEntryAuthority
             return;
         }
         int updated = dsl.execute(
-                "update current_merchant_classification_entry "
+                "update current_merchant_external_presence_link "
                         + "set revision_identifier = ?, revision_number = ?, "
                         + "lifecycle = ? where current_pointer_identifier = ?",
                 revisionIdentity,
@@ -371,40 +370,28 @@ public final class JooqMerchantClassificationEntryAuthority
         if (updated != 1) {
             throw failure(
                     MerchantProfileFailureCategory.PROFILE_REVISION_CONFLICT,
-                    "Classification Entry current pointer changed"
+                    "External Presence current pointer changed"
             );
         }
     }
 
-    private MerchantClassificationEntryRevision toRevision(Record row) {
-        String schema = row.get("value_schema_identifier", String.class);
-        if (!MerchantClassificationEntryV1.SCHEMA_IDENTITY.equals(schema)) {
-            throw new IllegalStateException(
-                    "Unsupported Classification Entry schema: " + schema
-            );
-        }
-        return new MerchantClassificationEntryRevision(
+    private MerchantExternalPresenceLinkRevision toRevision(Record row) {
+        return new MerchantExternalPresenceLinkRevision(
                 row.get("revision_identifier", String.class),
                 new MerchantScope(row.get("merchant_identifier", String.class)),
-                row.get("classification_identifier", String.class),
+                row.get("presence_identifier", String.class),
                 row.get("revision_number", Long.class),
                 Optional.ofNullable(row.get(
                         "predecessor_revision_identifier",
                         String.class
                 )),
-                MerchantClassificationLifecycle.valueOf(
+                MerchantExternalPresenceLifecycle.valueOf(
                         row.get("lifecycle", String.class)
                 ),
-                new MerchantClassificationEntryV1(
-                        mainstreet.merchantprofile.MerchantClassificationKind
-                                .valueOf(row.get(
-                                        "classification_kind",
-                                        String.class
-                                )),
-                        row.get("merchant_approved_label", String.class),
-                        MerchantClassificationExposure.valueOf(
-                                row.get("exposure_choice", String.class)
-                        )
+                row.get("platform_kind", String.class),
+                row.get("public_url", String.class),
+                MerchantExternalPresenceExposure.valueOf(
+                        row.get("exposure_choice", String.class)
                 ),
                 row.get("logical_request_identifier", String.class),
                 row.get("provenance_reference", String.class),
@@ -431,7 +418,7 @@ public final class JooqMerchantClassificationEntryAuthority
             throw failure(
                     MerchantProfileFailureCategory
                             .MERCHANT_ACCOUNT_OPERATION_RESTRICTED,
-                    "Merchant Account does not permit classification mutation"
+                    "Merchant Account does not permit ordinary profile mutation"
             );
         }
     }
@@ -463,29 +450,24 @@ public final class JooqMerchantClassificationEntryAuthority
         );
     }
 
-    private static MerchantClassificationEntryRevision requireSameIntent(
+    private static MerchantExternalPresenceLinkRevision requireSameIntent(
             MutationIntent intent,
-            MerchantClassificationEntryRevision replay
+            MerchantExternalPresenceLinkRevision replay
     ) {
         OperationKind replayOperation = replay.revisionNumber() == 1
                 ? OperationKind.CREATE
-                : replay.lifecycle() == MerchantClassificationLifecycle.RETIRED
+                : replay.lifecycle() == MerchantExternalPresenceLifecycle.RETIRED
                 ? OperationKind.RETIRE
                 : OperationKind.UPDATE;
-        boolean sameMaterial = switch (intent.operation()) {
-            case CREATE -> intent.entry().equals(Optional.of(replay.entry()));
-            case UPDATE -> intent.label().equals(Optional.of(
-                    replay.entry().merchantApprovedLabel()
-            )) && intent.exposure().equals(Optional.of(
-                    replay.entry().exposure()
-            ));
-            case RETIRE -> true;
-        };
+        boolean sameMaterial = intent.operation() == OperationKind.RETIRE
+                || (intent.platformKind().equals(Optional.of(
+                        replay.platformKind()
+                ))
+                && intent.publicUrl().equals(Optional.of(replay.publicUrl()))
+                && intent.exposure().equals(Optional.of(replay.exposure())));
         if (intent.operation() != replayOperation
                 || !intent.merchantScope().equals(replay.merchantScope())
-                || !intent.classificationIdentity().equals(
-                        replay.classificationIdentity()
-                )
+                || !intent.presenceIdentity().equals(replay.presenceIdentity())
                 || !intent.expectedRevision().equals(
                         replay.predecessorRevisionIdentity()
                 )
@@ -499,7 +481,7 @@ public final class JooqMerchantClassificationEntryAuthority
                 || !intent.committedAt().equals(replay.committedAt())) {
             throw failure(
                     MerchantProfileFailureCategory.REQUEST_IDENTITY_CONFLICT,
-                    "Classification Entry request identity has different intent"
+                    "External Presence request identity is bound to different intent"
             );
         }
         return replay;
@@ -553,11 +535,11 @@ public final class JooqMerchantClassificationEntryAuthority
     private record MutationIntent(
             OperationKind operation,
             MerchantScope merchantScope,
-            String classificationIdentity,
+            String presenceIdentity,
             Optional<String> expectedRevision,
-            Optional<MerchantClassificationEntryV1> entry,
-            Optional<String> label,
-            Optional<MerchantClassificationExposure> exposure,
+            Optional<String> platformKind,
+            Optional<String> publicUrl,
+            Optional<MerchantExternalPresenceExposure> exposure,
             String requestIdentity,
             String provenanceReference,
             String actorIdentity,
@@ -568,8 +550,10 @@ public final class JooqMerchantClassificationEntryAuthority
     private record RevisionMaterial(
             long revisionNumber,
             Optional<String> predecessorRevisionIdentity,
-            MerchantClassificationLifecycle lifecycle,
-            MerchantClassificationEntryV1 entry
+            MerchantExternalPresenceLifecycle lifecycle,
+            String platformKind,
+            String publicUrl,
+            MerchantExternalPresenceExposure exposure
     ) {
     }
 }

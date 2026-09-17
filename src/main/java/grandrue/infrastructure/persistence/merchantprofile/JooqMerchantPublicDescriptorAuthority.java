@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.merchantprofile;
+package grandrue.infrastructure.persistence.merchantprofile;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.merchantprofile.MerchantProfileFailureCategory;
