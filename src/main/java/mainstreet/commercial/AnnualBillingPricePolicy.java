@@ -1,6 +1,6 @@
 package mainstreet.commercial;
 
-import mainstreet.money.MonetaryAmount;
+import grandrue.money.MonetaryAmount;
 
 import java.math.BigInteger;
 import java.util.Objects;

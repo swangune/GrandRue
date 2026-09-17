@@ -1,4 +1,4 @@
-package mainstreet.money;
+package grandrue.money;
 
 import java.math.BigInteger;
 

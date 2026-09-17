@@ -1,4 +1,4 @@
-package mainstreet.money;
+package grandrue.money;
 
 /**
  * Stable currency identity carried by every authoritative monetary value.

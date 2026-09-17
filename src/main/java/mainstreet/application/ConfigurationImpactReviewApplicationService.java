@@ -7,7 +7,7 @@ import mainstreet.fulfilment.FulfilmentBindingSetRevision;
 import mainstreet.fulfilment.FulfilmentBindingSetRevisionAuthority;
 import mainstreet.fulfilment.FulfilmentRoutingImpactAssessment;
 import grandrue.inventory.InventoryAvailabilityImpactAssessment;
-import mainstreet.money.PaymentAvailabilityImpactAssessment;
+import grandrue.money.PaymentAvailabilityImpactAssessment;
 import mainstreet.ordering.OrderingAvailabilityImpactAssessment;
 import mainstreet.publication.PublicationAvailabilityImpactAssessment;
 import mainstreet.scheduling.SchedulingAvailabilityImpactAssessment;

@@ -1,12 +1,12 @@
 package mainstreet.infrastructure.persistence.money;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.money.CurrencyIdentity;
-import mainstreet.money.MonetaryAmount;
-import mainstreet.money.PaymentApplication;
-import mainstreet.money.PaymentAuthorityStore;
-import mainstreet.money.PaymentObligation;
-import mainstreet.money.ProviderPaymentEvidence;
+import grandrue.money.CurrencyIdentity;
+import grandrue.money.MonetaryAmount;
+import grandrue.money.PaymentApplication;
+import grandrue.money.PaymentAuthorityStore;
+import grandrue.money.PaymentObligation;
+import grandrue.money.ProviderPaymentEvidence;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

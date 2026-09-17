@@ -1,4 +1,4 @@
-package mainstreet.money;
+package grandrue.money;
 
 import mainstreet.semantic.compiler.ConfigurationCompiler;
 import mainstreet.semantic.configuration.ConfigurationImpactAssessment;

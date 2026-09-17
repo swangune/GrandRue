@@ -1,6 +1,6 @@
 package mainstreet.ordering;
 
-import mainstreet.money.MonetaryAmount;
+import grandrue.money.MonetaryAmount;
 
 import java.util.Objects;
 
