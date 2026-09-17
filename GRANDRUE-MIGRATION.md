@@ -107,7 +107,8 @@ State: `OPEN`
 | `GR-REN-02-01C` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `businesshours/**` + bounded production consumer; code commit `8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516` |
 | `GR-REN-02-01D` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `credential/**` + bounded production consumer; code commit `bd7df15233f61cc7968447e49bfa1dedb0b5c8fb` |
 | `GR-REN-02-01E` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `media/**` + bounded production consumer; code commit `d1d9059e071ef6362aefabba0423a6f5298b5cd4` |
-| `GR-REN-02-01F+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01F` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `protection/**` + bounded production consumers; code commit `f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c` |
+| `GR-REN-02-01G+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -228,6 +229,31 @@ Structural verification evidence on `development`: `MediaAsset.java` resolves un
 
 `done_when`: owner files exist only under `grandrue.media`; bounded production consumers import `grandrue.media`; no production package/import declaration remains for `mainstreet.media`.
 
+#### `GR-REN-02-01F` exact scope
+
+Moved nine owner files from `src/main/java/mainstreet/protection/` to `src/main/java/grandrue/protection/`, changing only package declarations:
+
+- `ProtectionAdmissionDecision.java`
+- `ProtectionConsumptionState.java`
+- `ProtectionPolicy.java`
+- `ProtectionStateFailureBehaviour.java`
+- `ProtectionSubject.java`
+- `ProtectionTarget.java`
+- `ResourceProtectionAdmissionAuthority.java`
+- `TemporaryProtectiveRestriction.java`
+- `TemporaryProtectiveRestrictionStore.java`
+
+Updated bounded production consumers:
+
+- `src/main/java/mainstreet/api/ApiCommandContractDefinition.java`
+- `src/main/java/mainstreet/infrastructure/persistence/protection/JooqResourceProtectionAuthority.java`
+
+No current-product prose/comments, stable `MS-PROT-073` / `MS-PROT-035` authority references, policy/target/subject/restriction identities, schema/table/field names, persistence semantics, or test consumers were changed.
+
+Structural verification evidence on `development`: `ProtectionTarget.java` resolves under `grandrue.protection`, its former `mainstreet.protection` owner path is absent, and both bounded production consumers import `grandrue.protection`. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.protection`; bounded production consumers import `grandrue.protection`; no production package/import declaration remains for `mainstreet.protection`.
+
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
 State: `NOT_STARTED`
@@ -264,11 +290,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01E
-last_completed_task: GR-REN-02-01E
-last_verified_head: d1d9059e071ef6362aefabba0423a6f5298b5cd4
-last_task_commit: d1d9059e071ef6362aefabba0423a6f5298b5cd4
-next_action: Select the next bounded production package leaf under GR-REN-02-01F+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01F
+last_completed_task: GR-REN-02-01F
+last_verified_head: f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c
+last_task_commit: f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c
+next_action: Select the next bounded production package leaf under GR-REN-02-01G+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
