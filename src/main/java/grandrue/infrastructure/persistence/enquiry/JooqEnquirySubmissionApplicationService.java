@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.enquiry;
+package grandrue.infrastructure.persistence.enquiry;
 
 import mainstreet.application.ApplicationRequestIdentity;
 import mainstreet.application.MerchantScope;
