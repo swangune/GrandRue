@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.ordering;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.infrastructure.persistence.inventory.JooqQuantityAllocationAuthority;
+import grandrue.infrastructure.persistence.inventory.JooqQuantityAllocationAuthority;
 import grandrue.ordering.CommitOrderCommand;
 import grandrue.ordering.Order;
 import grandrue.ordering.OrderConfirmation;

@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.inventory;
+package grandrue.infrastructure.persistence.inventory;
 
 import mainstreet.application.MerchantScope;
 import grandrue.inventory.InsufficientQuantityException;
