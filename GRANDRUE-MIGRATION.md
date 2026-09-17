@@ -156,6 +156,7 @@ State: `OPEN`
 | `GR-REN-02-01X30` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/configuration/JooqConfigurationValidationEvidenceAuthority.java`; no external production consumers | `5ea75761817512312a8e1493bd0a1548ff9f3877` |
 | `GR-REN-02-01X31` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/configuration/JooqConfigurationActivationAdmissionAuthority.java`; no external production consumers | `ebff9581e5bf75a36c68e6ac4b905ca6ffd4d337` |
 | `GR-REN-02-01X32` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/configuration/JooqConfigurationImpactReviewEvidenceAuthority.java`; no external production consumers | `7bfe03e099f15d6842fad98fea596cb46f756b45` |
+| `GR-REN-02-01X33` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/configuration/JooqConfigurationChangeAuthority.java`; no external production consumers | `fc0409b770b230126cfea85ebc8fdb24e27957fd` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -189,6 +190,7 @@ State: `OPEN`
 - `GR-REN-02-01X30`: `JooqConfigurationValidationEvidenceAuthority.java` moved from `mainstreet.infrastructure.persistence.configuration` to `grandrue.infrastructure.persistence.configuration`. No external production consumers were found; current integration-test/runtime-fixture consumers remain deferred to `GR-REN-03`. The prepared parent was `88c12c7834b57ec47b795e9b440b31978ebe26c6`; owner input blob was `a00a95a2c850a4ab5e1184896cfef426f9d76fa2`; the GrandRue destination was absent at preflight. Existing `MerchantScope` and Semantic Configuration imports, `configuration_validation_evidence` table/column identities, Configuration Revision/package affinity validation, immutable evidence persistence, idempotent replay, package-evidence conflict handling, MS-PROT-040 authority comments and transaction semantics were unchanged. Code commit `5ea75761817512312a8e1493bd0a1548ff9f3877` contains exactly one owner rename with only the package declaration replacement.
 - `GR-REN-02-01X31`: `JooqConfigurationActivationAdmissionAuthority.java` moved from `mainstreet.infrastructure.persistence.configuration` to `grandrue.infrastructure.persistence.configuration`. No external production consumers were found; current test/runtime-fixture consumers remain deferred to `GR-REN-03`. The prepared parent was `24464ad2720cbef0737de6749af631755101f102`; owner input blob was `3defa3bf9f8dfe3c1c09beee676693b91fa54674`; the GrandRue destination was absent at preflight. Existing `MerchantScope`, Deployment and Semantic Configuration/Release imports, serving-admission tables/columns, shared-read locking, semantic-release purpose/admission checks, requirement-set/package affinity, deployment snapshot/digest checks and executable-support completeness semantics were unchanged. Code commit `ebff9581e5bf75a36c68e6ac4b905ca6ffd4d337` contains exactly one owner rename with only the package declaration replacement.
 - `GR-REN-02-01X32`: `JooqConfigurationImpactReviewEvidenceAuthority.java` moved from `mainstreet.infrastructure.persistence.configuration` to `grandrue.infrastructure.persistence.configuration`. No external production consumers were found; current test/runtime-fixture consumers remain deferred to `GR-REN-03`. The prepared parent was `03d49a46d11a03861990a25815f9e2871d37014c`; owner input blob was `430e3b70559c1ccefd252a81026765adbbf7ec7e`; the GrandRue destination was absent at preflight. Existing `MerchantScope` and Semantic Configuration imports, `configuration_impact_review_evidence`, effect and finding table/column identities, validation-evidence affinity, immutable evidence ordering, idempotent replay, conflict handling, MS-PROT-040 authority comments and transaction semantics were unchanged. Code commit `7bfe03e099f15d6842fad98fea596cb46f756b45` contains exactly one owner rename with only the package declaration replacement.
+- `GR-REN-02-01X33`: `JooqConfigurationChangeAuthority.java` moved from `mainstreet.infrastructure.persistence.configuration` to `grandrue.infrastructure.persistence.configuration`. No external production consumers were found; current test consumers remain deferred to `GR-REN-03`. The prepared parent was `e9bbb45b66e0c4510a3575ef9bef3ce23a78123d`; owner input blob was `7db38445ce22b8ad78e018cb49a964ff093dbbc2`; the GrandRue destination was absent at preflight. Existing `MerchantScope`, Fulfilment, trusted-runtime and Semantic Configuration imports, merchant advisory-lock seed `72` and `configuration-merchant|` key, immutable change-set identity, version allocation, ordinary semantic-release pinning, conflict detection and persistence semantics were unchanged. Code commit `fc0409b770b230126cfea85ebc8fdb24e27957fd` contains exactly one owner rename with only the package declaration replacement.
 
 ### Ledger integrity repair
 
@@ -221,9 +223,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X32
-last_completed_task: GR-REN-02-01X32
-last_task_commit: 7bfe03e099f15d6842fad98fea596cb46f756b45
+selected_execution_leaf: GR-REN-02-01X33
+last_completed_task: GR-REN-02-01X33
+last_task_commit: fc0409b770b230126cfea85ebc8fdb24e27957fd
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -309,8 +311,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X32
-last_prepared_execution_commit: 7bfe03e099f15d6842fad98fea596cb46f756b45
+last_prepared_execution_leaf: GR-REN-02-01X33
+last_prepared_execution_commit: fc0409b770b230126cfea85ebc8fdb24e27957fd
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
