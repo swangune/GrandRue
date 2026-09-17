@@ -113,7 +113,9 @@ State: `OPEN`
 | `GR-REN-02-01I` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `privacy/**` + bounded production consumer; code commit `f00d5e57ad24b8be80e7cdaf1a3894d614b08903` |
 | `GR-REN-02-01J` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `customer/**` + six bounded production consumers; code commit `de95f490823ab080f832c07b9cf8f933b409df84`; boundary correction `a79384f0018e2bd09b5cd28dafe60cc157607017` |
 | `GR-REN-02-01K` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `inventory/**` + five bounded production consumers; code commit `6b641099a6694647d947339031b8185c6a2cd0a8` |
-| `GR-REN-02-01L+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01L` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `money/**` + six bounded production consumers; code commit `50cc3f9462363b120de8f7e2d47fad60a180487e` |
+| `GR-REN-02-01M` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `background/**` + eight bounded production consumers; code commit `6a610d767a5d8decfdc839d621127d9a73901490` |
+| `GR-REN-02-01N+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -369,6 +371,70 @@ Structural verification evidence on `development`: aggregate diff from pre-leaf 
 
 `done_when`: owner files exist only under `grandrue.inventory`; bounded production consumers import `grandrue.inventory`; no production package/import declaration remains for `mainstreet.inventory`.
 
+#### `GR-REN-02-01L` exact scope
+
+Moved seven owner files from `src/main/java/mainstreet/money/` to `src/main/java/grandrue/money/`, changing only package declarations:
+
+- `CurrencyIdentity.java`
+- `MonetaryAmount.java`
+- `PaymentApplication.java`
+- `PaymentAuthorityStore.java`
+- `PaymentAvailabilityImpactAssessment.java`
+- `PaymentObligation.java`
+- `ProviderPaymentEvidence.java`
+
+Updated bounded production consumers:
+
+- `src/main/java/mainstreet/application/ConfigurationImpactReviewApplicationService.java`
+- `src/main/java/mainstreet/commercial/AnnualBillingPricePolicy.java`
+- `src/main/java/mainstreet/infrastructure/persistence/money/JooqPaymentAuthorityStore.java`
+- `src/main/java/mainstreet/infrastructure/persistence/ordering/JooqOrderingUnitOfWork.java`
+- `src/main/java/mainstreet/ordering/OrderCommitmentPortion.java`
+- `src/main/java/mainstreet/prototype/PrototypeJooqOrderingUseCase.java`
+
+The existing cross-package `mainstreet.application.MerchantScope` and other non-money dependencies were preserved. Current-product prose in the moved owners was deliberately left for `GR-REN-02-02`. The frozen compatibility/storage identities `mainstreet_correlation_identifier` and `mainStreetCorrelationIdentity` were explicitly preserved.
+
+Structural verification evidence on `development`: aggregate diff from pre-leaf head `d08cd4b41f339a4be371f53df2d392659888ecc3` to code commit `50cc3f9462363b120de8f7e2d47fad60a180487e` contains exactly seven package-path/declaration moves and the required `money` import substitutions in the six bounded consumers. The former `mainstreet.money` owner path is absent. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.money`; bounded production consumers import `grandrue.money`; protected correlation/storage identities remain unchanged; no production package/import declaration remains for `mainstreet.money`.
+
+#### `GR-REN-02-01M` exact scope
+
+Moved thirteen owner files from `src/main/java/mainstreet/background/` to `src/main/java/grandrue/background/`, changing only package declarations:
+
+- `BackgroundExecutionScope.java`
+- `BackgroundWorkContractAffinity.java`
+- `BackgroundWorkContractDefinition.java`
+- `BackgroundWorkContractIdentity.java`
+- `BackgroundWorkContractRegistrySnapshot.java`
+- `BackgroundWorkResultClassification.java`
+- `BackgroundWorkTargetReference.java`
+- `ClaimedWork.java`
+- `DurableWorkInstruction.java`
+- `DurableWorkStore.java`
+- `OverdueHandling.java`
+- `RegisteredDurableWorkClaimer.java`
+- `WorkAttempt.java`
+
+Updated bounded production consumers:
+
+- `src/main/java/mainstreet/application/StandingFreeBackgroundWorkContract.java`
+- `src/main/java/mainstreet/application/StandingFreeBackgroundWorkExecution.java`
+- `src/main/java/mainstreet/application/StandingFreeClaimedWorkExecution.java`
+- `src/main/java/mainstreet/application/StandingFreeDurableWorkWorker.java`
+- `src/main/java/mainstreet/infrastructure/persistence/background/JooqDurableWorkStore.java`
+- `src/main/java/mainstreet/infrastructure/persistence/background/JooqRegisteredDurableWorkClaimer.java`
+- `src/main/java/mainstreet/runtime/RegisteredScheduledBackgroundWorkExecutionAuthority.java`
+- `src/main/java/mainstreet/runtime/ScheduledBackgroundWorkExecutionAuthority.java`
+
+Existing `mainstreet.application.MerchantScope`, commercial/runtime dependencies, stable `MS-PROT-*` references, SQL/schema identifiers, the persistence lock identity `background|...`, durable-work semantics, and test consumers were preserved. No current-product prose cleanup was performed.
+
+Structural verification evidence on `development`: aggregate diff from clean pre-leaf head `f877398f5ed1213dbfaa1f48ff67d38332b8d8b3` to code commit `6a610d767a5d8decfdc839d621127d9a73901490` contains exactly thirteen package-path/declaration moves and import substitutions in the eight bounded production consumers. `JooqDurableWorkStore.java` is exactly `+9/-9`, confirming its large body did not drift. `DurableWorkInstruction.java` resolves under `grandrue.background`, and its former `mainstreet.background` owner path is absent. Maven tests and GitHub Actions were not run.
+
+Before this leaf, accidental housekeeping commit `5fc49f80ba09f7f33c74b921b57f94e605996eee` created an empty `__dummy__` file and correction commit `f877398f5ed1213dbfaa1f48ff67d38332b8d8b3` removed it immediately. Comparison from `50cc3f9462363b120de8f7e2d47fad60a180487e` to `f877398f5ed1213dbfaa1f48ff67d38332b8d8b3` has zero changed files, so the detour has no net repository-content effect and is retained only as traceable commit lineage.
+
+`done_when`: owner files exist only under `grandrue.background`; bounded production consumers import `grandrue.background`; stable background-work semantic/storage identifiers remain unchanged; no production package/import declaration remains for `mainstreet.background`.
+
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
 State: `NOT_STARTED`
@@ -405,11 +471,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01K
-last_completed_task: GR-REN-02-01K
-last_verified_head: 6b641099a6694647d947339031b8185c6a2cd0a8
-last_task_commit: 6b641099a6694647d947339031b8185c6a2cd0a8
-next_action: Select the next bounded production package leaf under GR-REN-02-01L+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01M
+last_completed_task: GR-REN-02-01M
+last_verified_head: 6a610d767a5d8decfdc839d621127d9a73901490
+last_task_commit: 6a610d767a5d8decfdc839d621127d9a73901490
+next_action: Select the next bounded production package leaf under GR-REN-02-01N+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
