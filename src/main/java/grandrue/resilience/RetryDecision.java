@@ -1,4 +1,4 @@
-package mainstreet.resilience;
+package grandrue.resilience;
 
 /** Technical retry disposition; never a business lifecycle result. */
 public enum RetryDecision {

@@ -1,4 +1,4 @@
-package mainstreet.resilience;
+package grandrue.resilience;
 
 /** Whether authoritative durable acceptance of one logical command is known. */
 public enum AcceptanceCertainty {

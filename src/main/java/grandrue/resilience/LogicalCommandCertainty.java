@@ -1,4 +1,4 @@
-package mainstreet.resilience;
+package grandrue.resilience;
 
 import java.util.Objects;
 

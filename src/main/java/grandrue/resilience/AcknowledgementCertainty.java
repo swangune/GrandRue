@@ -1,4 +1,4 @@
-package mainstreet.resilience;
+package grandrue.resilience;
 
 /** Whether the initiating caller is known to have received the resolved outcome. */
 public enum AcknowledgementCertainty {

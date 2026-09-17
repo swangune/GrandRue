@@ -1,4 +1,4 @@
-package mainstreet.resilience;
+package grandrue.resilience;
 
 /** Whether one logical command's authoritative business effect is known. */
 public enum ExecutionCertainty {

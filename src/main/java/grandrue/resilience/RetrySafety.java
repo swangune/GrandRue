@@ -1,4 +1,4 @@
-package mainstreet.resilience;
+package grandrue.resilience;
 
 /**
  * Retry safety established by the owning operation/provider/process contract.
