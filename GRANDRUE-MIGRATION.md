@@ -112,7 +112,8 @@ State: `OPEN`
 | `GR-REN-02-01H` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `observability/**`; no external production consumers; code commit `833fc7428d9e61e03a612d7b99e358112fd660b0` |
 | `GR-REN-02-01I` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `privacy/**` + bounded production consumer; code commit `f00d5e57ad24b8be80e7cdaf1a3894d614b08903` |
 | `GR-REN-02-01J` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `customer/**` + six bounded production consumers; code commit `de95f490823ab080f832c07b9cf8f933b409df84`; boundary correction `a79384f0018e2bd09b5cd28dafe60cc157607017` |
-| `GR-REN-02-01K+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01K` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `inventory/**` + five bounded production consumers; code commit `6b641099a6694647d947339031b8185c6a2cd0a8` |
+| `GR-REN-02-01L+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -184,7 +185,7 @@ No current-product prose/comments, stable `MS-PROT-050` authority reference, SQL
 
 Structural verification evidence on `development`: `StandardBusinessHours.java` resolves under `grandrue.businesshours`, its former `mainstreet.businesshours` owner path is absent, and the bounded production consumer imports `grandrue.businesshours`. Maven tests and GitHub Actions were not run.
 
-`done_when`: owner files exist only under `grandrue.businesshours`; bounded production consumers import `grandrue.businesshours`; no production package/import declaration remains for `mainstreet.businesshours`.
+`done_when`: owner files exist only under `grandrue.businesshours`; bounded production consumer imports `grandrue.businesshours`; no production package/import declaration remains for `mainstreet.businesshours`.
 
 #### `GR-REN-02-01D` exact scope
 
@@ -206,7 +207,7 @@ The existing cross-package `mainstreet.application.MerchantScope` dependency was
 
 Structural verification evidence on `development`: `CredentialBinding.java` resolves under `grandrue.credential`, its former `mainstreet.credential` owner path is absent, and the bounded production consumer imports `grandrue.credential`. Maven tests and GitHub Actions were not run.
 
-`done_when`: owner files exist only under `grandrue.credential`; bounded production consumers import `grandrue.credential`; no production package/import declaration remains for `mainstreet.credential`.
+`done_when`: owner files exist only under `grandrue.credential`; bounded production consumer imports `grandrue.credential`; no production package/import declaration remains for `mainstreet.credential`.
 
 #### `GR-REN-02-01E` exact scope
 
@@ -231,7 +232,7 @@ The existing cross-package `mainstreet.application.MerchantScope` dependency was
 
 Structural verification evidence on `development`: `MediaAsset.java` resolves under `grandrue.media`, its former `mainstreet.media` owner path is absent, and the bounded production consumer imports `grandrue.media`. Maven tests and GitHub Actions were not run.
 
-`done_when`: owner files exist only under `grandrue.media`; bounded production consumers import `grandrue.media`; no production package/import declaration remains for `mainstreet.media`.
+`done_when`: owner files exist only under `grandrue.media`; bounded production consumer imports `grandrue.media`; no production package/import declaration remains for `mainstreet.media`.
 
 #### `GR-REN-02-01F` exact scope
 
@@ -344,6 +345,30 @@ Initial code commit `de95f490823ab080f832c07b9cf8f933b409df84` accidentally omit
 
 `done_when`: owner files exist only under `grandrue.customer`; bounded production consumers import `grandrue.customer`; no production package/import declaration remains for `mainstreet.customer`.
 
+#### `GR-REN-02-01K` exact scope
+
+Moved five owner files from `src/main/java/mainstreet/inventory/` to `src/main/java/grandrue/inventory/`, changing only package declarations:
+
+- `InMemoryQuantityAllocationAuthority.java`
+- `InsufficientQuantityException.java`
+- `InventoryAvailabilityImpactAssessment.java`
+- `InventoryMovement.java`
+- `QuantityFulfilment.java`
+
+Updated bounded production consumers:
+
+- `src/main/java/mainstreet/application/ConfigurationImpactReviewApplicationService.java`
+- `src/main/java/mainstreet/infrastructure/persistence/inventory/JooqQuantityAllocationAuthority.java`
+- `src/main/java/mainstreet/ordering/InMemoryOrderingUnitOfWork.java`
+- `src/main/java/mainstreet/prototype/delivery/PrototypeOrderController.java`
+- `src/main/java/mainstreet/prototype/delivery/PrototypePublicOrderController.java`
+
+Existing `mainstreet.semantic.*`, `mainstreet.application.MerchantScope`, SQL/schema identifiers, inventory/ordering semantics, and test consumers were preserved because they are outside this leaf or are stable implementation semantics. Existing current-product wording in `InventoryAvailabilityImpactAssessment.java` was deliberately left unchanged for `GR-REN-02-02`.
+
+Structural verification evidence on `development`: aggregate diff from pre-leaf checkpoint `b12d28b71f81afb2daa700b583da197213cdff88` to code commit `6b641099a6694647d947339031b8185c6a2cd0a8` contains exactly five package-path/declaration moves and one import substitution in each of the five bounded production consumers. `InventoryAvailabilityImpactAssessment.java` resolves under `grandrue.inventory`, its former `mainstreet.inventory` owner path is absent, and no test namespace was modified. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.inventory`; bounded production consumers import `grandrue.inventory`; no production package/import declaration remains for `mainstreet.inventory`.
+
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
 State: `NOT_STARTED`
@@ -380,11 +405,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01J
-last_completed_task: GR-REN-02-01J
-last_verified_head: a79384f0018e2bd09b5cd28dafe60cc157607017
-last_task_commit: a79384f0018e2bd09b5cd28dafe60cc157607017
-next_action: Select the next bounded production package leaf under GR-REN-02-01K+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01K
+last_completed_task: GR-REN-02-01K
+last_verified_head: 6b641099a6694647d947339031b8185c6a2cd0a8
+last_task_commit: 6b641099a6694647d947339031b8185c6a2cd0a8
+next_action: Select the next bounded production package leaf under GR-REN-02-01L+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
