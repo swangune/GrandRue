@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.merchantaccount;
+package grandrue.infrastructure.persistence.merchantaccount;
 
 import mainstreet.application.MerchantScope;
 import grandrue.merchantaccount.BeginMerchantAccountClosureCommand;

@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.merchantaccount;
+package grandrue.infrastructure.persistence.merchantaccount;
 
 import mainstreet.semantic.event.EventContractAffinity;
 import mainstreet.semantic.event.EventContractIdentity;
