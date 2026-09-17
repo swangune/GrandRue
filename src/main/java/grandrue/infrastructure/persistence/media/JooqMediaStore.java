@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.media;
+package grandrue.infrastructure.persistence.media;
 
 import mainstreet.application.MerchantScope;
 import grandrue.media.MediaAsset;
