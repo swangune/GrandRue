@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.background;
+package grandrue.infrastructure.persistence.background;
 
 import grandrue.background.BackgroundWorkContractIdentity;
 import grandrue.background.ClaimedWork;

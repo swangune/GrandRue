@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.background;
+package grandrue.infrastructure.persistence.background;
 
 import mainstreet.application.MerchantScope;
 import grandrue.background.BackgroundExecutionScope;
