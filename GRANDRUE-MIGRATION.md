@@ -131,7 +131,8 @@ State: `OPEN`
 | `GR-REN-02-01X5` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/privacy/**`; no external production consumers | `d575446357be3bec681206dc7f466844e2692683` |
 | `GR-REN-02-01X6` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/enquiry/**`; no external production consumers | code `e55ba415f6ab5132ab257f149ac4c96ab746b0d0`; lineage reconciliation `56b2effe282dbc801924807b52fe47e28f966c3e` |
 | `GR-REN-02-01X7` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/appointment/**` + one bounded production consumer | `71f61cf6809effdae2f0f91e0a396ff5a6853e6f` |
-| `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; select by live bounded dependency evidence | pending |
+| `GR-REN-02-01X8` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/release/**`; no external production consumers | `1c17d087fc6868ee9fa103592247a10300ee4371` |
+| `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
 
@@ -139,6 +140,7 @@ State: `OPEN`
 
 - `GR-REN-02-01X6`: two Enquiry persistence owner files moved from `mainstreet.infrastructure.persistence.enquiry` to `grandrue.infrastructure.persistence.enquiry`. No external production consumers were found; only tests reference the package outside those owner files. Existing application/enquiry/semantic-registry dependencies, SQL/table/column names, request-lock identity, comments, transaction semantics and behaviour were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Code commit `e55ba415f6ab5132ab257f149ac4c96ab746b0d0` contains exactly two owner renames, each with only a one-line package declaration replacement. Ledger-only commits created during checkpointing were reconciled with the code lineage by merge commit `56b2effe282dbc801924807b52fe47e28f966c3e`; no force update was used.
 - `GR-REN-02-01X7`: two Appointment persistence owner files moved from `mainstreet.infrastructure.persistence.appointment` to `grandrue.infrastructure.persistence.appointment`. The sole bounded production consumer, `mainstreet.prototype.PrototypeRuntimeConfiguration`, received only the corresponding import replacement. Existing scheduling/application/semantic dependencies, SQL/table/column names, advisory-lock key construction, comments, transaction semantics and behaviour were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Code commit `71f61cf6809effdae2f0f91e0a396ff5a6853e6f` contains the two owner renames, their one-line package declaration replacements, and the one production import replacement.
+- `GR-REN-02-01X8`: `JooqSemanticReleaseAdmissionAuthority.java` moved from `mainstreet.infrastructure.persistence.release` to `grandrue.infrastructure.persistence.release`. No external production consumers were found; current test consumers remain deferred to `GR-REN-03`. The prepared parent was `fae8822deecf60b8840ef881c20dd43312196235`, the owner input blob was `276b5c64283398bf9a1725ab8448d985b1f0077b`, and the GrandRue destination was absent at preflight. Existing semantic-release imports, SQL/table/column names, `MS-PROT-040` identity/comment, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `1c17d087fc6868ee9fa103592247a10300ee4371` contains exactly one owner rename with only the package declaration replacement.
 
 ### Ledger integrity repair
 
@@ -169,23 +171,23 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X7
-last_completed_task: GR-REN-02-01X7
-last_verified_head: 71f61cf6809effdae2f0f91e0a396ff5a6853e6f
-last_task_commit: 71f61cf6809effdae2f0f91e0a396ff5a6853e6f
-next_action: Select and execute the next smallest bounded production namespace leaf under GR-REN-02-01X+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01X8
+last_completed_task: GR-REN-02-01X8
+last_verified_head: 1c17d087fc6868ee9fa103592247a10300ee4371
+last_task_commit: 1c17d087fc6868ee9fa103592247a10300ee4371
+next_action: Prepare the next exact bounded production namespace packet under GR-REN-02-01X+ from live dependency evidence, establish freshness, and execute only after it is READY. Keep test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
 
 ## 6. Restart and Verification
 
-1. inspect `AGENTS.md` and this ledger;
+1. inspect `AGENTS.md`, this ledger and `docs/development/grandrue-migration-work.md`;
 2. inspect current `development` HEAD;
 3. reconcile branch HEAD against the checkpoint and any ledger-only checkpoint commit;
-4. select the smallest conforming production namespace leaf using live dependency evidence;
-5. move the owner package and all production cross-package consumers atomically;
-6. structurally verify aggregate diff, new-path presence, old-path absence, and consumer imports;
+4. prepare the smallest conforming production namespace packet from live dependency evidence;
+5. execute only a fresh `READY` packet, moving the owner package and all declared production cross-package consumers atomically;
+6. structurally verify aggregate diff, new-path presence, old-path absence, declared consumer imports, protected identities and expected residuals;
 7. checkpoint the completed leaf here;
 8. preserve the frozen action map and protected identities;
 9. keep `__invalid_should_not_create` isolated until manually removed.
@@ -255,6 +257,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
+last_prepared_execution_leaf: GR-REN-02-01X8
+last_prepared_execution_commit: 1c17d087fc6868ee9fa103592247a10300ee4371
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
-next_procedural_action: Prepare the first exact bounded packet from current live production dependency evidence, update coverage, and establish freshness before marking it READY. Do not mutate production code before READY. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
+next_procedural_action: Prepare the next exact bounded packet from current live production dependency evidence, update coverage, and establish freshness before marking it READY. Do not mutate production code before READY. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
 ```

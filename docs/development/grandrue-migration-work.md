@@ -328,3 +328,26 @@ Until separately authorised:
 DO NOT run Maven tests
 DO NOT run GitHub Actions
 ```
+
+---
+
+## 12. Current migration execution state
+
+This section is the current operational pointer. It supersedes the adoption snapshot in sections 10–11 for resume purposes without turning this file into a second historical ledger. Completed-leaf history remains canonical in `GRANDRUE-MIGRATION.md`.
+
+```yaml
+coverage:
+  completed_leaf_records_through: GR-REN-02-01X8
+  completed_leaf_count: 31
+  remaining_expansion_node: GR-REN-02-01X+
+  remaining_enumeration: INCOMPLETE
+  unclassified: UNKNOWN_UNTIL_ENUMERATION
+
+active_packet: null
+active_state: PREPARATION_REQUIRED
+last_completed_leaf: GR-REN-02-01X8
+last_code_commit: 1c17d087fc6868ee9fa103592247a10300ee4371
+next_action: Prepare the next exact bounded production namespace packet from current live dependency evidence, establish freshness, and execute only after it is READY.
+```
+
+Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
