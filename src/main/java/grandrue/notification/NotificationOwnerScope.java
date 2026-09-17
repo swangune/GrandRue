@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 /** Scope owning one notification responsibility; merchant scope remains explicit. */
 public record NotificationOwnerScope(

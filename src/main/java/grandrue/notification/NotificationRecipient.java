@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 /** Semantic notification audience relation, deliberately not a delivery endpoint. */
 public record NotificationRecipient(

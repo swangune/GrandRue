@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 /**
  * Notification-owned immediate execution certainty. Provider status evidence

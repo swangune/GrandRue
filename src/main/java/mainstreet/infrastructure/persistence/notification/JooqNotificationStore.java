@@ -1,15 +1,15 @@
 package mainstreet.infrastructure.persistence.notification;
 
-import mainstreet.notification.DeliveryAttempt;
-import mainstreet.notification.DeliveryAttemptOutcome;
-import mainstreet.notification.DeliveryEvidence;
-import mainstreet.notification.NotificationChannel;
-import mainstreet.notification.NotificationDispatch;
-import mainstreet.notification.NotificationIntent;
-import mainstreet.notification.NotificationOwnerScope;
-import mainstreet.notification.NotificationRecipient;
-import mainstreet.notification.NotificationRecipientResolutionBasis;
-import mainstreet.notification.NotificationStore;
+import grandrue.notification.DeliveryAttempt;
+import grandrue.notification.DeliveryAttemptOutcome;
+import grandrue.notification.DeliveryEvidence;
+import grandrue.notification.NotificationChannel;
+import grandrue.notification.NotificationDispatch;
+import grandrue.notification.NotificationIntent;
+import grandrue.notification.NotificationOwnerScope;
+import grandrue.notification.NotificationRecipient;
+import grandrue.notification.NotificationRecipientResolutionBasis;
+import grandrue.notification.NotificationStore;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

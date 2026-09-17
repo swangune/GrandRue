@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;

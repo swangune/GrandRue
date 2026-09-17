@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 /** Provider adapter boundary for one selected Notification Dispatch channel. */
 @FunctionalInterface

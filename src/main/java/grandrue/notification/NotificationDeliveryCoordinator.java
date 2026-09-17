@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 import java.time.Clock;
 import java.util.Objects;

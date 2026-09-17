@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 /** Current applicability/recipient/exposure authority no longer permits delivery. */
 public final class NotificationDispatchNotEligibleException

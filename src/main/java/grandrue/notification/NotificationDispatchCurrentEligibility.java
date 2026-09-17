@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 /**
  * Revalidates mutable applicability, recipient relationship, Exposure and

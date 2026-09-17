@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 /** Provider-neutral notification channels accepted by MS-PROT-075. */
 public enum NotificationChannel {

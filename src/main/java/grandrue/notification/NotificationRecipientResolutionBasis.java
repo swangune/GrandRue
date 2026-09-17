@@ -1,4 +1,4 @@
-package mainstreet.notification;
+package grandrue.notification;
 
 /** Accepted behavioural distinction for notification recipient resolution. */
 public enum NotificationRecipientResolutionBasis {
