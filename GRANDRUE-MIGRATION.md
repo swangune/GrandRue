@@ -7,7 +7,7 @@
 **Status:** `IN_PROGRESS`  
 **Authority class:** non-semantic operational migration ledger
 
-This is the canonical resumable execution registry for the Main Street → GrandRue naming migration. It does not redefine accepted semantic authority.
+This is the canonical resumable execution registry for the Main Street → GrandRue naming migration. It records operational scope and evidence; it does not redefine accepted semantic authority. Detailed file-level evidence is retained in the referenced commits rather than duplicated here.
 
 ---
 
@@ -15,7 +15,7 @@ This is the canonical resumable execution registry for the Main Street → Grand
 
 This is a **minimum executable migration plus active repository controls and canonical governance**.
 
-A file/path is a migration target only when:
+A path is a migration target only when:
 
 1. leaving legacy naming unchanged would break or invalidate current GrandRue build/test/package/start/configure/serve coherence;
 2. it is an active repository-control/navigation file: `AGENTS.md`, `SEQUENCE.md`, or this ledger; or
@@ -46,20 +46,20 @@ Everything else is reference-only unless concrete dependency evidence proves oth
 - `designs/DESIGN-CORPUS-CONFORMANCE.md`
 - `designs/IMPLEMENTATION-RULES.md`
 
-### Protected identities
-
-Do not mechanically rename stable `MS-*`/DQ/contract identifiers, applied Flyway migrations, or compatibility/storage/serialization identifiers frozen by `GR-REN-01F`.
-
 ---
 
 ## 2. Execution Constraints
 
-- work on `development`;
+- work only on `development`;
 - no branch creation unless explicitly authorised;
 - **do not run Maven tests unless explicitly authorised**;
 - **do not run GitHub Actions unless explicitly authorised**;
-- smallest conforming change only;
-- no semantic redesign or unrelated cleanup.
+- smallest conforming dependency-bounded change only;
+- no semantic redesign or unrelated cleanup;
+- production namespace leaves include all production cross-package consumers atomically;
+- test namespace/runtime-coupled changes remain deferred to `GR-REN-03`;
+- current-product prose/comments in moved production sources remain deferred to `GR-REN-02-02`;
+- structural verification must not be represented as Maven/integration/runtime verification.
 
 Mutation is authorised only within the frozen `GR-REN-01F` action map.
 
@@ -69,25 +69,25 @@ Mutation is authorised only within the frozen `GR-REN-01F` action map.
 
 `GR-REN-01A` through `GR-REN-01F` are complete.
 
-Key authorised actions:
+Final action-map evidence: `08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52`.
 
-- production/test Java package roots `mainstreet` → `grandrue` with package/import/path-sensitive test changes;
+### Authorised current-identity changes
+
+- production/test Java package roots `mainstreet` → `grandrue`, including package/import/path-sensitive test changes in their later governed group;
 - Maven/build/CI/prototype/storefront current product naming → GrandRue equivalents;
-- preferred `GRANDRUE_PROTOTYPE_POSTGRES_*` and `GRANDRUE_BACKEND_URL` with legacy external-env fallbacks where frozen by `01F`;
-- current wording in `AGENTS.md`, `SEQUENCE.md`, and seven canonical governance files → GrandRue.
+- preferred `GRANDRUE_PROTOTYPE_POSTGRES_*` and `GRANDRUE_BACKEND_URL`, retaining frozen legacy external-env fallbacks where required;
+- current wording in `AGENTS.md`, `SEQUENCE.md`, and the seven canonical governance files → GrandRue.
 
-Key preserved identities:
+### Protected identities — do not mechanically rename
 
-- applied Flyway contents;
+- applied Flyway migration contents;
 - `mainstreet_correlation_identifier` / `mainStreetCorrelationIdentity`;
 - historical notification failure FQCN evidence;
 - Opportunity binding v1 AAD `mainstreet/enquiry/opportunity-binding/v1/`;
 - `mainstreet-semantic-bundle-v1/v2`;
 - `mainstreet-exposure-definitions-v1`;
 - `calendar/current-main-street-commitments`;
-- stable `MS-*`, accepted DQ/rule/contract IDs and historical evidence.
-
-Final action-map evidence: `08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52`.
+- stable `MS-*`, accepted DQ/rule/contract identifiers, and historical evidence.
 
 ---
 
@@ -97,167 +97,86 @@ Final action-map evidence: `08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52`.
 
 State: `OPEN`
 
-`GR-REN-02-01` is a parent group. Production package moves are bounded package leaves with all production cross-package consumers included atomically. Test packages remain for `GR-REN-03`.
+`GR-REN-02-01` is a parent group. Each completed leaf below is `COMPLETE_PENDING_FINAL_VERIFICATION`. The referenced code commits are the authoritative file-level evidence.
 
-| Node | Kind | State | Scope |
+| Node | State | Production scope | Evidence |
 |---|---|---|---|
-| `GR-REN-02-01` | GROUP | `OPEN` | production Java namespace migration |
-| `GR-REN-02-01A` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `identitysecurity/**` + bounded production consumers; code commit `6396afba5fdf3e76e2099536d8a3451184650056`; lineage reconciliation `b7149659134714b0baf15899f59ad3f44d1c7014` |
-| `GR-REN-02-01B` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `audit/**` + bounded production consumers; code commit `fbabeed82d767d2454923f7767f3655ca690642f` |
-| `GR-REN-02-01C` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `businesshours/**` + bounded production consumer; code commit `8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516` |
-| `GR-REN-02-01D` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `credential/**` + bounded production consumer; code commit `bd7df15233f61cc7968447e49bfa1dedb0b5c8fb` |
-| `GR-REN-02-01E` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `media/**` + bounded production consumer; code commit `d1d9059e071ef6362aefabba0423a6f5298b5cd4` |
-| `GR-REN-02-01F` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `protection/**` + bounded production consumers; code commit `f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c` |
-| `GR-REN-02-01G` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `resilience/**`; no external production consumers; code commit `87a51a1679d13b04d0cc9fde02edb0d24cb91e79` |
-| `GR-REN-02-01H` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `observability/**`; no external production consumers; code commit `833fc7428d9e61e03a612d7b99e358112fd660b0` |
-| `GR-REN-02-01I` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `privacy/**` + bounded production consumer; code commit `f00d5e57ad24b8be80e7cdaf1a3894d614b08903` |
-| `GR-REN-02-01J` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `customer/**` + six bounded production consumers; code commit `de95f490823ab080f832c07b9cf8f933b409df84`; boundary correction `a79384f0018e2bd09b5cd28dafe60cc157607017` |
-| `GR-REN-02-01K` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `inventory/**` + five bounded production consumers; code commit `6b641099a6694647d947339031b8185c6a2cd0a8` |
-| `GR-REN-02-01L` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `money/**` + six bounded production consumers; code commit `50cc3f9462363b120de8f7e2d47fad60a180487e` |
-| `GR-REN-02-01M` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `background/**` + eight bounded production consumers; code commit `6a610d767a5d8decfdc839d621127d9a73901490` |
-| `GR-REN-02-01N` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | root production `GrandRueApplication.java` entrypoint; no production consumers; code commit `6ba9245b16dc70aa5a9da58d739ce4b422a1e2bb` |
-| `GR-REN-02-01O+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
-| `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
-| `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
+| `GR-REN-02-01A` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `identitysecurity/**` + bounded consumers | code `6396afba5fdf3e76e2099536d8a3451184650056`; lineage reconciliation `b7149659134714b0baf15899f59ad3f44d1c7014` |
+| `GR-REN-02-01B` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `audit/**` + bounded consumers | `fbabeed82d767d2454923f7767f3655ca690642f` |
+| `GR-REN-02-01C` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `businesshours/**` + bounded consumer | `8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516` |
+| `GR-REN-02-01D` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `credential/**` + bounded consumer | `bd7df15233f61cc7968447e49bfa1dedb0b5c8fb` |
+| `GR-REN-02-01E` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `media/**` + bounded consumer | `d1d9059e071ef6362aefabba0423a6f5298b5cd4` |
+| `GR-REN-02-01F` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `protection/**` + bounded consumers | `f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c` |
+| `GR-REN-02-01G` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `resilience/**`; no external production consumers | `87a51a1679d13b04d0cc9fde02edb0d24cb91e79` |
+| `GR-REN-02-01H` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `observability/**`; no external production consumers | `833fc7428d9e61e03a612d7b99e358112fd660b0` |
+| `GR-REN-02-01I` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `privacy/**` + bounded consumer | `f00d5e57ad24b8be80e7cdaf1a3894d614b08903` |
+| `GR-REN-02-01J` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `customer/**` + six bounded consumers | code `de95f490823ab080f832c07b9cf8f933b409df84`; boundary correction `a79384f0018e2bd09b5cd28dafe60cc157607017` |
+| `GR-REN-02-01K` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `inventory/**` + five bounded consumers | `6b641099a6694647d947339031b8185c6a2cd0a8` |
+| `GR-REN-02-01L` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `money/**` + six bounded consumers | `50cc3f9462363b120de8f7e2d47fad60a180487e` |
+| `GR-REN-02-01M` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `background/**` + eight bounded consumers | `6a610d767a5d8decfdc839d621127d9a73901490` |
+| `GR-REN-02-01N` | `COMPLETE_PENDING_FINAL_VERIFICATION` | root production `GrandRueApplication.java`; no production consumers | `6ba9245b16dc70aa5a9da58d739ce4b422a1e2bb` |
+| `GR-REN-02-01O+` | `EXPANSION_REQUIRED` | remaining production package roots; select by live bounded dependency evidence | pending |
+| `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
+| `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
 
-#### `GR-REN-02-01A` exact scope
+### Important lineage and boundary notes
 
-Moved eight owner files from `src/main/java/mainstreet/identitysecurity/` to `src/main/java/grandrue/identitysecurity/`, changing only package declarations:
+- `GR-REN-02-01J`: the initial customer commit accidentally omitted an existing three-line explanatory comment in `OrderingApplicationService.java`; `a79384f0018e2bd09b5cd28dafe60cc157607017` restored it. Aggregate pre-leaf→corrected diff is clean.
+- `GR-REN-02-01L`: frozen `mainstreet_correlation_identifier` and `mainStreetCorrelationIdentity` were explicitly preserved.
+- `GR-REN-02-01M`: `JooqDurableWorkStore.java` changed only nine `background` imports (`+9/-9`). The persistence lock identity `background|...`, SQL/schema identifiers, stable `MS-PROT-*` references and semantics were preserved.
+- Before `GR-REN-02-01M`, accidental commit `5fc49f80ba09f7f33c74b921b57f94e605996eee` created empty `__dummy__`; correction `f877398f5ed1213dbfaa1f48ff67d38332b8d8b3` immediately removed it. Comparison from `50cc3f9462363b120de8f7e2d47fad60a180487e` to `f877398f5ed1213dbfaa1f48ff67d38332b8d8b3` has zero changed files.
+- `GR-REN-02-01N`: `src/main/java/mainstreet/GrandRueApplication.java` moved to `src/main/java/grandrue/GrandRueApplication.java`; only its package declaration changed. Its test FQCN consumer remains deferred to `GR-REN-03`.
 
-- `IdentitySecurityGeneration.java`
-- `IdentitySecurityGenerationException.java`
-- `IdentitySecurityGenerationFailureCategory.java`
-- `IdentitySecurityGenerationInitializer.java`
-- `IdentitySecurityGenerationManagement.java`
-- `IdentitySecurityGenerationService.java`
-- `IdentitySecurityRotationCommand.java`
-- `IdentitySecurityRotationReason.java`
+### Ledger integrity repair
 
-Updated bounded production consumers:
+Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. This ledger revision reconstructs the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
 
-- `src/main/java/mainstreet/infrastructure/persistence/identitysecurity/JooqIdentitySecurityGenerationManagement.java`
-- `src/main/java/mainstreet/infrastructure/security/webauthn/WebAuthnAuthenticationSubjectService.java`
+### Remaining programme
 
-No current-product prose/comments, stable identifiers, schema names or compatibility strings were changed. Reference-only docs/history and test consumers were not modified.
+- `GR-REN-03` — test namespace/runtime-coupled fixtures: `NOT_STARTED`
+- `GR-REN-04` — essential build/CI naming: `NOT_STARTED`
+- `GR-REN-05` — essential runtime/config naming: `NOT_STARTED`
+- `GR-REN-06` — compatibility aliases/preserved identities: `NOT_STARTED`
+- `GR-REN-07` — active controls/canonical governance wording: `NOT_STARTED`
+- `GR-REN-08..11` — residual audit, falsification, structural/final verification: `NOT_STARTED`
 
-Structural verification evidence on `development`: owner path resolves under `grandrue.identitysecurity`, former `mainstreet.identitysecurity` owner path is absent, and the bounded production consumer imports resolve to `grandrue.identitysecurity`. The source commit and earlier checkpoint had diverged from `ee39bfa3b204b11779a177f3eaa7bf8e1e6baaa0`; merge commit `b7149659134714b0baf15899f59ad3f44d1c7014` reconciled both lineages without force-updating the branch.
+---
 
-`done_when`: owner files exist only under `grandrue.identitysecurity`; bounded production consumers import `grandrue.identitysecurity`; no production package/import declaration remains for `mainstreet.identitysecurity`.
+## 5. Checkpoint
 
-#### `GR-REN-02-01B` exact scope
+```yaml
+migration: MAIN_STREET_TO_GRANDRUE
+repository: swangune/GrandRue
+branch: development
+baseline: c4153441d8340b229a29884967d796280d949a7d
+status: IN_PROGRESS
+mutation_authorised: true
+active_group: GR-REN-02
+selected_execution_leaf: GR-REN-02-01N
+last_completed_task: GR-REN-02-01N
+last_verified_head: 6ba9245b16dc70aa5a9da58d739ce4b422a1e2bb
+last_task_commit: 6ba9245b16dc70aa5a9da58d739ce4b422a1e2bb
+next_action: Select and execute the next bounded production namespace leaf under GR-REN-02-01O+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+```
 
-Moved four owner files from `src/main/java/mainstreet/audit/` to `src/main/java/grandrue/audit/`, changing only package declarations:
+---
 
-- `AuditActionClass.java`
-- `AuditExecutionScope.java`
-- `AuditRecord.java`
-- `AuditStore.java`
+## 6. Restart and Verification
 
-Updated bounded production consumers:
+1. inspect `AGENTS.md` and this ledger;
+2. inspect current `development` HEAD;
+3. reconcile branch HEAD against the checkpoint and any ledger-only checkpoint commit;
+4. select the smallest conforming production namespace leaf using live dependency evidence;
+5. move the owner package and all production cross-package consumers atomically;
+6. structurally verify aggregate diff, new-path presence, old-path absence, and consumer imports;
+7. checkpoint the completed leaf here;
+8. preserve the frozen action map and protected identities.
 
-- `src/main/java/mainstreet/infrastructure/persistence/audit/JooqAuditStore.java`
-- `src/main/java/mainstreet/infrastructure/persistence/identitysecurity/JooqIdentitySecurityGenerationManagement.java`
+Until separately authorised:
 
-No current-product prose/comments, stable `MS-PROT-064` authority reference, schema names, persistence identifiers, or test consumers were changed.
+```text
+DO NOT run Maven tests
+DO NOT run GitHub Actions
+```
 
-Structural verification evidence on `development`: `AuditRecord.java` resolves under `grandrue.audit`, its former `mainstreet.audit` owner path is absent, and both bounded production consumers import `grandrue.audit`. Maven tests and GitHub Actions were not run.
-
-`done_when`: owner files exist only under `grandrue.audit`; bounded production consumers import `grandrue.audit`; no production package/import declaration remains for `mainstreet.audit`.
-
-#### `GR-REN-02-01C` exact scope
-
-Moved eleven owner files from `src/main/java/mainstreet/businesshours/` to `src/main/java/grandrue/businesshours/`, changing only package declarations:
-
-- `BusinessHoursFailureCategory.java`
-- `BusinessHoursMutationException.java`
-- `BusinessHoursScope.java`
-- `BusinessHoursScopeKind.java`
-- `ConfigureStandardBusinessHoursCommand.java`
-- `StandardBusinessHours.java`
-- `StandardBusinessHoursAuthority.java`
-- `StandardBusinessHoursRevision.java`
-- `StandardBusinessHoursRevisionDisposition.java`
-- `WeeklyOperatingInterval.java`
-- `WithdrawStandardBusinessHoursCommand.java`
-
-Updated bounded production consumer:
-
-- `src/main/java/mainstreet/infrastructure/persistence/businesshours/JooqStandardBusinessHoursAuthority.java`
-
-No current-product prose/comments, stable `MS-PROT-050` authority reference, SQL/schema names, persistence identifiers, business-hours revision identities, or test consumers were changed.
-
-Structural verification evidence on `development`: `StandardBusinessHours.java` resolves under `grandrue.businesshours`, its former `mainstreet.businesshours` owner path is absent, and the bounded production consumer imports `grandrue.businesshours`. Maven tests and GitHub Actions were not run.
-
-`done_when`: owner files exist only under `grandrue.businesshours`; bounded production consumer imports `grandrue.businesshours`; no production package/import declaration remains for `mainstreet.businesshours`.
-
-#### `GR-REN-02-01D` exact scope
-
-Moved seven owner files from `src/main/java/mainstreet/credential/` to `src/main/java/grandrue/credential/`, changing only package declarations:
-
-- `CredentialBinding.java`
-- `CredentialBindingScope.java`
-- `CredentialGeneration.java`
-- `CredentialGenerationPolicy.java`
-- `CredentialGenerationState.java`
-- `CredentialSecurityStore.java`
-- `CredentialTechnicalUse.java`
-
-Updated bounded production consumer:
-
-- `src/main/java/mainstreet/infrastructure/persistence/credential/JooqCredentialSecurityStore.java`
-
-The existing cross-package `mainstreet.application.MerchantScope` dependency was preserved because `application/**` is outside this leaf. No current-product prose/comments, schema/table/field names, credential identities, protected-material references, persistence semantics, or test consumers were changed.
-
-Structural verification evidence on `development`: `CredentialBinding.java` resolves under `grandrue.credential`, its former `mainstreet.credential` owner path is absent, and the bounded production consumer imports `grandrue.credential`. Maven tests and GitHub Actions were not run.
-
-`done_when`: owner files exist only under `grandrue.credential`; bounded production consumer imports `grandrue.credential`; no production package/import declaration remains for `mainstreet.credential`.
-
-#### `GR-REN-02-01E` exact scope
-
-Moved ten owner files from `src/main/java/mainstreet/media/` to `src/main/java/grandrue/media/`, changing only package declarations:
-
-- `DeliveryFidelity.java`
-- `MediaAsset.java`
-- `MediaKind.java`
-- `MediaProcessingOutcome.java`
-- `MediaRendition.java`
-- `MediaRole.java`
-- `MediaStore.java`
-- `MediaValidationState.java`
-- `RenditionProfile.java`
-- `RenditionProfileRegistry.java`
-
-Updated bounded production consumer:
-
-- `src/main/java/mainstreet/infrastructure/persistence/media/JooqMediaStore.java`
-
-The existing cross-package `mainstreet.application.MerchantScope` dependency was preserved because `application/**` is outside this leaf. Existing current-product prose in `MediaAsset.java` was deliberately left unchanged for `GR-REN-02-02`. Stable `MS-PROT-066`, schema/table/field names, asset/rendition identities, storage/source references, persistence semantics, and test consumers were not changed.
-
-Structural verification evidence on `development`: `MediaAsset.java` resolves under `grandrue.media`, its former `mainstreet.media` owner path is absent, and the bounded production consumer imports `grandrue.media`. Maven tests and GitHub Actions were not run.
-
-`done_when`: owner files exist only under `grandrue.media`; bounded production consumer imports `grandrue.media`; no production package/import declaration remains for `mainstreet.media`.
-
-#### `GR-REN-02-01F` exact scope
-
-Moved nine owner files from `src/main/java/mainstreet/protection/` to `src/main/java/grandrue/protection/`, changing only package declarations:
-
-- `ProtectionAdmissionDecision.java`
-- `ProtectionConsumptionState.java`
-- `ProtectionPolicy.java`
-- `ProtectionStateFailureBehaviour.java`
-- `ProtectionSubject.java`
-- `ProtectionTarget.java`
-- `ResourceProtectionAdmissionAuthority.java`
-- `TemporaryProtectiveRestriction.java`
-- `TemporaryProtectiveRestrictionStore.java`
-
-Updated bounded production consumers:
-
-- `src/main/java/mainstreet/api/ApiCommandContractDefinition.java`
-- `src/main/java/mainstreet/infrastructure/persistence/protection/JooqResourceProtectionAuthority.java`
-
-No current-product prose/comments, stable `MS-PROT-073` / `MS-PROT-035` authority references, policy/target/subject/restriction identities, schema/table/field names, persistence semantics, or test consumers were changed.
-
-Structural verification evidence on `development`: `ProtectionTarget.java` resolves under `grandrue.protection`, its former `mainstreet.protection` owner path is absent, and both bounded production consumers import `grandrue.protection`. Maven tests and GitHub Actions were not run.
-
-`done_when`: owner files
+Structural verification must not be represented as passed Maven/integration/runtime verification.
