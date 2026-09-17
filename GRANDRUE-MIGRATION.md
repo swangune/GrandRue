@@ -135,6 +135,7 @@ State: `OPEN`
 | `GR-REN-02-01X9` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/webauthn/**` + one bounded production consumer | `47bc3bd278132ee2405118bbf236fd2c699eda2b` |
 | `GR-REN-02-01X10` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/runtime/**`; no external production consumers | `84fc449d47ca886a502573f43224522290cb1e4f` |
 | `GR-REN-02-01X11` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/credential/**`; no external production consumers | `f5203adf597f7c43a2f106e58a7c388a7924084f` |
+| `GR-REN-02-01X12` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/businesshours/**`; no external production consumers | `3ca2a6b3cb393eddca33c2350275e8abb37e6873` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -147,6 +148,7 @@ State: `OPEN`
 - `GR-REN-02-01X9`: two WebAuthn persistence owner files moved from `mainstreet.infrastructure.persistence.webauthn` to `grandrue.infrastructure.persistence.webauthn`. The sole bounded production consumer, `mainstreet.infrastructure.security.webauthn.WebAuthnAuthenticationSubjectService`, received only the corresponding `JooqWebAuthnAuthenticationSubjectRepository` import replacement. Current test consumers remain deferred to `GR-REN-03`. The prepared parent was `90da9cce7fb19f610ab4281d11d4173640f96553`; owner input blobs were `b4ad1cfa6f508d583ead3a4f7d8227154ecf79c1` and `dccea9daf84b5720a2d8fa71a94f178a2675fa88`; the consumer input blob was `0e6117910c61376312bfff49ee14b0d00deabdc5`; and the GrandRue destination was absent at preflight. Existing `WebAuthnIdentityReferenceAuthority` usage, WebAuthn table/column identifiers, Main Street prose/comments, Identity/security semantics and persistence behaviour were unchanged. Code commit `47bc3bd278132ee2405118bbf236fd2c699eda2b` contains exactly two owner renames with one package-declaration replacement each and one production import replacement.
 - `GR-REN-02-01X10`: `JooqSessionRecordStore.java` moved from `mainstreet.infrastructure.persistence.runtime` to `grandrue.infrastructure.persistence.runtime`. No external production consumers were found; current test consumers remain deferred to `GR-REN-03`. The prepared parent was `6546c10827c8a20ca41b35c95febab0addc5f6ab`, the owner input blob was `9dc6e3f119464b0e6e1599ddb520270206221dfb`, and the GrandRue destination was absent at preflight. Existing runtime interface imports, ADR-014 prose, SQL/table/column identities, session-security semantics and persistence behaviour were unchanged. Code commit `84fc449d47ca886a502573f43224522290cb1e4f` contains exactly one owner rename with only the package declaration replacement.
 - `GR-REN-02-01X11`: `JooqCredentialSecurityStore.java` moved from `mainstreet.infrastructure.persistence.credential` to `grandrue.infrastructure.persistence.credential`. No external production consumers were found; the current integration-test consumer remains deferred to `GR-REN-03`. The prepared parent was `2d02d6a4b8393594cecf445352aed5d11e7fad24`, the owner input blob was `b938d47fe00b2280d036ae6a84b47e9c7f588366`, and the GrandRue destination was absent at preflight. Existing `MerchantScope` and credential-domain imports, credential table/column identifiers, advisory-lock key construction, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `f5203adf597f7c43a2f106e58a7c388a7924084f` contains exactly one owner rename with only the package declaration replacement.
+- `GR-REN-02-01X12`: `JooqStandardBusinessHoursAuthority.java` moved from `mainstreet.infrastructure.persistence.businesshours` to `grandrue.infrastructure.persistence.businesshours`. No external production consumers were found; current integration-test consumers remain deferred to `GR-REN-03`. The prepared parent was `2f15fc049392d6169577a497b620f035000b9697`, the owner input blob was `219b5f42d3dabc6455f1ec803c1dbf95326ac90a`, and the GrandRue destination was absent at preflight. Existing `MerchantScope`, `TrustedExecutionContext` and Business Hours domain imports, SQL/table/column identities, advisory-lock keys, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `3ca2a6b3cb393eddca33c2350275e8abb37e6873` contains exactly one owner rename with only the package declaration replacement.
 
 ### Ledger integrity repair
 
@@ -177,9 +179,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X11
-last_completed_task: GR-REN-02-01X11
-last_task_commit: f5203adf597f7c43a2f106e58a7c388a7924084f
+selected_execution_leaf: GR-REN-02-01X12
+last_completed_task: GR-REN-02-01X12
+last_task_commit: 3ca2a6b3cb393eddca33c2350275e8abb37e6873
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -265,8 +267,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X11
-last_prepared_execution_commit: f5203adf597f7c43a2f106e58a7c388a7924084f
+last_prepared_execution_leaf: GR-REN-02-01X12
+last_prepared_execution_commit: 3ca2a6b3cb393eddca33c2350275e8abb37e6873
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
