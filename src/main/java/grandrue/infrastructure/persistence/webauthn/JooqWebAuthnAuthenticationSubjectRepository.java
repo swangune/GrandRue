@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.webauthn;
+package grandrue.infrastructure.persistence.webauthn;
 
 import mainstreet.infrastructure.security.webauthn.WebAuthnIdentityReferenceAuthority;
 import org.jooq.DSLContext;

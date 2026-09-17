@@ -1,7 +1,7 @@
 package mainstreet.infrastructure.security.webauthn;
 
 import grandrue.identitysecurity.IdentitySecurityGenerationInitializer;
-import mainstreet.infrastructure.persistence.webauthn.JooqWebAuthnAuthenticationSubjectRepository;
+import grandrue.infrastructure.persistence.webauthn.JooqWebAuthnAuthenticationSubjectRepository;
 import org.springframework.security.web.webauthn.api.Bytes;
 import org.springframework.security.web.webauthn.api.ImmutablePublicKeyCredentialUserEntity;
 import org.springframework.security.web.webauthn.api.PublicKeyCredentialUserEntity;
