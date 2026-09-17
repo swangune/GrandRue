@@ -105,7 +105,8 @@ State: `OPEN`
 | `GR-REN-02-01A` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `identitysecurity/**` + bounded production consumers; code commit `6396afba5fdf3e76e2099536d8a3451184650056`; lineage reconciliation `b7149659134714b0baf15899f59ad3f44d1c7014` |
 | `GR-REN-02-01B` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `audit/**` + bounded production consumers; code commit `fbabeed82d767d2454923f7767f3655ca690642f` |
 | `GR-REN-02-01C` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `businesshours/**` + bounded production consumer; code commit `8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516` |
-| `GR-REN-02-01D+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01D` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `credential/**` + bounded production consumer; code commit `bd7df15233f61cc7968447e49bfa1dedb0b5c8fb` |
+| `GR-REN-02-01E+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -179,6 +180,28 @@ Structural verification evidence on `development`: `StandardBusinessHours.java` 
 
 `done_when`: owner files exist only under `grandrue.businesshours`; bounded production consumers import `grandrue.businesshours`; no production package/import declaration remains for `mainstreet.businesshours`.
 
+#### `GR-REN-02-01D` exact scope
+
+Moved seven owner files from `src/main/java/mainstreet/credential/` to `src/main/java/grandrue/credential/`, changing only package declarations:
+
+- `CredentialBinding.java`
+- `CredentialBindingScope.java`
+- `CredentialGeneration.java`
+- `CredentialGenerationPolicy.java`
+- `CredentialGenerationState.java`
+- `CredentialSecurityStore.java`
+- `CredentialTechnicalUse.java`
+
+Updated bounded production consumer:
+
+- `src/main/java/mainstreet/infrastructure/persistence/credential/JooqCredentialSecurityStore.java`
+
+The existing cross-package `mainstreet.application.MerchantScope` dependency was preserved because `application/**` is outside this leaf. No current-product prose/comments, schema/table/field names, credential identities, protected-material references, persistence semantics, or test consumers were changed.
+
+Structural verification evidence on `development`: `CredentialBinding.java` resolves under `grandrue.credential`, its former `mainstreet.credential` owner path is absent, and the bounded production consumer imports `grandrue.credential`. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.credential`; bounded production consumers import `grandrue.credential`; no production package/import declaration remains for `mainstreet.credential`.
+
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
 State: `NOT_STARTED`
@@ -215,11 +238,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01C
-last_completed_task: GR-REN-02-01C
-last_verified_head: 8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516
-last_task_commit: 8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516
-next_action: Select the next bounded production package leaf under GR-REN-02-01D+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01D
+last_completed_task: GR-REN-02-01D
+last_verified_head: bd7df15233f61cc7968447e49bfa1dedb0b5c8fb
+last_task_commit: bd7df15233f61cc7968447e49bfa1dedb0b5c8fb
+next_action: Select the next bounded production package leaf under GR-REN-02-01E+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
