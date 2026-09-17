@@ -111,7 +111,8 @@ State: `OPEN`
 | `GR-REN-02-01G` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `resilience/**`; no external production consumers; code commit `87a51a1679d13b04d0cc9fde02edb0d24cb91e79` |
 | `GR-REN-02-01H` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `observability/**`; no external production consumers; code commit `833fc7428d9e61e03a612d7b99e358112fd660b0` |
 | `GR-REN-02-01I` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `privacy/**` + bounded production consumer; code commit `f00d5e57ad24b8be80e7cdaf1a3894d614b08903` |
-| `GR-REN-02-01J+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01J` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `customer/**` + six bounded production consumers; code commit `de95f490823ab080f832c07b9cf8f933b409df84`; boundary correction `a79384f0018e2bd09b5cd28dafe60cc157607017` |
+| `GR-REN-02-01K+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -319,6 +320,30 @@ Structural verification evidence on `development`: `PersonalDataUseBasisStore.ja
 
 `done_when`: owner files exist only under `grandrue.privacy`; bounded production consumer imports `grandrue.privacy`; no production package/import declaration remains for `mainstreet.privacy`.
 
+#### `GR-REN-02-01J` exact scope
+
+Moved four owner files from `src/main/java/mainstreet/customer/` to `src/main/java/grandrue/customer/`, changing only package declarations:
+
+- `CustomerContext.java`
+- `CustomerContextAuthority.java`
+- `CustomerContextIdentityConflictException.java`
+- `InMemoryCustomerContextAuthority.java`
+
+Updated bounded production consumers:
+
+- `src/main/java/mainstreet/booking/BookingApplicationService.java`
+- `src/main/java/mainstreet/ordering/OrderingApplicationService.java`
+- `src/main/java/mainstreet/scheduling/AppointmentApplicationService.java`
+- `src/main/java/mainstreet/prototype/PrototypeJooqAppointmentUseCase.java`
+- `src/main/java/mainstreet/prototype/PrototypeJooqBookingUseCase.java`
+- `src/main/java/mainstreet/prototype/PrototypeJooqOrderingUseCase.java`
+
+The existing cross-package `mainstreet.application.MerchantScope` dependency was preserved because `application/**` is outside this leaf. No current-product prose/comments, customer-context identity semantics, runtime semantics, prototype fixture semantics, or test consumers were changed.
+
+Initial code commit `de95f490823ab080f832c07b9cf8f933b409df84` accidentally omitted an existing three-line explanatory comment in `OrderingApplicationService.java`. Boundary correction `a79384f0018e2bd09b5cd28dafe60cc157607017` restored it before checkpoint acceptance. Aggregate structural verification from pre-leaf head `f81b8f8399901852b82b41ab046a1dc616f81a9d` to corrected head `a79384f0018e2bd09b5cd28dafe60cc157607017` shows only four package-path/declaration moves and the required customer import substitutions in the six bounded consumers. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.customer`; bounded production consumers import `grandrue.customer`; no production package/import declaration remains for `mainstreet.customer`.
+
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
 State: `NOT_STARTED`
@@ -355,11 +380,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01I
-last_completed_task: GR-REN-02-01I
-last_verified_head: f00d5e57ad24b8be80e7cdaf1a3894d614b08903
-last_task_commit: f00d5e57ad24b8be80e7cdaf1a3894d614b08903
-next_action: Select the next bounded production package leaf under GR-REN-02-01J+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01J
+last_completed_task: GR-REN-02-01J
+last_verified_head: a79384f0018e2bd09b5cd28dafe60cc157607017
+last_task_commit: a79384f0018e2bd09b5cd28dafe60cc157607017
+next_action: Select the next bounded production package leaf under GR-REN-02-01K+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
