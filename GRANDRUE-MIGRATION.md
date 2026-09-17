@@ -108,7 +108,8 @@ State: `OPEN`
 | `GR-REN-02-01D` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `credential/**` + bounded production consumer; code commit `bd7df15233f61cc7968447e49bfa1dedb0b5c8fb` |
 | `GR-REN-02-01E` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `media/**` + bounded production consumer; code commit `d1d9059e071ef6362aefabba0423a6f5298b5cd4` |
 | `GR-REN-02-01F` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `protection/**` + bounded production consumers; code commit `f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c` |
-| `GR-REN-02-01G+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01G` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `resilience/**`; no external production consumers; code commit `87a51a1679d13b04d0cc9fde02edb0d24cb91e79` |
+| `GR-REN-02-01H+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -254,6 +255,24 @@ Structural verification evidence on `development`: `ProtectionTarget.java` resol
 
 `done_when`: owner files exist only under `grandrue.protection`; bounded production consumers import `grandrue.protection`; no production package/import declaration remains for `mainstreet.protection`.
 
+#### `GR-REN-02-01G` exact scope
+
+Moved seven owner files from `src/main/java/mainstreet/resilience/` to `src/main/java/grandrue/resilience/`, changing only package declarations:
+
+- `AcceptanceCertainty.java`
+- `AcknowledgementCertainty.java`
+- `ExecutionCertainty.java`
+- `LogicalCommandCertainty.java`
+- `ResilienceRetryGate.java`
+- `RetryDecision.java`
+- `RetrySafety.java`
+
+No external production consumers required import changes. No current-product prose/comments, stable `MS-PROT-069` / `MS-PROT-070` authority references, logical-command certainty semantics, retry-safety semantics, or test consumers were changed.
+
+Structural verification evidence on `development`: `ResilienceRetryGate.java` resolves under `grandrue.resilience`, its former `mainstreet.resilience` owner path is absent, and no external production consumer migration was required. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.resilience`; no production package/import declaration remains for `mainstreet.resilience`.
+
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
 State: `NOT_STARTED`
@@ -290,11 +309,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01F
-last_completed_task: GR-REN-02-01F
-last_verified_head: f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c
-last_task_commit: f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c
-next_action: Select the next bounded production package leaf under GR-REN-02-01G+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01G
+last_completed_task: GR-REN-02-01G
+last_verified_head: 87a51a1679d13b04d0cc9fde02edb0d24cb91e79
+last_task_commit: 87a51a1679d13b04d0cc9fde02edb0d24cb91e79
+next_action: Select the next bounded production package leaf under GR-REN-02-01H+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
