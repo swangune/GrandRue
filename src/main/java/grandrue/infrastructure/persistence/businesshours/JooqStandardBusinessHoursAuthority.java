@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.businesshours;
+package grandrue.infrastructure.persistence.businesshours;
 
 import mainstreet.application.MerchantScope;
 import grandrue.businesshours.BusinessHoursFailureCategory;
