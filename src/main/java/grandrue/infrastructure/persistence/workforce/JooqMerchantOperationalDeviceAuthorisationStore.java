@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.workforce;
+package grandrue.infrastructure.persistence.workforce;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.application.TrustedDeviceApplicationContext;
