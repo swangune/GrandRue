@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.notification;
+package grandrue.infrastructure.persistence.notification;
 
 import grandrue.notification.DeliveryAttempt;
 import grandrue.notification.DeliveryAttemptOutcome;
