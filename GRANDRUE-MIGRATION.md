@@ -115,7 +115,7 @@ State: `OPEN`
 | `GR-REN-02-01L` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `money/**` + six bounded consumers | `50cc3f9462363b120de8f7e2d47fad60a180487e` |
 | `GR-REN-02-01M` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `background/**` + eight bounded consumers | `6a610d767a5d8decfdc839d621127d9a73901490` |
 | `GR-REN-02-01N` | `COMPLETE_PENDING_FINAL_VERIFICATION` | root production `GrandRueApplication.java`; no production consumers | `6ba9245b16dc70aa5a9da58d739ce4b422a1e2bb` |
-| `GR-REN-02-01O` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `booking/**` + nine bounded production consumers | `9c36c0720ac5a2b48e22f4f04fc621a8298632c7` |
+| `GR-REN-02-01O` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `booking/**` + nine bounded production consumers | code `9c36c0720ac5a2b48e22f4f04fc621a8298632c7`; lineage reconciliation `07acfe2a54ac62c856e644146dbadb9aa117b72c` |
 | `GR-REN-02-01P+` | `EXPANSION_REQUIRED` | remaining production package roots; select by live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -128,6 +128,7 @@ State: `OPEN`
 - Before `GR-REN-02-01M`, accidental commit `5fc49f80ba09f7f33c74b921b57f94e605996eee` created empty `__dummy__`; correction `f877398f5ed1213dbfaa1f48ff67d38332b8d8b3` immediately removed it. Comparison from `50cc3f9462363b120de8f7e2d47fad60a180487e` to `f877398f5ed1213dbfaa1f48ff67d38332b8d8b3` has zero changed files.
 - `GR-REN-02-01N`: `src/main/java/mainstreet/GrandRueApplication.java` moved to `src/main/java/grandrue/GrandRueApplication.java`; only its package declaration changed. Its test FQCN consumer remains deferred to `GR-REN-03`.
 - `GR-REN-02-01O`: thirteen Booking owner files moved from `mainstreet.booking` to `grandrue.booking`. Nine live production consumers were updated only for Booking imports: `ConfigurationImpactReviewApplicationService`, three prototype Booking use-case files, two prototype Booking response files, and three Booking persistence adapters. Two stale-search appointment candidates were verified live and required no change. Test consumers remain deferred to `GR-REN-03`.
+- The `GR-REN-02-01O` code commit and ledger checkpoint were initially created as sibling children of repair baseline `abda517cd8f42a197c95af8adec55d1843576ea1`. Merge commit `07acfe2a54ac62c856e644146dbadb9aa117b72c` reconciles both lineages without force-updating the branch and contains the Booking code tree plus checkpoint ledger.
 
 ### Ledger integrity repair
 
@@ -156,7 +157,7 @@ mutation_authorised: true
 active_group: GR-REN-02
 selected_execution_leaf: GR-REN-02-01O
 last_completed_task: GR-REN-02-01O
-last_verified_head: 9c36c0720ac5a2b48e22f4f04fc621a8298632c7
+last_verified_head: 07acfe2a54ac62c856e644146dbadb9aa117b72c
 last_task_commit: 9c36c0720ac5a2b48e22f4f04fc621a8298632c7
 next_action: Select and execute the next bounded production namespace leaf under GR-REN-02-01P+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
