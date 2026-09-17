@@ -1,4 +1,4 @@
-package mainstreet.identitysecurity;
+package grandrue.identitysecurity;
 
 /**
  * Required bootstrap boundary when an Identity's authentication security state
