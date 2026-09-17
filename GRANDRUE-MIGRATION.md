@@ -117,7 +117,8 @@ State: `OPEN`
 | `GR-REN-02-01N` | `COMPLETE_PENDING_FINAL_VERIFICATION` | root production `GrandRueApplication.java`; no production consumers | `6ba9245b16dc70aa5a9da58d739ce4b422a1e2bb` |
 | `GR-REN-02-01O` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `booking/**` + nine bounded production consumers | code `9c36c0720ac5a2b48e22f4f04fc621a8298632c7`; lineage reconciliation `07acfe2a54ac62c856e644146dbadb9aa117b72c` |
 | `GR-REN-02-01P` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `ordering/**` + nine bounded production consumers | `390c0713ecdab445b8558a6ed6dec6f65bdb8677` |
-| `GR-REN-02-01Q+` | `EXPANSION_REQUIRED` | remaining production package roots; select by live bounded dependency evidence | pending |
+| `GR-REN-02-01Q` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `notification/**` + one bounded production consumer | `64ccb3b83fdeca775c226f34aa045f4200517ec1` |
+| `GR-REN-02-01R+` | `EXPANSION_REQUIRED` | remaining production package roots; select by live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
 
@@ -131,6 +132,7 @@ State: `OPEN`
 - `GR-REN-02-01O`: thirteen Booking owner files moved from `mainstreet.booking` to `grandrue.booking`. Nine live production consumers were updated only for Booking imports: `ConfigurationImpactReviewApplicationService`, three prototype Booking use-case files, two prototype Booking response files, and three Booking persistence adapters. Two stale-search appointment candidates were verified live and required no change. Test consumers remain deferred to `GR-REN-03`.
 - The `GR-REN-02-01O` code commit and ledger checkpoint were initially created as sibling children of repair baseline `abda517cd8f42a197c95af8adec55d1843576ea1`. Merge commit `07acfe2a54ac62c856e644146dbadb9aa117b72c` reconciles both lineages without force-updating the branch and contains the Booking code tree plus checkpoint ledger.
 - `GR-REN-02-01P`: sixteen Ordering owner files moved from `mainstreet.ordering` to `grandrue.ordering`. Nine live production consumers were updated only for Ordering imports: `ConfigurationImpactReviewApplicationService`, three prototype Ordering use-case files, three prototype Ordering delivery DTO/request files, and two Ordering persistence adapters. Existing `grandrue.booking`, `grandrue.customer`, `grandrue.inventory`, and `grandrue.money` imports were preserved. SQL/table names, the `ordering-command|` persistence lock identity, stable `MS-PROT-*` references and Ordering semantics were unchanged. Existing current-product `Main Street` strings in `OrderingAvailabilityImpactAssessment.java` remain intentionally deferred to `GR-REN-02-02`. Test consumers remain deferred to `GR-REN-03`. Aggregate structural diff from `6071ae80cf3eb0a37a0b2fc6d10afcf41a94adb5` to `390c0713ecdab445b8558a6ed6dec6f65bdb8677` contains exactly sixteen `+1/-1` owner renames and nine import-only consumer changes. Maven tests and GitHub Actions were not run.
+- `GR-REN-02-01Q`: nineteen Notification owner files moved from `mainstreet.notification` to `grandrue.notification`. The only live bounded production consumer, `mainstreet.infrastructure.persistence.notification.JooqNotificationStore`, was updated only for eleven Notification imports. SQL/table/column names and persistence behaviour were unchanged. Historical notification provider-failure evidence continues to record `providerFailure.getClass().getName()` without altering the evidence format; stable `MS-PROT-075` references were preserved. Existing current-product `Main Street` prose in `NotificationContractRegistry.java` remains intentionally deferred to `GR-REN-02-02`. Test consumers remain deferred to `GR-REN-03`. Aggregate structural diff from `cf5c5a1d29dbb97cc234c68055c7906bac9c578f` to `64ccb3b83fdeca775c226f34aa045f4200517ec1` contains exactly nineteen `+1/-1` owner renames and one import-only consumer change (`+11/-11`). Maven tests and GitHub Actions were not run.
 
 ### Ledger integrity repair
 
@@ -157,11 +159,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01P
-last_completed_task: GR-REN-02-01P
-last_verified_head: 390c0713ecdab445b8558a6ed6dec6f65bdb8677
-last_task_commit: 390c0713ecdab445b8558a6ed6dec6f65bdb8677
-next_action: Select and execute the next bounded production namespace leaf under GR-REN-02-01Q+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01Q
+last_completed_task: GR-REN-02-01Q
+last_verified_head: 64ccb3b83fdeca775c226f34aa045f4200517ec1
+last_task_commit: 64ccb3b83fdeca775c226f34aa045f4200517ec1
+next_action: Select and execute the next bounded production namespace leaf under GR-REN-02-01R+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
