@@ -104,7 +104,8 @@ State: `OPEN`
 | `GR-REN-02-01` | GROUP | `OPEN` | production Java namespace migration |
 | `GR-REN-02-01A` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `identitysecurity/**` + bounded production consumers; code commit `6396afba5fdf3e76e2099536d8a3451184650056`; lineage reconciliation `b7149659134714b0baf15899f59ad3f44d1c7014` |
 | `GR-REN-02-01B` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `audit/**` + bounded production consumers; code commit `fbabeed82d767d2454923f7767f3655ca690642f` |
-| `GR-REN-02-01C+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01C` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `businesshours/**` + bounded production consumer; code commit `8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516` |
+| `GR-REN-02-01D+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -152,6 +153,32 @@ Structural verification evidence on `development`: `AuditRecord.java` resolves u
 
 `done_when`: owner files exist only under `grandrue.audit`; bounded production consumers import `grandrue.audit`; no production package/import declaration remains for `mainstreet.audit`.
 
+#### `GR-REN-02-01C` exact scope
+
+Moved eleven owner files from `src/main/java/mainstreet/businesshours/` to `src/main/java/grandrue/businesshours/`, changing only package declarations:
+
+- `BusinessHoursFailureCategory.java`
+- `BusinessHoursMutationException.java`
+- `BusinessHoursScope.java`
+- `BusinessHoursScopeKind.java`
+- `ConfigureStandardBusinessHoursCommand.java`
+- `StandardBusinessHours.java`
+- `StandardBusinessHoursAuthority.java`
+- `StandardBusinessHoursRevision.java`
+- `StandardBusinessHoursRevisionDisposition.java`
+- `WeeklyOperatingInterval.java`
+- `WithdrawStandardBusinessHoursCommand.java`
+
+Updated bounded production consumer:
+
+- `src/main/java/mainstreet/infrastructure/persistence/businesshours/JooqStandardBusinessHoursAuthority.java`
+
+No current-product prose/comments, stable `MS-PROT-050` authority reference, SQL/schema names, persistence identifiers, business-hours revision identities, or test consumers were changed.
+
+Structural verification evidence on `development`: `StandardBusinessHours.java` resolves under `grandrue.businesshours`, its former `mainstreet.businesshours` owner path is absent, and the bounded production consumer imports `grandrue.businesshours`. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.businesshours`; bounded production consumers import `grandrue.businesshours`; no production package/import declaration remains for `mainstreet.businesshours`.
+
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
 State: `NOT_STARTED`
@@ -188,11 +215,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01B
-last_completed_task: GR-REN-02-01B
-last_verified_head: fbabeed82d767d2454923f7767f3655ca690642f
-last_task_commit: fbabeed82d767d2454923f7767f3655ca690642f
-next_action: Select the next bounded production package leaf under GR-REN-02-01C+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01C
+last_completed_task: GR-REN-02-01C
+last_verified_head: 8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516
+last_task_commit: 8b23ee7ca70e84159d4f9dfbe5bf4e2b06b63516
+next_action: Select the next bounded production package leaf under GR-REN-02-01D+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
