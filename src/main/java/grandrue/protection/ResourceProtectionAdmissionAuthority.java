@@ -1,4 +1,4 @@
-package mainstreet.protection;
+package grandrue.protection;
 
 /**
  * Platform Resource Protection authority for one attempted protected

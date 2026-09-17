@@ -1,4 +1,4 @@
-package mainstreet.protection;
+package grandrue.protection;
 
 /**
  * Policy-declared behaviour when authoritative protection state cannot be

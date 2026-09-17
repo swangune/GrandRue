@@ -1,4 +1,4 @@
-package mainstreet.protection;
+package grandrue.protection;
 
 /**
  * Operational scope whose consumption is measured or restricted by one

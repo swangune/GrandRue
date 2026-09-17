@@ -1,4 +1,4 @@
-package mainstreet.protection;
+package grandrue.protection;
 
 /**
  * Stable platform-owned identity for one bounded class of work whose shared

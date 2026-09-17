@@ -1,6 +1,6 @@
 package mainstreet.api;
 
-import mainstreet.protection.ProtectionTarget;
+import grandrue.protection.ProtectionTarget;
 
 import java.util.Objects;
 import java.util.Optional;

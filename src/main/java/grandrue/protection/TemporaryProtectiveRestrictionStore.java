@@ -1,4 +1,4 @@
-package mainstreet.protection;
+package grandrue.protection;
 
 /** Persistence boundary for bounded Resource Protection restrictions. */
 @FunctionalInterface

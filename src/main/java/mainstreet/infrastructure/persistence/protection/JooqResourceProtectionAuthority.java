@@ -1,13 +1,13 @@
 package mainstreet.infrastructure.persistence.protection;
 
-import mainstreet.protection.ProtectionAdmissionDecision;
-import mainstreet.protection.ProtectionPolicy;
-import mainstreet.protection.ProtectionStateFailureBehaviour;
-import mainstreet.protection.ProtectionSubject;
-import mainstreet.protection.ProtectionTarget;
-import mainstreet.protection.ResourceProtectionAdmissionAuthority;
-import mainstreet.protection.TemporaryProtectiveRestriction;
-import mainstreet.protection.TemporaryProtectiveRestrictionStore;
+import grandrue.protection.ProtectionAdmissionDecision;
+import grandrue.protection.ProtectionPolicy;
+import grandrue.protection.ProtectionStateFailureBehaviour;
+import grandrue.protection.ProtectionSubject;
+import grandrue.protection.ProtectionTarget;
+import grandrue.protection.ResourceProtectionAdmissionAuthority;
+import grandrue.protection.TemporaryProtectiveRestriction;
+import grandrue.protection.TemporaryProtectiveRestrictionStore;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

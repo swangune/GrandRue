@@ -1,4 +1,4 @@
-package mainstreet.protection;
+package grandrue.protection;
 
 import java.time.Duration;
 import java.util.Objects;
