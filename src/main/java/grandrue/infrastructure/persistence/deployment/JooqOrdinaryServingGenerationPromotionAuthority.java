@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.deployment;
+package grandrue.infrastructure.persistence.deployment;
 
 import mainstreet.application.MerchantScope;
 import grandrue.deployment.ActiveConfigurationServingRequirement;
