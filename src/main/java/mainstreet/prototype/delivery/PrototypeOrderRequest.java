@@ -1,7 +1,7 @@
 package mainstreet.prototype.delivery;
 
-import mainstreet.ordering.CommittedQuantity;
-import mainstreet.ordering.RequestedOrderPortion;
+import grandrue.ordering.CommittedQuantity;
+import grandrue.ordering.RequestedOrderPortion;
 
 import java.math.BigDecimal;
 import java.util.List;

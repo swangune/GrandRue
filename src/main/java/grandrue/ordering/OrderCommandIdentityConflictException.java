@@ -1,4 +1,4 @@
-package mainstreet.ordering;
+package grandrue.ordering;
 
 /** Stable command identity was reused for materially different Order intent. */
 public final class OrderCommandIdentityConflictException

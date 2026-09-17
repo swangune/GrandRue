@@ -1,4 +1,4 @@
-package mainstreet.ordering;
+package grandrue.ordering;
 
 import grandrue.customer.CustomerContextAuthority;
 import mainstreet.runtime.AuthorizationException;

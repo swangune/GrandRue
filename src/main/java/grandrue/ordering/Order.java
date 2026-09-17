@@ -1,48 +1,54 @@
-package mainstreet.ordering;
+package grandrue.ordering;
 
 import mainstreet.application.MerchantScope;
 
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-/** Intent to establish one purchase/order commitment. */
-public record CommitOrderCommand(
+/** Capability-owned durable purchase/order commitment. */
+public record Order(
         MerchantScope merchantScope,
         String identifier,
-        String orderIdentifier,
         Optional<String> customerContextIdentifier,
-        List<RequestedOrderPortion> requestedPortions
+        List<OrderCommitmentPortion> commitmentPortions,
+        String governingReleaseIdentifier,
+        Instant committedAt
 ) {
-    public CommitOrderCommand {
+    public Order {
         Objects.requireNonNull(merchantScope);
-        requireIdentifier(identifier, "Order command identifier");
-        requireIdentifier(orderIdentifier, "Order identifier");
+        requireIdentifier(identifier, "Order identifier");
         customerContextIdentifier = Objects.requireNonNull(
                 customerContextIdentifier
         );
         customerContextIdentifier.ifPresent(value ->
                 requireIdentifier(value, "Customer context identifier")
         );
-        requestedPortions = List.copyOf(
-                Objects.requireNonNull(requestedPortions)
+        commitmentPortions = List.copyOf(
+                Objects.requireNonNull(commitmentPortions)
         );
-        if (requestedPortions.isEmpty()) {
+        if (commitmentPortions.isEmpty()) {
             throw new IllegalArgumentException(
-                    "CommitOrder requires at least one requested portion"
+                    "Order requires at least one commitment portion"
             );
         }
-        Set<String> identifiers = new HashSet<>();
-        for (RequestedOrderPortion portion : requestedPortions) {
-            if (!identifiers.add(portion.identifier())) {
+        Set<String> portionIdentifiers = new HashSet<>();
+        for (OrderCommitmentPortion portion : commitmentPortions) {
+            if (!portionIdentifiers.add(portion.identifier())) {
                 throw new IllegalArgumentException(
-                        "CommitOrder contains duplicate portion identifier: "
+                        "Order contains duplicate commitment portion identifier: "
                                 + portion.identifier()
                 );
             }
         }
+        requireIdentifier(
+                governingReleaseIdentifier,
+                "Governing release identifier"
+        );
+        Objects.requireNonNull(committedAt);
     }
 
     private static void requireIdentifier(String value, String label) {

@@ -1,4 +1,4 @@
-package mainstreet.ordering;
+package grandrue.ordering;
 
 /** Infrastructure persistence failure without reinterpretation as business rejection. */
 public final class OrderingPersistenceException extends RuntimeException {

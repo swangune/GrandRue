@@ -1,4 +1,4 @@
-package mainstreet.ordering;
+package grandrue.ordering;
 
 import mainstreet.semantic.AllocationScope;
 

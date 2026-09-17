@@ -1,7 +1,7 @@
 package mainstreet.prototype;
 
-import mainstreet.ordering.Order;
-import mainstreet.ordering.RequestedOrderPortion;
+import grandrue.ordering.Order;
+import grandrue.ordering.RequestedOrderPortion;
 
 import java.util.List;
 import java.util.Optional;

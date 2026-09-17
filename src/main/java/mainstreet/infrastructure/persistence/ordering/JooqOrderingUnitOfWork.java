@@ -1,18 +1,18 @@
 package mainstreet.infrastructure.persistence.ordering;
 
-import mainstreet.ordering.OrderingTransaction;
+import grandrue.ordering.OrderingTransaction;
 import mainstreet.application.MerchantScope;
 import mainstreet.infrastructure.persistence.inventory.JooqQuantityAllocationAuthority;
 import grandrue.money.CurrencyIdentity;
 import grandrue.money.MonetaryAmount;
-import mainstreet.ordering.CommitOrderCommand;
-import mainstreet.ordering.CommittedQuantity;
-import mainstreet.ordering.Order;
-import mainstreet.ordering.OrderCommandIdentityConflictException;
-import mainstreet.ordering.OrderConfirmation;
-import mainstreet.ordering.OrderCommitmentPortion;
-import mainstreet.ordering.OrderingUnitOfWork;
-import mainstreet.ordering.RequestedOrderPortion;
+import grandrue.ordering.CommitOrderCommand;
+import grandrue.ordering.CommittedQuantity;
+import grandrue.ordering.Order;
+import grandrue.ordering.OrderCommandIdentityConflictException;
+import grandrue.ordering.OrderConfirmation;
+import grandrue.ordering.OrderCommitmentPortion;
+import grandrue.ordering.OrderingUnitOfWork;
+import grandrue.ordering.RequestedOrderPortion;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.DomainEvent;
 import mainstreet.semantic.QuantityAllocationScope;
