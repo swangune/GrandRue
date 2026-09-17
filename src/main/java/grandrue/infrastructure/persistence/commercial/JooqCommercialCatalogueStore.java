@@ -1,5 +1,6 @@
 package grandrue.infrastructure.persistence.commercial;
 
+import grandrue.commercial.CataloguePublicationException;
 import mainstreet.application.TrustedPlatformExecutionContext;
 import mainstreet.commercial.*;
 import org.jooq.DSLContext;
