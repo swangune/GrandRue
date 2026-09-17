@@ -109,7 +109,9 @@ State: `OPEN`
 | `GR-REN-02-01E` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `media/**` + bounded production consumer; code commit `d1d9059e071ef6362aefabba0423a6f5298b5cd4` |
 | `GR-REN-02-01F` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `protection/**` + bounded production consumers; code commit `f7a729aebd9c93a9ecf5f9af7c39bac05331ef5c` |
 | `GR-REN-02-01G` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `resilience/**`; no external production consumers; code commit `87a51a1679d13b04d0cc9fde02edb0d24cb91e79` |
-| `GR-REN-02-01H+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01H` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `observability/**`; no external production consumers; code commit `833fc7428d9e61e03a612d7b99e358112fd660b0` |
+| `GR-REN-02-01I` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `privacy/**` + bounded production consumer; code commit `f00d5e57ad24b8be80e7cdaf1a3894d614b08903` |
+| `GR-REN-02-01J+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -273,6 +275,50 @@ Structural verification evidence on `development`: `ResilienceRetryGate.java` re
 
 `done_when`: owner files exist only under `grandrue.resilience`; no production package/import declaration remains for `mainstreet.resilience`.
 
+#### `GR-REN-02-01H` exact scope
+
+Moved nine owner files from `src/main/java/mainstreet/observability/` to `src/main/java/grandrue/observability/`, changing only package declarations:
+
+- `BestEffortOperationalTelemetry.java`
+- `DiagnosticLogObservation.java`
+- `DiagnosticSeverity.java`
+- `HealthObservation.java`
+- `OperationalHealthDimension.java`
+- `OperationalHealthState.java`
+- `OperationalMetricObservation.java`
+- `OperationalTelemetrySink.java`
+- `TraceObservation.java`
+
+No external production consumers required import changes. No current-product prose/comments or test consumers were changed.
+
+Structural verification evidence on `development`: the nine owner files resolve under `grandrue.observability`, their former `mainstreet.observability` production path is absent, and code commit `833fc7428d9e61e03a612d7b99e358112fd660b0` contains only those package-path/declaration moves. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.observability`; no production package/import declaration remains for `mainstreet.observability`.
+
+#### `GR-REN-02-01I` exact scope
+
+Moved nine owner files from `src/main/java/mainstreet/privacy/` to `src/main/java/grandrue/privacy/`, changing only package declarations:
+
+- `DataDisposition.java`
+- `DataHandlingClassification.java`
+- `DataSubjectReference.java`
+- `DataUsePurpose.java`
+- `PersonalDataUseBasis.java`
+- `PersonalDataUseBasisAuthority.java`
+- `PersonalDataUseBasisStore.java`
+- `PersonalMediaUseEligibilityAuthority.java`
+- `RetentionRequirement.java`
+
+Updated bounded production consumer:
+
+- `src/main/java/mainstreet/infrastructure/persistence/privacy/JooqPersonalDataUseBasisStore.java`
+
+The existing cross-package `mainstreet.application.MerchantScope` dependency was preserved because `application/**` is outside this leaf. Existing current-product prose in `DataHandlingClassification.java` and `DataSubjectReference.java` was deliberately left unchanged for `GR-REN-02-02`. Stable `MS-PROT-053` authority reference, schema/table/field names, personal-data-use evidence semantics, persistence semantics, and test consumers were not changed.
+
+Structural verification evidence on `development`: `PersonalDataUseBasisStore.java` resolves under `grandrue.privacy`, its former `mainstreet.privacy` owner path is absent, the bounded production consumer imports `grandrue.privacy`, and code commit `f00d5e57ad24b8be80e7cdaf1a3894d614b08903` contains nine package moves plus exactly four bounded import substitutions in that consumer. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.privacy`; bounded production consumer imports `grandrue.privacy`; no production package/import declaration remains for `mainstreet.privacy`.
+
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
 State: `NOT_STARTED`
@@ -309,11 +355,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01G
-last_completed_task: GR-REN-02-01G
-last_verified_head: 87a51a1679d13b04d0cc9fde02edb0d24cb91e79
-last_task_commit: 87a51a1679d13b04d0cc9fde02edb0d24cb91e79
-next_action: Select the next bounded production package leaf under GR-REN-02-01H+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01I
+last_completed_task: GR-REN-02-01I
+last_verified_head: f00d5e57ad24b8be80e7cdaf1a3894d614b08903
+last_task_commit: f00d5e57ad24b8be80e7cdaf1a3894d614b08903
+next_action: Select the next bounded production package leaf under GR-REN-02-01J+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
