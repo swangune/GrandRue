@@ -1,4 +1,4 @@
-package mainstreet.workforce;
+package grandrue.workforce;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.application.TrustedDeviceApplicationContext;

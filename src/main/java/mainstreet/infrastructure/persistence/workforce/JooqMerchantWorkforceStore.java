@@ -1,16 +1,16 @@
 package mainstreet.infrastructure.persistence.workforce;
 
 import mainstreet.semantic.Privilege;
-import mainstreet.workforce.MerchantAccessGroup;
-import mainstreet.workforce.MerchantGroupMembership;
-import mainstreet.workforce.MerchantGroupMembershipLifecycle;
-import mainstreet.workforce.MerchantMembership;
-import mainstreet.workforce.MerchantMembershipLifecycle;
-import mainstreet.workforce.MerchantRoleAssignment;
-import mainstreet.workforce.MerchantRoleAssignmentLifecycle;
-import mainstreet.workforce.MerchantRoleAssignmentSubjectType;
-import mainstreet.workforce.MerchantRoleDefinition;
-import mainstreet.workforce.MerchantWorkforceStore;
+import grandrue.workforce.MerchantAccessGroup;
+import grandrue.workforce.MerchantGroupMembership;
+import grandrue.workforce.MerchantGroupMembershipLifecycle;
+import grandrue.workforce.MerchantMembership;
+import grandrue.workforce.MerchantMembershipLifecycle;
+import grandrue.workforce.MerchantRoleAssignment;
+import grandrue.workforce.MerchantRoleAssignmentLifecycle;
+import grandrue.workforce.MerchantRoleAssignmentSubjectType;
+import grandrue.workforce.MerchantRoleDefinition;
+import grandrue.workforce.MerchantWorkforceStore;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

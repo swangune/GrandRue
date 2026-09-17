@@ -1,4 +1,4 @@
-package mainstreet.workforce;
+package grandrue.workforce;
 
 import java.util.Objects;
 

@@ -2,8 +2,8 @@ package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.application.TrustedDeviceApplicationContext;
-import mainstreet.workforce.MerchantMembershipAuthority;
-import mainstreet.workforce.MerchantOperationalDeviceAuthority;
+import grandrue.workforce.MerchantMembershipAuthority;
+import grandrue.workforce.MerchantOperationalDeviceAuthority;
 
 import java.util.Objects;
 import java.util.Optional;

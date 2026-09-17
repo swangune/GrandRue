@@ -1,4 +1,4 @@
-package mainstreet.workforce;
+package grandrue.workforce;
 
 /** Lifecycle of one Merchant Operational Device Authorisation identity. */
 public enum MerchantOperationalDeviceAuthorisationLifecycle {

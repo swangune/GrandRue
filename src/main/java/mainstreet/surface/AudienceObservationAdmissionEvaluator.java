@@ -8,7 +8,7 @@ import mainstreet.runtime.AuthenticationProvenance;
 import mainstreet.runtime.AuthenticationSessionCurrentness;
 import mainstreet.runtime.AuthenticationSessionCurrentnessAuthority;
 import mainstreet.runtime.TrustedExecutionContext;
-import mainstreet.workforce.MerchantMembershipAuthority;
+import grandrue.workforce.MerchantMembershipAuthority;
 
 import java.time.Clock;
 import java.time.Instant;

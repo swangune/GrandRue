@@ -2,8 +2,8 @@ package mainstreet.infrastructure.persistence.workforce;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.semantic.Privilege;
-import mainstreet.workforce.MerchantMembershipAuthority;
-import mainstreet.workforce.MerchantWorkforceAuthority;
+import grandrue.workforce.MerchantMembershipAuthority;
+import grandrue.workforce.MerchantWorkforceAuthority;
 import org.jooq.Condition;
 import org.jooq.DSLContext;
 import org.jooq.Field;

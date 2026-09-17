@@ -1,4 +1,4 @@
-package mainstreet.workforce;
+package grandrue.workforce;
 
 /** Initial MS-PROT-074 role-assignment subject kinds. */
 public enum MerchantRoleAssignmentSubjectType {
