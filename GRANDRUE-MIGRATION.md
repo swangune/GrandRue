@@ -163,6 +163,7 @@ State: `OPEN`
 | `GR-REN-02-01X37` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/configuration/ConfigurationActivationPublicationIntent.java` + `JooqConfigurationActivationPublicationOutbox.java`; closed two-owner publication cluster, no external production consumers | `bd8b3f3bce1a6cae2d1e2edbb9ff45766d10bc3e` |
 | `GR-REN-02-01X38` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/configuration/JooqConfigurationRevisionAuthority.java`; no external production consumers | `a43245c230b56e1e5fc04eecde3cc91c805859f6` |
 | `GR-REN-02-01X39` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/configuration/configuration/JooqConfigurationReinstatementApprovalAuthority.java`; no external production consumers | `eabc56874a77e3c6703cac30069acf89982f7adf` |
+| `GR-REN-02-01X40` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/configuration/JooqConfigurationReleaseActivation.java`; no executable production concrete consumers | `ec88de1a31f8067e4b12f61a52d538e258e0e19a` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -203,6 +204,7 @@ State: `OPEN`
 - `GR-REN-02-01X37`: `ConfigurationActivationPublicationIntent.java` and `JooqConfigurationActivationPublicationOutbox.java` moved from `mainstreet.infrastructure.persistence.configuration` to `grandrue.infrastructure.persistence.configuration`. `ConfigurationActivationPublicationIntent` was consumed only by the same production Outbox owner; `JooqConfigurationActivationPublicationOutbox` had no external production consumers. Current tests remain deferred to `GR-REN-03`. The prepared parent was `793b37bb28adeeb8c77d55ea9b12b19386338d1a`; owner input blobs were `686ed7cf58886c0b647d6087e3da11c3dcff94a7` and `edff3a4fdfe6f46b280f2923d8ff383b057fb84f`; both GrandRue destinations were absent at preflight. Existing delivery/recovery-only intent semantics, `configuration_activation_publication_intent` table/column identities, deterministic pending ordering, single-transition `markPublished` behaviour, comments and publication evidence semantics were unchanged. Code commit `bd8b3f3bce1a6cae2d1e2edbb9ff45766d10bc3e` contains exactly two owner renames with only the package declaration replacement in each file.
 - `GR-REN-02-01X38`: `JooqConfigurationRevisionAuthority.java` moved from `mainstreet.infrastructure.persistence.configuration` to `grandrue.infrastructure.persistence.configuration`. No external production consumers were found; current integration-test/runtime-fixture consumers remain deferred to `GR-REN-03`. The prepared parent was `b6d89d95240658a79be781eb0d288db993a324b9`; owner input blob was `e670a5eefe47e4729ac65fcc86d189e6ca57c098`; the GrandRue destination was absent at preflight. Existing `MerchantScope`, Fulfilment, Onboarding and Semantic Configuration imports, protected capability seed namespace `mainstreet.semantic`, configuration revision/capability/policy table and column identities, immutable initial-intent provenance, retry/idempotency behaviour, advisory-lock keys and seeds `71`, `72`, `73`, and persistence semantics were unchanged. Code commit `a43245c230b56e1e5fc04eecde3cc91c805859f6` contains exactly one owner rename with only the package declaration replacement.
 - `GR-REN-02-01X39`: `JooqConfigurationReinstatementApprovalAuthority.java` moved from nested legacy path `mainstreet/infrastructure/persistence/configuration/configuration` to the corresponding nested `grandrue/infrastructure/persistence/configuration/configuration` path while its declared package changed from `mainstreet.infrastructure.persistence.configuration` to `grandrue.infrastructure.persistence.configuration`. No external production consumers were found; current integration-test consumers remain deferred to `GR-REN-03`. The prepared parent was `1279f8d123db36072637a7e5d3aad3d044d18d27`; owner input blob was `9386f6ae0dcde6d3ff65a65370d53e987f51403e`; the GrandRue destination was absent at preflight. Existing MS-PROT-040 v1.8 authority text, approval-request lock seed `403`, Configuration-activation lock seed `41`, current-authority lock seed `76`, exact reinstatement-basis affinity, validation/impact/package evidence affinity, current-Controller revalidation, idempotent replay, concurrency-conflict handling and persistence semantics were unchanged. Code commit `eabc56874a77e3c6703cac30069acf89982f7adf` contains exactly one owner rename with only the package declaration replacement.
+- `GR-REN-02-01X40`: `JooqConfigurationReleaseActivation.java` moved from `mainstreet.infrastructure.persistence.configuration` to `grandrue.infrastructure.persistence.configuration`. No executable production concrete consumers were found; `mainstreet.application.ConfigurationActivationApplicationService` only retains explanatory comments referring to the implementation name, and current integration-test/runtime-fixture consumers remain deferred to `GR-REN-03`. The prepared parent was `afc2742043642f365baa0dd97b2218a1fdb2063f`; owner input blob was `39121224753839c5e7febd2d7d37d0d29bb2e746`; the GrandRue destination was absent at preflight. Existing MS-PROT-040/MS-PROT-054 authority text, fail-closed legacy constructors and sentinels, activation/current/publication table and column identities, admission evidence and current-pointer semantics, historical replay/idempotency behavior, approval/reinstatement/compatibility checks, advisory-lock seeds `40`, `41`, `76`, and transaction/persistence semantics were unchanged. Code commit `ec88de1a31f8067e4b12f61a52d538e258e0e19a` contains exactly one owner rename with only the package declaration replacement.
 
 ### Ledger integrity repair
 
@@ -235,9 +237,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X39
-last_completed_task: GR-REN-02-01X39
-last_task_commit: eabc56874a77e3c6703cac30069acf89982f7adf
+selected_execution_leaf: GR-REN-02-01X40
+last_completed_task: GR-REN-02-01X40
+last_task_commit: ec88de1a31f8067e4b12f61a52d538e258e0e19a
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -323,8 +325,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X39
-last_prepared_execution_commit: eabc56874a77e3c6703cac30069acf89982f7adf
+last_prepared_execution_leaf: GR-REN-02-01X40
+last_prepared_execution_commit: ec88de1a31f8067e4b12f61a52d538e258e0e19a
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
