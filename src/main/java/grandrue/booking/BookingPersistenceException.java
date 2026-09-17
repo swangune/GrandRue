@@ -1,4 +1,4 @@
-package mainstreet.booking;
+package grandrue.booking;
 
 public final class BookingPersistenceException
         extends RuntimeException {

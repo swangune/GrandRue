@@ -1,7 +1,7 @@
 package mainstreet.infrastructure.persistence.booking;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.booking.BookingResidualObligationAuthority;
+import grandrue.booking.BookingResidualObligationAuthority;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Table;

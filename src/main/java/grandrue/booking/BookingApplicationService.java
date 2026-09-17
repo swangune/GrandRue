@@ -1,4 +1,4 @@
-package mainstreet.booking;
+package grandrue.booking;
 
 import grandrue.customer.CustomerContextAuthority;
 import mainstreet.runtime.AuthorizationException;

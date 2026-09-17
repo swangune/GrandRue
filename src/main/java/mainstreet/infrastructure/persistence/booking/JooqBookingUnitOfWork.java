@@ -1,15 +1,15 @@
 package mainstreet.infrastructure.persistence.booking;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.booking.Booking;
-import mainstreet.booking.BookingConfirmation;
-import mainstreet.booking.BookingOutbox;
-import mainstreet.booking.BookingPersistenceException;
-import mainstreet.booking.BookingReservationWindow;
-import mainstreet.booking.BookingTransaction;
-import mainstreet.booking.BookingUnitOfWork;
-import mainstreet.booking.CommandIdentityConflictException;
-import mainstreet.booking.ConfirmBookingCommand;
+import grandrue.booking.Booking;
+import grandrue.booking.BookingConfirmation;
+import grandrue.booking.BookingOutbox;
+import grandrue.booking.BookingPersistenceException;
+import grandrue.booking.BookingReservationWindow;
+import grandrue.booking.BookingTransaction;
+import grandrue.booking.BookingUnitOfWork;
+import grandrue.booking.CommandIdentityConflictException;
+import grandrue.booking.ConfirmBookingCommand;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.AllocationScope;
 import mainstreet.semantic.DomainEvent;

@@ -1,11 +1,11 @@
 package mainstreet.prototype;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.booking.Booking;
-import mainstreet.booking.BookingApplicationService;
-import mainstreet.booking.BookingReservationWindow;
-import mainstreet.booking.BookingUnitOfWork;
-import mainstreet.booking.ConfirmBookingCommand;
+import grandrue.booking.Booking;
+import grandrue.booking.BookingApplicationService;
+import grandrue.booking.BookingReservationWindow;
+import grandrue.booking.BookingUnitOfWork;
+import grandrue.booking.ConfirmBookingCommand;
 import grandrue.customer.CustomerContext;
 import grandrue.customer.InMemoryCustomerContextAuthority;
 import mainstreet.runtime.AuthorizationException;

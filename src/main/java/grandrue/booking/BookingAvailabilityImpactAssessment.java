@@ -1,4 +1,4 @@
-package mainstreet.booking;
+package grandrue.booking;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.semantic.compiler.ConfigurationCompiler;

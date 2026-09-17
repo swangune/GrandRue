@@ -1,4 +1,4 @@
-package mainstreet.booking;
+package grandrue.booking;
 
 import java.time.Instant;
 import java.util.Objects;

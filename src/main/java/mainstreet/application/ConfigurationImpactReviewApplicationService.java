@@ -1,7 +1,7 @@
 package mainstreet.application;
 
-import mainstreet.booking.BookingAvailabilityImpactAssessment;
-import mainstreet.booking.BookingResidualObligationAuthority;
+import grandrue.booking.BookingAvailabilityImpactAssessment;
+import grandrue.booking.BookingResidualObligationAuthority;
 import mainstreet.enquiry.EnquiryAvailabilityImpactAssessment;
 import mainstreet.fulfilment.FulfilmentBindingSetRevision;
 import mainstreet.fulfilment.FulfilmentBindingSetRevisionAuthority;

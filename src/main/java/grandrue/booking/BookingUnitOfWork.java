@@ -1,4 +1,4 @@
-package mainstreet.booking;
+package grandrue.booking;
 
 import java.util.function.Function;
 

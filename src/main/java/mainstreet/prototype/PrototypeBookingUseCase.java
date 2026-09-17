@@ -1,6 +1,6 @@
 package mainstreet.prototype;
 
-import mainstreet.booking.Booking;
+import grandrue.booking.Booking;
 
 import java.time.Instant;
 import java.util.Optional;

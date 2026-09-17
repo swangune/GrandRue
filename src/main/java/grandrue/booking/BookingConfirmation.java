@@ -1,4 +1,4 @@
-package mainstreet.booking;
+package grandrue.booking;
 
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.DomainEvent;

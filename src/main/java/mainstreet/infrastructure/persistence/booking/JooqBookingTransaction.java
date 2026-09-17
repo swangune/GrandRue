@@ -1,11 +1,11 @@
 package mainstreet.infrastructure.persistence.booking;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.booking.Booking;
-import mainstreet.booking.BookingConfirmation;
-import mainstreet.booking.BookingPersistenceException;
-import mainstreet.booking.BookingTransaction;
-import mainstreet.booking.ConfirmBookingCommand;
+import grandrue.booking.Booking;
+import grandrue.booking.BookingConfirmation;
+import grandrue.booking.BookingPersistenceException;
+import grandrue.booking.BookingTransaction;
+import grandrue.booking.ConfirmBookingCommand;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.AllocationConflictException;
 import mainstreet.semantic.AllocationScope;
