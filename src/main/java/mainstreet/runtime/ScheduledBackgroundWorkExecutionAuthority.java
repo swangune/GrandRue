@@ -1,7 +1,7 @@
 package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.background.BackgroundWorkContractDefinition;
+import grandrue.background.BackgroundWorkContractDefinition;
 
 /**
  * Establishes the bounded scheduled principal for one currently registered

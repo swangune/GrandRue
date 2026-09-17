@@ -1,9 +1,9 @@
 package mainstreet.infrastructure.persistence.background;
 
-import mainstreet.background.BackgroundWorkContractIdentity;
-import mainstreet.background.ClaimedWork;
-import mainstreet.background.DurableWorkStore;
-import mainstreet.background.RegisteredDurableWorkClaimer;
+import grandrue.background.BackgroundWorkContractIdentity;
+import grandrue.background.ClaimedWork;
+import grandrue.background.DurableWorkStore;
+import grandrue.background.RegisteredDurableWorkClaimer;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Table;

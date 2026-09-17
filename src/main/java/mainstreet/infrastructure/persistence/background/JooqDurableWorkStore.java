@@ -1,15 +1,15 @@
 package mainstreet.infrastructure.persistence.background;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.background.BackgroundExecutionScope;
-import mainstreet.background.BackgroundWorkContractAffinity;
-import mainstreet.background.BackgroundWorkContractIdentity;
-import mainstreet.background.BackgroundWorkResultClassification;
-import mainstreet.background.ClaimedWork;
-import mainstreet.background.DurableWorkInstruction;
-import mainstreet.background.DurableWorkStore;
-import mainstreet.background.OverdueHandling;
-import mainstreet.background.WorkAttempt;
+import grandrue.background.BackgroundExecutionScope;
+import grandrue.background.BackgroundWorkContractAffinity;
+import grandrue.background.BackgroundWorkContractIdentity;
+import grandrue.background.BackgroundWorkResultClassification;
+import grandrue.background.ClaimedWork;
+import grandrue.background.DurableWorkInstruction;
+import grandrue.background.DurableWorkStore;
+import grandrue.background.OverdueHandling;
+import grandrue.background.WorkAttempt;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

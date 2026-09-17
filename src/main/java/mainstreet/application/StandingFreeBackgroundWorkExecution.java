@@ -1,13 +1,13 @@
 package mainstreet.application;
 
-import mainstreet.background.BackgroundWorkContractAffinity;
-import mainstreet.background.BackgroundWorkContractDefinition;
-import mainstreet.background.BackgroundWorkContractRegistrySnapshot;
-import mainstreet.background.BackgroundWorkResultClassification;
-import mainstreet.background.ClaimedWork;
-import mainstreet.background.DurableWorkInstruction;
-import mainstreet.background.DurableWorkStore;
-import mainstreet.background.WorkAttempt;
+import grandrue.background.BackgroundWorkContractAffinity;
+import grandrue.background.BackgroundWorkContractDefinition;
+import grandrue.background.BackgroundWorkContractRegistrySnapshot;
+import grandrue.background.BackgroundWorkResultClassification;
+import grandrue.background.ClaimedWork;
+import grandrue.background.DurableWorkInstruction;
+import grandrue.background.DurableWorkStore;
+import grandrue.background.WorkAttempt;
 import mainstreet.commercial.StandingFreeBaseline;
 import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
 import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrenceLookup;

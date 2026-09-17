@@ -1,4 +1,4 @@
-package mainstreet.background;
+package grandrue.background;
 
 /** Stable owner-qualified responsibility contract identity; distinct from work, attempt and command IDs. */
 public record BackgroundWorkContractIdentity(String ownerIdentifier, String contractIdentifier) {

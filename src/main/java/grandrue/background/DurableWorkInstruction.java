@@ -1,4 +1,4 @@
-package mainstreet.background;
+package grandrue.background;
 
 import mainstreet.application.MerchantScope;
 

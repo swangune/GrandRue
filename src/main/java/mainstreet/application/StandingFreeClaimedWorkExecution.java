@@ -1,7 +1,7 @@
 package mainstreet.application;
 
-import mainstreet.background.ClaimedWork;
-import mainstreet.background.DurableWorkStore;
+import grandrue.background.ClaimedWork;
+import grandrue.background.DurableWorkStore;
 import mainstreet.commercial.StandingFreeBaseline;
 
 import java.util.Optional;

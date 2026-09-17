@@ -1,4 +1,4 @@
-package mainstreet.background;
+package grandrue.background;
 
 /** Result classifications accepted by MS-PROT-065 for one work attempt. */
 public enum BackgroundWorkResultClassification {

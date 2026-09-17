@@ -1,8 +1,8 @@
 package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.background.BackgroundWorkContractDefinition;
-import mainstreet.background.BackgroundWorkContractIdentity;
+import grandrue.background.BackgroundWorkContractDefinition;
+import grandrue.background.BackgroundWorkContractIdentity;
 
 import java.util.Map;
 import java.util.Objects;

@@ -1,8 +1,8 @@
 package mainstreet.application;
 
-import mainstreet.background.ClaimedWork;
-import mainstreet.background.DurableWorkStore;
-import mainstreet.background.RegisteredDurableWorkClaimer;
+import grandrue.background.ClaimedWork;
+import grandrue.background.DurableWorkStore;
+import grandrue.background.RegisteredDurableWorkClaimer;
 
 import java.time.Clock;
 import java.time.Duration;

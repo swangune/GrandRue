@@ -1,12 +1,12 @@
 package mainstreet.application;
 
-import mainstreet.background.BackgroundExecutionScope;
-import mainstreet.background.BackgroundWorkContractAffinity;
-import mainstreet.background.BackgroundWorkContractDefinition;
-import mainstreet.background.BackgroundWorkContractIdentity;
-import mainstreet.background.BackgroundWorkContractRegistrySnapshot;
-import mainstreet.background.BackgroundWorkTargetReference;
-import mainstreet.background.OverdueHandling;
+import grandrue.background.BackgroundExecutionScope;
+import grandrue.background.BackgroundWorkContractAffinity;
+import grandrue.background.BackgroundWorkContractDefinition;
+import grandrue.background.BackgroundWorkContractIdentity;
+import grandrue.background.BackgroundWorkContractRegistrySnapshot;
+import grandrue.background.BackgroundWorkTargetReference;
+import grandrue.background.OverdueHandling;
 
 import java.util.List;
 import java.util.Set;

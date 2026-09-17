@@ -1,4 +1,4 @@
-package mainstreet.background;
+package grandrue.background;
 
 import java.util.Collection;
 import java.util.HashMap;
