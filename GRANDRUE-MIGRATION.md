@@ -143,6 +143,7 @@ State: `OPEN`
 | `GR-REN-02-01X17` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/deployment/**`; no external production consumers | `86ccade5b972d9ff0fc2076d7d4cd58d09159e14` |
 | `GR-REN-02-01X18` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/background/**`; no external production consumers | `ae2184f5484108e49b2ef62a2410f920cbdecfca` |
 | `GR-REN-02-01X19` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/onboarding/**`; no external production consumers | `d2cd0936f308fbabaef1495f994cbb8fe7e77b00` |
+| `GR-REN-02-01X20` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/publication/**`; no external production consumers | `1cd5fec356273b4ea26be2d6625620c89069ef1d` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -163,6 +164,7 @@ State: `OPEN`
 - `GR-REN-02-01X17`: `JooqOrdinaryServingGenerationPromotionAuthority.java` and `JooqServingDeploymentAdmissionSnapshotAuthority.java` moved from `mainstreet.infrastructure.persistence.deployment` to `grandrue.infrastructure.persistence.deployment`. No external production consumers were found; current integration-test and runtime-fixture consumers remain deferred to `GR-REN-03`. The prepared parent was `0a3cdf141506bf1a67edb5c5638ccec9a41413bb`; owner input blobs were `471963dfd7e68cfd22d1e7b45b7f632aa5f79e74` and `d126ed737d826ee413683f4beb4b98590457e2e4`; both GrandRue destinations were absent at preflight. Existing application, semantic configuration/execution and Deployment domain imports, SQL/table/column identities, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `86ccade5b972d9ff0fc2076d7d4cd58d09159e14` contains exactly two owner renames with only the package declaration replacement in each file.
 - `GR-REN-02-01X18`: `JooqDurableWorkStore.java` and `JooqRegisteredDurableWorkClaimer.java` moved from `mainstreet.infrastructure.persistence.background` to `grandrue.infrastructure.persistence.background`. No external production consumers were found; current integration-test consumers remain deferred to `GR-REN-03`. The prepared parent was `5ca111cead78dd1ee3d77fc550185d0b6f713e3b`; owner input blobs were `2f76be924b4cecd7fd5ec06424aab8361a287593` and `39c711f03922245a2275c6cc8430388eaf730b48`; both GrandRue destinations were absent at preflight. Existing `MerchantScope` and Background domain imports, SQL/table/column identities, `background|` advisory-lock key construction, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `ae2184f5484108e49b2ef62a2410f920cbdecfca` contains exactly two owner renames with only the package declaration replacement in each file.
 - `GR-REN-02-01X19`: `JooqOnboardingCaseEvidenceStore.java` moved from `mainstreet.infrastructure.persistence.onboarding` to `grandrue.infrastructure.persistence.onboarding`. No external production consumers were found; current integration-test and runtime-fixture consumers remain deferred to `GR-REN-03`. The prepared parent was `e44732213434d26ef6eae30dbd14f211b9132af4`; the owner input blob was `8ea6fdc13c9eb985e1d3e51f6552ced2bc0f2571`, and the GrandRue destination was absent at preflight. Existing `MerchantScope` and Onboarding domain imports, SQL/table/column identities, onboarding advisory-lock strings and seeds, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `d2cd0936f308fbabaef1495f994cbb8fe7e77b00` contains exactly one owner rename with only the package declaration replacement.
+- `GR-REN-02-01X20`: `JooqOpportunityPublicationApplicationService.java` and `JooqOpportunityPublicationStateAuthority.java` moved from `mainstreet.infrastructure.persistence.publication` to `grandrue.infrastructure.persistence.publication`. No external production consumers were found; current test consumers remain deferred to `GR-REN-03`. The prepared parent was `33a508bdcf609c94ec43116fb1edb6546dc911e4`; owner input blobs were `2645df38cdb8c263a2d15393cb64d57bce03c1ee` and `484d124b22a8404031ab07ca253e31b6198ec03f`; both GrandRue destinations were absent at preflight. Existing application and Publication domain imports, SQL/table/column identities, `opportunity-publication-application|` advisory-lock key construction, material schema/field identifiers and encodings, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `1cd5fec356273b4ea26be2d6625620c89069ef1d` contains exactly two owner renames with only the package declaration replacement in each file.
 
 ### Ledger integrity repair
 
@@ -193,9 +195,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X19
-last_completed_task: GR-REN-02-01X19
-last_task_commit: d2cd0936f308fbabaef1495f994cbb8fe7e77b00
+selected_execution_leaf: GR-REN-02-01X20
+last_completed_task: GR-REN-02-01X20
+last_task_commit: 1cd5fec356273b4ea26be2d6625620c89069ef1d
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -281,8 +283,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X19
-last_prepared_execution_commit: d2cd0936f308fbabaef1495f994cbb8fe7e77b00
+last_prepared_execution_leaf: GR-REN-02-01X20
+last_prepared_execution_commit: 1cd5fec356273b4ea26be2d6625620c89069ef1d
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
