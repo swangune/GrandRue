@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.runtime;
+package grandrue.infrastructure.persistence.runtime;
 
 import mainstreet.runtime.SessionRecord;
 import mainstreet.runtime.SessionRecordStore;
