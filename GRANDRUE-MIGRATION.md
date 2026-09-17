@@ -129,6 +129,7 @@ State: `OPEN`
 | `GR-REN-02-01X3` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/media/**`; no external production consumers | `4f1e5b757e035359b6415e636c75a8fc29ce7ef2` |
 | `GR-REN-02-01X4` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/event/**`; no external production consumers | `5d9c2efb20a2e63a5390bb0c413e8e6de51c5ff5` |
 | `GR-REN-02-01X5` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/privacy/**`; no external production consumers | `d575446357be3bec681206dc7f466844e2692683` |
+| `GR-REN-02-01X6` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/enquiry/**`; no external production consumers | `e55ba415f6ab5132ab257f149ac4c96ab746b0d0` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; select by live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -155,6 +156,7 @@ State: `OPEN`
 - `GR-REN-02-01X3`: `JooqMediaStore.java` moved from `mainstreet.infrastructure.persistence.media` to `grandrue.infrastructure.persistence.media`. No external production consumers were found; only its integration-test reference remains outside the owner file. Existing `mainstreet.application.MerchantScope` dependency, SQL/table/column names, advisory-lock construction, and media persistence behaviour were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Commit `4f1e5b757e035359b6415e636c75a8fc29ce7ef2` contains exactly one rename with only a one-line package declaration replacement. Maven tests and GitHub Actions were not run.
 - `GR-REN-02-01X4`: `JooqMerchantEventReactionStore.java` moved from `mainstreet.infrastructure.persistence.event` to `grandrue.infrastructure.persistence.event`. No external production consumers were found; only test and historical-document references remain outside the owner file. Existing `mainstreet.application.MerchantScope`, `mainstreet.semantic.event.*`, SQL/table/column names, length-delimited advisory-lock key construction, stable `MS-PROT-026` reference, and event-reaction persistence behaviour were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Commit `5d9c2efb20a2e63a5390bb0c413e8e6de51c5ff5` contains exactly one rename with only a one-line package declaration replacement. Maven tests and GitHub Actions were not run.
 - `GR-REN-02-01X5`: `JooqPersonalDataUseBasisStore.java` moved from `mainstreet.infrastructure.persistence.privacy` to `grandrue.infrastructure.persistence.privacy`. No external production consumers were found; only its integration-test reference remains outside the owner file. Existing `mainstreet.application.MerchantScope` dependency, SQL/table/column names, advisory-lock behaviour, and privacy persistence semantics were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Commit `d575446357be3bec681206dc7f466844e2692683` contains exactly one rename with only a one-line package declaration replacement. Maven tests and GitHub Actions were not run.
+- `GR-REN-02-01X6`: `JooqEnquirySubmissionApplicationService.java` and `JooqEnquirySubmissionStore.java` moved from `mainstreet.infrastructure.persistence.enquiry` to `grandrue.infrastructure.persistence.enquiry`. No external production consumers were found; only test references remain outside the owner package. Existing `mainstreet.application`, `mainstreet.enquiry`, and semantic-registry dependencies, SQL/table/column names, advisory-lock identity, transaction/retry semantics, and source comments were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Commit `e55ba415f6ab5132ab257f149ac4c96ab746b0d0` contains exactly two owner renames with only one-line package declaration replacements. Maven tests and GitHub Actions were not run.
 
 ### Ledger integrity repair
 
@@ -162,7 +164,7 @@ Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded 
 
 During `GR-REN-02-01U` staging, accidental connector commit `749af81b99b0a788c09653ff390138a51fe89901` created an empty root `__nonexistent__` placeholder. Repair commit `f254be429c14701e16249a8de5ce7360be46466e` immediately removed it. Comparison from Scheduling checkpoint `e20f47166f836723014fc405f73c50cdebafc6a9` to the repair commit has zero changed files. The verified Fulfilment code tree was then re-parented onto the repaired HEAD without force-updating the branch.
 
-During `GR-REN-02-01X4` preparation, an unintended connector call created branch `__invalid_should_not_create` at checkpoint `4308f6aeaa440e30a163dd660821ee6f5aa11f9c`. The branch contains no unique commit and did not alter `development`; branch creation was not authorised. The user explicitly deferred its deletion and authorised migration continuation on `development`. The branch remains a recorded non-blocking cleanup item and must not be used for migration work.
+During `GR-REN-02-01X4` preparation, an unintended connector call created branch `__invalid_should_not_create` at checkpoint `4308f6aeaa440e30a163dd660821ee6f5aa11f9c`. The branch contained no unique migration work and did not alter `development`. The user explicitly deferred cleanup and authorised continued migration on `development`; this branch is therefore a recorded non-blocking cleanup item and must not be used for migration work.
 
 ### Remaining programme
 
@@ -185,11 +187,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X5
-last_completed_task: GR-REN-02-01X5
-last_verified_head: d575446357be3bec681206dc7f466844e2692683
-last_task_commit: d575446357be3bec681206dc7f466844e2692683
-next_action: Select and execute the next smallest bounded production namespace leaf under GR-REN-02-01X+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. Keep branch __invalid_should_not_create unused; deletion is deferred by the user. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01X6
+last_completed_task: GR-REN-02-01X6
+last_verified_head: e55ba415f6ab5132ab257f149ac4c96ab746b0d0
+last_task_commit: e55ba415f6ab5132ab257f149ac4c96ab746b0d0
+next_action: Select and execute the next smallest bounded production namespace leaf under GR-REN-02-01X+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
@@ -199,12 +201,12 @@ next_action: Select and execute the next smallest bounded production namespace l
 1. inspect `AGENTS.md` and this ledger;
 2. inspect current `development` HEAD;
 3. reconcile branch HEAD against the checkpoint and any ledger-only checkpoint commit;
-4. keep any recorded unintended branch isolated from migration work until cleanup is authorised/executed;
-5. select the smallest conforming production namespace leaf using live dependency evidence;
-6. move the owner package and all production cross-package consumers atomically;
-7. structurally verify aggregate diff, new-path presence, old-path absence, and consumer imports;
-8. checkpoint the completed leaf here;
-9. preserve the frozen action map and protected identities.
+4. select the smallest conforming production namespace leaf using live dependency evidence;
+5. move the owner package and all production cross-package consumers atomically;
+6. structurally verify aggregate diff, new-path presence, old-path absence, and consumer imports;
+7. checkpoint the completed leaf here;
+8. preserve the frozen action map and protected identities;
+9. keep `__invalid_should_not_create` isolated until manually removed.
 
 Until separately authorised:
 
