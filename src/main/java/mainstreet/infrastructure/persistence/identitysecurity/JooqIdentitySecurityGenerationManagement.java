@@ -1,9 +1,9 @@
 package mainstreet.infrastructure.persistence.identitysecurity;
 
-import mainstreet.audit.AuditActionClass;
-import mainstreet.audit.AuditExecutionScope;
-import mainstreet.audit.AuditRecord;
-import mainstreet.audit.AuditStore;
+import grandrue.audit.AuditActionClass;
+import grandrue.audit.AuditExecutionScope;
+import grandrue.audit.AuditRecord;
+import grandrue.audit.AuditStore;
 import grandrue.identitysecurity.IdentitySecurityGeneration;
 import grandrue.identitysecurity.IdentitySecurityGenerationException;
 import grandrue.identitysecurity.IdentitySecurityGenerationFailureCategory;

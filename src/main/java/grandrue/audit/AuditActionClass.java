@@ -1,4 +1,4 @@
-package mainstreet.audit;
+package grandrue.audit;
 
 /** Evidence classifications accepted by MS-PROT-064. */
 public enum AuditActionClass {

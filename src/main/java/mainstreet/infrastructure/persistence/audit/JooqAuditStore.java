@@ -1,10 +1,10 @@
 package mainstreet.infrastructure.persistence.audit;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.audit.AuditActionClass;
-import mainstreet.audit.AuditExecutionScope;
-import mainstreet.audit.AuditRecord;
-import mainstreet.audit.AuditStore;
+import grandrue.audit.AuditActionClass;
+import grandrue.audit.AuditExecutionScope;
+import grandrue.audit.AuditRecord;
+import grandrue.audit.AuditStore;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

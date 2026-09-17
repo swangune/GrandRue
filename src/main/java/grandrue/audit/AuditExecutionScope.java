@@ -1,4 +1,4 @@
-package mainstreet.audit;
+package grandrue.audit;
 
 /** Distinguishes platform-administrative evidence from merchant-scoped evidence. */
 public enum AuditExecutionScope {

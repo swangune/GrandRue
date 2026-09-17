@@ -1,4 +1,4 @@
-package mainstreet.audit;
+package grandrue.audit;
 
 import mainstreet.application.MerchantScope;
 
