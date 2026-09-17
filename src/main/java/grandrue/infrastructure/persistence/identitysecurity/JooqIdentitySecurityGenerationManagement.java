@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.identitysecurity;
+package grandrue.infrastructure.persistence.identitysecurity;
 
 import grandrue.audit.AuditActionClass;
 import grandrue.audit.AuditExecutionScope;
