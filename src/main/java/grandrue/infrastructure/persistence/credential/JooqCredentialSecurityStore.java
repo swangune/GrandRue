@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.credential;
+package grandrue.infrastructure.persistence.credential;
 
 import mainstreet.application.MerchantScope;
 import grandrue.credential.CredentialBinding;
