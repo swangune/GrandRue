@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.security.session;
+package grandrue.infrastructure.security.session;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;

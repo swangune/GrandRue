@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.security.session;
+package grandrue.infrastructure.security.session;
 
 import mainstreet.runtime.OpaqueSessionCredential;
 import org.springframework.http.ResponseCookie;
