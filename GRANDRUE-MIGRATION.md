@@ -198,3 +198,63 @@ DO NOT run GitHub Actions
 ```
 
 Structural verification must not be represented as passed Maven/integration/runtime verification.
+
+---
+
+## 7. Prepared Work Protocol
+
+For migration work after adoption of this section, `docs/development/grandrue-migration-work.md` is the subordinate operational preparation/execution aid for this ledger.
+
+This addition does not alter the historical meaning of sections 1–6, completed leaf records, commit evidence, protected identities, repair notes, or the frozen action map. It changes how the open-ended `GR-REN-02-01X+` continuation is prepared and executed so that repeated discovery is removed from bounded execution.
+
+### Governing relationship
+
+- this ledger remains the canonical resumable migration registry and completion/checkpoint history;
+- `docs/development/grandrue-migration-work.md` holds preparation procedure, coverage accounting, the small active queue and the exact current work packet;
+- the work file is not semantic/design authority and must not become a second historical ledger;
+- completed packet history is checkpointed here, with detailed file evidence retained in commits;
+- `AGENTS.md` mandatory widening, stop conditions and `DESIGN_ESCALATION` remain fully applicable.
+
+### Procedural interpretation of the existing checkpoint
+
+For future work, `next_action: Select and execute ...` in section 5 and selection in section 6 are decomposed into two distinct stages:
+
+1. **prepare** — inspect live dependency evidence, close the coherent boundary, resolve protected identities and exact verification, account for discovered coverage, and write a complete work packet; then
+2. **execute** — only after freshness/preflight establishes packet state `READY`, apply the exact packet without rediscovering or broadening its scope.
+
+A bounded executor must never perform leaf selection or resolve an unresolved migration/design decision during execution.
+
+### Packet states
+
+```text
+PREPARATION_REQUIRED -> PREPARED -> READY -> IN_PROGRESS -> ledger checkpoint
+```
+
+Only `READY` is executable. Any stale input, unexpected dependency, additional changed path, unmatched exact edit, protected-identity consequence, authority gap, repository contradiction or other undeclared judgement invalidates execution and returns the packet to preparation or the applicable `DESIGN_ESCALATION` path.
+
+### Coverage invariant
+
+Every discovered migration unit must receive exactly one disposition. Final coverage/residual verification may not treat the migration as fully enumerated until the work file records enumeration complete and no discovered item remains unclassified, prepared, ready, in progress or unresolved/blocked.
+
+At protocol adoption, no new production leaf is selected. `GR-REN-02-01X+` remains `PREPARATION_REQUIRED`; its remaining dependency graph and coverage must be enumerated from current repository evidence rather than guessed.
+
+### Preservation and lineage
+
+Prepared execution must preserve document history, source content outside declared transformations, protected identities, runtime/data boundaries and Git lineage. If a separate ledger receipt is required, preserve:
+
+```text
+verified parent -> code commit -> ledger receipt commit
+```
+
+Unexpected branch movement is a stop condition and never authorises force-push, overwrite or improvised reconciliation.
+
+### Current procedural checkpoint
+
+```yaml
+prepared_work_protocol: docs/development/grandrue-migration-work.md
+prepared_work_state: PREPARATION_REQUIRED
+prepared_work_node: GR-REN-02-01X+
+ready_packet: null
+protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
+next_procedural_action: Prepare the first exact bounded packet from current live production dependency evidence, update coverage, and establish freshness before marking it READY. Do not mutate production code before READY. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
+```
