@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.audit;
+package grandrue.infrastructure.persistence.audit;
 
 import mainstreet.application.MerchantScope;
 import grandrue.audit.AuditActionClass;
