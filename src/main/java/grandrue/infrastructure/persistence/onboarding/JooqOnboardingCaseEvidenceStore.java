@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.onboarding;
+package grandrue.infrastructure.persistence.onboarding;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.onboarding.AcknowledgeInitialConfigurationIntentCommand;
