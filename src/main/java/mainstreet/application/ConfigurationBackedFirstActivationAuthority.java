@@ -1,6 +1,6 @@
 package mainstreet.application;
 
-import mainstreet.commercial.FirstConfigurationActivationAuthority;
+import grandrue.commercial.FirstConfigurationActivationAuthority;
 import mainstreet.semantic.configuration.ConfigurationActivation;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
 
