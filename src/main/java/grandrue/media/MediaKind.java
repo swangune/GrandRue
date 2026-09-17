@@ -1,4 +1,4 @@
-package mainstreet.media;
+package grandrue.media;
 
 public enum MediaKind {
     IMAGE,

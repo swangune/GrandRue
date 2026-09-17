@@ -1,4 +1,4 @@
-package mainstreet.media;
+package grandrue.media;
 
 /** Technical source-validation state; validation does not create Exposure. */
 public enum MediaValidationState {

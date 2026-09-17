@@ -1,4 +1,4 @@
-package mainstreet.media;
+package grandrue.media;
 
 import mainstreet.application.MerchantScope;
 

@@ -1,4 +1,4 @@
-package mainstreet.media;
+package grandrue.media;
 
 /** Technical delivery fidelity under one registered rendition profile. */
 public enum DeliveryFidelity {

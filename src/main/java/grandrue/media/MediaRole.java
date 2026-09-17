@@ -1,4 +1,4 @@
-package mainstreet.media;
+package grandrue.media;
 
 /** Initial registered media roles from MS-PROT-066. */
 public enum MediaRole {
