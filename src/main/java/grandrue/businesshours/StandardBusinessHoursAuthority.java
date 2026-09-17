@@ -1,4 +1,4 @@
-package mainstreet.businesshours;
+package grandrue.businesshours;
 
 import mainstreet.runtime.TrustedExecutionContext;
 

@@ -1,4 +1,4 @@
-package mainstreet.businesshours;
+package grandrue.businesshours;
 
 /** Distinguishable stable Business Hours mutation failures. */
 public enum BusinessHoursFailureCategory {

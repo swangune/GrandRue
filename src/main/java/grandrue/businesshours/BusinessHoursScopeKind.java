@@ -1,4 +1,4 @@
-package mainstreet.businesshours;
+package grandrue.businesshours;
 
 /**
  * Initial Business Hours scope kinds accepted by MS-PROT-050 v1.2.
