@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.configuration;
+package grandrue.infrastructure.persistence.configuration;
 
 import mainstreet.semantic.configuration.SemanticCompatibilityAuthority;
 import mainstreet.semantic.configuration.SemanticCompatibilityDisposition;
