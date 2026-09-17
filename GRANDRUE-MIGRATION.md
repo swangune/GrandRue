@@ -126,6 +126,7 @@ State: `OPEN`
 | `GR-REN-02-01W` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `api/**` + thirty-two bounded production consumers | `73785a07a4d84cb2cf6c8b9edfce8a2762cf2276` |
 | `GR-REN-02-01X1` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/security/session/**`; no external production consumers | `8daa834bfbefb76b500e6b2b9cb1d30b9586f59a` |
 | `GR-REN-02-01X2` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/audit/**`; no external production consumers | `3b5a9bb14499698c08cf34d7612fe5c95420b448` |
+| `GR-REN-02-01X3` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/media/**`; no external production consumers | `4f1e5b757e035359b6415e636c75a8fc29ce7ef2` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; select by live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -149,6 +150,7 @@ State: `OPEN`
 - `GR-REN-02-01W`: twenty-five API owner files moved from `mainstreet.api` to `grandrue.api`. Thirty-two live bounded production consumers were updated only for API imports across `mainstreet.enquiry.delivery`, `mainstreet.publication.delivery`, and `mainstreet.surface`. Existing `grandrue.protection` imports, stable `MS-PROT-*` references, source comments/current-product prose, and API semantics were unchanged. Test consumers remain deferred to `GR-REN-03`. Aggregate structural diff from Merchant Account checkpoint `1f9e3f1e58bf15a478452f0848bdc1ce8ebc51cb` to `73785a07a4d84cb2cf6c8b9edfce8a2762cf2276` contains exactly twenty-five `+1/-1` owner renames and thirty-two import-only production consumer changes. The old production package path is absent and the new path is present. Maven tests and GitHub Actions were not run.
 - `GR-REN-02-01X1`: two privileged-session security owner files moved from `mainstreet.infrastructure.security.session` to `grandrue.infrastructure.security.session`. No external production consumers were found; `PrivilegedSessionRequestResolver`'s reference to `PrivilegedSessionCookieFactory` remains same-package after the move. Runtime imports under `mainstreet.runtime` were intentionally unchanged pending their own production namespace leaf. The `__Host-MS-SESSION` cookie identity, existing current-product `Main Street` comments, and ADR-014 behaviour were preserved. Test namespace consumers remain deferred to `GR-REN-03`. Commit `8daa834bfbefb76b500e6b2b9cb1d30b9586f59a` contains exactly two rename changes, each with only a one-line package declaration replacement. Maven tests and GitHub Actions were not run.
 - `GR-REN-02-01X2`: `JooqAuditStore.java` moved from `mainstreet.infrastructure.persistence.audit` to `grandrue.infrastructure.persistence.audit`. No external production consumers were found; only test and historical-document references remain outside the owner file. Existing `mainstreet.application.MerchantScope` dependency, SQL/table/column names, advisory-lock identity `audit|...`, and audit persistence behaviour were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Commit `3b5a9bb14499698c08cf34d7612fe5c95420b448` contains exactly one rename with only a one-line package declaration replacement. Maven tests and GitHub Actions were not run.
+- `GR-REN-02-01X3`: `JooqMediaStore.java` moved from `mainstreet.infrastructure.persistence.media` to `grandrue.infrastructure.persistence.media`. No external production consumers were found; only its integration-test reference remains outside the owner file. Existing `mainstreet.application.MerchantScope` dependency, SQL/table/column names, advisory-lock construction, and media persistence behaviour were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Commit `4f1e5b757e035359b6415e636c75a8fc29ce7ef2` contains exactly one rename with only a one-line package declaration replacement. Maven tests and GitHub Actions were not run.
 
 ### Ledger integrity repair
 
@@ -177,10 +179,10 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X2
-last_completed_task: GR-REN-02-01X2
-last_verified_head: 3b5a9bb14499698c08cf34d7612fe5c95420b448
-last_task_commit: 3b5a9bb14499698c08cf34d7612fe5c95420b448
+selected_execution_leaf: GR-REN-02-01X3
+last_completed_task: GR-REN-02-01X3
+last_verified_head: 4f1e5b757e035359b6415e636c75a8fc29ce7ef2
+last_task_commit: 4f1e5b757e035359b6415e636c75a8fc29ce7ef2
 next_action: Select and execute the next smallest bounded production namespace leaf under GR-REN-02-01X+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
