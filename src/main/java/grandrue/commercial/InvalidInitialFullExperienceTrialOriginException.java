@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 /**
  * Rejection raised when a proposed automatic initial trial is not anchored to

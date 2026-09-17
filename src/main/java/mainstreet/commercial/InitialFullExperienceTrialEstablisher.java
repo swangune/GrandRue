@@ -1,5 +1,7 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.InvalidInitialFullExperienceTrialOriginException;
+
 import java.util.Objects;
 
 /**
