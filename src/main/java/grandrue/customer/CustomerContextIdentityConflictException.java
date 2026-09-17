@@ -1,4 +1,4 @@
-package mainstreet.customer;
+package grandrue.customer;
 
 /** Raised when a scoped identity is reused for a different relationship. */
 public final class CustomerContextIdentityConflictException

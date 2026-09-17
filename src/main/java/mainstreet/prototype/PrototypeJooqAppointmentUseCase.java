@@ -1,8 +1,8 @@
 package mainstreet.prototype;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.customer.CustomerContext;
-import mainstreet.customer.InMemoryCustomerContextAuthority;
+import grandrue.customer.CustomerContext;
+import grandrue.customer.InMemoryCustomerContextAuthority;
 import mainstreet.runtime.AuthorizationException;
 import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.OperationExecutionGuard;

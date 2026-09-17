@@ -1,6 +1,6 @@
 package mainstreet.scheduling;
 
-import mainstreet.customer.CustomerContextAuthority;
+import grandrue.customer.CustomerContextAuthority;
 import mainstreet.runtime.AuthorizationException;
 import mainstreet.runtime.CapabilityOperationHandler;
 import mainstreet.runtime.OperationExecutionContext;

@@ -1,6 +1,6 @@
 package mainstreet.ordering;
 
-import mainstreet.customer.CustomerContextAuthority;
+import grandrue.customer.CustomerContextAuthority;
 import mainstreet.runtime.AuthorizationException;
 import mainstreet.runtime.CapabilityOperationHandler;
 import mainstreet.runtime.OperationExecutionContext;
@@ -119,9 +119,6 @@ public final class OrderingApplicationService
                         )
         );
 
-        // An idempotent replay returns the already committed confirmation
-        // before invoking the work callback; conformance can be checked here
-        // because no new mutation occurred on that replay.
         if (preCommitFulfilment[0] == null) {
             preCommitFulfilment[0] = OperationFulfilment.conformingTo(
                     context.applicableOperation(),

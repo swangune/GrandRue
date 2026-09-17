@@ -1,4 +1,4 @@
-package mainstreet.customer;
+package grandrue.customer;
 
 import mainstreet.application.MerchantScope;
 

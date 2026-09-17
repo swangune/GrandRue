@@ -1,7 +1,7 @@
 package mainstreet.prototype;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.customer.InMemoryCustomerContextAuthority;
+import grandrue.customer.InMemoryCustomerContextAuthority;
 import mainstreet.money.CurrencyIdentity;
 import mainstreet.money.MonetaryAmount;
 import mainstreet.ordering.CommitOrderCommand;
