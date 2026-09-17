@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.booking;
+package grandrue.infrastructure.persistence.booking;
 
 import mainstreet.application.MerchantScope;
 import grandrue.booking.Booking;
