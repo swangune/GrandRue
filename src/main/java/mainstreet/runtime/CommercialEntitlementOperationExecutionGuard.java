@@ -2,7 +2,7 @@ package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.commercial.CommercialEntitlementAuthority;
-import mainstreet.commercial.CommercialEntitlementException;
+import grandrue.commercial.CommercialEntitlementException;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 import mainstreet.semantic.executable.ApplicableOperation;
 
