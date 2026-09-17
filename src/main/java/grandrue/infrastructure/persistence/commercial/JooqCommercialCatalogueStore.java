@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.commercial;
+package grandrue.infrastructure.persistence.commercial;
 
 import mainstreet.application.TrustedPlatformExecutionContext;
 import mainstreet.commercial.*;
