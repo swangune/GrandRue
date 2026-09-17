@@ -1,4 +1,4 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
 import java.time.Instant;
 import java.util.List;

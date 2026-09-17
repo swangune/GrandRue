@@ -1,4 +1,4 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
 /** Ordinary merchant operation rejected because at least one suspension is effective. */
 public final class MerchantAccountSuspendedException extends IllegalStateException {

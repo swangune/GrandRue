@@ -1,7 +1,7 @@
 package mainstreet.application;
 
-import mainstreet.merchantaccount.MerchantAccountEstablishedEventContract;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
+import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import mainstreet.semantic.event.EventReactionContractAffinity;
 import mainstreet.semantic.event.EventReactionContractDefinition;
 import mainstreet.semantic.event.EventReactionContractIdentity;

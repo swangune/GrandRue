@@ -1,4 +1,4 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
 import mainstreet.application.TrustedPlatformHumanPrincipal;
 

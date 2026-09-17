@@ -1,4 +1,4 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
 /** Accepted Merchant Controller relationship lifecycle. */
 public enum MerchantControllerRelationshipLifecycle {

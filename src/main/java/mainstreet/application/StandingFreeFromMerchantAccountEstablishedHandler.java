@@ -5,7 +5,7 @@ import mainstreet.commercial.StandardPlanLevel;
 import mainstreet.commercial.StandardPlanRevision;
 import mainstreet.commercial.StandingFreeBaseline;
 import mainstreet.commercial.StandingFreeBaselineStore;
-import mainstreet.merchantaccount.MerchantAccountEstablished;
+import grandrue.merchantaccount.MerchantAccountEstablished;
 
 import java.util.Objects;
 import java.util.Optional;

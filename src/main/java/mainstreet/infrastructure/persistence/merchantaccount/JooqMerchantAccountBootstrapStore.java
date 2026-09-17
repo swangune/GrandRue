@@ -2,9 +2,9 @@ package mainstreet.infrastructure.persistence.merchantaccount;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.application.TrustedPlatformHumanPrincipal;
-import mainstreet.merchantaccount.MerchantAccount;
-import mainstreet.merchantaccount.MerchantAccountBootstrapStore;
-import mainstreet.merchantaccount.MerchantAccountEstablishedEventContract;
+import grandrue.merchantaccount.MerchantAccount;
+import grandrue.merchantaccount.MerchantAccountBootstrapStore;
+import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Table;

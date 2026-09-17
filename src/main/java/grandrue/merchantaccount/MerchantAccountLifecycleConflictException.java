@@ -1,4 +1,4 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
 /** Requested Merchant Account lifecycle transition is stale or invalid. */
 public final class MerchantAccountLifecycleConflictException

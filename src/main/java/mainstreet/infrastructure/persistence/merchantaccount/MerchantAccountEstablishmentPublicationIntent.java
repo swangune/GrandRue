@@ -1,9 +1,9 @@
 package mainstreet.infrastructure.persistence.merchantaccount;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.merchantaccount.MerchantAccountEstablished;
-import mainstreet.merchantaccount.MerchantAccountEstablishedEventContract;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
+import grandrue.merchantaccount.MerchantAccountEstablished;
+import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import mainstreet.semantic.event.EventContractAffinity;
 import mainstreet.semantic.event.EventContractRegistrySnapshot;
 

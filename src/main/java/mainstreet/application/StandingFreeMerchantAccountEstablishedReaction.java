@@ -1,8 +1,8 @@
 package mainstreet.application;
 
 import mainstreet.commercial.StandingFreeBaseline;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;
 import mainstreet.runtime.ScheduledEventReactionExecutionAuthority;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.event.EventReactionAcknowledgement;

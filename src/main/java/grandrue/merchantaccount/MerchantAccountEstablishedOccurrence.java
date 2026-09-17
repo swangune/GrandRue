@@ -1,4 +1,4 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
 import mainstreet.semantic.event.EventContractAffinity;
 import java.util.Objects;

@@ -2,12 +2,12 @@ package mainstreet.infrastructure.persistence.merchantaccount;
 
 import mainstreet.semantic.event.EventContractAffinity;
 import mainstreet.semantic.event.EventContractIdentity;
-import mainstreet.merchantaccount.MerchantAccountEstablishedEventContract;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrenceLookup;
-import mainstreet.merchantaccount.MerchantAccountEstablishedPublicationSource;
-import mainstreet.merchantaccount.MerchantAccountEstablishedPublicationSource.PendingPublication;
+import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceLookup;
+import grandrue.merchantaccount.MerchantAccountEstablishedPublicationSource;
+import grandrue.merchantaccount.MerchantAccountEstablishedPublicationSource.PendingPublication;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

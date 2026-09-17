@@ -1,4 +1,4 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
 /** Stale current-Controller/lifecycle basis for a transfer attempt. */
 public final class MerchantControllerTransferConflictException

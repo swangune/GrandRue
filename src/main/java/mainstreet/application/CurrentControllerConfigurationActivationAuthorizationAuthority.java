@@ -1,8 +1,8 @@
 package mainstreet.application;
 
-import mainstreet.merchantaccount.MerchantAccountLifecycle;
-import mainstreet.merchantaccount.MerchantAccountLifecycleStore;
-import mainstreet.merchantaccount.MerchantControllerRelationshipLifecycle;
+import grandrue.merchantaccount.MerchantAccountLifecycle;
+import grandrue.merchantaccount.MerchantAccountLifecycleStore;
+import grandrue.merchantaccount.MerchantControllerRelationshipLifecycle;
 import mainstreet.semantic.configuration
         .ConfigurationActivationAuthorizationAuthority;
 

@@ -1,9 +1,9 @@
 package mainstreet.surface;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.merchantaccount.MerchantControllerRelationship;
-import mainstreet.merchantaccount.MerchantControllerRelationshipAuthority;
-import mainstreet.merchantaccount.MerchantControllerRelationshipLifecycle;
+import grandrue.merchantaccount.MerchantControllerRelationship;
+import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
+import grandrue.merchantaccount.MerchantControllerRelationshipLifecycle;
 import mainstreet.runtime.AuthenticationProvenance;
 import mainstreet.runtime.AuthenticationSessionCurrentness;
 import mainstreet.runtime.AuthenticationSessionCurrentnessAuthority;

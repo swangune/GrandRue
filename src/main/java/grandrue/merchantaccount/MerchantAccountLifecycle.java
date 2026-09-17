@@ -1,4 +1,4 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
 /** Accepted post-establishment Merchant Account lifecycle. */
 public enum MerchantAccountLifecycle {

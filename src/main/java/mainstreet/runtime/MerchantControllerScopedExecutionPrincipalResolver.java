@@ -1,8 +1,8 @@
 package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.merchantaccount.MerchantControllerRelationship;
-import mainstreet.merchantaccount.MerchantControllerRelationshipAuthority;
+import grandrue.merchantaccount.MerchantControllerRelationship;
+import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
 
 import java.util.Objects;
 import java.util.Optional;
