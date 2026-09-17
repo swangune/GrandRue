@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.ordering;
+package grandrue.infrastructure.persistence.ordering;
 
 import grandrue.ordering.OrderingTransaction;
 import mainstreet.application.MerchantScope;

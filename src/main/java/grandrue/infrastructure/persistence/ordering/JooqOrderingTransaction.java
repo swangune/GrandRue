@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.ordering;
+package grandrue.infrastructure.persistence.ordering;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.infrastructure.persistence.inventory.JooqQuantityAllocationAuthority;

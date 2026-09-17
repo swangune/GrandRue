@@ -2,7 +2,7 @@ package mainstreet.prototype;
 
 import grandrue.infrastructure.persistence.appointment.JooqAppointmentUnitOfWork;
 import mainstreet.infrastructure.persistence.booking.JooqBookingUnitOfWork;
-import mainstreet.infrastructure.persistence.ordering.JooqOrderingUnitOfWork;
+import grandrue.infrastructure.persistence.ordering.JooqOrderingUnitOfWork;
 import org.jooq.DSLContext;
 import org.jooq.impl.DSL;
 import org.springframework.boot.ApplicationRunner;
