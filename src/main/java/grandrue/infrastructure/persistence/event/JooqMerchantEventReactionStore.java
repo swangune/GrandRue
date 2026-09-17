@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.event;
+package grandrue.infrastructure.persistence.event;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.semantic.event.*;
