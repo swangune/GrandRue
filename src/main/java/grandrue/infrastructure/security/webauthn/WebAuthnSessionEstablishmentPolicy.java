@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.security.webauthn;
+package grandrue.infrastructure.security.webauthn;
 
 import java.time.Duration;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.security.webauthn;
+package grandrue.infrastructure.security.webauthn;
 
 import org.springframework.security.web.webauthn.api.AuthenticatorSelectionCriteria;
 import org.springframework.security.web.webauthn.api.UserVerificationRequirement;

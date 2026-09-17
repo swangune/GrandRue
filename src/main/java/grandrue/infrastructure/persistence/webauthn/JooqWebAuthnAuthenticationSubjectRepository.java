@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.webauthn;
 
-import mainstreet.infrastructure.security.webauthn.WebAuthnIdentityReferenceAuthority;
+import grandrue.infrastructure.security.webauthn.WebAuthnIdentityReferenceAuthority;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

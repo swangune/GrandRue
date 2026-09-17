@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.security.webauthn;
+package grandrue.infrastructure.security.webauthn;
 
 import grandrue.identitysecurity.IdentitySecurityGenerationInitializer;
 import grandrue.infrastructure.persistence.webauthn.JooqWebAuthnAuthenticationSubjectRepository;
