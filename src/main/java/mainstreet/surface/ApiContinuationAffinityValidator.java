@@ -1,7 +1,7 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiBoundedCollectionContract;
-import mainstreet.api.ApiSurfaceClass;
+import grandrue.api.ApiBoundedCollectionContract;
+import grandrue.api.ApiSurfaceClass;
 import mainstreet.application.MerchantScope;
 
 import java.util.Objects;

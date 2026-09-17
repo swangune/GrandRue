@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /**
  * Trusted scope established for one API transport interaction. Merchant and

@@ -1,8 +1,8 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiContractIdentity;
-import mainstreet.api.ApiOwnerContractReference;
-import mainstreet.api.ApiQueryContractDefinition;
+import grandrue.api.ApiContractIdentity;
+import grandrue.api.ApiOwnerContractReference;
+import grandrue.api.ApiQueryContractDefinition;
 
 import java.util.Objects;
 

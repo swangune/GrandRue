@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /** Owner-qualified logical API contract identity, independent from physical routing. */
 public record ApiContractIdentity(

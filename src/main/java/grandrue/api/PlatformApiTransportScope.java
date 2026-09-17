@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /**
  * Explicit platform-owned execution scope. It prevents bootstrap,

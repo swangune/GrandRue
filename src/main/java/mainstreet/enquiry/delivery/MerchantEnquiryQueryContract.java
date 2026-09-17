@@ -1,6 +1,6 @@
 package mainstreet.enquiry.delivery;
 
-import mainstreet.api.*;
+import grandrue.api.*;
 import java.util.*;
 
 public final class MerchantEnquiryQueryContract {

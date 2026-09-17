@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /**
  * Transport/execution outcome classes for an API command.

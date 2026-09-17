@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /**
  * Owner-qualified reference to the accepted application operation, query,

@@ -1,6 +1,6 @@
 package mainstreet.enquiry.delivery;
 
-import mainstreet.api.*;
+import grandrue.api.*;
 import mainstreet.application.MerchantScope;
 import java.util.Map;
 import java.util.Objects;

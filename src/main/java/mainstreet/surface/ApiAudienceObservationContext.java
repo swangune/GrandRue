@@ -1,7 +1,7 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiContractIdentity;
-import mainstreet.api.ApiSurfaceClass;
+import grandrue.api.ApiContractIdentity;
+import grandrue.api.ApiSurfaceClass;
 
 /**
  * Opaque API-surface-bound observation context.

@@ -1,13 +1,13 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiContractIdentity;
-import mainstreet.api.ApiContractKind;
-import mainstreet.api.ApiContractRegistration;
-import mainstreet.api.ApiContractRegistrySnapshot;
-import mainstreet.api.ApiTransportScope;
-import mainstreet.api.ApiTransportScopeAuthorityRegistrySnapshot;
-import mainstreet.api.ApiTransportScopeEvidence;
-import mainstreet.api.MerchantApiTransportScope;
+import grandrue.api.ApiContractIdentity;
+import grandrue.api.ApiContractKind;
+import grandrue.api.ApiContractRegistration;
+import grandrue.api.ApiContractRegistrySnapshot;
+import grandrue.api.ApiTransportScope;
+import grandrue.api.ApiTransportScopeAuthorityRegistrySnapshot;
+import grandrue.api.ApiTransportScopeEvidence;
+import grandrue.api.MerchantApiTransportScope;
 import mainstreet.application.MerchantScope;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ActiveRelease;

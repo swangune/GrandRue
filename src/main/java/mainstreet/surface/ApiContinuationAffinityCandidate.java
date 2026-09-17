@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiContractIdentity;
+import grandrue.api.ApiContractIdentity;
 import mainstreet.application.MerchantScope;
 
 import java.util.Objects;

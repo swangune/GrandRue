@@ -1,6 +1,6 @@
 package mainstreet.enquiry.delivery;
 
-import mainstreet.api.*;
+import grandrue.api.*;
 import mainstreet.application.*;
 import mainstreet.enquiry.*;
 import mainstreet.publication.OpportunityPublicationStateAuthority;

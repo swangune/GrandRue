@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 import java.util.HashSet;
 import java.util.Objects;

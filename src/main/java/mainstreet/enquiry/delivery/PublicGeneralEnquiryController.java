@@ -1,6 +1,6 @@
 package mainstreet.enquiry.delivery;
 
-import mainstreet.api.*;
+import grandrue.api.*;
 import mainstreet.enquiry.*;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.*;

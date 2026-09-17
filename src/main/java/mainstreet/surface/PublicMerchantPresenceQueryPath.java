@@ -1,11 +1,11 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiContractIdentity;
-import mainstreet.api.ApiContractKind;
-import mainstreet.api.ApiContractRegistration;
-import mainstreet.api.ApiOwnerContractReference;
-import mainstreet.api.ApiQueryContractDefinition;
-import mainstreet.api.ApiSurfaceClass;
+import grandrue.api.ApiContractIdentity;
+import grandrue.api.ApiContractKind;
+import grandrue.api.ApiContractRegistration;
+import grandrue.api.ApiOwnerContractReference;
+import grandrue.api.ApiQueryContractDefinition;
+import grandrue.api.ApiSurfaceClass;
 
 import java.util.Objects;
 import java.util.Optional;

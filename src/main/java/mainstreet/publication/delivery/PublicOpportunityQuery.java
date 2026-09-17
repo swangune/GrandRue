@@ -1,6 +1,6 @@
 package mainstreet.publication.delivery;
 
-import mainstreet.api.*;
+import grandrue.api.*;
 import mainstreet.publication.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
 import mainstreet.semantic.registry.SemanticRegistrySnapshot;

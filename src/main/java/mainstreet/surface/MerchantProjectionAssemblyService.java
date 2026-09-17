@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiSurfaceClass;
+import grandrue.api.ApiSurfaceClass;
 import java.util.Objects;
 
 /**

@@ -1,7 +1,7 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiContractIdentity;
-import mainstreet.api.ApiSurfaceClass;
+import grandrue.api.ApiContractIdentity;
+import grandrue.api.ApiSurfaceClass;
 
 import java.util.Objects;
 

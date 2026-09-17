@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /** Initial logical production transport surfaces governed by MS-PROT-035 v1.1. */
 public enum ApiSurfaceClass {

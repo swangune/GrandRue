@@ -1,8 +1,8 @@
 package mainstreet.publication.delivery;
 
-import mainstreet.api.ApiProblem;
-import mainstreet.api.ApiProblemCategory;
-import mainstreet.api.ApiQueryUnavailableException;
+import grandrue.api.ApiProblem;
+import grandrue.api.ApiProblemCategory;
+import grandrue.api.ApiQueryUnavailableException;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;

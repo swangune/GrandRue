@@ -1,6 +1,6 @@
 package mainstreet.publication.delivery;
 
-import mainstreet.api.ApiSurfaceClass;
+import grandrue.api.ApiSurfaceClass;
 import mainstreet.publication.*;
 import mainstreet.surface.*;
 

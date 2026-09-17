@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /**
  * Stable client-relevant API problem categories.

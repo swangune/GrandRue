@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /**
  * One governed mapping from exact owner evidence to safe API problem meaning.

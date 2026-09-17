@@ -1,9 +1,9 @@
 package mainstreet.surface;
 
-import mainstreet.api.ApiContractKind;
-import mainstreet.api.ApiContractRegistration;
-import mainstreet.api.ApiContractRegistrySnapshot;
-import mainstreet.api.ApiSurfaceClass;
+import grandrue.api.ApiContractKind;
+import grandrue.api.ApiContractRegistration;
+import grandrue.api.ApiContractRegistrySnapshot;
+import grandrue.api.ApiSurfaceClass;
 import mainstreet.application.MerchantScope;
 import mainstreet.runtime.TrustedExecutionContext;
 

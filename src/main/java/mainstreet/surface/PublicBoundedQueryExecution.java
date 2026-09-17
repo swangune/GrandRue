@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.api.*;
+import grandrue.api.*;
 import mainstreet.application.MerchantScope;
 import java.time.Clock;
 import java.util.List;

@@ -1,6 +1,6 @@
 package mainstreet.enquiry.delivery;
 
-import mainstreet.api.*;
+import grandrue.api.*;
 import mainstreet.publication.delivery.PublicOpportunityQueryContract;
 import java.util.*;
 

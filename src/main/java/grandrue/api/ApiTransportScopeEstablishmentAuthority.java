@@ -1,4 +1,4 @@
-package mainstreet.api;
+package grandrue.api;
 
 /**
  * One exact, surface-affined scope-establishment rule implementation.
