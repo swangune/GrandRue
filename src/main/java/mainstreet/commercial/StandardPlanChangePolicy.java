@@ -1,5 +1,7 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.StandardPlanChangeTiming;
+
 import java.util.Objects;
 
 /**
