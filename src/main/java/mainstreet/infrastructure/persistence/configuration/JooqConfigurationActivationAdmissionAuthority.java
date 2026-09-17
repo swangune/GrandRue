@@ -1,9 +1,9 @@
 package mainstreet.infrastructure.persistence.configuration;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.deployment.OrdinaryServingAdmissionLifecycle;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshot;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshotAuthority;
+import grandrue.deployment.OrdinaryServingAdmissionLifecycle;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshot;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshotAuthority;
 import mainstreet.semantic.configuration.ConfigurationActivationAdmissionAuthority;
 import mainstreet.semantic.configuration.ConfigurationActivationAdmissionEvidence;
 import mainstreet.semantic.configuration.ConfigurationActivationAdmissionResult;

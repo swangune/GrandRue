@@ -1,4 +1,4 @@
-package mainstreet.deployment;
+package grandrue.deployment;
 
 public enum ServingDeploymentPromotionCoverageFailure {
     SEMANTIC_MATERIALISATION_INCOMPLETE,

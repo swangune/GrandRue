@@ -1,4 +1,4 @@
-package mainstreet.deployment;
+package grandrue.deployment;
 
 import mainstreet.semantic.execution.ExecutableSupportManifest;
 import mainstreet.semantic.execution.ExecutableSupportRegistry;

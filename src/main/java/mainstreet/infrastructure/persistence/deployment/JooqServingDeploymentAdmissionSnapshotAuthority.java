@@ -1,11 +1,11 @@
 package mainstreet.infrastructure.persistence.deployment;
 
-import mainstreet.deployment.RecordServingDeploymentAdmissionSnapshotCommand;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshot;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshotAuthority;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshotFailureCategory;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshotPersistenceException;
-import mainstreet.deployment.ServingDeploymentCohort;
+import grandrue.deployment.RecordServingDeploymentAdmissionSnapshotCommand;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshot;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshotAuthority;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshotFailureCategory;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshotPersistenceException;
+import grandrue.deployment.ServingDeploymentCohort;
 import mainstreet.semantic.execution.ExecutableSupportManifest;
 import mainstreet.semantic.execution.SemanticExecutionContractReference;
 import org.jooq.DSLContext;

@@ -1,4 +1,4 @@
-package mainstreet.deployment;
+package grandrue.deployment;
 
 public enum ServingDeploymentAdmissionSnapshotFailureCategory {
     GENERATION_IDENTITY_CONFLICT,

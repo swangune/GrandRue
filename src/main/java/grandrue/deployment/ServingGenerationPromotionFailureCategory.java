@@ -1,4 +1,4 @@
-package mainstreet.deployment;
+package grandrue.deployment;
 
 public enum ServingGenerationPromotionFailureCategory {
     SNAPSHOT_NOT_FOUND,
