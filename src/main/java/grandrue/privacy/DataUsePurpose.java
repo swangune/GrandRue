@@ -1,4 +1,4 @@
-package mainstreet.privacy;
+package grandrue.privacy;
 
 /** Accepted initial purpose vocabulary from MS-PROT-053 v1.0/v1.1. */
 public enum DataUsePurpose {

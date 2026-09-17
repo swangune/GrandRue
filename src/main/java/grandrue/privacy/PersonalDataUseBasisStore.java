@@ -1,4 +1,4 @@
-package mainstreet.privacy;
+package grandrue.privacy;
 
 import java.time.Instant;
 import java.util.Optional;

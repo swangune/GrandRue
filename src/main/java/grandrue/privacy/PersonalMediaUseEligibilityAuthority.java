@@ -1,4 +1,4 @@
-package mainstreet.privacy;
+package grandrue.privacy;
 
 import mainstreet.application.MerchantScope;
 

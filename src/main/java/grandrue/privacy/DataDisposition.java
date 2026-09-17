@@ -1,4 +1,4 @@
-package mainstreet.privacy;
+package grandrue.privacy;
 
 /** Accepted conceptual data end-of-life outcomes. */
 public enum DataDisposition {

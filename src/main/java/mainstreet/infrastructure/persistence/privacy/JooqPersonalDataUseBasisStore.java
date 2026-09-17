@@ -1,10 +1,10 @@
 package mainstreet.infrastructure.persistence.privacy;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.privacy.DataSubjectReference;
-import mainstreet.privacy.DataUsePurpose;
-import mainstreet.privacy.PersonalDataUseBasis;
-import mainstreet.privacy.PersonalDataUseBasisStore;
+import grandrue.privacy.DataSubjectReference;
+import grandrue.privacy.DataUsePurpose;
+import grandrue.privacy.PersonalDataUseBasis;
+import grandrue.privacy.PersonalDataUseBasisStore;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;
