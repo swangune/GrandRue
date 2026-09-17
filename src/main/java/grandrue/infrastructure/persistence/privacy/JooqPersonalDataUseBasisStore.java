@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.privacy;
+package grandrue.infrastructure.persistence.privacy;
 
 import mainstreet.application.MerchantScope;
 import grandrue.privacy.DataSubjectReference;
