@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.appointment;
+package grandrue.infrastructure.persistence.appointment;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.semantic.AllocationClaim;

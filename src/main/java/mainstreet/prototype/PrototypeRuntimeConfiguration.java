@@ -1,6 +1,6 @@
 package mainstreet.prototype;
 
-import mainstreet.infrastructure.persistence.appointment.JooqAppointmentUnitOfWork;
+import grandrue.infrastructure.persistence.appointment.JooqAppointmentUnitOfWork;
 import mainstreet.infrastructure.persistence.booking.JooqBookingUnitOfWork;
 import mainstreet.infrastructure.persistence.ordering.JooqOrderingUnitOfWork;
 import org.jooq.DSLContext;
