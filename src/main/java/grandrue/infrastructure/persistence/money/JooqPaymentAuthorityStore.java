@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.money;
+package grandrue.infrastructure.persistence.money;
 
 import mainstreet.application.MerchantScope;
 import grandrue.money.CurrencyIdentity;
