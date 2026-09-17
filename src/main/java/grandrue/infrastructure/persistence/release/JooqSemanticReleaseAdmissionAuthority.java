@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.release;
+package grandrue.infrastructure.persistence.release;
 
 import mainstreet.semantic.release.AdvanceOrdinarySemanticReleaseCommand;
 import mainstreet.semantic.release.OrdinaryNewConfigurationSemanticReleaseReference;
