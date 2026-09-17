@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.publication;
+package grandrue.infrastructure.persistence.publication;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.publication.OpportunityCalendarDateBoundary;
