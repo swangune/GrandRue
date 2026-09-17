@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.configuration;
+package grandrue.infrastructure.persistence.configuration;
 
 import org.jooq.DSLContext;
 import org.jooq.Field;

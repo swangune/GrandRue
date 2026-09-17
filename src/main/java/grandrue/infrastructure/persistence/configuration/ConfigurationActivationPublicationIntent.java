@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.configuration;
+package grandrue.infrastructure.persistence.configuration;
 
 import java.time.Instant;
 import java.util.Objects;
