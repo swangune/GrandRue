@@ -130,6 +130,7 @@ State: `OPEN`
 | `GR-REN-02-01X4` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/event/**`; no external production consumers | `5d9c2efb20a2e63a5390bb0c413e8e6de51c5ff5` |
 | `GR-REN-02-01X5` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/privacy/**`; no external production consumers | `d575446357be3bec681206dc7f466844e2692683` |
 | `GR-REN-02-01X6` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/enquiry/**`; no external production consumers | code `e55ba415f6ab5132ab257f149ac4c96ab746b0d0`; lineage reconciliation `56b2effe282dbc801924807b52fe47e28f966c3e` |
+| `GR-REN-02-01X7` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/appointment/**` + one bounded production consumer | `71f61cf6809effdae2f0f91e0a396ff5a6853e6f` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; select by live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -137,6 +138,7 @@ State: `OPEN`
 ### Important lineage and boundary notes
 
 - `GR-REN-02-01X6`: two Enquiry persistence owner files moved from `mainstreet.infrastructure.persistence.enquiry` to `grandrue.infrastructure.persistence.enquiry`. No external production consumers were found; only tests reference the package outside those owner files. Existing application/enquiry/semantic-registry dependencies, SQL/table/column names, request-lock identity, comments, transaction semantics and behaviour were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Code commit `e55ba415f6ab5132ab257f149ac4c96ab746b0d0` contains exactly two owner renames, each with only a one-line package declaration replacement. Ledger-only commits created during checkpointing were reconciled with the code lineage by merge commit `56b2effe282dbc801924807b52fe47e28f966c3e`; no force update was used.
+- `GR-REN-02-01X7`: two Appointment persistence owner files moved from `mainstreet.infrastructure.persistence.appointment` to `grandrue.infrastructure.persistence.appointment`. The sole bounded production consumer, `mainstreet.prototype.PrototypeRuntimeConfiguration`, received only the corresponding import replacement. Existing scheduling/application/semantic dependencies, SQL/table/column names, advisory-lock key construction, comments, transaction semantics and behaviour were unchanged. Test namespace consumers remain deferred to `GR-REN-03`. Code commit `71f61cf6809effdae2f0f91e0a396ff5a6853e6f` contains the two owner renames, their one-line package declaration replacements, and the one production import replacement.
 
 ### Ledger integrity repair
 
@@ -167,10 +169,10 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X6
-last_completed_task: GR-REN-02-01X6
-last_verified_head: 56b2effe282dbc801924807b52fe47e28f966c3e
-last_task_commit: e55ba415f6ab5132ab257f149ac4c96ab746b0d0
+selected_execution_leaf: GR-REN-02-01X7
+last_completed_task: GR-REN-02-01X7
+last_verified_head: 71f61cf6809effdae2f0f91e0a396ff5a6853e6f
+last_task_commit: 71f61cf6809effdae2f0f91e0a396ff5a6853e6f
 next_action: Select and execute the next smallest bounded production namespace leaf under GR-REN-02-01X+ using live production dependency evidence. Keep test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
 ```
 
