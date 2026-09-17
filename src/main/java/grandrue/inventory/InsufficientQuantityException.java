@@ -1,4 +1,4 @@
-package mainstreet.inventory;
+package grandrue.inventory;
 
 public final class InsufficientQuantityException
         extends IllegalStateException {

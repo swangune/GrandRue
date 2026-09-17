@@ -1,4 +1,4 @@
-package mainstreet.inventory;
+package grandrue.inventory;
 
 import mainstreet.semantic.AllocationResolution;
 import mainstreet.semantic.AllocationResolutionType;

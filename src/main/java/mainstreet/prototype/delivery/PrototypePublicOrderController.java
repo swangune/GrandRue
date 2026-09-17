@@ -1,6 +1,6 @@
 package mainstreet.prototype.delivery;
 
-import mainstreet.inventory.InsufficientQuantityException;
+import grandrue.inventory.InsufficientQuantityException;
 import mainstreet.prototype.PrototypePublicOrderUseCase;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;

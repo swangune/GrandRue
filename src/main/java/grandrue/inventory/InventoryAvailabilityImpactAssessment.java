@@ -1,4 +1,4 @@
-package mainstreet.inventory;
+package grandrue.inventory;
 
 import mainstreet.semantic.compiler.ConfigurationCompiler;
 import mainstreet.semantic.configuration.ConfigurationImpactAssessment;

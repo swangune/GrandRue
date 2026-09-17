@@ -1,4 +1,4 @@
-package mainstreet.inventory;
+package grandrue.inventory;
 
 import java.time.Instant;
 import java.util.Objects;

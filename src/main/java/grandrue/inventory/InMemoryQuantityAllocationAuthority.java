@@ -1,4 +1,4 @@
-package mainstreet.inventory;
+package grandrue.inventory;
 
 import mainstreet.semantic.AllocationAuthority;
 import mainstreet.semantic.AllocationClaim;

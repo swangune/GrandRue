@@ -1,7 +1,7 @@
 package mainstreet.ordering;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.inventory.InMemoryQuantityAllocationAuthority;
+import grandrue.inventory.InMemoryQuantityAllocationAuthority;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.AllocationScope;
 import mainstreet.semantic.DomainEvent;
