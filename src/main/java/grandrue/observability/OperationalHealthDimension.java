@@ -1,4 +1,4 @@
-package mainstreet.observability;
+package grandrue.observability;
 
 /** Operational health dimension; no value here authorises business execution. */
 public enum OperationalHealthDimension {

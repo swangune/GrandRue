@@ -1,4 +1,4 @@
-package mainstreet.observability;
+package grandrue.observability;
 
 import java.time.Instant;
 import java.util.Objects;

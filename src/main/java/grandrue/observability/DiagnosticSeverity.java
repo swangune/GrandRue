@@ -1,4 +1,4 @@
-package mainstreet.observability;
+package grandrue.observability;
 
 public enum DiagnosticSeverity {
     DEBUG,

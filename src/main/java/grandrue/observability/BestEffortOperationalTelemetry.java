@@ -1,4 +1,4 @@
-package mainstreet.observability;
+package grandrue.observability;
 
 import java.util.Objects;
 

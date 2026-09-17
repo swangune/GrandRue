@@ -1,4 +1,4 @@
-package mainstreet.observability;
+package grandrue.observability;
 
 /** Replaceable technical telemetry boundary. Implementations own no business mutation authority. */
 public interface OperationalTelemetrySink {
