@@ -1,4 +1,4 @@
-package mainstreet.scheduling;
+package grandrue.scheduling;
 
 /** Lifecycle states of non-committing scheduling intent. */
 public enum SchedulingRequestStatus {

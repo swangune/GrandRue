@@ -1,4 +1,4 @@
-package mainstreet.scheduling;
+package grandrue.scheduling;
 
 public final class SchedulingIntentIdentityConflictException
         extends RuntimeException {

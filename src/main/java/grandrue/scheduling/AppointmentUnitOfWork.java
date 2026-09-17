@@ -1,4 +1,4 @@
-package mainstreet.scheduling;
+package grandrue.scheduling;
 
 import java.util.function.Function;
 

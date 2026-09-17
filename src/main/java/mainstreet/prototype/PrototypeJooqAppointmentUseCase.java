@@ -10,11 +10,11 @@ import mainstreet.runtime.ScopedOperationDispatcher;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.TimeWindowAllocationScope;
 import mainstreet.semantic.executable.ActiveOperationResolver;
-import mainstreet.scheduling.Appointment;
-import mainstreet.scheduling.AppointmentApplicationService;
-import mainstreet.scheduling.AppointmentSchedulingAuthority;
-import mainstreet.scheduling.AppointmentUnitOfWork;
-import mainstreet.scheduling.ConfirmAppointmentCommand;
+import grandrue.scheduling.Appointment;
+import grandrue.scheduling.AppointmentApplicationService;
+import grandrue.scheduling.AppointmentSchedulingAuthority;
+import grandrue.scheduling.AppointmentUnitOfWork;
+import grandrue.scheduling.ConfirmAppointmentCommand;
 
 import java.time.Clock;
 import java.time.Instant;

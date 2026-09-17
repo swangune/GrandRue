@@ -1,4 +1,4 @@
-package mainstreet.scheduling;
+package grandrue.scheduling;
 
 import mainstreet.semantic.compiler.ConfigurationCompiler;
 import mainstreet.semantic.configuration.ConfigurationImpactAssessment;

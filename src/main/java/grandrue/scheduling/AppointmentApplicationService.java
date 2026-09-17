@@ -1,4 +1,4 @@
-package mainstreet.scheduling;
+package grandrue.scheduling;
 
 import grandrue.customer.CustomerContextAuthority;
 import mainstreet.runtime.AuthorizationException;

@@ -1,6 +1,6 @@
 package mainstreet.prototype.delivery;
 
-import mainstreet.scheduling.Appointment;
+import grandrue.scheduling.Appointment;
 
 import java.time.Instant;
 

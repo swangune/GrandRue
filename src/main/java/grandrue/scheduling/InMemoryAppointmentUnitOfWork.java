@@ -1,4 +1,4 @@
-package mainstreet.scheduling;
+package grandrue.scheduling;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.semantic.AllocationClaim;

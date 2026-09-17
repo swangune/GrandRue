@@ -1,4 +1,4 @@
-package mainstreet.scheduling;
+package grandrue.scheduling;
 
 /**
  * Appointment-owned mutation port for staging authoritative Appointment state.

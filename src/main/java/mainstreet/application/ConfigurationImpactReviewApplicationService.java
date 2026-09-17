@@ -10,7 +10,7 @@ import grandrue.inventory.InventoryAvailabilityImpactAssessment;
 import grandrue.money.PaymentAvailabilityImpactAssessment;
 import grandrue.ordering.OrderingAvailabilityImpactAssessment;
 import mainstreet.publication.PublicationAvailabilityImpactAssessment;
-import mainstreet.scheduling.SchedulingAvailabilityImpactAssessment;
+import grandrue.scheduling.SchedulingAvailabilityImpactAssessment;
 import mainstreet.semantic.compiler.ConfigurationCompiler;
 import mainstreet.semantic.configuration.CapabilityMembershipImpactAssessment;
 import mainstreet.semantic.configuration.ConfigurationImpactAnalysisResult;
