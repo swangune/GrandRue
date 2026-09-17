@@ -148,6 +148,7 @@ State: `OPEN`
 | `GR-REN-02-01X22` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/inventory/**` + two bounded production consumers | `d745fcec0dba3855ee37ada13cf4bd88f75c3a62` |
 | `GR-REN-02-01X23` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/workforce/**`; no external production consumers | `dc052c737676d2b50efc4eb6beade8cdc29d62ce` |
 | `GR-REN-02-01X24` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/merchantaccount/**`; no external production consumers | `942eed36d434513c59d2c4bbe944b3d8213db897` |
+| `GR-REN-02-01X25` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `infrastructure/persistence/booking/**` + one bounded production consumer | `2793e116a2f88ffd766de7f15084a09adce5c4e5` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -173,6 +174,7 @@ State: `OPEN`
 - `GR-REN-02-01X22`: `JooqQuantityAllocationAuthority.java` moved from `mainstreet.infrastructure.persistence.inventory` to `grandrue.infrastructure.persistence.inventory`. The two bounded production consumers, `grandrue.infrastructure.persistence.ordering.JooqOrderingTransaction` and `grandrue.infrastructure.persistence.ordering.JooqOrderingUnitOfWork`, received only the corresponding `JooqQuantityAllocationAuthority` import replacement. Current test consumers remain deferred to `GR-REN-03`. The prepared parent was `7bca3728a08f0ff760238bf8219a959fa4d7ac27`; the owner input blob was `9b7601994ecedc53e7af7571732c54ef01d9a119`; consumer input blobs were `709075944a925cb71a4229602c2efc24ce438779` and `b26c85c9d3cda1fd3ce259723add5ebe060996a5`; the GrandRue destination was absent at preflight. Existing `MerchantScope`, Inventory and allocation-domain imports, SQL/table/column identities, row-locking and stock arithmetic, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `d745fcec0dba3855ee37ada13cf4bd88f75c3a62` contains exactly one owner rename with one package-declaration replacement and two production import replacements.
 - `GR-REN-02-01X23`: `JooqMerchantOperationalDeviceAuthorisationStore.java`, `JooqMerchantWorkforceAuthority.java` and `JooqMerchantWorkforceStore.java` moved from `mainstreet.infrastructure.persistence.workforce` to `grandrue.infrastructure.persistence.workforce`. No external production consumers were found; current integration-test consumers remain deferred to `GR-REN-03`. The prepared parent was `a96bd80aad217253b54d85e12de79fd717f216eb`; owner input blobs were `197b5c1f698cacb25331eab1d50f1559b697b584`, `8a7a4a1e6416ca1c867f95444e9b1b0ded0e9b8e` and `f2d6fd1008e691cb28507e3749a13d638c8747ac`; the GrandRue destination directory was absent at preflight. Existing `MerchantScope`, trusted-device, runtime/security and Workforce domain imports, SQL/table/column identities, controller-authority revalidation, advisory-lock construction, membership/role lifecycle logic, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `dc052c737676d2b50efc4eb6beade8cdc29d62ce` contains exactly three owner renames with only the package declaration replacement in each file.
 - `GR-REN-02-01X24`: `JooqMerchantAccountBootstrapStore.java`, `JooqMerchantAccountEstablishmentPublicationOutbox.java`, `JooqMerchantAccountLifecycleStore.java` and `MerchantAccountEstablishmentPublicationIntent.java` moved from `mainstreet.infrastructure.persistence.merchantaccount` to `grandrue.infrastructure.persistence.merchantaccount`. No external production consumers were found; current integration-test consumers remain deferred to `GR-REN-03`. The prepared parent was `a52fc4344d2ec51121833849e2b8deb63757e958`; owner input blobs were `c458a783a4a846f45e1737ff2fae7d88d7d3e1da`, `3c1c3f7bc1a459c1cc371bab16df40efd3fe6011`, `f96fe19b7bd0b6f61aaf2e922828e2ffa99c023f` and `d674e9e11b3f32b4cda5f0c39d75ed8210016629`; the GrandRue destination directory was absent at preflight. Existing `MerchantScope`, trusted-platform, semantic-event and Merchant Account domain imports, SQL/table/column identities, event-contract affinity, lifecycle/Controller/suspension/closure rules, advisory-lock strings and seeds, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `942eed36d434513c59d2c4bbe944b3d8213db897` contains exactly four owner renames with only the package declaration replacement in each file.
+- `GR-REN-02-01X25`: `JooqBookingResidualObligationAuthority.java`, `JooqBookingTransaction.java` and `JooqBookingUnitOfWork.java` moved from `mainstreet.infrastructure.persistence.booking` to `grandrue.infrastructure.persistence.booking`. The sole bounded production consumer, `mainstreet.prototype.PrototypeRuntimeConfiguration`, received only the corresponding `JooqBookingUnitOfWork` import replacement. Current test consumers remain deferred to `GR-REN-03`. Initial preparation was against X24 pointer `2b45ec7d34c191803636ec3631d9ef2bb5605761` with owner input blobs `3b9c6f7319f0f8616f1aebbcbccc7d1fa241d777`, `c2c94fd42c242bdb86c5ab22ea0d824c6cb53127` and `e55868fdd49c0d352db28c71d9f03a158eda1123`, consumer input blob `a6a73c4d6a1666bb01e61b4fcefeb02a25562da9`, and absent GrandRue destination. During attachment, accidental connector commits `df54c3d21af1402293693ca63014d4fd7b883c02` and `7f31ec0350a359fd79af65e72a382f4196c93dec` created then emptied root `__invalid__`; repair commit `83a08ebfae4e9adec065a75f6a42003a79bbe8a9` deleted it. Aggregate comparison from `2b45ec7d34c191803636ec3631d9ef2bb5605761` to `83a08ebfae4e9adec065a75f6a42003a79bbe8a9` has zero changed files, so X25 freshness was re-established against the repaired parent without changing any declared input blob. Initial unattached code candidate `6c6681fd1c37d74cf0b5ac7d2f63ea4fa14154b4` was superseded and never attached. Existing Booking domain/semantic imports, SQL/table/column identities, `|booking-capacity|` and `|booking-command|` advisory-lock key construction, comments, transaction/concurrency behaviour and persistence semantics were unchanged. Code commit `2793e116a2f88ffd766de7f15084a09adce5c4e5` contains exactly three owner renames with one package-declaration replacement each and one production import replacement.
 
 ### Ledger integrity repair
 
@@ -181,6 +183,8 @@ Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded 
 During `GR-REN-02-01U` staging, accidental connector commit `749af81b99b0a788c09653ff390138a51fe89901` created an empty root `__nonexistent__` placeholder. Repair commit `f254be429c14701e16249a8de5ce7360be46466e` immediately removed it. Comparison from Scheduling checkpoint `e20f47166f836723014fc405f73c50cdebafc6a9` to the repair commit has zero changed files. The verified Fulfilment code tree was then re-parented onto the repaired HEAD without force-updating the branch.
 
 During `GR-REN-02-01X4` preparation, an unintended connector call created branch `__invalid_should_not_create` at checkpoint `4308f6aeaa440e30a163dd660821ee6f5aa11f9c`. The branch contained no unique migration work and did not alter `development`. The user explicitly deferred cleanup and authorised continued migration on `development`; this branch is therefore a recorded non-blocking cleanup item and must not be used for migration work.
+
+During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af1402293693ca63014d4fd7b883c02` added root file `__invalid__` containing `x`, and follow-up accidental connector commit `7f31ec0350a359fd79af65e72a382f4196c93dec` replaced that content with an empty file. Unattached repair candidate `7025bb19438427265dcf79dc5c0c7d5971d44f10` was superseded and never attached. Repair commit `83a08ebfae4e9adec065a75f6a42003a79bbe8a9` deleted `__invalid__`; its tree is exactly the X24 pointer tree `d7a9e508f69c506e2a1e63260a1629c618c1affb`, and aggregate comparison from X24 pointer `2b45ec7d34c191803636ec3631d9ef2bb5605761` to the repair commit contains zero changed files. No force update was used. The verified X25 code tree was then re-parented onto the repaired HEAD.
 
 ### Remaining programme
 
@@ -203,9 +207,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X24
-last_completed_task: GR-REN-02-01X24
-last_task_commit: 942eed36d434513c59d2c4bbe944b3d8213db897
+selected_execution_leaf: GR-REN-02-01X25
+last_completed_task: GR-REN-02-01X25
+last_task_commit: 2793e116a2f88ffd766de7f15084a09adce5c4e5
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -291,8 +295,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X24
-last_prepared_execution_commit: 942eed36d434513c59d2c4bbe944b3d8213db897
+last_prepared_execution_leaf: GR-REN-02-01X25
+last_prepared_execution_commit: 2793e116a2f88ffd766de7f15084a09adce5c4e5
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
