@@ -1,4 +1,4 @@
-package mainstreet.credential;
+package grandrue.credential;
 
 /** Operational security state of one physical credential generation. */
 public enum CredentialGenerationState {

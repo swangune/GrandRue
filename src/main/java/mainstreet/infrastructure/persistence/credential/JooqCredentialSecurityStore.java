@@ -1,13 +1,13 @@
 package mainstreet.infrastructure.persistence.credential;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.credential.CredentialBinding;
-import mainstreet.credential.CredentialBindingScope;
-import mainstreet.credential.CredentialGeneration;
-import mainstreet.credential.CredentialGenerationPolicy;
-import mainstreet.credential.CredentialGenerationState;
-import mainstreet.credential.CredentialSecurityStore;
-import mainstreet.credential.CredentialTechnicalUse;
+import grandrue.credential.CredentialBinding;
+import grandrue.credential.CredentialBindingScope;
+import grandrue.credential.CredentialGeneration;
+import grandrue.credential.CredentialGenerationPolicy;
+import grandrue.credential.CredentialGenerationState;
+import grandrue.credential.CredentialSecurityStore;
+import grandrue.credential.CredentialTechnicalUse;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

@@ -1,4 +1,4 @@
-package mainstreet.credential;
+package grandrue.credential;
 
 /** Technical uses that may be independently permitted for one generation. */
 public enum CredentialTechnicalUse {

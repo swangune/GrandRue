@@ -1,4 +1,4 @@
-package mainstreet.credential;
+package grandrue.credential;
 
 import java.time.Instant;
 import java.util.Objects;

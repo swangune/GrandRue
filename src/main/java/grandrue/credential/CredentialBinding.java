@@ -1,4 +1,4 @@
-package mainstreet.credential;
+package grandrue.credential;
 
 import mainstreet.application.MerchantScope;
 
