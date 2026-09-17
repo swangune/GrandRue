@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.protection;
+package grandrue.infrastructure.persistence.protection;
 
 import grandrue.protection.ProtectionAdmissionDecision;
 import grandrue.protection.ProtectionPolicy;
