@@ -1,4 +1,4 @@
-package mainstreet.publication;
+package grandrue.publication;
 
 /**
  * Raised when one durable application request identity is presented with intent that differs

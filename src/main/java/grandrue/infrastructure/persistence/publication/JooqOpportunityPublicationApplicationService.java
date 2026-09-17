@@ -6,7 +6,7 @@ import mainstreet.publication.OpportunityPublicationApplicationService;
 import mainstreet.publication.OpportunityPublicationMaterialRevision;
 import mainstreet.publication.OpportunityPublicationState;
 import mainstreet.publication.OpportunityPublicationStateAuthority;
-import mainstreet.publication.PublicationApplicationRequestConflictException;
+import grandrue.publication.PublicationApplicationRequestConflictException;
 import mainstreet.publication.PublicationLifecycle;
 import org.jooq.DSLContext;
 import org.jooq.Record;
