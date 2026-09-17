@@ -1,6 +1,6 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.fulfilment.FulfilmentPlan;
+import grandrue.fulfilment.FulfilmentPlan;
 import mainstreet.semantic.executable.ExecutableMerchantModel;
 import mainstreet.surface.StaticSurfaceContributionCatalogue;
 

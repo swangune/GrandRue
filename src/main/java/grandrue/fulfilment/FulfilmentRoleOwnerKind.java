@@ -1,4 +1,4 @@
-package mainstreet.fulfilment;
+package grandrue.fulfilment;
 
 /** Identifies whether a Fulfilment Role belongs to a capability or platform service. */
 public enum FulfilmentRoleOwnerKind {

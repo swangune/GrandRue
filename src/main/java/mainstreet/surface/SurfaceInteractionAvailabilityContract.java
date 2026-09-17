@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.fulfilment.FulfilmentRoleIdentity;
+import grandrue.fulfilment.FulfilmentRoleIdentity;
 
 import java.util.Objects;
 import java.util.Optional;

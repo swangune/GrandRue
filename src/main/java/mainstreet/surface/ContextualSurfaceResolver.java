@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.fulfilment.FulfilmentRoleIdentity;
+import grandrue.fulfilment.FulfilmentRoleIdentity;
 import mainstreet.runtime.ActorAuthorisationAuthority;
 import mainstreet.semantic.Privilege;
 import mainstreet.semantic.executable.ExecutableMerchantModel;

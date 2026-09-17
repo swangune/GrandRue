@@ -1,4 +1,4 @@
-package mainstreet.fulfilment;
+package grandrue.fulfilment;
 
 /**
  * Bounded deterministic applicability vocabulary for registered Fulfilment

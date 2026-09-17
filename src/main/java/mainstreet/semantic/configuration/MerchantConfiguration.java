@@ -1,6 +1,6 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.fulfilment.FulfilmentBindingSetRevisionReference;
+import grandrue.fulfilment.FulfilmentBindingSetRevisionReference;
 
 import java.util.HashSet;
 import java.util.Objects;

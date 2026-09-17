@@ -1,4 +1,4 @@
-package mainstreet.fulfilment;
+package grandrue.fulfilment;
 
 /** Exact immutable identity of one merchant fulfilment-binding-set revision. */
 public record FulfilmentBindingSetRevisionReference(

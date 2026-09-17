@@ -1,7 +1,7 @@
 package mainstreet.infrastructure.persistence.configuration;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.fulfilment.FulfilmentBindingSetRevisionReference;
+import grandrue.fulfilment.FulfilmentBindingSetRevisionReference;
 import mainstreet.onboarding.AcknowledgeInitialConfigurationIntentCommand;
 import mainstreet.onboarding.InitialConfigurationIntent;
 import mainstreet.onboarding.InitialConfigurationIntentIdentity;

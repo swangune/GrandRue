@@ -1,7 +1,7 @@
 package mainstreet.semantic.configuration;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.fulfilment.FulfilmentBindingSetRevisionReference;
+import grandrue.fulfilment.FulfilmentBindingSetRevisionReference;
 
 import java.time.Instant;
 import java.util.HashSet;

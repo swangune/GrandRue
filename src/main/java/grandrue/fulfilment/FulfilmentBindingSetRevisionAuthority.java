@@ -1,4 +1,4 @@
-package mainstreet.fulfilment;
+package grandrue.fulfilment;
 
 import mainstreet.application.MerchantScope;
 

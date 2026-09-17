@@ -1,4 +1,4 @@
-package mainstreet.fulfilment;
+package grandrue.fulfilment;
 
 public record AlwaysFulfilmentRequirementApplicability()
         implements FulfilmentRequirementApplicability {

@@ -1,7 +1,7 @@
 package mainstreet.infrastructure.persistence.configuration;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.fulfilment.FulfilmentBindingSetRevisionReference;
+import grandrue.fulfilment.FulfilmentBindingSetRevisionReference;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ChangedConfigurationRevision;
 import mainstreet.semantic.configuration.ConfigurationChangeAuthority;

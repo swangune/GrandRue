@@ -1,4 +1,4 @@
-package mainstreet.fulfilment;
+package grandrue.fulfilment;
 
 /** Capability-scoped identity for one registered Fulfilment Requirement. */
 public record FulfilmentRequirementIdentity(

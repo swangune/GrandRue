@@ -1,6 +1,6 @@
 package mainstreet.semantic.release;
 
-import mainstreet.fulfilment.FulfilmentContractRegistrySnapshot;
+import grandrue.fulfilment.FulfilmentContractRegistrySnapshot;
 import mainstreet.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.ExposureElementContractRegistrySnapshot;
 import mainstreet.surface.SurfaceContributionRegistrySnapshot;

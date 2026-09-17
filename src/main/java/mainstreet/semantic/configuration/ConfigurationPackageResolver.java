@@ -1,9 +1,9 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.fulfilment.FulfilmentBindingSetRevision;
-import mainstreet.fulfilment.FulfilmentContractRegistrySnapshot;
-import mainstreet.fulfilment.FulfilmentPlan;
-import mainstreet.fulfilment.FulfilmentPlanResolver;
+import grandrue.fulfilment.FulfilmentBindingSetRevision;
+import grandrue.fulfilment.FulfilmentContractRegistrySnapshot;
+import grandrue.fulfilment.FulfilmentPlan;
+import grandrue.fulfilment.FulfilmentPlanResolver;
 import mainstreet.semantic.compiler.ConfigurationCompiler;
 import mainstreet.semantic.executable.ExecutableMerchantModel;
 import mainstreet.surface.StaticSurfaceContributionCatalogue;
