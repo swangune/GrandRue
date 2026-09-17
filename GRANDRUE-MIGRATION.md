@@ -102,8 +102,9 @@ State: `OPEN`
 | Node | Kind | State | Scope |
 |---|---|---|---|
 | `GR-REN-02-01` | GROUP | `OPEN` | production Java namespace migration |
-| `GR-REN-02-01A` | TASK | `COMPLETE_PENDING_VERIFICATION` | `identitysecurity/**` + bounded production consumers; code commit `6396afba5fdf3e76e2099536d8a3451184650056` |
-| `GR-REN-02-01B+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
+| `GR-REN-02-01A` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `identitysecurity/**` + bounded production consumers; code commit `6396afba5fdf3e76e2099536d8a3451184650056`; lineage reconciliation `b7149659134714b0baf15899f59ad3f44d1c7014` |
+| `GR-REN-02-01B` | TASK | `COMPLETE_PENDING_FINAL_VERIFICATION` | `audit/**` + bounded production consumers; code commit `fbabeed82d767d2454923f7767f3655ca690642f` |
+| `GR-REN-02-01C+` | GROUP | `EXPANSION_REQUIRED` | remaining production package roots; select by bounded dependency evidence |
 | `GR-REN-02-02` | TASK | `NOT_STARTED` | current-product comments/wording only in touched production source files |
 | `GR-REN-02-03` | GATE | `NOT_STARTED` | production namespace structural consistency/residual check |
 
@@ -127,7 +128,29 @@ Updated bounded production consumers:
 
 No current-product prose/comments, stable identifiers, schema names or compatibility strings were changed. Reference-only docs/history and test consumers were not modified.
 
+Structural verification evidence on `development`: owner path resolves under `grandrue.identitysecurity`, former `mainstreet.identitysecurity` owner path is absent, and the bounded production consumer imports resolve to `grandrue.identitysecurity`. The source commit and earlier checkpoint had diverged from `ee39bfa3b204b11779a177f3eaa7bf8e1e6baaa0`; merge commit `b7149659134714b0baf15899f59ad3f44d1c7014` reconciled both lineages without force-updating the branch.
+
 `done_when`: owner files exist only under `grandrue.identitysecurity`; bounded production consumers import `grandrue.identitysecurity`; no production package/import declaration remains for `mainstreet.identitysecurity`.
+
+#### `GR-REN-02-01B` exact scope
+
+Moved four owner files from `src/main/java/mainstreet/audit/` to `src/main/java/grandrue/audit/`, changing only package declarations:
+
+- `AuditActionClass.java`
+- `AuditExecutionScope.java`
+- `AuditRecord.java`
+- `AuditStore.java`
+
+Updated bounded production consumers:
+
+- `src/main/java/mainstreet/infrastructure/persistence/audit/JooqAuditStore.java`
+- `src/main/java/mainstreet/infrastructure/persistence/identitysecurity/JooqIdentitySecurityGenerationManagement.java`
+
+No current-product prose/comments, stable `MS-PROT-064` authority reference, schema names, persistence identifiers, or test consumers were changed.
+
+Structural verification evidence on `development`: `AuditRecord.java` resolves under `grandrue.audit`, its former `mainstreet.audit` owner path is absent, and both bounded production consumers import `grandrue.audit`. Maven tests and GitHub Actions were not run.
+
+`done_when`: owner files exist only under `grandrue.audit`; bounded production consumers import `grandrue.audit`; no production package/import declaration remains for `mainstreet.audit`.
 
 ### `GR-REN-03` — test namespace/runtime-coupled fixtures
 
@@ -165,11 +188,11 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01A
-last_completed_task: GR-REN-01F-04
-last_verified_head: ee39bfa3b204b11779a177f3eaa7bf8e1e6baaa0
-last_task_commit: 6396afba5fdf3e76e2099536d8a3451184650056
-next_action: Structurally verify GR-REN-02-01A only. If complete, checkpoint it and select the next bounded production package leaf. Do not run Maven tests or GitHub Actions.
+selected_execution_leaf: GR-REN-02-01B
+last_completed_task: GR-REN-02-01B
+last_verified_head: fbabeed82d767d2454923f7767f3655ca690642f
+last_task_commit: fbabeed82d767d2454923f7767f3655ca690642f
+next_action: Select the next bounded production package leaf under GR-REN-02-01C+ using production dependency evidence. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
