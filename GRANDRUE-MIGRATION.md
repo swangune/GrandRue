@@ -15,23 +15,47 @@ This is the canonical resumable execution registry for the Main Street → Grand
 
 This is a **minimum executable migration plus active repository controls and canonical governance**.
 
+The legacy Main Street executable prototype is explicitly **non-migrating**. It is retained only as temporary validation/history until it is replaced or quarantined; it must not be renamed into a GrandRue prototype as part of this migration.
+
 A path is a migration target only when:
 
 1. leaving legacy naming unchanged would break or invalidate current GrandRue build/test/package/start/configure/serve coherence;
 2. it is an active repository-control/navigation file: `AGENTS.md`, `SEQUENCE.md`, or this ledger; or
 3. it is one of the seven canonical current governance files in root `designs/`.
 
-Everything else is reference-only unless concrete dependency evidence proves otherwise.
+Everything else is reference-only unless concrete dependency evidence proves otherwise. The legacy prototype exclusion below is stronger: a dependency from the prototype into an in-scope GrandRue owner does **not** make the prototype a migration target.
 
 ### Essential executable surfaces
 
-- `src/main/**`
-- `src/test/**`
+- `src/main/**`, excluding the legacy prototype surfaces listed below
+- `src/test/**`, excluding the legacy prototype surfaces listed below
 - `pom.xml`
 - `.github/workflows/maven-tests.yml`
 - `.github/workflows/storefront-web-tests.yml` — essential wiring, no current legacy naming action
-- `compose.prototype.yml`
 - executable `storefront-web/**`
+
+### Legacy executable prototype exclusion — prospective override
+
+Effective from this ledger revision, the existing Main Street prototype has disposition `NON_MIGRATING_LEGACY_PROTOTYPE`.
+
+The exclusion includes:
+
+- `src/main/java/mainstreet/prototype/**`;
+- `src/test/java/mainstreet/prototype/**`;
+- `src/main/resources/application-prototype.properties`;
+- `compose.prototype.yml`;
+- the existing `/prototype/**` HTTP surface, prototype-only seeded identifiers and prototype-only environment/configuration naming;
+- prototype runbook/readiness/evidence documents and historical prototype design material.
+
+These surfaces MUST NOT be selected as namespace/package/path/type/API naming owners for Main Street → GrandRue migration. They MUST NOT be moved to `grandrue.prototype` or mechanically rebranded.
+
+If an in-scope production owner move changes a type imported by the still-compiled legacy prototype, the smallest necessary import/dependency repair MAY be applied to the prototype consumer in the same bounded leaf solely to preserve compilation coherence. Such a repair does not widen prototype scope, does not authorise prototype package/path/API renaming, and must be recorded as transitional compatibility maintenance.
+
+Completed historical prototype-consumer import repairs remain valid migration evidence but create no precedent for migrating the prototype itself.
+
+Any future GrandRue-native prototype or validation harness is new implementation work outside this naming migration. If retention of the legacy prototype later obstructs build/final verification, disposition is to quarantine or remove it from active source sets under a separately bounded cleanup, not to migrate it.
+
+Residual legacy `mainstreet.prototype` names covered by this exclusion are expected residuals and MUST be classified as `NON_MIGRATING_LEGACY_PROTOTYPE`, not as incomplete migration coverage.
 
 ### Standing control/governance exceptions
 
@@ -56,8 +80,9 @@ Everything else is reference-only unless concrete dependency evidence proves oth
 - **do not run GitHub Actions unless explicitly authorised**;
 - smallest conforming dependency-bounded change only;
 - no semantic redesign or unrelated cleanup;
-- production namespace leaves include all production cross-package consumers atomically;
-- test namespace/runtime-coupled changes remain deferred to `GR-REN-03`;
+- production namespace leaves include all **in-scope** production cross-package consumers atomically;
+- do not select a legacy prototype path as a migration owner; excluded prototype consumers may receive only the minimal dependency-repair edits permitted by section 1;
+- in-scope test namespace/runtime-coupled changes remain deferred to `GR-REN-03`; legacy prototype tests are excluded;
 - current-product prose/comments in moved production sources remain deferred to `GR-REN-02-02`;
 - structural verification must not be represented as Maven/integration/runtime verification.
 
@@ -74,9 +99,11 @@ Final action-map evidence: `08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52`.
 ### Authorised current-identity changes
 
 - production/test Java package roots `mainstreet` → `grandrue`, including package/import/path-sensitive test changes in their later governed group;
-- Maven/build/CI/prototype/storefront current product naming → GrandRue equivalents;
-- preferred `GRANDRUE_PROTOTYPE_POSTGRES_*` and `GRANDRUE_BACKEND_URL`, retaining frozen legacy external-env fallbacks where required;
+- Maven/build/CI/storefront current product naming → GrandRue equivalents;
+- preferred `GRANDRUE_BACKEND_URL`, retaining frozen legacy external-env fallbacks where required;
 - current wording in `AGENTS.md`, `SEQUENCE.md`, and the seven canonical governance files → GrandRue.
+
+The earlier frozen action-map references to prototype rebranding are prospectively superseded by the section 1 `NON_MIGRATING_LEGACY_PROTOTYPE` disposition. Completed historical leaves remain evidence and are not rewritten.
 
 ### Protected identities — do not mechanically rename
 
@@ -306,9 +333,9 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 ### Remaining programme
 
-- `GR-REN-03` — test namespace/runtime-coupled fixtures: `NOT_STARTED`
-- `GR-REN-04` — essential build/CI naming: `NOT_STARTED`
-- `GR-REN-05` — essential runtime/config naming: `NOT_STARTED`
+- `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `NOT_STARTED`
+- `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `NOT_STARTED`
+- `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `NOT_STARTED`
 - `GR-REN-06` — compatibility aliases/preserved identities: `NOT_STARTED`
 - `GR-REN-07` — active controls/canonical governance wording: `NOT_STARTED`
 - `GR-REN-08..11` — residual audit, falsification, structural/final verification: `NOT_STARTED`
@@ -331,7 +358,7 @@ last_task_commit: f32956dca4219ee6af05c04526245971d6f42710
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-next_action: Prepare the next exact bounded production namespace packet under GR-REN-02-01X+ from live dependency evidence, establish freshness, and execute only after it is READY. Keep test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
+next_action: Prepare the next exact bounded in-scope production namespace packet under GR-REN-02-01X+ from live dependency evidence, establish freshness, and execute only after it is READY. Do not select legacy prototype paths as migration owners; prototype consumers may receive only minimal dependency-repair edits required by the section 1 exclusion. Keep other in-scope test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
@@ -341,8 +368,8 @@ next_action: Prepare the next exact bounded production namespace packet under GR
 1. inspect `AGENTS.md`, this ledger and `docs/development/grandrue-migration-work.md`;
 2. inspect current `development` HEAD;
 3. reconcile branch HEAD against the checkpoint and any ledger-only checkpoint commit;
-4. prepare the smallest conforming production namespace packet from live dependency evidence;
-5. execute only a fresh `READY` packet, moving the owner package and all declared production cross-package consumers atomically;
+4. prepare the smallest conforming **in-scope** production namespace packet from live dependency evidence, excluding legacy prototype owners;
+5. execute only a fresh `READY` packet, moving the owner package and all declared in-scope production cross-package consumers atomically; apply only minimal dependency-repair imports to excluded prototype consumers when required for compilation coherence;
 6. structurally verify aggregate diff, new-path presence, old-path absence, declared consumer imports, protected identities and expected residuals;
 7. checkpoint the completed leaf here;
 8. preserve the frozen action map and protected identities;
@@ -392,7 +419,7 @@ Only `READY` is executable. Any stale input, unexpected dependency, additional c
 
 ### Coverage invariant
 
-Every discovered migration unit must receive exactly one disposition. Final coverage/residual verification may not treat the migration as fully enumerated until the work file records enumeration complete and no discovered item remains unclassified, prepared, ready, in progress or unresolved/blocked.
+Every discovered migration unit must receive exactly one disposition. Legacy prototype surfaces defined in section 1 receive `NON_MIGRATING_LEGACY_PROTOTYPE`; their expected residual names do not count as open migration work. Final coverage/residual verification may not treat the migration as fully enumerated until the work file records enumeration complete and no other discovered item remains unclassified, prepared, ready, in progress or unresolved/blocked.
 
 At protocol adoption, no new production leaf is selected. `GR-REN-02-01X+` remains `PREPARATION_REQUIRED`; its remaining dependency graph and coverage must be enumerated from current repository evidence rather than guessed.
 
@@ -418,5 +445,5 @@ last_prepared_execution_commit: f32956dca4219ee6af05c04526245971d6f42710
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
-next_procedural_action: Prepare the next exact bounded packet from current live production dependency evidence, update coverage, and establish freshness before marking it READY. Do not mutate production code before READY. Keep test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
+next_procedural_action: Prepare the next exact bounded in-scope packet from current live production dependency evidence, update coverage, and establish freshness before marking it READY. Exclude legacy prototype owners under section 1; permit only minimal dependency-repair edits in prototype consumers when an in-scope owner move requires them. Do not mutate production code before READY. Keep other in-scope test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
 ```
