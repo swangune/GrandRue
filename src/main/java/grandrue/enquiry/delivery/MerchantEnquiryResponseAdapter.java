@@ -1,8 +1,6 @@
-package mainstreet.enquiry.delivery;
+package grandrue.enquiry.delivery;
 
 import grandrue.api.ApiSurfaceClass;
-import grandrue.enquiry.delivery.MerchantEnquiryResponse;
-import grandrue.enquiry.delivery.MerchantEnquiryQueryContract;
 import mainstreet.enquiry.*;
 import mainstreet.surface.*;
 import java.util.*;

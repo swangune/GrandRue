@@ -3,6 +3,7 @@ package mainstreet.enquiry.delivery;
 import grandrue.api.*;
 import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReadPort;
 import grandrue.enquiry.delivery.MerchantEnquiryResponse;
+import grandrue.enquiry.delivery.MerchantEnquiryResponseAdapter;
 import grandrue.enquiry.delivery.MerchantEnquiryQueryContract;
 import grandrue.enquiry.delivery.MerchantEnquiryRouteScopeAuthority;
 import grandrue.enquiry.delivery.MerchantEnquiryObservationPrivileges;
