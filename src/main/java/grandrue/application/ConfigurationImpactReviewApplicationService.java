@@ -2,7 +2,7 @@ package grandrue.application;
 
 import grandrue.booking.BookingAvailabilityImpactAssessment;
 import grandrue.booking.BookingResidualObligationAuthority;
-import mainstreet.enquiry.EnquiryAvailabilityImpactAssessment;
+import grandrue.enquiry.EnquiryAvailabilityImpactAssessment;
 import grandrue.fulfilment.FulfilmentBindingSetRevision;
 import grandrue.fulfilment.FulfilmentBindingSetRevisionAuthority;
 import grandrue.fulfilment.FulfilmentRoutingImpactAssessment;

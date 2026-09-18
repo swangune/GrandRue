@@ -1,4 +1,4 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
 import mainstreet.semantic.compiler.ConfigurationCompiler;
 import mainstreet.semantic.configuration.ConfigurationImpactAssessment;
