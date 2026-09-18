@@ -1,10 +1,8 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import grandrue.merchantprofile.PostalAddressEvidence;
+import grandrue.merchantprofile.MerchantServiceAreaExposure;
 
-import grandrue.merchantprofile.MerchantLocationLifecycle;
-
-import grandrue.merchantprofile.AcceptedLocationCoordinates;
+import grandrue.merchantprofile.MerchantServiceAreaLifecycle;
 
 import grandrue.application.MerchantScope;
 
@@ -12,36 +10,36 @@ import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 
-/** One immutable exact revision of one merchant-scoped Location identity. */
-public record MerchantLocationRevision(
+/** One immutable exact revision of one Merchant Service Area identity. */
+public record MerchantServiceAreaRevision(
         String revisionIdentity,
         MerchantScope merchantScope,
-        String locationIdentity,
+        String serviceAreaIdentity,
         long revisionNumber,
         Optional<String> predecessorRevisionIdentity,
-        MerchantLocationLifecycle lifecycle,
-        Optional<String> publicLabel,
-        PostalAddressEvidence addressEvidence,
-        Optional<AcceptedLocationCoordinates> acceptedCoordinates,
+        MerchantServiceAreaLifecycle lifecycle,
+        ServiceAreaGeographyV1 geography,
+        String publicDescription,
+        MerchantServiceAreaExposure exposure,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         String controllerRelationshipIdentity,
         Instant committedAt
 ) {
-    public MerchantLocationRevision {
+    public MerchantServiceAreaRevision {
         CreateMerchantLocationCommand.require(
                 revisionIdentity,
                 "revisionIdentity"
         );
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                locationIdentity,
-                "locationIdentity"
+                serviceAreaIdentity,
+                "serviceAreaIdentity"
         );
         if (revisionNumber < 1) {
             throw new IllegalArgumentException(
-                    "Merchant Location revision number must be positive"
+                    "Service Area revision number must be positive"
             );
         }
         Objects.requireNonNull(
@@ -50,16 +48,16 @@ public record MerchantLocationRevision(
         );
         if ((revisionNumber == 1) != predecessorRevisionIdentity.isEmpty()) {
             throw new IllegalArgumentException(
-                    "Merchant Location predecessor does not match revision number"
+                    "Service Area predecessor does not match revision number"
             );
         }
         Objects.requireNonNull(lifecycle, "lifecycle");
-        publicLabel = CreateMerchantLocationCommand.requireOptional(
-                publicLabel,
-                "publicLabel"
+        Objects.requireNonNull(geography, "geography");
+        publicDescription = ServiceAreaGeographyV1.normalizeText(
+                publicDescription,
+                "publicDescription"
         );
-        Objects.requireNonNull(addressEvidence, "addressEvidence");
-        Objects.requireNonNull(acceptedCoordinates, "acceptedCoordinates");
+        Objects.requireNonNull(exposure, "exposure");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

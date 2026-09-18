@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 import grandrue.merchantprofile.MerchantContactPointExposure;
 import grandrue.merchantprofile.MerchantContactPointKind;

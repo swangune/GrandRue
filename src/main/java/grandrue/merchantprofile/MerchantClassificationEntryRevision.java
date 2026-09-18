@@ -1,8 +1,6 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import grandrue.merchantprofile.MerchantServiceAreaExposure;
-
-import grandrue.merchantprofile.MerchantServiceAreaLifecycle;
+import grandrue.merchantprofile.MerchantClassificationLifecycle;
 
 import grandrue.application.MerchantScope;
 
@@ -10,36 +8,34 @@ import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 
-/** One immutable exact revision of one Merchant Service Area identity. */
-public record MerchantServiceAreaRevision(
+/** One immutable exact revision of one Merchant Classification Entry identity. */
+public record MerchantClassificationEntryRevision(
         String revisionIdentity,
         MerchantScope merchantScope,
-        String serviceAreaIdentity,
+        String classificationIdentity,
         long revisionNumber,
         Optional<String> predecessorRevisionIdentity,
-        MerchantServiceAreaLifecycle lifecycle,
-        ServiceAreaGeographyV1 geography,
-        String publicDescription,
-        MerchantServiceAreaExposure exposure,
+        MerchantClassificationLifecycle lifecycle,
+        MerchantClassificationEntryV1 entry,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         String controllerRelationshipIdentity,
         Instant committedAt
 ) {
-    public MerchantServiceAreaRevision {
+    public MerchantClassificationEntryRevision {
         CreateMerchantLocationCommand.require(
                 revisionIdentity,
                 "revisionIdentity"
         );
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                serviceAreaIdentity,
-                "serviceAreaIdentity"
+                classificationIdentity,
+                "classificationIdentity"
         );
         if (revisionNumber < 1) {
             throw new IllegalArgumentException(
-                    "Service Area revision number must be positive"
+                    "Classification Entry revision number must be positive"
             );
         }
         Objects.requireNonNull(
@@ -48,16 +44,11 @@ public record MerchantServiceAreaRevision(
         );
         if ((revisionNumber == 1) != predecessorRevisionIdentity.isEmpty()) {
             throw new IllegalArgumentException(
-                    "Service Area predecessor does not match revision number"
+                    "Classification Entry predecessor does not match revision number"
             );
         }
         Objects.requireNonNull(lifecycle, "lifecycle");
-        Objects.requireNonNull(geography, "geography");
-        publicDescription = ServiceAreaGeographyV1.normalizeText(
-                publicDescription,
-                "publicDescription"
-        );
-        Objects.requireNonNull(exposure, "exposure");
+        Objects.requireNonNull(entry, "entry");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

@@ -1,38 +1,28 @@
-package mainstreet.merchantprofile;
-
-import grandrue.merchantprofile.MerchantClassificationExposure;
-
-import grandrue.application.MerchantScope;
+package grandrue.merchantprofile;
 
 import java.time.Instant;
 import java.util.Objects;
 
-/** Exact update intent; kind is deliberately absent because it is immutable. */
-public record UpdateMerchantClassificationEntryCommand(
-        MerchantScope merchantScope,
-        String classificationIdentity,
+/** Exact retirement intent for one current active contact-point revision. */
+public record RetireMerchantContactPointCommand(
+        MerchantContactPointScope scope,
+        String contactPointIdentity,
         String expectedCurrentRevisionIdentity,
-        String merchantApprovedLabel,
-        MerchantClassificationExposure exposure,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public UpdateMerchantClassificationEntryCommand {
-        Objects.requireNonNull(merchantScope, "merchantScope");
+    public RetireMerchantContactPointCommand {
+        Objects.requireNonNull(scope, "scope");
         CreateMerchantLocationCommand.require(
-                classificationIdentity,
-                "classificationIdentity"
+                contactPointIdentity,
+                "contactPointIdentity"
         );
         CreateMerchantLocationCommand.require(
                 expectedCurrentRevisionIdentity,
                 "expectedCurrentRevisionIdentity"
         );
-        merchantApprovedLabel = MerchantClassificationEntryV1.normalizeLabel(
-                merchantApprovedLabel
-        );
-        Objects.requireNonNull(exposure, "exposure");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

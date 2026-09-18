@@ -1,44 +1,30 @@
-package mainstreet.merchantprofile;
-
-import grandrue.merchantprofile.PostalAddressInput;
-
-import grandrue.merchantprofile.AcceptedLocationCoordinates;
+package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 
 import java.time.Instant;
 import java.util.Objects;
-import java.util.Optional;
 
-/** Same-place correction intent for an existing active Location identity. */
-public record CorrectMerchantLocationCommand(
+/** Exact retirement intent for one current active Service Area revision. */
+public record RetireMerchantServiceAreaCommand(
         MerchantScope merchantScope,
-        String locationIdentity,
+        String serviceAreaIdentity,
         String expectedCurrentRevisionIdentity,
-        Optional<String> publicLabel,
-        PostalAddressInput postalAddress,
-        Optional<AcceptedLocationCoordinates> acceptedCoordinates,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public CorrectMerchantLocationCommand {
+    public RetireMerchantServiceAreaCommand {
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                locationIdentity,
-                "locationIdentity"
+                serviceAreaIdentity,
+                "serviceAreaIdentity"
         );
         CreateMerchantLocationCommand.require(
                 expectedCurrentRevisionIdentity,
                 "expectedCurrentRevisionIdentity"
         );
-        publicLabel = CreateMerchantLocationCommand.requireOptional(
-                publicLabel,
-                "publicLabel"
-        );
-        Objects.requireNonNull(postalAddress, "postalAddress");
-        Objects.requireNonNull(acceptedCoordinates, "acceptedCoordinates");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"
@@ -52,10 +38,5 @@ public record CorrectMerchantLocationCommand(
                 "actingPrincipalIdentity"
         );
         Objects.requireNonNull(committedAt, "committedAt");
-        CreateMerchantLocationCommand.validateCoordinates(
-                acceptedCoordinates,
-                actingPrincipalIdentity,
-                committedAt
-        );
     }
 }

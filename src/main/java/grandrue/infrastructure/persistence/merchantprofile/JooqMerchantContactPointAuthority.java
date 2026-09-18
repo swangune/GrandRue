@@ -1,18 +1,18 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.merchantprofile.CreateMerchantContactPointCommand;
+import grandrue.merchantprofile.CreateMerchantContactPointCommand;
 import grandrue.merchantprofile.MerchantContactPointAuthority;
 import grandrue.merchantprofile.MerchantContactPointExposure;
 import grandrue.merchantprofile.MerchantContactPointKind;
 import grandrue.merchantprofile.MerchantContactPointLifecycle;
-import mainstreet.merchantprofile.MerchantContactPointRevision;
-import mainstreet.merchantprofile.MerchantContactPointScope;
+import grandrue.merchantprofile.MerchantContactPointRevision;
+import grandrue.merchantprofile.MerchantContactPointScope;
 import grandrue.merchantprofile.MerchantContactPointScopeKind;
 import grandrue.merchantprofile.MerchantProfileFailureCategory;
 import grandrue.merchantprofile.MerchantProfileMutationException;
-import mainstreet.merchantprofile.RetireMerchantContactPointCommand;
-import mainstreet.merchantprofile.UpdateMerchantContactPointCommand;
+import grandrue.merchantprofile.RetireMerchantContactPointCommand;
+import grandrue.merchantprofile.UpdateMerchantContactPointCommand;
 import grandrue.runtime.TrustedExecutionContext;
 import org.jooq.DSLContext;
 import org.jooq.Record;

@@ -1,16 +1,16 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.merchantprofile.CreateMerchantClassificationEntryCommand;
+import grandrue.merchantprofile.CreateMerchantClassificationEntryCommand;
 import grandrue.merchantprofile.MerchantClassificationEntryAuthority;
-import mainstreet.merchantprofile.MerchantClassificationEntryRevision;
-import mainstreet.merchantprofile.MerchantClassificationEntryV1;
+import grandrue.merchantprofile.MerchantClassificationEntryRevision;
+import grandrue.merchantprofile.MerchantClassificationEntryV1;
 import grandrue.merchantprofile.MerchantClassificationExposure;
 import grandrue.merchantprofile.MerchantClassificationLifecycle;
 import grandrue.merchantprofile.MerchantProfileFailureCategory;
 import grandrue.merchantprofile.MerchantProfileMutationException;
-import mainstreet.merchantprofile.RetireMerchantClassificationEntryCommand;
-import mainstreet.merchantprofile.UpdateMerchantClassificationEntryCommand;
+import grandrue.merchantprofile.RetireMerchantClassificationEntryCommand;
+import grandrue.merchantprofile.UpdateMerchantClassificationEntryCommand;
 import grandrue.runtime.TrustedExecutionContext;
 import org.jooq.DSLContext;
 import org.jooq.Record;

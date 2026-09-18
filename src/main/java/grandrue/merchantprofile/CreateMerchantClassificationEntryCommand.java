@@ -1,33 +1,27 @@
-package mainstreet.merchantprofile;
-
-import grandrue.merchantprofile.MerchantExternalPresenceExposure;
+package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 
 import java.time.Instant;
 import java.util.Objects;
 
-/** Exact intent for creating one independently identified external-presence link. */
-public record CreateMerchantExternalPresenceLinkCommand(
+/** Exact merchant-approved intent to create one independent classification fact. */
+public record CreateMerchantClassificationEntryCommand(
         MerchantScope merchantScope,
-        String presenceIdentity,
-        String platformKind,
-        String publicUrl,
-        MerchantExternalPresenceExposure exposure,
+        String classificationIdentity,
+        MerchantClassificationEntryV1 entry,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public CreateMerchantExternalPresenceLinkCommand {
+    public CreateMerchantClassificationEntryCommand {
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                presenceIdentity,
-                "presenceIdentity"
+                classificationIdentity,
+                "classificationIdentity"
         );
-        CreateMerchantLocationCommand.require(platformKind, "platformKind");
-        CreateMerchantLocationCommand.require(publicUrl, "publicUrl");
-        Objects.requireNonNull(exposure, "exposure");
+        Objects.requireNonNull(entry, "entry");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

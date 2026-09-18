@@ -1,25 +1,25 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 
 import java.time.Instant;
 import java.util.Objects;
 
-/** Exact retirement intent for one current active Service Area revision. */
-public record RetireMerchantServiceAreaCommand(
+/** Exact retirement intent for one current active classification identity. */
+public record RetireMerchantClassificationEntryCommand(
         MerchantScope merchantScope,
-        String serviceAreaIdentity,
+        String classificationIdentity,
         String expectedCurrentRevisionIdentity,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public RetireMerchantServiceAreaCommand {
+    public RetireMerchantClassificationEntryCommand {
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                serviceAreaIdentity,
-                "serviceAreaIdentity"
+                classificationIdentity,
+                "classificationIdentity"
         );
         CreateMerchantLocationCommand.require(
                 expectedCurrentRevisionIdentity,

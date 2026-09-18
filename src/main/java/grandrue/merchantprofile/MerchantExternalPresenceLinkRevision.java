@@ -1,6 +1,8 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import grandrue.merchantprofile.MerchantClassificationLifecycle;
+import grandrue.merchantprofile.MerchantExternalPresenceExposure;
+
+import grandrue.merchantprofile.MerchantExternalPresenceLifecycle;
 
 import grandrue.application.MerchantScope;
 
@@ -8,34 +10,36 @@ import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 
-/** One immutable exact revision of one Merchant Classification Entry identity. */
-public record MerchantClassificationEntryRevision(
+/** One immutable exact revision of one Merchant External Presence identity. */
+public record MerchantExternalPresenceLinkRevision(
         String revisionIdentity,
         MerchantScope merchantScope,
-        String classificationIdentity,
+        String presenceIdentity,
         long revisionNumber,
         Optional<String> predecessorRevisionIdentity,
-        MerchantClassificationLifecycle lifecycle,
-        MerchantClassificationEntryV1 entry,
+        MerchantExternalPresenceLifecycle lifecycle,
+        String platformKind,
+        String publicUrl,
+        MerchantExternalPresenceExposure exposure,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         String controllerRelationshipIdentity,
         Instant committedAt
 ) {
-    public MerchantClassificationEntryRevision {
+    public MerchantExternalPresenceLinkRevision {
         CreateMerchantLocationCommand.require(
                 revisionIdentity,
                 "revisionIdentity"
         );
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                classificationIdentity,
-                "classificationIdentity"
+                presenceIdentity,
+                "presenceIdentity"
         );
         if (revisionNumber < 1) {
             throw new IllegalArgumentException(
-                    "Classification Entry revision number must be positive"
+                    "External Presence revision number must be positive"
             );
         }
         Objects.requireNonNull(
@@ -44,11 +48,13 @@ public record MerchantClassificationEntryRevision(
         );
         if ((revisionNumber == 1) != predecessorRevisionIdentity.isEmpty()) {
             throw new IllegalArgumentException(
-                    "Classification Entry predecessor does not match revision number"
+                    "External Presence predecessor does not match revision number"
             );
         }
         Objects.requireNonNull(lifecycle, "lifecycle");
-        Objects.requireNonNull(entry, "entry");
+        CreateMerchantLocationCommand.require(platformKind, "platformKind");
+        CreateMerchantLocationCommand.require(publicUrl, "publicUrl");
+        Objects.requireNonNull(exposure, "exposure");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

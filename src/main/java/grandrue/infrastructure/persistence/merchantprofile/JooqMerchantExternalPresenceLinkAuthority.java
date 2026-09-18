@@ -1,15 +1,15 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.merchantprofile.CreateMerchantExternalPresenceLinkCommand;
+import grandrue.merchantprofile.CreateMerchantExternalPresenceLinkCommand;
 import grandrue.merchantprofile.MerchantExternalPresenceExposure;
 import grandrue.merchantprofile.MerchantExternalPresenceLifecycle;
 import grandrue.merchantprofile.MerchantExternalPresenceLinkAuthority;
-import mainstreet.merchantprofile.MerchantExternalPresenceLinkRevision;
+import grandrue.merchantprofile.MerchantExternalPresenceLinkRevision;
 import grandrue.merchantprofile.MerchantProfileFailureCategory;
 import grandrue.merchantprofile.MerchantProfileMutationException;
-import mainstreet.merchantprofile.RetireMerchantExternalPresenceLinkCommand;
-import mainstreet.merchantprofile.UpdateMerchantExternalPresenceLinkCommand;
+import grandrue.merchantprofile.RetireMerchantExternalPresenceLinkCommand;
+import grandrue.merchantprofile.UpdateMerchantExternalPresenceLinkCommand;
 import grandrue.runtime.TrustedExecutionContext;
 import org.jooq.DSLContext;
 import org.jooq.Record;

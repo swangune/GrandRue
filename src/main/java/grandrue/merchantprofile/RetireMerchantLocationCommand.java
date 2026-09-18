@@ -1,25 +1,25 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 
 import java.time.Instant;
 import java.util.Objects;
 
-/** Exact retirement intent for one current active external-presence revision. */
-public record RetireMerchantExternalPresenceLinkCommand(
+/** Exact terminal-retirement intent for one active Merchant Location. */
+public record RetireMerchantLocationCommand(
         MerchantScope merchantScope,
-        String presenceIdentity,
+        String locationIdentity,
         String expectedCurrentRevisionIdentity,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public RetireMerchantExternalPresenceLinkCommand {
+    public RetireMerchantLocationCommand {
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                presenceIdentity,
-                "presenceIdentity"
+                locationIdentity,
+                "locationIdentity"
         );
         CreateMerchantLocationCommand.require(
                 expectedCurrentRevisionIdentity,

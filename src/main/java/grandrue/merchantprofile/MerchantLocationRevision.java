@@ -1,8 +1,10 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import grandrue.merchantprofile.MerchantExternalPresenceExposure;
+import grandrue.merchantprofile.PostalAddressEvidence;
 
-import grandrue.merchantprofile.MerchantExternalPresenceLifecycle;
+import grandrue.merchantprofile.MerchantLocationLifecycle;
+
+import grandrue.merchantprofile.AcceptedLocationCoordinates;
 
 import grandrue.application.MerchantScope;
 
@@ -10,36 +12,36 @@ import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 
-/** One immutable exact revision of one Merchant External Presence identity. */
-public record MerchantExternalPresenceLinkRevision(
+/** One immutable exact revision of one merchant-scoped Location identity. */
+public record MerchantLocationRevision(
         String revisionIdentity,
         MerchantScope merchantScope,
-        String presenceIdentity,
+        String locationIdentity,
         long revisionNumber,
         Optional<String> predecessorRevisionIdentity,
-        MerchantExternalPresenceLifecycle lifecycle,
-        String platformKind,
-        String publicUrl,
-        MerchantExternalPresenceExposure exposure,
+        MerchantLocationLifecycle lifecycle,
+        Optional<String> publicLabel,
+        PostalAddressEvidence addressEvidence,
+        Optional<AcceptedLocationCoordinates> acceptedCoordinates,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         String controllerRelationshipIdentity,
         Instant committedAt
 ) {
-    public MerchantExternalPresenceLinkRevision {
+    public MerchantLocationRevision {
         CreateMerchantLocationCommand.require(
                 revisionIdentity,
                 "revisionIdentity"
         );
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                presenceIdentity,
-                "presenceIdentity"
+                locationIdentity,
+                "locationIdentity"
         );
         if (revisionNumber < 1) {
             throw new IllegalArgumentException(
-                    "External Presence revision number must be positive"
+                    "Merchant Location revision number must be positive"
             );
         }
         Objects.requireNonNull(
@@ -48,13 +50,16 @@ public record MerchantExternalPresenceLinkRevision(
         );
         if ((revisionNumber == 1) != predecessorRevisionIdentity.isEmpty()) {
             throw new IllegalArgumentException(
-                    "External Presence predecessor does not match revision number"
+                    "Merchant Location predecessor does not match revision number"
             );
         }
         Objects.requireNonNull(lifecycle, "lifecycle");
-        CreateMerchantLocationCommand.require(platformKind, "platformKind");
-        CreateMerchantLocationCommand.require(publicUrl, "publicUrl");
-        Objects.requireNonNull(exposure, "exposure");
+        publicLabel = CreateMerchantLocationCommand.requireOptional(
+                publicLabel,
+                "publicLabel"
+        );
+        Objects.requireNonNull(addressEvidence, "addressEvidence");
+        Objects.requireNonNull(acceptedCoordinates, "acceptedCoordinates");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

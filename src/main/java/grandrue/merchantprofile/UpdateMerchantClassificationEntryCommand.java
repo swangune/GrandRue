@@ -1,40 +1,38 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import grandrue.merchantprofile.MerchantContactPointExposure;
-import grandrue.merchantprofile.MerchantContactPointKind;
+import grandrue.merchantprofile.MerchantClassificationExposure;
+
+import grandrue.application.MerchantScope;
 
 import java.time.Instant;
 import java.util.Objects;
-import java.util.Optional;
 
-/** Exact replacement intent for one current active contact-point revision. */
-public record UpdateMerchantContactPointCommand(
-        MerchantContactPointScope scope,
-        String contactPointIdentity,
+/** Exact update intent; kind is deliberately absent because it is immutable. */
+public record UpdateMerchantClassificationEntryCommand(
+        MerchantScope merchantScope,
+        String classificationIdentity,
         String expectedCurrentRevisionIdentity,
-        MerchantContactPointKind kind,
-        String value,
-        MerchantContactPointExposure exposure,
-        Optional<String> label,
+        String merchantApprovedLabel,
+        MerchantClassificationExposure exposure,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public UpdateMerchantContactPointCommand {
-        Objects.requireNonNull(scope, "scope");
+    public UpdateMerchantClassificationEntryCommand {
+        Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                contactPointIdentity,
-                "contactPointIdentity"
+                classificationIdentity,
+                "classificationIdentity"
         );
         CreateMerchantLocationCommand.require(
                 expectedCurrentRevisionIdentity,
                 "expectedCurrentRevisionIdentity"
         );
-        Objects.requireNonNull(kind, "kind");
-        CreateMerchantLocationCommand.require(value, "value");
+        merchantApprovedLabel = MerchantClassificationEntryV1.normalizeLabel(
+                merchantApprovedLabel
+        );
         Objects.requireNonNull(exposure, "exposure");
-        label = CreateMerchantLocationCommand.requireOptional(label, "label");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

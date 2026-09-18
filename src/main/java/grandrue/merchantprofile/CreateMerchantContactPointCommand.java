@@ -1,28 +1,35 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
+
+import grandrue.merchantprofile.MerchantContactPointExposure;
+import grandrue.merchantprofile.MerchantContactPointKind;
 
 import java.time.Instant;
 import java.util.Objects;
+import java.util.Optional;
 
-/** Exact retirement intent for one current active contact-point revision. */
-public record RetireMerchantContactPointCommand(
+/** Exact intent for creating one independently identified contact point. */
+public record CreateMerchantContactPointCommand(
         MerchantContactPointScope scope,
         String contactPointIdentity,
-        String expectedCurrentRevisionIdentity,
+        MerchantContactPointKind kind,
+        String value,
+        MerchantContactPointExposure exposure,
+        Optional<String> label,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public RetireMerchantContactPointCommand {
+    public CreateMerchantContactPointCommand {
         Objects.requireNonNull(scope, "scope");
         CreateMerchantLocationCommand.require(
                 contactPointIdentity,
                 "contactPointIdentity"
         );
-        CreateMerchantLocationCommand.require(
-                expectedCurrentRevisionIdentity,
-                "expectedCurrentRevisionIdentity"
-        );
+        Objects.requireNonNull(kind, "kind");
+        CreateMerchantLocationCommand.require(value, "value");
+        Objects.requireNonNull(exposure, "exposure");
+        label = CreateMerchantLocationCommand.requireOptional(label, "label");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

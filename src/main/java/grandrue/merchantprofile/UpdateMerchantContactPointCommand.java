@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 import grandrue.merchantprofile.MerchantContactPointExposure;
 import grandrue.merchantprofile.MerchantContactPointKind;
@@ -7,10 +7,11 @@ import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 
-/** Exact intent for creating one independently identified contact point. */
-public record CreateMerchantContactPointCommand(
+/** Exact replacement intent for one current active contact-point revision. */
+public record UpdateMerchantContactPointCommand(
         MerchantContactPointScope scope,
         String contactPointIdentity,
+        String expectedCurrentRevisionIdentity,
         MerchantContactPointKind kind,
         String value,
         MerchantContactPointExposure exposure,
@@ -20,11 +21,15 @@ public record CreateMerchantContactPointCommand(
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public CreateMerchantContactPointCommand {
+    public UpdateMerchantContactPointCommand {
         Objects.requireNonNull(scope, "scope");
         CreateMerchantLocationCommand.require(
                 contactPointIdentity,
                 "contactPointIdentity"
+        );
+        CreateMerchantLocationCommand.require(
+                expectedCurrentRevisionIdentity,
+                "expectedCurrentRevisionIdentity"
         );
         Objects.requireNonNull(kind, "kind");
         CreateMerchantLocationCommand.require(value, "value");

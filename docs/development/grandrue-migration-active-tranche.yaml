@@ -2,99 +2,192 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T005
-state: COMPLETE
-code_commit: 235cbebc594fddaf85b82422a505b34224ae4071
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: fc8e40ff716f9e3fdc270804e2f15887c1b06c00
+tranche: GR-REN-02-T006
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 85a668639e4ccc4b7be6f8a48a7feda7496d994b
 leaf_range:
-  first: GR-REN-02-01X238
-  last: GR-REN-02-01X240
-leaf_count: 3
+  first: GR-REN-02-01X241
+  last: GR-REN-02-01X241
+leaf_count: 1
 
 leaves:
-  - id: GR-REN-02-01X238
+  - id: GR-REN-02-01X241
+    unit_kind: INSEPARABLE_PACKAGE_CLOSURE
     owner:
-      from: src/main/java/mainstreet/merchantprofile/MerchantPublicDescriptor.java
-      to: src/main/java/grandrue/merchantprofile/MerchantPublicDescriptor.java
-      blob_sha: 70c885e79e3bce1583982c2741155a204a1beba9
+      from: src/main/java/mainstreet/merchantprofile/CreateMerchantLocationCommand.java
+      to: src/main/java/grandrue/merchantprofile/CreateMerchantLocationCommand.java
+      blob_sha: a57c240482ce96bbcdbd1415400816f82ea0d030
+    dependency_owned_members:
+      - from: src/main/java/mainstreet/merchantprofile/CorrectMerchantLocationCommand.java
+        to: src/main/java/grandrue/merchantprofile/CorrectMerchantLocationCommand.java
+        blob_sha: ec76a6fca3be9aab1f735885fd57771debf4ce27
+      - from: src/main/java/mainstreet/merchantprofile/CountryWideGeographyV1.java
+        to: src/main/java/grandrue/merchantprofile/CountryWideGeographyV1.java
+        blob_sha: 95f67c679481f351f19390be12dbffe845afaf42
+      - from: src/main/java/mainstreet/merchantprofile/CreateMerchantClassificationEntryCommand.java
+        to: src/main/java/grandrue/merchantprofile/CreateMerchantClassificationEntryCommand.java
+        blob_sha: fbae8a1c254d898fa4674b1751ecfcdcf61b8b62
+      - from: src/main/java/mainstreet/merchantprofile/CreateMerchantContactPointCommand.java
+        to: src/main/java/grandrue/merchantprofile/CreateMerchantContactPointCommand.java
+        blob_sha: e776fdf9fcf473bceeea892c4dfef88221ea3da8
+      - from: src/main/java/mainstreet/merchantprofile/CreateMerchantExternalPresenceLinkCommand.java
+        to: src/main/java/grandrue/merchantprofile/CreateMerchantExternalPresenceLinkCommand.java
+        blob_sha: 4f52b5d6c29e147f96e18f994ba555b7dd38a421
+      - from: src/main/java/mainstreet/merchantprofile/CreateMerchantServiceAreaCommand.java
+        to: src/main/java/grandrue/merchantprofile/CreateMerchantServiceAreaCommand.java
+        blob_sha: 53ad03bb23dbf2a3a749df39b17487832970f6a2
+      - from: src/main/java/mainstreet/merchantprofile/MerchantClassificationEntryRevision.java
+        to: src/main/java/grandrue/merchantprofile/MerchantClassificationEntryRevision.java
+        blob_sha: 8186fb6375b779b065c97e0842bb28e771916cd0
+      - from: src/main/java/mainstreet/merchantprofile/MerchantClassificationEntryV1.java
+        to: src/main/java/grandrue/merchantprofile/MerchantClassificationEntryV1.java
+        blob_sha: 4588f9b117da76e243f6bfaa0720f8999589666b
+      - from: src/main/java/mainstreet/merchantprofile/MerchantContactPointRevision.java
+        to: src/main/java/grandrue/merchantprofile/MerchantContactPointRevision.java
+        blob_sha: e89e92d7afc811ef4923f468d8948aeb5485545a
+      - from: src/main/java/mainstreet/merchantprofile/MerchantContactPointScope.java
+        to: src/main/java/grandrue/merchantprofile/MerchantContactPointScope.java
+        blob_sha: f295a99e56899f8d0a8c135ade4613d895ea3161
+      - from: src/main/java/mainstreet/merchantprofile/MerchantExternalPresenceLinkRevision.java
+        to: src/main/java/grandrue/merchantprofile/MerchantExternalPresenceLinkRevision.java
+        blob_sha: dd7b7653ab505c0ed00a4a13c373a44101f34cfd
+      - from: src/main/java/mainstreet/merchantprofile/MerchantLocationRadiusGeographyV1.java
+        to: src/main/java/grandrue/merchantprofile/MerchantLocationRadiusGeographyV1.java
+        blob_sha: 203898113098913f53c656bbebe664795d0d479c
+      - from: src/main/java/mainstreet/merchantprofile/MerchantLocationRevision.java
+        to: src/main/java/grandrue/merchantprofile/MerchantLocationRevision.java
+        blob_sha: 3fae566f741421cf0fa56ab4f7fe1bed94e10273
+      - from: src/main/java/mainstreet/merchantprofile/MerchantServiceAreaRevision.java
+        to: src/main/java/grandrue/merchantprofile/MerchantServiceAreaRevision.java
+        blob_sha: 37c2e9f74b9ba21641456bb8723984beab69b9f3
+      - from: src/main/java/mainstreet/merchantprofile/NamedAreaGeographyV1.java
+        to: src/main/java/grandrue/merchantprofile/NamedAreaGeographyV1.java
+        blob_sha: 53cd89a793e815d3589c538f0a39cc96c8da4012
+      - from: src/main/java/mainstreet/merchantprofile/RemoteCountriesGeographyV1.java
+        to: src/main/java/grandrue/merchantprofile/RemoteCountriesGeographyV1.java
+        blob_sha: dded469b17467af48ddcbdfe56c941daac405d74
+      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantClassificationEntryCommand.java
+        to: src/main/java/grandrue/merchantprofile/RetireMerchantClassificationEntryCommand.java
+        blob_sha: 0ade1faceba68e21d29c8b833f76cea0b423adf9
+      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantContactPointCommand.java
+        to: src/main/java/grandrue/merchantprofile/RetireMerchantContactPointCommand.java
+        blob_sha: c30fe1a4245d46c03b93ad1fe815ea56dc52cbab
+      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantExternalPresenceLinkCommand.java
+        to: src/main/java/grandrue/merchantprofile/RetireMerchantExternalPresenceLinkCommand.java
+        blob_sha: 151f9ad1395daa65a9da66c1e957d34971908727
+      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantLocationCommand.java
+        to: src/main/java/grandrue/merchantprofile/RetireMerchantLocationCommand.java
+        blob_sha: bd71a6018322909ece9d07dba7e1fe7d88068580
+      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantServiceAreaCommand.java
+        to: src/main/java/grandrue/merchantprofile/RetireMerchantServiceAreaCommand.java
+        blob_sha: 6e7d4e3a1a1b6b406b6eb81d8b005929d956b0ce
+      - from: src/main/java/mainstreet/merchantprofile/ServiceAreaGeographyV1.java
+        to: src/main/java/grandrue/merchantprofile/ServiceAreaGeographyV1.java
+        blob_sha: cd45b7cef07c1d65f66636463f3dfebfb7588084
+      - from: src/main/java/mainstreet/merchantprofile/UpdateMerchantClassificationEntryCommand.java
+        to: src/main/java/grandrue/merchantprofile/UpdateMerchantClassificationEntryCommand.java
+        blob_sha: 8227feb3fd3795b8425ae1635c2630543c18b572
+      - from: src/main/java/mainstreet/merchantprofile/UpdateMerchantContactPointCommand.java
+        to: src/main/java/grandrue/merchantprofile/UpdateMerchantContactPointCommand.java
+        blob_sha: cbd9de4f4145bd9907d8202b2bfc1595fc319f00
+      - from: src/main/java/mainstreet/merchantprofile/UpdateMerchantExternalPresenceLinkCommand.java
+        to: src/main/java/grandrue/merchantprofile/UpdateMerchantExternalPresenceLinkCommand.java
+        blob_sha: 17138f2f42e708f8d42e67cff6a9051f469cf333
+      - from: src/main/java/mainstreet/merchantprofile/UpdateMerchantServiceAreaCommand.java
+        to: src/main/java/grandrue/merchantprofile/UpdateMerchantServiceAreaCommand.java
+        blob_sha: a477a0dcc9cb19de0ffc619219a8cfe144eed6ae
     production_consumers:
-      - path: src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorRevision.java
-        blob_sha: 18f4eb7c9be14007da256045c11bd422a2e28f95
-      - path: src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorMutationCommand.java
-        blob_sha: 5922c42093c3a033af7f39ac085b3b366a3b77d7
-      - path: src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantPublicDescriptorProjectionReadPort.java
-        blob_sha: 35fd29607c1c9c68f67aeab8be4b6dca7cef1bf1
-      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthority.java
-        blob_sha: e38c62a700de8f51ffef21431cf23c6c5c08ca95
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthority.java
+        blob_sha: f43740f9e3fcf2c7e6afb1c10cc276090ab349af
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthority.java
+        blob_sha: bebf3b7c8304b5183a13a0365a53fd337023ed47
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthority.java
+        blob_sha: 56f8661b4a1ae449477c4e39d5a28dc69def132f
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthority.java
+        blob_sha: e52b41b5aa72866b3f4a03d27bfc9e2401cc37b5
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthority.java
+        blob_sha: 95ac12649749422685e7b08695922d1eef9b3e48
     invariants:
-      - merchant-authored/approved descriptor semantics unchanged
-      - MS-PROT-051 identity text unchanged
-
-  - id: GR-REN-02-01X239
-    owner:
-      from: src/main/java/mainstreet/merchantprofile/MerchantLocationExposureChoiceRevision.java
-      to: src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceRevision.java
-      blob_sha: 427c82ff4caefa6aebceeefe10666a20669cfd5d
-    production_consumers:
-      - path: src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceAuthority.java
-        blob_sha: 8df7cf62e926fb1b296f3cc3174705baad30bb99
-      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthority.java
-        blob_sha: 1bdd4a21c89d9e92aaaa392a7a02bdf7195ad3bf
-      - path: src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
-        blob_sha: ae4cc8cf8cdf653a395edb325a1d0ab45e3f1aaa
-    invariants:
-      - immutable revision validation unchanged
-      - exposure choice revision numbering/predecessor semantics unchanged
-
-  - id: GR-REN-02-01X240
-    owner:
-      from: src/main/java/mainstreet/merchantprofile/SetMerchantLocationExposureChoiceCommand.java
-      to: src/main/java/grandrue/merchantprofile/SetMerchantLocationExposureChoiceCommand.java
-      blob_sha: 139c4023b294a336f08c6b141be4706e7f38d013
-    production_consumers:
-      - path: src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceAuthority.java
-        blob_sha: 8df7cf62e926fb1b296f3cc3174705baad30bb99
-      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthority.java
-        blob_sha: 1bdd4a21c89d9e92aaaa392a7a02bdf7195ad3bf
-    invariants:
-      - explicit expected-current-choice semantics unchanged
-      - mutation intent validation unchanged
+      - package-private CreateMerchantLocationCommand validation helper visibility unchanged
+      - sealed ServiceAreaGeographyV1 hierarchy unchanged
+      - merchant-profile validation, lifecycle, revision and mutation semantics unchanged
+      - no persistence/schema/runtime-data identity changes
 
 aggregate:
   permitted_changed_paths:
     - docs/development/grandrue-migration-active-tranche.yaml
-    - src/main/java/grandrue/merchantprofile/MerchantPublicDescriptor.java
-    - src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceRevision.java
-    - src/main/java/grandrue/merchantprofile/SetMerchantLocationExposureChoiceCommand.java
-    - src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorRevision.java
-    - src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorMutationCommand.java
-    - src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantPublicDescriptorProjectionReadPort.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthority.java
-    - src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceAuthority.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthority.java
-    - src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
+    - src/main/java/grandrue/merchantprofile/CorrectMerchantLocationCommand.java
+    - src/main/java/grandrue/merchantprofile/CountryWideGeographyV1.java
+    - src/main/java/grandrue/merchantprofile/CreateMerchantClassificationEntryCommand.java
+    - src/main/java/grandrue/merchantprofile/CreateMerchantContactPointCommand.java
+    - src/main/java/grandrue/merchantprofile/CreateMerchantExternalPresenceLinkCommand.java
+    - src/main/java/grandrue/merchantprofile/CreateMerchantLocationCommand.java
+    - src/main/java/grandrue/merchantprofile/CreateMerchantServiceAreaCommand.java
+    - src/main/java/grandrue/merchantprofile/MerchantClassificationEntryRevision.java
+    - src/main/java/grandrue/merchantprofile/MerchantClassificationEntryV1.java
+    - src/main/java/grandrue/merchantprofile/MerchantContactPointRevision.java
+    - src/main/java/grandrue/merchantprofile/MerchantContactPointScope.java
+    - src/main/java/grandrue/merchantprofile/MerchantExternalPresenceLinkRevision.java
+    - src/main/java/grandrue/merchantprofile/MerchantLocationRadiusGeographyV1.java
+    - src/main/java/grandrue/merchantprofile/MerchantLocationRevision.java
+    - src/main/java/grandrue/merchantprofile/MerchantServiceAreaRevision.java
+    - src/main/java/grandrue/merchantprofile/NamedAreaGeographyV1.java
+    - src/main/java/grandrue/merchantprofile/RemoteCountriesGeographyV1.java
+    - src/main/java/grandrue/merchantprofile/RetireMerchantClassificationEntryCommand.java
+    - src/main/java/grandrue/merchantprofile/RetireMerchantContactPointCommand.java
+    - src/main/java/grandrue/merchantprofile/RetireMerchantExternalPresenceLinkCommand.java
+    - src/main/java/grandrue/merchantprofile/RetireMerchantLocationCommand.java
+    - src/main/java/grandrue/merchantprofile/RetireMerchantServiceAreaCommand.java
+    - src/main/java/grandrue/merchantprofile/ServiceAreaGeographyV1.java
+    - src/main/java/grandrue/merchantprofile/UpdateMerchantClassificationEntryCommand.java
+    - src/main/java/grandrue/merchantprofile/UpdateMerchantContactPointCommand.java
+    - src/main/java/grandrue/merchantprofile/UpdateMerchantExternalPresenceLinkCommand.java
+    - src/main/java/grandrue/merchantprofile/UpdateMerchantServiceAreaCommand.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthority.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthority.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthority.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthority.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthority.java
   legacy_owner_paths_removed:
-    - src/main/java/mainstreet/merchantprofile/MerchantPublicDescriptor.java
-    - src/main/java/mainstreet/merchantprofile/MerchantLocationExposureChoiceRevision.java
-    - src/main/java/mainstreet/merchantprofile/SetMerchantLocationExposureChoiceCommand.java
+    - src/main/java/mainstreet/merchantprofile/CorrectMerchantLocationCommand.java
+    - src/main/java/mainstreet/merchantprofile/CountryWideGeographyV1.java
+    - src/main/java/mainstreet/merchantprofile/CreateMerchantClassificationEntryCommand.java
+    - src/main/java/mainstreet/merchantprofile/CreateMerchantContactPointCommand.java
+    - src/main/java/mainstreet/merchantprofile/CreateMerchantExternalPresenceLinkCommand.java
+    - src/main/java/mainstreet/merchantprofile/CreateMerchantLocationCommand.java
+    - src/main/java/mainstreet/merchantprofile/CreateMerchantServiceAreaCommand.java
+    - src/main/java/mainstreet/merchantprofile/MerchantClassificationEntryRevision.java
+    - src/main/java/mainstreet/merchantprofile/MerchantClassificationEntryV1.java
+    - src/main/java/mainstreet/merchantprofile/MerchantContactPointRevision.java
+    - src/main/java/mainstreet/merchantprofile/MerchantContactPointScope.java
+    - src/main/java/mainstreet/merchantprofile/MerchantExternalPresenceLinkRevision.java
+    - src/main/java/mainstreet/merchantprofile/MerchantLocationRadiusGeographyV1.java
+    - src/main/java/mainstreet/merchantprofile/MerchantLocationRevision.java
+    - src/main/java/mainstreet/merchantprofile/MerchantServiceAreaRevision.java
+    - src/main/java/mainstreet/merchantprofile/NamedAreaGeographyV1.java
+    - src/main/java/mainstreet/merchantprofile/RemoteCountriesGeographyV1.java
+    - src/main/java/mainstreet/merchantprofile/RetireMerchantClassificationEntryCommand.java
+    - src/main/java/mainstreet/merchantprofile/RetireMerchantContactPointCommand.java
+    - src/main/java/mainstreet/merchantprofile/RetireMerchantExternalPresenceLinkCommand.java
+    - src/main/java/mainstreet/merchantprofile/RetireMerchantLocationCommand.java
+    - src/main/java/mainstreet/merchantprofile/RetireMerchantServiceAreaCommand.java
+    - src/main/java/mainstreet/merchantprofile/ServiceAreaGeographyV1.java
+    - src/main/java/mainstreet/merchantprofile/UpdateMerchantClassificationEntryCommand.java
+    - src/main/java/mainstreet/merchantprofile/UpdateMerchantContactPointCommand.java
+    - src/main/java/mainstreet/merchantprofile/UpdateMerchantExternalPresenceLinkCommand.java
+    - src/main/java/mainstreet/merchantprofile/UpdateMerchantServiceAreaCommand.java
   protected_identity_checks:
-    - MS-PROT-051 unchanged
     - applied Flyway content unchanged
     - stable MS-* identifiers unchanged
+    - MS-PROT-051 identity text unchanged
   changed_path_set: exact
   diff_integrity: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 preparation_notes:
-  - T005 is intentionally smaller than the default target because the remaining command/revision/geography family is coupled through package-private CreateMerchantLocationCommand helpers and sealed geography constraints.
-  - No helper visibility is widened.
-
-completed:
-  last_leaf: GR-REN-02-01X240
-  completed_leaf_count_in_tranche: 3
-  aggregate_changed_path_count: 11
-  structural_verification: passed
-  next_tranche: GR-REN-02-T006
+  - T006 contains one logical leaf because package-private CreateMerchantLocationCommand helpers couple the command/revision family across ordinary file boundaries.
+  - ServiceAreaGeographyV1 and all permitted implementations move in the same closure; no sealed-hierarchy or helper visibility widening is introduced.
+  - The leaf remains the smallest dependency-complete unit even though it owns multiple source files.
+  - Legacy prototype owners remain excluded and no prototype path is changed.

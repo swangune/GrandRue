@@ -1,30 +1,33 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
+
+import grandrue.merchantprofile.MerchantExternalPresenceExposure;
 
 import grandrue.application.MerchantScope;
 
 import java.time.Instant;
 import java.util.Objects;
 
-/** Exact terminal-retirement intent for one active Merchant Location. */
-public record RetireMerchantLocationCommand(
+/** Exact intent for creating one independently identified external-presence link. */
+public record CreateMerchantExternalPresenceLinkCommand(
         MerchantScope merchantScope,
-        String locationIdentity,
-        String expectedCurrentRevisionIdentity,
+        String presenceIdentity,
+        String platformKind,
+        String publicUrl,
+        MerchantExternalPresenceExposure exposure,
         String logicalRequestIdentity,
         String provenanceReference,
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public RetireMerchantLocationCommand {
+    public CreateMerchantExternalPresenceLinkCommand {
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
-                locationIdentity,
-                "locationIdentity"
+                presenceIdentity,
+                "presenceIdentity"
         );
-        CreateMerchantLocationCommand.require(
-                expectedCurrentRevisionIdentity,
-                "expectedCurrentRevisionIdentity"
-        );
+        CreateMerchantLocationCommand.require(platformKind, "platformKind");
+        CreateMerchantLocationCommand.require(publicUrl, "publicUrl");
+        Objects.requireNonNull(exposure, "exposure");
         CreateMerchantLocationCommand.require(
                 logicalRequestIdentity,
                 "logicalRequestIdentity"

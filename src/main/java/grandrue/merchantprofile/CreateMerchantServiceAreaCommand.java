@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 import grandrue.merchantprofile.MerchantServiceAreaExposure;
 
@@ -7,11 +7,10 @@ import grandrue.application.MerchantScope;
 import java.time.Instant;
 import java.util.Objects;
 
-/** Exact replacement intent for one current active Service Area revision. */
-public record UpdateMerchantServiceAreaCommand(
+/** Exact intent for creating one independently identified Service Area. */
+public record CreateMerchantServiceAreaCommand(
         MerchantScope merchantScope,
         String serviceAreaIdentity,
-        String expectedCurrentRevisionIdentity,
         ServiceAreaGeographyV1 geography,
         String publicDescription,
         MerchantServiceAreaExposure exposure,
@@ -20,15 +19,11 @@ public record UpdateMerchantServiceAreaCommand(
         String actingPrincipalIdentity,
         Instant committedAt
 ) {
-    public UpdateMerchantServiceAreaCommand {
+    public CreateMerchantServiceAreaCommand {
         Objects.requireNonNull(merchantScope, "merchantScope");
         CreateMerchantLocationCommand.require(
                 serviceAreaIdentity,
                 "serviceAreaIdentity"
-        );
-        CreateMerchantLocationCommand.require(
-                expectedCurrentRevisionIdentity,
-                "expectedCurrentRevisionIdentity"
         );
         Objects.requireNonNull(geography, "geography");
         publicDescription = ServiceAreaGeographyV1.normalizeText(
