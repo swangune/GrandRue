@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantContactPointLifecycle;
+
 import grandrue.application.MerchantScope;
 
 import java.util.Objects;

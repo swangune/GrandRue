@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 /** Lifecycle of one independently identified Merchant Contact Point. */
 public enum MerchantContactPointLifecycle {

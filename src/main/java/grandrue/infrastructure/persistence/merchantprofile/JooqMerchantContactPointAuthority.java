@@ -5,7 +5,7 @@ import mainstreet.merchantprofile.CreateMerchantContactPointCommand;
 import mainstreet.merchantprofile.MerchantContactPointAuthority;
 import mainstreet.merchantprofile.MerchantContactPointExposure;
 import mainstreet.merchantprofile.MerchantContactPointKind;
-import mainstreet.merchantprofile.MerchantContactPointLifecycle;
+import grandrue.merchantprofile.MerchantContactPointLifecycle;
 import mainstreet.merchantprofile.MerchantContactPointRevision;
 import mainstreet.merchantprofile.MerchantContactPointScope;
 import grandrue.merchantprofile.MerchantContactPointScopeKind;
