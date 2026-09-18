@@ -361,6 +361,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X97`: `MerchantCommercialAgreementTransition.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The two bounded production consumers `grandrue.commercial.MerchantCommercialAgreementStore` and `grandrue.infrastructure.persistence.commercial.JooqMerchantCommercialAgreementStore` received the corresponding GrandRue import replacements; current tests remain deferred to `GR-REN-03`. The prepared parent was `3f8fe63150554d0748577d2fcc542376cd185ea3`; owner input blob was `532fe6bb65bb167add0bdbdd8f344be8c1e09d5c`; consumer input blobs were `fe5ebd835cacd86b3974568cb3f84bf7e5d1680f` and `be1ffceb7184f5a7cd3337fac8b360443b36b6b8`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `MerchantCommercialAgreement` and `StandardPlanLevel`, which remain in the legacy Commercial package. Existing logical-request identity, expected-current agreement identity validation and paid-plan transition semantics were unchanged. Code commit `028463d7f3b43e530f8eef4cb3494064c5a6bd04` contains exactly one owner rename/package replacement, two transitional imports and two production consumer import replacements.
 
+- `GR-REN-02-01X98`: `StandingFreeBaselineStore.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The three bounded production consumers `grandrue.infrastructure.persistence.commercial.JooqStandingFreeBaselineStore`, `grandrue.commercial.StandingFreeBaselineGrantAuthority` and `grandrue.application.StandingFreeFromMerchantAccountEstablishedHandler` received the corresponding GrandRue import replacements; current tests remain deferred to `GR-REN-03`. The prepared parent was `37810d4c3b3b26de455512c7f09a3bd719595796`; owner input blob was `e3a1a8ab7d07cfb44ebe7fb20133a0bf8a4d2c24`; consumer input blobs were `ae007e3d472acb7cd05b0a4f92018955992f4c86`, `fe502db112b59b254284dadff6c00414e880e189` and `01b2fad77120fec5d5283809c4349d09afe46`; the GrandRue owner destination was absent at preflight. An explicit transitional import was added for `StandingFreeBaseline`, which remains in the legacy Commercial package. Existing one-baseline-per-Merchant-Account persistence boundary and baseline lookup semantics were unchanged. Code commit `638fea1d8f098ba61db53e8bb2288281a5285826` contains exactly one owner rename/package replacement, one transitional import and three production consumer import replacements.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -392,9 +394,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X97
-last_completed_task: GR-REN-02-01X97
-last_task_commit: 028463d7f3b43e530f8eef4cb3494064c5a6bd04
+selected_execution_leaf: GR-REN-02-01X98
+last_completed_task: GR-REN-02-01X98
+last_task_commit: 638fea1d8f098ba61db53e8bb2288281a5285826
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -480,8 +482,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X97
-last_prepared_execution_commit: 028463d7f3b43e530f8eef4cb3494064c5a6bd04
+last_prepared_execution_leaf: GR-REN-02-01X98
+last_prepared_execution_commit: 638fea1d8f098ba61db53e8bb2288281a5285826
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
