@@ -651,6 +651,25 @@ State: `OPEN`
 
 - `GR-REN-02-01X229`: `AuthorityBackedMerchantPublicDescriptorProjectionReadPort.java` moved to `grandrue.merchantprofile`. Input blob `966e4ae9108ee1a9223f0b86bc08073d09745ded`; new blob `35fd29607c1c9c68f67aeab8be4b6dca7cef1bf1`. BR3 authoritative observation semantics unchanged, no visibility was widened, and `MerchantPublicDescriptor` remains a transitional legacy dependency. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
 
+
+- `GR-REN-02-T004`: transactional tranche completed from parent `cba0609c584b30b7b7adfecf88a3397d6d2cc8aa` in code commit `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`. The code commit contains the `CODE_COMMITTED` manifest plus exactly eight owner moves and no external production-consumer repairs; aggregate comparison contains exactly the 9 manifest-declared paths. Structural verification confirmed every new owner, every old-owner absence, preservation of package-private BR4 boundaries, exact Profile material-affinity identifiers, and the two required transitional revision imports. No Maven tests or GitHub Actions were run.
+
+- `GR-REN-02-01X230`: `ProfileMaterialAffinityEntry.java` moved to `grandrue.merchantprofile` with every package-private production consumer co-moved in the same tranche. Input blob `0d8b8ed2e4cfda12ab4623bec59e0d975c8ac075`; new blob `102312edc35698ab6e443533bdd7e77840c53e03`. Package-private visibility and BR4 candidate/source/progress validation unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
+
+- `GR-REN-02-01X231`: `ProfileMaterialAffinityEvidence.java` moved to `grandrue.merchantprofile` with its package-private registration consumer co-moved. Input blob `1004cb0979834847678c81bd47db2ef4343f5439`; new blob `bda9ed767a7371d859c0869af694fda919be1637`. Exact bounded-read request, merchant and progress affinity semantics unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
+
+- `GR-REN-02-01X232`: `ProfileMaterialAffinityObservationContribution.java` moved to `grandrue.merchantprofile` with registration and evaluator consumers co-moved. Input blob `3c1886a1366b91213b3204176865b2ebf5572739`; new blob `06a3a288bcb26c5fa4892f3c5365a51a73699268`. Established observation-contribution semantics and package-private construction unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
+
+- `GR-REN-02-01X233`: `ProfileMaterialAffinityObservationContributionRegistration.java` moved to `grandrue.merchantprofile` with its package-private contribution/evidence seam intact. Input blob `8ef8539b226468e75a6ad9ad9abe581bcacdba15`; new blob `03d16f7eb2097cda35505b9639cc7cfa27cc5040`. `profile/material-affinity`, PUBLIC/SINGLE registration semantics and package-owned overload unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
+
+- `GR-REN-02-01X234`: `ProfileContactPointExposureChoiceEvaluator.java` moved to `grandrue.merchantprofile`. Input blob `fa7cd648cf71c1de0b2468840e86a1e350715e2f`; new blob `97e774a7e6597d3a24b46bcc2e7197c6872347b7`. Contact Point choice-source identity, BR4 affinity-aware evaluation and fallback semantics unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
+
+- `GR-REN-02-01X235`: `ProfileMerchantLocationExposureChoiceEvaluator.java` moved to `grandrue.merchantprofile`. Input blob `76f97e20c2428f86ba2b72aa6c9fecb2b0b2c9b4`; new blob `f754cccc49f97a4405ffd39f8fb2491f368c4887`. Merchant Location choice-source identity, BR4 affinity-aware evaluation and fallback semantics unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
+
+- `GR-REN-02-01X236`: `AuthorityBackedMerchantContactPointExposureChoiceReadPort.java` moved to `grandrue.merchantprofile` with one explicit transitional import for still-legacy `MerchantContactPointRevision`. Input blob `3e1ad51d03c06732d57c4558860cf852270c2064`; new blob `671176b83f49374ceab63efc93dd7272b148f96e`. Current ACTIVE filtering and exact BR5 revision-progress proof unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
+
+- `GR-REN-02-01X237`: `AuthorityBackedMerchantLocationExposureChoiceReadPort.java` moved to `grandrue.merchantprofile` with explicit transitional imports for still-legacy `MerchantLocationRevision` and `MerchantLocationExposureChoiceRevision`. Input blob `358a9d6693e5f4eec825900cae4ed19c6548e08d`; new blob `ae4cc8cf8cdf653a395edb325a1d0ab45e3f1aaa`. Current ACTIVE Location filtering, explicit current-choice semantics and exact BR5 Location revision-progress proof unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -682,9 +701,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X229
-last_completed_task: GR-REN-02-01X229
-last_task_commit: 5debbf512185a0330cbc80b16a4ef804ae52a8ae
+selected_execution_leaf: GR-REN-02-01X237
+last_completed_task: GR-REN-02-01X237
+last_task_commit: b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -802,8 +821,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X229
-last_prepared_execution_commit: 5debbf512185a0330cbc80b16a4ef804ae52a8ae
+last_prepared_execution_leaf: GR-REN-02-01X237
+last_prepared_execution_commit: b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce

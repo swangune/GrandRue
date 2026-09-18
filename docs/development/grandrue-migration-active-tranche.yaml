@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T004
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: cba0609c584b30b7b7adfecf88a3397d6d2cc8aa
 leaf_range:
   first: GR-REN-02-01X230
@@ -148,3 +150,10 @@ aggregate:
 preparation_notes:
   - All package-private BR4 material-affinity types and every production consumer are co-moved, so no visibility widening is required.
   - The two authority-backed adapters remain behaviorally unchanged and carry only explicit transitional imports for still-legacy revision records.
+
+completed:
+  last_leaf: GR-REN-02-01X237
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 9
+  structural_verification: passed
+  next_tranche: GR-REN-02-T005
