@@ -3,7 +3,6 @@ package grandrue.enquiry;
 import grandrue.application.ApplicationRequestIdentity;
 import mainstreet.enquiry.EnquirySubmission;
 import mainstreet.enquiry.EnquirySubmissionIntent;
-import mainstreet.enquiry.EnquirySubmissionPreparation;
 
 /**
  * Internal transaction/retry boundary. Reconciles committed intent before fresh preparation.

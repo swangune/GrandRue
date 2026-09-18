@@ -1,6 +1,6 @@
 package grandrue.enquiry.delivery;
 
-import mainstreet.enquiry.EnquirySubmissionPreparation;
+import grandrue.enquiry.EnquirySubmissionPreparation;
 
 /**
  * Required Enquiry-owned preparation for this bounded general public input. Must resolve applicable

@@ -6,7 +6,7 @@ import grandrue.enquiry.EnquiryApplicationRequestConflictException;
 import mainstreet.enquiry.EnquirySubmission;
 import grandrue.enquiry.EnquirySubmissionApplicationService;
 import mainstreet.enquiry.EnquirySubmissionIntent;
-import mainstreet.enquiry.EnquirySubmissionPreparation;
+import grandrue.enquiry.EnquirySubmissionPreparation;
 import mainstreet.enquiry.EnquirySubmissionStore;
 import org.jooq.DSLContext;
 import org.jooq.Record;

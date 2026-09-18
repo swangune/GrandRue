@@ -1,4 +1,7 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
+
+import mainstreet.enquiry.EnquirySubmission;
+import mainstreet.enquiry.EnquirySubmissionIntent;
 
 /**
  * Internal application preparation invoked only for an uncommitted logical request, inside the
