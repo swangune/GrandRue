@@ -465,6 +465,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X149`: closed the remaining package-private Enquiry root cluster by moving eleven owners from `mainstreet.enquiry` to `grandrue.enquiry`: `EnquirySubmission`, `EnquirySubmissionIntent`, `EnquirySemanticContext`, `EnquiryRevisionProvenance`, `EnquiryMerchantRepresentation`, `EnquiryMerchantExposureReferences`, `EnquiryMerchantExposureCandidateSource`, `EnquiryMerchantExposureRequirementEvaluator`, `EnquiryMerchantRepresentationProjectionFragment`, `EnquiryMerchantRepresentationProjectionObservation` and `AuthorityBackedEnquiryMerchantRepresentationProjectionReadPort`. Seventeen bounded production consumers were updated atomically across the GrandRue Enquiry contracts, delivery and persistence surfaces, including removal of all six live `import mainstreet.enquiry.*;` wildcards. Current tests remain deferred to `GR-REN-03`. The prepared parent was `d267270adda1d30e4762a5c55e1348c4cb10171d`. Package-private `EnquirySubmission.requireIdentifier`, `EnquiryMerchantExposureReferences.requireIdentity`, projection-fragment construction and projection-observation construction therefore remained inside one package boundary throughout the move. Structural verification confirmed all eleven declared legacy owner paths absent, all six former wildcard consumers free of the legacy wildcard, and the protected Opportunity binding v1 AAD `mainstreet/enquiry/opportunity-binding/v1/` unchanged. Existing submission, exposure, projection, merchant-query, persistence and opportunity-binding semantics were unchanged. Code commit `27e1b18578dbc5a29c2a106644b7d7652379cd0e` contains exactly the eleven owner moves and seventeen declared production consumer rewrites.
 
+- `GR-REN-02-01X150`: `ResourceInstance.java` moved from `mainstreet.runtime` to `grandrue.runtime`. No production consumers were required in this bounded leaf; current tests remain deferred to `GR-REN-03`. The prepared parent was `73fa2ed92234d529e1dacc19937caf0d781e2d9c`; the owner input blob was `dc44c3cd5b4f3948482230e8ab66f04706ae72df`; the GrandRue owner destination was absent at preflight. The moved owner retains explicit transitional imports for `mainstreet.semantic.Resource` and `mainstreet.semantic.State`, which remain in the legacy Semantic package. Existing Resource Instance identity, state ownership and package-private transition semantics were unchanged. Code commit `fc6d5f9568b1e1eaf5bb7332f7be8abfe386bd25` contains exactly one owner rename/package replacement.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -496,9 +498,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X149
-last_completed_task: GR-REN-02-01X149
-last_task_commit: 27e1b18578dbc5a29c2a106644b7d7652379cd0e
+selected_execution_leaf: GR-REN-02-01X150
+last_completed_task: GR-REN-02-01X150
+last_task_commit: fc6d5f9568b1e1eaf5bb7332f7be8abfe386bd25
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -584,8 +586,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X149
-last_prepared_execution_commit: 27e1b18578dbc5a29c2a106644b7d7652379cd0e
+last_prepared_execution_leaf: GR-REN-02-01X150
+last_prepared_execution_commit: fc6d5f9568b1e1eaf5bb7332f7be8abfe386bd25
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
