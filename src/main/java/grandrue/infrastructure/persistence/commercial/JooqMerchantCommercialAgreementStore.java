@@ -8,7 +8,7 @@ import mainstreet.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.CommercialTransitionConflictException;
 import mainstreet.commercial.MerchantCommercialAgreement;
 import grandrue.commercial.MerchantCommercialAgreementStore;
-import mainstreet.commercial.MerchantCommercialAgreementTransition;
+import grandrue.commercial.MerchantCommercialAgreementTransition;
 import mainstreet.commercial.StandardPlanLevel;
 import mainstreet.commercial.StandardPlanRevision;
 import org.jooq.DSLContext;
