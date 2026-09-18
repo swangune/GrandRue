@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-import mainstreet.commercial.CommercialCataloguePublication;
+import grandrue.commercial.CommercialCataloguePublication;
 import grandrue.commercial.CommercialCataloguePublicationRequest;
 import mainstreet.commercial.StandardPlanRevision;
 

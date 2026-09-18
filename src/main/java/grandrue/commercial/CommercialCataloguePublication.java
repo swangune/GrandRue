@@ -1,4 +1,7 @@
-package mainstreet.commercial;
+package grandrue.commercial;
+
+import mainstreet.commercial.CommercialAccessTarget;
+import mainstreet.commercial.CommercialCatalogueManifest;
 
 import grandrue.commercial.PublishedStandardPlanCatalogueRevision;
 
