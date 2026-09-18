@@ -1,4 +1,4 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 /**
  * Diagnostic categories for trusted-principal establishment failures.

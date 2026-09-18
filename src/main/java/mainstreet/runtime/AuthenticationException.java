@@ -1,5 +1,7 @@
 package mainstreet.runtime;
 
+import grandrue.runtime.AuthenticationFailureCategory;
+
 import java.util.Objects;
 
 /**

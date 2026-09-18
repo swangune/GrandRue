@@ -1,5 +1,6 @@
 package mainstreet.runtime;
 
+import grandrue.runtime.AuthenticationFailureCategory;
 import grandrue.application.MerchantScope;
 import grandrue.runtime.AuthenticationSession;
 import grandrue.runtime.ScopedExecutionPrincipalResolver;
