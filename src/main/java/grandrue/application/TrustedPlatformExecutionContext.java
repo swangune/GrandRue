@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 import mainstreet.runtime.ExecutionPrincipal;
 import java.util.Objects;
