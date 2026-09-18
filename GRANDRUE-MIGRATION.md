@@ -175,6 +175,7 @@ State: `OPEN`
 | `GR-REN-02-01X49` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/ScheduledStandardPlanChange.java`; no production consumers | `14411b6dce7af6dafbad56d86b7dc2b2cc4170d9` |
 | `GR-REN-02-01X50` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/CommercialAccessDecision.java` + one bounded same-package production consumer | `d86a95bd39b082afa3bd5f1d4a774655d77bf285` |
 | `GR-REN-02-01X51` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/EffectiveCommercialEntitlementAuthority.java`; no production consumers | `6d4e6c2e70e306d0290c6a08d0bac6e2d5d52fd3` |
+| `GR-REN-02-01X52` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/InitialFullExperienceTrialEstablisher.java` + one bounded application production consumer | `3f255500abd880ee2b7306cf0e3b281a5e6e4212` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -232,6 +233,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X51`: `EffectiveCommercialEntitlementAuthority.java` moved from `mainstreet.commercial` to `grandrue.commercial`. No production consumers were found; current tests/runtime fixtures remain deferred to `GR-REN-03`. The prepared parent was `4b741932a4f57899227064a2de139bc8ce700bf3`; owner input blob was `e8526046a6e6c694819b70929567c41dbcc22fba`; the GrandRue owner destination was absent at preflight. Because its remaining Commercial contracts are still legacy, explicit imports were added for `CommercialEntitlementAuthority`, `CommercialEntitlementGrant`, `CommercialEntitlementGrantAuthority`, `CommercialEntitlementGrantProvenance` and `CommercialEntitlementIdentity`. Existing `CommercialAccessDecision` GrandRue dependency, Clock evaluation, merchant/entitlement/grant affinity validation, effective-grant provenance resolution and entitlement decision semantics were unchanged. Code commit `6d4e6c2e70e306d0290c6a08d0bac6e2d5d52fd3` contains exactly one owner rename/package replacement and those five explicit transitional imports.
 
+- `GR-REN-02-01X52`: `InitialFullExperienceTrialEstablisher.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The sole bounded production consumer `mainstreet.application.InitialTrialFromConfigurationActivationHandler` received only the corresponding GrandRue import replacement; current tests/runtime fixtures remain deferred to `GR-REN-03`. The prepared parent was `c11b623bc448ea8539a2a8f59219b61232d808af`; owner input blob was `53fc56670c575cabcf7fbae995c217affc8d0ef6`; consumer input blob was `97f5c65dbcc5e2c091af452ed292c42d4024ee8b`; the GrandRue owner destination was absent at preflight. Explicit legacy imports were added for `InitialFullExperienceTrial` and `InitialFullExperienceTrialStore`; existing `FirstConfigurationActivationAuthority` and invalid-origin GrandRue dependencies, first-activation provenance validation, at-most-one store boundary and idempotent establishment behavior were unchanged. Code commit `3f255500abd880ee2b7306cf0e3b281a5e6e4212` contains exactly one owner rename/package replacement, two explicit transitional imports and one production consumer import replacement.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -263,9 +266,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X51
-last_completed_task: GR-REN-02-01X51
-last_task_commit: 6d4e6c2e70e306d0290c6a08d0bac6e2d5d52fd3
+selected_execution_leaf: GR-REN-02-01X52
+last_completed_task: GR-REN-02-01X52
+last_task_commit: 3f255500abd880ee2b7306cf0e3b281a5e6e4212
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -351,8 +354,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X51
-last_prepared_execution_commit: 6d4e6c2e70e306d0290c6a08d0bac6e2d5d52fd3
+last_prepared_execution_leaf: GR-REN-02-01X52
+last_prepared_execution_commit: 3f255500abd880ee2b7306cf0e3b281a5e6e4212
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
