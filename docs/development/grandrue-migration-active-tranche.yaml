@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T003
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 5debbf512185a0330cbc80b16a4ef804ae52a8ae
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: be8d8629a1ddab84ce668ad5d38897a75df86448
 leaf_range:
   first: GR-REN-02-01X222
@@ -170,3 +172,10 @@ aggregate:
 preparation_notes:
   - The large CreateMerchantLocationCommand package-private helper closure remains deferred; T003 does not widen helper visibility.
   - Projection fragment/material/observation package-owned constructors remain package-owned because their constructor caller is co-moved in this tranche.
+
+completed:
+  last_leaf: GR-REN-02-01X229
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 16
+  structural_verification: passed
+  next_tranche: GR-REN-02-T004

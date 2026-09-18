@@ -632,6 +632,25 @@ State: `OPEN`
 
 - `GR-REN-02-01X221`: `MerchantProfileMutationException.java` moved to `grandrue.merchantprofile`; all seven persistence consumers now resolve the GrandRue exception. Input owner blob `a8bbbd8b2f18ea8b96519e758c3748821fc55dd8`; new owner blob `d62e1fc103c980361ae292d485dbbada56efa28c`. Exception inheritance and category/message/cause behaviour unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
 
+
+- `GR-REN-02-T003`: transactional tranche completed from parent `be8d8629a1ddab84ce668ad5d38897a75df86448` in code commit `5debbf512185a0330cbc80b16a4ef804ae52a8ae`. The code commit contains the `CODE_COMMITTED` manifest plus exactly eight owner moves and seven shared production-consumer repairs; aggregate comparison contains exactly the 16 manifest-declared paths. Structural verification confirmed every new owner, every old-owner absence, all declared consumer repairs, preservation of `POSTAL_ADDRESS_V1`, `MS_POSTAL_ADDRESS_NORMALIZATION_V1`, `ISO_3166_1_ALPHA_2_2026_08_30`, NFC normalization, and package-owned projection constructors. No Maven tests or GitHub Actions were run.
+
+- `GR-REN-02-01X222`: `PostalAddressInput.java` moved to `grandrue.merchantprofile`; `CorrectMerchantLocationCommand`, `CreateMerchantLocationCommand` and `JooqMerchantLocationAuthority` now resolve the GrandRue value while co-moved `PostalAddressEvidence` retains same-package affinity. Input blob `ead1bae0f639fa76f68cb6267e6922a9885ae69d`; new blob `f47d7b5983bfddb96e2a6b45773305050bcf680c`. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
+
+- `GR-REN-02-01X223`: `PostalAddressV1.java` moved to `grandrue.merchantprofile`; `JooqMerchantLocationAuthority` now resolves the GrandRue value and co-moved `PostalAddressEvidence` retains same-package affinity. Input blob `4a7248a5c35c2f9973d3a511f51a1a75d1ecf061`; new blob `4754908b966a764acd3141213373d106a4be4ba5`. Postal schema, normalization profile and country-registry identities unchanged. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
+
+- `GR-REN-02-01X224`: `PostalAddressEvidence.java` moved to `grandrue.merchantprofile`; `MerchantLocationRevision` and `JooqMerchantLocationAuthority` now resolve the GrandRue evidence type. Input blob `9e48c461ea2f643579e4e10f5d15e446c476b715`; new blob `d89d9d139eaeaef03777692125282158106849c5`. Exact original/normalized evidence, ISO-country validation and NFC normalization semantics unchanged. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
+
+- `GR-REN-02-01X225`: `MerchantPublicDescriptorRevision.java` moved to `grandrue.merchantprofile`; `MerchantPublicDescriptorAuthority` and `JooqMerchantPublicDescriptorAuthority` now resolve the GrandRue revision while the co-moved projection adapter retains same-package affinity. Input blob `1447bede6db35fb367f5d67188d24d0132e1f65a`; new blob `18f4eb7c9be14007da256045c11bd422a2e28f95`. Revision validation unchanged; `MerchantPublicDescriptor` remains an explicit transitional legacy dependency. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
+
+- `GR-REN-02-01X226`: `MerchantPublicDescriptorProjectionFragment.java` moved to `grandrue.merchantprofile` together with its package-owned constructor consumer. Input blob `3104158c352e50e101bb55d08d1acef165c97430`; new blob `57b4d98420183e8a959141b5f5e979efcd76ef2f`. Source-affinity validation and package-owned construction unchanged. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
+
+- `GR-REN-02-01X227`: `MerchantPublicDescriptorProjectionMaterial.java` moved to `grandrue.merchantprofile` together with its package-owned constructor consumer and dependent projection types. Input blob `a963ae25931c8f973c93ca8ca6bf79662f0fbdc4`; new blob `0d11e1cdcb4208fd20c0a8c26166471476bf18b1`. Exact descriptor-progress affinity and package-owned construction unchanged. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
+
+- `GR-REN-02-01X228`: `MerchantPublicDescriptorProjectionObservation.java` moved to `grandrue.merchantprofile`; the existing GrandRue projection read port now uses the same-package type and the constructor caller was co-moved. Input blob `127448f98324b52202b6199016b3597def201e82`; new blob `fcb2cfc5184f6a38f6885a9a27e2c0d1e8755d43`. BR3 material/evidence coherence and package-owned construction unchanged. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
+
+- `GR-REN-02-01X229`: `AuthorityBackedMerchantPublicDescriptorProjectionReadPort.java` moved to `grandrue.merchantprofile`. Input blob `966e4ae9108ee1a9223f0b86bc08073d09745ded`; new blob `35fd29607c1c9c68f67aeab8be4b6dca7cef1bf1`. BR3 authoritative observation semantics unchanged, no visibility was widened, and `MerchantPublicDescriptor` remains a transitional legacy dependency. Code: `5debbf512185a0330cbc80b16a4ef804ae52a8ae`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -663,9 +682,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X221
-last_completed_task: GR-REN-02-01X221
-last_task_commit: 725360526d3b816de2b0e92a5665297f8cbd1a12
+selected_execution_leaf: GR-REN-02-01X229
+last_completed_task: GR-REN-02-01X229
+last_task_commit: 5debbf512185a0330cbc80b16a4ef804ae52a8ae
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -783,8 +802,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X221
-last_prepared_execution_commit: 725360526d3b816de2b0e92a5665297f8cbd1a12
+last_prepared_execution_leaf: GR-REN-02-01X229
+last_prepared_execution_commit: 5debbf512185a0330cbc80b16a4ef804ae52a8ae
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
