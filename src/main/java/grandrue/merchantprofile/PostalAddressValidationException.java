@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 /** Structural PostalAddressV1 validation rejection. */
 public final class PostalAddressValidationException

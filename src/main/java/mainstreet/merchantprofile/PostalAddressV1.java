@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.PostalAddressValidationException;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
