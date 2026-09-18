@@ -1,4 +1,7 @@
-package mainstreet.runtime;
+package grandrue.runtime;
+
+import mainstreet.runtime.OperationExecutionContext;
+import mainstreet.runtime.OperationFulfilment;
 
 /**
  * Capability-owned application contract for fulfilling one typed command
