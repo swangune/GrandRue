@@ -171,6 +171,7 @@ State: `OPEN`
 | `GR-REN-02-01X45` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/FirstConfigurationActivationAuthority.java` + two bounded production consumers | `b3c1dea1c81540bcc316f22923b68107c5deb0b0` |
 | `GR-REN-02-01X46` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/StandardPlanChangeTiming.java` + two bounded same-package production consumers | `ac2fa1067735e0a2031257a4419e660c66de9721` |
 | `GR-REN-02-01X47` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/AnnualBillingPricePolicy.java`; no production consumers | `2797f392fa239de24b8d3e2a69cc79b2895eb41d` |
+| `GR-REN-02-01X48` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/StandardPlanChangePolicy.java` + one bounded same-package production consumer | `46ca6c5fa54c39ae1de9c2a07e495e34bd886130` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -220,6 +221,8 @@ State: `OPEN`
 - `GR-REN-02-01X46`: `StandardPlanChangeTiming.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The bounded same-package production consumers `mainstreet.commercial.StandardPlanChangePolicy` and `mainstreet.commercial.ScheduledStandardPlanChange` received only explicit `grandrue.commercial.StandardPlanChangeTiming` imports; current tests remain deferred to `GR-REN-03`. The prepared parent was `8710754b3467bd3a6ed2df1f4ee0e2eebf06c004`; owner input blob was `025e16b72a278340f31275c56a955d8dc1c56e2d`; consumer input blobs were `8a4f30cc93eddab6ec0113e9fdef932153d3f5f1` and `9df8dcb706c38937989f9662fb832c414b592a2c`; the GrandRue owner destination was absent at preflight. Existing timing vocabulary (`IMMEDIATE`, `CURRENT_PAID_PERIOD_END`, `NO_PLAN_LEVEL_CHANGE`), upgrade/downgrade classification, same-level classification, period-end scheduling constraint and effective-plan boundary behavior were unchanged. Code commit `ac2fa1067735e0a2031257a4419e660c66de9721` contains exactly one owner rename/package replacement and one explicit import addition in each bounded consumer.
 - `GR-REN-02-01X47`: `AnnualBillingPricePolicy.java` moved from `mainstreet.commercial` to `grandrue.commercial`. No production consumers were found; current tests remain deferred to `GR-REN-03`. The prepared parent was `feb708b7f7efec6e35775007cf38cb8207a362ca`; owner input blob was `8c7fd570899d93dedfe57034f53aa1c814cc0d45`; the GrandRue owner destination was absent at preflight. Existing Main Street annual-billing policy prose remains deferred to `GR-REN-02-02`; the 12-month multiplier, 95-percent discount, integer floor division, currency identity preservation and `MonetaryAmount` semantics were unchanged. Code commit `2797f392fa239de24b8d3e2a69cc79b2895eb41d` contains exactly one owner rename with only the package declaration replacement.
 
+- `GR-REN-02-01X48`: `StandardPlanChangePolicy.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The sole bounded same-package production consumer `mainstreet.commercial.ScheduledStandardPlanChange` received only an explicit `grandrue.commercial.StandardPlanChangePolicy` import; current tests remain deferred to `GR-REN-03`. The prepared parent was `d4229509ba8f23a60e7784c8842823c12c6467c6`; owner input blob was `ea41d236a3d05653144df89e74ec3fb3fc029568`; consumer input blob was `b0fd5d671dcc14136ba647e985c9d5e0f81007d5`; the GrandRue owner destination was absent at preflight. Existing FREE/BUSINESS/GROWTH upgrade classification, period-end downgrade policy, same-level classification, `StandardPlanChangeTiming` dependency and scheduled-plan-change validation behavior were unchanged. Code commit `46ca6c5fa54c39ae1de9c2a07e495e34bd886130` contains exactly one owner rename/package replacement and one explicit import addition in the bounded consumer.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -251,9 +254,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X47
-last_completed_task: GR-REN-02-01X47
-last_task_commit: 2797f392fa239de24b8d3e2a69cc79b2895eb41d
+selected_execution_leaf: GR-REN-02-01X48
+last_completed_task: GR-REN-02-01X48
+last_task_commit: 46ca6c5fa54c39ae1de9c2a07e495e34bd886130
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -339,8 +342,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X47
-last_prepared_execution_commit: 2797f392fa239de24b8d3e2a69cc79b2895eb41d
+last_prepared_execution_leaf: GR-REN-02-01X48
+last_prepared_execution_commit: 46ca6c5fa54c39ae1de9c2a07e495e34bd886130
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
