@@ -1,7 +1,7 @@
 package grandrue.commercial;
 
 import grandrue.commercial.MerchantCommercialAgreement;
-import mainstreet.commercial.StandardPlanLevel;
+import grandrue.commercial.StandardPlanLevel;
 
 import grandrue.application.MerchantScope;
 
