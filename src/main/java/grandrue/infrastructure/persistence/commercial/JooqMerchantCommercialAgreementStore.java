@@ -6,7 +6,7 @@ import grandrue.commercial.CommercialAcceptanceProvenance;
 import mainstreet.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.CommercialTransitionConflictException;
-import mainstreet.commercial.MerchantCommercialAgreement;
+import grandrue.commercial.MerchantCommercialAgreement;
 import grandrue.commercial.MerchantCommercialAgreementStore;
 import grandrue.commercial.MerchantCommercialAgreementTransition;
 import mainstreet.commercial.StandardPlanLevel;
