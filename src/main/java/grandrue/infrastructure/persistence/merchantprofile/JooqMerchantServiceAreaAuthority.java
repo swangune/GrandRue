@@ -6,7 +6,7 @@ import mainstreet.merchantprofile.CreateMerchantServiceAreaCommand;
 import mainstreet.merchantprofile.MerchantLocationRadiusGeographyV1;
 import mainstreet.merchantprofile.MerchantProfileFailureCategory;
 import mainstreet.merchantprofile.MerchantProfileMutationException;
-import mainstreet.merchantprofile.MerchantServiceAreaAuthority;
+import grandrue.merchantprofile.MerchantServiceAreaAuthority;
 import mainstreet.merchantprofile.MerchantServiceAreaExposure;
 import mainstreet.merchantprofile.MerchantServiceAreaGeographyKind;
 import grandrue.merchantprofile.MerchantServiceAreaLifecycle;
