@@ -479,6 +479,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X156`: `AuthenticationSessionCurrentnessAuthority.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Two bounded production consumers were updated atomically: `grandrue.runtime.DefaultAuthenticationSessionCurrentnessAuthority` dropped its transitional legacy authority import because the interface is now in the same GrandRue package, and `mainstreet.surface.AudienceObservationAdmissionEvaluator` now imports `grandrue.runtime.AuthenticationSessionCurrentnessAuthority`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `2ad9bf4e2f0151856ea81b76bf1525cc87ab3b36`; the owner input blob was `29d0679a7524f1ae862598298ecc533ee23710b1`; consumer input blobs were `aee23c09a364c23637b19824ce09752ffcb3c8d1` and `b5d830f22aaf6e6a15d722522b53ee5f6791d954`; the GrandRue owner destination was absent at preflight. The moved interface received one explicit transitional import for the remaining legacy `AuthenticationProvenance` type. Existing session-currentness authority semantics were unchanged. Code commit `53f84c58f84bcffb7f13684fb1c887f2fda4c977` contains exactly one owner rename/package replacement, one transitional import addition, one redundant legacy import removal and one production consumer import replacement.
 
+- `GR-REN-02-01X157`: `UnsatisfiedOperationRequirementsException.java` moved from `mainstreet.runtime` to `grandrue.runtime`. One bounded production consumer was updated atomically: `mainstreet.runtime.ScopedOperationDispatcher` now imports `grandrue.runtime.UnsatisfiedOperationRequirementsException`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `2efc875c51dc722bbf2be56fd08e3698776b61ae`; the owner input blob was `e1b382d725fb9febe5890404d34adb28ed40b85d`; the consumer input blob was `b298f8e0f6dddabd937a9cd338d7572a2eb3d64d`; the GrandRue owner destination was absent at preflight. Existing unsatisfied-requirements rejection semantics were unchanged. Code commit `8ecfb50a89d2a683c836da0fd81032ac57bb6e82` contains exactly one owner rename/package replacement and one production consumer import addition.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -510,9 +512,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X156
-last_completed_task: GR-REN-02-01X156
-last_task_commit: 53f84c58f84bcffb7f13684fb1c887f2fda4c977
+selected_execution_leaf: GR-REN-02-01X157
+last_completed_task: GR-REN-02-01X157
+last_task_commit: 8ecfb50a89d2a683c836da0fd81032ac57bb6e82
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -598,8 +600,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X156
-last_prepared_execution_commit: 53f84c58f84bcffb7f13684fb1c887f2fda4c977
+last_prepared_execution_leaf: GR-REN-02-01X157
+last_prepared_execution_commit: 8ecfb50a89d2a683c836da0fd81032ac57bb6e82
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
