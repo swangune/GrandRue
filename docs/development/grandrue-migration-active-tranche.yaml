@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T011
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 58431a3cb75b25d9cd7cf4823497a13d140c0cb0
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: f289fcced7cb0c5aa67762ca36888a415bf292ad
 leaf_range:
   first: GR-REN-02-01X274
@@ -218,3 +220,10 @@ preparation_notes:
   - T011 moves a coherent case/evidence/start/acknowledgement/discovery cluster.
   - Live inspection excluded stale-search-only consumers and retained only proven production references.
   - No prototype path is selected or changed.
+
+completed:
+  last_leaf: GR-REN-02-01X281
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 28
+  structural_verification: passed
+  next_tranche: GR-REN-02-T012
