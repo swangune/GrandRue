@@ -2,7 +2,7 @@ package grandrue.commercial;
 
 import grandrue.commercial.CommercialCataloguePublication;
 import grandrue.commercial.CommercialCataloguePublicationRequest;
-import mainstreet.commercial.StandardPlanRevision;
+import grandrue.commercial.StandardPlanRevision;
 
 import grandrue.commercial.FreePlanRevisionAuthority;
 import grandrue.application.TrustedPlatformExecutionContext;

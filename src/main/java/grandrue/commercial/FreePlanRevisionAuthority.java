@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-import mainstreet.commercial.StandardPlanRevision;
+import grandrue.commercial.StandardPlanRevision;
 
 import java.time.Instant;
 

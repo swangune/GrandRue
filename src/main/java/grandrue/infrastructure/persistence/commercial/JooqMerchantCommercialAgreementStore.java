@@ -10,7 +10,7 @@ import grandrue.commercial.MerchantCommercialAgreement;
 import grandrue.commercial.MerchantCommercialAgreementStore;
 import grandrue.commercial.MerchantCommercialAgreementTransition;
 import grandrue.commercial.StandardPlanLevel;
-import mainstreet.commercial.StandardPlanRevision;
+import grandrue.commercial.StandardPlanRevision;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

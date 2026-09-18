@@ -1,7 +1,7 @@
 package grandrue.commercial;
 
 import grandrue.commercial.CommercialEntitlementGrantProvenance;
-import mainstreet.commercial.StandardPlanRevision;
+import grandrue.commercial.StandardPlanRevision;
 
 import grandrue.commercial.BillingCadence;
 import grandrue.commercial.CommercialAcceptanceProvenance;

@@ -2,7 +2,7 @@ package grandrue.application;
 
 import grandrue.commercial.FreePlanRevisionAuthority;
 import grandrue.commercial.StandardPlanLevel;
-import mainstreet.commercial.StandardPlanRevision;
+import grandrue.commercial.StandardPlanRevision;
 import grandrue.commercial.StandingFreeBaseline;
 import grandrue.commercial.StandingFreeBaselineStore;
 import grandrue.merchantaccount.MerchantAccountEstablished;

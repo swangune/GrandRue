@@ -1,7 +1,7 @@
 package grandrue.commercial;
 
 import grandrue.commercial.StandardPlanLevel;
-import mainstreet.commercial.StandardPlanRevision;
+import grandrue.commercial.StandardPlanRevision;
 
 import java.util.Objects;
 import java.util.Set;
