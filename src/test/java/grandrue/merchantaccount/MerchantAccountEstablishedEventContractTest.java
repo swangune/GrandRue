@@ -1,8 +1,8 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.infrastructure.persistence.merchantaccount.MerchantAccountEstablishmentPublicationIntent;
-import mainstreet.semantic.event.*;
+import grandrue.application.MerchantScope;
+import grandrue.infrastructure.persistence.merchantaccount.MerchantAccountEstablishmentPublicationIntent;
+import grandrue.semantic.event.*;
 import org.junit.jupiter.api.Test;
 import java.time.Instant;
 import java.util.*;

@@ -1,7 +1,7 @@
-package mainstreet.merchantaccount;
+package grandrue.merchantaccount;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.application.TrustedPlatformHumanPrincipal;
+import grandrue.application.MerchantScope;
+import grandrue.application.TrustedPlatformHumanPrincipal;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
