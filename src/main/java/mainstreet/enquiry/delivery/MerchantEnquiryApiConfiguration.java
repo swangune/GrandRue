@@ -1,5 +1,6 @@
 package mainstreet.enquiry.delivery;
 
+import grandrue.enquiry.delivery.MerchantEnquiryObservationPrivileges;
 import mainstreet.enquiry.EnquirySubmissionStore;
 import mainstreet.runtime.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
