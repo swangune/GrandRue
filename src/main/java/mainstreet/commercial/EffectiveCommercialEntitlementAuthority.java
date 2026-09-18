@@ -1,5 +1,6 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.CommercialAccessDecision;
 import mainstreet.application.MerchantScope;
 
 import java.time.Clock;
