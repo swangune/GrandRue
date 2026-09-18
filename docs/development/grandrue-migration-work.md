@@ -396,8 +396,8 @@ active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
 last_completed_leaf: GR-REN-02-01X739
-last_code_commit: 0564a76df538c839c8ce7afe48861c948f80b1d3
-next_action: GR-REN-02-01 production namespace enumeration is complete. Prepare GR-REN-02-02 current-product prose/comment cleanup across migrated production sources, preserving protected and historical identities; then perform GR-REN-02-03 aggregate production namespace closure/residual validation before GR-REN-03.
+last_code_commit: dffa48aca6d5fa254e7e28ca2cea37db47dcab33
+next_action: GR-REN-02-02 is complete pending final verification. Perform GR-REN-02-03 aggregate production namespace closure/residual validation against the live post-T024 tree; classify all remaining production legacy-name residuals and prove non-prototype production closure before GR-REN-03.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.

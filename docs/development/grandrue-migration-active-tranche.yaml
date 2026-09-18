@@ -4,9 +4,17 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T024
 group: GR-REN-02-02
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: dffa48aca6d5fa254e7e28ca2cea37db47dcab33
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 2730fd14ed5cec62bee039c3fcd068e7a2b19a3f
+verification_evidence:
+  changed_path_count: 38
+  source_file_count: 37
+  exact_replacement_count: 52
+  source_delta_rule: every source changed line is exact "Main Street" to "GrandRue"
+  unrelated_source_delta_count: 0
 
 scope:
   identity: production-current-product-wording
