@@ -6,6 +6,7 @@ import grandrue.application.MerchantScope;
 import grandrue.enquiry.delivery.PublicEnquirySubmissionAdmissionAuthority;
 import grandrue.enquiry.delivery.PublicGeneralEnquiryRequirements;
 import grandrue.enquiry.delivery.PublicGeneralEnquiryRequest;
+import grandrue.enquiry.delivery.PublicGeneralEnquiryContract;
 import mainstreet.enquiry.*;
 import mainstreet.publication.OpportunityPublicationStateAuthority;
 import mainstreet.publication.OpportunityPublicationSubmissionLock;

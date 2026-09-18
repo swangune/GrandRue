@@ -2,6 +2,7 @@ package mainstreet.enquiry.delivery;
 
 import grandrue.api.*;
 import grandrue.application.MerchantScope;
+import grandrue.enquiry.delivery.PublicGeneralEnquiryContract;
 import java.util.Map;
 import java.util.Objects;
 
