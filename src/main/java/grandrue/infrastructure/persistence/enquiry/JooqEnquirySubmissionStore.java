@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.enquiry;
 
 import grandrue.application.MerchantScope;
-import mainstreet.enquiry.EnquiryIdentityConflictException;
+import grandrue.enquiry.EnquiryIdentityConflictException;
 import mainstreet.enquiry.EnquiryRevisionProvenance;
 import mainstreet.enquiry.EnquirySemanticContext;
 import mainstreet.enquiry.EnquirySubmission;
