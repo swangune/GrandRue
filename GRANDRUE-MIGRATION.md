@@ -253,6 +253,14 @@ State: `OPEN`
 | `GR-REN-02-01X279` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/StartInitialOnboardingCaseCommand.java` + two bounded production consumers | `58431a3cb75b25d9cd7cf4823497a13d140c0cb0` |
 | `GR-REN-02-01X280` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/AcknowledgeInitialConfigurationIntentCommand.java` + three bounded production consumers | `58431a3cb75b25d9cd7cf4823497a13d140c0cb0` |
 | `GR-REN-02-01X281` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/InitialCustomerInteractionDiscoveryQuestion.java` + one bounded production consumer | `58431a3cb75b25d9cd7cf4823497a13d140c0cb0` |
+| `GR-REN-02-01X282` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingRecomputation.java` + six bounded production consumers; one declared transitional dependency | `45d739a2ddf1f50f09fc85099ef7efee027f45f0` |
+| `GR-REN-02-01X283` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/RecordOnboardingAnswerCommand.java` + one external persistence consumer; one declared transitional dependency | `45d739a2ddf1f50f09fc85099ef7efee027f45f0` |
+| `GR-REN-02-01X284` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/InitialConfigurationIntent.java` + two bounded persistence consumers | `45d739a2ddf1f50f09fc85099ef7efee027f45f0` |
+| `GR-REN-02-01X285` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/SubmitInitialConfigurationIntentCommand.java` + one bounded persistence consumer | `45d739a2ddf1f50f09fc85099ef7efee027f45f0` |
+| `GR-REN-02-01X286` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingFinalReview.java` + four proven production consumers | `45d739a2ddf1f50f09fc85099ef7efee027f45f0` |
+| `GR-REN-02-01X287` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingPromptApplicability.java` + two bounded production consumers | `45d739a2ddf1f50f09fc85099ef7efee027f45f0` |
+| `GR-REN-02-01X288` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCaseRecomputationService.java` + one bounded production consumer; one declared transitional dependency | `45d739a2ddf1f50f09fc85099ef7efee027f45f0` |
+| `GR-REN-02-01X289` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCaseEvidenceStore.java` + three proven production consumers; one declared transitional dependency | `45d739a2ddf1f50f09fc85099ef7efee027f45f0` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -779,6 +787,9 @@ State: `OPEN`
 
 - `GR-REN-02-01X274..X281`: T011 moved a coherent onboarding case/evidence/start/acknowledgement/discovery cluster to `grandrue.onboarding`: `InitialConfigurationIntentIdentity`, `OnboardingCaseEvidenceSnapshot`, `OnboardingAnswerMutationResult`, `OnboardingCase`, `OnboardingAnswerEvidenceRevision`, `StartInitialOnboardingCaseCommand`, `AcknowledgeInitialConfigurationIntentCommand`, and `InitialCustomerInteractionDiscoveryQuestion`. Nineteen proven production consumer files across onboarding, semantic configuration and migrated persistence were rewired to the GrandRue owners. `OnboardingAnswerEvidenceRevision` retains one explicit transitional import to still-legacy `OnboardingAnswerEvidence`. The aggregate contained exactly 28 changed paths; all Java changes were package/import-only. Case identity/revision affinity, evidence validation, start/acknowledgement semantics, discovery-question metadata, persistence/schema/runtime-data identities, applied Flyway content and stable `MS-*` identifiers were unchanged. Code: `58431a3cb75b25d9cd7cf4823497a13d140c0cb0`.
 
+
+- `GR-REN-02-01X282..X289`: T012 moved the onboarding recomputation/answer/intent/review/applicability/evidence-store cluster to `grandrue.onboarding`: `OnboardingRecomputation`, `RecordOnboardingAnswerCommand`, `InitialConfigurationIntent`, `SubmitInitialConfigurationIntentCommand`, `OnboardingFinalReview`, `OnboardingPromptApplicability`, `OnboardingCaseRecomputationService`, and `OnboardingCaseEvidenceStore`. Nine external production consumer files were rewired to the GrandRue owners. Four explicit transitional dependencies remain to still-legacy `OnboardingPromptDefinition`, `OnboardingAnswerEvidence`, `DeterministicOnboardingRecomputation`, and `OnboardingCompletionPolicy`. The aggregate contained exactly 18 changed paths; all Java changes were package/import-only. Recomputation, answer-mutation, immutable-intent, final-review, applicability, evidence-store and persistence/configuration semantics were unchanged; no schema/runtime-data identity, applied Flyway content, stable `MS-*` identity, test namespace or prototype path changed. Code: `45d739a2ddf1f50f09fc85099ef7efee027f45f0`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -810,9 +821,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X281
-last_completed_task: GR-REN-02-01X281
-last_task_commit: 58431a3cb75b25d9cd7cf4823497a13d140c0cb0
+selected_execution_leaf: GR-REN-02-01X289
+last_completed_task: GR-REN-02-01X289
+last_task_commit: 45d739a2ddf1f50f09fc85099ef7efee027f45f0
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -930,8 +941,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X281
-last_prepared_execution_commit: 58431a3cb75b25d9cd7cf4823497a13d140c0cb0
+last_prepared_execution_leaf: GR-REN-02-01X289
+last_prepared_execution_commit: 45d739a2ddf1f50f09fc85099ef7efee027f45f0
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
