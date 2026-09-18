@@ -3,8 +3,10 @@ execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T020
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 6bc63e14f5d8b19d7d9f54803d3eb2c848f6e3f5
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 69f8882a9a66c80ee203d22bcd794d3eff57fc9f
 
 region:
@@ -646,3 +648,11 @@ preparation_notes:
   - package-private cohesion remains intact because the complete configuration package moves atomically
   - three configuration owners retain ordinary dependencies on the still-legacy semantic/compiler ConfigurationCompiler
   - no persistence, semantic, security, authority or compatibility exception was identified
+
+completed:
+  last_leaf: GR-REN-02-01X542
+  completed_leaf_count_in_tranche: 91
+  aggregate_changed_path_count: 135
+  structural_verification: passed
+  semantic_configuration_namespace_complete: true
+  next_tranche: GR-REN-02-T021

@@ -824,6 +824,8 @@ State: `OPEN`
 
 - `GR-REN-02-T019` / `GR-REN-02-01X429..X451`: migrated the complete live `src/main/java/mainstreet/semantic/release/**` region as one dependency-closed normal subgraph. The frozen manifest contains all 23 stable leaf/audit coordinates, source blobs and destinations plus the exact six-file production-consumer closure. Aggregate verification proved exactly 30 changed paths: 23 true owner renames, six consumer import repairs and the manifest. Every owner now declares `grandrue.semantic.release`; all declared consumers contain zero `mainstreet.semantic.release` references; and the legacy `src/main/java/mainstreet/semantic/release/**` owner directory is absent. No FQCN, visibility, persistence, semantic or authority exception was identified. Applied Flyway content, stable `MS-*` identities, semantic-release/admission identities, test namespace and unrelated behaviour were unchanged. Code: `0c610c66eef19d7f4136074ff9f520d4a22b0f9c`.
 
+- `GR-REN-02-T020` / `GR-REN-02-01X452..X542`: migrated the complete live `src/main/java/mainstreet/semantic/configuration/**` region as one dependency-closed normal subgraph. The frozen manifest contains all 91 stable leaf/audit coordinates, source blobs and destinations plus the exact 43-file production-consumer closure; 42 are ordinary in-scope production consumers and `mainstreet.prototype.PrototypeMerchantRuntime` received only the minimal dependency import repair permitted by the prototype exclusion. Aggregate verification proved exactly 135 changed paths: 91 true owner renames, 43 consumer import repairs and the manifest. Every Java delta was package/import-only. Structural verification confirmed zero legacy `semantic/configuration` owners remain, all 91 GrandRue destinations exist and the complete frozen consumer closure resolves `grandrue.semantic.configuration`. Owner analysis found no FQCN/string-literal package identity or visibility exception; package-private cohesion was preserved by moving the complete package atomically. Three configuration owners continue to import the still-legacy `mainstreet.semantic.compiler.ConfigurationCompiler`, which remains outside this tranche. Applied Flyway content, stable `MS-*` identities, configuration release/approval/activation/evidence identities, test namespace and unrelated behaviour were unchanged. Current tests remain deferred to `GR-REN-03`. Code: `6bc63e14f5d8b19d7d9f54803d3eb2c848f6e3f5`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -858,9 +860,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X451
-last_completed_task: GR-REN-02-01X451
-last_task_commit: 0c610c66eef19d7f4136074ff9f520d4a22b0f9c
+selected_execution_leaf: GR-REN-02-01X542
+last_completed_task: GR-REN-02-01X542
+last_task_commit: 6bc63e14f5d8b19d7d9f54803d3eb2c848f6e3f5
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -979,8 +981,8 @@ numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X451
-last_prepared_execution_commit: 0c610c66eef19d7f4136074ff9f520d4a22b0f9c
+last_prepared_execution_leaf: GR-REN-02-01X542
+last_prepared_execution_commit: 6bc63e14f5d8b19d7d9f54803d3eb2c848f6e3f5
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
