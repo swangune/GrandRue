@@ -2,7 +2,7 @@ package grandrue.infrastructure.security.webauthn;
 
 import grandrue.runtime.EstablishedHumanSession;
 import grandrue.runtime.HumanSessionEstablishmentService;
-import mainstreet.runtime.IdentitySecurityGenerationAuthority;
+import grandrue.runtime.IdentitySecurityGenerationAuthority;
 import org.springframework.security.web.webauthn.api.PublicKeyCredentialUserEntity;
 import org.springframework.security.web.webauthn.authentication.WebAuthnAuthentication;
 

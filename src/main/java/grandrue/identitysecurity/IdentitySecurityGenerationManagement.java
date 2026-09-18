@@ -1,6 +1,6 @@
 package grandrue.identitysecurity;
 
-import mainstreet.runtime.IdentitySecurityGenerationAuthority;
+import grandrue.runtime.IdentitySecurityGenerationAuthority;
 
 import java.time.Instant;
 import java.util.Optional;

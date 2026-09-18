@@ -1,7 +1,7 @@
 package grandrue.runtime;
 
 import mainstreet.runtime.AuthenticationProvenance;
-import mainstreet.runtime.IdentitySecurityGenerationAuthority;
+import grandrue.runtime.IdentitySecurityGenerationAuthority;
 import mainstreet.runtime.SessionRecord;
 import mainstreet.runtime.SessionRecordStore;
 
