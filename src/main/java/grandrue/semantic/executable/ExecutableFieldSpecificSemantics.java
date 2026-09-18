@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Resolved marker for a field whose FieldDefinition owns its semantic meaning. */
 public record ExecutableFieldSpecificSemantics()

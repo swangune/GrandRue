@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Resolved contract to establish an authoritative allocation claim. */
 public record ExecutableAllocationClaimEffect(

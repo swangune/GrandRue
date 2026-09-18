@@ -1,6 +1,6 @@
 package grandrue.semantic.execution;
 
-import mainstreet.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ApplicableOperation;
 
 /**
  * Resolves the exact ADR-012 executable-support requirement for one operation

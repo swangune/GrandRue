@@ -3,7 +3,7 @@ package mainstreet.surface;
 import grandrue.fulfilment.FulfilmentRoleIdentity;
 import grandrue.runtime.ActorAuthorisationAuthority;
 import mainstreet.semantic.Privilege;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 
 import java.util.ArrayList;
 import java.util.Comparator;

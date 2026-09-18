@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /**
  * Fully qualified semantic identity of a capability-owned Operational Object

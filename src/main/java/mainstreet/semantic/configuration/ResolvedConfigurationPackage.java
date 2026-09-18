@@ -1,7 +1,7 @@
 package mainstreet.semantic.configuration;
 
 import grandrue.fulfilment.FulfilmentPlan;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 import mainstreet.surface.StaticSurfaceContributionCatalogue;
 
 import java.util.Objects;

@@ -4,7 +4,7 @@ import grandrue.application.MerchantScope;
 import grandrue.commercial.CommercialEntitlementAuthority;
 import grandrue.commercial.CommercialEntitlementException;
 import grandrue.commercial.CommercialEntitlementIdentity;
-import mainstreet.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ApplicableOperation;
 
 import java.util.Map;
 import java.util.Objects;

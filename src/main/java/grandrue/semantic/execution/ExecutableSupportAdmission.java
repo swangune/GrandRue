@@ -1,6 +1,6 @@
 package grandrue.semantic.execution;
 
-import mainstreet.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ApplicableOperation;
 
 import java.util.Objects;
 

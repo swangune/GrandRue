@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** One resolved declarative authoritative effect in an executable operation. */
 public sealed interface ExecutableOperationEffect

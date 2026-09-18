@@ -1,6 +1,6 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 
 import java.time.Instant;
 import java.util.Objects;

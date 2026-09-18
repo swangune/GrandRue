@@ -14,7 +14,7 @@ import mainstreet.runtime.OperationExecutionGuard;
 import mainstreet.runtime.ScopedOperationDispatcher;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.TimeWindowAllocationScope;
-import mainstreet.semantic.executable.ActiveOperationResolver;
+import grandrue.semantic.executable.ActiveOperationResolver;
 
 import java.time.Clock;
 import java.time.Instant;

@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Fully owner-qualified reference to one immutable executable schema version. */
 public record ExecutableSchemaReference(

@@ -1,7 +1,7 @@
 package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ApplicableOperation;
 
 /**
  * Validates one authority concern before an applicable operation may mutate

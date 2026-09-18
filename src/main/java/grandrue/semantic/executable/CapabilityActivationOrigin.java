@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Describes why a capability is present in an executable merchant model. */
 public enum CapabilityActivationOrigin {

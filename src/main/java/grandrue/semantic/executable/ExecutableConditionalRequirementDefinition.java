@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /**
  * Runtime-ready conditional requirement and the platform-owned semantic

@@ -3,8 +3,8 @@ package grandrue.runtime;
 import grandrue.application.MerchantScope;
 import grandrue.runtime.OperationRequirementEvaluator;
 import grandrue.runtime.UnsatisfiedOperationRequirementsException;
-import mainstreet.semantic.executable.ActiveOperationResolver;
-import mainstreet.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ActiveOperationResolver;
+import grandrue.semantic.executable.ApplicableOperation;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Resolved contract to remove one registered typed relationship. */
 public record ExecutableRelationshipRemovalEffect(

@@ -1,7 +1,7 @@
 package grandrue.runtime;
 
-import mainstreet.semantic.executable.ApplicableOperation;
-import mainstreet.semantic.executable.ExecutableOperationEffect;
+import grandrue.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ExecutableOperationEffect;
 
 import java.util.ArrayList;
 import java.util.List;

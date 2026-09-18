@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Resolved semantic basis for one executable schema field. */
 public sealed interface ExecutableFieldSemanticBasis

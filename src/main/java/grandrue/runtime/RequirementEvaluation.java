@@ -1,9 +1,9 @@
 package grandrue.runtime;
 
-import mainstreet.semantic.executable.ApplicableOperation;
-import mainstreet.semantic.executable.ExecutableConditionalRequirementDefinition;
-import mainstreet.semantic.executable.ExecutableOperationDefinition;
-import mainstreet.semantic.executable.ExecutableRequirementDefinition;
+import grandrue.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ExecutableConditionalRequirementDefinition;
+import grandrue.semantic.executable.ExecutableOperationDefinition;
+import grandrue.semantic.executable.ExecutableRequirementDefinition;
 
 import java.util.HashSet;
 import java.util.Objects;

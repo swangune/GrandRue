@@ -7,7 +7,7 @@ import mainstreet.semantic.configuration.MerchantConfiguration;
 import mainstreet.semantic.configuration.ResolvedCapabilityConfiguration;
 import mainstreet.semantic.configuration.ResolvedCapabilityConfigurationDecision;
 import mainstreet.semantic.configuration.ResolvedEnumCapabilityConfigurationValue;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 
 import java.util.ArrayList;
 import java.util.Comparator;

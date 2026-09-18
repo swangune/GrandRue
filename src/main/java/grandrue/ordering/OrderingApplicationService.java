@@ -8,11 +8,11 @@ import grandrue.runtime.OperationExecutionGuard;
 import grandrue.runtime.OperationFulfilment;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.DomainEvent;
-import mainstreet.semantic.executable.ExecutableAllocationClaimEffect;
-import mainstreet.semantic.executable.ExecutableObjectCreationEffect;
-import mainstreet.semantic.executable.ExecutableOperationalObjectTypeIdentity;
-import mainstreet.semantic.executable.ExecutableOperationEffect;
-import mainstreet.semantic.executable.ExecutableRelationshipEstablishmentEffect;
+import grandrue.semantic.executable.ExecutableAllocationClaimEffect;
+import grandrue.semantic.executable.ExecutableObjectCreationEffect;
+import grandrue.semantic.executable.ExecutableOperationalObjectTypeIdentity;
+import grandrue.semantic.executable.ExecutableOperationEffect;
+import grandrue.semantic.executable.ExecutableRelationshipEstablishmentEffect;
 
 import java.time.Clock;
 import java.time.Instant;

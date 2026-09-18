@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 import mainstreet.semantic.registry.RelationshipCardinality;
 import mainstreet.semantic.registry.RelationshipScopeConstraint;

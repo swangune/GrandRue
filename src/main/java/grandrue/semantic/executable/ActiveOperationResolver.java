@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 import grandrue.application.MerchantScope;
 import mainstreet.semantic.configuration.ActiveRelease;

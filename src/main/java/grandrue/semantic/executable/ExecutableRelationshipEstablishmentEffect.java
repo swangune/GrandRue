@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Resolved contract to establish one registered typed relationship. */
 public record ExecutableRelationshipEstablishmentEffect(

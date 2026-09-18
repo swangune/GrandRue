@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 
 import java.util.Comparator;
 import java.util.HashSet;

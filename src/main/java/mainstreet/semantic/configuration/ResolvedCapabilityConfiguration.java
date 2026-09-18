@@ -1,6 +1,6 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.semantic.executable.ExecutablePolicyValue;
+import grandrue.semantic.executable.ExecutablePolicyValue;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Resolved reference to a globally registered DataConcept. */
 public record ExecutableGlobalDataConceptReference(

@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Resolved reference to a DataConcept owned by the schema's capability. */
 public record ExecutableCapabilityDataConceptReference(

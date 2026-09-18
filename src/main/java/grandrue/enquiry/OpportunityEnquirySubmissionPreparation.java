@@ -11,7 +11,7 @@ import grandrue.publication.OpportunityPublicationStateAuthority;
 import grandrue.publication.OpportunityPublicationSubmissionLock;
 import grandrue.publication.PublicationLifecycle;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
 import mainstreet.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.PublicInteractionParticipationRequest;

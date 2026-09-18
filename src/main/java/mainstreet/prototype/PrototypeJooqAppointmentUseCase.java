@@ -9,7 +9,7 @@ import mainstreet.runtime.OperationExecutionGuard;
 import mainstreet.runtime.ScopedOperationDispatcher;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.TimeWindowAllocationScope;
-import mainstreet.semantic.executable.ActiveOperationResolver;
+import grandrue.semantic.executable.ActiveOperationResolver;
 import grandrue.scheduling.Appointment;
 import grandrue.scheduling.AppointmentApplicationService;
 import grandrue.scheduling.AppointmentSchedulingAuthority;

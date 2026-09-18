@@ -1,7 +1,7 @@
 package mainstreet.semantic.configuration;
 
 import mainstreet.semantic.compiler.ConfigurationCompiler;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 
 import java.util.ArrayList;
 import java.util.Comparator;

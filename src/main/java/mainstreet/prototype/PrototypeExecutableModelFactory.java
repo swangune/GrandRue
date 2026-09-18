@@ -1,14 +1,14 @@
 package mainstreet.prototype;
 
-import mainstreet.semantic.executable.ExecutableAllocationClaimEffect;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
-import mainstreet.semantic.executable.ExecutableObjectCreationEffect;
-import mainstreet.semantic.executable.ExecutableOperationalObjectDefinition;
-import mainstreet.semantic.executable.ExecutableOperationalObjectTypeIdentity;
-import mainstreet.semantic.executable.ExecutableOperationDefinition;
-import mainstreet.semantic.executable.ExecutableOperationEffect;
-import mainstreet.semantic.executable.ExecutableRelationshipDefinition;
-import mainstreet.semantic.executable.ExecutableRelationshipEstablishmentEffect;
+import grandrue.semantic.executable.ExecutableAllocationClaimEffect;
+import grandrue.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableObjectCreationEffect;
+import grandrue.semantic.executable.ExecutableOperationalObjectDefinition;
+import grandrue.semantic.executable.ExecutableOperationalObjectTypeIdentity;
+import grandrue.semantic.executable.ExecutableOperationDefinition;
+import grandrue.semantic.executable.ExecutableOperationEffect;
+import grandrue.semantic.executable.ExecutableRelationshipDefinition;
+import grandrue.semantic.executable.ExecutableRelationshipEstablishmentEffect;
 import mainstreet.semantic.registry.RelationshipCardinality;
 import mainstreet.semantic.registry.RelationshipScopeConstraint;
 

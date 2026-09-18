@@ -1,4 +1,4 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
 /** Fully resolved semantic field target retained by an executable effect. */
 public record ExecutableFieldReference(

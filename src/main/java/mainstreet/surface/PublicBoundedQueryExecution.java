@@ -14,7 +14,7 @@ public final class PublicBoundedQueryExecution {
     /** Server-only projection under the exact release captured by request establishment. */
     @FunctionalInterface
     public interface SelectedProjection<T> {
-        T project(mainstreet.semantic.executable.ExecutableMerchantModel model,
+        T project(grandrue.semantic.executable.ExecutableMerchantModel model,
                   StaticSurfaceContributionCatalogue catalogue, Selection selection);
     }
     @FunctionalInterface
