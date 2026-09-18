@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.security.webauthn;
+package grandrue.infrastructure.security.webauthn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.core.SpringVersion;

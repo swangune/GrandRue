@@ -1,6 +1,6 @@
-package mainstreet.infrastructure.security.session;
+package grandrue.infrastructure.security.session;
 
-import mainstreet.runtime.OpaqueSessionCredential;
+import grandrue.runtime.OpaqueSessionCredential;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseCookie;
 

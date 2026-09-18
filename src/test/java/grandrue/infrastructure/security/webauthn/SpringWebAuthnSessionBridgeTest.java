@@ -1,10 +1,10 @@
-package mainstreet.infrastructure.security.webauthn;
+package grandrue.infrastructure.security.webauthn;
 
-import mainstreet.runtime.EstablishedHumanSession;
-import mainstreet.runtime.HumanSessionEstablishmentService;
-import mainstreet.runtime.IdentitySecurityGenerationAuthority;
-import mainstreet.runtime.SessionRecord;
-import mainstreet.runtime.SessionRecordStore;
+import grandrue.runtime.EstablishedHumanSession;
+import grandrue.runtime.HumanSessionEstablishmentService;
+import grandrue.runtime.IdentitySecurityGenerationAuthority;
+import grandrue.runtime.SessionRecord;
+import grandrue.runtime.SessionRecordStore;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.webauthn.api.PublicKeyCredentialUserEntity;

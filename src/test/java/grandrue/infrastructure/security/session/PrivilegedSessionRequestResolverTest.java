@@ -1,10 +1,10 @@
-package mainstreet.infrastructure.security.session;
+package grandrue.infrastructure.security.session;
 
 import jakarta.servlet.http.Cookie;
-import mainstreet.runtime.AuthenticationException;
-import mainstreet.runtime.AuthenticationFailureCategory;
-import mainstreet.runtime.AuthenticationSession;
-import mainstreet.runtime.SessionCredentialResolver;
+import grandrue.runtime.AuthenticationException;
+import grandrue.runtime.AuthenticationFailureCategory;
+import grandrue.runtime.AuthenticationSession;
+import grandrue.runtime.SessionCredentialResolver;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 
