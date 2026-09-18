@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-import mainstreet.commercial.CommercialEntitlementGrantAuthority;
+import grandrue.commercial.CommercialEntitlementGrantAuthority;
 import grandrue.commercial.MerchantCommercialAgreement;
 import grandrue.commercial.MerchantCommercialAgreementTransition;
 

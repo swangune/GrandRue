@@ -4,7 +4,7 @@ import grandrue.commercial.CommercialAccessDecision;
 import grandrue.application.MerchantScope;
 import grandrue.commercial.CommercialEntitlementAuthority;
 import mainstreet.commercial.CommercialEntitlementGrant;
-import mainstreet.commercial.CommercialEntitlementGrantAuthority;
+import grandrue.commercial.CommercialEntitlementGrantAuthority;
 import mainstreet.commercial.CommercialEntitlementGrantProvenance;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 

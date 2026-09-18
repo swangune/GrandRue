@@ -2,7 +2,7 @@ package grandrue.commercial;
 
 import grandrue.application.MerchantScope;
 import mainstreet.commercial.CommercialEntitlementGrant;
-import mainstreet.commercial.CommercialEntitlementGrantAuthority;
+import grandrue.commercial.CommercialEntitlementGrantAuthority;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 
 import java.time.Instant;
