@@ -670,6 +670,15 @@ State: `OPEN`
 
 - `GR-REN-02-01X237`: `AuthorityBackedMerchantLocationExposureChoiceReadPort.java` moved to `grandrue.merchantprofile` with explicit transitional imports for still-legacy `MerchantLocationRevision` and `MerchantLocationExposureChoiceRevision`. Input blob `358a9d6693e5f4eec825900cae4ed19c6548e08d`; new blob `ae4cc8cf8cdf653a395edb325a1d0ab45e3f1aaa`. Current ACTIVE Location filtering, explicit current-choice semantics and exact BR5 Location revision-progress proof unchanged. Code: `b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae`.
 
+
+- `GR-REN-02-T005`: transactional tranche completed from parent `fc8e40ff716f9e3fdc270804e2f15887c1b06c00` in code commit `235cbebc594fddaf85b82422a505b34224ae4071`. The code commit contains the `CODE_COMMITTED` manifest plus exactly three owner moves and seven shared production-consumer repairs; aggregate comparison contains exactly the 11 manifest-declared paths. Structural verification confirmed every new owner, every old-owner absence, removal/replacement of all declared transitional imports, and preservation of `MS-PROT-051` identity text. No Maven tests or GitHub Actions were run.
+
+- `GR-REN-02-01X238`: `MerchantPublicDescriptor.java` moved to `grandrue.merchantprofile`; `MerchantPublicDescriptorRevision`, `MerchantPublicDescriptorMutationCommand`, `AuthorityBackedMerchantPublicDescriptorProjectionReadPort` and `JooqMerchantPublicDescriptorAuthority` now resolve the GrandRue owner without legacy imports. Input blob `70c885e79e3bce1583982c2741155a204a1beba9`; new blob `3eee9b5940e1d0b4e627a3bbde4cc5cb5948cd8c`. Merchant-authored/approved descriptor semantics and `MS-PROT-051` identity text unchanged. Code: `235cbebc594fddaf85b82422a505b34224ae4071`.
+
+- `GR-REN-02-01X239`: `MerchantLocationExposureChoiceRevision.java` moved to `grandrue.merchantprofile`; `MerchantLocationExposureChoiceAuthority`, `JooqMerchantLocationExposureChoiceAuthority` and `AuthorityBackedMerchantLocationExposureChoiceReadPort` now resolve the GrandRue revision without legacy imports. Input blob `427c82ff4caefa6aebceeefe10666a20669cfd5d`; new blob `cdc017ca26dfc9ce2c57fa8666e06400d7920524`. Immutable revision validation, revision numbering and predecessor semantics unchanged. Code: `235cbebc594fddaf85b82422a505b34224ae4071`.
+
+- `GR-REN-02-01X240`: `SetMerchantLocationExposureChoiceCommand.java` moved to `grandrue.merchantprofile`; `MerchantLocationExposureChoiceAuthority` and `JooqMerchantLocationExposureChoiceAuthority` now resolve the GrandRue command without legacy imports. Input blob `139c4023b294a336f08c6b141be4706e7f38d013`; new blob `4fac52c329182e432a5682e79e58d7445fda7491`. Expected-current-choice and mutation-intent validation semantics unchanged. Code: `235cbebc594fddaf85b82422a505b34224ae4071`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -701,9 +710,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X237
-last_completed_task: GR-REN-02-01X237
-last_task_commit: b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae
+selected_execution_leaf: GR-REN-02-01X240
+last_completed_task: GR-REN-02-01X240
+last_task_commit: 235cbebc594fddaf85b82422a505b34224ae4071
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -821,8 +830,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X237
-last_prepared_execution_commit: b034a07e527b8c4ecfd915fc5f4fbf1fbe799cae
+last_prepared_execution_leaf: GR-REN-02-01X240
+last_prepared_execution_commit: 235cbebc594fddaf85b82422a505b34224ae4071
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce

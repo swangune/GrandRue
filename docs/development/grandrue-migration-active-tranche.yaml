@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T005
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 235cbebc594fddaf85b82422a505b34224ae4071
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: fc8e40ff716f9e3fdc270804e2f15887c1b06c00
 leaf_range:
   first: GR-REN-02-01X238
@@ -89,3 +91,10 @@ aggregate:
 preparation_notes:
   - T005 is intentionally smaller than the default target because the remaining command/revision/geography family is coupled through package-private CreateMerchantLocationCommand helpers and sealed geography constraints.
   - No helper visibility is widened.
+
+completed:
+  last_leaf: GR-REN-02-01X240
+  completed_leaf_count_in_tranche: 3
+  aggregate_changed_path_count: 11
+  structural_verification: passed
+  next_tranche: GR-REN-02-T006
