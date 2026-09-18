@@ -519,6 +519,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X176`: `AuthorizationException.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Five bounded production consumers were updated atomically: `grandrue.runtime.PrivilegeOperationExecutionGuard` dropped its transitional legacy exception import because the type is now in the same GrandRue package, while `grandrue.booking.BookingApplicationService`, `grandrue.scheduling.AppointmentApplicationService`, `grandrue.ordering.OrderingApplicationService` and `grandrue.infrastructure.persistence.workforce.JooqMerchantOperationalDeviceAuthorisationStore` now import `grandrue.runtime.AuthorizationException`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `ffa01dee173b7a02f9b9c0efef813ca31cddfe7b`; the owner input blob was `c5d33eb7fd9c0cab7c53622dff1a991e689802c9`; consumer input blobs were `1e33ed4d102e9a5e6949593f4eee60601edc56ff`, `fa1d0b61ecfe61873c49866ae90b526f9eefd165`, `d0180e7f54c21579ee1869613f2263b3e6427ae3`, `b5835253c158a48dbc74af37bad7da8702a70c1a` and `1ed30351b15f4b8dbe3ef0b8a1143ac4835bd4a3`; the GrandRue owner destination was absent at preflight. Existing runtime authorisation-failure semantics were unchanged. Code commit `e932d7c199d9e016d3b25da2c1fb7ed79ed9b618` contains exactly one owner rename/package replacement, one redundant legacy import removal and four production consumer import replacements.
 
+- `GR-REN-02-01X177`: `OpaqueSessionCredential.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Five bounded production consumers were updated atomically: `grandrue.runtime.SessionLogoutService`, `grandrue.runtime.EstablishedHumanSession`, `grandrue.runtime.HumanSessionEstablishmentService` and `grandrue.runtime.SessionCredentialResolver` dropped their transitional legacy credential imports because the type is now in the same GrandRue package, while `grandrue.infrastructure.security.session.PrivilegedSessionCookieFactory` now imports `grandrue.runtime.OpaqueSessionCredential`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `897ff7ccdde0f87e8857111bc1537520741437c4`; the owner input blob was `05e71ca8fe62472eb25f344442379a6effba0c72`; consumer input blobs were `c07ec9b81851501ffd3d0563102eaf591f3bc1ba`, `f6c0475a233493d53dc82a3f92e97bfe9289f240`, `32a2ea5839df9cd4ec8361f715458da7ca752fec`, `ae7b8fddcb483d25ce53e91d450a48f3efde5d2e` and `7f9d086c5bfdb576c279cf72c592befdf15e7840`; the GrandRue owner destination was absent at preflight. Existing opaque bearer generation, verifier derivation, redacted rendering and cookie-boundary semantics were unchanged, including the existing `__Host-MS-SESSION` cookie name. Code commit `cd407c769bd1491bdb1f2ac89137a3c12700832d` contains exactly one owner rename/package replacement, four redundant legacy import removals and one production consumer import replacement.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -550,9 +552,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X176
-last_completed_task: GR-REN-02-01X176
-last_task_commit: e932d7c199d9e016d3b25da2c1fb7ed79ed9b618
+selected_execution_leaf: GR-REN-02-01X177
+last_completed_task: GR-REN-02-01X177
+last_task_commit: cd407c769bd1491bdb1f2ac89137a3c12700832d
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -638,8 +640,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X176
-last_prepared_execution_commit: e932d7c199d9e016d3b25da2c1fb7ed79ed9b618
+last_prepared_execution_leaf: GR-REN-02-01X177
+last_prepared_execution_commit: cd407c769bd1491bdb1f2ac89137a3c12700832d
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
