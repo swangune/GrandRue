@@ -3,8 +3,10 @@ execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T019
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 0c610c66eef19d7f4136074ff9f520d4a22b0f9c
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 4e1b504f9405e54c2ea21530d664cc8453bde3e0
 
 region:
@@ -189,3 +191,11 @@ preparation_notes:
   - all 6 live consumer files were reconciled to current branch paths
   - all namespace references were package/import based
   - no FQCN, visibility, persistence, semantic or authority exception was identified
+
+completed:
+  last_leaf: GR-REN-02-01X451
+  completed_leaf_count_in_tranche: 23
+  aggregate_changed_path_count: 30
+  structural_verification: passed
+  semantic_release_namespace_complete: true
+  next_tranche: GR-REN-02-T020
