@@ -585,6 +585,9 @@ State: `OPEN`
 
 - `GR-REN-02-01X202`: `MerchantPublicDescriptorProjectionReadPort.java` moved from `mainstreet.merchantprofile` to `grandrue.merchantprofile`. Its sole bounded production consumer `mainstreet.merchantprofile.AuthorityBackedMerchantPublicDescriptorProjectionReadPort` received an explicit `grandrue.merchantprofile.MerchantPublicDescriptorProjectionReadPort` import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `6b3118431dffe70e1aec996b33b89c5a9975d0b2`; the owner input blob was `f0eb224d641da787522336d4e23afedcf099d1a3`; consumer input blob was `6db878edef3fb35c3ebb9aa240333ef34d2027e6`; the GrandRue owner destination was absent at preflight. The moved port received one explicit transitional import for the still-legacy `MerchantPublicDescriptorProjectionObservation` type. Existing coherent projection-observation, exact revision-affinity and Profile-owned query-boundary semantics were unchanged. Code commit `e80d37f89748379c2a0a0f0e97f7c910c58c20cf` contains exactly one owner rename/package replacement, one transitional import addition and one production consumer import addition; structural verification confirmed a two-file production diff, the GrandRue owner at blob `5188e36a211338a950add9ee1104db14201a8f45`, and absence of the legacy owner path.
 
+
+- `GR-REN-02-01X203`: `MerchantClassificationEntryAuthority.java` moved from `mainstreet.merchantprofile` to `grandrue.merchantprofile`. Its sole bounded production implementation `grandrue.infrastructure.persistence.merchantprofile.JooqMerchantClassificationEntryAuthority` replaced its legacy authority import with the GrandRue owner. Current tests remain deferred to `GR-REN-03`. The prepared parent was `dbf3c4b1768a8e0b6d0c19ae382d1c655d31c251`; the owner input blob was `202ecbfff45c479cbe4ad169513d80cba8f74299`; implementation input blob was `babd2e4005df081a06bf0b4e607c7414cb703d40`; the GrandRue owner destination was absent at preflight. The moved authority received explicit transitional imports for the still-legacy Create/Update/Retire classification commands and `MerchantClassificationEntryRevision`. Existing mutation/currentness boundary, trusted execution context and return semantics were unchanged. Code commit `2b76aff56b698901c81850d44b720cc995a364e8` contains exactly one owner rename/package replacement, four transitional import additions and one production implementation import replacement; structural verification confirmed a two-file production diff, the GrandRue owner at blob `5dbcc57b7067040b9088cfddd5a011c63b92647d`, and absence of the legacy owner path.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -616,9 +619,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X202
-last_completed_task: GR-REN-02-01X202
-last_task_commit: e80d37f89748379c2a0a0f0e97f7c910c58c20cf
+selected_execution_leaf: GR-REN-02-01X203
+last_completed_task: GR-REN-02-01X203
+last_task_commit: 2b76aff56b698901c81850d44b720cc995a364e8
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -704,8 +707,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X202
-last_prepared_execution_commit: e80d37f89748379c2a0a0f0e97f7c910c58c20cf
+last_prepared_execution_leaf: GR-REN-02-01X203
+last_prepared_execution_commit: 2b76aff56b698901c81850d44b720cc995a364e8
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
