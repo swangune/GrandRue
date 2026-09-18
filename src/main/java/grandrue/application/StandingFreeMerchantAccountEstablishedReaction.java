@@ -1,7 +1,7 @@
 package grandrue.application;
 
 import grandrue.application.StandingFreeEventReactionContract;
-import mainstreet.application.StandingFreeFromMerchantAccountEstablishedHandler;
+import grandrue.application.StandingFreeFromMerchantAccountEstablishedHandler;
 import mainstreet.commercial.StandingFreeBaseline;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;

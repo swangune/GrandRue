@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 import mainstreet.commercial.FreePlanRevisionAuthority;
 import mainstreet.commercial.StandardPlanLevel;
