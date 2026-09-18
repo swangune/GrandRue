@@ -1,4 +1,8 @@
-package mainstreet.commercial;
+package grandrue.commercial;
+
+import mainstreet.commercial.CommercialEntitlementDefinition;
+import mainstreet.commercial.CommercialEntitlementIdentity;
+import mainstreet.commercial.CommercialEntitlementTargetKind;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
