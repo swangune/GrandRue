@@ -2,44 +2,40 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T006
+tranche: GR-REN-03-T007
 group: GR-REN-03
-state: COMPLETE
-code_commit: d14a6aceb70768183aa2e614b5fa4cc0800e7f9d
-expected_parent: d97d750500e7fae5262e6a2f5dc3b9ce0512e94a
-validated_head: d14a6aceb70768183aa2e614b5fa4cc0800e7f9d
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 149dedc66fe9196096050091e3f1cb08a6ef5177
 
 region:
-  identity: test-deployment
-  closure_basis: complete live src/test/java/mainstreet/deployment/** Java test region; no external test consumers
+  identity: test-identitysecurity
+  closure_basis: complete live src/test/java/mainstreet/identitysecurity/** Java test region; no external test consumers
 
 classification:
   normal_closed:
     owner_count: 2
     external_test_consumer_count: 0
-    production_import_repair_count: 6
+    production_import_repair_count: 0
   embedded_legacy_symbolic_or_wording_residuals:
     count: 0
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/deployment/ServingDeploymentAdmissionSnapshotTest.java
-      to: src/test/java/grandrue/deployment/ServingDeploymentAdmissionSnapshotTest.java
-      blob_sha: 29bd20b41b2b1f2981d944cffd611b1650a50468
-    - from: src/test/java/mainstreet/deployment/ServingDeploymentPromotionCoverageTest.java
-      to: src/test/java/grandrue/deployment/ServingDeploymentPromotionCoverageTest.java
-      blob_sha: 4f170639dd2149172b7ea625915a57444f827a7d
+    - from: src/test/java/mainstreet/identitysecurity/IdentitySecurityGenerationServiceTest.java
+      to: src/test/java/grandrue/identitysecurity/IdentitySecurityGenerationServiceTest.java
+      blob_sha: 2288c0ac4cb81a98691fb93d7c4ad6813e80338e
+    - from: src/test/java/mainstreet/identitysecurity/IdentitySecurityGenerationTest.java
+      to: src/test/java/grandrue/identitysecurity/IdentitySecurityGenerationTest.java
+      blob_sha: 7f2ba458d29cc2e1bcdfc88973bc596e5093f2f2
 
 deterministic_transformations:
   owners:
-    - move every declared owner from src/test/java/mainstreet/deployment/** to the corresponding src/test/java/grandrue/deployment/** path
-    - replace exactly two package declarations package mainstreet.deployment; with package grandrue.deployment;
-    - replace exactly six executable imports from migrated mainstreet.semantic.execution.* production namespaces to grandrue.semantic.execution.*
+    - move both declared owners to the corresponding src/test/java/grandrue/identitysecurity/** paths
+    - replace exactly two package declarations package mainstreet.identitysecurity; with package grandrue.identitysecurity;
   consumers:
-    - none; exact class-name search found no external test consumers of the two test owners
+    - none; exact class-name search found no external test consumers
   prohibited:
     - no assertion, method body, string literal, comment, semantic or behavioural change
     - no legacy prototype test mutation
@@ -51,14 +47,13 @@ verification:
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  import_repair_count: 6
+  import_repair_count: 0
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 protected:
-  - every assertion and method body unchanged
-  - every string literal and test-data identity unchanged, including ms-reqset-v1:sha256 test identity
+  - every assertion, method body, string literal and test-data identity unchanged
   - legacy prototype tests unchanged
 
 expected_residuals:
@@ -66,12 +61,8 @@ expected_residuals:
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - both source blobs and absent GrandRue destinations were reconciled against development at d97d750500e7fae5262e6a2f5dc3b9ce0512e94a
-  - all referenced GrandRue deployment and semantic-execution production owners exist
+  - both source blobs and absent GrandRue destinations were reconciled against development at 149dedc66fe9196096050091e3f1cb08a6ef5177
+  - all referenced GrandRue identity-security production owners exist
   - exact class-name searches found no external test consumers
-  - six executable legacy production imports are fully classified for deterministic replacement
-  - no embedded legacy Main Street/current-product identifier was found in this region
+  - no executable legacy import or embedded Main Street/current-product identifier occurs in this region
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
