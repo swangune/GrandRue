@@ -1,5 +1,6 @@
 package mainstreet.enquiry;
 
+import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReferences;
 import mainstreet.surface.ExposureCandidateObservation;
 import mainstreet.surface.ProjectionMaterialFragment;
 import mainstreet.surface.ProjectionMaterialSourceAffinity;

@@ -1,6 +1,7 @@
 package mainstreet.enquiry;
 
 import grandrue.application.MerchantScope;
+import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReferences;
 import mainstreet.surface.BoundedProjectionRead;
 import mainstreet.surface.EstablishedObservationRequest;
 import mainstreet.surface.ProjectionSourceEvidence;

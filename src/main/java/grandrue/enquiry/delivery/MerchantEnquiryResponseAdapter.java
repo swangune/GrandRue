@@ -1,6 +1,7 @@
 package grandrue.enquiry.delivery;
 
 import grandrue.api.ApiSurfaceClass;
+import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReferences;
 import mainstreet.enquiry.*;
 import mainstreet.surface.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
 import mainstreet.surface.ProjectionContractIdentity;
 import mainstreet.surface.ProjectionReadUseIdentity;
