@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * Raised when a material onboarding mutation was prepared against a case revision that is no

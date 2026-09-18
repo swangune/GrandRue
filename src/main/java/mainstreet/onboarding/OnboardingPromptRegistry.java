@@ -1,5 +1,9 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingPromptKey;
+import grandrue.onboarding.OnboardingSemanticSeed;
+import grandrue.onboarding.OnboardingQuestionDefinitionVersion;
+import grandrue.onboarding.OnboardingQuestionIdentity;
 import grandrue.onboarding.OnboardingDiscoveryMapping;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

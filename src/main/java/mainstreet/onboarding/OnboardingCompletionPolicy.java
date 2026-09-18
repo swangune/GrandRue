@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingPromptKey;
+import grandrue.onboarding.OnboardingQuestionDefinitionVersion;
 import grandrue.onboarding.OnboardingAnswerOutcomeRule;
 import grandrue.onboarding.OnboardingBlockingAnswerOutcome;
 import grandrue.onboarding.OnboardingPromptCompletionRequirement;

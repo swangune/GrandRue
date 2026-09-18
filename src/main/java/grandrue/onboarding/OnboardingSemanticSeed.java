@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * Registered semantic intent proposed by onboarding discovery.

@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingSemanticSeed;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;

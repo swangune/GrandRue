@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * Exact material version identity for an onboarding question definition.

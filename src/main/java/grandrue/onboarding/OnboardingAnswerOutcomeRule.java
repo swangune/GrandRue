@@ -1,7 +1,7 @@
 package grandrue.onboarding;
 
-import mainstreet.onboarding.OnboardingPromptKey;
-import mainstreet.onboarding.OnboardingQuestionDefinitionVersion;
+import grandrue.onboarding.OnboardingPromptKey;
+import grandrue.onboarding.OnboardingQuestionDefinitionVersion;
 import grandrue.onboarding.OnboardingBlockingAnswerOutcome;
 import java.util.Objects;
 

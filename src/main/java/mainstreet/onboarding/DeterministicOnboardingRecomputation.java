@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingPromptKey;
+import grandrue.onboarding.OnboardingSemanticSeed;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;

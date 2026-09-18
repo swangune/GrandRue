@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingPromptKey;
+import grandrue.onboarding.OnboardingSemanticSeed;
 import grandrue.onboarding.InitialCustomerInteractionDiscoverySelectionConsistency;
 import grandrue.onboarding.OnboardingDiscoveryMapping;
 import grandrue.onboarding.InitialCustomerInteractionDiscoveryOption;

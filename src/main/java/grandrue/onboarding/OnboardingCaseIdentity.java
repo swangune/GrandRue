@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /** Stable identity of one Onboarding Case. */
 public record OnboardingCaseIdentity(String value) {

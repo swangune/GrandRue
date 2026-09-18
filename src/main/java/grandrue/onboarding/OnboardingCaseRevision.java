@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * Exact logical revision identity for one Onboarding Case evidence state.

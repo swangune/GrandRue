@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingCaseRevision;
+import grandrue.onboarding.OnboardingCaseIdentity;
 import java.util.Objects;
 import java.util.Optional;
 

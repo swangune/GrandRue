@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * Stable onboarding question identity independent of merchant-facing wording.

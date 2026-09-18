@@ -1,8 +1,8 @@
 package grandrue.onboarding;
 
-import mainstreet.onboarding.OnboardingQuestionIdentity;
-import mainstreet.onboarding.OnboardingQuestionDefinitionVersion;
-import mainstreet.onboarding.OnboardingSemanticSeed;
+import grandrue.onboarding.OnboardingQuestionIdentity;
+import grandrue.onboarding.OnboardingQuestionDefinitionVersion;
+import grandrue.onboarding.OnboardingSemanticSeed;
 import java.util.Objects;
 import java.util.Set;
 

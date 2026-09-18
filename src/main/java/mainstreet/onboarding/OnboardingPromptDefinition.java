@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingPromptKey;
+import grandrue.onboarding.OnboardingQuestionDefinitionVersion;
 import grandrue.onboarding.OnboardingAnswerConstraint;
 import grandrue.onboarding.OnboardingPromptPriority;
 import grandrue.onboarding.OnboardingAnswerForm;

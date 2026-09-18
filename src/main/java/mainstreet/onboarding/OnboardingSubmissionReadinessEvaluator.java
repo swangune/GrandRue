@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingPromptKey;
 import grandrue.onboarding.OnboardingSubmissionReadiness;
 import grandrue.onboarding.OnboardingFinalReviewFactory;
 import grandrue.onboarding.OnboardingCaseLifecycle;

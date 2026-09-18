@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingCaseRevision;
+import grandrue.onboarding.OnboardingCaseIdentity;
 import grandrue.application.MerchantScope;
 
 import java.time.Instant;
