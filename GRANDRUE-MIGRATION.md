@@ -419,6 +419,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X126`: `MerchantEnquiryRouteScopeAuthority.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Two bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.MerchantEnquiryQuery` and `mainstreet.enquiry.delivery.MerchantEnquiryApiConfiguration` received explicit `grandrue.enquiry.delivery.MerchantEnquiryRouteScopeAuthority` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `67ba6e84117cf8f9f22cab4b2d63ca320a990ca3`; owner input blob was `29569ac971a4590918e0066794c9610617c8ad86`; consumer input blobs were `6c5bf21c8b8cf676e22e48ad894377fd18596fbc` and `de291fa763d65b99ef52ad41b45a9afc3af9417b`; the GrandRue owner destination was absent at preflight. The moved owner received one explicit transitional import for `mainstreet.enquiry.delivery.MerchantEnquiryQueryContract`, which remains in the legacy delivery package. Existing server-owned merchant workspace route-scope establishment semantics were unchanged. Code commit `bac9de376343640d151fdc8b0bd682cfe7f7d7b5` contains exactly one owner rename/package replacement, one transitional owner import addition and two production consumer import additions.
 
+- `GR-REN-02-01X127`: `MerchantEnquiryQueryContract.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Three bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.MerchantEnquiryQuery` and `mainstreet.enquiry.delivery.MerchantEnquiryResponseAdapter` received explicit `grandrue.enquiry.delivery.MerchantEnquiryQueryContract` imports, while `grandrue.enquiry.delivery.MerchantEnquiryRouteScopeAuthority` became same-package and its transitional legacy import was removed. Current tests remain deferred to `GR-REN-03`. The prepared parent was `cf2b786c45ca8348e4c9a30935dfcab270f68e28`; owner input blob was `a787f8932f89e7b3235d36e37e332538b39b13d5`; consumer input blobs were `5496bab9c951b690c0590847bb4679c0d68d65a3`, `efc254764824dc1e090186947969583b4915aa9e` and `9c02fa339520ef611713fb412a67e2607a2e8baf`; the GrandRue owner destination was absent at preflight. The moved owner required no transitional imports. Existing merchant Enquiry API query-contract semantics were unchanged. Code commit `d2a6a4cc228a89b488881c49bcd920bdbfa73d18` contains exactly one owner rename/package replacement, two production consumer import additions and one transitional import removal.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -450,9 +452,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X126
-last_completed_task: GR-REN-02-01X126
-last_task_commit: bac9de376343640d151fdc8b0bd682cfe7f7d7b5
+selected_execution_leaf: GR-REN-02-01X127
+last_completed_task: GR-REN-02-01X127
+last_task_commit: d2a6a4cc228a89b488881c49bcd920bdbfa73d18
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -538,8 +540,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X126
-last_prepared_execution_commit: bac9de376343640d151fdc8b0bd682cfe7f7d7b5
+last_prepared_execution_leaf: GR-REN-02-01X127
+last_prepared_execution_commit: d2a6a4cc228a89b488881c49bcd920bdbfa73d18
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
