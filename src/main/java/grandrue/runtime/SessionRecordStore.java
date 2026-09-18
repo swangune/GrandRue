@@ -1,6 +1,5 @@
 package grandrue.runtime;
 
-import mainstreet.runtime.SessionRecord;
 
 import java.time.Instant;
 import java.util.Optional;

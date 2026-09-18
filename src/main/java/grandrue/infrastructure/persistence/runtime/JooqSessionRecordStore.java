@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.runtime;
 
-import mainstreet.runtime.SessionRecord;
+import grandrue.runtime.SessionRecord;
 import grandrue.runtime.SessionRecordStore;
 import org.jooq.DSLContext;
 import org.jooq.Field;

@@ -2,7 +2,7 @@ package mainstreet.surface;
 
 import grandrue.application.MerchantScope;
 import mainstreet.runtime.AuthenticationProvenance;
-import mainstreet.runtime.SessionRecord;
+import grandrue.runtime.SessionRecord;
 import grandrue.runtime.SessionRecordStore;
 import mainstreet.runtime.TrustedExecutionContext;
 
