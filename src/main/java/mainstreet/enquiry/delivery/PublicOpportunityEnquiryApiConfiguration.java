@@ -2,6 +2,7 @@ package mainstreet.enquiry.delivery;
 
 import grandrue.enquiry.delivery.PublicEnquirySubmissionAdmissionAuthority;
 import grandrue.enquiry.delivery.PublicOpportunityEnquiryRequirements;
+import grandrue.enquiry.delivery.PublicEnquiryRouteScopeAuthority;
 import mainstreet.enquiry.EnquirySubmissionApplicationService;
 import mainstreet.publication.*;
 import mainstreet.publication.delivery.PublicOpportunityRouteScopeAuthority;

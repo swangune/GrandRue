@@ -7,6 +7,7 @@ import grandrue.enquiry.delivery.PublicEnquirySubmissionAdmissionAuthority;
 import grandrue.enquiry.delivery.PublicGeneralEnquiryRequirements;
 import grandrue.enquiry.delivery.PublicGeneralEnquiryRequest;
 import grandrue.enquiry.delivery.PublicGeneralEnquiryContract;
+import grandrue.enquiry.delivery.PublicEnquiryRouteScopeAuthority;
 import mainstreet.enquiry.*;
 import mainstreet.publication.OpportunityPublicationStateAuthority;
 import mainstreet.publication.OpportunityPublicationSubmissionLock;
