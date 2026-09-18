@@ -4,7 +4,6 @@ import grandrue.application.MerchantScope;
 import grandrue.merchantaccount.MerchantControllerRelationship;
 import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
 import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.runtime.ScopedExecutionPrincipalResolver;
 
 import java.util.Objects;
 import java.util.Optional;

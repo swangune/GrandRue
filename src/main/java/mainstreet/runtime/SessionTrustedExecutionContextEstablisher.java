@@ -1,6 +1,7 @@
 package mainstreet.runtime;
 
 import grandrue.application.MerchantScope;
+import grandrue.runtime.ScopedExecutionPrincipalResolver;
 
 import java.util.Objects;
 import java.util.Optional;
