@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 import grandrue.application.StandingFreeBackgroundWorkContract;
 import grandrue.application.StandingFreeClaimedWorkExecution;
