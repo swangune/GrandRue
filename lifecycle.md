@@ -15,9 +15,11 @@ existing accepted authority?
     │          ↓
     │      smallest conformant implementation
     │          ↓
-    │      full verification
+    │      proportional slice verification
+          ↓
+      full gate before node completion
     │          ↓
-    │      implementation-status / conformance update
+    │      IMPLEMENTATION.md / graph-evidence update
     │
     └── no consequential answer
                ↓
@@ -32,4 +34,4 @@ existing accepted authority?
 
 Discussion, a workflow-tree entry, a diagram, implementation convenience or existing code does not by itself create accepted semantic/design authority.
 
-Current implementation state and accepted-but-partial scope are recorded in `docs/development/implementation-status.md` and the current macro-specific conformance record it references. `docs/development/design-implementation-conformance.md` is a dated historical snapshot and must not be used to determine current READY nodes.
+Current implementation execution state is exposed through `/IMPLEMENTATION.md`; dependency/readiness truth is in `docs/development/implementation-programme-state.json`. Historical `implementation-status.md` and `docs/development/design-implementation-conformance.md` remain evidence only and must not determine current READY nodes.

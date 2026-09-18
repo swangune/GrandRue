@@ -6,14 +6,14 @@ GrandRue is a capability-based operating platform for merchants. It is designed 
 
 Accepted semantic and architecture authority lives under `designs/` and is navigated through `designs/AUTHORITY-INDEX.md`. Repository source code implements that authority; it does not redefine it. Current implementation navigation and executable evidence are recorded in:
 
-- `docs/development/implementation-status.md`
+- `IMPLEMENTATION.md`
 - `docs/development/implementation-programme-state.json`
 
 `docs/development/design-implementation-conformance.md` is a retired historical snapshot. It remains useful as preserved evidence for its dated baseline, but it must not be used to determine the current READY frontier, macro completion or current implementation target.
 
 `development` is the canonical implementation branch. `master` is the stable promotion branch and receives only explicitly promoted, verified development baselines.
 
-The current programme target is `IMP-08C — Durable Execution Foundation`, which is `IN_PROGRESS`. The active node is `IMP-08C-C3 — Execution failures/outcome ledger`, also `IN_PROGRESS`. `IMP-00` through `IMP-07` are `CONFORMING_COMPLETE`. Current READY nodes, dependency gates and the exact implementation frontier are intentionally not duplicated here; resolve them through `docs/development/implementation-status.md` and the canonical `docs/development/implementation-programme-state.json` graph.
+The current programme target is `IMP-08C — Durable Execution Foundation`, which is `IN_PROGRESS`. The active node is `IMP-08C-C3 — Execution failures/outcome ledger`, also `IN_PROGRESS`. `IMP-00` through `IMP-07` are `CONFORMING_COMPLETE`. Current READY nodes, dependency gates and the exact implementation frontier are intentionally not duplicated here; resolve them through `IMPLEMENTATION.md` and the canonical `docs/development/implementation-programme-state.json` graph.
 
 ## Repository and product identity
 
@@ -82,7 +82,7 @@ Production source currently includes foundations for:
 - application-level cross-capability orchestration primitives;
 - PostgreSQL/jOOQ adapters backed by Flyway migrations.
 
-This does **not** mean every accepted MS-PROT capability or product-delivery surface is complete. Resolve the explicit current implementation frontier through `docs/development/implementation-status.md` and `docs/development/implementation-programme-state.json`.
+This does **not** mean every accepted MS-PROT capability or product-delivery surface is complete. Resolve the explicit current implementation frontier through `IMPLEMENTATION.md` and the canonical `docs/development/implementation-programme-state.json` graph. `docs/development/implementation-status.md` is historical/compatibility evidence under IMPLEMENTATION-RULES v2.0.
 
 ## Production versus historical prototype code
 

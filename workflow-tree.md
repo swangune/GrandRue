@@ -2,7 +2,7 @@
 
 > **Status:** Non-authoritative product-scope navigation.  
 > **Semantic/design authority:** `designs/AUTHORITY-INDEX.md` and its accepted authorities.  
-> **Implementation status:** `docs/development/implementation-status.md` and `docs/development/design-implementation-conformance.md`.
+> **Implementation navigation:** `/IMPLEMENTATION.md` and `docs/development/implementation-programme-state.json`. Historical status/conformance files are evidence only.
 
 This tree is a product-workflow inventory. A node being listed here does **not** mean that its semantics are accepted, that it is implemented, or that this file may override an accepted MS-PROT/TAS authority. New product work may extend this inventory after the applicable governed design work; the former rule that “no feature should exist outside this hierarchy” is retired.
 

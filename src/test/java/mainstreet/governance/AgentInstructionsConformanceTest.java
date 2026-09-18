@@ -19,7 +19,7 @@ import org.junit.jupiter.api.io.TempDir;
 /**
  * Mechanically reliable checks for the non-authoritative repository agent adapter.
  *
- * <p>Authority: MS-IMPLEMENTATION-RULES-001 v1.9,
+ * <p>Authority: MS-IMPLEMENTATION-RULES-001 v2.0,
  * {@code designs/IMPLEMENTATION-RULES.md}, §55 — Agent Context-Efficient Authority Loading.
  * These checks prove adapter structure only; they do not attempt semantic reasoning over prose.
  */
@@ -27,8 +27,11 @@ class AgentInstructionsConformanceTest {
 
     private static final Path ROOT = Path.of(".").toAbsolutePath().normalize();
     private static final Path AGENTS = ROOT.resolve("AGENTS.md");
+    private static final Path IMPLEMENTATION = ROOT.resolve("IMPLEMENTATION.md");
+    private static final Path IMPLEMENTATION_GRAPH = ROOT.resolve("docs/development/implementation-programme-state.json");
     private static final Path OPERATIONAL_RULES = ROOT.resolve("operational-rules.md");
     private static final long MAX_AGENTS_BYTES = 12L * 1024L;
+    private static final long MAX_IMPLEMENTATION_BYTES = 20L * 1024L;
 
     /**
      * Local/generated directory families excluded from repository governance discovery.
@@ -74,6 +77,23 @@ class AgentInstructionsConformanceTest {
             assertTrue(Files.isRegularFile(ROOT.resolve(reference)),
                     () -> "AGENTS.md references missing canonical file: " + reference);
         }
+    }
+
+    @Test
+    void implementationControllerExistsIsNonAuthoritativeAndBounded() throws IOException {
+        assertTrue(Files.isRegularFile(IMPLEMENTATION), "Missing root IMPLEMENTATION.md");
+        assertTrue(Files.isRegularFile(IMPLEMENTATION_GRAPH), "Missing canonical implementation graph");
+
+        byte[] bytes = Files.readAllBytes(IMPLEMENTATION);
+        String content = new String(bytes, StandardCharsets.UTF_8);
+
+        assertTrue(bytes.length <= MAX_IMPLEMENTATION_BYTES,
+                () -> "IMPLEMENTATION.md exceeds 20 KiB: " + bytes.length + " bytes");
+        assertTrue(content.contains("NON-AUTHORITATIVE OPERATIONAL CONTROLLER"));
+        assertTrue(content.contains("designs/IMPLEMENTATION-RULES.md"));
+        assertTrue(content.contains("docs/development/implementation-programme-state.json"));
+        assertTrue(content.contains("grandrue-implementation-controller/v2"));
+        assertFalse(content.contains("implementation-status.md remains a mandatory"));
     }
 
     @Test

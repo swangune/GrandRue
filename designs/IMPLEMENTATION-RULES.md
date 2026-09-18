@@ -1,11 +1,12 @@
 # Main Street Implementation Rules
 
 **Document ID:** MS-IMPLEMENTATION-RULES-001  
-**Version:** 1.9  
+**Version:** 2.0  
 **Status:** Accepted  
-**Applies from:** 22 August 2026  
-**Last amended:** 14 September 2026  
-**Purpose:** Define the mandatory rules for implementing accepted Main Street design in production code and tests, including the automated implementation sequence, canonical macro-programme integration, test integrity requirements, composite architecture/programming-paradigm conformance, refactoring boundaries, evidence integrity, exact design-to-code traceability, clean-code-preserving documentation rules, mandatory cycle-closing `implementation-status.md` synchronisation, explicit-chat authorisation before any Git branch creation, the conditions that require manual approval before implementation may continue, mandatory DESIGN-RULES-governed recommendation and approval-scope validation at every implementation-discovered manual design gate, and context-efficient authority loading for repository coding agents.
+**Approved:** 18 September 2026 — explicit manual approval of the complete v2.0 proposal  
+**Applies from:** 18 September 2026  
+**Last amended:** 18 September 2026  
+**Purpose:** Define the mandatory rules for implementing accepted Main Street design in production code and tests, including MS-IMP-001 integration, dependency-complete behavioural-slice execution, test integrity, proportional checkpoint verification, full node-completion verification, composite architecture/programming-paradigm conformance, evidence integrity, exact design-to-code traceability, the canonical `/IMPLEMENTATION.md` live controller, explicit branch-creation authorisation, DESIGN-RULES-governed escalation, post-migration verification handoff, and context-efficient authority loading.
 
 ---
 
@@ -39,49 +40,55 @@ Where implementation reveals missing, contradictory or improvable semantics, imp
 
 ## 2. Automated Implementation Lifecycle
 
-Implementation SHOULD proceed automatically whenever all required decisions are already governed by accepted authority:
+Implementation SHOULD proceed automatically whenever all required decisions are already governed by accepted authority.
+
+MS-IMP-001 or another accepted implementation programme determines eligible macro work and the fine-grained graph determines READY nodes. Within one READY or IN_PROGRESS node, execution proceeds through one or more dependency-complete behavioural slices.
 
 ```text
 READ ACCEPTED AUTHORITY
         ↓
-IDENTIFY IMPLEMENTATION TARGET
+RESOLVE ELIGIBLE MACRO / READY NODE
         ↓
-IDENTIFY INVARIANTS / CONTRACTS
+PREPARE NODE BOUNDARY ONCE
         ↓
-IDENTIFY APPLICABLE ARCHITECTURAL PARADIGM
+SELECT DEPENDENCY-COMPLETE BEHAVIOURAL SLICE
         ↓
-WRITE OR UPDATE FAILING TESTS
+DERIVE / UPDATE FAILING TESTS
         ↓
-RUN TARGETED TESTS
+RUN TARGETED RED WHERE APPLICABLE
         ↓
-IMPLEMENT MINIMUM PRODUCTION CODE
+IMPLEMENT MINIMUM CONFORMING SLICE
         ↓
-RUN TARGETED TESTS
+RUN TARGETED / RELEVANT CONTRACT / INTEGRATION / CONFORMANCE CHECKS
         ↓
-RUN INTEGRATION / CONTRACT TESTS AS APPLICABLE
+FALSIFY SLICE
         ↓
-RUN ARCHITECTURE / CORPUS / STATIC CHECKS
+COMMIT DURABLE SLICE CHECKPOINT
         ↓
-REVIEW STRUCTURE AND PARADIGM CONFORMANCE
-        ↓
-REFACTOR WITHOUT SEMANTIC CHANGE
-        ↓
-RUN FULL TEST SUITE
-        ↓
-RECORD IMPLEMENTATION EVIDENCE
-        ↓
-MARK / REFRESH IMPLEMENTATION GRAPH STATE
-        ↓
-SYNCHRONISE docs/development/implementation-status.md
-        ↓
-VERIFY STATUS / GRAPH / EVIDENCE CONSISTENCY
-        ↓
-COMMIT CYCLE-CLOSING STATE TO development
-        ↓
-NEXT IMPLEMENTATION TARGET
+MORE SLICE WORK REQUIRED FOR NODE?
+        ├── YES → prepare/reuse next closed slice
+        └── NO
+              ↓
+          RUN FULL APPLICABLE NODE-COMPLETION GATE
+              ↓
+          RECORD MATERIAL COMPLETION EVIDENCE
+              ↓
+          REFRESH GRAPH / MACRO STATE WHERE CHANGED
+              ↓
+          SYNCHRONISE /IMPLEMENTATION.md
+              ↓
+          VERIFY CONTROLLER / GRAPH / EVIDENCE CONSISTENCY
+              ↓
+          COMMIT CYCLE-CLOSING STATE
+              ↓
+          NEXT ELIGIBLE WORK
 ```
 
-This loop MAY continue without manual approval while every change remains within already accepted semantics and the auto-change boundaries defined here.
+Fine-grained traceability does not require file-by-file reasoning or commit cycles.
+
+A full repository verification gate is required for node completion where applicable, but is not automatically required after every internal behavioural-slice checkpoint. Earlier full-gate execution remains mandatory where the blast radius cannot be bounded reliably.
+
+This lifecycle MAY continue without manual approval while every change remains within already accepted semantics and the auto-change boundaries defined here.
 
 ### 2.1 Branch-Creation Authorisation Rule
 
@@ -523,6 +530,8 @@ Automatic refactoring must be behaviour-preserving and MUST NOT move semantic ow
 
 Prefer the smallest implementation satisfying accepted contracts while preserving capability boundaries, testability, maintainability and known accepted requirements. Do not build speculative abstractions.
 
+`Smallest implementation` means the minimum complete implementation required by the selected dependency-complete behavioural slice. It MUST NOT be interpreted as requiring the smallest possible file, class or method edit.
+
 ---
 
 ## 29. Naming Rule
@@ -854,9 +863,13 @@ A material improvement outside current authority MUST be proposed rather than im
 
 Implementation commits SHOULD preserve traceability between accepted design, tests and code. Production code and relevant tests SHOULD normally commit together. Required failing tests block completion unless an approved staged state is explicitly recorded.
 
-A material implementation commit MUST preserve any required exact authority trace anchors introduced or affected by the change. It MUST NOT leave materially misleading or stale design references behind.
+The normal durable implementation unit is a coherent passing behavioural slice. Intermediate RED, GREEN, verification, evidence or recovery commits MAY occur where they improve traceability or resumability.
 
-Intermediate RED, GREEN, verification or evidence commits MAY occur where they improve traceability. However, an implementation cycle is not closed and the next READY node MUST NOT begin until the cycle-closing graph state, implementation evidence and `docs/development/implementation-status.md` synchronisation required by Section 52.14 have been committed to `development`.
+A slice commit does not automatically complete its enclosing graph node. The next slice inside the same node MAY proceed when the current slice is durably checkpointed and its prerequisites remain satisfied.
+
+Before selecting a different READY node after a terminal node transition, the required graph/evidence/controller synchronisation under Section 52.14 MUST be committed to `development`.
+
+Checkpoint administration SHOULD be materially cheaper than the implementation checkpoint it protects except where the risk of the change requires stronger evidence.
 
 ---
 
@@ -864,33 +877,54 @@ Intermediate RED, GREEN, verification or evidence commits MAY occur where they i
 
 Material milestones MUST record sufficient evidence to establish the scope of their completion claim.
 
-Where applicable, evidence SHOULD identify:
+For an ordinary bounded slice, sufficient evidence MAY consist of:
 
 ```text
-implementation target / node
+exact authority pointer(s)
++
+tests
++
+verification result
++
+Git diff / commit
++
+/IMPLEMENTATION.md checkpoint
+```
+
+Dedicated evidence documents are not mandatory merely because production code changed.
+
+Dedicated evidence remains required where needed to support a material claim involving node completion, macro completion, architecture, security/trust, persistence migration, concurrency, recovery, provider execution, historical affinity, material falsification or another responsibility whose proof cannot be reconstructed reliably from tests, Git and the live controller.
+
+Where applicable, material evidence SHOULD identify:
+
+```text
+implementation target / node / slice
 macro target
 exact governing authority pointer(s)
 implementation responsibilities
-material code locations
-material test locations
+material code/test locations
 verification commands/results
 completion-falsification findings
 limitations / deferred concerns
-implementation-evidence scope and freshness
+evidence scope / freshness
 commit SHA
 ```
 
-Implementation evidence is non-authoritative navigation/proof and MUST NOT redefine semantic authority.
-
-Cycle-closing evidence MUST be reconciled with the fine-grained implementation graph and `docs/development/implementation-status.md` before the next implementation node is selected.
+Implementation evidence is non-authoritative navigation/proof and MUST NOT redefine semantic authority or duplicate long history already retained in Git.
 
 ---
 
 ## 48. Full Verification Gate
 
-Applicable completion verification MUST include compilation, semantic/unit tests, application tests, contract/integration tests, architecture/conformance tests, full Maven suite and configured static checks. Known failing required checks block completion.
+Verification SHALL be proportional to the claim being made.
 
----
+A behavioural-slice checkpoint MUST run the cheapest verification sufficient to falsify the slice claim, including as applicable targeted semantic/unit tests, relevant contract tests, bounded integration tests, affected architecture/conformance/static checks, migration checks and explicit negative/adversarial cases.
+
+A node MUST NOT become `COMPLETE` or `CONFORMING_COMPLETE` until its complete applicable verification gate passes. Where applicable that gate includes compilation, semantic/unit tests, application tests, contract/integration tests, architecture/conformance tests, the full Maven/PostgreSQL suite and configured static checks.
+
+A still-fresh full verification result MAY be reused only where no intervening change can materially invalidate it. Targeted slice verification MUST NOT be promoted into a node-completion claim.
+
+Known failing required checks block the completion claim.
 
 ## 49. Production Readiness Boundary
 
@@ -924,8 +958,8 @@ Before completing a material implementation item verify:
 20. Which constituent composite paradigm applies and why?
 21. Has a paradigm been forced where ordinary typed code is simpler and sufficient?
 22. Has a framework/library become architectural authority?
-23. Does the full required verification suite pass?
-24. Has `docs/development/implementation-status.md` been synchronised with the current fine-grained graph, evidence and macro state for this cycle?
+23. For a slice checkpoint, did every proportional required check pass; for a node-completion claim, does the full applicable verification gate pass?
+24. Has `/IMPLEMENTATION.md` been synchronised with the current graph/evidence state required by this checkpoint or terminal node transition?
 25. Was any branch created without an explicit branch-creation instruction in the active chat? If yes, STOP and record the governance violation.
 26. Can the exact governing accepted provision be reached deterministically from each required material trace anchor?
 27. Does every material authority pointer identify the accepted authority, exact constituent repository path and exact governing section/clause rather than a vague document-level reference?
@@ -977,53 +1011,47 @@ READ AUTHORITY
       ↓
 RESOLVE ELIGIBLE MACRO TARGET
       ↓
-BUILD / REFRESH FINE-GRAINED IMPLEMENTATION DEPENDENCY GRAPH
+BUILD / REFRESH FINE-GRAINED IMPLEMENTATION GRAPH
       ↓
-SELECT SMALLEST READY IMPLEMENTATION NODE
+SELECT SMALLEST MEANINGFUL READY NODE
       ↓
-IDENTIFY APPLICABLE COMPOSITE PARADIGM
+PREPARE NODE AUTHORITY / DEPENDENCY BOUNDARY ONCE
       ↓
-DERIVE TESTABLE INVARIANT / CONTRACT
+SELECT DEPENDENCY-COMPLETE BEHAVIOURAL SLICE
       ↓
-WRITE FAILING TEST
+TEST FIRST
       ↓
-RUN TARGETED TEST
+MINIMUM CONFORMING SLICE IMPLEMENTATION
       ↓
-WRITE MINIMUM PRODUCTION CODE
+PROPORTIONAL SLICE VERIFICATION / FALSIFICATION
       ↓
-RUN TARGETED TEST
+COMMIT SLICE CHECKPOINT
       ↓
-RUN RELEVANT CONTRACT / INTEGRATION TESTS
-      ↓
-RUN CONFORMANCE
-      ↓
-REVIEW BOUNDARIES / PARADIGM FIT / DUPLICATION / CLARITY
-      ↓
-BEHAVIOUR-PRESERVING REFACTOR
-      ↓
-RUN FULL SUITE
-      ↓
-FALSIFY COMPLETION / VERIFY EVIDENCE SCOPE / VERIFY TRACEABILITY
-      ↓
-CLASSIFY DISCOVERED IMPROVEMENT
-      │
-      ├── AUTO_* → apply, retest, continue
-      ├── MANUAL_APPROVAL → block affected node and propose
-      └── DESIGN_ESCALATION → block affected node and reopen design
-      ↓
-RECORD EVIDENCE
-      ↓
-MARK NODE COMPLETE / RECORD TERMINAL BLOCKED OR FAILED STATE
-      ↓
-REFRESH READY NODES / MACRO COMPLETION
-      ↓
-SYNCHRONISE docs/development/implementation-status.md
-      ↓
-VERIFY STATUS / GRAPH / EVIDENCE CONSISTENCY
-      ↓
-COMMIT CYCLE-CLOSING STATE TO development
-      ↓
-NEXT READY NODE
+MORE WORK IN NODE?
+      ├── YES → NEXT CLOSED SLICE
+      └── NO
+            ↓
+        FULL APPLICABLE NODE-COMPLETION GATE
+            ↓
+        CLASSIFY DISCOVERED IMPROVEMENT
+            │
+            ├── AUTO_* → apply/retest
+            ├── MANUAL_APPROVAL → block affected path and propose
+            └── DESIGN_ESCALATION → block affected path and reopen design
+            ↓
+        RECORD MATERIAL COMPLETION EVIDENCE
+            ↓
+        MARK NODE TERMINAL STATE
+            ↓
+        REFRESH GRAPH / MACRO STATE WHERE CHANGED
+            ↓
+        SYNCHRONISE /IMPLEMENTATION.md
+            ↓
+        VERIFY CONTROLLER / GRAPH / EVIDENCE CONSISTENCY
+            ↓
+        COMMIT CYCLE-CLOSING STATE
+            ↓
+        NEXT READY NODE
 ```
 
 ### 52.1 Graph-driven implementation protocol
@@ -1042,7 +1070,9 @@ FINE-GRAINED GRAPH
 
 A fine-grained execution node MUST belong to or explicitly satisfy one eligible macro target.
 
-An implementation node represents the smallest coherent implementation target whose governing authority, prerequisites, invariants, tests and completion evidence can be evaluated independently.
+An implementation node represents the smallest coherent implementation responsibility whose governing authority, prerequisites, invariants, tests and completion evidence can be evaluated independently.
+
+A node is not a source-file granularity rule. One node MAY require multiple dependency-complete behavioural slices, and one slice MAY modify multiple files/classes/adapters where they jointly realise one already-governed behaviour.
 
 A dependency edge means that the downstream node MUST NOT begin until the upstream prerequisite is complete or otherwise explicitly satisfied by existing conforming implementation.
 
@@ -1063,9 +1093,9 @@ Automation MAY select any ready node consistent with dependency order, but SHOUL
 
 Automation MUST NOT select a blocked downstream node merely because it is easier or more visible.
 
-### 52.3 Node execution state
+### 52.3 Node and Slice Execution State
 
-For automation purposes, implementation nodes MAY be tracked using execution states equivalent to:
+Implementation nodes MAY be tracked using states equivalent to:
 
 ```text
 PENDING
@@ -1077,7 +1107,19 @@ FAILED_IMPLEMENTATION
 COMPLETE
 ```
 
-These states describe implementation workflow only. They MUST NOT be projected into merchant/domain semantics or treated as authoritative business state.
+Within one READY/IN_PROGRESS node, behavioural slices MAY use operational states equivalent to:
+
+```text
+PREPARATION_REQUIRED
+READY
+IN_PROGRESS
+VERIFIED
+COMMITTED
+```
+
+Multiple committed slices MAY exist inside one `IN_PROGRESS` node.
+
+Node and slice states describe implementation workflow only. They MUST NOT be projected into merchant/domain semantics or treated as authoritative business state.
 
 ### 52.4 Blocked-node isolation
 
@@ -1112,6 +1154,8 @@ The implementation graph MUST be refreshed when any of the following materially 
 
 Graph refinement is automatic only when it does not change semantic ownership, accepted contracts, transaction boundaries, provider responsibility, externally observable behaviour or an accepted macro HARD dependency/PROGRAMME_GATE. Otherwise it requires the applicable approval path.
 
+The graph MUST NOT be rewritten ceremonially after every internal slice. Refresh it when dependency/readiness/completion facts materially change.
+
 ### 52.6 Agent authority boundary
 
 An implementation agent MAY autonomously:
@@ -1120,13 +1164,14 @@ An implementation agent MAY autonomously:
 inspect repository state
 construct/refine the fine-grained implementation dependency graph
 select READY nodes inside READY macro targets
+prepare and execute dependency-complete behavioural slices
 write tests for accepted invariants
-implement minimum conforming code
-run verification
+implement minimum conforming slices
+run proportional slice and full node-completion verification as applicable
 perform AUTO_* improvements
 record evidence
-synchronise implementation-status.md from current graph/evidence
-commit conforming completed nodes and cycle-closing navigation state
+synchronise /IMPLEMENTATION.md from current graph/evidence
+commit conforming slice checkpoints and terminal cycle-closing state
 continue to newly READY nodes
 ```
 
@@ -1253,57 +1298,50 @@ BLOCKED_DEPENDENCY / PENDING:
 
 The canonical automation loop begins by inspecting and classifying the existing repository rather than writing speculative new production code.
 
-### 52.14 Mandatory implementation-status synchronisation
+### 52.14 Mandatory `/IMPLEMENTATION.md` Synchronisation
 
-At the end of **every implementation cycle**, the implementation agent SHALL automatically synchronise `docs/development/implementation-status.md` after the fine-grained graph and implementation evidence have been refreshed and before any next READY node is selected.
+Root `/IMPLEMENTATION.md` is the single live non-authoritative implementation execution controller.
 
-This applies whether the executed node ends the cycle as:
+At each durable behavioural-slice checkpoint it SHALL contain sufficient current information to restart the active node without conversation memory. At a terminal node transition (`COMPLETE`, `BLOCKED_DESIGN`, `BLOCKED_DEPENDENCY`, `FAILED_IMPLEMENTATION`) it SHALL be synchronised after any required graph/evidence refresh and before a different READY node is selected.
 
-```text
-COMPLETE
-BLOCKED_DESIGN
-BLOCKED_DEPENDENCY
-FAILED_IMPLEMENTATION
-```
+The controller MUST expose, at minimum where applicable:
 
-and whenever a cycle materially changes macro eligibility, fine-grained readiness, blocker relationships or the identity of the next executable node.
+1. current macro target and state;
+2. current fine-grained node and state;
+3. current slice identity/state or `null`;
+4. exact authority references needed for the active work;
+5. current blockers/escalations;
+6. canonical graph/evidence pointer;
+7. relevant last checkpoint/verification evidence;
+8. immediate next governed action.
 
-The synchronised status record MUST reflect, at minimum:
-
-1. the current macro target and macro execution state;
-2. every fine-grained node whose state changed during the cycle;
-3. the current smallest executable READY node or nodes;
-4. exact blocker reasons and upstream dependencies for materially relevant blocked nodes;
-5. macro completion or newly unlocked downstream macro state where applicable;
-6. the current fine-grained graph/evidence record used as the navigation basis;
-7. the relevant verified code-bearing baseline/commit where available; and
-8. the immediate next governed implementation work.
-
-The required ordering is:
+Required terminal ordering:
 
 ```text
 accepted authority + repository state
         ↓
 implementation / verification evidence
         ↓
-refresh fine-grained graph and macro completion state
+refresh graph / macro state where materially changed
         ↓
-synchronise implementation-status.md
+synchronise /IMPLEMENTATION.md
         ↓
-verify graph / evidence / status consistency
+verify controller / graph / evidence consistency
         ↓
 commit cycle-closing state
         ↓
 select next READY node
 ```
 
-`implementation-status.md` remains a **navigation/evidence record**, not semantic or programme authority. It MUST NOT override accepted design authority, `MS-IMP-001`, or a more specific current conformance/graph record. Its purpose is to faithfully expose the latest governed implementation state.
+`/IMPLEMENTATION.md` does not create implementation permission, semantic meaning, graph edges or macro completion. The canonical fine-grained dependency/readiness graph remains `docs/development/implementation-programme-state.json`.
 
-If `implementation-status.md` conflicts with the current fine-grained graph or current conformance evidence, it is stale and MUST be corrected automatically before the next implementation node begins. A stale status record MUST NOT be used to select implementation work.
+If the controller conflicts with the current graph or fresh conformance evidence, the graph/current evidence governs and the controller is stale. Correct it before implementation continues.
 
-Status synchronisation requires no separate manual approval when it only records states already determined by accepted authority, repository evidence and the refreshed implementation graph. The agent MUST NOT use status synchronisation to invent a dependency, alter a HARD macro edge, change a completion gate or create semantic authority.
+`docs/development/implementation-status.md` is historical/compatibility evidence after v2.0 and MUST NOT be used to select current implementation work.
 
-If reconciliation exposes a genuine contradiction that cannot be resolved from accepted authority and repository evidence, the affected next-node selection MUST stop and follow the applicable programme/design escalation rule rather than guessing.
+Controller synchronisation requires no separate manual approval when it only records facts already determined by accepted authority and repository evidence.
+
+If reconciliation exposes a genuine contradiction that cannot be resolved from accepted authority and repository evidence, stop the affected selection path and follow the applicable programme/design escalation rule.
 
 ### 52.15 Repository-Evidence and Freshness Rule
 
@@ -2060,6 +2098,126 @@ No amendment to `MS-IMP-001` is created by v1.8. `MS-IMP-001` continues to own t
 
 ---
 
-## 56. Final Governing Rule
+## 56. v2.0 Efficient Dependency-Complete Execution and Live Controller
 
-> **Automate implementation aggressively inside accepted boundaries; use MS-IMP-001 or another accepted macro implementation programme to determine eligible macro work, use the dynamic dependency graph to select the smallest ready nodes and isolate blocked implementation paths, load the smallest presently sufficient current authority context and widen rather than infer whenever sufficiency becomes uncertain, remain on the current instructed repository branch unless the active chat explicitly authorises branch creation, preserve the composite architecture by selecting the paradigm appropriate to each responsibility, keep implementation evidence grounded in fresh repository facts, preserve exact non-ambiguous design-to-code traceability at stable semantic boundaries without sacrificing clean code, actively falsify material completion claims, synchronise `implementation-status.md` from the refreshed graph and evidence at the end of every cycle before selecting the next node, avoid both architectural drift and pattern dogma, and stop affected work immediately when improvement requires a new decision while continuing independent governed work. Tests protect accepted behaviour, production code realises accepted semantics, and neither agent instructions, comments, tests nor implementation evidence may become a hidden design authority.**
+### 56.1 Behavioural-Slice Rule
+
+Within a READY or IN_PROGRESS node, implementation SHALL use the largest coherent dependency-complete behavioural slice that can be independently prepared, implemented, falsified and checkpointed without unresolved semantic judgement.
+
+A valid slice has explicit accepted behaviour/invariant, a closed material dependency boundary, identified tests, a finite affected implementation surface, identified widening/escalation triggers and independent checkpoint value.
+
+A slice is not defined by file, class, method, package or arbitrary numeric count. Unrelated behaviours MUST NOT be combined merely for throughput.
+
+### 56.2 Prepare-Once Rule
+
+Before executing a slice, resolve once the exact accepted authority/invariant, semantic owners, dependency closure, affected code/test surface, applicable transaction/concurrency/recovery/security/persistence/provider/Exposure implications, verification obligations, non-goals and stop/escalation conditions.
+
+Reuse that preparation while authority, repository inputs and the dependency boundary remain fresh. Do not repeatedly rediscover the same resolved boundary per file.
+
+### 56.3 Exception-Driven Widening
+
+Unexpected semantic owner, contract, persistence, security/trust, transaction/concurrency/idempotency, provider, historical-affinity, Exposure or other material consequences leave ordinary slice execution. If current accepted authority resolves them, rebuild the slice; otherwise the affected path enters `DESIGN_ESCALATION`.
+
+An exception MUST NOT force unrelated deterministic implementation back into file-level cycles.
+
+### 56.4 Resource-Efficiency Invariant
+
+Implementation SHALL minimise repeated reasoning boundaries while retaining exact correctness boundaries:
+
+```text
+reason once for one closed behaviour
+execute mechanically determined implementation within that boundary
+verify the strongest bounded claim once
+retain granular evidence mechanically
+escalate only exceptional uncertainty
+```
+
+Efficiency MUST NOT be achieved by skipping authority, weakening tests, hiding dependencies, combining unrelated behaviour, bypassing `DESIGN_ESCALATION`, omitting required completion gates or downgrading security/persistence/concurrency scrutiny.
+
+### 56.5 Live Controller Contract
+
+`/IMPLEMENTATION.md` SHALL remain a small live execution controller, not a historical diary. History belongs in Git/bounded evidence; dependency/readiness truth belongs in `implementation-programme-state.json`; accepted meaning belongs in accepted authority.
+
+The controller SHOULD remain at or below approximately 12 KiB and MUST NOT exceed 20 KiB without reviewing/removing duplicated or historical material.
+
+### 56.6 Historical `implementation-status.md`
+
+`docs/development/implementation-status.md` ceases to be the mandatory live cycle-closing surface under v2.0 and becomes historical/compatibility implementation-navigation evidence. Its earlier contents and references remain valid historical evidence within their original scope and MUST NOT be mass-rewritten.
+
+Future live navigation uses `/IMPLEMENTATION.md` plus `docs/development/implementation-programme-state.json`.
+
+### 56.7 MS-IMP-001 Relationship
+
+v2.0 changes no MS-IMP-001 macro target meaning, HARD dependency, PROGRAMME_GATE ordering, macro eligibility or completion criterion. MS-IMP-001 continues to govern macro work; these rules govern fine-grained execution.
+
+`smallest coherent READY node` means the smallest independently meaningful implementation responsibility, not the smallest possible source-code edit.
+
+### 56.8 Post-Migration Verification → Implementation Handoff
+
+Implementation remains paused while the GrandRue naming migration or its required post-migration verification/closure is incomplete.
+
+Automatic implementation re-entry occurs only when:
+
+```text
+migration execution complete
++
+required post-migration verification complete
++
+GR-REN-08..11 closure requirements satisfied
++
+no unresolved migration defect requiring repair
++
+no unresolved DESIGN_ESCALATION preventing implementation
+```
+
+Then:
+
+```text
+verified final repository head
+        ↓
+reconcile implementation-programme-state.json against current tree
+        ↓
+preserve MS-IMP-001 programme meaning unless evidence requires factual state correction
+        ↓
+refresh /IMPLEMENTATION.md
+        ↓
+select eligible READY node
+        ↓
+prepare dependency-complete behavioural slice
+        ↓
+resume implementation automatically
+```
+
+No separate `continue implementation` prompt is required where MS-IMP-001 and these rules already authorise the READY work.
+
+If post-migration verification returns `FAIL` or a relevant `BLOCKED` outcome, there is NO implementation handoff. Resolve/revalidate the migration finding first.
+
+Naming migration changes MUST NOT be interpreted as semantic implementation completion or as authority to change graph meaning.
+
+### 56.9 Historical Compatibility
+
+Implementation evidence produced under earlier accepted IMPLEMENTATION-RULES versions remains valid for the claims it originally established. Historical references to earlier rule versions and the former `implementation-status.md` lifecycle remain historical evidence.
+
+### 56.10 v2.0 Formalisation Effect
+
+v2.0 is integrated into this canonical file. `AUTHORITY-INDEX.md` identifies integrated accepted v2.0. `/IMPLEMENTATION.md` becomes the live controller; `implementation-status.md` becomes historical/compatibility; repository navigation points to the controller plus canonical graph; applicable mechanical conformance checks verify the controller; DDR/Lexicon require no change because no semantic/deferred-decision meaning changes.
+
+No MS-IMP-001 amendment is created.
+
+### 56.11 v2.0 Falsification Preservation
+
+The implementation process MUST reject these failure modes:
+
+- large slice hides undeclared dependency → widen/rebuild boundary;
+- targeted slice checks are used as node completion → reject until full applicable gate;
+- stale controller conflicts with graph/current evidence → graph/evidence governs and controller is corrected;
+- status retirement loses history → retain Git and bounded evidence;
+- slice becomes arbitrary huge batch → partition by behavioural/dependency closure and falsifiability;
+- migration rename becomes implementation progress → reconcile factual paths only; preserve programme meaning;
+- post-migration defect exists → block implementation handoff;
+- security/persistence/concurrency/provider/design uncertainty is treated as routine → widen/escalate;
+- stale full-suite result is reused after invalidating changes → rerun applicable gate.
+
+### 56.12 Final Governing Rule
+
+> **Implement by the smallest meaningful READY responsibility, but execute that responsibility through dependency-complete behavioural slices rather than file-level cycles. Prepare resolved decisions once, use tests first, apply the minimum complete implementation needed for the slice, verify proportionally at checkpoints, require the full applicable gate before node completion, keep the canonical graph machine-readable and `/IMPLEMENTATION.md` small and restartable, preserve historical evidence without duplicating it, and automatically resume the governed implementation programme only after migration and post-migration verification are completely reconciled. Efficiency never authorises semantic inference, hidden dependency, weakened verification or bypass of a design gate.**

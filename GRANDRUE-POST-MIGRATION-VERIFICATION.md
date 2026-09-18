@@ -229,6 +229,28 @@ A successful report may say:
 
 That wording is a **report template**, not the current result. This audit does not by itself close `GR-REN-08..11`, authorise a merge, certify all planned migration work, or establish runtime equivalence.
 
+## 7.1 Successful Verification → Implementation Handoff
+
+Successful audit conclusions do not by themselves authorise implementation re-entry. The handoff becomes `READY` only when the migration ledger additionally records the required `GR-REN-08..11` closure and no unresolved migration finding or blocking design escalation remains.
+
+When those conditions are satisfied:
+
+```text
+verified final migration target D
+        ↓
+implementation_handoff = READY
+        ↓
+reconcile docs/development/implementation-programme-state.json against D/current tree
+        ↓
+refresh /IMPLEMENTATION.md
+        ↓
+resume eligible READY implementation automatically under MS-IMPLEMENTATION-RULES-001 v2.0
+```
+
+No separate `continue implementation` prompt is required.
+
+A `FAIL`, relevant `BLOCKED` result, unresolved migration repair or unresolved `DESIGN_ESCALATION` sets `implementation_handoff = BLOCKED`.
+
 ## 8. Checkpoint and restart
 
 This structured record is the sole current run pointer. Packet definitions and active execution state live in the work file; detailed results live in immutable evidence, not copied into both documents.
@@ -247,6 +269,7 @@ checkpoint:
   claim_snapshot_digest: null
   evidence_root: null
   latest_receipt: null
+  implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
   coverage:
     enumeration_complete: false
     baseline_entries: null

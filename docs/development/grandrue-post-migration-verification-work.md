@@ -389,6 +389,14 @@ Additionally, `master_non_naming_executable_preservation = PASS` requires zero e
 
 Classified non-migration revisions can coexist with a narrower migration-preservation pass, but must be listed. They cannot turn the whole repository into “unchanged except naming”. A zero-claim snapshot must explicitly report that no migration claims were available; do not imply useful migration validation from a vacuous pass.
 
+### Implementation re-entry handoff
+
+After `GR-VV-05` produces the required successful conclusions, check the canonical migration ledger for `GR-REN-08..11` closure. Only when both verification and migration closure pass may the work file emit `implementation_handoff: READY`.
+
+On `READY`, the next action is to reconcile the canonical implementation graph against the verified target/current tree, refresh `/IMPLEMENTATION.md`, and resume eligible READY implementation automatically under IMPLEMENTATION-RULES v2.0.
+
+Any relevant failed/blocked verification result, unresolved migration defect or blocking design escalation emits `implementation_handoff: BLOCKED` instead.
+
 ### A live branch is not an immutable target
 
 Re-read remote `development` before the final report or publication:
@@ -424,6 +432,7 @@ execution:
   active_packet: null
   queue: []
   results_recorded: false
+  implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
   on_activation:
     - pin final migration checkpoint as D
     - enumerate complete M and D trees once

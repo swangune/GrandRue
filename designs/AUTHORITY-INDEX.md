@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.35
+**Version:** 4.36
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -277,9 +277,9 @@ The handle is Main Street-generated, opaque and non-PII; it is not the semantic 
 | MS-DESIGN-RULES-001 | integrated accepted v2.5 — `designs/DESIGN-RULES.md` |
 | MS-DOCUMENT-GOVERNANCE-001 | integrated accepted v2.4 — `designs/DOCUMENT-GOVERNANCE.md` |
 | MS-DESIGN-CORPUS-CONFORMANCE-001 | integrated accepted v2.6 — `designs/DESIGN-CORPUS-CONFORMANCE.md` |
-| MS-IMPLEMENTATION-RULES-001 | integrated accepted v1.9 — `designs/IMPLEMENTATION-RULES.md` |
+| MS-IMPLEMENTATION-RULES-001 | integrated accepted v2.0 — `designs/IMPLEMENTATION-RULES.md` |
 
-MS-IMP-001 governs the macro production-implementation graph. DESIGN-RULES governs the design lifecycle and Fundamental Vision Conformance before acceptance. DOCUMENT-GOVERNANCE governs canonical authority placement and navigation. DESIGN-CORPUS-CONFORMANCE governs deterministic structural validation. IMPLEMENTATION-RULES governs READY-node execution, tests, minimum conforming code, exact design-to-code traceability, clean-code-preserving documentation, evidence integrity, automatic no-semantic-change improvements, context-efficient authority loading and mandatory escalation for material unresolved decisions. None of these creates capability-specific business semantics.
+MS-IMP-001 governs the macro production-implementation graph. DESIGN-RULES governs the design lifecycle and Fundamental Vision Conformance before acceptance. DOCUMENT-GOVERNANCE governs canonical authority placement and navigation. DESIGN-CORPUS-CONFORMANCE governs deterministic structural validation. IMPLEMENTATION-RULES governs READY-node execution through dependency-complete behavioural slices, tests-first implementation, proportional slice verification, full node-completion verification, `/IMPLEMENTATION.md` live-controller synchronisation, exact design-to-code traceability, evidence integrity, context-efficient authority loading and mandatory escalation for material unresolved decisions. None of these creates capability-specific business semantics.
 
 ---
 

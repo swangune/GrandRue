@@ -12,8 +12,8 @@ If this file conflicts with accepted repository authority, the accepted authorit
 - The applicable accepted authority determines **what** the substantive meaning is.
 - `designs/IMPLEMENTATION-RULES.md` determines **how** accepted authority is implemented.
 - `designs/authorities/programme/MS-IMP-001/MS-IMP-001.md` plus its current accepted composition governs the macro implementation programme when applicable.
-- `/IMPLEMENTATION.md` is a non-authoritative live execution controller; it may accelerate resumability but MUST be checked against the canonical graph/status/evidence and cannot create implementation permission or semantic meaning.
-- At the fully checkpointed terminal state of `GRANDRUE-MIGRATION.md`, continue automatically into `GRANDRUE-POST-MIGRATION-VERIFICATION.md` without a new chat prompt. Verification begins at the original migration baseline `c4153441d8340b229a29884967d796280d949a7d` and covers every completed migration claim through the final target; the handoff grants audit/read-only permissions only.
+- `/IMPLEMENTATION.md` is the non-authoritative live implementation controller; the canonical graph/current evidence outrank it and it cannot create implementation permission or semantic meaning.
+- At the fully checkpointed terminal state of `GRANDRUE-MIGRATION.md`, continue automatically into `GRANDRUE-POST-MIGRATION-VERIFICATION.md` without a new chat prompt. After successful required verification and `GR-REN-08..11` closure, reconcile the implementation graph/controller and resume authorised READY implementation automatically; neither handoff grants extra product/design/branch permissions.
 - Tests, production code, implementation evidence, conversation memory, agent judgement, framework behaviour, and this file are not semantic authority.
 
 Never fill a material semantic gap from plausibility, convention, adjacent code, or remembered context.
@@ -41,7 +41,7 @@ Inspect the bounded current code/tests/evidence. Resolve governing authority whe
 
 ### B — Accepted-authority implementation
 
-Resolve the implementation target/node and applicable programme state; inspect `/IMPLEMENTATION.md` when present as the resumable operational pointer and verify it against the canonical graph/status/evidence; use `AUTHORITY-INDEX.md` to resolve the governing semantic/architecture authority; read the exact accepted constituent provisions, relevant evidence, affected code, and tests; then follow `IMPLEMENTATION-RULES.md`.
+Resolve the implementation target/node and applicable programme state; inspect `/IMPLEMENTATION.md` as the resumable operational pointer and verify it against the canonical graph/current evidence; use `AUTHORITY-INDEX.md` to resolve governing semantic/architecture authority; read the exact accepted constituent provisions, relevant evidence, affected code and tests; then follow `IMPLEMENTATION-RULES.md`.
 
 ### C — Cross-capability / cross-boundary implementation
 
@@ -113,7 +113,7 @@ Before completing a material implementation cycle, verify that the instructed br
 - Use exact stable authority pointers for material traceability as required by `IMPLEMENTATION-RULES.md`.
 - Run applicable targeted, integration/contract, architecture/conformance, static, and full verification required by current implementation governance.
 - Actively falsify material completion claims.
-- Synchronise implementation graph/evidence/status and commit cycle-closing state as required by current `IMPLEMENTATION-RULES.md`.
+- Synchronise the canonical graph/evidence and `/IMPLEMENTATION.md` as required by current `IMPLEMENTATION-RULES.md`; use proportional slice verification and the full applicable gate before node completion.
 
 ## Manual file-edit traceability
 
