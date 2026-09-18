@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 /** Provenance class for coordinates accepted into Merchant Location authority. */
 public enum LocationCoordinateSourceKind {

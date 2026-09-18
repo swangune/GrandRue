@@ -4,7 +4,7 @@ import grandrue.application.MerchantScope;
 import mainstreet.merchantprofile.AcceptedLocationCoordinates;
 import mainstreet.merchantprofile.CorrectMerchantLocationCommand;
 import mainstreet.merchantprofile.CreateMerchantLocationCommand;
-import mainstreet.merchantprofile.LocationCoordinateSourceKind;
+import grandrue.merchantprofile.LocationCoordinateSourceKind;
 import mainstreet.merchantprofile.MerchantLocationAuthority;
 import mainstreet.merchantprofile.MerchantLocationLifecycle;
 import mainstreet.merchantprofile.MerchantLocationRevision;
