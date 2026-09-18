@@ -5,7 +5,6 @@ import grandrue.commercial.CommercialEntitlementAuthority;
 import grandrue.commercial.CommercialEntitlementException;
 import grandrue.commercial.CommercialEntitlementIdentity;
 import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.runtime.OperationExecutionGuard;
 import mainstreet.semantic.executable.ApplicableOperation;
 
 import java.util.Map;

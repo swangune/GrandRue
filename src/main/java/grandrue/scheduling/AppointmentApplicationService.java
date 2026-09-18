@@ -4,7 +4,7 @@ import grandrue.customer.CustomerContextAuthority;
 import grandrue.runtime.AuthorizationException;
 import grandrue.runtime.CapabilityOperationHandler;
 import grandrue.runtime.OperationExecutionContext;
-import mainstreet.runtime.OperationExecutionGuard;
+import grandrue.runtime.OperationExecutionGuard;
 import grandrue.runtime.OperationFulfilment;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.DomainEvent;
