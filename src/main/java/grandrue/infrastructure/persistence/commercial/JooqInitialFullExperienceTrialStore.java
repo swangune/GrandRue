@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.commercial;
 
 import grandrue.application.MerchantScope;
-import mainstreet.commercial.InitialFullExperienceTrial;
+import grandrue.commercial.InitialFullExperienceTrial;
 import grandrue.commercial.InitialFullExperienceTrialStore;
 import org.jooq.DSLContext;
 import org.jooq.Field;

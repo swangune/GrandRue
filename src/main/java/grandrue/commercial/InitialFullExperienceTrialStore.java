@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-import mainstreet.commercial.InitialFullExperienceTrial;
+import grandrue.commercial.InitialFullExperienceTrial;
 
 /**
  * Persistence/consistency port for the one automatic initial trial allowed per

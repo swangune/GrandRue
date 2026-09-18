@@ -2,7 +2,7 @@ package grandrue.commercial;
 
 import grandrue.commercial.FirstConfigurationActivationAuthority;
 import grandrue.commercial.InvalidInitialFullExperienceTrialOriginException;
-import mainstreet.commercial.InitialFullExperienceTrial;
+import grandrue.commercial.InitialFullExperienceTrial;
 import grandrue.commercial.InitialFullExperienceTrialStore;
 
 import java.util.Objects;

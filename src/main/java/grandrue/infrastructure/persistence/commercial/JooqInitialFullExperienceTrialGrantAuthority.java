@@ -4,7 +4,7 @@ import grandrue.application.MerchantScope;
 import mainstreet.commercial.CommercialEntitlementGrant;
 import grandrue.commercial.CommercialEntitlementGrantAuthority;
 import mainstreet.commercial.CommercialEntitlementIdentity;
-import mainstreet.commercial.InitialFullExperienceTrial;
+import grandrue.commercial.InitialFullExperienceTrial;
 import grandrue.commercial.InitialFullExperienceTrialGrantSource;
 import org.jooq.DSLContext;
 import org.jooq.Field;

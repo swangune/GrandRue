@@ -1,7 +1,7 @@
 package grandrue.application;
 
 import grandrue.application.MerchantScope;
-import mainstreet.commercial.InitialFullExperienceTrial;
+import grandrue.commercial.InitialFullExperienceTrial;
 import grandrue.commercial.InitialFullExperienceTrialEstablisher;
 import mainstreet.semantic.configuration.ConfigurationActivation;
 
