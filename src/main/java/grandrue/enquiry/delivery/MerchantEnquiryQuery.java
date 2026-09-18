@@ -8,6 +8,7 @@ import grandrue.enquiry.EnquirySubmissionStore;
 import grandrue.enquiry.AuthorityBackedEnquiryMerchantRepresentationProjectionReadPort;
 import grandrue.enquiry.EnquiryMerchantExposureReferences;
 import grandrue.enquiry.EnquiryMerchantExposureRequirementEvaluator;
+import grandrue.runtime.ActorAuthorisationAuthority;
 import grandrue.runtime.SessionTrustedExecutionContextEstablisher;
 import mainstreet.runtime.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;

@@ -1,7 +1,6 @@
 package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.ActorAuthorisationAuthority;
 import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.OperationExecutionGuard;
 import mainstreet.semantic.Privilege;

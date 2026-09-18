@@ -1,6 +1,6 @@
 package grandrue.enquiry;
 
-import mainstreet.runtime.ActorAuthorisationAuthority;
+import grandrue.runtime.ActorAuthorisationAuthority;
 import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.semantic.Privilege;
 import mainstreet.surface.ExposableElementReference;

@@ -1,6 +1,7 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
+import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.semantic.Privilege;
 
 /**
