@@ -1,5 +1,7 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.CommercialSupportingAccessRequirement;
+
 import java.util.Objects;
 import java.util.Set;
 

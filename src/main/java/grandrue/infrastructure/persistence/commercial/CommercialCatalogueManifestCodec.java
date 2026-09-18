@@ -1,6 +1,7 @@
 package grandrue.infrastructure.persistence.commercial;
 
 import grandrue.commercial.CatalogueResolutionException;
+import grandrue.commercial.CommercialSupportingAccessRequirement;
 import mainstreet.commercial.*;
 
 import java.io.*;

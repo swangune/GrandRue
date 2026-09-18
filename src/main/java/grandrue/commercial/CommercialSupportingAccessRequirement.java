@@ -1,4 +1,6 @@
-package mainstreet.commercial;
+package grandrue.commercial;
+
+import mainstreet.commercial.CommercialAccessTarget;
 
 import java.util.Objects;
 import java.util.Set;
