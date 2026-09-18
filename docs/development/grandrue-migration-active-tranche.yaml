@@ -3,8 +3,10 @@ execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T021
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 22dc83ad7c2248679a44d3b82b5423934d6ecc58
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 273003b282be79816461b5b256596989e06bf9ad
 
 region:
@@ -97,3 +99,11 @@ preparation_notes:
   - the owner contains no legacy compiler FQCN or string identity beyond its package declaration
   - the owner already depends only on migrated grandrue.semantic.configuration, grandrue.semantic.executable and grandrue.semantic.registry packages
   - no persistence, semantic, security, authority, prototype-owner or compatibility exception was identified
+
+completed:
+  last_leaf: GR-REN-02-01X543
+  completed_leaf_count_in_tranche: 1
+  aggregate_changed_path_count: 14
+  structural_verification: passed
+  semantic_compiler_namespace_complete: true
+  next_tranche: GR-REN-02-T022
