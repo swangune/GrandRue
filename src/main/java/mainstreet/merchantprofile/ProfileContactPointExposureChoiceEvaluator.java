@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantContactPointExposureChoiceReadPort;
+
 import mainstreet.surface.ExposableElementReference;
 import mainstreet.surface.ExposureCandidateEvaluationSubmission;
 import mainstreet.surface.ExposureCandidateInstanceKindReference;

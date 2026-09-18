@@ -2,7 +2,7 @@ package grandrue.infrastructure.persistence.merchantprofile;
 
 import grandrue.application.MerchantScope;
 import mainstreet.merchantprofile.CreateMerchantContactPointCommand;
-import mainstreet.merchantprofile.MerchantContactPointAuthority;
+import grandrue.merchantprofile.MerchantContactPointAuthority;
 import mainstreet.merchantprofile.MerchantContactPointExposure;
 import mainstreet.merchantprofile.MerchantContactPointKind;
 import grandrue.merchantprofile.MerchantContactPointLifecycle;

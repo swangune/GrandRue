@@ -1,9 +1,9 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.merchantprofile.ExpectedMerchantLocationExposureChoice;
+import grandrue.merchantprofile.ExpectedMerchantLocationExposureChoice;
 import mainstreet.merchantprofile.MerchantLocationExposure;
-import mainstreet.merchantprofile.MerchantLocationExposureChoiceAuthority;
+import grandrue.merchantprofile.MerchantLocationExposureChoiceAuthority;
 import mainstreet.merchantprofile.MerchantLocationExposureChoiceRevision;
 import mainstreet.merchantprofile.MerchantProfileFailureCategory;
 import mainstreet.merchantprofile.MerchantProfileMutationException;

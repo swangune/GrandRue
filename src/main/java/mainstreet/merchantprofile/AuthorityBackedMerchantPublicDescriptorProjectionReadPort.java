@@ -1,5 +1,6 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantPublicDescriptorAuthority;
 import grandrue.merchantprofile.MerchantPublicDescriptorProjectionReadPort;
 
 import grandrue.application.MerchantScope;

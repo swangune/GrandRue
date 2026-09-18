@@ -2,26 +2,167 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
-state: IDLE
+tranche: GR-REN-02-T001
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 05eaf333a43437e8cdea2912beb184f1913a7ca6
+leaf_range:
+  first: GR-REN-02-01X206
+  last: GR-REN-02-01X213
+leaf_count: 8
 
-adopted_after_leaf: GR-REN-02-01X205
-adopted_from_head: be217991252a6d4a72439629153aa2bf5881686a
+leaves:
+  - id: GR-REN-02-01X206
+    owner:
+      from: src/main/java/mainstreet/merchantprofile/MerchantContactPointAuthority.java
+      to: src/main/java/grandrue/merchantprofile/MerchantContactPointAuthority.java
+      blob_sha: 138bd5d1ff4aa16c3bd8405b1c6bafdfa1824ce8
+    production_consumers:
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthority.java
+        blob_sha: 565173ade8e4dbb0cb08703b97e166f064ee07fd
+      - path: src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantContactPointExposureChoiceReadPort.java
+        blob_sha: 915a4ea9a7c3717bb28b8b8cd04d325881681e58
+    invariants:
+      - authoritative mutation/currentness semantics unchanged
+      - trusted execution context semantics unchanged
 
-policy:
-  target_leaf_count: 8
-  max_leaf_count: 15
-  consecutive_leaf_ids: true
-  exact_parent_freshness_required: true
-  input_blob_freshness_required: true
-  destination_preconditions_required: true
-  production_consumer_closure_required: true
-  protected_identity_checks_required: true
-  aggregate_changed_path_set_exact: true
-  code_commit_contains_manifest: true
-  checkpoint_combines_ledger_work_pointer_and_manifest: true
-  force_update_prohibited: true
+  - id: GR-REN-02-01X207
+    owner:
+      from: src/main/java/mainstreet/merchantprofile/MerchantLocationAuthority.java
+      to: src/main/java/grandrue/merchantprofile/MerchantLocationAuthority.java
+      blob_sha: 54d0d7d9263083d8bdd78fac3bf9f3f4631f867d
+    production_consumers:
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthority.java
+        blob_sha: 433fe465e040ddcaa32a4904fd4e86b0fc66e866
+      - path: src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
+        blob_sha: 5540f0f5ce723138a0856a4979c01a77bbd7736d
+    invariants:
+      - authoritative mutation/revision/currentness semantics unchanged
+      - trusted execution context semantics unchanged
+
+  - id: GR-REN-02-01X208
+    owner:
+      from: src/main/java/mainstreet/merchantprofile/MerchantLocationExposureChoiceAuthority.java
+      to: src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceAuthority.java
+      blob_sha: 591cbfcbbf9be1ca58ed74e0e0d4c7fa8cdc6691
+    production_consumers:
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthority.java
+        blob_sha: 34ce9dbe16c1097527e067954c4b4ed03ed534bc
+      - path: src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
+        blob_sha: 5540f0f5ce723138a0856a4979c01a77bbd7736d
+    invariants:
+      - exposure-choice current/revision boundary unchanged
+
+  - id: GR-REN-02-01X209
+    owner:
+      from: src/main/java/mainstreet/merchantprofile/MerchantPublicDescriptorAuthority.java
+      to: src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorAuthority.java
+      blob_sha: c96f28143319c1dd861dccab3d91a99eed933e3a
+    production_consumers:
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthority.java
+        blob_sha: bea103cdec35bd34f6f7a0d1341a1db0ea3f9790
+      - path: src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantPublicDescriptorProjectionReadPort.java
+        blob_sha: 15e5d244380d3ad990eb47ab57ec1ffd2e08b8e8
+    invariants:
+      - singleton-scoped revision authority semantics unchanged
+      - persistence/current revision selection unchanged
+
+  - id: GR-REN-02-01X210
+    owner:
+      from: src/main/java/mainstreet/merchantprofile/MerchantContactPointExposureChoiceReadPort.java
+      to: src/main/java/grandrue/merchantprofile/MerchantContactPointExposureChoiceReadPort.java
+      blob_sha: d25d4dd1ffd8f5d4851e01a8ca91f1dd278823b9
+    production_consumers:
+      - path: src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantContactPointExposureChoiceReadPort.java
+        blob_sha: 915a4ea9a7c3717bb28b8b8cd04d325881681e58
+      - path: src/main/java/mainstreet/merchantprofile/ProfileContactPointExposureChoiceEvaluator.java
+        blob_sha: 62916dfb8fe307b6161f90e78709de703616bbb8
+    invariants:
+      - functional read-port contract unchanged
+      - BR5 progress-affinity inheritance unchanged
+
+  - id: GR-REN-02-01X211
+    owner:
+      from: src/main/java/mainstreet/merchantprofile/MerchantLocationExposureChoiceReadPort.java
+      to: src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceReadPort.java
+      blob_sha: 9bd4a77b33006ddcb56667e0666ef1545f6b9266
+    production_consumers:
+      - path: src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
+        blob_sha: 5540f0f5ce723138a0856a4979c01a77bbd7736d
+      - path: src/main/java/mainstreet/merchantprofile/ProfileMerchantLocationExposureChoiceEvaluator.java
+        blob_sha: f47e6523517d19177d26fa96981e9c04e06b4c3d
+    invariants:
+      - functional read-port contract unchanged
+      - BR5 progress-affinity inheritance unchanged
+
+  - id: GR-REN-02-01X212
+    owner:
+      from: src/main/java/mainstreet/merchantprofile/ExpectedMerchantLocationExposureChoice.java
+      to: src/main/java/grandrue/merchantprofile/ExpectedMerchantLocationExposureChoice.java
+      blob_sha: 5129260aa04041a6165192ad0867e29b6d2085e3
+    production_consumers:
+      - path: src/main/java/mainstreet/merchantprofile/SetMerchantLocationExposureChoiceCommand.java
+        blob_sha: 22c5648f78d6fb968382e53b8281ad10e43dabf2
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthority.java
+        blob_sha: 34ce9dbe16c1097527e067954c4b4ed03ed534bc
+    invariants:
+      - Absent/Revision optimistic-concurrency semantics unchanged
+
+  - id: GR-REN-02-01X213
+    owner:
+      from: src/main/java/mainstreet/merchantprofile/MerchantPublicDescriptorMutationCommand.java
+      to: src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorMutationCommand.java
+      blob_sha: 41ecc96ef7b821fe71a39b1c6a95b167fb2e5591
+    production_consumers:
+      - path: src/main/java/mainstreet/merchantprofile/MerchantPublicDescriptorAuthority.java
+        blob_sha: c96f28143319c1dd861dccab3d91a99eed933e3a
+        repair: co-moved as GR-REN-02-01X209; same-package reference remains valid
+      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthority.java
+        blob_sha: bea103cdec35bd34f6f7a0d1341a1db0ea3f9790
+    invariants:
+      - exact mutation intent/evidence validation unchanged
+      - MS-PROT-051 identity text unchanged
+
+aggregate:
+  permitted_changed_paths:
+    - docs/development/grandrue-migration-active-tranche.yaml
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthority.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthority.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthority.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthority.java
+    - src/main/java/grandrue/merchantprofile/ExpectedMerchantLocationExposureChoice.java
+    - src/main/java/grandrue/merchantprofile/MerchantContactPointAuthority.java
+    - src/main/java/grandrue/merchantprofile/MerchantContactPointExposureChoiceReadPort.java
+    - src/main/java/grandrue/merchantprofile/MerchantLocationAuthority.java
+    - src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceAuthority.java
+    - src/main/java/grandrue/merchantprofile/MerchantLocationExposureChoiceReadPort.java
+    - src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorAuthority.java
+    - src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorMutationCommand.java
+    - src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantContactPointExposureChoiceReadPort.java
+    - src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
+    - src/main/java/mainstreet/merchantprofile/AuthorityBackedMerchantPublicDescriptorProjectionReadPort.java
+    - src/main/java/mainstreet/merchantprofile/ProfileContactPointExposureChoiceEvaluator.java
+    - src/main/java/mainstreet/merchantprofile/ProfileMerchantLocationExposureChoiceEvaluator.java
+    - src/main/java/mainstreet/merchantprofile/SetMerchantLocationExposureChoiceCommand.java
+  legacy_owner_paths_removed:
+    - src/main/java/mainstreet/merchantprofile/MerchantContactPointAuthority.java
+    - src/main/java/mainstreet/merchantprofile/MerchantLocationAuthority.java
+    - src/main/java/mainstreet/merchantprofile/MerchantLocationExposureChoiceAuthority.java
+    - src/main/java/mainstreet/merchantprofile/MerchantPublicDescriptorAuthority.java
+    - src/main/java/mainstreet/merchantprofile/MerchantContactPointExposureChoiceReadPort.java
+    - src/main/java/mainstreet/merchantprofile/MerchantLocationExposureChoiceReadPort.java
+    - src/main/java/mainstreet/merchantprofile/ExpectedMerchantLocationExposureChoice.java
+    - src/main/java/mainstreet/merchantprofile/MerchantPublicDescriptorMutationCommand.java
+  protected_identity_checks:
+    - applied Flyway content unchanged
+    - mainstreet_correlation_identifier identities unchanged
+    - Opportunity binding AAD unchanged
+    - stable MS-* identifiers unchanged
+    - mainstreet-semantic-bundle identities unchanged
+  changed_path_set: exact
+  diff_integrity: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
-active_tranche: null
-next_action: Prepare the first dependency-bounded tranche from current live production evidence.
+preparation_notes:
+  - MerchantPublicDescriptorProjectionObservation was rejected from this tranche because its package-owned constructor prevents an independent move without widening its closure.
