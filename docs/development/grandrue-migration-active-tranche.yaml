@@ -3,9 +3,15 @@ execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T023
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 0564a76df538c839c8ce7afe48861c948f80b1d3
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 6b7b46c3babc27c967862e4b5afbd8742833c435
+verification_reconciliation:
+  production_consumer_count: 47
+  prototype_compatibility_consumer_count: 1
+  note: CODE_COMMITTED metadata counted the prototype compatibility consumer inside production_consumer_count; the exact declared path set and verified code diff were already correct.
 
 region:
   identity: surface
@@ -14,7 +20,7 @@ region:
 classification:
   normal_closed:
     owner_count: 178
-    production_consumer_count: 48
+    production_consumer_count: 47
     prototype_compatibility_consumer_count: 1
     owner_static_import_repair_count: 4
   exceptions: []
@@ -878,7 +884,7 @@ preparation_notes:
   - all 178 owner source blobs and destinations were reconciled against development
   - 174 owners contain only the package-declaration mainstreet.surface occurrence
   - four projection-policy evaluator owners contain only deterministic static imports of the in-package ProjectionPolicyEvaluationSupport helper in addition to the package declaration
-  - all 48 production consumers were reconciled to live development paths and source blobs
+  - all 47 in-scope GrandRue production consumers plus one prototype compatibility consumer were reconciled to live development paths and source blobs
   - every consumer mainstreet.surface occurrence was classified as an import or executable FQCN reference; no quoted string, comment or persisted identity occurrence was selected
   - package-private cohesion is preserved by moving the entire surface package atomically
   - no persistence, semantic, security, authority or compatibility exception was identified

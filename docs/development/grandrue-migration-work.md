@@ -382,11 +382,11 @@ This section is the current operational pointer. It supersedes the adoption snap
 
 ```yaml
 coverage:
-  completed_leaf_records_through: GR-REN-02-01X561
-  completed_leaf_count: 584
-  remaining_expansion_node: GR-REN-02-01X+
-  remaining_enumeration: INCOMPLETE
-  unclassified: UNKNOWN_UNTIL_ENUMERATION
+  completed_leaf_records_through: GR-REN-02-01X739
+  completed_leaf_count: 762
+  remaining_expansion_node: null
+  remaining_enumeration: COMPLETE
+  unclassified: 0
 
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 selection_unit: DEPENDENCY_CLOSED_NORMAL_SUBGRAPH
@@ -395,9 +395,9 @@ numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
-last_completed_leaf: GR-REN-02-01X561
-last_code_commit: f708b20a6e121cce0d699baa026c9a0ddee6366c
-next_action: Analyse one natural migration region once, compute the complete in-scope production dependency graph, isolate exception nodes, and freeze the largest mechanically provable dependency-closed normal subgraph. Execute the READY subgraph as one code+manifest transaction, verify the aggregate boundary and mechanically derived leaf evidence, then publish one combined ledger/work-pointer checkpoint.
+last_completed_leaf: GR-REN-02-01X739
+last_code_commit: 0564a76df538c839c8ce7afe48861c948f80b1d3
+next_action: GR-REN-02-01 production namespace enumeration is complete. Prepare GR-REN-02-02 current-product prose/comment cleanup across migrated production sources, preserving protected and historical identities; then perform GR-REN-02-03 aggregate production namespace closure/residual validation before GR-REN-03.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
