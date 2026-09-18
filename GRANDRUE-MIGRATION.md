@@ -183,6 +183,7 @@ State: `OPEN`
 | `GR-REN-02-01X57` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/CommittedProgressReference.java` + one bounded migrated application consumer | `ed571bda169dbb55574089e18bf7210afbb339e5` |
 | `GR-REN-02-01X58` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/StandingFreeClaimedWorkExecution.java` + two bounded same-package production consumers | `b9fc09e3d0aba794408d63db366ef40a46d171fa` |
 | `GR-REN-02-01X59` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/StandingFreeBackgroundWorkContract.java` + two bounded same-package production consumers | `95c6d897be23443d93cab2d7f8fde00e907c77e7` |
+| `GR-REN-02-01X60` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/StandingFreeDurableWorkWorker.java`; no production consumers | `24bfd5116fdae327bd7b11388c852986f43dfdb1` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -256,6 +257,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X59`: `StandingFreeBackgroundWorkContract.java` moved from `mainstreet.application` to `grandrue.application`. The two bounded same-package production consumers `mainstreet.application.StandingFreeDurableWorkWorker` and `mainstreet.application.StandingFreeBackgroundWorkExecution` received only explicit `grandrue.application.StandingFreeBackgroundWorkContract` imports; current tests remain deferred to `GR-REN-03`. The prepared parent was `fdea3419c7c73abf3862519bcdad4cd23b0e31a4`; owner input blob was `fda06aaf66511df8bd486cdc1d04a459c2b14020`; consumer input blobs were `428f412dd7760a8520f2881e66bfb305f42dd878` and `a827c80bb991c17d436a12369dce0f1aa7cf73ff`; the GrandRue owner destination was absent at preflight. Existing Background contract identity/affinity, MS-PROT-056/MS-PROT-065 authority strings, execution scope, target reference, overdue handling, evidence requirements, registry construction and consumer claim/recovery semantics were unchanged. Code commit `95c6d897be23443d93cab2d7f8fde00e907c77e7` contains exactly one owner rename/package replacement and one explicit import addition in each bounded consumer.
 
+- `GR-REN-02-01X60`: `StandingFreeDurableWorkWorker.java` moved from `mainstreet.application` to `grandrue.application`. No production consumers were found; current tests remain deferred to `GR-REN-03`. The prepared parent was `54a466cdaf42377870c68be02f046fb44ff6d9e9`; owner input blob was `c6190662654e7627102943e3053e27aa1c57f8c4`; the GrandRue owner destination was absent at preflight. Existing GrandRue `StandingFreeBackgroundWorkContract` and `StandingFreeClaimedWorkExecution` imports, registered durable-work claim boundary, worker identity, claim lease validation, attempt identity generation, claim loop and execution progression semantics were unchanged. Code commit `24bfd5116fdae327bd7b11388c852986f43dfdb1` contains exactly one owner rename with only the package declaration replacement.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -287,9 +290,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X59
-last_completed_task: GR-REN-02-01X59
-last_task_commit: 95c6d897be23443d93cab2d7f8fde00e907c77e7
+selected_execution_leaf: GR-REN-02-01X60
+last_completed_task: GR-REN-02-01X60
+last_task_commit: 24bfd5116fdae327bd7b11388c852986f43dfdb1
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -375,8 +378,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X59
-last_prepared_execution_commit: 95c6d897be23443d93cab2d7f8fde00e907c77e7
+last_prepared_execution_leaf: GR-REN-02-01X60
+last_prepared_execution_commit: 24bfd5116fdae327bd7b11388c852986f43dfdb1
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
