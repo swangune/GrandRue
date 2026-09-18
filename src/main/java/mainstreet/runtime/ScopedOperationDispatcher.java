@@ -1,6 +1,7 @@
 package mainstreet.runtime;
 
 import grandrue.application.MerchantScope;
+import grandrue.runtime.OperationRequirementEvaluator;
 import grandrue.runtime.UnsatisfiedOperationRequirementsException;
 import mainstreet.semantic.executable.ActiveOperationResolver;
 import mainstreet.semantic.executable.ApplicableOperation;
