@@ -1,4 +1,6 @@
-package mainstreet.commercial;
+package grandrue.commercial;
+
+import mainstreet.commercial.InitialFullExperienceTrial;
 
 /**
  * Persistence/consistency port for the one automatic initial trial allowed per
