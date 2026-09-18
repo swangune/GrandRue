@@ -3,8 +3,10 @@ execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T016
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: db9373a3f374cfc4a742c326249523ec1f4c70e5
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 442707041fe7543e4c1ce2e89a633454919c2851
 
 region:
@@ -131,3 +133,11 @@ preparation_notes:
   - all 8 semantic/execution owners contain only the package declaration as a mainstreet.semantic.execution occurrence
   - all 11 live production consumers require import-only rewiring
   - no FQCN, package-private, persisted-identity, semantic or authority exception was identified
+
+completed:
+  last_leaf: GR-REN-02-01X363
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 20
+  structural_verification: passed
+  semantic_execution_production_namespace_complete: true
+  next_tranche: GR-REN-02-T017
