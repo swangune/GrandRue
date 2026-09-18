@@ -1,4 +1,4 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 import mainstreet.semantic.Resource;
 import mainstreet.semantic.State;
