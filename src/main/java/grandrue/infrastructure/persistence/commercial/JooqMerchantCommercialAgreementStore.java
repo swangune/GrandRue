@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.commercial;
 
 import grandrue.application.MerchantScope;
-import mainstreet.commercial.BillingCadence;
+import grandrue.commercial.BillingCadence;
 import mainstreet.commercial.CommercialAcceptanceProvenance;
 import mainstreet.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementIdentity;

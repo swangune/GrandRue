@@ -1,5 +1,7 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.BillingCadence;
+
 import grandrue.application.MerchantScope;
 
 import java.time.Instant;
