@@ -1,6 +1,7 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
 import grandrue.application.MerchantScope;
+import mainstreet.enquiry.EnquirySubmission;
 
 import java.util.Optional;
 

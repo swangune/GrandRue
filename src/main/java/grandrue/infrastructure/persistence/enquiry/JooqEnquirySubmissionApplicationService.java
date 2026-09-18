@@ -7,7 +7,7 @@ import mainstreet.enquiry.EnquirySubmission;
 import grandrue.enquiry.EnquirySubmissionApplicationService;
 import mainstreet.enquiry.EnquirySubmissionIntent;
 import grandrue.enquiry.EnquirySubmissionPreparation;
-import mainstreet.enquiry.EnquirySubmissionStore;
+import grandrue.enquiry.EnquirySubmissionStore;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.springframework.transaction.PlatformTransactionManager;

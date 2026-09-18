@@ -1,5 +1,6 @@
 package mainstreet.enquiry;
 
+import grandrue.enquiry.EnquirySubmissionStore;
 import mainstreet.runtime.ActorAuthorisationAuthority;
 import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.semantic.Privilege;

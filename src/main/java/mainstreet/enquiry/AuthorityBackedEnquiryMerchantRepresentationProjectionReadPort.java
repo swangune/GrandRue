@@ -3,6 +3,7 @@ package mainstreet.enquiry;
 import grandrue.application.MerchantScope;
 import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReadPort;
 import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReferences;
+import grandrue.enquiry.EnquirySubmissionStore;
 import mainstreet.surface.ProjectionSourceAvailability;
 import mainstreet.surface.ProjectionSourceCompleteness;
 import mainstreet.surface.ProjectionSourceEvidence;

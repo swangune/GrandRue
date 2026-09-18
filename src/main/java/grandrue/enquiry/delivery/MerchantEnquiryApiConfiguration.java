@@ -2,7 +2,7 @@ package grandrue.enquiry.delivery;
 
 import grandrue.enquiry.delivery.MerchantEnquiryObservationPrivileges;
 import grandrue.enquiry.delivery.MerchantEnquiryRouteScopeAuthority;
-import mainstreet.enquiry.EnquirySubmissionStore;
+import grandrue.enquiry.EnquirySubmissionStore;
 import mainstreet.runtime.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
 import mainstreet.semantic.registry.SemanticRegistrySnapshot;
