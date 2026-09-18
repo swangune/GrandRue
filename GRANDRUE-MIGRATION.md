@@ -413,6 +413,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X123`: `MerchantEnquiryObservationPrivileges.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Two bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.MerchantEnquiryApiConfiguration` and `mainstreet.enquiry.delivery.MerchantEnquiryQuery` received explicit `grandrue.enquiry.delivery.MerchantEnquiryObservationPrivileges` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `fa042f6c8a2cf71babf225287a32dbb69fb4ec7b`; owner input blob was `ef4c0e55c0836ac2630998e8ba920ab3a7686d6f`; consumer input blobs were `f8050615f73440e0f41e476ea04953d1bb59f68f` and `9b29c3b735d09b0e3a63e84db307a724f4623ddb`; the GrandRue owner destination was absent at preflight. The moved owner retained its explicit legacy Enquiry/semantic/surface imports as transitional dependencies. Existing explicit merchant Enquiry family-to-privilege mapping semantics were unchanged. Code commit `fa0168e33f04e3f563621fdc73683a8e7e366e62` contains exactly one owner rename/package replacement and two production consumer import additions.
 
+- `GR-REN-02-01X124`: `PublicOpportunityEnquiryRequest.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Two bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.PublicOpportunityEnquiryController` and `mainstreet.enquiry.delivery.PublicOpportunityEnquirySubmission` received explicit `grandrue.enquiry.delivery.PublicOpportunityEnquiryRequest` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `94bb2083776e6f4c1e757d80fbbdc5371d60e90c`; owner input blob was `006bd672da7f6aa5c7ddc20297c114f1c64fecf0`; consumer input blobs were `1adebbe5862aafa77da499e64e2fb3c1df7f1c0e` and `5a7c7d8cf89ac072040cf85da4a56d0a6e56fd38`; the GrandRue owner destination was absent at preflight. The moved owner received one explicit transitional import for `mainstreet.enquiry.delivery.PublicGeneralEnquiryRequest`, which remains in the legacy delivery package. Existing opportunity-bound public Enquiry request validation semantics were unchanged. Code commit `0cf815e17b87985b5216df8e98d26c0ad8b361d7` contains exactly one owner rename/package replacement, one transitional owner import addition and two production consumer import additions.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -444,9 +446,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X123
-last_completed_task: GR-REN-02-01X123
-last_task_commit: fa0168e33f04e3f563621fdc73683a8e7e366e62
+selected_execution_leaf: GR-REN-02-01X124
+last_completed_task: GR-REN-02-01X124
+last_task_commit: 0cf815e17b87985b5216df8e98d26c0ad8b361d7
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -532,8 +534,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X123
-last_prepared_execution_commit: fa0168e33f04e3f563621fdc73683a8e7e366e62
+last_prepared_execution_leaf: GR-REN-02-01X124
+last_prepared_execution_commit: 0cf815e17b87985b5216df8e98d26c0ad8b361d7
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
