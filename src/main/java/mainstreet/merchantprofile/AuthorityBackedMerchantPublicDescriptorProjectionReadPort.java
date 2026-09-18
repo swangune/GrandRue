@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantPublicDescriptorProjectionReadPort;
+
 import grandrue.application.MerchantScope;
 import mainstreet.surface.ExposableElementReference;
 import mainstreet.surface.ExposureCandidateObservation;
