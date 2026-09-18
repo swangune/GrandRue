@@ -457,6 +457,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X145`: `OpportunityEnquirySubmissionPreparation.java` moved from `mainstreet.enquiry` to `grandrue.enquiry`. Two bounded production consumers `grandrue.enquiry.delivery.PublicGeneralEnquirySubmission` and `grandrue.enquiry.delivery.PublicOpportunityEnquirySubmission` received explicit `grandrue.enquiry.OpportunityEnquirySubmissionPreparation` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `a30ebefebff7bbd9cb0d63481f1a27f8862b124a`; owner input blob was `76de2271c7a2ec1a72180ce663ad02997bf6ef8d`; consumer input blobs were `3132b9ef6202ebbfffa4cc46cd3ad918d30abf5d` and `6b3a36475cc40e7d60ddda1d27039e59585cbe7d`; the GrandRue owner destination was absent at preflight. The moved owner became same-package with the previously migrated `EnquirySubmissionRevalidationException`, so that explicit import was removed, and five explicit transitional imports were added for the remaining legacy Enquiry collaborators `EnquiryRevisionProvenance`, `EnquirySemanticContext`, `EnquirySubmission`, `EnquirySubmissionIntent` and `EnquirySubmissionPreparation`. Existing E3 submission revalidation, Publication participation/currentness and public Exposure semantics were unchanged. Code commit `a4b7c04e992d1e318efa2ae7cc25a4ab7e04154e` contains exactly one owner rename/package replacement, one same-package import removal, five transitional import additions and two production consumer import additions.
 
+- `GR-REN-02-01X146`: `EnquirySubmissionApplicationService.java` moved from `mainstreet.enquiry` to `grandrue.enquiry`. Five bounded production consumers were updated atomically: `grandrue.infrastructure.persistence.enquiry.JooqEnquirySubmissionApplicationService`, `grandrue.enquiry.delivery.PublicGeneralEnquiryApiConfiguration`, `grandrue.enquiry.delivery.PublicOpportunityEnquiryApiConfiguration`, `grandrue.enquiry.delivery.PublicGeneralEnquirySubmission` and `grandrue.enquiry.delivery.PublicOpportunityEnquirySubmission` now resolve `grandrue.enquiry.EnquirySubmissionApplicationService`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `4e798affea34e81b9f7892e36e7835da157523f7`; owner input blob was `6b238c8d1c2e7cabc0e1e013a1a4b52858335ac8`; consumer input blobs were `be7d02873f1be6946383301a3efadc685fd69abb`, `6c3aa18310eaa1d20a3e69a7c490f7116b32422a`, `281367733e9a49c5fcbf3df047a526e4a945ee7a`, `4abf7cc5accd190c6fc28c7558193c0c9251f1ed` and `4a5d8fa57a4095c56e2257685d6c4763dd55d9ae`; the GrandRue owner destination was absent at preflight. The moved interface received explicit transitional imports for the remaining legacy `EnquirySubmission`, `EnquirySubmissionIntent` and `EnquirySubmissionPreparation` types. Existing durable transaction/retry, request reconciliation and preparation semantics were unchanged, including the durable `enquiry-submission-application|` identity prefix. Code commit `84ce8b3b0ccd03b5cc1ae909753e280f9be56abb` contains exactly one owner rename/package replacement, three transitional import additions, three explicit consumer import replacements and two explicit consumer import additions.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -488,9 +490,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X145
-last_completed_task: GR-REN-02-01X145
-last_task_commit: a4b7c04e992d1e318efa2ae7cc25a4ab7e04154e
+selected_execution_leaf: GR-REN-02-01X146
+last_completed_task: GR-REN-02-01X146
+last_task_commit: 84ce8b3b0ccd03b5cc1ae909753e280f9be56abb
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -576,8 +578,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X145
-last_prepared_execution_commit: a4b7c04e992d1e318efa2ae7cc25a4ab7e04154e
+last_prepared_execution_leaf: GR-REN-02-01X146
+last_prepared_execution_commit: 84ce8b3b0ccd03b5cc1ae909753e280f9be56abb
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
