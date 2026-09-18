@@ -1,5 +1,7 @@
 package grandrue.infrastructure.persistence.commercial;
 
+import grandrue.commercial.CommercialCataloguePublicationRequest;
+
 import grandrue.commercial.CommercialCatalogueStore;
 
 import grandrue.commercial.StandardPlanCatalogueHistory;
