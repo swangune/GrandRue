@@ -2,88 +2,80 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T004
+tranche: GR-REN-03-T005
 group: GR-REN-03
-state: COMPLETE
-code_commit: 331061d20e5b179524d296e042f45e779987e0f2
-expected_parent: 5b83b405a887d854f21c16d75d9218d5e705c935
-validated_head: 331061d20e5b179524d296e042f45e779987e0f2
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 3da783c4af295d2246faffc721f4bb5136f4b8a4
 
 region:
-  identity: test-workforce
-  closure_basis: complete live src/test/java/mainstreet/workforce/** Java test region; no external test consumers
+  identity: test-money
+  closure_basis: complete live src/test/java/mainstreet/money/** Java test region; no external test consumers
 
 classification:
   normal_closed:
-    owner_count: 4
+    owner_count: 3
     external_test_consumer_count: 0
-    production_import_repair_count: 19
-  embedded_legacy_symbolic_or_wording_residuals:
-    count: 1
+    production_import_repair_count: 13
+  embedded_current_product_wording_residuals:
+    count: 2
     disposition: preserve_and_classify_separately
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/workforce/MerchantOperationalDeviceAuthorisationTest.java
-      to: src/test/java/grandrue/workforce/MerchantOperationalDeviceAuthorisationTest.java
-      blob_sha: 439bc80d6ffa4c15142748c83383c2354ab1169a
-    - from: src/test/java/mainstreet/workforce/MerchantRoleAssignmentLifecycleTest.java
-      to: src/test/java/grandrue/workforce/MerchantRoleAssignmentLifecycleTest.java
-      blob_sha: 8740bb45e5e9376dceaeb00585f37d6e08f69ce8
-    - from: src/test/java/mainstreet/workforce/MerchantWorkforceModelTest.java
-      to: src/test/java/grandrue/workforce/MerchantWorkforceModelTest.java
-      blob_sha: 9590c06582f91cc15e4c13d3e8231c04dabb1ad8
-    - from: src/test/java/mainstreet/workforce/WorkforceActorAuthorisationAuthorityTest.java
-      to: src/test/java/grandrue/workforce/WorkforceActorAuthorisationAuthorityTest.java
-      blob_sha: 108506126c6de179e3da3dc77c26e3df70f8a5f0
+    - from: src/test/java/mainstreet/money/MonetaryAmountTest.java
+      to: src/test/java/grandrue/money/MonetaryAmountTest.java
+      blob_sha: 3ba5132de5e94f848f4414c9c5965e3cdbe7090a
+    - from: src/test/java/mainstreet/money/PaymentAuthorityModelTest.java
+      to: src/test/java/grandrue/money/PaymentAuthorityModelTest.java
+      blob_sha: aad2af604467872bd9618880cd199057f05852ea
+    - from: src/test/java/mainstreet/money/PaymentAvailabilityImpactAssessmentTest.java
+      to: src/test/java/grandrue/money/PaymentAvailabilityImpactAssessmentTest.java
+      blob_sha: b4b03a0a6ac413d31735e37ebe2a1b1b50d40b33
 
 deterministic_transformations:
   owners:
-    - move every declared owner from src/test/java/mainstreet/workforce/** to the corresponding src/test/java/grandrue/workforce/** path
-    - replace exactly four package declarations package mainstreet.workforce; with package grandrue.workforce;
-    - replace exactly nineteen executable imports from migrated mainstreet.* production namespaces to their grandrue.* counterparts
+    - move every declared owner from src/test/java/mainstreet/money/** to the corresponding src/test/java/grandrue/money/** path
+    - replace exactly three package declarations package mainstreet.money; with package grandrue.money;
+    - replace exactly thirteen executable imports from migrated mainstreet.* production namespaces to their grandrue.* counterparts
   consumers:
-    - none; exact class-name search found no external test consumers of the four test owners
+    - none; exact class-name search found no external test consumers of the three test owners
   prohibited:
-    - no assertion, method body, string literal, semantic or behavioural change
+    - no assertion, method body, string literal, comment, semantic or behavioural change
     - no legacy prototype test mutation
     - no Maven/build/CI/runtime configuration mutation
-    - do not rename the preserved test method identifier role_definition_accepts_only_privileges_registered_by_main_street_semantics in this ordinary namespace/import tranche
+    - do not rewrite the two preserved Main Street Payment business-facing test literals in this namespace/import tranche
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 5
+  expected_changed_path_count: 4
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  import_repair_count: 19
+  import_repair_count: 13
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 protected:
-  - every string literal and test-data identity unchanged
   - every assertion and method body unchanged
-  - test method identifier role_definition_accepts_only_privileges_registered_by_main_street_semantics preserved exactly
+  - every string literal and test-data identity unchanged
+  - exactly two Main Street Payment literal occurrences in PaymentAvailabilityImpactAssessmentTest preserved
   - legacy prototype tests unchanged
 
 expected_residuals:
-  - path: src/test/java/grandrue/workforce/MerchantWorkforceModelTest.java
-    value: role_definition_accepts_only_privileges_registered_by_main_street_semantics
-    reason: embedded legacy symbolic/current-product wording is classified separately from ordinary package/import/FQCN rewrites and remains for the applicable GR-REN-03 residual/wording decision
+  - path: src/test/java/grandrue/money/PaymentAvailabilityImpactAssessmentTest.java
+    value: Main Street Payment
+    occurrence_count: 2
+    reason: current-product business-facing test wording is classified separately from ordinary package/import/FQCN rewrites and remains for the applicable GR-REN-03 wording/residual decision
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - all four source blobs and absent GrandRue destinations were reconciled against development at 5b83b405a887d854f21c16d75d9218d5e705c935
-  - all referenced GrandRue application, runtime, semantic and workforce production owners exist
+  - all three source blobs and absent GrandRue destinations were reconciled against development at 3da783c4af295d2246faffc721f4bb5136f4b8a4
+  - all referenced GrandRue money, application, semantic compiler/configuration and semantic registry production owners exist
   - exact class-name searches found no external test consumers
-  - nineteen executable legacy production imports are fully classified for deterministic replacement
-  - one snake-case legacy product identifier in a test method name is deliberately preserved rather than conflated with namespace migration
+  - thirteen executable legacy production imports are fully classified for deterministic replacement
+  - two Main Street Payment literals are deliberately preserved rather than conflated with namespace migration
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

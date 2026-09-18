@@ -1,17 +1,17 @@
-package mainstreet.money;
+package grandrue.money;
 
-import mainstreet.semantic.compiler.ConfigurationCompiler;
-import mainstreet.semantic.configuration.ConfigurationImpactClassification;
-import mainstreet.semantic.configuration.ConfigurationImpactContext;
-import mainstreet.semantic.configuration.ConfigurationPackageResolver;
-import mainstreet.semantic.configuration.ConfigurationValidationEvidence;
-import mainstreet.semantic.configuration.ConfigurationValidationOutcome;
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.registry.CapabilityRelationshipType;
-import mainstreet.semantic.registry.InMemorySemanticRegistry;
-import mainstreet.semantic.registry.RegisteredCapability;
-import mainstreet.semantic.registry.RegisteredCapabilityRelationship;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.configuration.ConfigurationImpactClassification;
+import grandrue.semantic.configuration.ConfigurationImpactContext;
+import grandrue.semantic.configuration.ConfigurationPackageResolver;
+import grandrue.semantic.configuration.ConfigurationValidationEvidence;
+import grandrue.semantic.configuration.ConfigurationValidationOutcome;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.registry.CapabilityRelationshipType;
+import grandrue.semantic.registry.InMemorySemanticRegistry;
+import grandrue.semantic.registry.RegisteredCapability;
+import grandrue.semantic.registry.RegisteredCapabilityRelationship;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

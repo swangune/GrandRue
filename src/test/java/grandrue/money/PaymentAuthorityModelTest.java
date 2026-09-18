@@ -1,6 +1,6 @@
-package mainstreet.money;
+package grandrue.money;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
