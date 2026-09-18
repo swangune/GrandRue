@@ -280,6 +280,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X70`: `TrustedPlatformHumanPrincipal.java` moved from `mainstreet.application` to `grandrue.application`. The four bounded production consumers `grandrue.merchantaccount.MerchantAccountEstablisher`, `grandrue.merchantaccount.MerchantAccountBootstrapStore`, `grandrue.merchantaccount.MerchantAccountEstablishmentAuthorizer` and `grandrue.infrastructure.persistence.merchantaccount.JooqMerchantAccountBootstrapStore` received only the corresponding GrandRue import replacement; current tests remain deferred to `GR-REN-03`. The prepared parent was `167947dbd221c3882519bd61beb6dfbb198659cb`; owner input blob was `beaea02e152771c27c7d312112398cfdb9d6d138`; consumer input blobs were `ba1a64e79c5b8bb7e0d22b942546111017c57e31`, `8571962de82b83b455acff4f1c7c7415c43a0df5`, `a826bfafef23a6377fef82f96a2ea393f82a75e7` and `0829fcaa20a3d37f2510365d90d9cdc5be5906bf`; the GrandRue owner destination was absent at preflight. Existing trusted PLATFORM human-principal identity validation and Merchant Account establishment authorisation/bootstrap semantics were unchanged. Code commit `646ed9191fc57dfd7b652f52027fecef8243881e` contains exactly one owner rename/package replacement and one import replacement in each bounded consumer.
 
+- `GR-REN-02-01X71`: `TrustedDeviceApplicationContext.java` moved from `mainstreet.application` to `grandrue.application`. The six bounded production consumers `mainstreet.runtime.TrustedExecutionContext`, `grandrue.workforce.MerchantOperationalDeviceAuthority`, `grandrue.workforce.MerchantOperationalDeviceAuthoriser`, `grandrue.workforce.MerchantOperationalDeviceAuthorisationStore`, `mainstreet.runtime.StaffOperationalTrustedExecutionContextEstablisher` and `grandrue.infrastructure.persistence.workforce.JooqMerchantOperationalDeviceAuthorisationStore` received only the corresponding GrandRue import replacement; current tests remain deferred to `GR-REN-03`. The prepared parent was `f17f1e216c13318370ff4d7d9e4c212bcce7f317`; owner input blob was `78efb15f5ddc1311791c214de34cf006ef57171d`; consumer input blobs were `0a41b55264ad6925453ca9c7945b5f672e3ae6ea`, `ccdddaaab11e91087fea693f3b387389e1175b00`, `a1475d9045391bb393a537422a7c91e0090358a5`, `9bc1311db497ceafb1ccc5d1d06cdcdc47e8790d`, `2c5f14f42334ff33ae0a87990fafcb3642c9de4e` and `c29f0c67a96ce43a3ff3b0e157ac077cd4423a10`; the GrandRue owner destination was absent at preflight. Existing trusted device/application binding semantics, staff trusted-execution-context establishment and Workforce operational-device authorisation semantics were unchanged. Code commit `d8d90c1a4782b685d4ff8cd02e85cb5f5baa3c56` contains exactly one owner rename/package replacement and one import replacement in each bounded consumer.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -311,9 +313,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X70
-last_completed_task: GR-REN-02-01X70
-last_task_commit: 646ed9191fc57dfd7b652f52027fecef8243881e
+selected_execution_leaf: GR-REN-02-01X71
+last_completed_task: GR-REN-02-01X71
+last_task_commit: d8d90c1a4782b685d4ff8cd02e85cb5f5baa3c56
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -399,8 +401,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X70
-last_prepared_execution_commit: 646ed9191fc57dfd7b652f52027fecef8243881e
+last_prepared_execution_leaf: GR-REN-02-01X71
+last_prepared_execution_commit: d8d90c1a4782b685d4ff8cd02e85cb5f5baa3c56
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
