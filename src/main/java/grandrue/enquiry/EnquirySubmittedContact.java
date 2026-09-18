@@ -1,4 +1,4 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
 import java.util.Objects;
 import java.util.Optional;
