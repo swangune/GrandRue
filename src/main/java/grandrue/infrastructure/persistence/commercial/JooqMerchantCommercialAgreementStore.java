@@ -2,7 +2,7 @@ package grandrue.infrastructure.persistence.commercial;
 
 import grandrue.application.MerchantScope;
 import grandrue.commercial.BillingCadence;
-import mainstreet.commercial.CommercialAcceptanceProvenance;
+import grandrue.commercial.CommercialAcceptanceProvenance;
 import mainstreet.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.CommercialTransitionConflictException;

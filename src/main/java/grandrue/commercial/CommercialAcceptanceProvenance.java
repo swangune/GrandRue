@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 /**
  * Identifies the authoritative evidence/provenance for merchant acceptance of

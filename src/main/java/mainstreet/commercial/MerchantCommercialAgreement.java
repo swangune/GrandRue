@@ -1,6 +1,7 @@
 package mainstreet.commercial;
 
 import grandrue.commercial.BillingCadence;
+import grandrue.commercial.CommercialAcceptanceProvenance;
 
 import grandrue.application.MerchantScope;
 
