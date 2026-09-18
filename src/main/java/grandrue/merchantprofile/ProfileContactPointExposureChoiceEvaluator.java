@@ -1,8 +1,8 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import grandrue.merchantprofile.MerchantLocationExposure;
+import grandrue.merchantprofile.MerchantContactPointExposure;
 
-import grandrue.merchantprofile.MerchantLocationExposureChoiceReadPort;
+import grandrue.merchantprofile.MerchantContactPointExposureChoiceReadPort;
 
 import mainstreet.surface.ExposableElementReference;
 import mainstreet.surface.ExposureCandidateEvaluationSubmission;
@@ -21,29 +21,29 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-/** Profile-owned merchant-choice evaluator for public Merchant Location observation. */
-public final class ProfileMerchantLocationExposureChoiceEvaluator
+/** Profile-owned merchant-choice evaluator for public Contact Point observation. */
+public final class ProfileContactPointExposureChoiceEvaluator
         implements MerchantExposureChoiceEvaluator {
 
     public static final MerchantExposureChoiceSourceReference CHOICE_SOURCE_REFERENCE =
             new MerchantExposureChoiceSourceReference(
                     "profile",
-                    "merchant-location-public-exposure"
+                    "contact-point-public-exposure"
             );
 
     private static final ExposableElementReference ELEMENT_REFERENCE =
-            new ExposableElementReference("profile", "public-merchant-location");
+            new ExposableElementReference("profile", "public-contact-point");
 
     private static final ExposureCandidateInstanceKindReference INSTANCE_KIND =
-            new ExposureCandidateInstanceKindReference("profile", "merchant-location");
+            new ExposureCandidateInstanceKindReference("profile", "contact-point");
 
     private static final ProjectionSourceDependencyReference MATERIAL_SOURCE =
-            new ProjectionSourceDependencyReference("profile", "merchant-locations");
+            new ProjectionSourceDependencyReference("profile", "contact-points");
 
-    private final MerchantLocationExposureChoiceReadPort readPort;
+    private final MerchantContactPointExposureChoiceReadPort readPort;
 
-    public ProfileMerchantLocationExposureChoiceEvaluator(
-            MerchantLocationExposureChoiceReadPort readPort
+    public ProfileContactPointExposureChoiceEvaluator(
+            MerchantContactPointExposureChoiceReadPort readPort
     ) {
         this.readPort = Objects.requireNonNull(readPort, "readPort");
     }
@@ -60,7 +60,7 @@ public final class ProfileMerchantLocationExposureChoiceEvaluator
                 List.copyOf(Objects.requireNonNull(submissions, "submissions"));
         if (!CHOICE_SOURCE_REFERENCE.equals(choiceSourceReference)) {
             throw new IllegalArgumentException(
-                    "Merchant Location evaluator requires exact Profile Location choice source"
+                    "Contact Point evaluator requires exact Profile Contact Point choice source"
             );
         }
 
@@ -82,7 +82,7 @@ public final class ProfileMerchantLocationExposureChoiceEvaluator
                 context,
                 candidate,
                 instance
-        ).map(ProfileMerchantLocationExposureChoiceEvaluator::decision)
+        ).map(ProfileContactPointExposureChoiceEvaluator::decision)
                 .orElse(MerchantExposureChoiceEvaluationDecision.UNRESOLVED);
         return new MerchantExposureChoiceCandidateEvaluation(
                 submission.evaluationBinding(),
@@ -90,7 +90,7 @@ public final class ProfileMerchantLocationExposureChoiceEvaluator
         );
     }
 
-    private Optional<MerchantLocationExposure> currentExposure(
+    private Optional<MerchantContactPointExposure> currentExposure(
             OwnerExposureEvaluationContext context,
             ExposureCandidateObservation candidate,
             ExposureCandidateInstanceReference instance
@@ -130,26 +130,26 @@ public final class ProfileMerchantLocationExposureChoiceEvaluator
         Objects.requireNonNull(candidate, "candidate");
         if (!ELEMENT_REFERENCE.equals(candidate.elementReference())) {
             throw new IllegalArgumentException(
-                    "Merchant Location evaluator requires the public Merchant Location element"
+                    "Contact Point evaluator requires the public Contact Point element"
             );
         }
         ExposureCandidateInstanceReference instance = candidate.instanceReference()
                 .orElseThrow(() -> new IllegalArgumentException(
-                        "Merchant Location evaluator requires a candidate instance"
+                        "Contact Point evaluator requires a candidate instance"
                 ));
         if (!INSTANCE_KIND.ownerIdentifier().equals(instance.ownerIdentifier())
                 || !INSTANCE_KIND.instanceKindIdentifier().equals(
                         instance.instanceKindIdentifier()
                 )) {
             throw new IllegalArgumentException(
-                    "Merchant Location evaluator requires the Profile Merchant Location instance kind"
+                    "Contact Point evaluator requires the Profile Contact Point instance kind"
             );
         }
         return instance;
     }
 
     private static MerchantExposureChoiceEvaluationDecision decision(
-            MerchantLocationExposure exposure
+            MerchantContactPointExposure exposure
     ) {
         return switch (exposure) {
             case PUBLIC -> MerchantExposureChoiceEvaluationDecision.EXPOSE;

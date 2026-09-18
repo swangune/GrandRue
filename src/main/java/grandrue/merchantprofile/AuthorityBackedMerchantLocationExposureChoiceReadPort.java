@@ -1,4 +1,7 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
+
+import mainstreet.merchantprofile.MerchantLocationExposureChoiceRevision;
+import mainstreet.merchantprofile.MerchantLocationRevision;
 
 import grandrue.merchantprofile.MerchantLocationExposure;
 
