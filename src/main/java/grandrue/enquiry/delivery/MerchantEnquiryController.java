@@ -3,7 +3,6 @@ package grandrue.enquiry.delivery;
 import grandrue.api.ApiProblem;
 import grandrue.api.ApiProblemCategory;
 import grandrue.api.ApiQueryUnavailableException;
-import mainstreet.enquiry.delivery.MerchantEnquiryQuery;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
