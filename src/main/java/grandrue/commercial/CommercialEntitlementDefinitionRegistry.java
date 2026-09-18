@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-import mainstreet.commercial.CommercialEntitlementDefinition;
+import grandrue.commercial.CommercialEntitlementDefinition;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 import mainstreet.commercial.CommercialEntitlementTargetKind;
 
