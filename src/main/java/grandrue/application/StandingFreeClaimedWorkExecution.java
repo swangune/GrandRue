@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 import grandrue.background.ClaimedWork;
 import grandrue.background.DurableWorkStore;
