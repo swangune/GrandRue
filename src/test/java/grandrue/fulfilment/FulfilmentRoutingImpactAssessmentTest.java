@@ -1,20 +1,20 @@
-package mainstreet.fulfilment;
+package grandrue.fulfilment;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.compiler.ConfigurationCompiler;
-import mainstreet.semantic.configuration.ConfigurationImpactClassification;
-import mainstreet.semantic.configuration.ConfigurationImpactContext;
-import mainstreet.semantic.configuration.ConfigurationPackageResolver;
-import mainstreet.semantic.configuration.ConfigurationValidationEvidence;
-import mainstreet.semantic.configuration.ConfigurationValidationOutcome;
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.registry.InMemorySemanticRegistry;
-import mainstreet.semantic.registry.RegisteredCapability;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
-import mainstreet.semantic.release.InMemorySemanticReleaseAssemblyRepository;
-import mainstreet.semantic.release.SemanticReleaseAssembly;
-import mainstreet.surface.ExposureElementContractRegistrySnapshot;
-import mainstreet.surface.SurfaceContributionRegistrySnapshot;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.configuration.ConfigurationImpactClassification;
+import grandrue.semantic.configuration.ConfigurationImpactContext;
+import grandrue.semantic.configuration.ConfigurationPackageResolver;
+import grandrue.semantic.configuration.ConfigurationValidationEvidence;
+import grandrue.semantic.configuration.ConfigurationValidationOutcome;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.registry.InMemorySemanticRegistry;
+import grandrue.semantic.registry.RegisteredCapability;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.release.InMemorySemanticReleaseAssemblyRepository;
+import grandrue.semantic.release.SemanticReleaseAssembly;
+import grandrue.surface.ExposureElementContractRegistrySnapshot;
+import grandrue.surface.SurfaceContributionRegistrySnapshot;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
