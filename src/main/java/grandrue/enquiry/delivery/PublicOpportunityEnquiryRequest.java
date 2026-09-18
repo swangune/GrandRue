@@ -1,7 +1,6 @@
 package grandrue.enquiry.delivery;
 
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import mainstreet.enquiry.delivery.PublicGeneralEnquiryRequest;
 
 /** The binding carries the known subject; contact values remain supplied, unauthenticated data. */
 public record PublicOpportunityEnquiryRequest(String binding, String question, String name, String email, String telephone) {
