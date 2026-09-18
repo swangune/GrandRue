@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 /** Terminal lifecycle for one stable Merchant Classification Entry identity. */
 public enum MerchantClassificationLifecycle {
