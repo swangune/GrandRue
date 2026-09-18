@@ -3,8 +3,10 @@ execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T014
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 2d1a42157dd2c3edbf76f945f974d0cdf654067c
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 2feb6100ab5046421fad277ae7855a8ff5e49837
 
 region:
@@ -316,3 +318,11 @@ preparation_notes:
   - no owner contained a non-package/import mainstreet.publication occurrence
   - one external fully-qualified code reference was mechanically enumerable and included in the frozen transformation
   - no exception node or design escalation was identified
+
+completed:
+  last_leaf: GR-REN-02-01X342
+  completed_leaf_count_in_tranche: 45
+  aggregate_changed_path_count: 56
+  structural_verification: passed
+  publication_production_namespace_complete: true
+  next_tranche: GR-REN-02-T015
