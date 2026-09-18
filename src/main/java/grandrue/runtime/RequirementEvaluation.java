@@ -1,4 +1,4 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 import mainstreet.semantic.executable.ApplicableOperation;
 import mainstreet.semantic.executable.ExecutableConditionalRequirementDefinition;

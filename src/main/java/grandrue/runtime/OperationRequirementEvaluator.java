@@ -1,6 +1,5 @@
 package grandrue.runtime;
 
-import mainstreet.runtime.RequirementEvaluation;
 
 /**
  * Capability-owned, typed command evaluator for operation requirements. It

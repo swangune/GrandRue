@@ -5,7 +5,6 @@ import grandrue.runtime.OperationRequirementEvaluator;
 import grandrue.runtime.UnsatisfiedOperationRequirementsException;
 import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.OperationExecutionGuard;
-import mainstreet.runtime.RequirementEvaluation;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.executable.ActiveOperationResolver;
 import mainstreet.semantic.executable.ApplicableOperation;
