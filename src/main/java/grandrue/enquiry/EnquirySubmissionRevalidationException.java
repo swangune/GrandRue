@@ -1,4 +1,4 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
 /** Safe internal rejection category; no subject existence or submitted contact details escape. */
 public final class EnquirySubmissionRevalidationException extends RuntimeException {

@@ -1,6 +1,7 @@
 package mainstreet.enquiry;
 
 import grandrue.application.MerchantScope;
+import grandrue.enquiry.EnquirySubmissionRevalidationException;
 import mainstreet.publication.AuthorityBackedOpportunityPublicExposureReadPort;
 import mainstreet.publication.OpportunityEnquiryParticipationDefinition;
 import mainstreet.publication.OpportunityEnquiryParticipationSource;

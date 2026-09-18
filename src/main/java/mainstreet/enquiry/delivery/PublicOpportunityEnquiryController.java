@@ -3,6 +3,7 @@ package mainstreet.enquiry.delivery;
 import grandrue.enquiry.EnquiryIdentityConflictException;
 
 import grandrue.enquiry.EnquiryApplicationRequestConflictException;
+import grandrue.enquiry.EnquirySubmissionRevalidationException;
 
 import grandrue.api.*;
 import mainstreet.enquiry.*;
