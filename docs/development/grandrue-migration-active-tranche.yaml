@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T001
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: b9ec7507fca0fe8e943a1adcc114d1966568259d
 expected_parent: 999f528dcb8f0d153c8691fed97af46bde96d571
+validated_head: b9ec7507fca0fe8e943a1adcc114d1966568259d
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-infrastructure-security
@@ -102,3 +105,6 @@ preparation_notes:
   - exact class-name search found no external test consumer of any moved test class
   - embedded runtime/product strings and stable cookie identity were deliberately not rewritten
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED

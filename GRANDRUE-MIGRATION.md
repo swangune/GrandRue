@@ -848,9 +848,11 @@ During `GR-REN-02-01X4` preparation, an unintended connector call created branch
 
 During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af1402293693ca63014d4fd7b883c02` added root file `__invalid__` containing `x`, and follow-up accidental connector commit `7f31ec0350a359fd79af65e72a382f4196c93dec` replaced that content with an empty file. Unattached repair candidate `7025bb19438427265dcf79dc5c0c7d5971d44f10` was superseded and never attached. Repair commit `83a08ebfae4e9adec065a75f6a42003a79bbe8a9` deleted `__invalid__`; its tree is exactly the X24 pointer tree `d7a9e508f69c506e2a1e63260a1629c618c1affb`, and aggregate comparison from X24 pointer `2b45ec7d34c191803636ec3631d9ef2bb5605761` to the repair commit contains zero changed files. No force update was used. The verified X25 code tree was then re-parented onto the repaired HEAD.
 
+- `GR-REN-03-T001`: migrated the complete live `src/test/java/mainstreet/infrastructure/security/**` Java test region as the first GR-REN-03 dependency-bounded closed subgraph. Five test owners moved to the corresponding `src/test/java/grandrue/infrastructure/security/**` paths with exactly five package-declaration replacements and ten executable `mainstreet.runtime.*` → `grandrue.runtime.*` import repairs. Exact class-name searches found no external test consumers. Embedded/runtime compatibility identities including `__Host-MS-SESSION`, `mainstreet.app`, `auth.mainstreet.app`, `Main Street`, and existing snake-case test wording were deliberately preserved and remain separately classified for the applicable later GR-REN-03/05/06 work. Legacy prototype tests remained untouched. Aggregate structural verification proved exactly five renames plus the active-manifest change; each destination exactly reconstructs from its source blob plus the declared deterministic edits, all five legacy owner paths are absent, all ten legacy runtime imports are repaired, and protected residual occurrence counts are unchanged. Code commit `b9ec7507fca0fe8e943a1adcc114d1966568259d`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
-- `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `NOT_STARTED`
+- `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `IN_PROGRESS`
 - `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `NOT_STARTED`
 - `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `NOT_STARTED`
 - `GR-REN-06` — compatibility aliases/preserved identities: `NOT_STARTED`
@@ -873,12 +875,12 @@ status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-03
 selected_execution_leaf: null
-last_completed_task: GR-REN-02-03_SYMBOLIC_SUPPLEMENT
-last_task_commit: 0d0dc1ed887673e8d3f25658d209752ebff905fd
+last_completed_task: GR-REN-03-T001
+last_task_commit: b9ec7507fca0fe8e943a1adcc114d1966568259d
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 0d0dc1ed887673e8d3f25658d209752ebff905fd
-next_action: Prepare GR-REN-03 as a dependency-bounded test namespace/runtime-coupled fixture migration from the live post-T026 checkpoint. Exclude src/test/java/mainstreet/prototype/** under NON_MIGRATING_LEGACY_PROTOTYPE; classify embedded legacy product identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: b9ec7507fca0fe8e943a1adcc114d1966568259d
+next_action: Continue GR-REN-03 from the live post-T001 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 373 in-scope legacy test Java files remain after T001, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---
