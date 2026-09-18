@@ -1,6 +1,7 @@
 package mainstreet.enquiry.delivery;
 
 import grandrue.api.*;
+import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReadPort;
 import mainstreet.enquiry.*;
 import mainstreet.runtime.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
