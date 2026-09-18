@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T002
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 159882ddde5391dc9ce2de04952636d74e5e01dc
 expected_parent: 469a11da4a0101710ef931147c39ee9a5c038a29
+validated_head: 159882ddde5391dc9ce2de04952636d74e5e01dc
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-background
@@ -76,3 +79,6 @@ preparation_notes:
   - exact class-name searches found only the in-region BackgroundWorkContractDefinitionTest helper dependency and no external consumers
   - no embedded mainstreet product/runtime identifier remains inside the transformed files
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
