@@ -290,6 +290,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X75`: `TrialReminderMilestone.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The sole bounded production consumer `grandrue.commercial.TrialReminderCadence` received only the corresponding GrandRue import replacement; current tests remain deferred to `GR-REN-03`. The prepared parent was `f380af1cde086d84edf0572a91c157cc81466f21`; owner input blob was `d3629de6ca450836097af47dfd1ff6ea143c9f04`; consumer input blob was `bbb91a8e26f5f014601c099745a8cf0727502abf`; the GrandRue owner destination was absent at preflight. Existing trial-day and days-remaining validation semantics were unchanged. Code commit `c602ee8ce35677775d3fa46a7ab0c68570fc831f` contains exactly one owner rename/package replacement and one production consumer import replacement.
 
+- `GR-REN-02-01X76`: `CommercialTransitionConflictException.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The sole bounded production consumer `grandrue.infrastructure.persistence.commercial.JooqMerchantCommercialAgreementStore` received only the corresponding GrandRue import replacement; current tests remain deferred to `GR-REN-03`. The prepared parent was `bdff2a7eb217a02a0fe116814ea43cb3eaf32520`; owner input blob was `f98d6acff5cc3e9a187dc5960a3232b595519b3d`; consumer input blob was `1cc5060531d640ec8a06d8b66736530b78f3b071`; the GrandRue owner destination was absent at preflight. Existing expected-current mismatch failure semantics and retry/re-read responsibility were unchanged. Code commit `b9d336053ed19793f860811e92316492174641f8` contains exactly one owner rename/package replacement and one production consumer import replacement.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -321,9 +323,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X75
-last_completed_task: GR-REN-02-01X75
-last_task_commit: c602ee8ce35677775d3fa46a7ab0c68570fc831f
+selected_execution_leaf: GR-REN-02-01X76
+last_completed_task: GR-REN-02-01X76
+last_task_commit: b9d336053ed19793f860811e92316492174641f8
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -409,8 +411,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X75
-last_prepared_execution_commit: c602ee8ce35677775d3fa46a7ab0c68570fc831f
+last_prepared_execution_leaf: GR-REN-02-01X76
+last_prepared_execution_commit: b9d336053ed19793f860811e92316492174641f8
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
