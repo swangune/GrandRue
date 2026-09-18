@@ -3,9 +3,11 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T006
-state: CODE_COMMITTED
+state: COMPLETE
 code_commit: 01eff690ffb2d7090a1e162d34ac1722dd713307
-reconciliation_commit: THIS_COMMIT
+reconciliation_commit: 18bf2ef88f82b79d7c52c479e1f2c6fda72fa29c
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 85a668639e4ccc4b7be6f8a48a7feda7496d994b
 leaf_range:
   first: GR-REN-02-01X241
@@ -219,3 +221,12 @@ preparation_notes:
   - The leaf remains the smallest dependency-complete unit even though it owns multiple source files.
   - Legacy prototype owners remain excluded and no prototype path is changed.
   - Reconciliation preserves the attached initial code commit and extends the frozen consumer closure only with the seven structurally proven transitional imports.
+
+completed:
+  last_leaf: GR-REN-02-01X241
+  completed_leaf_count_in_tranche: 1
+  dependency_owned_member_count: 26
+  production_consumer_count: 12
+  aggregate_changed_path_count: 40
+  structural_verification: passed
+  next_tranche: GR-REN-02-T007
