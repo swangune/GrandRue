@@ -1,6 +1,7 @@
-package mainstreet.enquiry.delivery;
+package grandrue.enquiry.delivery;
 
 import grandrue.enquiry.delivery.MerchantEnquiryObservationPrivileges;
+import mainstreet.enquiry.delivery.MerchantEnquiryQuery;
 import grandrue.enquiry.delivery.MerchantEnquiryRouteScopeAuthority;
 import mainstreet.enquiry.EnquirySubmissionStore;
 import mainstreet.runtime.*;
