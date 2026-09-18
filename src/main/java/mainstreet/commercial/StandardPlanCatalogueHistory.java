@@ -1,5 +1,7 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.CatalogueResolutionException;
+
 import java.time.Instant;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,7 +12,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.TreeMap;
 
-import static mainstreet.commercial.CatalogueResolutionException.Reason.*;
+import static grandrue.commercial.CatalogueResolutionException.Reason.*;
 
 /**
  * Immutable, complete publication-history read through one authoritative read instant.
