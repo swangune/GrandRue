@@ -8,7 +8,7 @@ import mainstreet.merchantprofile.MerchantContactPointKind;
 import mainstreet.merchantprofile.MerchantContactPointLifecycle;
 import mainstreet.merchantprofile.MerchantContactPointRevision;
 import mainstreet.merchantprofile.MerchantContactPointScope;
-import mainstreet.merchantprofile.MerchantContactPointScopeKind;
+import grandrue.merchantprofile.MerchantContactPointScopeKind;
 import mainstreet.merchantprofile.MerchantProfileFailureCategory;
 import mainstreet.merchantprofile.MerchantProfileMutationException;
 import mainstreet.merchantprofile.RetireMerchantContactPointCommand;
