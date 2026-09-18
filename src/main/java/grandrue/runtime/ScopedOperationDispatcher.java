@@ -1,8 +1,15 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
 import grandrue.runtime.OperationRequirementEvaluator;
 import grandrue.runtime.UnsatisfiedOperationRequirementsException;
+import mainstreet.runtime.CapabilityOperationHandler;
+import mainstreet.runtime.ExecutionPrincipal;
+import mainstreet.runtime.OperationExecutionContext;
+import mainstreet.runtime.OperationExecutionGuard;
+import mainstreet.runtime.OperationFulfilment;
+import mainstreet.runtime.RequirementEvaluation;
+import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.executable.ActiveOperationResolver;
 import mainstreet.semantic.executable.ApplicableOperation;
 
