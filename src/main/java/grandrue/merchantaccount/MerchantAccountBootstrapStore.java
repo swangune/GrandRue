@@ -1,6 +1,6 @@
 package grandrue.merchantaccount;
 
-import mainstreet.application.TrustedPlatformHumanPrincipal;
+import grandrue.application.TrustedPlatformHumanPrincipal;
 
 /**
  * Atomic persistence/application boundary for ordinary Merchant Account

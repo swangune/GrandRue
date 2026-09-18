@@ -1,6 +1,6 @@
 package grandrue.merchantaccount;
 
-import mainstreet.application.TrustedPlatformHumanPrincipal;
+import grandrue.application.TrustedPlatformHumanPrincipal;
 
 import java.util.Objects;
 
