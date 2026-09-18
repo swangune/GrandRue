@@ -1,4 +1,6 @@
-package mainstreet.runtime;
+package grandrue.runtime;
+
+import mainstreet.runtime.OpaqueSessionCredential;
 
 import java.util.Objects;
 
