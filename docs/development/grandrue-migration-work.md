@@ -337,16 +337,16 @@ This section is the current operational pointer. It supersedes the adoption snap
 
 ```yaml
 coverage:
-  completed_leaf_records_through: GR-REN-02-01X147
-  completed_leaf_count: 170
+  completed_leaf_records_through: GR-REN-02-01X148
+  completed_leaf_count: 171
   remaining_expansion_node: GR-REN-02-01X+
   remaining_enumeration: INCOMPLETE
   unclassified: UNKNOWN_UNTIL_ENUMERATION
 
 active_packet: null
 active_state: PREPARATION_REQUIRED
-last_completed_leaf: GR-REN-02-01X147
-last_code_commit: 48937ed05a21d028e48c8949ef48a5349f24bf5c
+last_completed_leaf: GR-REN-02-01X148
+last_code_commit: 6847ae03c64e1f38d1e600f0900833f04e660660
 next_action: Prepare the next exact bounded production namespace packet from current live dependency evidence, establish freshness, and execute only after it is READY.
 ```
 
