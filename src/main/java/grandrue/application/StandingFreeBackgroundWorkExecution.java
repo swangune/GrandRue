@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 import grandrue.application.StandingFreeBackgroundWorkContract;
 import grandrue.application.StandingFreeClaimedWorkExecution;
@@ -11,6 +11,8 @@ import grandrue.background.DurableWorkInstruction;
 import grandrue.background.DurableWorkStore;
 import grandrue.background.WorkAttempt;
 import mainstreet.commercial.StandingFreeBaseline;
+import mainstreet.application.MerchantScope;
+import mainstreet.application.StandingFreeFromMerchantAccountEstablishedHandler;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceLookup;
 import mainstreet.runtime.ScheduledBackgroundWorkExecutionAuthority;
