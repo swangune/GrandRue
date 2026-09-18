@@ -14,7 +14,7 @@ import mainstreet.merchantprofile.PostalAddressEvidence;
 import mainstreet.merchantprofile.PostalAddressInput;
 import mainstreet.merchantprofile.PostalAddressV1;
 import mainstreet.merchantprofile.RetireMerchantLocationCommand;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.exception.DataAccessException;

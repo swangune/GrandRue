@@ -1,7 +1,7 @@
 package grandrue.application;
 
 import grandrue.runtime.AuthenticationProvenance;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ConfigurationActivation;
 import mainstreet.semantic.configuration.ConfigurationActivationRequest;
 import mainstreet.semantic.configuration.ConfigurationActivationResult;

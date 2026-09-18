@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.configuration;
 
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ApproveConfigurationReinstatementCommand;
 import mainstreet.semantic.configuration.ConfigurationReinstatementApproval;
 import mainstreet.semantic.configuration.ConfigurationReinstatementApprovalAuthority;

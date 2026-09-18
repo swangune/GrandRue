@@ -9,7 +9,7 @@ import grandrue.api.ApiTransportScopeAuthorityRegistrySnapshot;
 import grandrue.api.ApiTransportScopeEvidence;
 import grandrue.api.MerchantApiTransportScope;
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ActiveRelease;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
 import mainstreet.semantic.registry.SemanticRegistrySnapshot;

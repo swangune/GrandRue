@@ -1,7 +1,7 @@
 package mainstreet.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 
 import java.util.Optional;
 

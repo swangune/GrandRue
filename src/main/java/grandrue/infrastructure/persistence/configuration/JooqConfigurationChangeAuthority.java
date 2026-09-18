@@ -2,7 +2,7 @@ package grandrue.infrastructure.persistence.configuration;
 
 import grandrue.application.MerchantScope;
 import grandrue.fulfilment.FulfilmentBindingSetRevisionReference;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ChangedConfigurationRevision;
 import mainstreet.semantic.configuration.ConfigurationChangeAuthority;
 import mainstreet.semantic.configuration.ConfigurationChangeAuthorizationAuthority;

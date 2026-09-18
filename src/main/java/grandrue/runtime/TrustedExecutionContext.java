@@ -1,7 +1,5 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import grandrue.runtime.ExecutionPrincipal;
-import grandrue.runtime.AuthenticationProvenance;
 import grandrue.application.MerchantScope;
 import grandrue.application.TrustedDeviceApplicationContext;
 

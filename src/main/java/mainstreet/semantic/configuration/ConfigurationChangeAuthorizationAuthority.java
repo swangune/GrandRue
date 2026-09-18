@@ -1,6 +1,6 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 
 /**
  * Current origin-qualified authority to materialise proposed intent, not approval.

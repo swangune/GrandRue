@@ -1,6 +1,6 @@
 package grandrue.businesshours;
 
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 
 import java.util.Optional;
 

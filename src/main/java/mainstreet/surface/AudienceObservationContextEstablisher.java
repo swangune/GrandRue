@@ -4,7 +4,7 @@ import grandrue.application.MerchantScope;
 import grandrue.runtime.AuthenticationProvenance;
 import grandrue.runtime.SessionRecord;
 import grandrue.runtime.SessionRecordStore;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 
 import java.util.Collection;
 import java.util.HashSet;

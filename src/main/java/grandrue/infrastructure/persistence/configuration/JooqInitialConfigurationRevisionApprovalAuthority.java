@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.configuration;
 
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ApproveInitialConfigurationRevisionCommand;
 import mainstreet.semantic.configuration.ConfigurationRevisionApprovalFailureCategory;
 import mainstreet.semantic.configuration.ConfigurationRevisionApprovalPersistenceException;

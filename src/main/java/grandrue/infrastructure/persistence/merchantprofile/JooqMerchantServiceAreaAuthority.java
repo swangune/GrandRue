@@ -16,7 +16,7 @@ import mainstreet.merchantprofile.RemoteCountriesGeographyV1;
 import mainstreet.merchantprofile.RetireMerchantServiceAreaCommand;
 import mainstreet.merchantprofile.ServiceAreaGeographyV1;
 import mainstreet.merchantprofile.UpdateMerchantServiceAreaCommand;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.exception.DataAccessException;

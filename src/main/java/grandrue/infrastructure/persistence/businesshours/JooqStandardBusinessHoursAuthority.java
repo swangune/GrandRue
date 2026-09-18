@@ -12,7 +12,7 @@ import grandrue.businesshours.StandardBusinessHoursRevision;
 import grandrue.businesshours.StandardBusinessHoursRevisionDisposition;
 import grandrue.businesshours.WeeklyOperatingInterval;
 import grandrue.businesshours.WithdrawStandardBusinessHoursCommand;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.exception.DataAccessException;

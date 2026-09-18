@@ -1,7 +1,7 @@
 package mainstreet.surface;
 
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 
 import java.util.Collection;
 import java.util.HashMap;

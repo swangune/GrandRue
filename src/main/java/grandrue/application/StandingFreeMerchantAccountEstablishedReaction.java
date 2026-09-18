@@ -6,7 +6,7 @@ import grandrue.commercial.StandingFreeBaseline;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;
 import grandrue.runtime.ScheduledEventReactionExecutionAuthority;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.semantic.event.EventReactionAcknowledgement;
 import mainstreet.semantic.event.EventReactionContractDefinition;
 import mainstreet.semantic.event.EventReactionContractRegistrySnapshot;

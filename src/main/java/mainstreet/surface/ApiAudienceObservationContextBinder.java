@@ -5,7 +5,7 @@ import grandrue.api.ApiContractRegistration;
 import grandrue.api.ApiContractRegistrySnapshot;
 import grandrue.api.ApiSurfaceClass;
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 
 import java.util.Objects;
 import java.util.Optional;

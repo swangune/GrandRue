@@ -10,7 +10,7 @@ import mainstreet.merchantprofile.MerchantProfileFailureCategory;
 import mainstreet.merchantprofile.MerchantProfileMutationException;
 import mainstreet.merchantprofile.RetireMerchantExternalPresenceLinkCommand;
 import mainstreet.merchantprofile.UpdateMerchantExternalPresenceLinkCommand;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.exception.DataAccessException;

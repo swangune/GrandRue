@@ -3,7 +3,6 @@ package grandrue.runtime;
 import grandrue.application.MerchantScope;
 import grandrue.runtime.OperationRequirementEvaluator;
 import grandrue.runtime.UnsatisfiedOperationRequirementsException;
-import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.executable.ActiveOperationResolver;
 import mainstreet.semantic.executable.ApplicableOperation;
 

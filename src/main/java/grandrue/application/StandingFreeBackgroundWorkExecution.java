@@ -16,7 +16,7 @@ import grandrue.application.StandingFreeFromMerchantAccountEstablishedHandler;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceLookup;
 import grandrue.runtime.ScheduledBackgroundWorkExecutionAuthority;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.runtime.TrustedExecutionContext;
 
 import java.time.Clock;
 import java.util.Objects;
