@@ -1,15 +1,15 @@
 package grandrue.enquiry;
 
 import grandrue.application.MerchantScope;
-import mainstreet.publication.AuthorityBackedOpportunityPublicExposureReadPort;
-import mainstreet.publication.OpportunityEnquiryParticipationDefinition;
-import mainstreet.publication.OpportunityEnquiryParticipationSource;
-import mainstreet.publication.OpportunityPublicExposureReferences;
-import mainstreet.publication.OpportunityPublicExposureWindow;
-import mainstreet.publication.OpportunityPublicationState;
-import mainstreet.publication.OpportunityPublicationStateAuthority;
-import mainstreet.publication.OpportunityPublicationSubmissionLock;
-import mainstreet.publication.PublicationLifecycle;
+import grandrue.publication.AuthorityBackedOpportunityPublicExposureReadPort;
+import grandrue.publication.OpportunityEnquiryParticipationDefinition;
+import grandrue.publication.OpportunityEnquiryParticipationSource;
+import grandrue.publication.OpportunityPublicExposureReferences;
+import grandrue.publication.OpportunityPublicExposureWindow;
+import grandrue.publication.OpportunityPublicationState;
+import grandrue.publication.OpportunityPublicationStateAuthority;
+import grandrue.publication.OpportunityPublicationSubmissionLock;
+import grandrue.publication.PublicationLifecycle;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
 import mainstreet.semantic.executable.ExecutableMerchantModel;
 import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;

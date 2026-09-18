@@ -1,8 +1,8 @@
 package grandrue.enquiry.delivery;
 
 import grandrue.enquiry.EnquirySubmissionApplicationService;
-import mainstreet.publication.*;
-import mainstreet.publication.delivery.PublicOpportunityRouteScopeAuthority;
+import grandrue.publication.*;
+import grandrue.publication.delivery.PublicOpportunityRouteScopeAuthority;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
 import mainstreet.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.*;

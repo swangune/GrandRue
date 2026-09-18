@@ -1,7 +1,7 @@
 package grandrue.enquiry.delivery;
 
 import grandrue.api.*;
-import mainstreet.publication.delivery.PublicOpportunityQueryContract;
+import grandrue.publication.delivery.PublicOpportunityQueryContract;
 import java.util.*;
 
 public final class PublicOpportunityEnquiryContract {

@@ -8,8 +8,8 @@ import grandrue.enquiry.OpportunityEnquirySubmissionPreparation;
 import grandrue.enquiry.EnquirySubmissionApplicationService;
 import grandrue.enquiry.EnquiryRevisionProvenance;
 import grandrue.enquiry.EnquirySubmissionIntent;
-import mainstreet.publication.OpportunityPublicationStateAuthority;
-import mainstreet.publication.OpportunityPublicationSubmissionLock;
+import grandrue.publication.OpportunityPublicationStateAuthority;
+import grandrue.publication.OpportunityPublicationSubmissionLock;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
 import mainstreet.semantic.registry.SemanticRegistrySnapshot;
 import java.time.Clock;
@@ -81,7 +81,7 @@ public final class PublicOpportunityEnquirySubmission {
                 new EnquirySubmittedContact(Optional.ofNullable(input.name()), Optional.ofNullable(input.email()),
                         Optional.ofNullable(input.telephone())), Optional.of(revision), Optional.empty());
         var preparation = new OpportunityEnquirySubmissionPreparation(scope, activation, registry,
-                Optional.of(mainstreet.publication.OpportunityEnquiryParticipationDefinition.forRelease(registry)),
+                Optional.of(grandrue.publication.OpportunityEnquiryParticipationDefinition.forRelease(registry)),
                 publication, publicationLock, requirements, clock);
         var result = application.submit(requestIdentity(scope, retryKey), intent, preparation);
         if (!intent.equals(EnquirySubmissionIntent.from(result))) {

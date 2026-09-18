@@ -2,12 +2,12 @@ package grandrue.infrastructure.persistence.publication;
 
 import grandrue.application.ApplicationRequestIdentity;
 import grandrue.application.MerchantScope;
-import mainstreet.publication.OpportunityPublicationApplicationService;
-import mainstreet.publication.OpportunityPublicationMaterialRevision;
-import mainstreet.publication.OpportunityPublicationState;
-import mainstreet.publication.OpportunityPublicationStateAuthority;
+import grandrue.publication.OpportunityPublicationApplicationService;
+import grandrue.publication.OpportunityPublicationMaterialRevision;
+import grandrue.publication.OpportunityPublicationState;
+import grandrue.publication.OpportunityPublicationStateAuthority;
 import grandrue.publication.PublicationApplicationRequestConflictException;
-import mainstreet.publication.PublicationLifecycle;
+import grandrue.publication.PublicationLifecycle;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.springframework.transaction.PlatformTransactionManager;

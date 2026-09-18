@@ -1,165 +1,318 @@
 migration: MAIN_STREET_TO_GRANDRUE
-execution_mode: TRANSACTIONAL_TRANCHE
+execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T013
-state: COMPLETE
-code_commit: 6010bbfde05c194951280ecfcb737f092a2ddffc
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: c84ce509d13f8460fbb45d63cfdd4a7ad0fd546a
-leaf_range:
-  first: GR-REN-02-01X290
-  last: GR-REN-02-01X297
-leaf_count: 8
+tranche: GR-REN-02-T014
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 2feb6100ab5046421fad277ae7855a8ff5e49837
 
-leaves:
-  - id: GR-REN-02-01X290
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingAnswerEvidence.java
-      to: src/main/java/grandrue/onboarding/OnboardingAnswerEvidence.java
-      blob_sha: c189280d9781c809f96b77d872f4019a5e07b1b5
-    production_consumers:
-      - path: src/main/java/grandrue/onboarding/OnboardingAnswerEvidenceRevision.java
-        blob_sha: 8eaa5e539d70a79d5becd65fba9cef1ad62fb784
-      - path: src/main/java/grandrue/onboarding/RecordOnboardingAnswerCommand.java
-        blob_sha: 50111f8304cdb86883cd1e1b44503d3e8f40e6ff
-      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 3f4cc4adc73bd9c2fadc6960746520cac75da836
-    invariants:
-      - validation, registry/readiness/review semantics and behaviour unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X291
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingFinalReviewService.java
-      to: src/main/java/grandrue/onboarding/OnboardingFinalReviewService.java
-      blob_sha: 0455567876d96b3f2881299997affed236ef4941
-    production_consumers:
-      []
-    invariants:
-      - validation, registry/readiness/review semantics and behaviour unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X292
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingCompletionPolicy.java
-      to: src/main/java/grandrue/onboarding/OnboardingCompletionPolicy.java
-      blob_sha: 9b230f1cbe232e296eeb8884bf6b1d95560a52c4
-    production_consumers:
-      - path: src/main/java/grandrue/onboarding/OnboardingCaseEvidenceStore.java
-        blob_sha: d4896e57cc27beac39a7c37b3238502c21553b9f
-      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 3f4cc4adc73bd9c2fadc6960746520cac75da836
-    invariants:
-      - validation, registry/readiness/review semantics and behaviour unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X293
-    owner:
-      from: src/main/java/mainstreet/onboarding/InitialOnboardingPromptCatalogue.java
-      to: src/main/java/grandrue/onboarding/InitialOnboardingPromptCatalogue.java
-      blob_sha: d66907f04dfdd1dfa5ce7d54ab4280a28aa8434c
-    production_consumers:
-      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 3f4cc4adc73bd9c2fadc6960746520cac75da836
-    invariants:
-      - validation, registry/readiness/review semantics and behaviour unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X294
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
-      to: src/main/java/grandrue/onboarding/OnboardingPromptDefinition.java
-      blob_sha: d74eaaf54ec176a53292d4b01708060b36575249
-    production_consumers:
-      - path: src/main/java/grandrue/onboarding/OnboardingRecomputation.java
-        blob_sha: 9c32b8864d1aad9cc3952746d6d6f18b81a5b086
-      - path: src/main/java/grandrue/onboarding/OnboardingFinalReviewFactory.java
-        blob_sha: d57deb700c31122552fbde4de7e7f45048b2dcae
-    invariants:
-      - validation, registry/readiness/review semantics and behaviour unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X295
-    owner:
-      from: src/main/java/mainstreet/onboarding/DeterministicOnboardingRecomputation.java
-      to: src/main/java/grandrue/onboarding/DeterministicOnboardingRecomputation.java
-      blob_sha: d3221044335a12eb67816956e14a058421995184
-    production_consumers:
-      - path: src/main/java/grandrue/onboarding/OnboardingCaseRecomputationService.java
-        blob_sha: b81e8b068a03e4cd238f2b0d3796affe27af6072
-      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 3f4cc4adc73bd9c2fadc6960746520cac75da836
-    invariants:
-      - validation, registry/readiness/review semantics and behaviour unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X296
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingPromptRegistry.java
-      to: src/main/java/grandrue/onboarding/OnboardingPromptRegistry.java
-      blob_sha: 05c350057dd25e21aa3a507e2ed2e93bcd43b8c0
-    production_consumers:
-      []
-    invariants:
-      - validation, registry/readiness/review semantics and behaviour unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X297
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
-      to: src/main/java/grandrue/onboarding/OnboardingSubmissionReadinessEvaluator.java
-      blob_sha: 1693f9cdbede0236c619e14fe541c0e9f6517d2c
-    production_consumers:
-      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 3f4cc4adc73bd9c2fadc6960746520cac75da836
-    invariants:
-      - validation, registry/readiness/review semantics and behaviour unchanged
-      - only namespace/import wiring changes
+region:
+  identity: publication
+  closure_basis: complete live src/main/java/mainstreet/publication/** owner graph plus all proven in-scope production consumers
 
-aggregate:
+classification:
+  normal_closed:
+    owner_count: 45
+    production_consumer_count: 10
+  exceptions: []
+
+subgraph:
+  leaf_range:
+    first: GR-REN-02-01X298
+    last: GR-REN-02-01X342
+  leaf_count: 45
+  owners:
+    - leaf: GR-REN-02-01X298
+      from: src/main/java/mainstreet/publication/AuthorityBackedOpportunityPublicExposureReadPort.java
+      to: src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicExposureReadPort.java
+      blob_sha: bcff03aeda78938c47a7d410051a97722f2cc2ab
+    - leaf: GR-REN-02-01X299
+      from: src/main/java/mainstreet/publication/AuthorityBackedOpportunityPublicRepresentationProjectionReadPort.java
+      to: src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicRepresentationProjectionReadPort.java
+      blob_sha: 88ab3d1372b6839ff6c5ef5cfd797523ac7b2ac8
+    - leaf: GR-REN-02-01X300
+      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityApiConfiguration.java
+      to: src/main/java/grandrue/publication/delivery/PublicOpportunityApiConfiguration.java
+      blob_sha: 3d145021a53008be957fc2d0e6449fa7f4e8f30c
+    - leaf: GR-REN-02-01X301
+      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityController.java
+      to: src/main/java/grandrue/publication/delivery/PublicOpportunityController.java
+      blob_sha: d78847e3f5f2eef8321b2e318f2edc11a000be70
+    - leaf: GR-REN-02-01X302
+      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityQuery.java
+      to: src/main/java/grandrue/publication/delivery/PublicOpportunityQuery.java
+      blob_sha: f352d3e4cd40ed2a282fd791cdb2ac53e54deb3d
+    - leaf: GR-REN-02-01X303
+      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityQueryContract.java
+      to: src/main/java/grandrue/publication/delivery/PublicOpportunityQueryContract.java
+      blob_sha: ef3e6034243b8739c20feb8c987752d20a0a781e
+    - leaf: GR-REN-02-01X304
+      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityQueryResponseAdapter.java
+      to: src/main/java/grandrue/publication/delivery/PublicOpportunityQueryResponseAdapter.java
+      blob_sha: 039ff202eb9bdc36b00c2554124c892bde4361d7
+    - leaf: GR-REN-02-01X305
+      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityResponse.java
+      to: src/main/java/grandrue/publication/delivery/PublicOpportunityResponse.java
+      blob_sha: b4838fdb0fdbcf597f51743ac4bd872c7bebbc56
+    - leaf: GR-REN-02-01X306
+      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityRouteScopeAuthority.java
+      to: src/main/java/grandrue/publication/delivery/PublicOpportunityRouteScopeAuthority.java
+      blob_sha: 9835761bad0b16556447200e2a55a56a8df2be83
+    - leaf: GR-REN-02-01X307
+      from: src/main/java/mainstreet/publication/OpportunityCalendarDateBoundary.java
+      to: src/main/java/grandrue/publication/OpportunityCalendarDateBoundary.java
+      blob_sha: b1427032c458e3cc153fba30e7d2e1b9b516f844
+    - leaf: GR-REN-02-01X308
+      from: src/main/java/mainstreet/publication/OpportunityEnquiryParticipationDefinition.java
+      to: src/main/java/grandrue/publication/OpportunityEnquiryParticipationDefinition.java
+      blob_sha: c47b93b3d46a6f4535a83be5061a1dd8e38db645
+    - leaf: GR-REN-02-01X309
+      from: src/main/java/mainstreet/publication/OpportunityEnquiryParticipationSource.java
+      to: src/main/java/grandrue/publication/OpportunityEnquiryParticipationSource.java
+      blob_sha: 909ff0aea4b37bb96bd9f848a78a731b8027be10
+    - leaf: GR-REN-02-01X310
+      from: src/main/java/mainstreet/publication/OpportunityExactInstantBoundary.java
+      to: src/main/java/grandrue/publication/OpportunityExactInstantBoundary.java
+      blob_sha: 74a57f224d26c7d9bf552a762dc803b9dc1c2705
+    - leaf: GR-REN-02-01X311
+      from: src/main/java/mainstreet/publication/OpportunityExposureWindowRequirementEvaluator.java
+      to: src/main/java/grandrue/publication/OpportunityExposureWindowRequirementEvaluator.java
+      blob_sha: fb6c993b500181485e233612f71fd2bcdc9af0f7
+    - leaf: GR-REN-02-01X312
+      from: src/main/java/mainstreet/publication/OpportunityExternalLink.java
+      to: src/main/java/grandrue/publication/OpportunityExternalLink.java
+      blob_sha: 7813a1c58efd080df455dcb7853e7512a2d4f714
+    - leaf: GR-REN-02-01X313
+      from: src/main/java/mainstreet/publication/OpportunityExternalLinkRole.java
+      to: src/main/java/grandrue/publication/OpportunityExternalLinkRole.java
+      blob_sha: 73b49336e5219054a9ca6882a0c3b0b26995fac5
+    - leaf: GR-REN-02-01X314
+      from: src/main/java/mainstreet/publication/OpportunityMaterialAffinityObservationContribution.java
+      to: src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContribution.java
+      blob_sha: a04648173127e5be18675bbd5b8402b6e023ca21
+    - leaf: GR-REN-02-01X315
+      from: src/main/java/mainstreet/publication/OpportunityMaterialAffinityObservationContributionRegistration.java
+      to: src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContributionRegistration.java
+      blob_sha: d9c7485f22ba0fb4e305edead26e77be283ebc0a
+    - leaf: GR-REN-02-01X316
+      from: src/main/java/mainstreet/publication/OpportunityPublicationApplicationService.java
+      to: src/main/java/grandrue/publication/OpportunityPublicationApplicationService.java
+      blob_sha: 58f067e2f7e2215982a17bc4ae1d42231098c0d0
+    - leaf: GR-REN-02-01X317
+      from: src/main/java/mainstreet/publication/OpportunityPublicationFieldValue.java
+      to: src/main/java/grandrue/publication/OpportunityPublicationFieldValue.java
+      blob_sha: 33d2c2830a1edfc1cbe058fddcc7321d11160099
+    - leaf: GR-REN-02-01X318
+      from: src/main/java/mainstreet/publication/OpportunityPublicationHistoryEntry.java
+      to: src/main/java/grandrue/publication/OpportunityPublicationHistoryEntry.java
+      blob_sha: 42494af7b24cc471f9862dbbd3a92203b2497dc6
+    - leaf: GR-REN-02-01X319
+      from: src/main/java/mainstreet/publication/OpportunityPublicationLifecycleHistoryEntry.java
+      to: src/main/java/grandrue/publication/OpportunityPublicationLifecycleHistoryEntry.java
+      blob_sha: 2520b7dc73ada7377064ecc69c9a6504e43f948c
+    - leaf: GR-REN-02-01X320
+      from: src/main/java/mainstreet/publication/OpportunityPublicationMaterialRevision.java
+      to: src/main/java/grandrue/publication/OpportunityPublicationMaterialRevision.java
+      blob_sha: 0b0335a1c0980daeb28c0dfab19035d1de4eb9a9
+    - leaf: GR-REN-02-01X321
+      from: src/main/java/mainstreet/publication/OpportunityPublicationState.java
+      to: src/main/java/grandrue/publication/OpportunityPublicationState.java
+      blob_sha: bf1b0f6760b33a1ca2e28e7145bb741661cd0792
+    - leaf: GR-REN-02-01X322
+      from: src/main/java/mainstreet/publication/OpportunityPublicationStateAuthority.java
+      to: src/main/java/grandrue/publication/OpportunityPublicationStateAuthority.java
+      blob_sha: 83b35021a01071a5d77e6f84c020a7d23bd15d29
+    - leaf: GR-REN-02-01X323
+      from: src/main/java/mainstreet/publication/OpportunityPublicationSubmissionLock.java
+      to: src/main/java/grandrue/publication/OpportunityPublicationSubmissionLock.java
+      blob_sha: cba47fdeb5b18e3019df3511ef9b59ddbfd5bd73
+    - leaf: GR-REN-02-01X324
+      from: src/main/java/mainstreet/publication/OpportunityPublicExposureCandidateSource.java
+      to: src/main/java/grandrue/publication/OpportunityPublicExposureCandidateSource.java
+      blob_sha: 40925cb3fb65fbabd796557c77b24ac59a77b87c
+    - leaf: GR-REN-02-01X325
+      from: src/main/java/mainstreet/publication/OpportunityPublicExposureContractPortfolio.java
+      to: src/main/java/grandrue/publication/OpportunityPublicExposureContractPortfolio.java
+      blob_sha: 45875686d8ed71752071bc87b10dd1663514e1a5
+    - leaf: GR-REN-02-01X326
+      from: src/main/java/mainstreet/publication/OpportunityPublicExposureEvidence.java
+      to: src/main/java/grandrue/publication/OpportunityPublicExposureEvidence.java
+      blob_sha: e0935eb7a1fc09ae43f4ef8a68ff11441d664df5
+    - leaf: GR-REN-02-01X327
+      from: src/main/java/mainstreet/publication/OpportunityPublicExposureReadPort.java
+      to: src/main/java/grandrue/publication/OpportunityPublicExposureReadPort.java
+      blob_sha: 3b0e177d666cedf07d6920870951ad7a9d9e0b3b
+    - leaf: GR-REN-02-01X328
+      from: src/main/java/mainstreet/publication/OpportunityPublicExposureReferences.java
+      to: src/main/java/grandrue/publication/OpportunityPublicExposureReferences.java
+      blob_sha: 3329286134a81bca559e8322b6397f8519668bc1
+    - leaf: GR-REN-02-01X329
+      from: src/main/java/mainstreet/publication/OpportunityPublicExposureWindow.java
+      to: src/main/java/grandrue/publication/OpportunityPublicExposureWindow.java
+      blob_sha: b5c9486e39e05ab8a7c444a22899327594c3e2eb
+    - leaf: GR-REN-02-01X330
+      from: src/main/java/mainstreet/publication/OpportunityPublicQueryProjectionPortfolio.java
+      to: src/main/java/grandrue/publication/OpportunityPublicQueryProjectionPortfolio.java
+      blob_sha: 23a79c61ac8c1e8f1f81201c1a639bfab26ff464
+    - leaf: GR-REN-02-01X331
+      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentation.java
+      to: src/main/java/grandrue/publication/OpportunityPublicRepresentation.java
+      blob_sha: f6de73f893efc245dc39f06c0f879cbff685ff2e
+    - leaf: GR-REN-02-01X332
+      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentationProjectionFragment.java
+      to: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionFragment.java
+      blob_sha: c2792d3c62bfb7fa69f1edb8c16173a581dcdaf6
+    - leaf: GR-REN-02-01X333
+      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentationProjectionObservation.java
+      to: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionObservation.java
+      blob_sha: 666891ac8adf953f509ab97ffdb2c4f2ef13f18f
+    - leaf: GR-REN-02-01X334
+      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentationProjectionReadPort.java
+      to: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReadPort.java
+      blob_sha: 010ad44b66dc7dd2eaa516bbd70026873d0533c6
+    - leaf: GR-REN-02-01X335
+      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentationProjectionReferences.java
+      to: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReferences.java
+      blob_sha: 00bc31a8eaaad11d2a0a0151ea827ef45acfb9d5
+    - leaf: GR-REN-02-01X336
+      from: src/main/java/mainstreet/publication/OpportunityTemporalBoundary.java
+      to: src/main/java/grandrue/publication/OpportunityTemporalBoundary.java
+      blob_sha: 2e4ffdd38dabf7372f95bc6804bbf91373f8e8f1
+    - leaf: GR-REN-02-01X337
+      from: src/main/java/mainstreet/publication/PublicationAvailabilityImpactAssessment.java
+      to: src/main/java/grandrue/publication/PublicationAvailabilityImpactAssessment.java
+      blob_sha: 474fc0bf1108dcc1b10134887b6ca62b4b93d39e
+    - leaf: GR-REN-02-01X338
+      from: src/main/java/mainstreet/publication/PublicationHistoryOperationKind.java
+      to: src/main/java/grandrue/publication/PublicationHistoryOperationKind.java
+      blob_sha: 69fe15356a2e302d4055bd03b9d53671b3abb82e
+    - leaf: GR-REN-02-01X339
+      from: src/main/java/mainstreet/publication/PublicationLifecycle.java
+      to: src/main/java/grandrue/publication/PublicationLifecycle.java
+      blob_sha: 537533b6ab557f26c5d0afc1e0431d14d056df95
+    - leaf: GR-REN-02-01X340
+      from: src/main/java/mainstreet/publication/PublicationRevisionConflictException.java
+      to: src/main/java/grandrue/publication/PublicationRevisionConflictException.java
+      blob_sha: aba2b898ee254c23831c7d10b0cb13b113243e0b
+    - leaf: GR-REN-02-01X341
+      from: src/main/java/mainstreet/publication/PublicationStateConflictException.java
+      to: src/main/java/grandrue/publication/PublicationStateConflictException.java
+      blob_sha: 67e5eed665179fe73968652bafe3a3d03366f129
+    - leaf: GR-REN-02-01X342
+      from: src/main/java/mainstreet/publication/PublicationTransitionKind.java
+      to: src/main/java/grandrue/publication/PublicationTransitionKind.java
+      blob_sha: d06ef3b85c50ba64db94030a19e759effc403979
+  production_consumer_closure:
+    - path: src/main/java/grandrue/enquiry/OpportunityEnquirySubmissionPreparation.java
+      blob_sha: 2dd7a321f0e60e96e70663312e4319bac2ff0791
+    - path: src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquirySubmission.java
+      blob_sha: 3b9bc699001fcccafa7ba39575fc5016f7c86ce3
+    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryContract.java
+      blob_sha: db8bcdcf904ccf92bb25179b8db462d0b9b25d38
+    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquirySubmission.java
+      blob_sha: 53c7501342055c0b5c72fc222a514eb6bd8533ed
+    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryBindingQuery.java
+      blob_sha: 92c72cbde46a9fa8e152a49d5cb7bf1fac4f3139
+    - path: src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquiryApiConfiguration.java
+      blob_sha: 5109f1668d91b4a28ee43462524ec89668bd1e72
+    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryApiConfiguration.java
+      blob_sha: 1af4eabcd7f7ab931bee5e1285cd6e9ea0f03c38
+    - path: src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
+      blob_sha: faea4f28eb67af2bf96ea393e3953693d70f755d
+    - path: src/main/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationApplicationService.java
+      blob_sha: b87a075c0d07f60827bbcc9a5db12e9a0b35097a
+    - path: src/main/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationStateAuthority.java
+      blob_sha: 73c612372021a17a44c5cd1a7d566d38346d0535
+  deterministic_transformations:
+    - package prefix mainstreet.publication -> grandrue.publication for every owner
+    - import prefix mainstreet.publication -> grandrue.publication in owners and declared production consumers
+    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquirySubmission.java
+      from: mainstreet.publication.OpportunityEnquiryParticipationDefinition
+      to: grandrue.publication.OpportunityEnquiryParticipationDefinition
+      expected_count: 1
+    - no comments or string literals are renamed
   permitted_changed_paths:
     - docs/development/grandrue-migration-active-tranche.yaml
-    - src/main/java/grandrue/onboarding/OnboardingAnswerEvidence.java
-    - src/main/java/grandrue/onboarding/OnboardingFinalReviewService.java
-    - src/main/java/grandrue/onboarding/OnboardingCompletionPolicy.java
-    - src/main/java/grandrue/onboarding/InitialOnboardingPromptCatalogue.java
-    - src/main/java/grandrue/onboarding/OnboardingPromptDefinition.java
-    - src/main/java/grandrue/onboarding/DeterministicOnboardingRecomputation.java
-    - src/main/java/grandrue/onboarding/OnboardingPromptRegistry.java
-    - src/main/java/grandrue/onboarding/OnboardingSubmissionReadinessEvaluator.java
-    - src/main/java/grandrue/onboarding/OnboardingAnswerEvidenceRevision.java
-    - src/main/java/grandrue/onboarding/RecordOnboardingAnswerCommand.java
-    - src/main/java/grandrue/onboarding/OnboardingRecomputation.java
-    - src/main/java/grandrue/onboarding/OnboardingCaseEvidenceStore.java
-    - src/main/java/grandrue/onboarding/OnboardingCaseRecomputationService.java
-    - src/main/java/grandrue/onboarding/OnboardingFinalReviewFactory.java
-    - src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-  legacy_owner_paths_removed:
-    - src/main/java/mainstreet/onboarding/OnboardingAnswerEvidence.java
-    - src/main/java/mainstreet/onboarding/OnboardingFinalReviewService.java
-    - src/main/java/mainstreet/onboarding/OnboardingCompletionPolicy.java
-    - src/main/java/mainstreet/onboarding/InitialOnboardingPromptCatalogue.java
-    - src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
-    - src/main/java/mainstreet/onboarding/DeterministicOnboardingRecomputation.java
-    - src/main/java/mainstreet/onboarding/OnboardingPromptRegistry.java
-    - src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
-  protected_identity_checks:
-    - stable MS-* identifiers unchanged
-    - applied Flyway content unchanged
-    - mainstreet.semantic string identity unchanged
-    - legacy prototype paths unchanged
-  expected_residuals:
-    - src/test/java/mainstreet/onboarding/** remains deferred to GR-REN-03
-    - no src/main/java/mainstreet/onboarding/** production owner remains after this tranche
-  changed_path_set: exact
-  diff_integrity: required
+    - src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicExposureReadPort.java
+    - src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicRepresentationProjectionReadPort.java
+    - src/main/java/grandrue/publication/delivery/PublicOpportunityApiConfiguration.java
+    - src/main/java/grandrue/publication/delivery/PublicOpportunityController.java
+    - src/main/java/grandrue/publication/delivery/PublicOpportunityQuery.java
+    - src/main/java/grandrue/publication/delivery/PublicOpportunityQueryContract.java
+    - src/main/java/grandrue/publication/delivery/PublicOpportunityQueryResponseAdapter.java
+    - src/main/java/grandrue/publication/delivery/PublicOpportunityResponse.java
+    - src/main/java/grandrue/publication/delivery/PublicOpportunityRouteScopeAuthority.java
+    - src/main/java/grandrue/publication/OpportunityCalendarDateBoundary.java
+    - src/main/java/grandrue/publication/OpportunityEnquiryParticipationDefinition.java
+    - src/main/java/grandrue/publication/OpportunityEnquiryParticipationSource.java
+    - src/main/java/grandrue/publication/OpportunityExactInstantBoundary.java
+    - src/main/java/grandrue/publication/OpportunityExposureWindowRequirementEvaluator.java
+    - src/main/java/grandrue/publication/OpportunityExternalLink.java
+    - src/main/java/grandrue/publication/OpportunityExternalLinkRole.java
+    - src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContribution.java
+    - src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContributionRegistration.java
+    - src/main/java/grandrue/publication/OpportunityPublicationApplicationService.java
+    - src/main/java/grandrue/publication/OpportunityPublicationFieldValue.java
+    - src/main/java/grandrue/publication/OpportunityPublicationHistoryEntry.java
+    - src/main/java/grandrue/publication/OpportunityPublicationLifecycleHistoryEntry.java
+    - src/main/java/grandrue/publication/OpportunityPublicationMaterialRevision.java
+    - src/main/java/grandrue/publication/OpportunityPublicationState.java
+    - src/main/java/grandrue/publication/OpportunityPublicationStateAuthority.java
+    - src/main/java/grandrue/publication/OpportunityPublicationSubmissionLock.java
+    - src/main/java/grandrue/publication/OpportunityPublicExposureCandidateSource.java
+    - src/main/java/grandrue/publication/OpportunityPublicExposureContractPortfolio.java
+    - src/main/java/grandrue/publication/OpportunityPublicExposureEvidence.java
+    - src/main/java/grandrue/publication/OpportunityPublicExposureReadPort.java
+    - src/main/java/grandrue/publication/OpportunityPublicExposureReferences.java
+    - src/main/java/grandrue/publication/OpportunityPublicExposureWindow.java
+    - src/main/java/grandrue/publication/OpportunityPublicQueryProjectionPortfolio.java
+    - src/main/java/grandrue/publication/OpportunityPublicRepresentation.java
+    - src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionFragment.java
+    - src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionObservation.java
+    - src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReadPort.java
+    - src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReferences.java
+    - src/main/java/grandrue/publication/OpportunityTemporalBoundary.java
+    - src/main/java/grandrue/publication/PublicationAvailabilityImpactAssessment.java
+    - src/main/java/grandrue/publication/PublicationHistoryOperationKind.java
+    - src/main/java/grandrue/publication/PublicationLifecycle.java
+    - src/main/java/grandrue/publication/PublicationRevisionConflictException.java
+    - src/main/java/grandrue/publication/PublicationStateConflictException.java
+    - src/main/java/grandrue/publication/PublicationTransitionKind.java
+    - src/main/java/grandrue/enquiry/OpportunityEnquirySubmissionPreparation.java
+    - src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquirySubmission.java
+    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryContract.java
+    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquirySubmission.java
+    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryBindingQuery.java
+    - src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquiryApiConfiguration.java
+    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryApiConfiguration.java
+    - src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
+    - src/main/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationApplicationService.java
+    - src/main/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationStateAuthority.java
+
+verification:
+  aggregate_changed_path_set: exact
+  owner_evidence: required
+  destination_presence: required
+  legacy_owner_absence: required
+  production_consumer_closure: exact
+  no_undeclared_mainstreet_publication_reference_in_analysed_region: required
+  protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
-preparation_notes:
-  - T013 is the final onboarding production namespace closure.
-  - All eight remaining owners move together, eliminating the four transitional imports recorded by T012.
-  - No prototype path is selected or changed.
+protected:
+  - applied Flyway migration contents unchanged
+  - stable MS-* identifiers unchanged
+  - mainstreet semantic/protocol string identities unchanged
+  - legacy prototype owners unchanged
 
-completed:
-  last_leaf: GR-REN-02-01X297
-  completed_leaf_count_in_tranche: 8
-  aggregate_changed_path_count: 16
-  structural_verification: passed
-  onboarding_production_namespace_complete: true
-  next_tranche: GR-REN-02-T014
+expected_residuals:
+  - src/test/java/mainstreet/** publication-related consumers remain deferred to GR-REN-03
+  - legacy prototype paths remain NON_MIGRATING_LEGACY_PROTOTYPE
+
+preparation_notes:
+  - all 45 publication owners were analysed once as one natural region
+  - no owner contained a non-package/import mainstreet.publication occurrence
+  - one external fully-qualified code reference was mechanically enumerable and included in the frozen transformation
+  - no exception node or design escalation was identified
