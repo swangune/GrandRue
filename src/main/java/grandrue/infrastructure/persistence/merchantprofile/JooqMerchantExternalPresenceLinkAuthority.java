@@ -4,7 +4,7 @@ import grandrue.application.MerchantScope;
 import mainstreet.merchantprofile.CreateMerchantExternalPresenceLinkCommand;
 import mainstreet.merchantprofile.MerchantExternalPresenceExposure;
 import grandrue.merchantprofile.MerchantExternalPresenceLifecycle;
-import mainstreet.merchantprofile.MerchantExternalPresenceLinkAuthority;
+import grandrue.merchantprofile.MerchantExternalPresenceLinkAuthority;
 import mainstreet.merchantprofile.MerchantExternalPresenceLinkRevision;
 import mainstreet.merchantprofile.MerchantProfileFailureCategory;
 import mainstreet.merchantprofile.MerchantProfileMutationException;
