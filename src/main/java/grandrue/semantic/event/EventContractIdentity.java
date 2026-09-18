@@ -1,4 +1,4 @@
-package mainstreet.semantic.event;
+package grandrue.semantic.event;
 
 /** Stable fact-contract identity qualified by the semantic owner, not a consumer or delivery identity. */
 public record EventContractIdentity(String ownerIdentifier, String contractIdentifier) {

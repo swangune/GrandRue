@@ -2,11 +2,11 @@ package grandrue.application;
 
 import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
-import mainstreet.semantic.event.EventReactionContractAffinity;
-import mainstreet.semantic.event.EventReactionContractDefinition;
-import mainstreet.semantic.event.EventReactionContractIdentity;
-import mainstreet.semantic.event.EventReactionContractRegistrySnapshot;
-import mainstreet.semantic.event.EventReactionTargetReference;
+import grandrue.semantic.event.EventReactionContractAffinity;
+import grandrue.semantic.event.EventReactionContractDefinition;
+import grandrue.semantic.event.EventReactionContractIdentity;
+import grandrue.semantic.event.EventReactionContractRegistrySnapshot;
+import grandrue.semantic.event.EventReactionTargetReference;
 
 import java.util.List;
 import java.util.Objects;

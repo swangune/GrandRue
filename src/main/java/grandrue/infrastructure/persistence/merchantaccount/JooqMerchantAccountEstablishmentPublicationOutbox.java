@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.merchantaccount;
 
-import mainstreet.semantic.event.EventContractAffinity;
-import mainstreet.semantic.event.EventContractIdentity;
+import grandrue.semantic.event.EventContractAffinity;
+import grandrue.semantic.event.EventContractIdentity;
 import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;

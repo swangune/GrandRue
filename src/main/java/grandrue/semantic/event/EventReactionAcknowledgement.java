@@ -1,4 +1,4 @@
-package mainstreet.semantic.event;
+package grandrue.semantic.event;
 
 import java.time.Instant;
 import java.util.Objects;

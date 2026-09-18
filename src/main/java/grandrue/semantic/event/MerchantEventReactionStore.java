@@ -1,4 +1,4 @@
-package mainstreet.semantic.event;
+package grandrue.semantic.event;
 
 import java.util.List;
 import java.util.Optional;

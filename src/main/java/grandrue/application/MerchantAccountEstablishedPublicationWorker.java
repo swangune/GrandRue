@@ -3,11 +3,11 @@ package grandrue.application;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import grandrue.merchantaccount.MerchantAccountEstablishedPublicationSource;
 import grandrue.application.StandingFreeEventReactionContract;
-import mainstreet.semantic.event.EventReactionContractDefinition;
-import mainstreet.semantic.event.EventReactionContractRegistrySnapshot;
-import mainstreet.semantic.event.EventReactionIdentity;
-import mainstreet.semantic.event.MerchantEventReactionReceipt;
-import mainstreet.semantic.event.MerchantEventReactionStore;
+import grandrue.semantic.event.EventReactionContractDefinition;
+import grandrue.semantic.event.EventReactionContractRegistrySnapshot;
+import grandrue.semantic.event.EventReactionIdentity;
+import grandrue.semantic.event.MerchantEventReactionReceipt;
+import grandrue.semantic.event.MerchantEventReactionStore;
 
 import java.time.Clock;
 import java.time.Instant;

@@ -4,8 +4,8 @@ import grandrue.application.MerchantScope;
 import grandrue.merchantaccount.MerchantAccountEstablished;
 import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
-import mainstreet.semantic.event.EventContractAffinity;
-import mainstreet.semantic.event.EventContractRegistrySnapshot;
+import grandrue.semantic.event.EventContractAffinity;
+import grandrue.semantic.event.EventContractRegistrySnapshot;
 
 import java.time.Instant;
 import java.util.Objects;

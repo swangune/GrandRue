@@ -1,6 +1,6 @@
 package grandrue.merchantaccount;
 
-import mainstreet.semantic.event.EventContractAffinity;
+import grandrue.semantic.event.EventContractAffinity;
 import java.util.Objects;
 
 /** Owner-specific event occurrence; distinct from publication, establishment fact and request identities. */

@@ -1,6 +1,6 @@
 package grandrue.merchantaccount;
 
-import mainstreet.semantic.event.*;
+import grandrue.semantic.event.*;
 import java.util.List;
 import java.util.Set;
 

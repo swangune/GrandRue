@@ -1,7 +1,7 @@
 package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.event.EventReactionContractDefinition;
+import grandrue.semantic.event.EventReactionContractDefinition;
 
 /**
  * Establishes the separately registered scheduled principal for one current

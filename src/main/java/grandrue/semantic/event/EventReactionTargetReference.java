@@ -1,4 +1,4 @@
-package mainstreet.semantic.event;
+package grandrue.semantic.event;
 
 /** Owner-qualified target responsibility reference. */
 public record EventReactionTargetReference(String ownerIdentifier, String targetIdentifier) {

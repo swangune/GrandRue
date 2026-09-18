@@ -1,8 +1,8 @@
 package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.event.EventReactionContractDefinition;
-import mainstreet.semantic.event.EventReactionContractIdentity;
+import grandrue.semantic.event.EventReactionContractDefinition;
+import grandrue.semantic.event.EventReactionContractIdentity;
 
 import java.util.Map;
 import java.util.Objects;

@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.event;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.event.*;
+import grandrue.semantic.event.*;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.springframework.transaction.PlatformTransactionManager;

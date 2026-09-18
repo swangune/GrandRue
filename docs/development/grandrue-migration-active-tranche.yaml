@@ -2,295 +2,129 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T014
-state: COMPLETE
-code_commit: 2d1a42157dd2c3edbf76f945f974d0cdf654067c
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: 2feb6100ab5046421fad277ae7855a8ff5e49837
+tranche: GR-REN-02-T015
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 9817bb9040596e07336651a1ff98c0596cb603c4
 
 region:
-  identity: publication
-  closure_basis: complete live src/main/java/mainstreet/publication/** owner graph plus all proven in-scope production consumers
+  identity: semantic/event
+  closure_basis: complete live src/main/java/mainstreet/semantic/event/** owner graph plus all proven in-scope production consumers
 
 classification:
   normal_closed:
-    owner_count: 45
+    owner_count: 13
     production_consumer_count: 10
   exceptions: []
 
 subgraph:
   leaf_range:
-    first: GR-REN-02-01X298
-    last: GR-REN-02-01X342
-  leaf_count: 45
+    first: GR-REN-02-01X343
+    last: GR-REN-02-01X355
+  leaf_count: 13
   owners:
-    - leaf: GR-REN-02-01X298
-      from: src/main/java/mainstreet/publication/AuthorityBackedOpportunityPublicExposureReadPort.java
-      to: src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicExposureReadPort.java
-      blob_sha: bcff03aeda78938c47a7d410051a97722f2cc2ab
-    - leaf: GR-REN-02-01X299
-      from: src/main/java/mainstreet/publication/AuthorityBackedOpportunityPublicRepresentationProjectionReadPort.java
-      to: src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicRepresentationProjectionReadPort.java
-      blob_sha: 88ab3d1372b6839ff6c5ef5cfd797523ac7b2ac8
-    - leaf: GR-REN-02-01X300
-      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityApiConfiguration.java
-      to: src/main/java/grandrue/publication/delivery/PublicOpportunityApiConfiguration.java
-      blob_sha: 3d145021a53008be957fc2d0e6449fa7f4e8f30c
-    - leaf: GR-REN-02-01X301
-      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityController.java
-      to: src/main/java/grandrue/publication/delivery/PublicOpportunityController.java
-      blob_sha: d78847e3f5f2eef8321b2e318f2edc11a000be70
-    - leaf: GR-REN-02-01X302
-      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityQuery.java
-      to: src/main/java/grandrue/publication/delivery/PublicOpportunityQuery.java
-      blob_sha: f352d3e4cd40ed2a282fd791cdb2ac53e54deb3d
-    - leaf: GR-REN-02-01X303
-      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityQueryContract.java
-      to: src/main/java/grandrue/publication/delivery/PublicOpportunityQueryContract.java
-      blob_sha: ef3e6034243b8739c20feb8c987752d20a0a781e
-    - leaf: GR-REN-02-01X304
-      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityQueryResponseAdapter.java
-      to: src/main/java/grandrue/publication/delivery/PublicOpportunityQueryResponseAdapter.java
-      blob_sha: 039ff202eb9bdc36b00c2554124c892bde4361d7
-    - leaf: GR-REN-02-01X305
-      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityResponse.java
-      to: src/main/java/grandrue/publication/delivery/PublicOpportunityResponse.java
-      blob_sha: b4838fdb0fdbcf597f51743ac4bd872c7bebbc56
-    - leaf: GR-REN-02-01X306
-      from: src/main/java/mainstreet/publication/delivery/PublicOpportunityRouteScopeAuthority.java
-      to: src/main/java/grandrue/publication/delivery/PublicOpportunityRouteScopeAuthority.java
-      blob_sha: 9835761bad0b16556447200e2a55a56a8df2be83
-    - leaf: GR-REN-02-01X307
-      from: src/main/java/mainstreet/publication/OpportunityCalendarDateBoundary.java
-      to: src/main/java/grandrue/publication/OpportunityCalendarDateBoundary.java
-      blob_sha: b1427032c458e3cc153fba30e7d2e1b9b516f844
-    - leaf: GR-REN-02-01X308
-      from: src/main/java/mainstreet/publication/OpportunityEnquiryParticipationDefinition.java
-      to: src/main/java/grandrue/publication/OpportunityEnquiryParticipationDefinition.java
-      blob_sha: c47b93b3d46a6f4535a83be5061a1dd8e38db645
-    - leaf: GR-REN-02-01X309
-      from: src/main/java/mainstreet/publication/OpportunityEnquiryParticipationSource.java
-      to: src/main/java/grandrue/publication/OpportunityEnquiryParticipationSource.java
-      blob_sha: 909ff0aea4b37bb96bd9f848a78a731b8027be10
-    - leaf: GR-REN-02-01X310
-      from: src/main/java/mainstreet/publication/OpportunityExactInstantBoundary.java
-      to: src/main/java/grandrue/publication/OpportunityExactInstantBoundary.java
-      blob_sha: 74a57f224d26c7d9bf552a762dc803b9dc1c2705
-    - leaf: GR-REN-02-01X311
-      from: src/main/java/mainstreet/publication/OpportunityExposureWindowRequirementEvaluator.java
-      to: src/main/java/grandrue/publication/OpportunityExposureWindowRequirementEvaluator.java
-      blob_sha: fb6c993b500181485e233612f71fd2bcdc9af0f7
-    - leaf: GR-REN-02-01X312
-      from: src/main/java/mainstreet/publication/OpportunityExternalLink.java
-      to: src/main/java/grandrue/publication/OpportunityExternalLink.java
-      blob_sha: 7813a1c58efd080df455dcb7853e7512a2d4f714
-    - leaf: GR-REN-02-01X313
-      from: src/main/java/mainstreet/publication/OpportunityExternalLinkRole.java
-      to: src/main/java/grandrue/publication/OpportunityExternalLinkRole.java
-      blob_sha: 73b49336e5219054a9ca6882a0c3b0b26995fac5
-    - leaf: GR-REN-02-01X314
-      from: src/main/java/mainstreet/publication/OpportunityMaterialAffinityObservationContribution.java
-      to: src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContribution.java
-      blob_sha: a04648173127e5be18675bbd5b8402b6e023ca21
-    - leaf: GR-REN-02-01X315
-      from: src/main/java/mainstreet/publication/OpportunityMaterialAffinityObservationContributionRegistration.java
-      to: src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContributionRegistration.java
-      blob_sha: d9c7485f22ba0fb4e305edead26e77be283ebc0a
-    - leaf: GR-REN-02-01X316
-      from: src/main/java/mainstreet/publication/OpportunityPublicationApplicationService.java
-      to: src/main/java/grandrue/publication/OpportunityPublicationApplicationService.java
-      blob_sha: 58f067e2f7e2215982a17bc4ae1d42231098c0d0
-    - leaf: GR-REN-02-01X317
-      from: src/main/java/mainstreet/publication/OpportunityPublicationFieldValue.java
-      to: src/main/java/grandrue/publication/OpportunityPublicationFieldValue.java
-      blob_sha: 33d2c2830a1edfc1cbe058fddcc7321d11160099
-    - leaf: GR-REN-02-01X318
-      from: src/main/java/mainstreet/publication/OpportunityPublicationHistoryEntry.java
-      to: src/main/java/grandrue/publication/OpportunityPublicationHistoryEntry.java
-      blob_sha: 42494af7b24cc471f9862dbbd3a92203b2497dc6
-    - leaf: GR-REN-02-01X319
-      from: src/main/java/mainstreet/publication/OpportunityPublicationLifecycleHistoryEntry.java
-      to: src/main/java/grandrue/publication/OpportunityPublicationLifecycleHistoryEntry.java
-      blob_sha: 2520b7dc73ada7377064ecc69c9a6504e43f948c
-    - leaf: GR-REN-02-01X320
-      from: src/main/java/mainstreet/publication/OpportunityPublicationMaterialRevision.java
-      to: src/main/java/grandrue/publication/OpportunityPublicationMaterialRevision.java
-      blob_sha: 0b0335a1c0980daeb28c0dfab19035d1de4eb9a9
-    - leaf: GR-REN-02-01X321
-      from: src/main/java/mainstreet/publication/OpportunityPublicationState.java
-      to: src/main/java/grandrue/publication/OpportunityPublicationState.java
-      blob_sha: bf1b0f6760b33a1ca2e28e7145bb741661cd0792
-    - leaf: GR-REN-02-01X322
-      from: src/main/java/mainstreet/publication/OpportunityPublicationStateAuthority.java
-      to: src/main/java/grandrue/publication/OpportunityPublicationStateAuthority.java
-      blob_sha: 83b35021a01071a5d77e6f84c020a7d23bd15d29
-    - leaf: GR-REN-02-01X323
-      from: src/main/java/mainstreet/publication/OpportunityPublicationSubmissionLock.java
-      to: src/main/java/grandrue/publication/OpportunityPublicationSubmissionLock.java
-      blob_sha: cba47fdeb5b18e3019df3511ef9b59ddbfd5bd73
-    - leaf: GR-REN-02-01X324
-      from: src/main/java/mainstreet/publication/OpportunityPublicExposureCandidateSource.java
-      to: src/main/java/grandrue/publication/OpportunityPublicExposureCandidateSource.java
-      blob_sha: 40925cb3fb65fbabd796557c77b24ac59a77b87c
-    - leaf: GR-REN-02-01X325
-      from: src/main/java/mainstreet/publication/OpportunityPublicExposureContractPortfolio.java
-      to: src/main/java/grandrue/publication/OpportunityPublicExposureContractPortfolio.java
-      blob_sha: 45875686d8ed71752071bc87b10dd1663514e1a5
-    - leaf: GR-REN-02-01X326
-      from: src/main/java/mainstreet/publication/OpportunityPublicExposureEvidence.java
-      to: src/main/java/grandrue/publication/OpportunityPublicExposureEvidence.java
-      blob_sha: e0935eb7a1fc09ae43f4ef8a68ff11441d664df5
-    - leaf: GR-REN-02-01X327
-      from: src/main/java/mainstreet/publication/OpportunityPublicExposureReadPort.java
-      to: src/main/java/grandrue/publication/OpportunityPublicExposureReadPort.java
-      blob_sha: 3b0e177d666cedf07d6920870951ad7a9d9e0b3b
-    - leaf: GR-REN-02-01X328
-      from: src/main/java/mainstreet/publication/OpportunityPublicExposureReferences.java
-      to: src/main/java/grandrue/publication/OpportunityPublicExposureReferences.java
-      blob_sha: 3329286134a81bca559e8322b6397f8519668bc1
-    - leaf: GR-REN-02-01X329
-      from: src/main/java/mainstreet/publication/OpportunityPublicExposureWindow.java
-      to: src/main/java/grandrue/publication/OpportunityPublicExposureWindow.java
-      blob_sha: b5c9486e39e05ab8a7c444a22899327594c3e2eb
-    - leaf: GR-REN-02-01X330
-      from: src/main/java/mainstreet/publication/OpportunityPublicQueryProjectionPortfolio.java
-      to: src/main/java/grandrue/publication/OpportunityPublicQueryProjectionPortfolio.java
-      blob_sha: 23a79c61ac8c1e8f1f81201c1a639bfab26ff464
-    - leaf: GR-REN-02-01X331
-      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentation.java
-      to: src/main/java/grandrue/publication/OpportunityPublicRepresentation.java
-      blob_sha: f6de73f893efc245dc39f06c0f879cbff685ff2e
-    - leaf: GR-REN-02-01X332
-      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentationProjectionFragment.java
-      to: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionFragment.java
-      blob_sha: c2792d3c62bfb7fa69f1edb8c16173a581dcdaf6
-    - leaf: GR-REN-02-01X333
-      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentationProjectionObservation.java
-      to: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionObservation.java
-      blob_sha: 666891ac8adf953f509ab97ffdb2c4f2ef13f18f
-    - leaf: GR-REN-02-01X334
-      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentationProjectionReadPort.java
-      to: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReadPort.java
-      blob_sha: 010ad44b66dc7dd2eaa516bbd70026873d0533c6
-    - leaf: GR-REN-02-01X335
-      from: src/main/java/mainstreet/publication/OpportunityPublicRepresentationProjectionReferences.java
-      to: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReferences.java
-      blob_sha: 00bc31a8eaaad11d2a0a0151ea827ef45acfb9d5
-    - leaf: GR-REN-02-01X336
-      from: src/main/java/mainstreet/publication/OpportunityTemporalBoundary.java
-      to: src/main/java/grandrue/publication/OpportunityTemporalBoundary.java
-      blob_sha: 2e4ffdd38dabf7372f95bc6804bbf91373f8e8f1
-    - leaf: GR-REN-02-01X337
-      from: src/main/java/mainstreet/publication/PublicationAvailabilityImpactAssessment.java
-      to: src/main/java/grandrue/publication/PublicationAvailabilityImpactAssessment.java
-      blob_sha: 474fc0bf1108dcc1b10134887b6ca62b4b93d39e
-    - leaf: GR-REN-02-01X338
-      from: src/main/java/mainstreet/publication/PublicationHistoryOperationKind.java
-      to: src/main/java/grandrue/publication/PublicationHistoryOperationKind.java
-      blob_sha: 69fe15356a2e302d4055bd03b9d53671b3abb82e
-    - leaf: GR-REN-02-01X339
-      from: src/main/java/mainstreet/publication/PublicationLifecycle.java
-      to: src/main/java/grandrue/publication/PublicationLifecycle.java
-      blob_sha: 537533b6ab557f26c5d0afc1e0431d14d056df95
-    - leaf: GR-REN-02-01X340
-      from: src/main/java/mainstreet/publication/PublicationRevisionConflictException.java
-      to: src/main/java/grandrue/publication/PublicationRevisionConflictException.java
-      blob_sha: aba2b898ee254c23831c7d10b0cb13b113243e0b
-    - leaf: GR-REN-02-01X341
-      from: src/main/java/mainstreet/publication/PublicationStateConflictException.java
-      to: src/main/java/grandrue/publication/PublicationStateConflictException.java
-      blob_sha: 67e5eed665179fe73968652bafe3a3d03366f129
-    - leaf: GR-REN-02-01X342
-      from: src/main/java/mainstreet/publication/PublicationTransitionKind.java
-      to: src/main/java/grandrue/publication/PublicationTransitionKind.java
-      blob_sha: d06ef3b85c50ba64db94030a19e759effc403979
+    - leaf: GR-REN-02-01X343
+      from: src/main/java/mainstreet/semantic/event/EventContractAffinity.java
+      to: src/main/java/grandrue/semantic/event/EventContractAffinity.java
+      blob_sha: 7e2a0757758d06f1322ab10271551bef1e036a24
+    - leaf: GR-REN-02-01X344
+      from: src/main/java/mainstreet/semantic/event/EventContractDefinition.java
+      to: src/main/java/grandrue/semantic/event/EventContractDefinition.java
+      blob_sha: 36ef31d4f4e95fb0dbd5c1221308af82b625df7e
+    - leaf: GR-REN-02-01X345
+      from: src/main/java/mainstreet/semantic/event/EventContractIdentity.java
+      to: src/main/java/grandrue/semantic/event/EventContractIdentity.java
+      blob_sha: c9f8530d48c0a2cf23f47415193d761787c802aa
+    - leaf: GR-REN-02-01X346
+      from: src/main/java/mainstreet/semantic/event/EventContractRegistrySnapshot.java
+      to: src/main/java/grandrue/semantic/event/EventContractRegistrySnapshot.java
+      blob_sha: 90805a7d7defd44a133d684e64a66cd7d4283b40
+    - leaf: GR-REN-02-01X347
+      from: src/main/java/mainstreet/semantic/event/EventReactionAcknowledgement.java
+      to: src/main/java/grandrue/semantic/event/EventReactionAcknowledgement.java
+      blob_sha: f75c50c22d132d9ea8da51625a97660ec5615470
+    - leaf: GR-REN-02-01X348
+      from: src/main/java/mainstreet/semantic/event/EventReactionContractAffinity.java
+      to: src/main/java/grandrue/semantic/event/EventReactionContractAffinity.java
+      blob_sha: ad2441903578942c0be9008626d96bb3679ea29e
+    - leaf: GR-REN-02-01X349
+      from: src/main/java/mainstreet/semantic/event/EventReactionContractDefinition.java
+      to: src/main/java/grandrue/semantic/event/EventReactionContractDefinition.java
+      blob_sha: 4b367088f316cc32f8d684c83054883516360729
+    - leaf: GR-REN-02-01X350
+      from: src/main/java/mainstreet/semantic/event/EventReactionContractIdentity.java
+      to: src/main/java/grandrue/semantic/event/EventReactionContractIdentity.java
+      blob_sha: d32670a20accdf52cb5222f31942f27539f8b810
+    - leaf: GR-REN-02-01X351
+      from: src/main/java/mainstreet/semantic/event/EventReactionContractRegistrySnapshot.java
+      to: src/main/java/grandrue/semantic/event/EventReactionContractRegistrySnapshot.java
+      blob_sha: f8fab773487994989b742fe6a76eb7a271cc93fd
+    - leaf: GR-REN-02-01X352
+      from: src/main/java/mainstreet/semantic/event/EventReactionIdentity.java
+      to: src/main/java/grandrue/semantic/event/EventReactionIdentity.java
+      blob_sha: 249d0efc961dd4529b4c38022687315a7f5594e2
+    - leaf: GR-REN-02-01X353
+      from: src/main/java/mainstreet/semantic/event/EventReactionTargetReference.java
+      to: src/main/java/grandrue/semantic/event/EventReactionTargetReference.java
+      blob_sha: 2549a1562196f10ec3054fab93d02ee9361745e7
+    - leaf: GR-REN-02-01X354
+      from: src/main/java/mainstreet/semantic/event/MerchantEventReactionReceipt.java
+      to: src/main/java/grandrue/semantic/event/MerchantEventReactionReceipt.java
+      blob_sha: 16abf112dc6d90d81a3907f6cef424bc0a24c416
+    - leaf: GR-REN-02-01X355
+      from: src/main/java/mainstreet/semantic/event/MerchantEventReactionStore.java
+      to: src/main/java/grandrue/semantic/event/MerchantEventReactionStore.java
+      blob_sha: 5e41be5371c3369822d2ccde260cdbd87fc55cac
   production_consumer_closure:
-    - path: src/main/java/grandrue/enquiry/OpportunityEnquirySubmissionPreparation.java
-      blob_sha: 2dd7a321f0e60e96e70663312e4319bac2ff0791
-    - path: src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquirySubmission.java
-      blob_sha: 3b9bc699001fcccafa7ba39575fc5016f7c86ce3
-    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryContract.java
-      blob_sha: db8bcdcf904ccf92bb25179b8db462d0b9b25d38
-    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquirySubmission.java
-      blob_sha: 53c7501342055c0b5c72fc222a514eb6bd8533ed
-    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryBindingQuery.java
-      blob_sha: 92c72cbde46a9fa8e152a49d5cb7bf1fac4f3139
-    - path: src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquiryApiConfiguration.java
-      blob_sha: 5109f1668d91b4a28ee43462524ec89668bd1e72
-    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryApiConfiguration.java
-      blob_sha: 1af4eabcd7f7ab931bee5e1285cd6e9ea0f03c38
-    - path: src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
-      blob_sha: faea4f28eb67af2bf96ea393e3953693d70f755d
-    - path: src/main/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationApplicationService.java
-      blob_sha: b87a075c0d07f60827bbcc9a5db12e9a0b35097a
-    - path: src/main/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationStateAuthority.java
-      blob_sha: 73c612372021a17a44c5cd1a7d566d38346d0535
+    - path: src/main/java/grandrue/runtime/ScheduledEventReactionExecutionAuthority.java
+      blob_sha: 19072bed503afe7cb25aa15e719a3a014d85a1f2
+    - path: src/main/java/grandrue/merchantaccount/MerchantAccountEstablishedOccurrence.java
+      blob_sha: 26bd03b7488b127bf8607dba3e503b99694916b0
+    - path: src/main/java/grandrue/application/MerchantAccountEstablishedPublicationWorker.java
+      blob_sha: cbee252169e29bfdd05d72852976d7f1b1fb1d1a
+    - path: src/main/java/grandrue/merchantaccount/MerchantAccountEstablishedEventContract.java
+      blob_sha: 749ed0c3642063f9934d9903c96d9843587b3753
+    - path: src/main/java/grandrue/runtime/RegisteredScheduledEventReactionExecutionAuthority.java
+      blob_sha: d44d5e13b554c3e2b9a81d922e373ee8082e5f09
+    - path: src/main/java/grandrue/application/StandingFreeMerchantAccountEstablishedReaction.java
+      blob_sha: 1ab62dd238658dae0b63840f9e3ed8e17b5f43cb
+    - path: src/main/java/grandrue/application/StandingFreeEventReactionContract.java
+      blob_sha: de60fa79463f90a3d7f2ad2bcb76048a15cf3e1a
+    - path: src/main/java/grandrue/infrastructure/persistence/merchantaccount/MerchantAccountEstablishmentPublicationIntent.java
+      blob_sha: 2764c4ba0ead56eacc34a174a92bfdc86796392d
+    - path: src/main/java/grandrue/infrastructure/persistence/event/JooqMerchantEventReactionStore.java
+      blob_sha: 0d7f5548c4652bb2927591368e226c539fbe1ee5
+    - path: src/main/java/grandrue/infrastructure/persistence/merchantaccount/JooqMerchantAccountEstablishmentPublicationOutbox.java
+      blob_sha: 822af0ce1151262a7d3ad419b0f2df4870601952
   deterministic_transformations:
-    - package prefix mainstreet.publication -> grandrue.publication for every owner
-    - import prefix mainstreet.publication -> grandrue.publication in owners and declared production consumers
-    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquirySubmission.java
-      from: mainstreet.publication.OpportunityEnquiryParticipationDefinition
-      to: grandrue.publication.OpportunityEnquiryParticipationDefinition
-      expected_count: 1
-    - no comments or string literals are renamed
+    - package prefix mainstreet.semantic.event -> grandrue.semantic.event for every owner
+    - import prefix mainstreet.semantic.event -> grandrue.semantic.event in owners and declared production consumers
+    - no comments, strings, persisted identifiers or protocol identities are renamed
   permitted_changed_paths:
     - docs/development/grandrue-migration-active-tranche.yaml
-    - src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicExposureReadPort.java
-    - src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicRepresentationProjectionReadPort.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityApiConfiguration.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityController.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityQuery.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityQueryContract.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityQueryResponseAdapter.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityResponse.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityRouteScopeAuthority.java
-    - src/main/java/grandrue/publication/OpportunityCalendarDateBoundary.java
-    - src/main/java/grandrue/publication/OpportunityEnquiryParticipationDefinition.java
-    - src/main/java/grandrue/publication/OpportunityEnquiryParticipationSource.java
-    - src/main/java/grandrue/publication/OpportunityExactInstantBoundary.java
-    - src/main/java/grandrue/publication/OpportunityExposureWindowRequirementEvaluator.java
-    - src/main/java/grandrue/publication/OpportunityExternalLink.java
-    - src/main/java/grandrue/publication/OpportunityExternalLinkRole.java
-    - src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContribution.java
-    - src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContributionRegistration.java
-    - src/main/java/grandrue/publication/OpportunityPublicationApplicationService.java
-    - src/main/java/grandrue/publication/OpportunityPublicationFieldValue.java
-    - src/main/java/grandrue/publication/OpportunityPublicationHistoryEntry.java
-    - src/main/java/grandrue/publication/OpportunityPublicationLifecycleHistoryEntry.java
-    - src/main/java/grandrue/publication/OpportunityPublicationMaterialRevision.java
-    - src/main/java/grandrue/publication/OpportunityPublicationState.java
-    - src/main/java/grandrue/publication/OpportunityPublicationStateAuthority.java
-    - src/main/java/grandrue/publication/OpportunityPublicationSubmissionLock.java
-    - src/main/java/grandrue/publication/OpportunityPublicExposureCandidateSource.java
-    - src/main/java/grandrue/publication/OpportunityPublicExposureContractPortfolio.java
-    - src/main/java/grandrue/publication/OpportunityPublicExposureEvidence.java
-    - src/main/java/grandrue/publication/OpportunityPublicExposureReadPort.java
-    - src/main/java/grandrue/publication/OpportunityPublicExposureReferences.java
-    - src/main/java/grandrue/publication/OpportunityPublicExposureWindow.java
-    - src/main/java/grandrue/publication/OpportunityPublicQueryProjectionPortfolio.java
-    - src/main/java/grandrue/publication/OpportunityPublicRepresentation.java
-    - src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionFragment.java
-    - src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionObservation.java
-    - src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReadPort.java
-    - src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReferences.java
-    - src/main/java/grandrue/publication/OpportunityTemporalBoundary.java
-    - src/main/java/grandrue/publication/PublicationAvailabilityImpactAssessment.java
-    - src/main/java/grandrue/publication/PublicationHistoryOperationKind.java
-    - src/main/java/grandrue/publication/PublicationLifecycle.java
-    - src/main/java/grandrue/publication/PublicationRevisionConflictException.java
-    - src/main/java/grandrue/publication/PublicationStateConflictException.java
-    - src/main/java/grandrue/publication/PublicationTransitionKind.java
-    - src/main/java/grandrue/enquiry/OpportunityEnquirySubmissionPreparation.java
-    - src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquirySubmission.java
-    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryContract.java
-    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquirySubmission.java
-    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryBindingQuery.java
-    - src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquiryApiConfiguration.java
-    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryApiConfiguration.java
-    - src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
-    - src/main/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationApplicationService.java
-    - src/main/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationStateAuthority.java
+    - src/main/java/grandrue/semantic/event/EventContractAffinity.java
+    - src/main/java/grandrue/semantic/event/EventContractDefinition.java
+    - src/main/java/grandrue/semantic/event/EventContractIdentity.java
+    - src/main/java/grandrue/semantic/event/EventContractRegistrySnapshot.java
+    - src/main/java/grandrue/semantic/event/EventReactionAcknowledgement.java
+    - src/main/java/grandrue/semantic/event/EventReactionContractAffinity.java
+    - src/main/java/grandrue/semantic/event/EventReactionContractDefinition.java
+    - src/main/java/grandrue/semantic/event/EventReactionContractIdentity.java
+    - src/main/java/grandrue/semantic/event/EventReactionContractRegistrySnapshot.java
+    - src/main/java/grandrue/semantic/event/EventReactionIdentity.java
+    - src/main/java/grandrue/semantic/event/EventReactionTargetReference.java
+    - src/main/java/grandrue/semantic/event/MerchantEventReactionReceipt.java
+    - src/main/java/grandrue/semantic/event/MerchantEventReactionStore.java
+    - src/main/java/grandrue/runtime/ScheduledEventReactionExecutionAuthority.java
+    - src/main/java/grandrue/merchantaccount/MerchantAccountEstablishedOccurrence.java
+    - src/main/java/grandrue/application/MerchantAccountEstablishedPublicationWorker.java
+    - src/main/java/grandrue/merchantaccount/MerchantAccountEstablishedEventContract.java
+    - src/main/java/grandrue/runtime/RegisteredScheduledEventReactionExecutionAuthority.java
+    - src/main/java/grandrue/application/StandingFreeMerchantAccountEstablishedReaction.java
+    - src/main/java/grandrue/application/StandingFreeEventReactionContract.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantaccount/MerchantAccountEstablishmentPublicationIntent.java
+    - src/main/java/grandrue/infrastructure/persistence/event/JooqMerchantEventReactionStore.java
+    - src/main/java/grandrue/infrastructure/persistence/merchantaccount/JooqMerchantAccountEstablishmentPublicationOutbox.java
 
 verification:
   aggregate_changed_path_set: exact
@@ -298,7 +132,7 @@ verification:
   destination_presence: required
   legacy_owner_absence: required
   production_consumer_closure: exact
-  no_undeclared_mainstreet_publication_reference_in_analysed_region: required
+  no_undeclared_mainstreet_semantic_event_reference_in_analysed_region: required
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
@@ -306,23 +140,15 @@ verification:
 protected:
   - applied Flyway migration contents unchanged
   - stable MS-* identifiers unchanged
-  - mainstreet semantic/protocol string identities unchanged
+  - persisted event/reaction identifiers unchanged
   - legacy prototype owners unchanged
 
 expected_residuals:
-  - src/test/java/mainstreet/** publication-related consumers remain deferred to GR-REN-03
+  - src/test/java/mainstreet/** event-related consumers remain deferred to GR-REN-03
+  - other src/main/java/mainstreet/semantic/** subpackages remain future GR-REN-02 closed regions
   - legacy prototype paths remain NON_MIGRATING_LEGACY_PROTOTYPE
 
 preparation_notes:
-  - all 45 publication owners were analysed once as one natural region
-  - no owner contained a non-package/import mainstreet.publication occurrence
-  - one external fully-qualified code reference was mechanically enumerable and included in the frozen transformation
-  - no exception node or design escalation was identified
-
-completed:
-  last_leaf: GR-REN-02-01X342
-  completed_leaf_count_in_tranche: 45
-  aggregate_changed_path_count: 56
-  structural_verification: passed
-  publication_production_namespace_complete: true
-  next_tranche: GR-REN-02-T015
+  - all 13 semantic/event owners contain only the package declaration as a mainstreet.semantic.event occurrence
+  - all 10 live production consumers require import-only rewiring
+  - no FQCN, package-private, persisted-identity, semantic or authority exception was identified

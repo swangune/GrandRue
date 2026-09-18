@@ -1,4 +1,4 @@
-package mainstreet.semantic.event;
+package grandrue.semantic.event;
 
 import grandrue.application.MerchantScope;
 import java.time.Instant;

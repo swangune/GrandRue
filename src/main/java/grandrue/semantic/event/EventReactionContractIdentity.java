@@ -1,4 +1,4 @@
-package mainstreet.semantic.event;
+package grandrue.semantic.event;
 
 /** Owner-qualified reaction contract identity. */
 public record EventReactionContractIdentity(String ownerIdentifier, String contractIdentifier) {
