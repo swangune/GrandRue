@@ -3,7 +3,7 @@ package grandrue.booking;
 import grandrue.customer.CustomerContextAuthority;
 import mainstreet.runtime.AuthorizationException;
 import grandrue.runtime.CapabilityOperationHandler;
-import mainstreet.runtime.OperationExecutionContext;
+import grandrue.runtime.OperationExecutionContext;
 import mainstreet.runtime.OperationExecutionGuard;
 import grandrue.runtime.OperationFulfilment;
 import mainstreet.semantic.AllocationClaim;

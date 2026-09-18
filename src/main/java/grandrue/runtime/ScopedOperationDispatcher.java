@@ -4,7 +4,6 @@ import grandrue.application.MerchantScope;
 import grandrue.runtime.OperationRequirementEvaluator;
 import grandrue.runtime.UnsatisfiedOperationRequirementsException;
 import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.runtime.OperationExecutionContext;
 import mainstreet.runtime.OperationExecutionGuard;
 import mainstreet.runtime.RequirementEvaluation;
 import mainstreet.runtime.TrustedExecutionContext;

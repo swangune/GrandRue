@@ -1,6 +1,5 @@
 package grandrue.runtime;
 
-import mainstreet.runtime.OperationExecutionContext;
 
 /**
  * Capability-owned application contract for fulfilling one typed command
