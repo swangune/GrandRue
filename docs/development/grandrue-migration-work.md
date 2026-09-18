@@ -23,32 +23,33 @@ The coverage rule is:
 
 ### Preparation
 
-Preparation resolves the questions that would otherwise require the executor to rediscover migration intent:
+Preparation builds one **dependency-bounded transactional tranche** from current live evidence.
 
-- exact coherent migration unit;
-- live owner and dependency boundary;
-- exact owner files and affected production consumers;
-- source and destination paths;
-- exact permitted edits and expected occurrence counts;
-- protected identities and expected residuals;
-- branch, expected parent commit, and source blob identities;
-- structural verification commands/checks;
-- checkpoint/receipt requirements; and
-- any widening or design-escalation question raised by `AGENTS.md` or accepted authority.
+It must:
 
-Preparation may inspect a wider repository boundary than execution. It may prepare more than one independent packet when the evidence is fresh and the packet boundaries are independently closed.
+- enumerate candidate production owners from the live tree rather than stale search order;
+- target **8 independently closed leaves** by default, never exceeding **15**;
+- use fewer leaves when dependency closure, conflict surface or human reviewability requires it;
+- retain one stable `GR-REN-02-01X<n>` identity per leaf;
+- close every leaf's live owner/production-consumer boundary;
+- record exact source/destination paths, source blob identities, permitted edits, protected identities, residual expectations and structural verification;
+- order leaves so that dependencies moved within the same tranche do not require avoidable transitional repairs;
+- freeze one exact branch/parent for the whole tranche; and
+- write the executable evidence into `docs/development/grandrue-migration-active-tranche.yaml`.
+
+Preparation may inspect a wider boundary than the eventual tranche. It must reject package-private or otherwise inseparable candidates unless the entire required closure is included.
 
 ### Execution
 
-Execution applies one `READY` packet. It does not select the migration leaf, discover additional scope, reinterpret protected identities, broaden the write set, or resolve unexpected semantic/compatibility questions.
+Execution applies one fresh `READY` tranche. It does not discover new scope, select replacement leaves, reinterpret protected identities, broaden the write set or resolve new semantic/compatibility questions.
 
-The executor must stop when the packet ceases to describe the repository exactly.
+The executor must stop whenever the manifest ceases to describe the live repository exactly.
 
 ---
 
-## 2. Packet state machine
+## 2. Tranche state machine and recovery
 
-Only the following active states are valid:
+The operational states are:
 
 ```text
 PREPARATION_REQUIRED
@@ -60,165 +61,204 @@ PREPARATION_REQUIRED
         v
        READY
         |
-        | execution begins
+        | atomic branch attachment
         v
-   IN_PROGRESS
+ CODE_COMMITTED
         |
-        | exact transformation + declared verification succeed
+        | leaf + aggregate structural verification succeeds
         v
-ledger checkpoint / receipt
+    VERIFIED
+        |
+        | combined canonical checkpoint commit
+        v
+     COMPLETE
+        |
+        v
+PREPARATION_REQUIRED
 ```
 
-`PREPARATION_REQUIRED` means material questions remain unresolved or the dependency boundary has not been enumerated.
+`PREPARATION_REQUIRED` means no executable tranche exists.
 
-`PREPARED` means the decisions are resolved, but execution freshness has not yet been established against the current branch state.
+`PREPARED` means leaf selection and dependency closure are resolved but freshness is not yet proven.
 
-`READY` means the expected branch/parent, declared input blob identities, scope, protected identities, transformations, residual expectations and verification are all explicit and fresh. Only `READY` may be executed.
+`READY` means the exact parent, all declared input blobs, destination preconditions, write set, protected identities, transformations, residuals and verification are explicit and fresh.
 
-`IN_PROGRESS` is transient. If any stop condition appears, execution stops and the packet returns to preparation rather than broadening itself.
+`CODE_COMMITTED` is persisted **inside the tranche code commit itself** via the active tranche manifest. That commit contains both the manifest and exactly the declared production changes.
 
-Completion history is recorded canonically in `GRANDRUE-MIGRATION.md`; this work file must not become a second historical ledger.
+`VERIFIED` may be transient in the executor. If interruption occurs after code attachment, the manifest at branch ancestry is sufficient to resume verification and checkpointing without rediscovering intent.
+
+`COMPLETE` is persisted by the combined checkpoint commit, which updates the canonical ledger, subordinate work pointer and manifest together.
+
+Recovery is deterministic:
+
+- interruption before branch attachment leaves `development` unchanged;
+- interruption after code attachment but before checkpointing resumes from the `CODE_COMMITTED` manifest;
+- interruption after the combined checkpoint is already complete;
+- branch movement before attachment invalidates freshness;
+- branch movement after attachment requires ancestry/manifest reconciliation and never authorises force update.
 
 ---
 
-## 3. Smallest coherent unit
+## 3. Leaf and tranche boundaries
 
-Smaller means the smallest dependency-bounded change whose required live dependencies are fully accounted for. It does not mean the fewest files.
+A **leaf** remains the smallest dependency-bounded migration unit whose required live production dependencies are fully accounted for.
 
-If a package move requires owner files plus production consumers, the owner and all required production consumers form one coherent transformation. Preparation, preflight, mutation and verification are separate stages; they are not automatically separate commits.
+A **tranche** is an ordered set of independently closed leaves that can be applied atomically against one exact parent.
 
-A packet must not intentionally leave broken production references between checkpoints.
+Rules:
+
+- every constituent leaf remains individually auditable;
+- leaves in a tranche use consecutive migration IDs;
+- one code commit may be evidence for every leaf in that tranche;
+- no tranche may intentionally leave broken production references;
+- no undeclared production path may be changed;
+- a candidate with package-private coupling must either include the whole required closure or be rejected;
+- dependency-adjacent leaves should be co-located when doing so removes temporary imports without widening semantics;
+- legacy prototype owners remain excluded exactly as governed by the canonical ledger.
+
+Transaction size is a performance control, not authority to broaden scope.
 
 ---
 
-## 4. READY packet contract
+## 4. Active tranche manifest contract
 
-A packet is not `READY` if it contains instructions such as `inspect and decide`, `find the remaining consumers`, `rename as appropriate`, unresolved paths, unsupported assumptions, or an open authority question.
+The single machine-readable active manifest is:
 
-Human rationale may explain why the packet is safe. Machine execution data must have one canonical structured record. Do not maintain separate prose and YAML copies of the same executable state.
+`docs/development/grandrue-migration-active-tranche.yaml`
 
-Minimum record:
+There is only one active tranche manifest. Completed history remains canonical in `GRANDRUE-MIGRATION.md`; the manifest is overwritten by the next tranche after the previous tranche is checkpointed.
+
+Minimum executable shape:
 
 ```yaml
-packet: <migration-leaf-id>
+migration: MAIN_STREET_TO_GRANDRUE
+execution_mode: TRANSACTIONAL_TRANCHE
+tranche: GR-REN-02-T<n>
 state: READY
 
 repository: swangune/GrandRue
 branch: development
 expected_parent: <full-commit-sha>
+leaf_range:
+  first: GR-REN-02-01X<n>
+  last: GR-REN-02-01X<m>
+leaf_count: <1..15>
 
-scope:
-  owners:
-    - <path>
-  production_consumers:
-    - <path>
+leaves:
+  - id: GR-REN-02-01X<n>
+    owner:
+      from: <source-path>
+      to: <destination-path>
+      blob_sha: <source-blob>
+    production_consumers:
+      - path: <path>
+        blob_sha: <blob>
+    permitted_changed_paths:
+      - <path>
+    replacements:
+      - path: <path>
+        from: <exact-text>
+        to: <exact-text>
+        expected_count: <integer>
+    protected:
+      exact_strings:
+        - <protected-value>
+    expected_residuals:
+      - path: <path>
+        match: <text>
+        reason: <why-it-remains>
+    invariants:
+      - <behaviour/data identity that must remain unchanged>
+    verification:
+      destination_presence: required
+      legacy_owner_absence: required
+      consumer_repairs: exact
+      protected_identity_check: required
+
+aggregate:
   permitted_changed_paths:
-    - <path>
-
-inputs:
-  - path: <path>
-    blob_sha: <git-blob-sha>
-
-moves:
-  - from: <source-path>
-    to: <destination-path>
-
-replacements:
-  - path: <path>
-    from: <exact-text>
-    to: <exact-text>
-    expected_count: <integer>
-
-protected:
-  exact_strings:
-    - <protected-value>
-  paths:
-    - <path-or-pattern>
-
-expected_residuals:
-  - path: <path>
-    match: <legacy-or-protected-text>
-    reason: <why-it-must-remain>
-
-verification:
+    - <union-of-all-declared-paths>
   changed_path_set: exact
-  moved_owner_presence: required
-  old_owner_absence: required
-  replacement_counts: exact
+  diff_integrity: required
   protected_identity_check: required
-  residual_check: required
-  diff_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-checkpoint:
-  code_commit_required: true
-  ledger_receipt_required: true
 ```
 
-The record may contain additional bounded fields when necessary, but additional fields must reduce ambiguity rather than reintroduce open-ended discovery.
+Before attaching the code commit, the in-memory manifest is `READY`. The attached code commit writes the same manifest with `state: CODE_COMMITTED`. The combined checkpoint writes `state: COMPLETE` plus the code/checkpoint commit references.
+
+Do not maintain a second prose copy of executable tranche state.
 
 ---
 
 ## 5. Freshness and preflight
 
-Immediately before execution:
+Immediately before creating/attaching a tranche code commit:
 
-1. confirm the active branch is exactly the packet branch;
-2. confirm branch HEAD is exactly `expected_parent`;
-3. confirm every declared input path has the declared blob SHA;
-4. confirm every declared source path exists and every declared destination has the expected precondition;
-5. confirm the packet has no unresolved placeholder, assumption, or decision;
-6. confirm the authorised write set is complete for the declared coherent unit; and
-7. confirm the packet remains compatible with the migration ledger and applicable `AGENTS.md` widening/stop conditions.
+1. confirm the active branch is exactly `development`;
+2. confirm branch HEAD is exactly the tranche `expected_parent`;
+3. confirm every declared owner and consumer input path has the declared blob SHA;
+4. confirm each source path exists and every destination satisfies its declared absence/precondition;
+5. confirm every constituent dependency boundary remains closed;
+6. confirm the aggregate changed-path union is complete and contains no undeclared path;
+7. confirm protected identities and expected residuals remain valid;
+8. confirm the tranche contains no unresolved placeholder, assumption, design question or package-private escape;
+9. confirm the tranche is compatible with `GRANDRUE-MIGRATION.md` and applicable `AGENTS.md` stop/widening rules.
 
-Any mismatch invalidates `READY`. Do not repair the packet during execution. Return it to preparation.
-
-A packet prepared against an older repository state may remain logically useful, but it is not executable until refreshed and revalidated.
+Any mismatch invalidates the whole prepared tranche. Do not partially attach it. Refresh/rebuild from the new live parent.
 
 ---
 
-## 6. Execution algorithm
+## 6. Transactional execution algorithm
 
-For one `READY` packet:
+For one fresh `READY` tranche:
 
-1. perform the freshness/preflight checks;
-2. set packet state to `IN_PROGRESS` for the execution context;
-3. apply only the declared moves and exact replacements;
-4. require every expected replacement count to match exactly;
-5. inspect the complete changed-path set;
-6. reject every path outside `permitted_changed_paths`;
-7. verify moved owners exist at their destinations and authorised old owner paths are absent;
-8. verify protected identities and unrelated content remain unchanged;
-9. run only the declared structural/residual checks;
-10. run `git diff --check` or equivalent diff-integrity verification;
-11. if every declared check succeeds, create the code commit;
-12. checkpoint the completed leaf in `GRANDRUE-MIGRATION.md`; and
-13. publish the ledger receipt as a descendant of the code commit when the existing checkpoint format requires a separate receipt commit.
+1. apply only the declared leaf moves and exact dependency repairs to an unattached tree;
+2. write the active manifest into that tree with `state: CODE_COMMITTED`;
+3. require every exact replacement count and input assumption to match;
+4. compare the aggregate diff against the manifest's exact changed-path union;
+5. reject any undeclared path, protected-identity change or unrelated content change;
+6. re-check `development` HEAD is still the exact prepared parent;
+7. fast-forward `development` once to the tranche code commit; never force;
+8. verify every leaf structurally: destination present, old owner absent, exact consumer/import/FQCN repairs, declared residuals and invariants;
+9. verify aggregate diff integrity and protected identities;
+10. if verification fails because the declared tranche was wrong, stop and preserve the code commit/manifest evidence for reconciliation; do not improvise widening;
+11. if verification succeeds, create **one combined checkpoint commit** that:
+    - records every completed leaf in `GRANDRUE-MIGRATION.md`;
+    - updates canonical checkpoint fields through the tranche's last leaf;
+    - advances `docs/development/grandrue-migration-work.md` coverage/pointer once;
+    - changes the active manifest to `state: COMPLETE` and records code/checkpoint evidence;
+12. re-check `development` still points at the tranche code commit;
+13. fast-forward once to the combined checkpoint commit;
+14. final-check ledger, pointer, manifest and branch HEAD;
+15. return to `PREPARATION_REQUIRED` for the next tranche.
 
-Execution must not widen because an additional file appears convenient or likely relevant.
+The normal hot path is therefore **two branch commits per tranche**, not three commits per leaf.
 
 ---
 
 ## 7. Mandatory stop / return-to-preparation conditions
 
-Stop the packet when any of these occurs:
+Stop the tranche when any of these occurs:
 
-- branch HEAD differs from `expected_parent`;
+- branch HEAD differs from `expected_parent` before code attachment;
 - a declared input blob SHA differs;
-- a source or destination precondition differs;
-- an exact replacement count differs;
-- a changed path appears outside the permitted changed-path set;
-- an undeclared live production dependency is discovered;
+- a source/destination precondition differs;
+- a replacement count differs;
+- an undeclared changed path appears;
+- a constituent leaf has an undeclared live production dependency;
+- package-private or visibility coupling makes a declared independent move invalid;
 - a protected identity would need to change;
-- a persistence, schema, protocol, stable external identity, historical evidence, runtime-data, compatibility, or semantic behaviour question appears;
-- repository evidence contradicts the prepared dependency boundary;
+- a persistence, schema, protocol, stable external identity, historical evidence, runtime-data, compatibility or semantic-behaviour question appears;
+- repository evidence contradicts the manifest;
 - an `AGENTS.md` mandatory-widening trigger appears;
-- accepted authority is ambiguous, contradictory or underspecified for the discovered consequence;
-- declared verification fails in a way that suggests the packet scope/assumption is wrong; or
-- execution would require judgement not already resolved by the packet.
+- accepted authority is ambiguous or contradictory;
+- verification indicates the tranche assumptions were wrong; or
+- execution would require judgement not already frozen in the manifest.
 
-Use `DESIGN_ESCALATION` where `AGENTS.md` / applicable accepted authority requires it. Otherwise return the affected packet to migration preparation. Independent `READY` packets may continue only when their boundaries and authority remain unaffected.
+A failure in one constituent leaf invalidates attachment of the entire prepared tranche before commit. After a tranche code commit has already been attached, preserve it and reconcile from the manifest; do not rewrite history.
+
+Use `DESIGN_ESCALATION` where accepted authority requires it. Otherwise return the affected work to migration preparation.
 
 ---
 
@@ -236,11 +276,13 @@ Every removed owner path must have its declared destination. The complete code d
 
 Unexpected branch movement is a stop condition. It does not authorise force-pushing, overwriting intervening work, manufacturing sibling checkpoint/code commits, or improvised lineage reconciliation.
 
-Where a separate ledger receipt is required, preserve linear lineage:
+For transactional tranche execution, preserve linear lineage:
 
 ```text
-verified parent -> code commit -> ledger receipt commit
+verified parent -> tranche code + CODE_COMMITTED manifest -> combined checkpoint commit
 ```
+
+The combined checkpoint commit updates the canonical ledger, subordinate work pointer and active manifest together. Historical one-leaf code/ledger/pointer lineages remain valid evidence and are not rewritten.
 
 ### Runtime/data preservation
 
@@ -276,6 +318,9 @@ COMPLETE_PENDING_FINAL_VERIFICATION
 PREPARATION_REQUIRED
 PREPARED
 READY
+CODE_COMMITTED
+VERIFIED
+COMPLETE
 DEFERRED_TO_NAMED_GROUP
 EXCLUDED_WITH_REASON
 ```
@@ -343,11 +388,15 @@ coverage:
   remaining_enumeration: INCOMPLETE
   unclassified: UNKNOWN_UNTIL_ENUMERATION
 
-active_packet: null
+execution_mode: TRANSACTIONAL_TRANCHE
+tranche_target_leaf_count: 8
+tranche_max_leaf_count: 15
+active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
+active_tranche: null
 active_state: PREPARATION_REQUIRED
 last_completed_leaf: GR-REN-02-01X205
 last_code_commit: 67fceabe3da77a5d2bc51f99e338033556968753
-next_action: Prepare the next exact bounded production namespace packet from current live dependency evidence, establish freshness, and execute only after it is READY.
+next_action: Prepare the first dependency-bounded transactional tranche from current live production evidence, targeting 8 independently closed consecutive leaves and never exceeding 15. Attach one atomic code+manifest commit only after freshness succeeds, then publish one combined ledger/work-pointer checkpoint after structural verification.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.

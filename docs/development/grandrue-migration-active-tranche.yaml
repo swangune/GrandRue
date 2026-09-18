@@ -1,0 +1,27 @@
+migration: MAIN_STREET_TO_GRANDRUE
+execution_mode: TRANSACTIONAL_TRANCHE
+repository: swangune/GrandRue
+branch: development
+state: IDLE
+
+adopted_after_leaf: GR-REN-02-01X205
+adopted_from_head: be217991252a6d4a72439629153aa2bf5881686a
+
+policy:
+  target_leaf_count: 8
+  max_leaf_count: 15
+  consecutive_leaf_ids: true
+  exact_parent_freshness_required: true
+  input_blob_freshness_required: true
+  destination_preconditions_required: true
+  production_consumer_closure_required: true
+  protected_identity_checks_required: true
+  aggregate_changed_path_set_exact: true
+  code_commit_contains_manifest: true
+  checkpoint_combines_ledger_work_pointer_and_manifest: true
+  force_update_prohibited: true
+  maven_tests: prohibited_unless_separately_authorised
+  github_actions: prohibited_unless_separately_authorised
+
+active_tranche: null
+next_action: Prepare the first dependency-bounded tranche from current live production evidence.

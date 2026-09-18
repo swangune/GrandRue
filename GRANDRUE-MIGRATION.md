@@ -631,22 +631,22 @@ last_task_commit: 67fceabe3da77a5d2bc51f99e338033556968753
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-next_action: Prepare the next exact bounded in-scope production namespace packet under GR-REN-02-01X+ from live dependency evidence, establish freshness, and execute only after it is READY. Do not select legacy prototype paths as migration owners; prototype consumers may receive only minimal dependency-repair edits required by the section 1 exclusion. Keep other in-scope test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
+next_action: Prepare the next dependency-bounded transactional tranche under GR-REN-02-01X+ from live production dependency evidence. Target 8 independently closed leaves by default and never exceed 15. Preserve per-leaf owner/consumer/blob/move/replacement/protected-identity/verification evidence in the active tranche manifest. Attach production mutation only as one fresh tranche code commit containing that manifest, then publish one combined ledger/work-pointer checkpoint commit after structural verification. Do not select legacy prototype paths as migration owners; prototype consumers may receive only minimal dependency-repair edits required by the section 1 exclusion. Keep other in-scope test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
 
 ## 6. Restart and Verification
 
-1. inspect `AGENTS.md`, this ledger and `docs/development/grandrue-migration-work.md`;
-2. inspect current `development` HEAD;
-3. reconcile branch HEAD against the checkpoint and any ledger-only checkpoint commit;
-4. prepare the smallest conforming **in-scope** production namespace packet from live dependency evidence, excluding legacy prototype owners;
-5. execute only a fresh `READY` packet, moving the owner package and all declared in-scope production cross-package consumers atomically; apply only minimal dependency-repair imports to excluded prototype consumers when required for compilation coherence;
-6. structurally verify aggregate diff, new-path presence, old-path absence, declared consumer imports, protected identities and expected residuals;
-7. checkpoint the completed leaf here;
-8. preserve the frozen action map and protected identities;
-9. keep `__invalid_should_not_create` isolated until manually removed.
+1. inspect `AGENTS.md`, this ledger, `docs/development/grandrue-migration-work.md` and the active tranche manifest;
+2. inspect current `development` HEAD and reconcile it against the checkpoint;
+3. if the manifest state is `CODE_COMMITTED`, verify/reconcile that tranche and finish its checkpoint before preparing another tranche;
+4. otherwise enumerate live production dependencies and prepare a dependency-bounded tranche, targeting 8 independently closed leaves by default and never exceeding 15;
+5. freeze each leaf's owner, consumers, input blobs, moves, exact edits, protected identities, expected residuals and structural checks in the manifest;
+6. execute only a fresh `READY` tranche as one atomic code commit containing both the manifest and all declared production changes; apply only minimal dependency-repair edits to excluded prototype consumers when an in-scope owner move requires them;
+7. structurally verify the aggregate tranche diff and every constituent leaf: changed-path closure, destination presence, legacy-owner absence, exact imports/FQCN repairs, protected identities and expected residuals;
+8. after successful verification, publish one combined checkpoint commit updating this ledger, the subordinate work pointer and manifest state to `COMPLETE`;
+9. preserve the frozen action map and protected identities, and keep `__invalid_should_not_create` isolated until manually removed.
 
 Until separately authorised:
 
@@ -706,17 +706,49 @@ verified parent -> code commit -> ledger receipt commit
 
 Unexpected branch movement is a stop condition and never authorises force-push, overwrite or improvised reconciliation.
 
+### Accelerated transactional tranche execution — adopted after `GR-REN-02-01X205`
+
+The one-leaf execution cadence remains valid historical evidence but is prospectively superseded for the open `GR-REN-02-01X+` continuation by dependency-bounded transactional tranches.
+
+A tranche preserves **leaf-level evidence** while amortising Git/checkpoint overhead:
+
+- target **8 independently closed leaves** per tranche by default;
+- maximum **15 leaves**; use fewer when the dependency boundary, reviewability or conflict surface warrants it;
+- every leaf keeps its own stable `GR-REN-02-01X<n>` identity and its own owner/consumer/input-blob/move/edit/protected-identity/residual/verification record;
+- one tranche code commit may satisfy multiple consecutive leaves, and those leaves may therefore share one code-commit SHA;
+- the tranche code commit must contain `docs/development/grandrue-migration-active-tranche.yaml` in state `CODE_COMMITTED` together with exactly the declared production changes;
+- the manifest is the recovery record if execution stops after code attachment but before checkpointing;
+- after structural verification, one descendant checkpoint commit updates this canonical ledger, `docs/development/grandrue-migration-work.md`, and the manifest to state `COMPLETE`;
+- the checkpoint commit advances coverage through the last leaf in the tranche and returns the active state to `PREPARATION_REQUIRED`;
+- unexpected branch movement before attaching a prepared tranche invalidates freshness; do not attach the stale commit;
+- unexpected branch movement after a tranche code commit requires reconciliation from live ancestry and manifest evidence; never force-update or overwrite intervening work.
+
+Preferred lineage:
+
+```text
+verified parent
+    -> tranche code + CODE_COMMITTED manifest
+    -> combined ledger/work-pointer + COMPLETE-manifest checkpoint
+```
+
+This changes transaction granularity only. It does **not** weaken source-blob freshness, destination-absence checks, production consumer closure, protected identities, legacy-prototype exclusion, structural verification, test deferral, no-force-update requirements, or final migration gates.
+
 ### Current procedural checkpoint
 
 ```yaml
 prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
+execution_mode: TRANSACTIONAL_TRANCHE
+tranche_target_leaf_count: 8
+tranche_max_leaf_count: 15
+active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
+active_tranche: null
 ready_packet: null
 last_prepared_execution_leaf: GR-REN-02-01X205
 last_prepared_execution_commit: 67fceabe3da77a5d2bc51f99e338033556968753
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
-next_procedural_action: Prepare the next exact bounded in-scope packet from current live production dependency evidence, update coverage, and establish freshness before marking it READY. Exclude legacy prototype owners under section 1; permit only minimal dependency-repair edits in prototype consumers when an in-scope owner move requires them. Do not mutate production code before READY. Keep other in-scope test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
+next_procedural_action: Prepare the first dependency-bounded transactional tranche from current live production evidence, targeting 8 independently closed consecutive leaves and never exceeding 15. Freeze per-leaf evidence in the active tranche manifest, establish freshness against one exact parent, attach one atomic code+manifest commit only when READY, verify every leaf and the aggregate diff, then publish one combined ledger/work-pointer checkpoint. Exclude legacy prototype owners under section 1; permit only minimal dependency-repair edits in prototype consumers when an in-scope owner move requires them. Keep other in-scope test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
 ```
