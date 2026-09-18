@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T006
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: d14a6aceb70768183aa2e614b5fa4cc0800e7f9d
 expected_parent: d97d750500e7fae5262e6a2f5dc3b9ce0512e94a
+validated_head: d14a6aceb70768183aa2e614b5fa4cc0800e7f9d
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-deployment
@@ -69,3 +72,6 @@ preparation_notes:
   - six executable legacy production imports are fully classified for deterministic replacement
   - no embedded legacy Main Street/current-product identifier was found in this region
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED

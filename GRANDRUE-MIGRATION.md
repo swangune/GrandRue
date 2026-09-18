@@ -860,6 +860,8 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-03-T005`: migrated the complete live `src/test/java/mainstreet/money/**` Java test region as one dependency-bounded closed subgraph. Three test owners moved to the corresponding `src/test/java/grandrue/money/**` paths with exactly three package-declaration replacements and thirteen executable migrated-production import repairs across application, semantic compiler/configuration and semantic registry namespaces. Exact class-name searches found no external test consumers. The two `Main Street Payment` business-facing test literals in `PaymentAvailabilityImpactAssessmentTest` were explicitly classified and preserved rather than conflated with ordinary namespace/import migration. Aggregate structural verification proved exactly three renames plus the active-manifest change; each destination reconstructs exactly from its source blob plus only the declared deterministic edits, all three legacy owner paths are absent, all thirteen legacy production imports are repaired, and both protected wording occurrences remain unchanged. Code commit `1bdb271e623818cc96c3d4a72057da3af8f6ce15`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-03-T006`: migrated the complete live `src/test/java/mainstreet/deployment/**` Java test region as one dependency-bounded closed subgraph. Two test owners moved to the corresponding `src/test/java/grandrue/deployment/**` paths with exactly two package-declaration replacements and six executable `mainstreet.semantic.execution.*` → `grandrue.semantic.execution.*` import repairs. Exact class-name searches found no external test consumers. No embedded Main Street/current-product identifier was present in the region; all literals, including the `ms-reqset-v1:sha256:` test identity, were preserved unchanged. Aggregate structural verification proved exactly two renames plus the active-manifest change; each destination reconstructs exactly from its source blob plus only the declared deterministic edits, both legacy owner paths are absent, and all six legacy production imports are repaired. Code commit `d14a6aceb70768183aa2e614b5fa4cc0800e7f9d`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `IN_PROGRESS`
@@ -885,12 +887,12 @@ status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-03
 selected_execution_leaf: null
-last_completed_task: GR-REN-03-T005
-last_task_commit: 1bdb271e623818cc96c3d4a72057da3af8f6ce15
+last_completed_task: GR-REN-03-T006
+last_task_commit: d14a6aceb70768183aa2e614b5fa4cc0800e7f9d
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 1bdb271e623818cc96c3d4a72057da3af8f6ce15
-next_action: Continue GR-REN-03 from the live post-T005 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 356 in-scope legacy test Java files remain after T005, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: d14a6aceb70768183aa2e614b5fa4cc0800e7f9d
+next_action: Continue GR-REN-03 from the live post-T006 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 354 in-scope legacy test Java files remain after T006, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---
