@@ -1,6 +1,8 @@
-package mainstreet.application;
+package grandrue.application;
 
 import grandrue.application.ApplicationOutcomeClassification;
+import mainstreet.application.ApplicationRequestIdentity;
+import mainstreet.application.CommittedProgressReference;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
