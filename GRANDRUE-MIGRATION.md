@@ -369,6 +369,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X101`: `CommercialCataloguePublication.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The two bounded production consumers were updated atomically: `grandrue.commercial.CommercialCatalogueStore` received the corresponding GrandRue import replacement, and `grandrue.infrastructure.persistence.commercial.JooqCommercialCatalogueStore` retained its still-required legacy Commercial wildcard import and received one explicit `grandrue.commercial.CommercialCataloguePublication` import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `686c38a7194d77107035109d3feee4d7f3867a96`; owner input blob was `eb4cdef02bed869d0e7ba8e5edc85c438ed99650`; consumer input blobs were `c1cced54ae262ea670ae3e244908718123c9b845` and `493d989acfc5f0df580328d07e818ae9941b8ede`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `CommercialAccessTarget` and `CommercialCatalogueManifest`, which remain in the legacy Commercial package. Existing retained publication evidence, predecessor validation and plan-projection semantics were unchanged. Code commit `0ca140f2fdbf21d1bb82b54675e574bc6e000601` contains exactly one owner rename/package replacement, two transitional imports, one production consumer import replacement and one production consumer import addition.
 
+- `GR-REN-02-01X102`: `StandardPlanCatalogueRevision.java` moved from `mainstreet.commercial` to `grandrue.commercial`. Three bounded production consumers were updated atomically: `grandrue.commercial.PublishedStandardPlanCatalogueRevision` received the corresponding GrandRue import replacement, `mainstreet.commercial.CommercialCatalogueManifest` received one explicit GrandRue import because the type is no longer same-package, and `grandrue.infrastructure.persistence.commercial.CommercialCatalogueManifestCodec` retained its still-required legacy Commercial wildcard import and received the same explicit GrandRue import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `645afb1985f8227a87ae123b9d5b72f4a7a02ce1`; owner input blob was `cf2dd63b5c464fe79e987c855733c4d7b350ccaf`; consumer input blobs were `ae556672acdc08bff4f5b376709d358181ad1681`, `a2cd4f4274544da6b5c3b6b112f0cbfb9d4b5afe` and `b5439daf73573272005f37aa9720b81032de3035`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `StandardPlanLevel` and `StandardPlanRevision`, which remain in the legacy Commercial package. Existing FREE/BUSINESS/GROWTH catalogue cardinality, plan-level validation and entitlement monotonicity semantics were unchanged. Code commit `be705aef7536e6af38cbeb112a6ee31d071c13da` contains exactly one owner rename/package replacement, two transitional imports, one production consumer import replacement and two production consumer import additions.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -400,9 +402,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X101
-last_completed_task: GR-REN-02-01X101
-last_task_commit: 0ca140f2fdbf21d1bb82b54675e574bc6e000601
+selected_execution_leaf: GR-REN-02-01X102
+last_completed_task: GR-REN-02-01X102
+last_task_commit: be705aef7536e6af38cbeb112a6ee31d071c13da
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -488,8 +490,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X101
-last_prepared_execution_commit: 0ca140f2fdbf21d1bb82b54675e574bc6e000601
+last_prepared_execution_leaf: GR-REN-02-01X102
+last_prepared_execution_commit: be705aef7536e6af38cbeb112a6ee31d071c13da
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
