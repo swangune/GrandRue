@@ -1,5 +1,6 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
+import mainstreet.enquiry.EnquiryMerchantExposureReferences;
 import mainstreet.surface.ExposureDecision;
 import mainstreet.surface.ExposureElementContract;
 import mainstreet.surface.ExposureElementContractIdentity;

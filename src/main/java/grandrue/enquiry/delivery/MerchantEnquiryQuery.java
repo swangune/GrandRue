@@ -3,6 +3,7 @@ package grandrue.enquiry.delivery;
 import grandrue.api.*;
 import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReadPort;
 import grandrue.enquiry.EnquiryMerchantQueryProjectionPortfolio;
+import grandrue.enquiry.EnquiryMerchantExposureContractPortfolio;
 import mainstreet.enquiry.*;
 import mainstreet.runtime.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
