@@ -1,7 +1,7 @@
 package grandrue.inventory;
 
-import mainstreet.semantic.AllocationResolution;
-import mainstreet.semantic.AllocationResolutionType;
+import grandrue.semantic.AllocationResolution;
+import grandrue.semantic.AllocationResolutionType;
 
 import java.util.Objects;
 

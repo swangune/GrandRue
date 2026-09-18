@@ -2,10 +2,10 @@ package grandrue.infrastructure.persistence.inventory;
 
 import grandrue.application.MerchantScope;
 import grandrue.inventory.InsufficientQuantityException;
-import mainstreet.semantic.AllocationAuthority;
-import mainstreet.semantic.AllocationClaim;
-import mainstreet.semantic.AllocationScope;
-import mainstreet.semantic.QuantityAllocationScope;
+import grandrue.semantic.AllocationAuthority;
+import grandrue.semantic.AllocationClaim;
+import grandrue.semantic.AllocationScope;
+import grandrue.semantic.QuantityAllocationScope;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

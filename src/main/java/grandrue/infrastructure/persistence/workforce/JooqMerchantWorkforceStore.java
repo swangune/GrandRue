@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.workforce;
 
-import mainstreet.semantic.Privilege;
+import grandrue.semantic.Privilege;
 import grandrue.workforce.MerchantAccessGroup;
 import grandrue.workforce.MerchantGroupMembership;
 import grandrue.workforce.MerchantGroupMembershipLifecycle;

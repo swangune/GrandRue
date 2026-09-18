@@ -2,74 +2,168 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T021
-state: COMPLETE
-code_commit: 22dc83ad7c2248679a44d3b82b5423934d6ecc58
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: 273003b282be79816461b5b256596989e06bf9ad
+tranche: GR-REN-02-T022
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 9f49725a9149e4b051ffc43c524f96a7e187a6c6
 
 region:
-  identity: semantic/compiler
-  closure_basis: complete live src/main/java/mainstreet/semantic/compiler/** owner graph plus all proven in-scope production consumers
+  identity: semantic/root
+  closure_basis: complete live src/main/java/mainstreet/semantic/*.java owner graph plus all proven in-scope production consumers
 
 classification:
   normal_closed:
-    owner_count: 1
-    production_consumer_count: 12
+    owner_count: 18
+    production_consumer_count: 48
+    prototype_compatibility_consumer_count: 7
   exceptions: []
 
 subgraph:
   leaf_range:
-    first: GR-REN-02-01X543
-    last: GR-REN-02-01X543
-  leaf_count: 1
+    first: GR-REN-02-01X544
+    last: GR-REN-02-01X561
+  leaf_count: 18
   owners:
-    - leaf: GR-REN-02-01X543
-      from: src/main/java/mainstreet/semantic/compiler/ConfigurationCompiler.java
-      to: src/main/java/grandrue/semantic/compiler/ConfigurationCompiler.java
-      blob_sha: c3fc01f8096ad049981225ac2ade0de3454361ac
+    - leaf: GR-REN-02-01X544
+      from: src/main/java/mainstreet/semantic/AllocationAuthority.java
+      to: src/main/java/grandrue/semantic/AllocationAuthority.java
+      blob_sha: 33163196eb69d02eff1dbbc921291d383dce7fcb
+    - leaf: GR-REN-02-01X545
+      from: src/main/java/mainstreet/semantic/AllocationClaim.java
+      to: src/main/java/grandrue/semantic/AllocationClaim.java
+      blob_sha: dec31a8f8007591e94641acb858d661845935396
+    - leaf: GR-REN-02-01X546
+      from: src/main/java/mainstreet/semantic/AllocationConflictException.java
+      to: src/main/java/grandrue/semantic/AllocationConflictException.java
+      blob_sha: cf241c272a4dfc7c0023e15d97f193b677d4bddc
+    - leaf: GR-REN-02-01X547
+      from: src/main/java/mainstreet/semantic/AllocationConflictQuery.java
+      to: src/main/java/grandrue/semantic/AllocationConflictQuery.java
+      blob_sha: e8773137f4e7ca552dd87fbf58e33f1493ab828f
+    - leaf: GR-REN-02-01X548
+      from: src/main/java/mainstreet/semantic/AllocationResolution.java
+      to: src/main/java/grandrue/semantic/AllocationResolution.java
+      blob_sha: 5d331a9504e3c1fe81a5413a64c7d00c0d2ab158
+    - leaf: GR-REN-02-01X549
+      from: src/main/java/mainstreet/semantic/AllocationResolutionType.java
+      to: src/main/java/grandrue/semantic/AllocationResolutionType.java
+      blob_sha: 283839d83048c0e617de23339133d1e125cf6576
+    - leaf: GR-REN-02-01X550
+      from: src/main/java/mainstreet/semantic/AllocationScope.java
+      to: src/main/java/grandrue/semantic/AllocationScope.java
+      blob_sha: 41213819d4d0262a1825b45d9be59a6511b45b0f
+    - leaf: GR-REN-02-01X551
+      from: src/main/java/mainstreet/semantic/AvailabilityDecision.java
+      to: src/main/java/grandrue/semantic/AvailabilityDecision.java
+      blob_sha: 946207a79e4433c5814fba6e5b448f8c53584e1f
+    - leaf: GR-REN-02-01X552
+      from: src/main/java/mainstreet/semantic/DomainEvent.java
+      to: src/main/java/grandrue/semantic/DomainEvent.java
+      blob_sha: e6f763f5100ebc854d0d41aed53a1a43154728fb
+    - leaf: GR-REN-02-01X553
+      from: src/main/java/mainstreet/semantic/InMemoryTimeWindowAllocationAuthority.java
+      to: src/main/java/grandrue/semantic/InMemoryTimeWindowAllocationAuthority.java
+      blob_sha: d00e81048f3923e9cf90861c79e09809e022b947
+    - leaf: GR-REN-02-01X554
+      from: src/main/java/mainstreet/semantic/Operation.java
+      to: src/main/java/grandrue/semantic/Operation.java
+      blob_sha: e18e71a7c02545586fc51f52db683885ee7fc748
+    - leaf: GR-REN-02-01X555
+      from: src/main/java/mainstreet/semantic/Privilege.java
+      to: src/main/java/grandrue/semantic/Privilege.java
+      blob_sha: 83246a8178740f63ce200c82cb15e598bd2b7b77
+    - leaf: GR-REN-02-01X556
+      from: src/main/java/mainstreet/semantic/QuantityAllocationScope.java
+      to: src/main/java/grandrue/semantic/QuantityAllocationScope.java
+      blob_sha: 558131aa33d89a49b7e2624c6714fc8213402eec
+    - leaf: GR-REN-02-01X557
+      from: src/main/java/mainstreet/semantic/RequirementDefinition.java
+      to: src/main/java/grandrue/semantic/RequirementDefinition.java
+      blob_sha: 8809f98c0bbf6d9bfbb1f9818ac5b9b8d99e7e59
+    - leaf: GR-REN-02-01X558
+      from: src/main/java/mainstreet/semantic/Resource.java
+      to: src/main/java/grandrue/semantic/Resource.java
+      blob_sha: d1671549ba60e7aca1494c85db3bf3fbb3bcb98f
+    - leaf: GR-REN-02-01X559
+      from: src/main/java/mainstreet/semantic/State.java
+      to: src/main/java/grandrue/semantic/State.java
+      blob_sha: 86137840925374eed3ec2807ea5d516786372663
+    - leaf: GR-REN-02-01X560
+      from: src/main/java/mainstreet/semantic/TimeWindowAllocationScope.java
+      to: src/main/java/grandrue/semantic/TimeWindowAllocationScope.java
+      blob_sha: db35c9f5dc59cfba77ec5ec155471e55384cbaf3
+    - leaf: GR-REN-02-01X561
+      from: src/main/java/mainstreet/semantic/Transition.java
+      to: src/main/java/grandrue/semantic/Transition.java
+      blob_sha: 7b353c60bc89bf37ea473cf2193882b77645c1f6
 
 production_consumers:
-  - path: src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
-    blob_sha: b4cf7a8878a804adfa44d1c020d44f3d89d4b200
-  - path: src/main/java/grandrue/booking/BookingAvailabilityImpactAssessment.java
-    blob_sha: 729e13609c19eeba6af3b25b73e0894f979ff121
-  - path: src/main/java/grandrue/enquiry/EnquiryAvailabilityImpactAssessment.java
-    blob_sha: 918cb8eb7b02bcd06c97d98dcae7c2476ba6c4bd
-  - path: src/main/java/grandrue/fulfilment/FulfilmentRoutingImpactAssessment.java
-    blob_sha: c3c73e739f032467e6a1e8bd6f2ee646940cb485
-  - path: src/main/java/grandrue/inventory/InventoryAvailabilityImpactAssessment.java
-    blob_sha: bd996cae1ea5524e16fa8bc43d5dff5e1e526a10
-  - path: src/main/java/grandrue/money/PaymentAvailabilityImpactAssessment.java
-    blob_sha: 6006caa484420c8696c9572b773641e0bc83d15d
-  - path: src/main/java/grandrue/ordering/OrderingAvailabilityImpactAssessment.java
-    blob_sha: 5902d1adfe57942a215b198a5ea5d079ee1e5449
-  - path: src/main/java/grandrue/publication/PublicationAvailabilityImpactAssessment.java
-    blob_sha: 45f7f7d33423ea20ea2460504422a2bd918ad230
-  - path: src/main/java/grandrue/scheduling/SchedulingAvailabilityImpactAssessment.java
-    blob_sha: 85b2e98e8c386aa4ec881a57839e99ae80c0e5e7
-  - path: src/main/java/grandrue/semantic/configuration/CapabilityMembershipImpactAssessment.java
-    blob_sha: 6648da9cc977f6787b7db089b68f8ab2665b8503
-  - path: src/main/java/grandrue/semantic/configuration/ConfigurationPackageResolver.java
-    blob_sha: 678e82696de0e3eac22ecb802fbdcf08efdb7e3b
-  - path: src/main/java/grandrue/semantic/configuration/ResolvedPolicyImpactAssessment.java
-    blob_sha: 48e58d8516e37c21c5e749938ed66bd050f5ffaf
+  - { path: src/main/java/grandrue/booking/BookingTransaction.java, blob_sha: dbeb4dddb777c4735f719902be4079d50f7c0826 }
+  - { path: src/main/java/grandrue/ordering/OrderingTransaction.java, blob_sha: 0ef153448c4f1d6266842f7380fd43d8595fe0c0 }
+  - { path: src/main/java/grandrue/scheduling/AppointmentTransaction.java, blob_sha: 34e09dde8a0386860ddbbb188a0358e85482a5c0 }
+  - { path: src/main/java/grandrue/inventory/InMemoryQuantityAllocationAuthority.java, blob_sha: 9beeee023f25ee91ab19f1c28b5c5b7c64ed6b9b }
+  - { path: src/main/java/grandrue/infrastructure/persistence/inventory/JooqQuantityAllocationAuthority.java, blob_sha: b9bca4bb017e2dc1461e583bd8e1736270ca68a2 }
+  - { path: src/main/java/grandrue/ordering/OrderConfirmation.java, blob_sha: a5e332e47608ce39395a53c4d877773bd1fd403d }
+  - { path: src/main/java/grandrue/booking/BookingConfirmation.java, blob_sha: 36beb2fe7e8237238e2dfad5e8855ddf5f3c875d }
+  - { path: src/main/java/grandrue/scheduling/AppointmentConfirmation.java, blob_sha: 8540a25e3831dc6062899e82a9bb39b51e2a5c88 }
+  - { path: src/main/java/grandrue/booking/BookingApplicationService.java, blob_sha: 27eb8f14f51810910d46d27f2e6efe02234cfd09 }
+  - { path: src/main/java/grandrue/booking/InMemoryBookingUnitOfWork.java, blob_sha: 32f67d7c6acd54466217fbdf99f24dbc1a98977a }
+  - { path: src/main/java/grandrue/ordering/OrderingApplicationService.java, blob_sha: 0baf59d2cb57cd6e825b276c13390cfa1cfcefe5 }
+  - { path: src/main/java/grandrue/ordering/InMemoryOrderingUnitOfWork.java, blob_sha: b30d708eb76171ceef7093aea7b0ae7c60a584d8 }
+  - { path: src/main/java/grandrue/scheduling/AppointmentApplicationService.java, blob_sha: cb6a4e931c19825fa76e135c2c72f989112922b8 }
+  - { path: src/main/java/grandrue/scheduling/InMemoryAppointmentUnitOfWork.java, blob_sha: 7901b2ab3e355d55b31f49eb13aff249ecfd12dd }
+  - { path: src/main/java/grandrue/infrastructure/persistence/booking/JooqBookingTransaction.java, blob_sha: 63dcb54564ac9d9d19fcb8fa37f9dde4d20c99e7 }
+  - { path: src/main/java/grandrue/infrastructure/persistence/booking/JooqBookingUnitOfWork.java, blob_sha: 15cef9edfcd5f1692a8514ece46d56bfea4ff170 }
+  - { path: src/main/java/grandrue/infrastructure/persistence/ordering/JooqOrderingTransaction.java, blob_sha: 8379e4c3e083262f984419413c2504a9e71eaa82 }
+  - { path: src/main/java/grandrue/infrastructure/persistence/ordering/JooqOrderingUnitOfWork.java, blob_sha: 0c286683c39ce755dc8514df00320d0872673337 }
+  - { path: src/main/java/grandrue/infrastructure/persistence/appointment/JooqAppointmentUnitOfWork.java, blob_sha: 0ab23a4825f0e935715443062c76b17835618037 }
+  - { path: src/main/java/grandrue/infrastructure/persistence/appointment/JooqAppointmentTransaction.java, blob_sha: 56c6cbe98784efecbf557eaf259911c556c37d3e }
+  - { path: src/main/java/mainstreet/prototype/delivery/PrototypeBookingController.java, blob_sha: 1356483a568381314200a366adaaa21dbf3cd4d3, compatibility_only: true }
+  - { path: src/main/java/mainstreet/prototype/delivery/PrototypePublicBookingController.java, blob_sha: 71d9d90e31ef19ecbb69f1bc0fa3246668a37114, compatibility_only: true }
+  - { path: src/main/java/mainstreet/prototype/delivery/PrototypeAppointmentController.java, blob_sha: 9e46fbd8ce8f89a8c41cb1d241fbc296026785ae, compatibility_only: true }
+  - { path: src/main/java/mainstreet/prototype/delivery/PrototypePublicAppointmentController.java, blob_sha: 6cef308809f72a84565aec5215874cddba508719, compatibility_only: true }
+  - { path: src/main/java/grandrue/inventory/QuantityFulfilment.java, blob_sha: e7c19b0b2ffcf1c796a882324e5233b950fbaabe }
+  - { path: src/main/java/grandrue/ordering/OrderInventoryClaimRequest.java, blob_sha: 558d1535dcad957a562f0a733c4d6658c654947d }
+  - { path: src/main/java/grandrue/booking/BookingOutbox.java, blob_sha: 513c8c9dced9691cd286a85d98501aa8fedc9017 }
+  - { path: src/main/java/grandrue/workforce/MerchantWorkforceStore.java, blob_sha: 236d2f2b3d41ed36a06cb8d9645a46fdd8166f34 }
+  - { path: src/main/java/grandrue/runtime/ActorAuthorisationAuthority.java, blob_sha: 2306dec775a9936c1b62287e23fb2cfb20959032 }
+  - { path: src/main/java/grandrue/workforce/MerchantWorkforceAuthority.java, blob_sha: 3b2c7c31b791c3ee8ec5e9401b5ef136bb3c7fa2 }
+  - { path: src/main/java/grandrue/runtime/PrivilegeOperationExecutionGuard.java, blob_sha: 153a46be2d8a855b1aff97ec98cc1f4d0101026b }
+  - { path: src/main/java/grandrue/workforce/WorkforceActorAuthorisationAuthority.java, blob_sha: 75fff77714b4b0e975a890bed799752d0a5b34f3 }
+  - { path: src/main/java/grandrue/workforce/MerchantRoleDefinition.java, blob_sha: e6cca5676d2daed1a28930df99f3d42bb6464f4b }
+  - { path: src/main/java/grandrue/enquiry/delivery/MerchantEnquiryObservationPrivileges.java, blob_sha: 9882ed154c876ab3afc14759d69ace87cf33a6c2 }
+  - { path: src/main/java/mainstreet/surface/ContextualSurfaceResolver.java, blob_sha: 9fdcd6ac48b4776ab60f7be70d9fa3da09054857 }
+  - { path: src/main/java/grandrue/enquiry/EnquiryMerchantExposureRequirementEvaluator.java, blob_sha: 0d559dc8a63c5ed21c91dc31fa3368d7a896204f }
+  - { path: src/main/java/grandrue/infrastructure/persistence/workforce/JooqMerchantWorkforceAuthority.java, blob_sha: 1ba010c75920247235c98fe65ea07938e286ce75 }
+  - { path: src/main/java/grandrue/infrastructure/persistence/workforce/JooqMerchantWorkforceStore.java, blob_sha: d633a0821cae71a774cbfec47627872e3774cdbf }
+  - { path: src/main/java/mainstreet/prototype/PrototypeJooqOrderingUseCase.java, blob_sha: 7ded78077ff953ee949740ba283fe1b7ac49bda0, compatibility_only: true }
+  - { path: src/main/java/grandrue/runtime/ResourceInstance.java, blob_sha: 6846acc9785aef94cb07d0b13ea75631986802b9 }
+  - { path: src/main/java/grandrue/scheduling/Appointment.java, blob_sha: 44f5a2cd3bebd971b7f70b8607588bc79cb5cd74 }
+  - { path: src/main/java/grandrue/booking/ConfirmBookingCommand.java, blob_sha: a1bf2c1a9b6255662f6ef5db17a6dc3119eb8e3e }
+  - { path: src/main/java/grandrue/scheduling/ConfirmAppointmentCommand.java, blob_sha: 1a3a6099fcdf0c36a63700b70b8f8fa7de05ee22 }
+  - { path: src/main/java/grandrue/scheduling/AppointmentSchedulingAuthority.java, blob_sha: 43eca8a000e6ae458aaedb573953eef1ceb13640 }
+  - { path: src/main/java/grandrue/scheduling/AppointmentConfirmationRequest.java, blob_sha: eb329e32c15142b0376eebe984bcf55566481efa }
+  - { path: src/main/java/grandrue/scheduling/TimeProposal.java, blob_sha: b14d5e253ba42445384e85308c52d0ddfd408950 }
+  - { path: src/main/java/mainstreet/prototype/PrototypeJooqBookingUseCase.java, blob_sha: fca1648aa6d977a5a527770f407ea8c88c7c76ff, compatibility_only: true }
+  - { path: src/main/java/mainstreet/prototype/PrototypeJooqAppointmentUseCase.java, blob_sha: edf99b404365497cbead447ead9de5b34bd4e448, compatibility_only: true }
 
 transform:
-  owner:
-    - move src/main/java/mainstreet/semantic/compiler/ConfigurationCompiler.java to src/main/java/grandrue/semantic/compiler/ConfigurationCompiler.java
-    - replace exactly one package declaration package mainstreet.semantic.compiler; with package grandrue.semantic.compiler;
+  owners:
+    - move each declared root semantic owner from src/main/java/mainstreet/semantic/<Type>.java to src/main/java/grandrue/semantic/<Type>.java
+    - replace exactly one package declaration package mainstreet.semantic; with package grandrue.semantic; in each owner
   consumers:
-    - replace exactly one import mainstreet.semantic.compiler.ConfigurationCompiler with grandrue.semantic.compiler.ConfigurationCompiler in each declared consumer
+    - replace only imports/FQCN references to the eighteen declared root semantic owners from mainstreet.semantic.<Type> to grandrue.semantic.<Type>
+    - retain all semantic subpackage names not owned by this tranche
+    - prototype consumer changes are compatibility-only dependency repairs permitted by the prototype exclusion
   prohibited:
     - no method, field, literal, comment, semantic or behavioural change
     - no test namespace mutation
-    - no legacy prototype owner mutation
+    - no legacy prototype owner package/path/API naming mutation
+    - no surface owner package/path mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 14
+  expected_changed_path_count: 67
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -81,29 +175,24 @@ verification:
 protected:
   - applied Flyway migration contents unchanged
   - stable MS-* identifiers unchanged
-  - compiler behaviour and semantic identities unchanged
+  - root semantic behaviour and semantic identities unchanged
   - comments, string literals and persisted identity values unchanged
+  - semantic subpackages remain unchanged by this tranche
   - legacy prototype owner package/path/API naming unchanged
+  - surface owner package/path naming unchanged
 
 expected_residuals:
   - src/test/java/mainstreet/** remains deferred to GR-REN-03
-  - src/main/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
-  - src/main/java/mainstreet/semantic/*.java remains for later GR-REN-02 work
+  - src/main/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE except declared compatibility import repairs
   - src/main/java/mainstreet/surface/** remains for later GR-REN-02 work
+  - root src/main/java/mainstreet/semantic/*.java owners are expected to be absent after this tranche
 
 preparation_notes:
-  - semantic/compiler contains exactly one live production owner in the development tree
-  - ConfigurationCompiler is public; its only nested types are private records and package-private cohesion does not create a multi-owner boundary
-  - all twelve current production consumers were reconciled to live development paths and source blobs before transformation
-  - each consumer contains exactly one legacy ConfigurationCompiler import and receives only that import repair
-  - the owner contains no legacy compiler FQCN or string identity beyond its package declaration
-  - the owner already depends only on migrated grandrue.semantic.configuration, grandrue.semantic.executable and grandrue.semantic.registry packages
-  - no persistence, semantic, security, authority, prototype-owner or compatibility exception was identified
-
-completed:
-  last_leaf: GR-REN-02-01X543
-  completed_leaf_count_in_tranche: 1
-  aggregate_changed_path_count: 14
-  structural_verification: passed
-  semantic_compiler_namespace_complete: true
-  next_tranche: GR-REN-02-T022
+  - all eighteen live root semantic owners are public top-level production types and move atomically as one package
+  - each owner contains exactly one legacy root-semantic package declaration and no other mainstreet.semantic identity
+  - exact owner-name reference discovery was reconciled to current development paths; no unresolved production consumer was found
+  - no wildcard mainstreet.semantic root import was found
+  - all forty-eight current production consumers were reconciled to live development paths and source blobs
+  - seven excluded prototype consumers receive import-only compatibility repairs; no prototype owner is selected
+  - one still-legacy surface consumer receives only the root-semantic import repair; surface ownership remains outside this tranche
+  - no persistence, semantic, security, authority or compatibility exception was identified

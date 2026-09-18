@@ -1,7 +1,7 @@
 package mainstreet.prototype.delivery;
 
 import mainstreet.prototype.PrototypePublicAppointmentUseCase;
-import mainstreet.semantic.AllocationConflictException;
+import grandrue.semantic.AllocationConflictException;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;

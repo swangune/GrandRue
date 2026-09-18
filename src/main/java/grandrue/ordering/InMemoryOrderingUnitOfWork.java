@@ -2,9 +2,9 @@ package grandrue.ordering;
 
 import grandrue.application.MerchantScope;
 import grandrue.inventory.InMemoryQuantityAllocationAuthority;
-import mainstreet.semantic.AllocationClaim;
-import mainstreet.semantic.AllocationScope;
-import mainstreet.semantic.DomainEvent;
+import grandrue.semantic.AllocationClaim;
+import grandrue.semantic.AllocationScope;
+import grandrue.semantic.DomainEvent;
 
 import java.time.Instant;
 import java.util.LinkedHashMap;

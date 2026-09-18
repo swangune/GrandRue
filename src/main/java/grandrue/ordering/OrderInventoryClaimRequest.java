@@ -1,6 +1,6 @@
 package grandrue.ordering;
 
-import mainstreet.semantic.AllocationScope;
+import grandrue.semantic.AllocationScope;
 
 import java.util.Objects;
 

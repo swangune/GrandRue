@@ -1,8 +1,8 @@
 package grandrue.ordering;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.AllocationAuthority;
-import mainstreet.semantic.DomainEvent;
+import grandrue.semantic.AllocationAuthority;
+import grandrue.semantic.DomainEvent;
 
 /** Narrow local consistency boundary for Order commitment. */
 public interface OrderingTransaction extends AllocationAuthority {

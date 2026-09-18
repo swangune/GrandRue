@@ -1,8 +1,8 @@
 package grandrue.booking;
 
-import mainstreet.semantic.AllocationClaim;
-import mainstreet.semantic.DomainEvent;
-import mainstreet.semantic.TimeWindowAllocationScope;
+import grandrue.semantic.AllocationClaim;
+import grandrue.semantic.DomainEvent;
+import grandrue.semantic.TimeWindowAllocationScope;
 
 import java.util.Objects;
 

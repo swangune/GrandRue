@@ -1,7 +1,7 @@
 package grandrue.runtime;
 
-import mainstreet.semantic.Resource;
-import mainstreet.semantic.State;
+import grandrue.semantic.Resource;
+import grandrue.semantic.State;
 
 import java.util.Objects;
 

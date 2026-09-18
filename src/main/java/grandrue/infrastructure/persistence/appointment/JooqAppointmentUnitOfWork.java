@@ -2,9 +2,9 @@ package grandrue.infrastructure.persistence.appointment;
 
 import grandrue.application.MerchantScope;
 
-import mainstreet.semantic.AllocationClaim;
-import mainstreet.semantic.DomainEvent;
-import mainstreet.semantic.TimeWindowAllocationScope;
+import grandrue.semantic.AllocationClaim;
+import grandrue.semantic.DomainEvent;
+import grandrue.semantic.TimeWindowAllocationScope;
 import grandrue.scheduling.Appointment;
 import grandrue.scheduling.AppointmentCommandIdentityConflictException;
 import grandrue.scheduling.AppointmentConfirmation;

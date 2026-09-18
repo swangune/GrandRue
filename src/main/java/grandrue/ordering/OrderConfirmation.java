@@ -1,7 +1,7 @@
 package grandrue.ordering;
 
-import mainstreet.semantic.AllocationClaim;
-import mainstreet.semantic.DomainEvent;
+import grandrue.semantic.AllocationClaim;
+import grandrue.semantic.DomainEvent;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package mainstreet.semantic;
+package grandrue.semantic;
 
 public final class AllocationConflictException
         extends IllegalStateException {

@@ -1,7 +1,7 @@
 package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.Privilege;
+import grandrue.semantic.Privilege;
 import grandrue.semantic.executable.ApplicableOperation;
 
 import java.util.Objects;

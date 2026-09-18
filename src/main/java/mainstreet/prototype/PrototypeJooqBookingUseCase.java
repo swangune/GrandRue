@@ -13,7 +13,7 @@ import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.OperationExecutionGuard;
 import mainstreet.runtime.ScopedOperationDispatcher;
 import mainstreet.runtime.TrustedExecutionContext;
-import mainstreet.semantic.TimeWindowAllocationScope;
+import grandrue.semantic.TimeWindowAllocationScope;
 import grandrue.semantic.executable.ActiveOperationResolver;
 
 import java.time.Clock;

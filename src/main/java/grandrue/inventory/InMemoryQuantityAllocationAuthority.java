@@ -1,11 +1,11 @@
 package grandrue.inventory;
 
-import mainstreet.semantic.AllocationAuthority;
-import mainstreet.semantic.AllocationClaim;
-import mainstreet.semantic.AllocationResolution;
-import mainstreet.semantic.AllocationResolutionType;
-import mainstreet.semantic.AllocationScope;
-import mainstreet.semantic.QuantityAllocationScope;
+import grandrue.semantic.AllocationAuthority;
+import grandrue.semantic.AllocationClaim;
+import grandrue.semantic.AllocationResolution;
+import grandrue.semantic.AllocationResolutionType;
+import grandrue.semantic.AllocationScope;
+import grandrue.semantic.QuantityAllocationScope;
 
 import java.time.Instant;
 import java.util.LinkedHashMap;

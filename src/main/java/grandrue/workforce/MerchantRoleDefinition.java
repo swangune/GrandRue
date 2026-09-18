@@ -1,7 +1,7 @@
 package grandrue.workforce;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.Privilege;
+import grandrue.semantic.Privilege;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
 
 import java.util.Objects;

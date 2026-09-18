@@ -1,4 +1,4 @@
-package mainstreet.semantic;
+package grandrue.semantic;
 
 import java.time.Instant;
 

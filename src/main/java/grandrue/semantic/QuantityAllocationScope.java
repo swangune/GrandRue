@@ -1,4 +1,4 @@
-package mainstreet.semantic;
+package grandrue.semantic;
 
 public record QuantityAllocationScope(
         String subjectIdentifier,

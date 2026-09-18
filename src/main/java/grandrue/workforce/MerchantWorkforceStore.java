@@ -1,6 +1,6 @@
 package grandrue.workforce;
 
-import mainstreet.semantic.Privilege;
+import grandrue.semantic.Privilege;
 
 import java.time.Instant;
 import java.util.Optional;

@@ -1,8 +1,8 @@
 package grandrue.booking;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.AllocationAuthority;
-import mainstreet.semantic.DomainEvent;
+import grandrue.semantic.AllocationAuthority;
+import grandrue.semantic.DomainEvent;
 
 /** Capability-owned consistency boundary for one merchant's Booking mutation. */
 public interface BookingTransaction extends AllocationAuthority {

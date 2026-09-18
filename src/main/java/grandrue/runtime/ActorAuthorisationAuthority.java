@@ -1,7 +1,7 @@
 package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.Privilege;
+import grandrue.semantic.Privilege;
 
 /**
  * Resolves whether one trusted execution principal currently holds a required

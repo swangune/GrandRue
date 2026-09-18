@@ -17,7 +17,7 @@ import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.OperationExecutionGuard;
 import mainstreet.runtime.ScopedOperationDispatcher;
 import mainstreet.runtime.TrustedExecutionContext;
-import mainstreet.semantic.QuantityAllocationScope;
+import grandrue.semantic.QuantityAllocationScope;
 import grandrue.semantic.executable.ActiveOperationResolver;
 
 import java.math.BigInteger;

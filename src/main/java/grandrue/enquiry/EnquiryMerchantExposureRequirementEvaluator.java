@@ -2,7 +2,7 @@ package grandrue.enquiry;
 
 import grandrue.runtime.ActorAuthorisationAuthority;
 import grandrue.runtime.ExecutionPrincipal;
-import mainstreet.semantic.Privilege;
+import grandrue.semantic.Privilege;
 import mainstreet.surface.ExposableElementReference;
 import mainstreet.surface.ExposureCandidateEvaluationSubmission;
 import mainstreet.surface.ExposureCandidateObservation;
