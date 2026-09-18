@@ -1,8 +1,8 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.semantic.registry.SemanticDefinitionKind;
-import mainstreet.semantic.registry.SemanticRegistry;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.registry.SemanticDefinitionKind;
+import grandrue.semantic.registry.SemanticRegistry;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 
 import java.util.Objects;
 import java.util.Optional;

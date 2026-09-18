@@ -1,6 +1,6 @@
 package grandrue.publication;
 
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.ExposureCandidateInstanceKindReference;
 import mainstreet.surface.PublicInteractionParticipationSourceIdentity;
 import mainstreet.surface.SurfaceContributionIdentity;

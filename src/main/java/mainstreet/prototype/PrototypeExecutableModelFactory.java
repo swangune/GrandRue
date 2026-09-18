@@ -9,8 +9,8 @@ import grandrue.semantic.executable.ExecutableOperationDefinition;
 import grandrue.semantic.executable.ExecutableOperationEffect;
 import grandrue.semantic.executable.ExecutableRelationshipDefinition;
 import grandrue.semantic.executable.ExecutableRelationshipEstablishmentEffect;
-import mainstreet.semantic.registry.RelationshipCardinality;
-import mainstreet.semantic.registry.RelationshipScopeConstraint;
+import grandrue.semantic.registry.RelationshipCardinality;
+import grandrue.semantic.registry.RelationshipScopeConstraint;
 
 import java.util.ArrayList;
 import java.util.List;

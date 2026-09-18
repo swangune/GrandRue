@@ -2,7 +2,7 @@ package grandrue.enquiry.delivery;
 
 import grandrue.application.MerchantScope;
 import grandrue.enquiry.EnquiryRevisionProvenance;
-import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
+import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
 import javax.crypto.Cipher;
 import javax.crypto.spec.*;
 import java.io.*;

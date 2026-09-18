@@ -8,7 +8,7 @@ import grandrue.runtime.SessionTrustedExecutionContextEstablisher;
 import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.runtime.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.*;
 import org.springframework.context.annotation.*;
 import java.time.Clock;

@@ -1,23 +1,20 @@
-package grandrue.semantic.executable;
-
-import grandrue.semantic.registry.RelationshipCardinality;
-import grandrue.semantic.registry.RelationshipScopeConstraint;
+package grandrue.semantic.registry;
 
 import java.util.Objects;
 
-/** Resolved typed relationship definition carried into an executable model. */
-public record ExecutableRelationshipDefinition(
+/** Capability-owned definition of a typed relationship between business objects. */
+public record OwnedRelationshipDefinition(
         String identifier,
         String role,
-        ExecutableOperationalObjectTypeIdentity sourceObjectType,
-        ExecutableOperationalObjectTypeIdentity targetObjectType,
+        String sourceObjectIdentifier,
+        OwnedOperationalObjectTypeReference targetObjectType,
         RelationshipCardinality cardinality,
         RelationshipScopeConstraint scopeConstraint
 ) {
-    public ExecutableRelationshipDefinition {
+    public OwnedRelationshipDefinition {
         requireIdentifier(identifier, "Relationship identifier");
         requireIdentifier(role, "Relationship role");
-        Objects.requireNonNull(sourceObjectType);
+        requireIdentifier(sourceObjectIdentifier, "Relationship source object identifier");
         Objects.requireNonNull(targetObjectType);
         Objects.requireNonNull(cardinality);
         Objects.requireNonNull(scopeConstraint);

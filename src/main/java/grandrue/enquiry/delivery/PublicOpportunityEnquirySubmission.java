@@ -11,7 +11,7 @@ import grandrue.enquiry.EnquirySubmissionIntent;
 import grandrue.publication.OpportunityPublicationStateAuthority;
 import grandrue.publication.OpportunityPublicationSubmissionLock;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import java.time.Clock;
 import java.util.*;
 

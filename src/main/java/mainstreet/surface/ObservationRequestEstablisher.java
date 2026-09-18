@@ -12,7 +12,7 @@ import grandrue.application.MerchantScope;
 import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ActiveRelease;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 
 import java.util.Objects;
 import java.util.Optional;

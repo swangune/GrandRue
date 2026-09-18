@@ -3,7 +3,7 @@ package grandrue.publication.delivery;
 import grandrue.api.*;
 import grandrue.publication.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.*;
 import java.time.Clock;
 import java.util.*;

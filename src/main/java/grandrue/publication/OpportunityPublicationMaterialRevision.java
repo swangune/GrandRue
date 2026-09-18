@@ -1,7 +1,7 @@
 package grandrue.publication;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.registry.OwnedSchemaReference;
+import grandrue.semantic.registry.OwnedSchemaReference;
 
 import java.util.List;
 import java.util.Objects;

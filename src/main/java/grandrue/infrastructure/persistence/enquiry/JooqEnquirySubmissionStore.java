@@ -7,7 +7,7 @@ import grandrue.enquiry.EnquiryRevisionProvenance;
 import grandrue.enquiry.EnquirySemanticContext;
 import grandrue.enquiry.EnquirySubmission;
 import grandrue.enquiry.EnquirySubmissionStore;
-import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
+import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

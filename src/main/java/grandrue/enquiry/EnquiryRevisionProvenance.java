@@ -1,6 +1,6 @@
 package grandrue.enquiry;
 
-import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
+import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
 
 import java.util.Objects;
 
