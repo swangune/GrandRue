@@ -1,6 +1,6 @@
 package grandrue.merchantprofile;
 
-import mainstreet.merchantprofile.MerchantContactPointRevision;
+import grandrue.merchantprofile.MerchantContactPointRevision;
 
 import grandrue.merchantprofile.MerchantContactPointExposure;
 

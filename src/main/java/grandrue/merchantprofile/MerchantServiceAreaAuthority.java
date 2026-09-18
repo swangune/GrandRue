@@ -2,10 +2,10 @@ package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 import grandrue.runtime.TrustedExecutionContext;
-import mainstreet.merchantprofile.CreateMerchantServiceAreaCommand;
-import mainstreet.merchantprofile.MerchantServiceAreaRevision;
-import mainstreet.merchantprofile.RetireMerchantServiceAreaCommand;
-import mainstreet.merchantprofile.UpdateMerchantServiceAreaCommand;
+import grandrue.merchantprofile.CreateMerchantServiceAreaCommand;
+import grandrue.merchantprofile.MerchantServiceAreaRevision;
+import grandrue.merchantprofile.RetireMerchantServiceAreaCommand;
+import grandrue.merchantprofile.UpdateMerchantServiceAreaCommand;
 
 import java.util.Optional;
 

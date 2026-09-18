@@ -2,10 +2,10 @@ package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 import grandrue.runtime.TrustedExecutionContext;
-import mainstreet.merchantprofile.CreateMerchantClassificationEntryCommand;
-import mainstreet.merchantprofile.MerchantClassificationEntryRevision;
-import mainstreet.merchantprofile.RetireMerchantClassificationEntryCommand;
-import mainstreet.merchantprofile.UpdateMerchantClassificationEntryCommand;
+import grandrue.merchantprofile.CreateMerchantClassificationEntryCommand;
+import grandrue.merchantprofile.MerchantClassificationEntryRevision;
+import grandrue.merchantprofile.RetireMerchantClassificationEntryCommand;
+import grandrue.merchantprofile.UpdateMerchantClassificationEntryCommand;
 
 import java.util.Optional;
 

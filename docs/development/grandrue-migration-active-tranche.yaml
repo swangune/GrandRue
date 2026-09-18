@@ -4,7 +4,8 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T006
 state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+code_commit: 01eff690ffb2d7090a1e162d34ac1722dd713307
+reconciliation_commit: THIS_COMMIT
 expected_parent: 85a668639e4ccc4b7be6f8a48a7feda7496d994b
 leaf_range:
   first: GR-REN-02-01X241
@@ -108,6 +109,20 @@ leaves:
         blob_sha: e52b41b5aa72866b3f4a03d27bfc9e2401cc37b5
       - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthority.java
         blob_sha: 95ac12649749422685e7b08695922d1eef9b3e48
+      - path: src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantContactPointExposureChoiceReadPort.java
+        blob_sha: 671176b83f49374ceab63efc93dd7272b148f96e
+      - path: src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
+        blob_sha: d2c7d33103644587540b56f8aecf7ba789a368f2
+      - path: src/main/java/grandrue/merchantprofile/MerchantClassificationEntryAuthority.java
+        blob_sha: 5dbcc57b7067040b9088cfddd5a011c63b92647d
+      - path: src/main/java/grandrue/merchantprofile/MerchantContactPointAuthority.java
+        blob_sha: d68fd4534879f0544009aca3a9ef7491fb8de804
+      - path: src/main/java/grandrue/merchantprofile/MerchantExternalPresenceLinkAuthority.java
+        blob_sha: a250c5b16f2bcc20a202c9112e51acb43cfde179
+      - path: src/main/java/grandrue/merchantprofile/MerchantLocationAuthority.java
+        blob_sha: 2b63f98f1aaefa42c7ac200cbcb4761cd082ace9
+      - path: src/main/java/grandrue/merchantprofile/MerchantServiceAreaAuthority.java
+        blob_sha: 0c6ce15b7529243d8d3297003ef799eb79c8f869
     invariants:
       - package-private CreateMerchantLocationCommand validation helper visibility unchanged
       - sealed ServiceAreaGeographyV1 hierarchy unchanged
@@ -149,6 +164,13 @@ aggregate:
     - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthority.java
     - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthority.java
     - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthority.java
+    - src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantContactPointExposureChoiceReadPort.java
+    - src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
+    - src/main/java/grandrue/merchantprofile/MerchantClassificationEntryAuthority.java
+    - src/main/java/grandrue/merchantprofile/MerchantContactPointAuthority.java
+    - src/main/java/grandrue/merchantprofile/MerchantExternalPresenceLinkAuthority.java
+    - src/main/java/grandrue/merchantprofile/MerchantLocationAuthority.java
+    - src/main/java/grandrue/merchantprofile/MerchantServiceAreaAuthority.java
   legacy_owner_paths_removed:
     - src/main/java/mainstreet/merchantprofile/CorrectMerchantLocationCommand.java
     - src/main/java/mainstreet/merchantprofile/CountryWideGeographyV1.java
@@ -186,8 +208,14 @@ aggregate:
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
+verification_reconciliation:
+  initial_code_commit: 01eff690ffb2d7090a1e162d34ac1722dd713307
+  reason: structural verification discovered seven migration-introduced same-package transitional imports not visible in the default-branch dependency search
+  action: repair only those seven imports from mainstreet.merchantprofile to grandrue.merchantprofile; no semantic or visibility change
+
 preparation_notes:
   - T006 contains one logical leaf because package-private CreateMerchantLocationCommand helpers couple the command/revision family across ordinary file boundaries.
   - ServiceAreaGeographyV1 and all permitted implementations move in the same closure; no sealed-hierarchy or helper visibility widening is introduced.
   - The leaf remains the smallest dependency-complete unit even though it owns multiple source files.
   - Legacy prototype owners remain excluded and no prototype path is changed.
+  - Reconciliation preserves the attached initial code commit and extends the frozen consumer closure only with the seven structurally proven transitional imports.

@@ -2,10 +2,10 @@ package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 import grandrue.runtime.TrustedExecutionContext;
-import mainstreet.merchantprofile.CreateMerchantExternalPresenceLinkCommand;
-import mainstreet.merchantprofile.MerchantExternalPresenceLinkRevision;
-import mainstreet.merchantprofile.RetireMerchantExternalPresenceLinkCommand;
-import mainstreet.merchantprofile.UpdateMerchantExternalPresenceLinkCommand;
+import grandrue.merchantprofile.CreateMerchantExternalPresenceLinkCommand;
+import grandrue.merchantprofile.MerchantExternalPresenceLinkRevision;
+import grandrue.merchantprofile.RetireMerchantExternalPresenceLinkCommand;
+import grandrue.merchantprofile.UpdateMerchantExternalPresenceLinkCommand;
 
 import java.util.Optional;
 
