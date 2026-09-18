@@ -1,9 +1,16 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
 import grandrue.application.TrustedDeviceApplicationContext;
 import grandrue.workforce.MerchantMembershipAuthority;
 import grandrue.workforce.MerchantOperationalDeviceAuthority;
+import mainstreet.runtime.AuthenticationException;
+import mainstreet.runtime.AuthenticationFailureCategory;
+import mainstreet.runtime.AuthenticationProvenance;
+import mainstreet.runtime.ScopedExecutionPrincipalResolver;
+import mainstreet.runtime.SessionCredentialResolver;
+import mainstreet.runtime.SessionTrustedExecutionContextEstablisher;
+import mainstreet.runtime.TrustedExecutionContext;
 
 import java.util.Objects;
 import java.util.Optional;
