@@ -5,7 +5,7 @@ import mainstreet.merchantprofile.CreateMerchantClassificationEntryCommand;
 import mainstreet.merchantprofile.MerchantClassificationEntryAuthority;
 import mainstreet.merchantprofile.MerchantClassificationEntryRevision;
 import mainstreet.merchantprofile.MerchantClassificationEntryV1;
-import mainstreet.merchantprofile.MerchantClassificationExposure;
+import grandrue.merchantprofile.MerchantClassificationExposure;
 import grandrue.merchantprofile.MerchantClassificationLifecycle;
 import mainstreet.merchantprofile.MerchantProfileFailureCategory;
 import mainstreet.merchantprofile.MerchantProfileMutationException;

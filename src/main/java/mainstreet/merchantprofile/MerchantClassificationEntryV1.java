@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantClassificationExposure;
+
 import grandrue.merchantprofile.MerchantClassificationKind;
 
 import java.text.Normalizer;
