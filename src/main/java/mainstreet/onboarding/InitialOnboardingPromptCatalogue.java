@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.InitialCustomerInteractionDiscoverySelectionConsistency;
+import grandrue.onboarding.OnboardingDiscoveryMapping;
 import grandrue.onboarding.InitialCustomerInteractionDiscoveryOption;
 import java.util.Arrays;
 import java.util.List;

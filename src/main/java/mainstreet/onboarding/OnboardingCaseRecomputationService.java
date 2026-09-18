@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingAnswerRecomputationResult;
 import java.util.Objects;
 
 /**
