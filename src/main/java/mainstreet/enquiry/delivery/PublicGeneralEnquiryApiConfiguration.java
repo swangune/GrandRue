@@ -1,5 +1,6 @@
 package mainstreet.enquiry.delivery;
 
+import grandrue.enquiry.delivery.PublicEnquirySubmissionAdmissionAuthority;
 import mainstreet.enquiry.EnquirySubmissionApplicationService;
 import mainstreet.publication.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;

@@ -1,4 +1,4 @@
-package mainstreet.enquiry.delivery;
+package grandrue.enquiry.delivery;
 
 import grandrue.application.MerchantScope;
 
