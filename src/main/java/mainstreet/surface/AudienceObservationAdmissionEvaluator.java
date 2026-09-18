@@ -6,7 +6,7 @@ import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
 import grandrue.merchantaccount.MerchantControllerRelationshipLifecycle;
 import mainstreet.runtime.AuthenticationProvenance;
 import grandrue.runtime.AuthenticationSessionCurrentness;
-import mainstreet.runtime.AuthenticationSessionCurrentnessAuthority;
+import grandrue.runtime.AuthenticationSessionCurrentnessAuthority;
 import mainstreet.runtime.TrustedExecutionContext;
 import grandrue.workforce.MerchantMembershipAuthority;
 

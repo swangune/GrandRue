@@ -1,6 +1,6 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import grandrue.runtime.AuthenticationSessionCurrentness;
+import mainstreet.runtime.AuthenticationProvenance;
 
 /**
  * Current runtime/authentication authority for one immutable authentication
