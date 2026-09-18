@@ -1,5 +1,7 @@
 package grandrue.infrastructure.persistence.commercial;
 
+import grandrue.commercial.CommercialAccessBinding;
+
 import grandrue.commercial.CatalogueResolutionException;
 import grandrue.commercial.CommercialSupportingAccessRequirement;
 import mainstreet.commercial.*;
