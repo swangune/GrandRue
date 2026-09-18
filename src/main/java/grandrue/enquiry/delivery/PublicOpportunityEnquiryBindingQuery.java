@@ -1,7 +1,6 @@
 package grandrue.enquiry.delivery;
 
 import grandrue.api.*;
-import mainstreet.enquiry.delivery.OpportunityEnquiryBindingCodec;
 import mainstreet.enquiry.EnquiryRevisionProvenance;
 import mainstreet.publication.*;
 import mainstreet.publication.delivery.*;
