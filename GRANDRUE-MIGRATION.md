@@ -487,6 +487,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X160`: `OperationRequirementEvaluator.java` moved from `mainstreet.runtime` to `grandrue.runtime`. One bounded production consumer was updated atomically: `mainstreet.runtime.ScopedOperationDispatcher` now imports `grandrue.runtime.OperationRequirementEvaluator`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `c26b705ec1fc90522c8200e8c390932e4c959b68`; the owner input blob was `23ccd5e49ffb4bac57b7ea9ee8ea6cc7e1a2d62e`; the consumer input blob was `a1b451cf540210cd3d24cfccf6f5ef7329245503`; the GrandRue owner destination was absent at preflight. The moved interface received explicit transitional imports for the remaining legacy `OperationExecutionContext` and `RequirementEvaluation` types. Existing typed requirement-evaluation semantics were unchanged. Code commit `7b0dbb3de7dcd932dfcfe08fb64c545bfe212ee8` contains exactly one owner rename/package replacement, two transitional import additions and one production consumer import addition.
 
+- `GR-REN-02-01X161`: `MerchantControllerScopedExecutionPrincipalResolver.java` moved from `mainstreet.runtime` to `grandrue.runtime`. No production consumers were required in this bounded leaf; current tests remain deferred to `GR-REN-03`. The prepared parent was `28a553346f0e8580171a1438bd83ff6ef0f8b6db`; the owner input blob was `efb0ff57448800afbab6829d87560098b7f46978`; the GrandRue owner destination was absent at preflight. The moved owner received explicit transitional imports for the remaining legacy runtime collaborators `ExecutionPrincipal` and `ScopedExecutionPrincipalResolver`. Existing Merchant Controller scoped-principal resolution semantics were unchanged. Code commit `65f6097037a7dc90aeb317e944c80420991dcc5c` contains exactly one owner rename/package replacement and two transitional import additions.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -518,9 +520,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X160
-last_completed_task: GR-REN-02-01X160
-last_task_commit: 7b0dbb3de7dcd932dfcfe08fb64c545bfe212ee8
+selected_execution_leaf: GR-REN-02-01X161
+last_completed_task: GR-REN-02-01X161
+last_task_commit: 65f6097037a7dc90aeb317e944c80420991dcc5c
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -606,8 +608,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X160
-last_prepared_execution_commit: 7b0dbb3de7dcd932dfcfe08fb64c545bfe212ee8
+last_prepared_execution_leaf: GR-REN-02-01X161
+last_prepared_execution_commit: 65f6097037a7dc90aeb317e944c80420991dcc5c
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
