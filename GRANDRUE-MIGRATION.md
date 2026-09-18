@@ -511,6 +511,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X172`: `SessionCredentialResolver.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Three bounded production consumers were updated atomically: `mainstreet.runtime.SessionTrustedExecutionContextEstablisher` now imports `grandrue.runtime.SessionCredentialResolver`; `grandrue.runtime.StaffOperationalTrustedExecutionContextEstablisher` dropped its transitional legacy resolver import because the resolver is now in the same GrandRue package; and `grandrue.infrastructure.security.session.PrivilegedSessionRequestResolver` now imports `grandrue.runtime.SessionCredentialResolver`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `b1b2a50c4590e1bac26556e93e9e11a3b8469add`; the owner input blob was `9892f94e40cd9d0fbfc8d14a4ecb76a68e6081ef`; consumer input blobs were `ce73b25786b52773b19feb6f36b2cf6f15461601`, `153bb07d29cc6d0c6a46492ebf3272fffeecb27c` and `720cf1adeaa1a3b7168b4b16a48cd07b4589d412`; the GrandRue owner destination was absent at preflight. The moved owner received explicit transitional imports for the remaining legacy runtime collaborators `AuthenticationException`, `AuthenticationFailureCategory`, `OpaqueSessionCredential`, `SessionRecord` and `SessionRecordStore`; existing GrandRue `AuthenticationSession` and `IdentitySecurityGenerationAuthority` dependencies became same-package and their imports were removed. Existing opaque-session resolution, revocation/expiry checks and security-generation invalidation semantics were unchanged. Code commit `cc670eb1eda16f7e629c68df1f6f51c30a4546be` contains exactly one owner rename/package replacement, five transitional import additions, two redundant GrandRue import removals, one production consumer import addition, one redundant legacy import removal and one production consumer import replacement.
 
+- `GR-REN-02-01X173`: `CapabilityOperationHandler.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Four bounded production consumers were updated atomically: `grandrue.runtime.ScopedOperationDispatcher` dropped its transitional legacy handler import because the interface is now in the same GrandRue package, while `grandrue.booking.BookingApplicationService`, `grandrue.scheduling.AppointmentApplicationService` and `grandrue.ordering.OrderingApplicationService` now import `grandrue.runtime.CapabilityOperationHandler`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `22b12b4224fd05e59aed398119afabf4daa99c47`; the owner input blob was `2c3e4f3e69a86240d762a1bc16ae0e89b58e23bc`; consumer input blobs were `4227a247270198f6a608bf43c75518e1e1a4abdf`, `71ef80c4ef8552b60dbf7932336a75ad1078e689`, `3b814aa370c673c0c88c867eb5049068ad39359b` and `2b77a6a92747fc1cb61120d4b8a5cd6fe80d1d4e`; the GrandRue owner destination was absent at preflight. The moved interface received explicit transitional imports for the remaining legacy `OperationExecutionContext` and `OperationFulfilment` types. Existing capability-owned fulfilment contract semantics were unchanged. Code commit `bd1b6a649de51fc063224098d30e483ff66d92eb` contains exactly one owner rename/package replacement, two transitional import additions, one redundant legacy import removal and three production consumer import replacements.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -542,9 +544,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X172
-last_completed_task: GR-REN-02-01X172
-last_task_commit: cc670eb1eda16f7e629c68df1f6f51c30a4546be
+selected_execution_leaf: GR-REN-02-01X173
+last_completed_task: GR-REN-02-01X173
+last_task_commit: bd1b6a649de51fc063224098d30e483ff66d92eb
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -630,8 +632,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X172
-last_prepared_execution_commit: cc670eb1eda16f7e629c68df1f6f51c30a4546be
+last_prepared_execution_leaf: GR-REN-02-01X173
+last_prepared_execution_commit: bd1b6a649de51fc063224098d30e483ff66d92eb
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
