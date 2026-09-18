@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.configuration;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.configuration.ActiveRelease;
 import mainstreet.semantic.configuration.ConfigurationActivation;
 import mainstreet.semantic.configuration.ConfigurationActivationAdmissionAuthority;

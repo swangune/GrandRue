@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.media;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.media.MediaAsset;
 import grandrue.media.MediaKind;
 import grandrue.media.MediaProcessingOutcome;

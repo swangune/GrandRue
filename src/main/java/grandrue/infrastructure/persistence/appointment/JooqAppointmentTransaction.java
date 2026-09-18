@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.appointment;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.AllocationConflictException;
 import mainstreet.semantic.AllocationScope;

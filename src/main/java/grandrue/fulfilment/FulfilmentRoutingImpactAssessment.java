@@ -1,6 +1,6 @@
 package grandrue.fulfilment;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.compiler.ConfigurationCompiler;
 import mainstreet.semantic.configuration.ConfigurationImpactAssessment;
 import mainstreet.semantic.configuration.ConfigurationImpactClassification;

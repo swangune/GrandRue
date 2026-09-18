@@ -1,6 +1,6 @@
 package grandrue.customer;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

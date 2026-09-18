@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 import java.time.Instant;
 

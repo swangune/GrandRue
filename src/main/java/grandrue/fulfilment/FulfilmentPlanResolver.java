@@ -1,6 +1,6 @@
 package grandrue.fulfilment;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.configuration.CapabilityConfigurationResolutionStatus;
 import mainstreet.semantic.configuration.CapabilityConfigurationValueDomain;
 import mainstreet.semantic.configuration.MerchantConfiguration;

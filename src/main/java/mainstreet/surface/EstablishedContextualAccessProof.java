@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Capability-owned contextual access established for one exact request.

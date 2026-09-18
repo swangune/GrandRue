@@ -1,6 +1,6 @@
 package mainstreet.onboarding;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 import java.util.List;
 import java.util.Optional;

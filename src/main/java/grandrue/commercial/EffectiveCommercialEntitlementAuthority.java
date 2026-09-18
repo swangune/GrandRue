@@ -1,7 +1,7 @@
 package grandrue.commercial;
 
 import grandrue.commercial.CommercialAccessDecision;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.commercial.CommercialEntitlementAuthority;
 import mainstreet.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementGrantAuthority;

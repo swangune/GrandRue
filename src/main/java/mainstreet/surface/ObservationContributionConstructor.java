@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Capability-owned constructor invoked by the trusted E3 contribution boundary.

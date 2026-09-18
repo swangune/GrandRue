@@ -1,6 +1,6 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import java.time.Instant;
 import java.util.Objects;
 

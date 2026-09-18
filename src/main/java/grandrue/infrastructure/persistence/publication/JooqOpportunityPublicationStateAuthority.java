@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.publication;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.publication.OpportunityCalendarDateBoundary;
 import mainstreet.publication.OpportunityExactInstantBoundary;
 import mainstreet.publication.OpportunityExternalLink;

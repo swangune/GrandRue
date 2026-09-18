@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.merchantaccount;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.application.TrustedPlatformHumanPrincipal;
 import grandrue.merchantaccount.MerchantAccount;
 import grandrue.merchantaccount.MerchantAccountBootstrapStore;

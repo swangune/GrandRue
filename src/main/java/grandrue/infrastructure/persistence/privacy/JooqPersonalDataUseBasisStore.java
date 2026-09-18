@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.privacy;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.privacy.DataSubjectReference;
 import grandrue.privacy.DataUsePurpose;
 import grandrue.privacy.PersonalDataUseBasis;

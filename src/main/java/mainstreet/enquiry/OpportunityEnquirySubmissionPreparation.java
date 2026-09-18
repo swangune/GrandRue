@@ -1,6 +1,6 @@
 package mainstreet.enquiry;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.publication.AuthorityBackedOpportunityPublicExposureReadPort;
 import mainstreet.publication.OpportunityEnquiryParticipationDefinition;
 import mainstreet.publication.OpportunityEnquiryParticipationSource;

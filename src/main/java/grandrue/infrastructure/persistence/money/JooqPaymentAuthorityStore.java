@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.money;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.money.CurrencyIdentity;
 import grandrue.money.MonetaryAmount;
 import grandrue.money.PaymentApplication;

@@ -1,6 +1,6 @@
 package mainstreet.runtime;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.merchantaccount.MerchantControllerRelationship;
 import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
 

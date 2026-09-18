@@ -1,6 +1,6 @@
 package grandrue.workforce;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.application.TrustedDeviceApplicationContext;
 import mainstreet.runtime.ExecutionPrincipal;
 

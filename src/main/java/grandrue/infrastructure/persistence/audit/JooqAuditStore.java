@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.audit;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.audit.AuditActionClass;
 import grandrue.audit.AuditExecutionScope;
 import grandrue.audit.AuditRecord;

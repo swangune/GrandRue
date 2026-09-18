@@ -1,6 +1,6 @@
 package mainstreet.enquiry.delivery;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Required current permission/protection decision for this registered public operation, before

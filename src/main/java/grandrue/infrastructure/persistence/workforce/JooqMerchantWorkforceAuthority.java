@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.workforce;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.Privilege;
 import grandrue.workforce.MerchantMembershipAuthority;
 import grandrue.workforce.MerchantWorkforceAuthority;

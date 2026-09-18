@@ -1,6 +1,6 @@
 package mainstreet.merchantprofile;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.surface.EstablishedObservationContribution;
 import mainstreet.surface.ObservationContributionKind;
 import mainstreet.surface.ObservationRequestBinding;

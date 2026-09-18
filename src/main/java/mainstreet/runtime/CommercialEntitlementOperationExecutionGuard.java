@@ -1,6 +1,6 @@
 package mainstreet.runtime;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.commercial.CommercialEntitlementAuthority;
 import grandrue.commercial.CommercialEntitlementException;
 import mainstreet.commercial.CommercialEntitlementIdentity;

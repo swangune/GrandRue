@@ -1,6 +1,6 @@
 package grandrue.ordering;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.AllocationAuthority;
 import mainstreet.semantic.DomainEvent;
 

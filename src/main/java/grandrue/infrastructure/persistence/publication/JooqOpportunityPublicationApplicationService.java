@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.publication;
 
 import grandrue.application.ApplicationRequestIdentity;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.publication.OpportunityPublicationApplicationService;
 import mainstreet.publication.OpportunityPublicationMaterialRevision;
 import mainstreet.publication.OpportunityPublicationState;

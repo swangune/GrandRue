@@ -3,7 +3,7 @@ package grandrue.application;
 import grandrue.merchantaccount.MerchantAccountLifecycle;
 import grandrue.merchantaccount.MerchantAccountLifecycleStore;
 import grandrue.merchantaccount.MerchantControllerRelationshipLifecycle;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.configuration
         .ConfigurationActivationAuthorizationAuthority;
 

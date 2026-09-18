@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.booking;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.booking.BookingResidualObligationAuthority;
 import org.jooq.DSLContext;
 import org.jooq.Field;

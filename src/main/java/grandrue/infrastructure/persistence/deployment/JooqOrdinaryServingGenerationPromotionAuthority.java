@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.deployment;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.deployment.ActiveConfigurationServingRequirement;
 import grandrue.deployment.InitializeOrdinaryServingAdmissionControlCommand;
 import grandrue.deployment.ObservedServingGeneration;

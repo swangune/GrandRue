@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.configuration;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.configuration.ConfigurationImpactAnalysisResult;
 import mainstreet.semantic.configuration.ConfigurationImpactClassification;
 import mainstreet.semantic.configuration.ConfigurationImpactFinding;

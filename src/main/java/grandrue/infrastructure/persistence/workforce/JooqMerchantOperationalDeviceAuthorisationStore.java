@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.workforce;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.application.TrustedDeviceApplicationContext;
 import mainstreet.runtime.AuthorizationException;
 import mainstreet.runtime.ExecutionPrincipal;

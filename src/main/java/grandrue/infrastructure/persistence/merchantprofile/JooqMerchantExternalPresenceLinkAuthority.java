@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.merchantprofile.CreateMerchantExternalPresenceLinkCommand;
 import mainstreet.merchantprofile.MerchantExternalPresenceExposure;
 import mainstreet.merchantprofile.MerchantExternalPresenceLifecycle;

@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.booking;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.booking.Booking;
 import grandrue.booking.BookingConfirmation;
 import grandrue.booking.BookingOutbox;

@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.businesshours;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.businesshours.BusinessHoursFailureCategory;
 import grandrue.businesshours.BusinessHoursMutationException;
 import grandrue.businesshours.BusinessHoursScope;

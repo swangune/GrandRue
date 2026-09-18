@@ -1,7 +1,7 @@
 package mainstreet.publication;
 
 import grandrue.application.ApplicationRequestIdentity;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Channel-independent application boundary for authoritative Opportunity Publication mutation.

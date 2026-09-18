@@ -8,7 +8,7 @@ import grandrue.api.ApiTransportScope;
 import grandrue.api.ApiTransportScopeAuthorityRegistrySnapshot;
 import grandrue.api.ApiTransportScopeEvidence;
 import grandrue.api.MerchantApiTransportScope;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.configuration.ActiveRelease;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;

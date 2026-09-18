@@ -1,6 +1,6 @@
 package grandrue.scheduling;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.TimeWindowAllocationScope;
 
 import java.util.Objects;

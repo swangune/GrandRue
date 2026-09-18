@@ -1,6 +1,6 @@
 package mainstreet.runtime;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.executable.ActiveOperationResolver;
 import mainstreet.semantic.executable.ApplicableOperation;
 

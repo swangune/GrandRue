@@ -1,7 +1,7 @@
 package grandrue.application;
 
 import grandrue.commercial.FirstConfigurationActivationAuthority;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.configuration.ConfigurationActivation;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
 

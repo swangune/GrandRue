@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.configuration;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.deployment.OrdinaryServingAdmissionLifecycle;
 import grandrue.deployment.ServingDeploymentAdmissionSnapshot;
 import grandrue.deployment.ServingDeploymentAdmissionSnapshotAuthority;

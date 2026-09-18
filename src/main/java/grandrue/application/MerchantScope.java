@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 /**
  * Explicit merchant authority and ownership boundary propagated by an

@@ -1,6 +1,6 @@
 package grandrue.ordering;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Application port for re-establishing current authoritative proposition and

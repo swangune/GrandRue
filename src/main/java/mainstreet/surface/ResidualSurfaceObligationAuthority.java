@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Surface-layer query boundary for whether a capability still has outstanding

@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.fulfilment.FulfilmentRoleIdentity;
 
 import java.util.Optional;

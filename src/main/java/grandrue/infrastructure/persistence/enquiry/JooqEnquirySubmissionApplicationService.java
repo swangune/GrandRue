@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.enquiry;
 
 import grandrue.application.ApplicationRequestIdentity;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.enquiry.EnquiryApplicationRequestConflictException;
 import mainstreet.enquiry.EnquirySubmission;
 import mainstreet.enquiry.EnquirySubmissionApplicationService;

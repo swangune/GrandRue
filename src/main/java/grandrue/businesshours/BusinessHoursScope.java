@@ -1,6 +1,6 @@
 package grandrue.businesshours;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 import java.util.Objects;
 import java.util.Optional;

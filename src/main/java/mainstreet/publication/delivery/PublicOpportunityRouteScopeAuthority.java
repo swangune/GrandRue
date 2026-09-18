@@ -1,7 +1,7 @@
 package mainstreet.publication.delivery;
 
 import grandrue.api.*;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import java.util.Map;
 import java.util.Objects;
 

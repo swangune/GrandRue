@@ -1,6 +1,6 @@
 package mainstreet.runtime;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Resolves the contextual execution principal for an authenticated identity in

@@ -1,6 +1,6 @@
 package mainstreet.prototype;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.customer.InMemoryCustomerContextAuthority;
 import grandrue.money.CurrencyIdentity;
 import grandrue.money.MonetaryAmount;

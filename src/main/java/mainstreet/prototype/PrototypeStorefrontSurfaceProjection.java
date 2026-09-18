@@ -1,6 +1,6 @@
 package mainstreet.prototype;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.surface.ContextualSurfaceContribution;
 import mainstreet.surface.ExposureDecision;
 import mainstreet.surface.ProjectionServiceabilityAuthority;

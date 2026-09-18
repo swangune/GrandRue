@@ -1,6 +1,6 @@
 package mainstreet.publication;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.surface.ProjectionMaterialSourceAffinity;
 import mainstreet.surface.ProjectionSourceAvailability;
 import mainstreet.surface.ProjectionSourceCompleteness;

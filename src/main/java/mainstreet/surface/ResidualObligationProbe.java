@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Narrow composition-boundary delegate used by the Surface residual composite.

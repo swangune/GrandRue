@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.event;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.event.*;
 import org.jooq.DSLContext;
 import org.jooq.Record;

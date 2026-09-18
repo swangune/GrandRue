@@ -1,6 +1,6 @@
 package mainstreet.runtime;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.background.BackgroundWorkContractDefinition;
 import grandrue.background.BackgroundWorkContractIdentity;
 

@@ -1,6 +1,6 @@
 package mainstreet.commercial;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Resolves whether one merchant currently has one commercial entitlement.

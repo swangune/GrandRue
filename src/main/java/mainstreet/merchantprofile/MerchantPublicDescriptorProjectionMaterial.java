@@ -1,6 +1,6 @@
 package mainstreet.merchantprofile;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.surface.ProjectionMaterialSourceAffinity;
 import mainstreet.surface.ProjectionSourceDependencyReference;
 

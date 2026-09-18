@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.commercial;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementGrantAuthority;
 import mainstreet.commercial.CommercialEntitlementIdentity;

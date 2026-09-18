@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.merchantprofile.CreateMerchantContactPointCommand;
 import mainstreet.merchantprofile.MerchantContactPointAuthority;
 import mainstreet.merchantprofile.MerchantContactPointExposure;

@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.merchantprofile.CountryWideGeographyV1;
 import mainstreet.merchantprofile.CreateMerchantServiceAreaCommand;
 import mainstreet.merchantprofile.MerchantLocationRadiusGeographyV1;

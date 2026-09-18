@@ -1,6 +1,6 @@
 package grandrue.booking;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 
 /**
  * Booking-owned authority for whether the merchant still has at least one

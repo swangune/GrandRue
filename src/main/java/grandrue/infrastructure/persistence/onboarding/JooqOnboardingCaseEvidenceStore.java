@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.onboarding;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.onboarding.AcknowledgeInitialConfigurationIntentCommand;
 import mainstreet.onboarding.DeterministicOnboardingRecomputation;
 import mainstreet.onboarding.InitialConfigurationIntent;

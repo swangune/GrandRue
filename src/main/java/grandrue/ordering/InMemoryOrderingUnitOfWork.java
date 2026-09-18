@@ -1,6 +1,6 @@
 package grandrue.ordering;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.inventory.InMemoryQuantityAllocationAuthority;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.AllocationScope;

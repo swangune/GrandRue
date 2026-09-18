@@ -1,6 +1,6 @@
 package mainstreet.publication;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.semantic.executable.ExecutableMerchantModel;
 import mainstreet.surface.PublicInteractionParticipationFact;
 import mainstreet.surface.PublicInteractionParticipationRequest;

@@ -1,7 +1,7 @@
 package mainstreet.surface;
 
 import grandrue.api.*;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.runtime.*;
 import java.time.Clock;
 import java.util.Objects;

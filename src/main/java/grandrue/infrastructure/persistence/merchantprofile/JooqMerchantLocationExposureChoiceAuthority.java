@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.merchantprofile.ExpectedMerchantLocationExposureChoice;
 import mainstreet.merchantprofile.MerchantLocationExposure;
 import mainstreet.merchantprofile.MerchantLocationExposureChoiceAuthority;

@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.merchantaccount.MerchantControllerRelationship;
 import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
 import grandrue.merchantaccount.MerchantControllerRelationshipLifecycle;

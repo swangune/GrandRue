@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.background;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.background.BackgroundExecutionScope;
 import grandrue.background.BackgroundWorkContractAffinity;
 import grandrue.background.BackgroundWorkContractIdentity;

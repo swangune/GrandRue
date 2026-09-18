@@ -1,6 +1,6 @@
 package mainstreet.prototype;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.booking.Booking;
 import grandrue.booking.BookingApplicationService;
 import grandrue.booking.BookingReservationWindow;

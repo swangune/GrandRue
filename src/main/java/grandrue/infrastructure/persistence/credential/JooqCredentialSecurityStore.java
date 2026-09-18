@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.credential;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.credential.CredentialBinding;
 import grandrue.credential.CredentialBindingScope;
 import grandrue.credential.CredentialGeneration;

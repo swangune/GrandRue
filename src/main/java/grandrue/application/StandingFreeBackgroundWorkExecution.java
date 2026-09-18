@@ -11,7 +11,7 @@ import grandrue.background.DurableWorkInstruction;
 import grandrue.background.DurableWorkStore;
 import grandrue.background.WorkAttempt;
 import mainstreet.commercial.StandingFreeBaseline;
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.application.StandingFreeFromMerchantAccountEstablishedHandler;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceLookup;

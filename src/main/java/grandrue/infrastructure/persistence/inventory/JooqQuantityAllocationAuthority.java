@@ -1,6 +1,6 @@
 package grandrue.infrastructure.persistence.inventory;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.inventory.InsufficientQuantityException;
 import mainstreet.semantic.AllocationAuthority;
 import mainstreet.semantic.AllocationClaim;

@@ -1,6 +1,6 @@
 package mainstreet.publication;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import mainstreet.surface.BoundedProjectionRead;
 import mainstreet.surface.EstablishedObservationContribution;
 import mainstreet.surface.ExposureCandidateObservation;
