@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 /**
  * Reference to an authoritative fact owned elsewhere. Application orchestration
