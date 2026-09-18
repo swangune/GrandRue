@@ -333,6 +333,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X83`: `StandingFreeBaselineGrantAuthority.java` moved from `mainstreet.commercial` to `grandrue.commercial`. No production consumers were found; current tests remain deferred to `GR-REN-03`. The prepared parent was `ab4d7a8047249cf5c350b6759f6dbbf5271ae43a`; owner input blob was `49ee32f402b97e5a903f8d93f084fcd616078e2a`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `CommercialEntitlementGrant`, `CommercialEntitlementGrantAuthority`, `CommercialEntitlementIdentity` and `StandingFreeBaselineStore`, which remain in the legacy Commercial package. Existing Standing Free baseline-backed effective-grant resolution semantics were unchanged. Code commit `5e6ccceea3e95031bc70d360ff8a88a9ec3ce672` contains exactly one owner rename/package replacement and those four explicit transitional imports.
 
+- `GR-REN-02-01X84`: `CompositeCommercialEntitlementGrantAuthority.java` moved from `mainstreet.commercial` to `grandrue.commercial`. No production consumers were found; current tests remain deferred to `GR-REN-03`. The prepared parent was `66356f09fe3f42bcd653fe2fe2f91b855fa5633d`; owner input blob was `5ff1dddf86c4e2397a7969bbca2d4b8331f20a83`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `CommercialEntitlementGrant`, `CommercialEntitlementGrantAuthority` and `CommercialEntitlementIdentity`, which remain in the legacy Commercial package. Existing grant-source composition, affinity validation, effective-interval validation and deterministic grant ordering semantics were unchanged. Code commit `947d2b2ad08e5a64fc6436d64c63eb2737fc9541` contains exactly one owner rename/package replacement and those three explicit transitional imports.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -364,9 +366,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X83
-last_completed_task: GR-REN-02-01X83
-last_task_commit: 5e6ccceea3e95031bc70d360ff8a88a9ec3ce672
+selected_execution_leaf: GR-REN-02-01X84
+last_completed_task: GR-REN-02-01X84
+last_task_commit: 947d2b2ad08e5a64fc6436d64c63eb2737fc9541
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -452,8 +454,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X83
-last_prepared_execution_commit: 5e6ccceea3e95031bc70d360ff8a88a9ec3ce672
+last_prepared_execution_leaf: GR-REN-02-01X84
+last_prepared_execution_commit: 947d2b2ad08e5a64fc6436d64c63eb2737fc9541
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
