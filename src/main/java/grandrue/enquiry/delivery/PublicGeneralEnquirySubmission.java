@@ -6,7 +6,7 @@ import grandrue.application.MerchantScope;
 import grandrue.enquiry.EnquirySubmittedContact;
 import grandrue.enquiry.OpportunityEnquirySubmissionPreparation;
 import grandrue.enquiry.EnquirySubmissionApplicationService;
-import mainstreet.enquiry.*;
+import grandrue.enquiry.EnquirySubmissionIntent;
 import mainstreet.publication.OpportunityPublicationStateAuthority;
 import mainstreet.publication.OpportunityPublicationSubmissionLock;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;

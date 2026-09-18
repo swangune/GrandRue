@@ -1,4 +1,4 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
 /** Immutable submission-time semantic context; its presence grants no execution authority. */
 public record EnquirySemanticContext(

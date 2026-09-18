@@ -1,4 +1,4 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
 import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
 

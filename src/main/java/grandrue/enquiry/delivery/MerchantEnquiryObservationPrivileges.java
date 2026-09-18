@@ -1,6 +1,6 @@
 package grandrue.enquiry.delivery;
 
-import mainstreet.enquiry.EnquiryMerchantExposureReferences;
+import grandrue.enquiry.EnquiryMerchantExposureReferences;
 import mainstreet.semantic.Privilege;
 import mainstreet.surface.ExposableElementReference;
 import java.util.Map;

@@ -1,6 +1,5 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
-import grandrue.enquiry.EnquirySubmittedContact;
 import mainstreet.surface.ExposableElementReference;
 import java.time.Instant;
 import java.util.Objects;

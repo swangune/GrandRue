@@ -1,7 +1,7 @@
 package grandrue.enquiry.delivery;
 
 import grandrue.api.*;
-import mainstreet.enquiry.EnquiryRevisionProvenance;
+import grandrue.enquiry.EnquiryRevisionProvenance;
 import mainstreet.publication.*;
 import mainstreet.publication.delivery.*;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
