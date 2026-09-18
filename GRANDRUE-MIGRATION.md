@@ -503,6 +503,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X168`: `ScopedOperationDispatcher.java` moved from `mainstreet.runtime` to `grandrue.runtime`. No production consumers were required in this bounded leaf; current tests remain deferred to `GR-REN-03`. The prepared parent was `5ae2dcca2497810738d9ccbb17da8eef65c8aac8`; the owner input blob was `ff41b16f319d737cec279058e9047b9cb754c460`; the GrandRue owner destination was absent at preflight. The moved owner received explicit transitional imports for the remaining legacy runtime collaborators `CapabilityOperationHandler`, `ExecutionPrincipal`, `OperationExecutionContext`, `OperationExecutionGuard`, `OperationFulfilment`, `RequirementEvaluation` and `TrustedExecutionContext`; existing GrandRue runtime imports for `OperationRequirementEvaluator` and `UnsatisfiedOperationRequirementsException` remained unchanged. Existing scoped dispatch, requirement evaluation, guard sequencing and fulfilment semantics were unchanged. Code commit `6ab705c827d454143989ee0724261b7683c1c12f` contains exactly one owner rename/package replacement and seven transitional import additions.
 
+- `GR-REN-02-01X169`: `IdentitySecurityGenerationAuthority.java` moved from `mainstreet.runtime` to `grandrue.runtime`. The four bounded production consumers were updated atomically: `mainstreet.runtime.SessionCredentialResolver` received an explicit `grandrue.runtime.IdentitySecurityGenerationAuthority` import because the type is no longer same-package, while `grandrue.identitysecurity.IdentitySecurityGenerationManagement`, `grandrue.runtime.DefaultAuthenticationSessionCurrentnessAuthority` and `grandrue.infrastructure.security.webauthn.SpringWebAuthnSessionBridge` received the corresponding GrandRue import replacement. Current tests remain deferred to `GR-REN-03`. The prepared parent was `74f61df0a179367c2e9c6b5ff3d5befb96350e07`; owner input blob was `87abae7a3a5095c248939f75c1e6cb7352507fe9`; consumer input blobs were `6be85aa0359ac669600c2267a1c0f87c1af5d386`, `89f7ec3604cb7705d64818c6ddbe27fa78813245`, `7ad6d7aa2d0cf0d97066240ce86fa8b9aa5fa63b` and `d68ad6541cd6178d2ff9b357fdfe1529b1b6f525`; the GrandRue owner destination was absent at preflight. Existing identity security-generation currentness, session invalidation evidence and WebAuthn session-bridge semantics were unchanged. Code commit `0fd072e9b2807c2fe7bbd6d6015905c666c65d0a` contains exactly one owner rename/package replacement and the four declared consumer import changes.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -534,9 +536,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X168
-last_completed_task: GR-REN-02-01X168
-last_task_commit: 6ab705c827d454143989ee0724261b7683c1c12f
+selected_execution_leaf: GR-REN-02-01X169
+last_completed_task: GR-REN-02-01X169
+last_task_commit: 0fd072e9b2807c2fe7bbd6d6015905c666c65d0a
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -622,8 +624,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X168
-last_prepared_execution_commit: 6ab705c827d454143989ee0724261b7683c1c12f
+last_prepared_execution_leaf: GR-REN-02-01X169
+last_prepared_execution_commit: 0fd072e9b2807c2fe7bbd6d6015905c666c65d0a
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
