@@ -1,4 +1,6 @@
-package mainstreet.commercial;
+package grandrue.commercial;
+
+import mainstreet.commercial.TrialReminderMilestone;
 
 import java.util.List;
 import java.util.Optional;
