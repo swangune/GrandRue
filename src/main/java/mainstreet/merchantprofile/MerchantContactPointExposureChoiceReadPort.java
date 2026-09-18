@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantContactPointProgressAffinityReadPort;
+
 import grandrue.application.MerchantScope;
 
 import java.util.Optional;
