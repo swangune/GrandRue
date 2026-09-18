@@ -3,7 +3,6 @@ package grandrue.runtime;
 import mainstreet.runtime.AuthenticationProvenance;
 import grandrue.runtime.IdentitySecurityGenerationAuthority;
 import mainstreet.runtime.SessionRecord;
-import mainstreet.runtime.SessionRecordStore;
 
 import java.time.Clock;
 import java.time.Instant;

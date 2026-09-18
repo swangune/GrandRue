@@ -9,7 +9,7 @@ import grandrue.identitysecurity.IdentitySecurityGenerationException;
 import grandrue.identitysecurity.IdentitySecurityGenerationFailureCategory;
 import grandrue.identitysecurity.IdentitySecurityGenerationManagement;
 import grandrue.identitysecurity.IdentitySecurityRotationCommand;
-import mainstreet.runtime.SessionRecordStore;
+import grandrue.runtime.SessionRecordStore;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

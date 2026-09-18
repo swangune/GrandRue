@@ -3,7 +3,7 @@ package mainstreet.surface;
 import grandrue.application.MerchantScope;
 import mainstreet.runtime.AuthenticationProvenance;
 import mainstreet.runtime.SessionRecord;
-import mainstreet.runtime.SessionRecordStore;
+import grandrue.runtime.SessionRecordStore;
 import mainstreet.runtime.TrustedExecutionContext;
 
 import java.util.Collection;
