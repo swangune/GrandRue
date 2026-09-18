@@ -405,7 +405,7 @@ Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tes
 
 ---
 
-## 13. Closed-subgraph execution supersession — effective after `GR-REN-02-T012`
+## 13. Closed-subgraph execution supersession — effective after `GR-REN-02-T013`
 
 This section controls future preparation/execution where earlier sections prescribe numeric tranche sizing or independent per-leaf preparation. Earlier sections remain historical protocol evidence.
 

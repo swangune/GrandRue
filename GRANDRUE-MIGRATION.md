@@ -964,7 +964,7 @@ next_procedural_action: Analyse one natural migration region once, compute its c
 
 ---
 
-## 8. Closed-Subgraph Efficiency Protocol — effective after `GR-REN-02-T012`
+## 8. Closed-Subgraph Efficiency Protocol — effective after `GR-REN-02-T013`
 
 This section prospectively supersedes the numeric 8-leaf target / 15-leaf maximum and any implication that future migration reasoning must occur independently leaf-by-leaf. Historical tranche and leaf evidence remains unchanged.
 
