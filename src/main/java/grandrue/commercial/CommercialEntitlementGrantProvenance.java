@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 /**
  * Identifies the authoritative commercial source from which an entitlement

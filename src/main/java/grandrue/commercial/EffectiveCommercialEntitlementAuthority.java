@@ -5,7 +5,7 @@ import grandrue.application.MerchantScope;
 import grandrue.commercial.CommercialEntitlementAuthority;
 import mainstreet.commercial.CommercialEntitlementGrant;
 import grandrue.commercial.CommercialEntitlementGrantAuthority;
-import mainstreet.commercial.CommercialEntitlementGrantProvenance;
+import grandrue.commercial.CommercialEntitlementGrantProvenance;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 
 import java.time.Clock;

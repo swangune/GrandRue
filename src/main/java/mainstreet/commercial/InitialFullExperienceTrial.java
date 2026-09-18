@@ -1,5 +1,7 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.CommercialEntitlementGrantProvenance;
+
 import grandrue.application.MerchantScope;
 
 import java.time.Duration;
