@@ -278,6 +278,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X69`: `TrustedPlatformExecutionContext.java` moved from `mainstreet.application` to `grandrue.application`. The three bounded production consumers `mainstreet.commercial.CommercialCataloguePublicationAdmission`, `mainstreet.commercial.CommercialCatalogueStore` and `grandrue.infrastructure.persistence.commercial.JooqCommercialCatalogueStore` received only the corresponding GrandRue import replacement; current tests remain deferred to `GR-REN-03`. The prepared parent was `6de7ffbcb7b1e6113c735f23a1593494f8ab305b`; owner input blob was `91af699d14fe16611681f3c7b3ee354172dfde62`; consumer input blobs were `e1fc45fd0731f4cc51bc7876be4415fc93e5e12d`, `32114a288213d55c473c13e2f61dc0fa759104c0` and `2450434533021ab2944748edd403943f5c0f4dd3`; the GrandRue owner destination was absent at preflight. Existing platform-scope attribution and Commercial catalogue publication authority semantics were unchanged. Code commit `5b50eab3c3e6838eafa5fdfcf51075f7f5ba7e3a` contains exactly one owner rename/package replacement and one import replacement in each bounded consumer.
 
+- `GR-REN-02-01X70`: `TrustedPlatformHumanPrincipal.java` moved from `mainstreet.application` to `grandrue.application`. The four bounded production consumers `grandrue.merchantaccount.MerchantAccountEstablisher`, `grandrue.merchantaccount.MerchantAccountBootstrapStore`, `grandrue.merchantaccount.MerchantAccountEstablishmentAuthorizer` and `grandrue.infrastructure.persistence.merchantaccount.JooqMerchantAccountBootstrapStore` received only the corresponding GrandRue import replacement; current tests remain deferred to `GR-REN-03`. The prepared parent was `167947dbd221c3882519bd61beb6dfbb198659cb`; owner input blob was `beaea02e152771c27c7d312112398cfdb9d6d138`; consumer input blobs were `ba1a64e79c5b8bb7e0d22b942546111017c57e31`, `8571962de82b83b455acff4f1c7c7415c43a0df5`, `a826bfafef23a6377fef82f96a2ea393f82a75e7` and `0829fcaa20a3d37f2510365d90d9cdc5be5906bf`; the GrandRue owner destination was absent at preflight. Existing trusted PLATFORM human-principal identity validation and Merchant Account establishment authorisation/bootstrap semantics were unchanged. Code commit `646ed9191fc57dfd7b652f52027fecef8243881e` contains exactly one owner rename/package replacement and one import replacement in each bounded consumer.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -309,9 +311,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X69
-last_completed_task: GR-REN-02-01X69
-last_task_commit: 5b50eab3c3e6838eafa5fdfcf51075f7f5ba7e3a
+selected_execution_leaf: GR-REN-02-01X70
+last_completed_task: GR-REN-02-01X70
+last_task_commit: 646ed9191fc57dfd7b652f52027fecef8243881e
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -397,8 +399,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X69
-last_prepared_execution_commit: 5b50eab3c3e6838eafa5fdfcf51075f7f5ba7e3a
+last_prepared_execution_leaf: GR-REN-02-01X70
+last_prepared_execution_commit: 646ed9191fc57dfd7b652f52027fecef8243881e
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
