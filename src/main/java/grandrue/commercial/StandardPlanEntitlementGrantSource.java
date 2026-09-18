@@ -1,4 +1,9 @@
-package mainstreet.commercial;
+package grandrue.commercial;
+
+import mainstreet.commercial.CommercialEntitlementGrant;
+import mainstreet.commercial.CommercialEntitlementGrantProvenance;
+import mainstreet.commercial.CommercialEntitlementIdentity;
+import mainstreet.commercial.StandardPlanRevision;
 
 import grandrue.application.MerchantScope;
 
