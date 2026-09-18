@@ -1,4 +1,4 @@
-package mainstreet.enquiry.delivery;
+package grandrue.enquiry.delivery;
 
 import mainstreet.enquiry.EnquirySubmissionPreparation;
 
