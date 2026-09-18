@@ -173,6 +173,7 @@ State: `OPEN`
 | `GR-REN-02-01X47` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/AnnualBillingPricePolicy.java`; no production consumers | `2797f392fa239de24b8d3e2a69cc79b2895eb41d` |
 | `GR-REN-02-01X48` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/StandardPlanChangePolicy.java` + one bounded same-package production consumer | `46ca6c5fa54c39ae1de9c2a07e495e34bd886130` |
 | `GR-REN-02-01X49` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/ScheduledStandardPlanChange.java`; no production consumers | `14411b6dce7af6dafbad56d86b7dc2b2cc4170d9` |
+| `GR-REN-02-01X50` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `commercial/CommercialAccessDecision.java` + one bounded same-package production consumer | `d86a95bd39b082afa3bd5f1d4a774655d77bf285` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -226,6 +227,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X49`: `ScheduledStandardPlanChange.java` moved from `mainstreet.commercial` to `grandrue.commercial`. No production consumers were found; the current test consumer remains deferred to `GR-REN-03`. The prepared parent was `b5746a116651658ef53247112ff12f8cc778588f`; owner input blob was `cd5c47c7e2592d4223c81568b66502ad85b2ce51`; the GrandRue owner destination was absent at preflight. Existing `StandardPlanChangePolicy` and `StandardPlanChangeTiming` GrandRue imports, paid-period scheduling constraint, request/effective boundary validation and effective-plan selection behavior were unchanged. Code commit `14411b6dce7af6dafbad56d86b7dc2b2cc4170d9` contains exactly one owner rename with only the package declaration replacement.
 
+- `GR-REN-02-01X50`: `CommercialAccessDecision.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The sole bounded same-package production consumer `mainstreet.commercial.EffectiveCommercialEntitlementAuthority` received only an explicit `grandrue.commercial.CommercialAccessDecision` import; current tests remain deferred to `GR-REN-03`. The prepared parent was `667eb5e96325e4ef4b871a6e413459a88bc2283e`; owner input blob was `6448c3dd7df2cd0dcdcd9fb0004f105095054c7a`; consumer input blob was `16191ca0361977b3f9b061f465f008c88587cf6d`; the GrandRue owner destination was absent at preflight. Existing entitlement identity, permitted/evidence consistency invariant, evaluated-at evidence, merchant/grant affinity validation and effective-grant provenance resolution were unchanged. Code commit `d86a95bd39b082afa3bd5f1d4a774655d77bf285` contains exactly one owner rename/package replacement and one explicit import addition in the bounded consumer.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -257,9 +260,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X49
-last_completed_task: GR-REN-02-01X49
-last_task_commit: 14411b6dce7af6dafbad56d86b7dc2b2cc4170d9
+selected_execution_leaf: GR-REN-02-01X50
+last_completed_task: GR-REN-02-01X50
+last_task_commit: d86a95bd39b082afa3bd5f1d4a774655d77bf285
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -345,8 +348,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X49
-last_prepared_execution_commit: 14411b6dce7af6dafbad56d86b7dc2b2cc4170d9
+last_prepared_execution_leaf: GR-REN-02-01X50
+last_prepared_execution_commit: d86a95bd39b082afa3bd5f1d4a774655d77bf285
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
