@@ -1,6 +1,6 @@
 package mainstreet.publication;
 
-import mainstreet.application.ApplicationRequestIdentity;
+import grandrue.application.ApplicationRequestIdentity;
 import mainstreet.application.MerchantScope;
 
 /**

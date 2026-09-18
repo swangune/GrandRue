@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 /**
  * Stable identity for one logical caller intention reaching one application use

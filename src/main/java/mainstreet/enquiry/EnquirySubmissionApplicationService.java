@@ -1,6 +1,6 @@
 package mainstreet.enquiry;
 
-import mainstreet.application.ApplicationRequestIdentity;
+import grandrue.application.ApplicationRequestIdentity;
 
 /**
  * Internal transaction/retry boundary. Reconciles committed intent before fresh preparation.
