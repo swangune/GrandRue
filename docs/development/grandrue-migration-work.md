@@ -382,8 +382,8 @@ This section is the current operational pointer. It supersedes the adoption snap
 
 ```yaml
 coverage:
-  completed_leaf_records_through: GR-REN-02-01X249
-  completed_leaf_count: 272
+  completed_leaf_records_through: GR-REN-02-01X257
+  completed_leaf_count: 280
   remaining_expansion_node: GR-REN-02-01X+
   remaining_enumeration: INCOMPLETE
   unclassified: UNKNOWN_UNTIL_ENUMERATION
@@ -394,8 +394,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
-last_completed_leaf: GR-REN-02-01X249
-last_code_commit: 4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1
+last_completed_leaf: GR-REN-02-01X257
+last_code_commit: dd2133bb88ba4bbc7df97bb5d1034a084a7363e5
 next_action: Prepare the next dependency-bounded transactional tranche from current live production evidence, targeting 8 independently closed consecutive leaves by default and never exceeding 15. Attach one atomic code+manifest commit only after freshness succeeds, then publish one combined ledger/work-pointer checkpoint after structural verification.
 ```
 

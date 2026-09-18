@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T008
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: dd2133bb88ba4bbc7df97bb5d1034a084a7363e5
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: ba2ac258b0195b5924346ef0e6190a416e5f3361
 leaf_range:
   first: GR-REN-02-01X250
@@ -168,3 +170,10 @@ preparation_notes:
   - Eight small onboarding values/helpers selected; wide case-identity/revision closure remains for later preparation.
   - OnboardingSubmissionBlocker and OnboardingSubmissionRejectedException move together to avoid a temporary cross-package dependency between those two owners.
   - No prototype path is selected or changed.
+
+completed:
+  last_leaf: GR-REN-02-01X257
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 19
+  structural_verification: passed
+  next_tranche: GR-REN-02-T009
