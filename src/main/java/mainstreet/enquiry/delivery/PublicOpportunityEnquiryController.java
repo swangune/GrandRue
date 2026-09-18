@@ -6,6 +6,7 @@ import grandrue.enquiry.EnquiryApplicationRequestConflictException;
 import grandrue.enquiry.EnquirySubmissionRevalidationException;
 import grandrue.enquiry.delivery.PublicEnquiryRequirementsUnsatisfiedException;
 import grandrue.enquiry.delivery.PublicOpportunityEnquiryRequest;
+import grandrue.enquiry.delivery.PublicOpportunityEnquiryBindingQuery;
 
 import grandrue.api.*;
 import mainstreet.enquiry.*;
