@@ -403,11 +403,11 @@ last_validation_target: b9ec7507fca0fe8e943a1adcc114d1966568259d
 symbolic_standalone_production_residuals: 0
 
 gr_ren_03:
-  baseline_in_scope_test_java_files: 378
+  baseline_in_scope_test_java_files: 376
   completed_tranches:
     - GR-REN-03-T001
   migrated_test_java_files: 5
-  remaining_in_scope_legacy_test_java_files: 373
+  remaining_in_scope_legacy_test_java_files: 371
   excluded_legacy_prototype_test_java_files: 18
   embedded_runtime_compatibility_identifiers: DEFERRED_CLASSIFICATION
 

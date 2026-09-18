@@ -850,6 +850,8 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-03-T001`: migrated the complete live `src/test/java/mainstreet/infrastructure/security/**` Java test region as the first GR-REN-03 dependency-bounded closed subgraph. Five test owners moved to the corresponding `src/test/java/grandrue/infrastructure/security/**` paths with exactly five package-declaration replacements and ten executable `mainstreet.runtime.*` → `grandrue.runtime.*` import repairs. Exact class-name searches found no external test consumers. Embedded/runtime compatibility identities including `__Host-MS-SESSION`, `mainstreet.app`, `auth.mainstreet.app`, `Main Street`, and existing snake-case test wording were deliberately preserved and remain separately classified for the applicable later GR-REN-03/05/06 work. Legacy prototype tests remained untouched. Aggregate structural verification proved exactly five renames plus the active-manifest change; each destination exactly reconstructs from its source blob plus the declared deterministic edits, all five legacy owner paths are absent, all ten legacy runtime imports are repaired, and protected residual occurrence counts are unchanged. Code commit `b9ec7507fca0fe8e943a1adcc114d1966568259d`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-03-T001-INVENTORY-CORRECTION`: final tree accounting established that the earlier preparatory count of 396 entries under `src/test/java/**` included two Markdown support files: `src/test/java/mainstreet/booking/LEGACY-NOTIFICATION-PROTOTYPE.md` and `src/test/java/mainstreet/semantic/capability/LEGACY-PROTOTYPE.md`. The canonical Java-only baseline is therefore 394 test Java files: 376 in-scope and 18 excluded legacy-prototype Java tests. After the five T001 Java test moves, 371 in-scope legacy Java test files remain. This is a documentation/accounting correction only; no source or test file changed.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `IN_PROGRESS`
@@ -880,7 +882,7 @@ last_task_commit: b9ec7507fca0fe8e943a1adcc114d1966568259d
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: b9ec7507fca0fe8e943a1adcc114d1966568259d
-next_action: Continue GR-REN-03 from the live post-T001 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 373 in-scope legacy test Java files remain after T001, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
+next_action: Continue GR-REN-03 from the live post-T001 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 371 in-scope legacy test Java files remain after T001, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---
