@@ -1,4 +1,9 @@
-package mainstreet.runtime;
+package grandrue.runtime;
+
+import mainstreet.runtime.AuthenticationException;
+import mainstreet.runtime.AuthenticationProvenance;
+import mainstreet.runtime.ExecutionPrincipal;
+import mainstreet.runtime.TrustedExecutionContext;
 
 import grandrue.runtime.AuthenticationFailureCategory;
 import grandrue.application.MerchantScope;
