@@ -2,7 +2,6 @@ package grandrue.enquiry.delivery;
 
 import grandrue.api.*;
 import grandrue.application.MerchantScope;
-import mainstreet.enquiry.delivery.MerchantEnquiryQueryContract;
 import java.util.*;
 
 /** Server-owned workspace locator mapping; neither the locator nor the session grants merchant authority. */
