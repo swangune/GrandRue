@@ -353,6 +353,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X93`: `StandardPlanCatalogueHistory.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The sole bounded production consumer `grandrue.infrastructure.persistence.commercial.JooqCommercialCatalogueStore` retained its still-required legacy Commercial wildcard import and received one explicit `grandrue.commercial.StandardPlanCatalogueHistory` import; current tests remain deferred to `GR-REN-03`. The prepared parent was `07ca273e1b3931517534136344022923b95fc984`; owner input blob was `5413ed0d013ce77307b10b3db872d17a1df4eec8`; consumer input blob was `aa2807bfef459483b8b4d3e4173bd3fa49de4605`; the GrandRue owner destination was absent at preflight. An explicit transitional import was added for `StandardPlanRevision`, which remains in the legacy Commercial package. Existing complete-history integrity validation, authoritative historical selection and effective FREE-plan resolution semantics were unchanged. Code commit `cf729fa009af1284ddfa9c77afbe44059a991de4` contains exactly one owner rename/package replacement, one transitional import and one production consumer import addition.
 
+- `GR-REN-02-01X94`: `CommercialCatalogueStore.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The sole bounded production consumer `grandrue.infrastructure.persistence.commercial.JooqCommercialCatalogueStore` retained its still-required legacy Commercial wildcard import and received one explicit `grandrue.commercial.CommercialCatalogueStore` import; current tests remain deferred to `GR-REN-03`. The prepared parent was `c0221cae17a340de3b5e00e441cbb3dbbbbc8f68`; owner input blob was `681a78f1dee6d3d727b2f79faf3ca2bdf5426060`; consumer input blob was `620501159eb19b7c81746a8ab5a406aab8fe85ed`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `CommercialCataloguePublication`, `CommercialCataloguePublicationRequest` and `StandardPlanRevision`, which remain in the legacy Commercial package. Existing atomic publication boundary, exact-generation lookup, authoritative historical resolution and effective FREE-plan delegation semantics were unchanged. Code commit `195f25908a8aae34ac22ee886f486e336c048878` contains exactly one owner rename/package replacement, three transitional imports and one production consumer import addition.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -384,9 +386,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X93
-last_completed_task: GR-REN-02-01X93
-last_task_commit: cf729fa009af1284ddfa9c77afbe44059a991de4
+selected_execution_leaf: GR-REN-02-01X94
+last_completed_task: GR-REN-02-01X94
+last_task_commit: 195f25908a8aae34ac22ee886f486e336c048878
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -472,8 +474,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X93
-last_prepared_execution_commit: cf729fa009af1284ddfa9c77afbe44059a991de4
+last_prepared_execution_leaf: GR-REN-02-01X94
+last_prepared_execution_commit: 195f25908a8aae34ac22ee886f486e336c048878
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
