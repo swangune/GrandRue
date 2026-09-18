@@ -868,6 +868,8 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-03-T009`: migrated the complete live `src/test/java/mainstreet/inventory/**` Java test region as one dependency-bounded closed subgraph. Two test owners moved to the corresponding `src/test/java/grandrue/inventory/**` paths with exactly two package-declaration replacements and sixteen executable migrated-production import repairs across semantic, semantic compiler/configuration and semantic registry namespaces. Exact class-name searches found no external test consumers. The two `Main Street Inventory` business-facing test literals in `InventoryAvailabilityImpactAssessmentTest` were explicitly classified and preserved rather than conflated with ordinary namespace/import migration. Aggregate structural verification proved exactly two renames plus the active-manifest change; each destination reconstructs exactly from its source blob plus only the declared deterministic edits, both legacy owner paths are absent, all sixteen legacy production imports are repaired, and both protected wording occurrences remain unchanged. Code commit `c83ca3cf2075473fecddb8f9ef2cea3c232908b7`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-03-T010`: migrated the complete live `src/test/java/mainstreet/fulfilment/**` Java test region as one dependency-bounded closed subgraph. Two test owners moved to the corresponding `src/test/java/grandrue/fulfilment/**` paths with exactly two package-declaration replacements and fifteen executable migrated-production import repairs across application, semantic compiler/configuration, semantic registry, semantic release and surface namespaces. Exact class-name searches found no external test consumers. No embedded Main Street/current-product identifier was present in the region. Aggregate structural verification proved exactly two renames plus the active-manifest change; each destination reconstructs exactly from its source blob plus only the declared deterministic edits, both legacy owner paths are absent, and all fifteen legacy production imports are repaired. Code commit `a7d9e707de107578ea61cda8a2465eba17a9b1b7`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `IN_PROGRESS`
@@ -893,12 +895,12 @@ status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-03
 selected_execution_leaf: null
-last_completed_task: GR-REN-03-T009
-last_task_commit: c83ca3cf2075473fecddb8f9ef2cea3c232908b7
+last_completed_task: GR-REN-03-T010
+last_task_commit: a7d9e707de107578ea61cda8a2465eba17a9b1b7
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: c83ca3cf2075473fecddb8f9ef2cea3c232908b7
-next_action: Continue GR-REN-03 from the live post-T009 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 348 in-scope legacy test Java files remain after T009, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: a7d9e707de107578ea61cda8a2465eba17a9b1b7
+next_action: Continue GR-REN-03 from the live post-T010 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 346 in-scope legacy test Java files remain after T010, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---
