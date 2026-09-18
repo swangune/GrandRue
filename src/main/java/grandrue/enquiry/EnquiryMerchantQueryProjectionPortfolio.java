@@ -1,6 +1,5 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
-import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReferences;
 import mainstreet.surface.ProjectionContractApplicabilityTrigger;
 import mainstreet.surface.ProjectionContractDefinition;
 import mainstreet.surface.ProjectionContractRegistrySnapshot;
