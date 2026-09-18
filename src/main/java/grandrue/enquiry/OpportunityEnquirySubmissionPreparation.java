@@ -1,7 +1,11 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
 import grandrue.application.MerchantScope;
-import grandrue.enquiry.EnquirySubmissionRevalidationException;
+import mainstreet.enquiry.EnquiryRevisionProvenance;
+import mainstreet.enquiry.EnquirySemanticContext;
+import mainstreet.enquiry.EnquirySubmission;
+import mainstreet.enquiry.EnquirySubmissionIntent;
+import mainstreet.enquiry.EnquirySubmissionPreparation;
 import mainstreet.publication.AuthorityBackedOpportunityPublicExposureReadPort;
 import mainstreet.publication.OpportunityEnquiryParticipationDefinition;
 import mainstreet.publication.OpportunityEnquiryParticipationSource;
