@@ -401,6 +401,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X117`: `EnquirySubmissionRevalidationException.java` moved from `mainstreet.enquiry` to `grandrue.enquiry`. Three bounded production consumers were updated atomically: `mainstreet.enquiry.OpportunityEnquirySubmissionPreparation` received an explicit `grandrue.enquiry.EnquirySubmissionRevalidationException` import, while `mainstreet.enquiry.delivery.PublicGeneralEnquiryController` and `mainstreet.enquiry.delivery.PublicOpportunityEnquiryController` retained their still-required legacy Enquiry wildcard imports and received the same explicit GrandRue import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `7b4b103a8ff97b25e700a6e306efdec3342beb63`; owner input blob was `f9f75f1ab5e7b2e0430394d8638a026eebbe6dc5`; consumer input blobs were `37d86164f1dfe7e8c3d840a2715d656eef943915`, `daf3238db6b2bb08d9e30d431d7f8bd89777ba22` and `a10d443fc59a628ed84af895e1cbd651684288e8`; the GrandRue owner destination was absent at preflight. The moved owner required no transitional imports. Existing safe Enquiry submission revalidation rejection semantics were unchanged. Code commit `8982b36bdef3718a49e4495fe7522b6a31ca1f9c` contains exactly one owner rename/package replacement and three production consumer import additions.
 
+- `GR-REN-02-01X118`: `PublicEnquiryRequirementsUnsatisfiedException.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Two bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.PublicGeneralEnquiryController` and `mainstreet.enquiry.delivery.PublicOpportunityEnquiryController` received explicit `grandrue.enquiry.delivery.PublicEnquiryRequirementsUnsatisfiedException` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `54bcb6d8dc92d676a7984bb7e69817bda44ffcf5`; owner input blob was `55dd0bfa89ee81230cad31896bbe94e570bdec3c`; consumer input blobs were `291ef3917bceea13a720619e91ec987cba1da23b` and `ffd0bd1fb96882d5aa3486c1e04133a167c79f38`; the GrandRue owner destination was absent at preflight. The moved owner required no transitional imports. Existing known pre-Enquiry owner-requirement rejection semantics were unchanged. Code commit `2e9d34d4ed104637c54a3ac68ef9bdda6535b8d6` contains exactly one owner rename/package replacement and two production consumer import additions.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -432,9 +434,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X117
-last_completed_task: GR-REN-02-01X117
-last_task_commit: 8982b36bdef3718a49e4495fe7522b6a31ca1f9c
+selected_execution_leaf: GR-REN-02-01X118
+last_completed_task: GR-REN-02-01X118
+last_task_commit: 2e9d34d4ed104637c54a3ac68ef9bdda6535b8d6
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -520,8 +522,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X117
-last_prepared_execution_commit: 8982b36bdef3718a49e4495fe7522b6a31ca1f9c
+last_prepared_execution_leaf: GR-REN-02-01X118
+last_prepared_execution_commit: 2e9d34d4ed104637c54a3ac68ef9bdda6535b8d6
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
