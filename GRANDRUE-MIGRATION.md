@@ -359,6 +359,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X96`: `CommercialAccessBinding.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The two bounded production consumers were updated atomically: `mainstreet.commercial.CommercialCatalogueManifest` received one explicit `grandrue.commercial.CommercialAccessBinding` import because the binding type is no longer same-package, and `grandrue.infrastructure.persistence.commercial.CommercialCatalogueManifestCodec` retained its still-required legacy Commercial wildcard import and received the same explicit GrandRue binding import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `bafa3642bb531533fed0969b94b9f8d8dee8505a`; owner input blob was `08385d73e5df16e1a8c75663a0b39adf9192e534`; consumer input blobs were `3c84102eb59203ce84fb5f3ee1b1f2876206b1e0` and `c4a0d3332b5ed6e8a5a976090083fefef81ba559`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `CommercialAccessTarget`, `CommercialEntitlementIdentity` and `CommercialEntitlementTargetKind`, which remain in the legacy Commercial package. Existing immutable binding evidence, exact target/purpose validation, supporting-access retention and authority-reference semantics were unchanged. Code commit `dba3516e165dd1f1069f515b7ddb495cd5286fe3` contains exactly one owner rename/package replacement, three transitional imports and two production consumer import additions.
 
+- `GR-REN-02-01X97`: `MerchantCommercialAgreementTransition.java` moved from `mainstreet.commercial` to `grandrue.commercial`. The two bounded production consumers `grandrue.commercial.MerchantCommercialAgreementStore` and `grandrue.infrastructure.persistence.commercial.JooqMerchantCommercialAgreementStore` received the corresponding GrandRue import replacements; current tests remain deferred to `GR-REN-03`. The prepared parent was `3f8fe63150554d0748577d2fcc542376cd185ea3`; owner input blob was `532fe6bb65bb167add0bdbdd8f344be8c1e09d5c`; consumer input blobs were `fe5ebd835cacd86b3974568cb3f84bf7e5d1680f` and `be1ffceb7184f5a7cd3337fac8b360443b36b6b8`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `MerchantCommercialAgreement` and `StandardPlanLevel`, which remain in the legacy Commercial package. Existing logical-request identity, expected-current agreement identity validation and paid-plan transition semantics were unchanged. Code commit `028463d7f3b43e530f8eef4cb3494064c5a6bd04` contains exactly one owner rename/package replacement, two transitional imports and two production consumer import replacements.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -390,9 +392,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X96
-last_completed_task: GR-REN-02-01X96
-last_task_commit: dba3516e165dd1f1069f515b7ddb495cd5286fe3
+selected_execution_leaf: GR-REN-02-01X97
+last_completed_task: GR-REN-02-01X97
+last_task_commit: 028463d7f3b43e530f8eef4cb3494064c5a6bd04
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -478,8 +480,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X96
-last_prepared_execution_commit: dba3516e165dd1f1069f515b7ddb495cd5286fe3
+last_prepared_execution_leaf: GR-REN-02-01X97
+last_prepared_execution_commit: 028463d7f3b43e530f8eef4cb3494064c5a6bd04
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
