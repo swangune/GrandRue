@@ -427,6 +427,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X130`: `PublicEnquiryRouteScopeAuthority.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Four bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.PublicGeneralEnquiryApiConfiguration`, `mainstreet.enquiry.delivery.PublicOpportunityEnquiryApiConfiguration`, `mainstreet.enquiry.delivery.PublicGeneralEnquirySubmission` and `mainstreet.enquiry.delivery.PublicOpportunityEnquirySubmission` received explicit `grandrue.enquiry.delivery.PublicEnquiryRouteScopeAuthority` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `ed2206645967ae106ca8806e70d5a1f8f58dc047`; owner input blob was `78a21a8247dc7f0d34cbaf952e2aded8b3021221`; consumer input blobs were `ff9180d3858f1be6bb2c6e74877c275921bddaf4`, `2039411981135871cc047e335c6e7a30844eede1`, `3f4f74dcaa1153437a92f25d47ecccbb02003cfa` and `b8613d7924dbbb6b939fb8f89bdcb6ba9314530b`; the GrandRue owner destination was absent at preflight. The moved owner became same-package with `PublicGeneralEnquiryContract`, so its explicit GrandRue import was removed. Existing server-owned public locator-to-Merchant-Scope establishment semantics were unchanged. Code commit `1fbab6ce3899355c087156fd6ceb98b5b777d415` contains exactly one owner rename/package replacement, four production consumer import additions and one same-package import removal.
 
+- `GR-REN-02-01X131`: `MerchantEnquiryApiConfiguration.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. No external production consumers were found. Current tests remain deferred to `GR-REN-03`. The prepared parent was `d2057fae293b725f5ffe464d1f590faf545b2698`; owner input blob was `865134a4fe2ff70599ebbb4fb7cd2f92681981b9`; the GrandRue owner destination was absent at preflight. The moved owner received one explicit transitional import for `mainstreet.enquiry.delivery.MerchantEnquiryQuery`, which remains in the legacy delivery package. Existing opt-in merchant Enquiry API composition semantics were unchanged. Code commit `8914921f2d0c3f5ecb69aa3de9591c60276ed65c` contains exactly one owner rename/package replacement and one transitional import addition.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -458,9 +460,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X130
-last_completed_task: GR-REN-02-01X130
-last_task_commit: 1fbab6ce3899355c087156fd6ceb98b5b777d415
+selected_execution_leaf: GR-REN-02-01X131
+last_completed_task: GR-REN-02-01X131
+last_task_commit: 8914921f2d0c3f5ecb69aa3de9591c60276ed65c
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -546,8 +548,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X130
-last_prepared_execution_commit: 1fbab6ce3899355c087156fd6ceb98b5b777d415
+last_prepared_execution_leaf: GR-REN-02-01X131
+last_prepared_execution_commit: 8914921f2d0c3f5ecb69aa3de9591c60276ed65c
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
