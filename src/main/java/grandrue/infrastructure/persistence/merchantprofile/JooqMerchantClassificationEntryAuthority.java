@@ -396,7 +396,7 @@ public final class JooqMerchantClassificationEntryAuthority
                         row.get("lifecycle", String.class)
                 ),
                 new MerchantClassificationEntryV1(
-                        mainstreet.merchantprofile.MerchantClassificationKind
+                        grandrue.merchantprofile.MerchantClassificationKind
                                 .valueOf(row.get(
                                         "classification_kind",
                                         String.class
