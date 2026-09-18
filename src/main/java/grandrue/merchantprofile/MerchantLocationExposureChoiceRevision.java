@@ -1,6 +1,5 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import grandrue.merchantprofile.MerchantLocationExposure;
 
 import grandrue.application.MerchantScope;
 

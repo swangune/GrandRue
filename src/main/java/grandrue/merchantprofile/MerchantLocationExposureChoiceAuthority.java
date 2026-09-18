@@ -2,8 +2,6 @@ package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 import grandrue.runtime.TrustedExecutionContext;
-import mainstreet.merchantprofile.MerchantLocationExposureChoiceRevision;
-import mainstreet.merchantprofile.SetMerchantLocationExposureChoiceCommand;
 
 import java.util.Optional;
 

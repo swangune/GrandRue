@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
 

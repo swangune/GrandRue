@@ -3,7 +3,7 @@ package grandrue.infrastructure.persistence.merchantprofile;
 import grandrue.application.MerchantScope;
 import grandrue.merchantprofile.MerchantProfileFailureCategory;
 import grandrue.merchantprofile.MerchantProfileMutationException;
-import mainstreet.merchantprofile.MerchantPublicDescriptor;
+import grandrue.merchantprofile.MerchantPublicDescriptor;
 import grandrue.merchantprofile.MerchantPublicDescriptorAuthority;
 import grandrue.merchantprofile.MerchantPublicDescriptorMutationCommand;
 import grandrue.merchantprofile.MerchantPublicDescriptorRevision;

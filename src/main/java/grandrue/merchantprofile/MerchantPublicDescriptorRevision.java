@@ -1,6 +1,5 @@
 package grandrue.merchantprofile;
 
-import mainstreet.merchantprofile.MerchantPublicDescriptor;
 
 import java.time.Instant;
 import java.util.Objects;
