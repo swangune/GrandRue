@@ -382,8 +382,8 @@ This section is the current operational pointer. It supersedes the adoption snap
 
 ```yaml
 coverage:
-  completed_leaf_records_through: GR-REN-02-01X342
-  completed_leaf_count: 365
+  completed_leaf_records_through: GR-REN-02-01X355
+  completed_leaf_count: 378
   remaining_expansion_node: GR-REN-02-01X+
   remaining_enumeration: INCOMPLETE
   unclassified: UNKNOWN_UNTIL_ENUMERATION
@@ -395,8 +395,8 @@ numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
-last_completed_leaf: GR-REN-02-01X342
-last_code_commit: 2d1a42157dd2c3edbf76f945f974d0cdf654067c
+last_completed_leaf: GR-REN-02-01X355
+last_code_commit: 2b86fcb13dc0f1f34c18a4395b5752689c1879c4
 next_action: Analyse one natural migration region once, compute the complete in-scope production dependency graph, isolate exception nodes, and freeze the largest mechanically provable dependency-closed normal subgraph. Execute the READY subgraph as one code+manifest transaction, verify the aggregate boundary and mechanically derived leaf evidence, then publish one combined ledger/work-pointer checkpoint.
 ```
 

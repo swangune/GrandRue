@@ -270,6 +270,7 @@ State: `OPEN`
 | `GR-REN-02-01X296` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingPromptRegistry.java`; no external production consumers | `6010bbfde05c194951280ecfcb737f092a2ddffc` |
 | `GR-REN-02-01X297` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingSubmissionReadinessEvaluator.java` + one bounded persistence consumer | `6010bbfde05c194951280ecfcb737f092a2ddffc` |
 | `GR-REN-02-01X298..X342` | `COMPLETE_PENDING_FINAL_VERIFICATION` | publication closed normal subgraph: 45 production owners + 10 proven production consumers; per-owner audit coordinates retained in T014 manifest | `2d1a42157dd2c3edbf76f945f974d0cdf654067c` |
+| `GR-REN-02-01X343..X355` | `COMPLETE_PENDING_FINAL_VERIFICATION` | semantic/event closed normal subgraph: 13 production owners + 10 proven production consumers; per-owner audit coordinates retained in T015 manifest | `2b86fcb13dc0f1f34c18a4395b5752689c1879c4` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | aggregate production namespace closure/residual gate; validate current final state by closed region, not by replaying completed leaves | pending |
@@ -805,6 +806,9 @@ State: `OPEN`
 
 - `GR-REN-02-T014` / `GR-REN-02-01X298..X342`: migrated the complete live `src/main/java/mainstreet/publication/**` region as one dependency-closed normal subgraph. The frozen manifest contains all 45 stable leaf/audit coordinates, source blobs and destinations plus the exact 10-file production-consumer closure. Aggregate verification proved exactly 56 changed paths: 45 true owner renames, 10 consumer repairs and the manifest. Owner changes were package/import-only; external consumer changes were import-only except one explicitly frozen FQCN repair in `PublicOpportunityEnquirySubmission` from `mainstreet.publication.OpportunityEnquiryParticipationDefinition` to the GrandRue owner. No legacy publication owner remains and all 10 consumers contain zero `mainstreet.publication` references. The initial unattached prepared commit `24d681fd2197a66686c134b70f586374a99a36a3` was invalidated by intervening documentation-only branch movement; comparison proved no overlap with the publication write set, so the exact prepared code was re-parented without force onto live documentation parent `2feb6100ab5046421fad277ae7855a8ff5e49837`. No semantic behaviour, comments/string literals, schema/runtime-data identity, applied Flyway content, stable `MS-*` identity, test namespace or legacy prototype owner changed. Code: `2d1a42157dd2c3edbf76f945f974d0cdf654067c`.
 
+
+- `GR-REN-02-T015` / `GR-REN-02-01X343..X355`: migrated the complete live `src/main/java/mainstreet/semantic/event/**` region as one dependency-closed normal subgraph. The frozen manifest contains all 13 stable leaf/audit coordinates, source blobs and destinations plus the exact 10-file production-consumer closure. Aggregate verification proved exactly 24 changed paths: 13 true owner renames, 10 consumer import repairs and the manifest. Every Java delta was package/import-only. Structural verification confirmed no legacy semantic/event owner remains and all 10 consumers contain zero `mainstreet.semantic.event` references. No package-private, FQCN, persisted-identity, semantic, authority or prototype exception was identified. Applied Flyway content, stable `MS-*` identities, persisted event/reaction identifiers, test namespace and prototype owners were unchanged. Code: `2b86fcb13dc0f1f34c18a4395b5752689c1879c4`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -839,9 +843,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X342
-last_completed_task: GR-REN-02-01X342
-last_task_commit: 2d1a42157dd2c3edbf76f945f974d0cdf654067c
+selected_execution_leaf: GR-REN-02-01X355
+last_completed_task: GR-REN-02-01X355
+last_task_commit: 2b86fcb13dc0f1f34c18a4395b5752689c1879c4
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -960,8 +964,8 @@ numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X342
-last_prepared_execution_commit: 2d1a42157dd2c3edbf76f945f974d0cdf654067c
+last_prepared_execution_leaf: GR-REN-02-01X355
+last_prepared_execution_commit: 2b86fcb13dc0f1f34c18a4395b5752689c1879c4
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
