@@ -3,7 +3,6 @@ package grandrue.runtime;
 import grandrue.application.MerchantScope;
 import grandrue.merchantaccount.MerchantControllerRelationship;
 import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
-import mainstreet.runtime.ExecutionPrincipal;
 
 import java.util.Objects;
 import java.util.Optional;

@@ -2,7 +2,7 @@ package grandrue.workforce;
 
 import grandrue.application.MerchantScope;
 import grandrue.runtime.ActorAuthorisationAuthority;
-import mainstreet.runtime.ExecutionPrincipal;
+import grandrue.runtime.ExecutionPrincipal;
 import mainstreet.semantic.Privilege;
 
 import java.time.Clock;

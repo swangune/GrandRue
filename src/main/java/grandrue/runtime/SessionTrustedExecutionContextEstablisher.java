@@ -1,6 +1,5 @@
 package grandrue.runtime;
 
-import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.TrustedExecutionContext;
 
 import grandrue.runtime.AuthenticationFailureCategory;

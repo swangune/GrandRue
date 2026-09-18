@@ -2,7 +2,7 @@ package grandrue.workforce;
 
 import grandrue.application.MerchantScope;
 import grandrue.application.TrustedDeviceApplicationContext;
-import mainstreet.runtime.ExecutionPrincipal;
+import grandrue.runtime.ExecutionPrincipal;
 
 import java.time.Clock;
 import java.time.Instant;

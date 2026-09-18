@@ -1,7 +1,7 @@
 package mainstreet.surface;
 
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.ExecutionPrincipal;
+import grandrue.runtime.ExecutionPrincipal;
 
 import java.util.Objects;
 

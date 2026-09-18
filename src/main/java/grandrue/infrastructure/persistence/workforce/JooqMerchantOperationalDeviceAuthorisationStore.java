@@ -3,7 +3,7 @@ package grandrue.infrastructure.persistence.workforce;
 import grandrue.application.MerchantScope;
 import grandrue.application.TrustedDeviceApplicationContext;
 import grandrue.runtime.AuthorizationException;
-import mainstreet.runtime.ExecutionPrincipal;
+import grandrue.runtime.ExecutionPrincipal;
 import grandrue.workforce.MerchantOperationalDeviceAuthorisation;
 import grandrue.workforce.MerchantOperationalDeviceAuthorisationLifecycle;
 import grandrue.workforce.MerchantOperationalDeviceAuthorisationStore;

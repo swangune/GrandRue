@@ -4,7 +4,6 @@ import grandrue.application.MerchantScope;
 import grandrue.background.BackgroundWorkContractDefinition;
 import grandrue.background.BackgroundWorkContractIdentity;
 
-import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.TrustedExecutionContext;
 
 import java.util.Map;

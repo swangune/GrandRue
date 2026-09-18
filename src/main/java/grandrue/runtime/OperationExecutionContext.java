@@ -1,7 +1,6 @@
 package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
-import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.semantic.executable.ApplicableOperation;
 
 import java.util.Objects;

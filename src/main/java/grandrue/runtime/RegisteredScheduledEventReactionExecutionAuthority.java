@@ -3,7 +3,6 @@ package grandrue.runtime;
 import grandrue.application.MerchantScope;
 import mainstreet.semantic.event.EventReactionContractDefinition;
 import mainstreet.semantic.event.EventReactionContractIdentity;
-import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.TrustedExecutionContext;
 
 import java.util.Map;
