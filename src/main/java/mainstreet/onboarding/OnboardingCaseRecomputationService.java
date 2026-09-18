@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingAnswerMutationResult;
+import grandrue.onboarding.OnboardingCaseEvidenceSnapshot;
 import grandrue.onboarding.OnboardingCaseRevision;
 import grandrue.onboarding.OnboardingCaseIdentity;
 import grandrue.onboarding.OnboardingAnswerRecomputationResult;

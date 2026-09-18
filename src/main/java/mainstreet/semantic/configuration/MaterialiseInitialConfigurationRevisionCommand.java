@@ -1,6 +1,6 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.onboarding.InitialConfigurationIntentIdentity;
+import grandrue.onboarding.InitialConfigurationIntentIdentity;
 import grandrue.onboarding.OnboardingCaseRevision;
 
 import java.time.Instant;

@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingCase;
 import grandrue.onboarding.OnboardingCaseRevision;
 import grandrue.onboarding.OnboardingCaseIdentity;
 import grandrue.onboarding.OnboardingSubmissionReadiness;

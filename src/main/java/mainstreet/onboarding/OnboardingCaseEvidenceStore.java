@@ -1,5 +1,12 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.AcknowledgeInitialConfigurationIntentCommand;
+import grandrue.onboarding.StartInitialOnboardingCaseCommand;
+import grandrue.onboarding.OnboardingAnswerEvidenceRevision;
+import grandrue.onboarding.OnboardingCase;
+import grandrue.onboarding.OnboardingAnswerMutationResult;
+import grandrue.onboarding.OnboardingCaseEvidenceSnapshot;
+import grandrue.onboarding.InitialConfigurationIntentIdentity;
 import grandrue.onboarding.OnboardingQuestionIdentity;
 import grandrue.onboarding.OnboardingCaseRevision;
 import grandrue.onboarding.OnboardingCaseIdentity;

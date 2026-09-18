@@ -1,7 +1,7 @@
 package mainstreet.semantic.configuration;
 
 import grandrue.application.MerchantScope;
-import mainstreet.onboarding.InitialConfigurationIntentIdentity;
+import grandrue.onboarding.InitialConfigurationIntentIdentity;
 
 import java.util.Optional;
 

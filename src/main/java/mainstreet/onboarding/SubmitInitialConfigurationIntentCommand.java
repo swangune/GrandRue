@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.InitialConfigurationIntentIdentity;
 import grandrue.onboarding.OnboardingCaseRevision;
 import java.time.Instant;
 import java.util.Objects;

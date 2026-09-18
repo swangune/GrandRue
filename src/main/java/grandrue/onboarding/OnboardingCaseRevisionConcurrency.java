@@ -1,7 +1,7 @@
 package grandrue.onboarding;
 
 import grandrue.onboarding.OnboardingCaseRevision;
-import mainstreet.onboarding.OnboardingCase;
+import grandrue.onboarding.OnboardingCase;
 import grandrue.onboarding.OnboardingCaseRevisionConflictException;
 import java.util.Objects;
 

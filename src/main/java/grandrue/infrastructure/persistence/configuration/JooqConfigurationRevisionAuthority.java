@@ -2,9 +2,9 @@ package grandrue.infrastructure.persistence.configuration;
 
 import grandrue.application.MerchantScope;
 import grandrue.fulfilment.FulfilmentBindingSetRevisionReference;
-import mainstreet.onboarding.AcknowledgeInitialConfigurationIntentCommand;
+import grandrue.onboarding.AcknowledgeInitialConfigurationIntentCommand;
 import mainstreet.onboarding.InitialConfigurationIntent;
-import mainstreet.onboarding.InitialConfigurationIntentIdentity;
+import grandrue.onboarding.InitialConfigurationIntentIdentity;
 import mainstreet.onboarding.OnboardingCaseEvidenceStore;
 import grandrue.onboarding.OnboardingCaseIdentity;
 import grandrue.onboarding.OnboardingCaseRevision;

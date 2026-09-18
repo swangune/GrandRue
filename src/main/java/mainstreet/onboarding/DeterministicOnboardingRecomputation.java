@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingAnswerEvidenceRevision;
+import grandrue.onboarding.OnboardingCase;
 import grandrue.onboarding.OnboardingPromptKey;
 import grandrue.onboarding.OnboardingSemanticSeed;
 import java.util.ArrayList;

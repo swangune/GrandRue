@@ -2,9 +2,9 @@ package grandrue.onboarding;
 
 import mainstreet.onboarding.OnboardingFinalReview;
 import mainstreet.onboarding.OnboardingRecomputation;
-import mainstreet.onboarding.OnboardingCase;
+import grandrue.onboarding.OnboardingCase;
 import grandrue.onboarding.OnboardingCaseReview;
-import mainstreet.onboarding.OnboardingAnswerEvidenceRevision;
+import grandrue.onboarding.OnboardingAnswerEvidenceRevision;
 import mainstreet.onboarding.OnboardingPromptDefinition;
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /** Stable identity of one immutable Initial Configuration Intent. */
 public record InitialConfigurationIntentIdentity(String value) {

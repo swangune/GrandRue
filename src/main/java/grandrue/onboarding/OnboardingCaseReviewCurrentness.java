@@ -1,6 +1,6 @@
 package grandrue.onboarding;
 
-import mainstreet.onboarding.OnboardingCase;
+import grandrue.onboarding.OnboardingCase;
 import grandrue.onboarding.OnboardingCaseReview;
 import java.util.Objects;
 
