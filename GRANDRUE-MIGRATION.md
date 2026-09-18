@@ -266,6 +266,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X63`: `ConfigurationActivationApplicationService.java` moved from `mainstreet.application` to `grandrue.application`. No production consumers were found; current tests remain deferred to `GR-REN-03`. The prepared parent was `e07b08a7172a0be9a61a2ae170111b3874db84eb`; owner input blob was `de75456216b57dd1728ee22d4e24f8f94354a34f`; the GrandRue owner destination was absent at preflight. Existing trusted execution-context binding, lost-acknowledgement reconciliation, Configuration release lookup, authorisation rejection and activation semantics were unchanged. Code commit `67f5c2a39e3c22480ceb06c2afef2157d89d4d7e` contains exactly one owner rename with only the package declaration replacement.
 
+- `GR-REN-02-01X64`: `ConfigurationImpactReviewApplicationService.java` moved from `mainstreet.application` to `grandrue.application`. No production consumers were found; current tests remain deferred to `GR-REN-03`. The prepared parent was `2f5ad397f3160fb37bbf6d581038f80f84cfa9f2`; owner input blob was `2e5a421e08c6c1545bc2cca9b09190ddd5651995`; the GrandRue owner destination was absent at preflight. Existing cross-capability Configuration impact-review composition, owner registrations, fail-closed policy handling, exact revision/package/validation affinity checks and recorded review semantics were unchanged. Code commit `87ec0cd791febaa7a75c2b80e28c7baa2c8b172f` contains exactly one owner rename with only the package declaration replacement.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -297,9 +299,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X63
-last_completed_task: GR-REN-02-01X63
-last_task_commit: 67f5c2a39e3c22480ceb06c2afef2157d89d4d7e
+selected_execution_leaf: GR-REN-02-01X64
+last_completed_task: GR-REN-02-01X64
+last_task_commit: 87ec0cd791febaa7a75c2b80e28c7baa2c8b172f
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -385,8 +387,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X63
-last_prepared_execution_commit: 67f5c2a39e3c22480ceb06c2afef2157d89d4d7e
+last_prepared_execution_leaf: GR-REN-02-01X64
+last_prepared_execution_commit: 87ec0cd791febaa7a75c2b80e28c7baa2c8b172f
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
