@@ -12,6 +12,7 @@ If this file conflicts with accepted repository authority, the accepted authorit
 - The applicable accepted authority determines **what** the substantive meaning is.
 - `designs/IMPLEMENTATION-RULES.md` determines **how** accepted authority is implemented.
 - `designs/authorities/programme/MS-IMP-001/MS-IMP-001.md` plus its current accepted composition governs the macro implementation programme when applicable.
+- `/IMPLEMENTATION.md` is a non-authoritative live execution controller; it may accelerate resumability but MUST be checked against the canonical graph/status/evidence and cannot create implementation permission or semantic meaning.
 - Tests, production code, implementation evidence, conversation memory, agent judgement, framework behaviour, and this file are not semantic authority.
 
 Never fill a material semantic gap from plausibility, convention, adjacent code, or remembered context.
@@ -39,7 +40,7 @@ Inspect the bounded current code/tests/evidence. Resolve governing authority whe
 
 ### B — Accepted-authority implementation
 
-Resolve the implementation target/node and applicable programme state; use `AUTHORITY-INDEX.md` to resolve the governing semantic/architecture authority; read the exact accepted constituent provisions, relevant evidence, affected code, and tests; then follow `IMPLEMENTATION-RULES.md`.
+Resolve the implementation target/node and applicable programme state; inspect `/IMPLEMENTATION.md` when present as the resumable operational pointer and verify it against the canonical graph/status/evidence; use `AUTHORITY-INDEX.md` to resolve the governing semantic/architecture authority; read the exact accepted constituent provisions, relevant evidence, affected code, and tests; then follow `IMPLEMENTATION-RULES.md`.
 
 ### C — Cross-capability / cross-boundary implementation
 

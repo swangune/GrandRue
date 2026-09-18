@@ -838,7 +838,7 @@ last_task_commit: 6010bbfde05c194951280ecfcb737f092a2ddffc
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-next_action: Prepare the next dependency-bounded transactional tranche under GR-REN-02-01X+ from live production dependency evidence. Target 8 independently closed leaves by default and never exceed 15. Preserve per-leaf owner/consumer/blob/move/replacement/protected-identity/verification evidence in the active tranche manifest. Attach production mutation only as one fresh tranche code commit containing that manifest, then publish one combined ledger/work-pointer checkpoint commit after structural verification. Do not select legacy prototype paths as migration owners; prototype consumers may receive only minimal dependency-repair edits required by the section 1 exclusion. Keep other in-scope test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
+next_action: Prepare the next dependency-closed normal subgraph under GR-REN-02-01X+ from one live production dependency analysis. Select the largest mechanically provable closed region bounded by natural dependency cuts, not by an arbitrary leaf count. Classify unresolved/compatibility-sensitive nodes as exceptions and keep them outside the normal subgraph until separately resolved. Preserve leaf IDs as audit coordinates, freeze exact owner/consumer/blob/transformation/protected-identity evidence in the active tranche manifest, attach one fresh code+manifest commit, structurally verify the aggregate closed subgraph, then publish one combined ledger/work-pointer checkpoint. Do not select legacy prototype paths as migration owners; prototype consumers may receive only minimal dependency-repair edits required by the section 1 exclusion. Keep other in-scope test namespace changes for GR-REN-03. The stray branch cleanup is deferred and non-blocking. Do not run Maven tests or GitHub Actions.
 ```
 
 ---
@@ -848,10 +848,10 @@ next_action: Prepare the next dependency-bounded transactional tranche under GR-
 1. inspect `AGENTS.md`, this ledger, `docs/development/grandrue-migration-work.md` and the active tranche manifest;
 2. inspect current `development` HEAD and reconcile it against the checkpoint;
 3. if the manifest state is `CODE_COMMITTED`, verify/reconcile that tranche and finish its checkpoint before preparing another tranche;
-4. otherwise enumerate live production dependencies and prepare a dependency-bounded tranche, targeting 8 independently closed leaves by default and never exceeding 15;
-5. freeze each leaf's owner, consumers, input blobs, moves, exact edits, protected identities, expected residuals and structural checks in the manifest;
-6. execute only a fresh `READY` tranche as one atomic code commit containing both the manifest and all declared production changes; apply only minimal dependency-repair edits to excluded prototype consumers when an in-scope owner move requires them;
-7. structurally verify the aggregate tranche diff and every constituent leaf: changed-path closure, destination presence, legacy-owner absence, exact imports/FQCN repairs, protected identities and expected residuals;
+4. otherwise perform one live dependency analysis for a natural migration region, classify normal versus exceptional nodes, and freeze the largest mechanically provable dependency-closed normal subgraph;
+5. freeze the subgraph boundary, all owner/consumer input blobs, exact bulk transformation rules, per-owner evidence coordinates, protected identities, expected residuals and structural checks in the manifest;
+6. execute only a fresh `READY` closed-subgraph tranche as one atomic code commit containing both the manifest and all declared production changes; apply only minimal dependency-repair edits to excluded prototype consumers when an in-scope owner move requires them;
+7. structurally verify the aggregate closed-subgraph diff first, then confirm mechanically derived per-owner/leaf evidence: exact changed-path closure, destination presence, legacy-owner absence, exact imports/FQCN repairs, protected identities and expected residuals;
 8. after successful verification, publish one combined checkpoint commit updating this ledger, the subordinate work pointer and manifest state to `COMPLETE`;
 9. preserve the frozen action map and protected identities, and keep `__invalid_should_not_create` isolated until manually removed.
 
@@ -946,9 +946,10 @@ This changes transaction granularity only. It does **not** weaken source-blob fr
 prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
-execution_mode: TRANSACTIONAL_TRANCHE
-tranche_target_leaf_count: 8
-tranche_max_leaf_count: 15
+execution_mode: CLOSED_SUBGRAPH_TRANCHE
+selection_unit: DEPENDENCY_CLOSED_NORMAL_SUBGRAPH
+leaf_role: AUDIT_COORDINATE_NOT_EXECUTION_UNIT
+numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
@@ -957,5 +958,88 @@ last_prepared_execution_commit: 6010bbfde05c194951280ecfcb737f092a2ddffc
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
-next_procedural_action: Prepare the next dependency-bounded transactional tranche from current live production evidence, targeting 8 independently closed consecutive leaves by default and never exceeding 15. Freeze per-leaf evidence in the active tranche manifest, establish freshness against one exact parent, attach one atomic code+manifest commit only when READY, verify every leaf and the aggregate diff, then publish one combined ledger/work-pointer checkpoint. Exclude legacy prototype owners under section 1; permit only minimal dependency-repair edits in prototype consumers when an in-scope owner move requires them. Keep other in-scope test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
+next_procedural_action: Analyse one natural migration region once, compute its complete in-scope production owner/consumer graph, isolate exception nodes, and freeze the largest deterministic dependency-closed normal subgraph. Execute that subgraph as one READY code+manifest transaction, verify the aggregate boundary and mechanically derived leaf evidence, then publish one combined ledger/work-pointer checkpoint. Leaf IDs remain traceability coordinates and must not force separate reasoning cycles. Partition only at natural graph cuts, exception boundaries, freshness/integrity limits or a boundary too large to prove exactly. Exclude legacy prototype owners under section 1; permit only minimal dependency-repair edits in prototype consumers when an in-scope owner move requires them. Keep other in-scope test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
 ```
+
+
+---
+
+## 8. Closed-Subgraph Efficiency Protocol — effective after `GR-REN-02-T012`
+
+This section prospectively supersedes the numeric 8-leaf target / 15-leaf maximum and any implication that future migration reasoning must occur independently leaf-by-leaf. Historical tranche and leaf evidence remains unchanged.
+
+### Execution unit
+
+The future execution unit is a **dependency-closed normal subgraph** selected from one natural migration region.
+
+```text
+one live dependency analysis
+        ↓
+complete owner + in-scope production-consumer graph
+        ↓
+classify nodes/edges
+   NORMAL        EXCEPTION
+      │              │
+      │              └── isolate for separate reasoning/resolution
+      ↓
+largest mechanically provable closed normal subgraph
+      ↓
+one frozen manifest
+      ↓
+one bulk deterministic transformation
+      ↓
+aggregate structural verification
+      ↓
+leaf-level evidence retained/derived for audit
+      ↓
+one code commit + one combined checkpoint
+```
+
+### Leaf role
+
+`GR-REN-02-01X<n>` identities remain stable **audit/evidence coordinates**. They do not require independent discovery, preparation, reasoning, verification or commit cycles when multiple leaves are proved normal inside the same closed subgraph.
+
+A normal leaf is one whose migration is completely determined by the frozen namespace/path/import transformation and whose dependency/compatibility boundary is already closed by the tranche analysis.
+
+### Normal versus exception classification
+
+A candidate belongs in the normal subgraph only when all required effects are mechanically enumerable and no unresolved judgement remains.
+
+Exception examples include:
+
+- protected or compatibility-sensitive external/persisted identity;
+- schema/runtime-data or applied-migration consequence;
+- unresolved package-private/visibility closure;
+- ambiguous owner/consumer relationship;
+- semantic, architectural, security/trust or protocol consequence;
+- legacy-prototype interaction beyond the expressly permitted dependency repair; or
+- any `AGENTS.md` widening/`DESIGN_ESCALATION` trigger.
+
+Exceptions are removed from the normal subgraph and handled separately. They MUST NOT force unrelated normal nodes back to leaf-by-leaf reasoning.
+
+### Size and partition rule
+
+There is no arbitrary numeric leaf target or maximum for future closed-subgraph tranches.
+
+A tranche SHOULD be as large as the dependency-closed, deterministic boundary that can be frozen and proved exactly. Partition only when required by:
+
+- a natural dependency/ownership graph cut;
+- an exception boundary;
+- freshness or input-integrity constraints;
+- atomic write/connector limitations; or
+- a boundary whose exact manifest/diff cannot be reviewed and verified reliably.
+
+File count by itself is not a partition criterion.
+
+### Verification rule
+
+Verification is **aggregate-first**:
+
+1. exact changed-path set equals the frozen subgraph manifest;
+2. every declared destination exists and every migrated legacy owner is absent;
+3. all production consumers in the frozen closure resolve the migrated owner;
+4. protected identities and expected residuals are unchanged;
+5. no undeclared production dependency/reference remains inside the analysed region; and
+6. leaf-level evidence is retained or mechanically derived from the manifest/diff for traceability.
+
+This protocol changes reasoning/execution granularity only. All preservation, no-force-update, prototype exclusion, test deferral and final migration gates remain unchanged.

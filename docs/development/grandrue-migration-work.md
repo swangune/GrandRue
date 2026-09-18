@@ -388,15 +388,147 @@ coverage:
   remaining_enumeration: INCOMPLETE
   unclassified: UNKNOWN_UNTIL_ENUMERATION
 
-execution_mode: TRANSACTIONAL_TRANCHE
-tranche_target_leaf_count: 8
-tranche_max_leaf_count: 15
+execution_mode: CLOSED_SUBGRAPH_TRANCHE
+selection_unit: DEPENDENCY_CLOSED_NORMAL_SUBGRAPH
+leaf_role: AUDIT_COORDINATE_NOT_EXECUTION_UNIT
+numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
 last_completed_leaf: GR-REN-02-01X297
 last_code_commit: 6010bbfde05c194951280ecfcb737f092a2ddffc
-next_action: Prepare the next dependency-bounded transactional tranche from current live production evidence, targeting 8 independently closed consecutive leaves by default and never exceeding 15. Attach one atomic code+manifest commit only after freshness succeeds, then publish one combined ledger/work-pointer checkpoint after structural verification.
+next_action: Analyse one natural migration region once, compute the complete in-scope production dependency graph, isolate exception nodes, and freeze the largest mechanically provable dependency-closed normal subgraph. Execute the READY subgraph as one code+manifest transaction, verify the aggregate boundary and mechanically derived leaf evidence, then publish one combined ledger/work-pointer checkpoint.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
+
+
+---
+
+## 13. Closed-subgraph execution supersession — effective after `GR-REN-02-T012`
+
+This section controls future preparation/execution where earlier sections prescribe numeric tranche sizing or independent per-leaf preparation. Earlier sections remain historical protocol evidence.
+
+### 13.1 Efficiency objective
+
+Future migration work SHALL minimise **reasoning boundaries**, not merely Git commits.
+
+Canonical:
+
+```text
+leaf-level traceability
++
+subgraph-level discovery
++
+subgraph-level preparation
++
+subgraph-level execution
++
+aggregate-first verification
++
+exception-only deep reasoning
+```
+
+Batch committing independently reasoned leaves is insufficient optimisation.
+
+### 13.2 Region analysis
+
+Preparation selects a natural live migration region (for example a remaining package/domain cluster) and performs one dependency analysis across that region.
+
+It MUST establish:
+
+- all remaining in-scope legacy owners in the analysed region;
+- all in-scope production consumers/edges required for those owners;
+- package-private/visibility coupling;
+- protected identities and expected residuals;
+- excluded legacy-prototype interactions; and
+- any compatibility/semantic/security/persistence exception.
+
+Each discovered owner receives one disposition:
+
+```text
+NORMAL_CLOSED
+EXCEPTION_REQUIRES_REASONING
+DEFERRED_TO_NAMED_GROUP
+EXCLUDED_WITH_REASON
+ALREADY_COMPLETE
+```
+
+### 13.3 Closed normal subgraph
+
+The executable tranche is the largest subset of `NORMAL_CLOSED` owners whose required in-scope production consumer closure can be frozen exactly under one deterministic transformation plan.
+
+No arbitrary leaf count governs tranche size.
+
+Partition only at natural graph cuts, exception boundaries, freshness/integrity constraints, connector/atomicity limits, or when exact review/verification would otherwise become unreliable.
+
+### 13.4 Leaf evidence without leaf workflow
+
+Stable `GR-REN-02-01X<n>` IDs remain required for auditability.
+
+For normal owners, preparation MAY generate their evidence records from the single region/subgraph analysis. Execution and verification MUST NOT repeat repository discovery merely to satisfy each leaf identity.
+
+The manifest SHALL retain enough owner-level data to prove, per audit coordinate:
+
+- source/destination;
+- source blob;
+- relevant production consumers;
+- permitted transformation;
+- protected identities/residuals; and
+- resulting code commit.
+
+### 13.5 Exception isolation
+
+An exception node is excluded from the current normal subgraph. Preparation records why and continues with independent normal work when dependency closure permits.
+
+An exception MUST be reasoned separately when it involves unresolved compatibility, identity, persistence/schema/runtime-data, semantic/architecture/security/trust, visibility/ownership or accepted-authority questions.
+
+An exception MUST NOT cause unrelated deterministic owners to fall back to leaf-by-leaf processing.
+
+### 13.6 Aggregate-first verification
+
+Verification first proves the frozen closed-subgraph transaction as a whole:
+
+```text
+actual changed paths == manifest changed paths
++
+all declared destinations present
++
+all migrated legacy owners absent
++
+all frozen production consumers repaired
++
+no undeclared reference remains in analysed closure
++
+protected identities preserved
++
+expected residuals exactly classified
+```
+
+Owner/leaf evidence is then checked or mechanically derived from that proved aggregate.
+
+### 13.7 Manifest evolution
+
+The next prepared active manifest SHOULD use:
+
+```yaml
+execution_mode: CLOSED_SUBGRAPH_TRANCHE
+region:
+  identity: <natural region>
+  closure_basis: <dependency/ownership boundary>
+classification:
+  normal_closed: [...]
+  exceptions: [...]
+subgraph:
+  owners: [...]
+  production_consumer_closure: [...]
+  deterministic_transformations: [...]
+  permitted_changed_paths: [...]
+verification:
+  aggregate_changed_path_set: exact
+  owner_evidence: required
+```
+
+The exact manifest may retain the existing `leaves:` records for compatibility, but those records are evidence coordinates rather than independent execution instructions.
+
+All existing freshness, preservation, linear-lineage, no-force-update, prototype-exclusion and test-claim restrictions remain applicable.
