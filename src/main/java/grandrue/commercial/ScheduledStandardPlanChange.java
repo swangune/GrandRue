@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 import grandrue.commercial.StandardPlanChangePolicy;
 import grandrue.commercial.StandardPlanChangeTiming;
