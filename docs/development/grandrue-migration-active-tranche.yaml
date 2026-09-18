@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T005
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 1bdb271e623818cc96c3d4a72057da3af8f6ce15
 expected_parent: 3da783c4af295d2246faffc721f4bb5136f4b8a4
+validated_head: 1bdb271e623818cc96c3d4a72057da3af8f6ce15
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-money
@@ -79,3 +82,6 @@ preparation_notes:
   - thirteen executable legacy production imports are fully classified for deterministic replacement
   - two Main Street Payment literals are deliberately preserved rather than conflated with namespace migration
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
