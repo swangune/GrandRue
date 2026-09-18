@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 import mainstreet.surface.ExposureCandidateObservation;
 import mainstreet.surface.ProjectionMaterialFragment;

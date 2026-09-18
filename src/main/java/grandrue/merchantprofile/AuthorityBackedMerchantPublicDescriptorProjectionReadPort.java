@@ -1,7 +1,7 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import grandrue.merchantprofile.MerchantPublicDescriptorAuthority;
-import grandrue.merchantprofile.MerchantPublicDescriptorProjectionReadPort;
+import mainstreet.merchantprofile.MerchantPublicDescriptor;
+
 
 import grandrue.application.MerchantScope;
 import mainstreet.surface.ExposableElementReference;

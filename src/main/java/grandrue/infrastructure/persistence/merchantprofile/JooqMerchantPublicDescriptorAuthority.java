@@ -6,7 +6,7 @@ import grandrue.merchantprofile.MerchantProfileMutationException;
 import mainstreet.merchantprofile.MerchantPublicDescriptor;
 import grandrue.merchantprofile.MerchantPublicDescriptorAuthority;
 import grandrue.merchantprofile.MerchantPublicDescriptorMutationCommand;
-import mainstreet.merchantprofile.MerchantPublicDescriptorRevision;
+import grandrue.merchantprofile.MerchantPublicDescriptorRevision;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

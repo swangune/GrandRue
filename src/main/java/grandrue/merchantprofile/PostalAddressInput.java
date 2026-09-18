@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 import java.util.List;
 import java.util.Objects;
