@@ -541,6 +541,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X187`: `ExecutionPrincipal.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Twenty bounded production consumers were updated atomically. GrandRue runtime consumers `ScopedExecutionPrincipalResolver`, `OperationExecutionGuard`, `OperationExecutionContext`, `ActorAuthorisationAuthority`, `MerchantControllerScopedExecutionPrincipalResolver`, `PrivilegeOperationExecutionGuard`, `ExecutableSupportOperationExecutionGuard`, `SessionTrustedExecutionContextEstablisher`, `RegisteredScheduledEventReactionExecutionAuthority`, `RegisteredScheduledBackgroundWorkExecutionAuthority`, `ScopedOperationDispatcher` and `CommercialEntitlementOperationExecutionGuard` dropped their transitional legacy principal imports because the record is now in the same GrandRue package. `mainstreet.runtime.TrustedExecutionContext` received an explicit `grandrue.runtime.ExecutionPrincipal` import. `mainstreet.surface.MerchantSurfaceResolutionContext`, `grandrue.application.TrustedPlatformExecutionContext`, `grandrue.workforce.MerchantOperationalDeviceAuthoriser`, `grandrue.workforce.WorkforceActorAuthorisationAuthority`, `grandrue.workforce.MerchantOperationalDeviceAuthorisationStore`, `grandrue.enquiry.EnquiryMerchantExposureRequirementEvaluator` and `grandrue.infrastructure.persistence.workforce.JooqMerchantOperationalDeviceAuthorisationStore` now import `grandrue.runtime.ExecutionPrincipal`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `4ec072395e52ae7cf68132463b510b5238356422`; the owner input blob was `436db4d6ac5588aaaef0c48e77754d595c9cdc37`; the GrandRue owner destination was absent at preflight. Consumer input blobs, in the declared consumer order above, were `915797e1d1560972b0e140b1933604f0ee7bdf74`, `cd421d9a918dd206ce7962b2551c8e75992663a3`, `f263d2e5c2fcd4dfcd3a2cebe48ac97755e56110`, `288e4c53b34751575a4c28cbeb01e5621f6b1a25`, `5f281a79a839ea60ffbfaf2c2ec6a76cdba41ed8`, `1c3803d60df0d71d143d6dfbf9594f0de0fd4ef3`, `c2875b366e9699b051883deca2a5e86cc29abdc1`, `6e2ca580a62bf58e9529d2ffe101b884da82c478`, `b0a3901cfce90a7705f835e3201b9bfc61299352`, `c20959587c34537938fef231df5dc2367b15da9f`, `01cb9000cfc8419583dbfc62a59a3bc50f389871`, `64e47af1721f021e54df5024e236d857ceb77279`, `36d134d85f2238d431ffc64b68949f9496042774`, `288a40927aeff0cf67ce149b48912c7add1ef2c8`, `8139ca949738b332a2f1d9c91c0dee6952f76f17`, `d031f629b4f6fa190ca8b9a439d60719f7d2a335`, `90a29853a38212a4ecaa127ff3466890b4c0dfda`, `ab31985c3c5b8ff4050cd66439aa9491b4f59715`, `de1a172e0f77f59d99d1ecc59944aa80b3c4eae3` and `d321af8f4f8695c3933643dfa853c9dd331c4df2`. Existing identity-only execution-principal semantics were unchanged. Code commit `6b1d98cb2440fb094a749158316bdc55f88bfd8b` contains exactly one owner rename/package replacement, twelve redundant legacy import removals, one production consumer import addition and seven production consumer import replacements.
 
+- `GR-REN-02-01X188`: `TrustedExecutionContext.java` moved from `mainstreet.runtime` to `grandrue.runtime`, completing removal of production owners from `src/main/java/mainstreet/runtime/**`. Forty-eight bounded production consumers were updated atomically from current live-tree evidence: seven already-migrated `grandrue.runtime` consumers dropped transitional legacy imports because the context is now same-package; thirty-eight explicit legacy imports across application, business-hours, persistence, merchant-profile, semantic-configuration and surface code were replaced with `grandrue.runtime.TrustedExecutionContext`; and three consumers retaining unrelated `mainstreet.runtime.*` wildcard dependencies received explicit GrandRue context imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `7cf7f9496f1ae84099f4f982f745883e82ec08db`; the owner input blob was `d837e870c75557559ce76941ccb802631d50e3f2`; all forty-eight consumer input blobs were revalidated against the prepared parent before branch mutation; the GrandRue owner destination was absent at preflight. Existing trusted Merchant Scope, execution-principal, authentication-provenance and trusted-device/application context semantics were unchanged. Code commit `1a0d81f560d4a62aff8e6c0260d7eb30e54d9c7a` contains exactly one owner rename/package replacement and the forty-eight declared production consumer import repairs; structural verification confirmed a 49-file production diff and zero remaining production files under `src/main/java/mainstreet/runtime/`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -572,9 +574,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X187
-last_completed_task: GR-REN-02-01X187
-last_task_commit: 6b1d98cb2440fb094a749158316bdc55f88bfd8b
+selected_execution_leaf: GR-REN-02-01X188
+last_completed_task: GR-REN-02-01X188
+last_task_commit: 1a0d81f560d4a62aff8e6c0260d7eb30e54d9c7a
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -660,8 +662,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X187
-last_prepared_execution_commit: 6b1d98cb2440fb094a749158316bdc55f88bfd8b
+last_prepared_execution_leaf: GR-REN-02-01X188
+last_prepared_execution_commit: 1a0d81f560d4a62aff8e6c0260d7eb30e54d9c7a
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
