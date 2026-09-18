@@ -441,6 +441,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X137`: `MerchantEnquiryQuery.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Two bounded production consumers were updated atomically: `grandrue.enquiry.delivery.MerchantEnquiryApiConfiguration` and `grandrue.enquiry.delivery.MerchantEnquiryController` became same-package consumers and their transitional legacy imports were removed. Current tests remain deferred to `GR-REN-03`. The prepared parent was `4a34d6c5e71e4cef41780820d406f2057a62bda7`; owner input blob was `cb7cfbdf78a8a23fee9b62c962ab771cbfb13f4a`; consumer input blobs were `d1386c4c99fd238dbf73667f37b70d7ae772b668` and `96175c4f75304fd58250a4e100e7e7c91e1a5a9b`; the GrandRue owner destination was absent at preflight. Previously migrated delivery dependencies became same-package and five explicit imports were removed. Existing merchant Enquiry query composition, admission, exposure, serviceability and response semantics were unchanged. Code commit `c8f6d95909190e6e36ae2739a39a372a08d6f8b5` contains exactly one owner rename/package replacement, two transitional import removals and five same-package import removals.
 
+- `GR-REN-02-01X138`: closed the Opportunity Enquiry binding delivery cluster by moving `PublicOpportunityEnquiryBindingQuery.java`, `OpportunityEnquiryBindingCodec.java` and `PublicOpportunityEnquirySubmission.java` from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. The bounded production edge set also updated `grandrue.enquiry.delivery.PublicOpportunityEnquiryApiConfiguration` and `mainstreet.enquiry.delivery.PublicOpportunityEnquiryController`; current tests remain deferred to `GR-REN-03`. The prepared parent was `7a794d2ef63788c61ef932ac613c14646593fb29`; owner input blobs were `0837aaf50e48273002534258f8a8d4963284e254`, `647ae9eb67de4a55f112db8e468b9f07c895b56a` and `6af774e9825a00b3e795aa0d2c120388bf1d272c`; configuration/controller input blobs were `3f17806828edbd5bbb249818f4f67146a39035ad` and `e6b569f772941fb229a268791344f841c762d692`; all three GrandRue owner destinations were absent at initial preflight. Staging commit `167f9f99eaa075b93828016deb7c29fcbf85a72b` moved the binding query, after which pre-checkpoint review exposed that `OpportunityEnquiryBindingCodec.encode/decode` are package-private and therefore the query could not safely remain cross-package. No ledger checkpoint was published in that incoherent state. Preparation was widened to the exact package-private closure, and descendant closure commit `ea9d992831fe8fb089c8981fc20aa44302e70bc9` moved the codec and submission, removed now-same-package imports, and updated the configuration/controller edges. Aggregate comparison from the prepared parent to the closure commit contains exactly five final changed paths. The protected Opportunity binding v1 AAD `mainstreet/enquiry/opportunity-binding/v1/` remains unchanged. Existing opaque binding, submission, query and delivery semantics were unchanged.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -472,9 +474,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X137
-last_completed_task: GR-REN-02-01X137
-last_task_commit: c8f6d95909190e6e36ae2739a39a372a08d6f8b5
+selected_execution_leaf: GR-REN-02-01X138
+last_completed_task: GR-REN-02-01X138
+last_task_commit: ea9d992831fe8fb089c8981fc20aa44302e70bc9
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -560,8 +562,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X137
-last_prepared_execution_commit: c8f6d95909190e6e36ae2739a39a372a08d6f8b5
+last_prepared_execution_leaf: GR-REN-02-01X138
+last_prepared_execution_commit: ea9d992831fe8fb089c8981fc20aa44302e70bc9
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
