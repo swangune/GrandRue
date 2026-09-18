@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 import mainstreet.runtime.AuthenticationProvenance;
 import mainstreet.runtime.TrustedExecutionContext;
