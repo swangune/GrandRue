@@ -9,7 +9,7 @@ import mainstreet.merchantprofile.MerchantProfileMutationException;
 import mainstreet.merchantprofile.MerchantServiceAreaAuthority;
 import mainstreet.merchantprofile.MerchantServiceAreaExposure;
 import mainstreet.merchantprofile.MerchantServiceAreaGeographyKind;
-import mainstreet.merchantprofile.MerchantServiceAreaLifecycle;
+import grandrue.merchantprofile.MerchantServiceAreaLifecycle;
 import mainstreet.merchantprofile.MerchantServiceAreaRevision;
 import mainstreet.merchantprofile.NamedAreaGeographyV1;
 import mainstreet.merchantprofile.RemoteCountriesGeographyV1;
