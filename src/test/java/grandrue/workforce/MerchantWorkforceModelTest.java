@@ -1,11 +1,11 @@
-package mainstreet.workforce;
+package grandrue.workforce;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.Privilege;
-import mainstreet.semantic.registry.OwnedOperationDefinition;
-import mainstreet.semantic.registry.OwnedOperationalObjectDefinition;
-import mainstreet.semantic.registry.RegisteredCapability;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.Privilege;
+import grandrue.semantic.registry.OwnedOperationDefinition;
+import grandrue.semantic.registry.OwnedOperationalObjectDefinition;
+import grandrue.semantic.registry.RegisteredCapability;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

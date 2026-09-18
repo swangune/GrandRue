@@ -1,8 +1,8 @@
-package mainstreet.workforce;
+package grandrue.workforce;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.semantic.Privilege;
+import grandrue.application.MerchantScope;
+import grandrue.runtime.ExecutionPrincipal;
+import grandrue.semantic.Privilege;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;

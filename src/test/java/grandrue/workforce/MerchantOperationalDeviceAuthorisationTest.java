@@ -1,9 +1,9 @@
-package mainstreet.workforce;
+package grandrue.workforce;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.application.TrustedDeviceApplicationContext;
-import mainstreet.runtime.AuthorizationException;
-import mainstreet.runtime.ExecutionPrincipal;
+import grandrue.application.MerchantScope;
+import grandrue.application.TrustedDeviceApplicationContext;
+import grandrue.runtime.AuthorizationException;
+import grandrue.runtime.ExecutionPrincipal;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;
