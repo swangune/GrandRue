@@ -455,6 +455,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X144`: `EnquiryMerchantExposureContractPortfolio.java` moved from `mainstreet.enquiry` to `grandrue.enquiry`. The sole bounded production consumer `grandrue.enquiry.delivery.MerchantEnquiryQuery` received an explicit `grandrue.enquiry.EnquiryMerchantExposureContractPortfolio` import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `e9179b54861fecf70e23bf3dc608fe72d96275cb`; owner input blob was `6bbb5dc5ce8f7fbc166f7976e647af6a32904eb2`; consumer input blob was `32bde265e893fb8f69d1ea707209d10da51f98f6`; the GrandRue owner destination was absent at preflight. The moved owner received one explicit transitional import for `mainstreet.enquiry.EnquiryMerchantExposureReferences`, which remains in the legacy Enquiry package. Existing merchant-only Exposure contract portfolio semantics were unchanged. Code commit `ba6f8616bb4e5dc2a191b35789032385ff2f1a4d` contains exactly one owner rename/package replacement, one transitional import addition and one production consumer import addition.
 
+- `GR-REN-02-01X145`: `OpportunityEnquirySubmissionPreparation.java` moved from `mainstreet.enquiry` to `grandrue.enquiry`. Two bounded production consumers `grandrue.enquiry.delivery.PublicGeneralEnquirySubmission` and `grandrue.enquiry.delivery.PublicOpportunityEnquirySubmission` received explicit `grandrue.enquiry.OpportunityEnquirySubmissionPreparation` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `a30ebefebff7bbd9cb0d63481f1a27f8862b124a`; owner input blob was `76de2271c7a2ec1a72180ce663ad02997bf6ef8d`; consumer input blobs were `3132b9ef6202ebbfffa4cc46cd3ad918d30abf5d` and `6b3a36475cc40e7d60ddda1d27039e59585cbe7d`; the GrandRue owner destination was absent at preflight. The moved owner became same-package with the previously migrated `EnquirySubmissionRevalidationException`, so that explicit import was removed, and five explicit transitional imports were added for the remaining legacy Enquiry collaborators `EnquiryRevisionProvenance`, `EnquirySemanticContext`, `EnquirySubmission`, `EnquirySubmissionIntent` and `EnquirySubmissionPreparation`. Existing E3 submission revalidation, Publication participation/currentness and public Exposure semantics were unchanged. Code commit `a4b7c04e992d1e318efa2ae7cc25a4ab7e04154e` contains exactly one owner rename/package replacement, one same-package import removal, five transitional import additions and two production consumer import additions.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -486,9 +488,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X144
-last_completed_task: GR-REN-02-01X144
-last_task_commit: ba6f8616bb4e5dc2a191b35789032385ff2f1a4d
+selected_execution_leaf: GR-REN-02-01X145
+last_completed_task: GR-REN-02-01X145
+last_task_commit: a4b7c04e992d1e318efa2ae7cc25a4ab7e04154e
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -574,8 +576,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X144
-last_prepared_execution_commit: ba6f8616bb4e5dc2a191b35789032385ff2f1a4d
+last_prepared_execution_leaf: GR-REN-02-01X145
+last_prepared_execution_commit: a4b7c04e992d1e318efa2ae7cc25a4ab7e04154e
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
