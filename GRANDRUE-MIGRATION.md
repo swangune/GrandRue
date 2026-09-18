@@ -385,6 +385,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X109`: `StandingFreeBaseline.java` moved from `mainstreet.commercial` to `grandrue.commercial`. Six bounded production consumers `grandrue.commercial.StandingFreeBaselineStore`, `grandrue.application.StandingFreeClaimedWorkExecution`, `grandrue.application.StandingFreeBackgroundWorkExecution`, `grandrue.infrastructure.persistence.commercial.JooqStandingFreeBaselineStore`, `grandrue.application.StandingFreeFromMerchantAccountEstablishedHandler` and `grandrue.application.StandingFreeMerchantAccountEstablishedReaction` received the corresponding GrandRue import replacements; current tests remain deferred to `GR-REN-03`. The prepared parent was `c1bba7c1e6b60e0f259093740cf1734c0cd4b8d9`; owner input blob was `2e9ed1b31deae81286552cb9ca37d9d06da93ab1`; consumer input blobs were `f69f812edc8d0cefde26d66b9f5cbe9f513eaa55`, `a4f6b2e62c22c1cb0ff00be1519004185aa175d5`, `09190ae6bec70e475fabc54fceff89d4968b9bcb`, `31f8e5c86d83bc554455d8913ba8ee61e1195638`, `e557c0435c060843283b8dca26356593744650f8` and `1fc2796130f6e7a2888301f2f5ed04be74126115`; the GrandRue owner destination was absent at preflight. Explicit transitional imports were added for `CommercialEntitlementGrant` and `CommercialEntitlementIdentity`, which remain in the legacy Commercial package. Existing permanent Standing Free source, entitlement-snapshot, effective-from and grant-construction semantics were unchanged. Code commit `c215578e316b79cafbcaf9a17433fed9e32d4a5d` contains exactly one owner rename/package replacement, two transitional imports and six production consumer import replacements.
 
+- `GR-REN-02-01X110`: `StandardPlanRevision.java` moved from `mainstreet.commercial` to `grandrue.commercial`. Eleven bounded production consumers were accounted for atomically. `grandrue.commercial.ScheduledStandardPlanChange` and `grandrue.commercial.CommercialCatalogueManifest` required no edit because the moved owner becomes same-package. `grandrue.commercial.CommercialCatalogueStore`, `grandrue.commercial.FreePlanRevisionAuthority`, `grandrue.commercial.StandardPlanCatalogueRevision`, `grandrue.commercial.StandardPlanEntitlementGrantSource`, `grandrue.commercial.MerchantCommercialAgreement`, `grandrue.commercial.StandardPlanCatalogueHistory`, `grandrue.application.StandingFreeFromMerchantAccountEstablishedHandler` and `grandrue.infrastructure.persistence.commercial.JooqMerchantCommercialAgreementStore` received corresponding GrandRue import replacements. `grandrue.infrastructure.persistence.commercial.CommercialCatalogueManifestCodec` retained its still-required legacy Commercial wildcard import and received one explicit `grandrue.commercial.StandardPlanRevision` import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `93d76356957b84cf6c80e80f9db494551ec405d0`; owner input blob was `1bac520cd5cd23968bdcec73e0dfbf4d37f85a62`; zero-edit consumer blobs were `f42b21dd2e6626d184f7c602b5a494fdd89309d2` and `0ced0f6f9001c7d956282cfa644b9ffdeef9c49c`; changed consumer input blobs were `78feaa8b7c5eef27675b6d6fabc62485987fcc98`, `4687919f902848ed7e433f6037760eec26cdad88`, `19f04a3340e1d3a57a96516c89f646f33c541d25`, `b273af8ec4f150f6f012ec853dbe442f925bd4b8`, `9a8916130536fd4226bde05275375a77dc5ba3fd`, `a76e153e79d40b68d15d86fff281b936a36274a4`, `869c5e93ebf7ac2fa2df94438b7ab4d8bb699102`, `1d190ca763001faf59471376a4ecf969440dc45c` and `1dd98753515356fb95e87b8373431773272b7655`; the GrandRue owner destination was absent at preflight. An explicit transitional import was added for `CommercialEntitlementIdentity`, which remains in the legacy Commercial package. Existing plan-level identity, revision-identity validation and explicit entitlement-snapshot semantics were unchanged. Code commit `2a116f082b47d75a42675ad944d1336aecf3d5f9` contains exactly one owner rename/package replacement, one transitional import, eight production consumer import replacements and one wildcard-retaining explicit import addition.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -416,9 +418,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X109
-last_completed_task: GR-REN-02-01X109
-last_task_commit: c215578e316b79cafbcaf9a17433fed9e32d4a5d
+selected_execution_leaf: GR-REN-02-01X110
+last_completed_task: GR-REN-02-01X110
+last_task_commit: 2a116f082b47d75a42675ad944d1336aecf3d5f9
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -504,8 +506,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X109
-last_prepared_execution_commit: c215578e316b79cafbcaf9a17433fed9e32d4a5d
+last_prepared_execution_leaf: GR-REN-02-01X110
+last_prepared_execution_commit: 2a116f082b47d75a42675ad944d1336aecf3d5f9
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
