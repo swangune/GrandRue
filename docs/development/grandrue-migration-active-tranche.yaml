@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T010
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 0da15e7737a035d572ed378eb9bf4f2721939ae2
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: a11a4d128385e367396cb3af9fdbf37502aaf220
 leaf_range:
   first: GR-REN-02-01X266
@@ -274,3 +276,10 @@ preparation_notes:
   - T010 moves the coherent onboarding case identity/revision and question identity/version cluster together.
   - Live source inspection excluded stale-search-only consumers and repaired only proven production references.
   - No prototype path is selected or changed.
+
+completed:
+  last_leaf: GR-REN-02-01X273
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 39
+  structural_verification: passed
+  next_tranche: GR-REN-02-T011

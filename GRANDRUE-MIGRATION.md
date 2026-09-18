@@ -237,6 +237,14 @@ State: `OPEN`
 | `GR-REN-02-01X263` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingDiscoveryMapping.java` + two bounded production consumers; declared transitional owner dependencies | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
 | `GR-REN-02-01X264` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingAnswerRecomputationResult.java` + one bounded production consumer; declared transitional owner dependencies | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
 | `GR-REN-02-01X265` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingFinalReviewFactory.java` + three bounded production consumers; declared transitional owner dependencies | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
+| `GR-REN-02-01X266` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCaseIdentity.java` + eleven proven production consumers | `0da15e7737a035d572ed378eb9bf4f2721939ae2` |
+| `GR-REN-02-01X267` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCaseRevision.java` + fifteen proven production consumers | `0da15e7737a035d572ed378eb9bf4f2721939ae2` |
+| `GR-REN-02-01X268` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCaseReview.java` + four proven production consumers | `0da15e7737a035d572ed378eb9bf4f2721939ae2` |
+| `GR-REN-02-01X269` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCaseRevisionConflictException.java` + one bounded production consumer | `0da15e7737a035d572ed378eb9bf4f2721939ae2` |
+| `GR-REN-02-01X270` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingQuestionIdentity.java` + six proven production consumers | `0da15e7737a035d572ed378eb9bf4f2721939ae2` |
+| `GR-REN-02-01X271` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingQuestionDefinitionVersion.java` + eight proven production consumers | `0da15e7737a035d572ed378eb9bf4f2721939ae2` |
+| `GR-REN-02-01X272` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingSemanticSeed.java` + nine proven production consumers | `0da15e7737a035d572ed378eb9bf4f2721939ae2` |
+| `GR-REN-02-01X273` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingPromptKey.java` + nine proven production consumers | `0da15e7737a035d572ed378eb9bf4f2721939ae2` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -757,6 +765,9 @@ State: `OPEN`
 
 - `GR-REN-02-01X265`: `OnboardingFinalReviewFactory.java` moved to `grandrue.onboarding`; `OnboardingFinalReviewService`, `OnboardingSubmissionReadinessEvaluator` and `JooqOnboardingCaseEvidenceStore` now resolve the GrandRue factory. Its still-legacy review/recomputation/case/evidence/prompt dependencies are explicit; final-review projection behaviour unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
 
+
+- `GR-REN-02-01X266..X273`: T010 moved the coherent onboarding case identity/revision and question identity/version cluster to `grandrue.onboarding`: `OnboardingCaseIdentity`, `OnboardingCaseRevision`, `OnboardingCaseReview`, `OnboardingCaseRevisionConflictException`, `OnboardingQuestionIdentity`, `OnboardingQuestionDefinitionVersion`, `OnboardingSemanticSeed`, and `OnboardingPromptKey`. Thirty proven production consumers across onboarding, semantic configuration and migrated persistence were rewired to the GrandRue owners. Live inspection excluded stale-search-only candidates. The aggregate contained exactly 39 changed paths; all Java changes were package/import-only. Identity validation, revision affinity/conflict behaviour, question/version identity, semantic-seed meaning, prompt-key semantics, persistence/schema/runtime-data identities, applied Flyway content and stable `MS-*` identifiers were unchanged. Code: `0da15e7737a035d572ed378eb9bf4f2721939ae2`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -788,9 +799,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X265
-last_completed_task: GR-REN-02-01X265
-last_task_commit: 6adc3ba9301f002de3d59178ed1f4246450ff6b4
+selected_execution_leaf: GR-REN-02-01X273
+last_completed_task: GR-REN-02-01X273
+last_task_commit: 0da15e7737a035d572ed378eb9bf4f2721939ae2
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -908,8 +919,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X265
-last_prepared_execution_commit: 6adc3ba9301f002de3d59178ed1f4246450ff6b4
+last_prepared_execution_leaf: GR-REN-02-01X273
+last_prepared_execution_commit: 0da15e7737a035d572ed378eb9bf4f2721939ae2
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
