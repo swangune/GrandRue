@@ -229,6 +229,14 @@ State: `OPEN`
 | `GR-REN-02-01X255` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingSubmissionBlocker.java` + bounded submission consumers | `dd2133bb88ba4bbc7df97bb5d1034a084a7363e5` |
 | `GR-REN-02-01X256` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingSubmissionRejectedException.java` + one bounded persistence consumer | `dd2133bb88ba4bbc7df97bb5d1034a084a7363e5` |
 | `GR-REN-02-01X257` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCaseReviewCurrentness.java` + one bounded consumer; two declared transitional owner dependencies | `dd2133bb88ba4bbc7df97bb5d1034a084a7363e5` |
+| `GR-REN-02-01X258` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingSubmissionReadiness.java` + three bounded production consumers | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
+| `GR-REN-02-01X259` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCasePersistenceException.java` + one bounded persistence consumer | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
+| `GR-REN-02-01X260` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingAnswerOutcomeRule.java` + one bounded production consumer; declared transitional owner dependencies | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
+| `GR-REN-02-01X261` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCaseRevisionConcurrency.java`; no production consumers; declared transitional owner dependencies | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
+| `GR-REN-02-01X262` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/InitialCustomerInteractionDiscoverySelectionConsistency.java` + one bounded production consumer | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
+| `GR-REN-02-01X263` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingDiscoveryMapping.java` + two bounded production consumers; declared transitional owner dependencies | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
+| `GR-REN-02-01X264` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingAnswerRecomputationResult.java` + one bounded production consumer; declared transitional owner dependencies | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
+| `GR-REN-02-01X265` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingFinalReviewFactory.java` + three bounded production consumers; declared transitional owner dependencies | `6adc3ba9301f002de3d59178ed1f4246450ff6b4` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -732,6 +740,23 @@ State: `OPEN`
 
 - `GR-REN-02-01X257`: `OnboardingCaseReviewCurrentness.java` moved to `grandrue.onboarding`; `OnboardingSubmissionReadinessEvaluator` now resolves the GrandRue helper. Its still-legacy `OnboardingCase` and `OnboardingCaseReview` dependencies are retained as explicit transitional imports; exact case/revision affinity behaviour is unchanged. Code: `dd2133bb88ba4bbc7df97bb5d1034a084a7363e5`.
 
+
+- `GR-REN-02-01X258`: `OnboardingSubmissionReadiness.java` moved to `grandrue.onboarding`; `OnboardingSubmissionReadinessEvaluator`, `OnboardingFinalReviewService` and `JooqOnboardingCaseEvidenceStore` now resolve the GrandRue result type. Readiness/blocker semantics unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
+
+- `GR-REN-02-01X259`: `OnboardingCasePersistenceException.java` moved to `grandrue.onboarding`; `JooqOnboardingCaseEvidenceStore` now resolves the GrandRue exception. Recovery-category semantics unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
+
+- `GR-REN-02-01X260`: `OnboardingAnswerOutcomeRule.java` moved to `grandrue.onboarding`; `OnboardingCompletionPolicy` now resolves the GrandRue rule. Still-legacy `OnboardingPromptKey` and `OnboardingQuestionDefinitionVersion` dependencies are retained as explicit transitional imports. Rule validation and outcome semantics unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
+
+- `GR-REN-02-01X261`: `OnboardingCaseRevisionConcurrency.java` moved to `grandrue.onboarding`; no production consumers. Still-legacy `OnboardingCaseRevision`, `OnboardingCase` and `OnboardingCaseRevisionConflictException` dependencies are retained explicitly. Expected-current concurrency semantics unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
+
+- `GR-REN-02-01X262`: `InitialCustomerInteractionDiscoverySelectionConsistency.java` moved to `grandrue.onboarding`; `InitialOnboardingPromptCatalogue` now resolves the GrandRue helper. Discovery contradiction semantics unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
+
+- `GR-REN-02-01X263`: `OnboardingDiscoveryMapping.java` moved to `grandrue.onboarding`; `OnboardingPromptRegistry` and `InitialOnboardingPromptCatalogue` now resolve the GrandRue mapping. Still-legacy question identity/version and semantic-seed dependencies are explicit; mapping semantics unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
+
+- `GR-REN-02-01X264`: `OnboardingAnswerRecomputationResult.java` moved to `grandrue.onboarding`; `OnboardingCaseRecomputationService` now resolves the GrandRue result. Still-legacy answer-mutation and recomputation dependencies remain explicit; exact-revision pairing validation unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
+
+- `GR-REN-02-01X265`: `OnboardingFinalReviewFactory.java` moved to `grandrue.onboarding`; `OnboardingFinalReviewService`, `OnboardingSubmissionReadinessEvaluator` and `JooqOnboardingCaseEvidenceStore` now resolve the GrandRue factory. Its still-legacy review/recomputation/case/evidence/prompt dependencies are explicit; final-review projection behaviour unchanged. Code: `6adc3ba9301f002de3d59178ed1f4246450ff6b4`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -763,9 +788,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X257
-last_completed_task: GR-REN-02-01X257
-last_task_commit: dd2133bb88ba4bbc7df97bb5d1034a084a7363e5
+selected_execution_leaf: GR-REN-02-01X265
+last_completed_task: GR-REN-02-01X265
+last_task_commit: 6adc3ba9301f002de3d59178ed1f4246450ff6b4
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -883,8 +908,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X257
-last_prepared_execution_commit: dd2133bb88ba4bbc7df97bb5d1034a084a7363e5
+last_prepared_execution_leaf: GR-REN-02-01X265
+last_prepared_execution_commit: 6adc3ba9301f002de3d59178ed1f4246450ff6b4
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce

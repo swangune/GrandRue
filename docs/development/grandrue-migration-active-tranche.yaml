@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T009
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 6adc3ba9301f002de3d59178ed1f4246450ff6b4
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 694b3a8f71dc64c2d49f5df924f3d22d5518afd5
 leaf_range:
   first: GR-REN-02-01X258
@@ -206,3 +208,10 @@ preparation_notes:
   - Eight public onboarding owners selected with compact explicit production closures.
   - Wide Onboarding Case identity/revision owner migration remains deferred to a later dependency-bounded tranche.
   - No prototype path is selected or changed.
+
+completed:
+  last_leaf: GR-REN-02-01X265
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 16
+  structural_verification: passed
+  next_tranche: GR-REN-02-T010
