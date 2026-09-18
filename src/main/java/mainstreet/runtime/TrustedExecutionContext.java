@@ -1,7 +1,7 @@
 package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.application.TrustedDeviceApplicationContext;
+import grandrue.application.TrustedDeviceApplicationContext;
 
 import java.util.Objects;
 import java.util.Optional;

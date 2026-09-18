@@ -1,7 +1,7 @@
 package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.application.TrustedDeviceApplicationContext;
+import grandrue.application.TrustedDeviceApplicationContext;
 import grandrue.workforce.MerchantMembershipAuthority;
 import grandrue.workforce.MerchantOperationalDeviceAuthority;
 

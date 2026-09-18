@@ -1,7 +1,7 @@
 package grandrue.workforce;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.application.TrustedDeviceApplicationContext;
+import grandrue.application.TrustedDeviceApplicationContext;
 
 /**
  * Current merchant-scoped staff operational-device trust authority.
