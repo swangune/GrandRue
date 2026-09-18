@@ -1,4 +1,4 @@
-package mainstreet.semantic.execution;
+package grandrue.semantic.execution;
 
 /** Raised when an invocation is assigned to a path without proven support. */
 public final class UnsupportedExecutableSupportException

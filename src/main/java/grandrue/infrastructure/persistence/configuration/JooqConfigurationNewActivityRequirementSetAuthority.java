@@ -9,8 +9,8 @@ import mainstreet.semantic.configuration.ConfigurationNewActivityRequirementSetI
 import mainstreet.semantic.configuration.ConfigurationNewActivityRequirementSetPersistenceException;
 import mainstreet.semantic.configuration.RecordConfigurationNewActivityRequirementSetCommand;
 import mainstreet.semantic.configuration.ResolvedConfigurationPackage;
-import mainstreet.semantic.execution.ExecutableSupportRequirement;
-import mainstreet.semantic.execution.SemanticExecutionContractReference;
+import grandrue.semantic.execution.ExecutableSupportRequirement;
+import grandrue.semantic.execution.SemanticExecutionContractReference;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

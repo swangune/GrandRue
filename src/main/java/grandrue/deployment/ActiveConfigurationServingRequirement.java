@@ -1,6 +1,6 @@
 package grandrue.deployment;
 
-import mainstreet.semantic.execution.ExecutableSupportRequirement;
+import grandrue.semantic.execution.ExecutableSupportRequirement;
 
 import java.util.Objects;
 import java.util.Set;

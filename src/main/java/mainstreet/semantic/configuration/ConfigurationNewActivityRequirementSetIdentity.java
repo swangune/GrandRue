@@ -1,7 +1,7 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.semantic.execution.ExecutableSupportRequirement;
-import mainstreet.semantic.execution.SemanticExecutionContractReference;
+import grandrue.semantic.execution.ExecutableSupportRequirement;
+import grandrue.semantic.execution.SemanticExecutionContractReference;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

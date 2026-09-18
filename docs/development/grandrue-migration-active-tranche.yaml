@@ -2,131 +2,108 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T015
-state: COMPLETE
-code_commit: 2b86fcb13dc0f1f34c18a4395b5752689c1879c4
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: 9817bb9040596e07336651a1ff98c0596cb603c4
+tranche: GR-REN-02-T016
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 442707041fe7543e4c1ce2e89a633454919c2851
 
 region:
-  identity: semantic/event
-  closure_basis: complete live src/main/java/mainstreet/semantic/event/** owner graph plus all proven in-scope production consumers
+  identity: semantic/execution
+  closure_basis: complete live src/main/java/mainstreet/semantic/execution/** owner graph plus all proven in-scope production consumers
 
 classification:
   normal_closed:
-    owner_count: 13
-    production_consumer_count: 10
+    owner_count: 8
+    production_consumer_count: 11
   exceptions: []
 
 subgraph:
   leaf_range:
-    first: GR-REN-02-01X343
-    last: GR-REN-02-01X355
-  leaf_count: 13
+    first: GR-REN-02-01X356
+    last: GR-REN-02-01X363
+  leaf_count: 8
   owners:
-    - leaf: GR-REN-02-01X343
-      from: src/main/java/mainstreet/semantic/event/EventContractAffinity.java
-      to: src/main/java/grandrue/semantic/event/EventContractAffinity.java
-      blob_sha: 7e2a0757758d06f1322ab10271551bef1e036a24
-    - leaf: GR-REN-02-01X344
-      from: src/main/java/mainstreet/semantic/event/EventContractDefinition.java
-      to: src/main/java/grandrue/semantic/event/EventContractDefinition.java
-      blob_sha: 36ef31d4f4e95fb0dbd5c1221308af82b625df7e
-    - leaf: GR-REN-02-01X345
-      from: src/main/java/mainstreet/semantic/event/EventContractIdentity.java
-      to: src/main/java/grandrue/semantic/event/EventContractIdentity.java
-      blob_sha: c9f8530d48c0a2cf23f47415193d761787c802aa
-    - leaf: GR-REN-02-01X346
-      from: src/main/java/mainstreet/semantic/event/EventContractRegistrySnapshot.java
-      to: src/main/java/grandrue/semantic/event/EventContractRegistrySnapshot.java
-      blob_sha: 90805a7d7defd44a133d684e64a66cd7d4283b40
-    - leaf: GR-REN-02-01X347
-      from: src/main/java/mainstreet/semantic/event/EventReactionAcknowledgement.java
-      to: src/main/java/grandrue/semantic/event/EventReactionAcknowledgement.java
-      blob_sha: f75c50c22d132d9ea8da51625a97660ec5615470
-    - leaf: GR-REN-02-01X348
-      from: src/main/java/mainstreet/semantic/event/EventReactionContractAffinity.java
-      to: src/main/java/grandrue/semantic/event/EventReactionContractAffinity.java
-      blob_sha: ad2441903578942c0be9008626d96bb3679ea29e
-    - leaf: GR-REN-02-01X349
-      from: src/main/java/mainstreet/semantic/event/EventReactionContractDefinition.java
-      to: src/main/java/grandrue/semantic/event/EventReactionContractDefinition.java
-      blob_sha: 4b367088f316cc32f8d684c83054883516360729
-    - leaf: GR-REN-02-01X350
-      from: src/main/java/mainstreet/semantic/event/EventReactionContractIdentity.java
-      to: src/main/java/grandrue/semantic/event/EventReactionContractIdentity.java
-      blob_sha: d32670a20accdf52cb5222f31942f27539f8b810
-    - leaf: GR-REN-02-01X351
-      from: src/main/java/mainstreet/semantic/event/EventReactionContractRegistrySnapshot.java
-      to: src/main/java/grandrue/semantic/event/EventReactionContractRegistrySnapshot.java
-      blob_sha: f8fab773487994989b742fe6a76eb7a271cc93fd
-    - leaf: GR-REN-02-01X352
-      from: src/main/java/mainstreet/semantic/event/EventReactionIdentity.java
-      to: src/main/java/grandrue/semantic/event/EventReactionIdentity.java
-      blob_sha: 249d0efc961dd4529b4c38022687315a7f5594e2
-    - leaf: GR-REN-02-01X353
-      from: src/main/java/mainstreet/semantic/event/EventReactionTargetReference.java
-      to: src/main/java/grandrue/semantic/event/EventReactionTargetReference.java
-      blob_sha: 2549a1562196f10ec3054fab93d02ee9361745e7
-    - leaf: GR-REN-02-01X354
-      from: src/main/java/mainstreet/semantic/event/MerchantEventReactionReceipt.java
-      to: src/main/java/grandrue/semantic/event/MerchantEventReactionReceipt.java
-      blob_sha: 16abf112dc6d90d81a3907f6cef424bc0a24c416
-    - leaf: GR-REN-02-01X355
-      from: src/main/java/mainstreet/semantic/event/MerchantEventReactionStore.java
-      to: src/main/java/grandrue/semantic/event/MerchantEventReactionStore.java
-      blob_sha: 5e41be5371c3369822d2ccde260cdbd87fc55cac
+    - leaf: GR-REN-02-01X356
+      from: src/main/java/mainstreet/semantic/execution/ExecutableSupportAdmission.java
+      to: src/main/java/grandrue/semantic/execution/ExecutableSupportAdmission.java
+      blob_sha: 3d184d42a9a225f5d2fd33d9c07db497150b7e7f
+    - leaf: GR-REN-02-01X357
+      from: src/main/java/mainstreet/semantic/execution/ExecutableSupportCoverageException.java
+      to: src/main/java/grandrue/semantic/execution/ExecutableSupportCoverageException.java
+      blob_sha: 8d43799e729ab176a0a27fb1fbd40cdb080f6f40
+    - leaf: GR-REN-02-01X358
+      from: src/main/java/mainstreet/semantic/execution/ExecutableSupportManifest.java
+      to: src/main/java/grandrue/semantic/execution/ExecutableSupportManifest.java
+      blob_sha: 0403b7c1e4c5e4aa68c5b84f7c6119afda8c947e
+    - leaf: GR-REN-02-01X359
+      from: src/main/java/mainstreet/semantic/execution/ExecutableSupportRegistry.java
+      to: src/main/java/grandrue/semantic/execution/ExecutableSupportRegistry.java
+      blob_sha: 6edf95c56ddb1610e5e9a7eb9fad5714a1e909f9
+    - leaf: GR-REN-02-01X360
+      from: src/main/java/mainstreet/semantic/execution/ExecutableSupportRequirement.java
+      to: src/main/java/grandrue/semantic/execution/ExecutableSupportRequirement.java
+      blob_sha: 39bd971df51ea1baa907a8f64479dbf11f500827
+    - leaf: GR-REN-02-01X361
+      from: src/main/java/mainstreet/semantic/execution/ExecutableSupportRequirementResolver.java
+      to: src/main/java/grandrue/semantic/execution/ExecutableSupportRequirementResolver.java
+      blob_sha: 38f3ed1284401a9da49ddb52e6e1e36ea32b9339
+    - leaf: GR-REN-02-01X362
+      from: src/main/java/mainstreet/semantic/execution/SemanticExecutionContractReference.java
+      to: src/main/java/grandrue/semantic/execution/SemanticExecutionContractReference.java
+      blob_sha: 5f66dd0d79f2a0aaafc3c36cfc2bbac92b6d42f1
+    - leaf: GR-REN-02-01X363
+      from: src/main/java/mainstreet/semantic/execution/UnsupportedExecutableSupportException.java
+      to: src/main/java/grandrue/semantic/execution/UnsupportedExecutableSupportException.java
+      blob_sha: eb60b80eae12d2d84e8133e4e1a5c2d668b748c2
   production_consumer_closure:
-    - path: src/main/java/grandrue/runtime/ScheduledEventReactionExecutionAuthority.java
-      blob_sha: 19072bed503afe7cb25aa15e719a3a014d85a1f2
-    - path: src/main/java/grandrue/merchantaccount/MerchantAccountEstablishedOccurrence.java
-      blob_sha: 26bd03b7488b127bf8607dba3e503b99694916b0
-    - path: src/main/java/grandrue/application/MerchantAccountEstablishedPublicationWorker.java
-      blob_sha: cbee252169e29bfdd05d72852976d7f1b1fb1d1a
-    - path: src/main/java/grandrue/merchantaccount/MerchantAccountEstablishedEventContract.java
-      blob_sha: 749ed0c3642063f9934d9903c96d9843587b3753
-    - path: src/main/java/grandrue/runtime/RegisteredScheduledEventReactionExecutionAuthority.java
-      blob_sha: d44d5e13b554c3e2b9a81d922e373ee8082e5f09
-    - path: src/main/java/grandrue/application/StandingFreeMerchantAccountEstablishedReaction.java
-      blob_sha: 1ab62dd238658dae0b63840f9e3ed8e17b5f43cb
-    - path: src/main/java/grandrue/application/StandingFreeEventReactionContract.java
-      blob_sha: de60fa79463f90a3d7f2ad2bcb76048a15cf3e1a
-    - path: src/main/java/grandrue/infrastructure/persistence/merchantaccount/MerchantAccountEstablishmentPublicationIntent.java
-      blob_sha: 2764c4ba0ead56eacc34a174a92bfdc86796392d
-    - path: src/main/java/grandrue/infrastructure/persistence/event/JooqMerchantEventReactionStore.java
-      blob_sha: 0d7f5548c4652bb2927591368e226c539fbe1ee5
-    - path: src/main/java/grandrue/infrastructure/persistence/merchantaccount/JooqMerchantAccountEstablishmentPublicationOutbox.java
-      blob_sha: 822af0ce1151262a7d3ad419b0f2df4870601952
+    - path: src/main/java/grandrue/deployment/ServingDeploymentAdmissionSnapshot.java
+      blob_sha: 9b750a4f0bc2fbb3ea3285e866a43a166737168d
+    - path: src/main/java/grandrue/deployment/ActiveConfigurationServingRequirement.java
+      blob_sha: 40239b686bb9eddffda48257a7addc40c2da6a6b
+    - path: src/main/java/grandrue/runtime/ExecutableSupportOperationExecutionGuard.java
+      blob_sha: 72a849820452d468c86ffbde3ec18798cb83b096
+    - path: src/main/java/grandrue/deployment/RecordServingDeploymentAdmissionSnapshotCommand.java
+      blob_sha: 39d365146466f31dae38203b7677b4a538bb7a7c
+    - path: src/main/java/mainstreet/semantic/configuration/ConfigurationOperationExecutionRequirement.java
+      blob_sha: dacd2918463d44f11d5cb5abc8f17e93f36aeb75
+    - path: src/main/java/mainstreet/semantic/configuration/ConfigurationNewActivityRequirementResolver.java
+      blob_sha: 9b40e9feda4de07b1c5c5620e99bea4705f60c07
+    - path: src/main/java/mainstreet/semantic/configuration/ConfigurationNewActivityRequirementSetIdentity.java
+      blob_sha: 727f6df053a90e63a30a09952884e51cba6d7387
+    - path: src/main/java/mainstreet/semantic/configuration/ConfigurationNewActivityRequirementSet.java
+      blob_sha: 7d56df931fa56b4307983b3c1abe063935441863
+    - path: src/main/java/mainstreet/semantic/configuration/RegisteredConfigurationNewActivityRequirementResolver.java
+      blob_sha: 011e643b02104f1393c20c0cb4ba2d3ea944202c
+    - path: src/main/java/grandrue/infrastructure/persistence/deployment/JooqServingDeploymentAdmissionSnapshotAuthority.java
+      blob_sha: bd218bc17ca81cab130d323b32b4d2d1a5096377
+    - path: src/main/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationNewActivityRequirementSetAuthority.java
+      blob_sha: 11d945b12c2e46c9c339ad61c4535e20e6bad8a3
   deterministic_transformations:
-    - package prefix mainstreet.semantic.event -> grandrue.semantic.event for every owner
-    - import prefix mainstreet.semantic.event -> grandrue.semantic.event in owners and declared production consumers
-    - no comments, strings, persisted identifiers or protocol identities are renamed
+    - package prefix mainstreet.semantic.execution -> grandrue.semantic.execution for every owner
+    - import prefix mainstreet.semantic.execution -> grandrue.semantic.execution in owners and declared production consumers
+    - protected string mainstreet.configuration-new-activity-requirement-set/v1 remains unchanged
+    - no comments, persisted identifiers or protocol identities are renamed
   permitted_changed_paths:
     - docs/development/grandrue-migration-active-tranche.yaml
-    - src/main/java/grandrue/semantic/event/EventContractAffinity.java
-    - src/main/java/grandrue/semantic/event/EventContractDefinition.java
-    - src/main/java/grandrue/semantic/event/EventContractIdentity.java
-    - src/main/java/grandrue/semantic/event/EventContractRegistrySnapshot.java
-    - src/main/java/grandrue/semantic/event/EventReactionAcknowledgement.java
-    - src/main/java/grandrue/semantic/event/EventReactionContractAffinity.java
-    - src/main/java/grandrue/semantic/event/EventReactionContractDefinition.java
-    - src/main/java/grandrue/semantic/event/EventReactionContractIdentity.java
-    - src/main/java/grandrue/semantic/event/EventReactionContractRegistrySnapshot.java
-    - src/main/java/grandrue/semantic/event/EventReactionIdentity.java
-    - src/main/java/grandrue/semantic/event/EventReactionTargetReference.java
-    - src/main/java/grandrue/semantic/event/MerchantEventReactionReceipt.java
-    - src/main/java/grandrue/semantic/event/MerchantEventReactionStore.java
-    - src/main/java/grandrue/runtime/ScheduledEventReactionExecutionAuthority.java
-    - src/main/java/grandrue/merchantaccount/MerchantAccountEstablishedOccurrence.java
-    - src/main/java/grandrue/application/MerchantAccountEstablishedPublicationWorker.java
-    - src/main/java/grandrue/merchantaccount/MerchantAccountEstablishedEventContract.java
-    - src/main/java/grandrue/runtime/RegisteredScheduledEventReactionExecutionAuthority.java
-    - src/main/java/grandrue/application/StandingFreeMerchantAccountEstablishedReaction.java
-    - src/main/java/grandrue/application/StandingFreeEventReactionContract.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantaccount/MerchantAccountEstablishmentPublicationIntent.java
-    - src/main/java/grandrue/infrastructure/persistence/event/JooqMerchantEventReactionStore.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantaccount/JooqMerchantAccountEstablishmentPublicationOutbox.java
+    - src/main/java/grandrue/semantic/execution/ExecutableSupportAdmission.java
+    - src/main/java/grandrue/semantic/execution/ExecutableSupportCoverageException.java
+    - src/main/java/grandrue/semantic/execution/ExecutableSupportManifest.java
+    - src/main/java/grandrue/semantic/execution/ExecutableSupportRegistry.java
+    - src/main/java/grandrue/semantic/execution/ExecutableSupportRequirement.java
+    - src/main/java/grandrue/semantic/execution/ExecutableSupportRequirementResolver.java
+    - src/main/java/grandrue/semantic/execution/SemanticExecutionContractReference.java
+    - src/main/java/grandrue/semantic/execution/UnsupportedExecutableSupportException.java
+    - src/main/java/grandrue/deployment/ServingDeploymentAdmissionSnapshot.java
+    - src/main/java/grandrue/deployment/ActiveConfigurationServingRequirement.java
+    - src/main/java/grandrue/runtime/ExecutableSupportOperationExecutionGuard.java
+    - src/main/java/grandrue/deployment/RecordServingDeploymentAdmissionSnapshotCommand.java
+    - src/main/java/mainstreet/semantic/configuration/ConfigurationOperationExecutionRequirement.java
+    - src/main/java/mainstreet/semantic/configuration/ConfigurationNewActivityRequirementResolver.java
+    - src/main/java/mainstreet/semantic/configuration/ConfigurationNewActivityRequirementSetIdentity.java
+    - src/main/java/mainstreet/semantic/configuration/ConfigurationNewActivityRequirementSet.java
+    - src/main/java/mainstreet/semantic/configuration/RegisteredConfigurationNewActivityRequirementResolver.java
+    - src/main/java/grandrue/infrastructure/persistence/deployment/JooqServingDeploymentAdmissionSnapshotAuthority.java
+    - src/main/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationNewActivityRequirementSetAuthority.java
 
 verification:
   aggregate_changed_path_set: exact
@@ -134,31 +111,23 @@ verification:
   destination_presence: required
   legacy_owner_absence: required
   production_consumer_closure: exact
-  no_undeclared_mainstreet_semantic_event_reference_in_analysed_region: required
+  no_undeclared_mainstreet_semantic_execution_reference_in_analysed_region: required
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 protected:
+  - mainstreet.configuration-new-activity-requirement-set/v1 unchanged
   - applied Flyway migration contents unchanged
   - stable MS-* identifiers unchanged
-  - persisted event/reaction identifiers unchanged
   - legacy prototype owners unchanged
 
 expected_residuals:
-  - src/test/java/mainstreet/** event-related consumers remain deferred to GR-REN-03
+  - src/test/java/mainstreet/** execution-related consumers remain deferred to GR-REN-03
   - other src/main/java/mainstreet/semantic/** subpackages remain future GR-REN-02 closed regions
   - legacy prototype paths remain NON_MIGRATING_LEGACY_PROTOTYPE
 
 preparation_notes:
-  - all 13 semantic/event owners contain only the package declaration as a mainstreet.semantic.event occurrence
-  - all 10 live production consumers require import-only rewiring
+  - all 8 semantic/execution owners contain only the package declaration as a mainstreet.semantic.execution occurrence
+  - all 11 live production consumers require import-only rewiring
   - no FQCN, package-private, persisted-identity, semantic or authority exception was identified
-
-completed:
-  last_leaf: GR-REN-02-01X355
-  completed_leaf_count_in_tranche: 13
-  aggregate_changed_path_count: 24
-  structural_verification: passed
-  semantic_event_production_namespace_complete: true
-  next_tranche: GR-REN-02-T016

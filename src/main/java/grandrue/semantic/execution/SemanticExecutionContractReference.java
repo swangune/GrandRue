@@ -1,4 +1,4 @@
-package mainstreet.semantic.execution;
+package grandrue.semantic.execution;
 
 /**
  * Exact reference to one semantic execution contract within one immutable

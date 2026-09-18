@@ -2,7 +2,7 @@ package grandrue.runtime;
 
 import grandrue.application.MerchantScope;
 import mainstreet.semantic.executable.ApplicableOperation;
-import mainstreet.semantic.execution.ExecutableSupportAdmission;
+import grandrue.semantic.execution.ExecutableSupportAdmission;
 
 import java.util.Objects;
 

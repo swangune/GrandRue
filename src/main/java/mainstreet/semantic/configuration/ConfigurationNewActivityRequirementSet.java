@@ -1,6 +1,6 @@
 package mainstreet.semantic.configuration;
 
-import mainstreet.semantic.execution.ExecutableSupportRequirement;
+import grandrue.semantic.execution.ExecutableSupportRequirement;
 
 import java.time.Instant;
 import java.util.Objects;

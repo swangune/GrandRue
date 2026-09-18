@@ -1,8 +1,8 @@
 package grandrue.deployment;
 
-import mainstreet.semantic.execution.ExecutableSupportManifest;
-import mainstreet.semantic.execution.ExecutableSupportRegistry;
-import mainstreet.semantic.execution.ExecutableSupportRequirement;
+import grandrue.semantic.execution.ExecutableSupportManifest;
+import grandrue.semantic.execution.ExecutableSupportRegistry;
+import grandrue.semantic.execution.ExecutableSupportRequirement;
 
 import java.time.Instant;
 import java.util.Collection;

@@ -1,6 +1,6 @@
 package grandrue.deployment;
 
-import mainstreet.semantic.execution.ExecutableSupportManifest;
+import grandrue.semantic.execution.ExecutableSupportManifest;
 import mainstreet.semantic.release.DeploymentSemanticMaterialisationSet;
 
 import java.time.Instant;
