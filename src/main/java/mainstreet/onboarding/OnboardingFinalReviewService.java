@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingSubmissionBlocker;
 import grandrue.onboarding.OnboardingSubmissionAuthority;
 import java.util.Objects;
 

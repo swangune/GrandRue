@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingAnswerConstraint;
+import grandrue.onboarding.OnboardingPromptPriority;
 import grandrue.onboarding.OnboardingAnswerForm;
 import grandrue.onboarding.OnboardingPromptClass;
 import java.util.LinkedHashMap;

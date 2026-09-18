@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * MS-PROT-052 v1.1 authoritative initial discovery option identities.

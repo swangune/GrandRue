@@ -2,174 +2,162 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T007
-state: COMPLETE
-code_commit: 4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: 4ed95f129c7ba0df1104a70639d59855ef59ef17
+tranche: GR-REN-02-T008
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: ba2ac258b0195b5924346ef0e6190a416e5f3361
 leaf_range:
-  first: GR-REN-02-01X242
-  last: GR-REN-02-01X249
+  first: GR-REN-02-01X250
+  last: GR-REN-02-01X257
 leaf_count: 8
 
 leaves:
-  - id: GR-REN-02-01X242
+  - id: GR-REN-02-01X250
     owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingCasePurpose.java
-      to: src/main/java/grandrue/onboarding/OnboardingCasePurpose.java
-      blob_sha: 54af989bc3dde5501ff4c32b5199b5ab001eade8
+      from: src/main/java/mainstreet/onboarding/OnboardingAnswerOrigin.java
+      to: src/main/java/grandrue/onboarding/OnboardingAnswerOrigin.java
+      blob_sha: 2c4014f8aea69715a047e74e56e8711d165a0de6
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingAnswerEvidence.java
+        blob_sha: dfc429a80d1233d9e11e77f9874b19d8b9ffaf04
+      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
+        blob_sha: d83949960193fef410b981d8cc72f5e5810deddb
+    invariants:
+      - semantic values, validation and behaviour unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X251
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingPromptPriority.java
+      to: src/main/java/grandrue/onboarding/OnboardingPromptPriority.java
+      blob_sha: 6895f64e6c0eb1a32507d2ccc727f92fb90244d0
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
+        blob_sha: 008d746ef60cbd567fe29a1c97e5e052ef1507c6
+      - path: src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestion.java
+        blob_sha: f9cdfba5a2f5c87c439ed6325170c3741e47970e
+    invariants:
+      - semantic values, validation and behaviour unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X252
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingCaseLifecycle.java
+      to: src/main/java/grandrue/onboarding/OnboardingCaseLifecycle.java
+      blob_sha: d53bb9805c4e0cbd50098fe371dec4da1d332d38
     production_consumers:
       - path: src/main/java/mainstreet/onboarding/OnboardingCase.java
-        blob_sha: c0c307519e49e820b70ff20b263ae4d0bb1dea67
-      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 0deb16d3f7e393818b06a3d1de7ae494f5728abc
-    invariants:
-      - enum constants and declaration order unchanged
-      - comments and semantic meaning unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X243
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingPromptCompletionRequirement.java
-      to: src/main/java/grandrue/onboarding/OnboardingPromptCompletionRequirement.java
-      blob_sha: 0068358606a3d538cf3893baf25a5e5b2277aff7
-    production_consumers:
-      - path: src/main/java/mainstreet/onboarding/OnboardingCompletionPolicy.java
-        blob_sha: d058394bae50473736e72712bc6e7770421b7468
+        blob_sha: d553e5dd09e6143500ad302b71e2f665fdf7fc6e
       - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
-        blob_sha: 95b4e9146a71000eac5986926a4b8f924f5e517d
+        blob_sha: e7fc0ff19a6cd6655ec7a0029625144650815ed1
+      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
+        blob_sha: d83949960193fef410b981d8cc72f5e5810deddb
     invariants:
-      - enum constants and declaration order unchanged
-      - comments and semantic meaning unchanged
+      - semantic values, validation and behaviour unchanged
       - only namespace/import wiring changes
-  - id: GR-REN-02-01X244
+  - id: GR-REN-02-01X253
     owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingPromptEligibility.java
-      to: src/main/java/grandrue/onboarding/OnboardingPromptEligibility.java
-      blob_sha: 2389b51e209d3a8b88d093d028694b8763de30f9
+      from: src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryOption.java
+      to: src/main/java/grandrue/onboarding/InitialCustomerInteractionDiscoveryOption.java
+      blob_sha: 362987a04aeb9a98096a348318b588cd78c767a6
     production_consumers:
-      []
+      - path: src/main/java/mainstreet/onboarding/InitialOnboardingPromptCatalogue.java
+        blob_sha: 6b4036bf756716d47466a7607fb2585332d62180
+      - path: src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoverySelectionConsistency.java
+        blob_sha: 0ca6feef626f5a65897e36b9f3a090219d06141b
     invariants:
-      - enum constants and declaration order unchanged
-      - comments and semantic meaning unchanged
+      - semantic values, validation and behaviour unchanged
       - only namespace/import wiring changes
-  - id: GR-REN-02-01X245
+  - id: GR-REN-02-01X254
     owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingPromptClass.java
-      to: src/main/java/grandrue/onboarding/OnboardingPromptClass.java
-      blob_sha: 5f2a72277da262d1db1a12d94a0662b95f2ba2ba
+      from: src/main/java/mainstreet/onboarding/OnboardingAnswerConstraint.java
+      to: src/main/java/grandrue/onboarding/OnboardingAnswerConstraint.java
+      blob_sha: a255240a821090d5c94620c7d9496ffcbf962b60
     production_consumers:
       - path: src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
-        blob_sha: 0d6e5b9518cd37f6d2859f8abcadd34f58e55e5a
-      - path: src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestion.java
-        blob_sha: 70d671b929cfc3e24ac3c1a8fef8747a1e1c0a5a
+        blob_sha: 008d746ef60cbd567fe29a1c97e5e052ef1507c6
     invariants:
-      - enum constants and declaration order unchanged
-      - comments and semantic meaning unchanged
+      - semantic values, validation and behaviour unchanged
       - only namespace/import wiring changes
-  - id: GR-REN-02-01X246
+  - id: GR-REN-02-01X255
     owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingBlockingAnswerOutcome.java
-      to: src/main/java/grandrue/onboarding/OnboardingBlockingAnswerOutcome.java
-      blob_sha: 77986033ad18b05e5042e7b0fb2ec98021f632bb
+      from: src/main/java/mainstreet/onboarding/OnboardingSubmissionBlocker.java
+      to: src/main/java/grandrue/onboarding/OnboardingSubmissionBlocker.java
+      blob_sha: df034fe1be63a3de5aaf9560624c12c3157e5b2c
     production_consumers:
-      - path: src/main/java/mainstreet/onboarding/OnboardingCompletionPolicy.java
-        blob_sha: d058394bae50473736e72712bc6e7770421b7468
-      - path: src/main/java/mainstreet/onboarding/OnboardingAnswerOutcomeRule.java
-        blob_sha: 22bedc6b16c46c213ee7fc74f55c19a83ae2d28a
+      - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadiness.java
+        blob_sha: b9f0d06283fa031144d1bab712aeac5208cc2099
+      - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionRejectedException.java
+        blob_sha: c4cfbb4c2f5ad0fe64997131fbfa49a24aefe769
       - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
-        blob_sha: 95b4e9146a71000eac5986926a4b8f924f5e517d
-    invariants:
-      - enum constants and declaration order unchanged
-      - comments and semantic meaning unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X247
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingPersistenceFailureCategory.java
-      to: src/main/java/grandrue/onboarding/OnboardingPersistenceFailureCategory.java
-      blob_sha: ecd5bd1f1ee4e8ab1e26038acc7651780a16a7e0
-    production_consumers:
-      - path: src/main/java/mainstreet/onboarding/OnboardingCasePersistenceException.java
-        blob_sha: e8b2952187f72ad8ae251b046d714106eab2670b
-      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 0deb16d3f7e393818b06a3d1de7ae494f5728abc
-    invariants:
-      - enum constants and declaration order unchanged
-      - comments and semantic meaning unchanged
-      - only namespace/import wiring changes
-  - id: GR-REN-02-01X248
-    owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingSubmissionAuthority.java
-      to: src/main/java/grandrue/onboarding/OnboardingSubmissionAuthority.java
-      blob_sha: 9c1a9fc1b789e0cdf0fcccb20ee34861ede91dee
-    production_consumers:
-      - path: src/main/java/mainstreet/onboarding/OnboardingCaseEvidenceStore.java
-        blob_sha: 5b46365f9e75d98af8b46adfe3fda8451a9fd3c9
+        blob_sha: e7fc0ff19a6cd6655ec7a0029625144650815ed1
       - path: src/main/java/mainstreet/onboarding/OnboardingFinalReviewService.java
-        blob_sha: 144018aa445dfcda03255b936cf4b7395870857b
-      - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
-        blob_sha: 95b4e9146a71000eac5986926a4b8f924f5e517d
-      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 0deb16d3f7e393818b06a3d1de7ae494f5728abc
+        blob_sha: 1e576a7ad33fc84a4f7812b678fee059d7ff247e
     invariants:
-      - enum constants and declaration order unchanged
-      - comments and semantic meaning unchanged
+      - semantic values, validation and behaviour unchanged
       - only namespace/import wiring changes
-  - id: GR-REN-02-01X249
+  - id: GR-REN-02-01X256
     owner:
-      from: src/main/java/mainstreet/onboarding/OnboardingAnswerForm.java
-      to: src/main/java/grandrue/onboarding/OnboardingAnswerForm.java
-      blob_sha: 717ff7b2ded1a0a08589d5d4e8416f3fe5010ce5
+      from: src/main/java/mainstreet/onboarding/OnboardingSubmissionRejectedException.java
+      to: src/main/java/grandrue/onboarding/OnboardingSubmissionRejectedException.java
+      blob_sha: c4cfbb4c2f5ad0fe64997131fbfa49a24aefe769
     production_consumers:
-      - path: src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
-        blob_sha: 0d6e5b9518cd37f6d2859f8abcadd34f58e55e5a
-      - path: src/main/java/mainstreet/onboarding/OnboardingAnswerEvidence.java
-        blob_sha: 90463ad2571a4c0c2666c013ff0b1834ea14ee3e
-      - path: src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestion.java
-        blob_sha: 70d671b929cfc3e24ac3c1a8fef8747a1e1c0a5a
       - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
-        blob_sha: 0deb16d3f7e393818b06a3d1de7ae494f5728abc
+        blob_sha: d83949960193fef410b981d8cc72f5e5810deddb
     invariants:
-      - enum constants and declaration order unchanged
-      - comments and semantic meaning unchanged
+      - semantic values, validation and behaviour unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X257
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingCaseReviewCurrentness.java
+      to: src/main/java/grandrue/onboarding/OnboardingCaseReviewCurrentness.java
+      blob_sha: 5b6cb33216e2b6def4b104b18e113b324af59737
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
+        blob_sha: e7fc0ff19a6cd6655ec7a0029625144650815ed1
+    transitional_dependencies:
+      - path: src/main/java/mainstreet/onboarding/OnboardingCase.java
+        blob_sha: d553e5dd09e6143500ad302b71e2f665fdf7fc6e
+      - path: src/main/java/mainstreet/onboarding/OnboardingCaseReview.java
+        blob_sha: ca273ecc5b8a66b74a615ce5fee099a453d0e14a
+    invariants:
+      - semantic values, validation and behaviour unchanged
       - only namespace/import wiring changes
 
 aggregate:
   permitted_changed_paths:
     - docs/development/grandrue-migration-active-tranche.yaml
-    - src/main/java/grandrue/onboarding/OnboardingCasePurpose.java
-    - src/main/java/grandrue/onboarding/OnboardingPromptCompletionRequirement.java
-    - src/main/java/grandrue/onboarding/OnboardingPromptEligibility.java
-    - src/main/java/grandrue/onboarding/OnboardingPromptClass.java
-    - src/main/java/grandrue/onboarding/OnboardingBlockingAnswerOutcome.java
-    - src/main/java/grandrue/onboarding/OnboardingPersistenceFailureCategory.java
-    - src/main/java/grandrue/onboarding/OnboardingSubmissionAuthority.java
-    - src/main/java/grandrue/onboarding/OnboardingAnswerForm.java
-    - src/main/java/mainstreet/onboarding/OnboardingCase.java
-    - src/main/java/mainstreet/onboarding/OnboardingCompletionPolicy.java
-    - src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
+    - src/main/java/grandrue/onboarding/OnboardingAnswerOrigin.java
+    - src/main/java/grandrue/onboarding/OnboardingPromptPriority.java
+    - src/main/java/grandrue/onboarding/OnboardingCaseLifecycle.java
+    - src/main/java/grandrue/onboarding/InitialCustomerInteractionDiscoveryOption.java
+    - src/main/java/grandrue/onboarding/OnboardingAnswerConstraint.java
+    - src/main/java/grandrue/onboarding/OnboardingSubmissionBlocker.java
+    - src/main/java/grandrue/onboarding/OnboardingSubmissionRejectedException.java
+    - src/main/java/grandrue/onboarding/OnboardingCaseReviewCurrentness.java
+    - src/main/java/mainstreet/onboarding/OnboardingAnswerEvidence.java
     - src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
     - src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestion.java
-    - src/main/java/mainstreet/onboarding/OnboardingAnswerOutcomeRule.java
-    - src/main/java/mainstreet/onboarding/OnboardingCasePersistenceException.java
-    - src/main/java/mainstreet/onboarding/OnboardingCaseEvidenceStore.java
+    - src/main/java/mainstreet/onboarding/OnboardingCase.java
+    - src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
+    - src/main/java/mainstreet/onboarding/InitialOnboardingPromptCatalogue.java
+    - src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoverySelectionConsistency.java
+    - src/main/java/mainstreet/onboarding/OnboardingSubmissionReadiness.java
     - src/main/java/mainstreet/onboarding/OnboardingFinalReviewService.java
-    - src/main/java/mainstreet/onboarding/OnboardingAnswerEvidence.java
     - src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
   legacy_owner_paths_removed:
-    - src/main/java/mainstreet/onboarding/OnboardingCasePurpose.java
-    - src/main/java/mainstreet/onboarding/OnboardingPromptCompletionRequirement.java
-    - src/main/java/mainstreet/onboarding/OnboardingPromptEligibility.java
-    - src/main/java/mainstreet/onboarding/OnboardingPromptClass.java
-    - src/main/java/mainstreet/onboarding/OnboardingBlockingAnswerOutcome.java
-    - src/main/java/mainstreet/onboarding/OnboardingPersistenceFailureCategory.java
-    - src/main/java/mainstreet/onboarding/OnboardingSubmissionAuthority.java
-    - src/main/java/mainstreet/onboarding/OnboardingAnswerForm.java
+    - src/main/java/mainstreet/onboarding/OnboardingAnswerOrigin.java
+    - src/main/java/mainstreet/onboarding/OnboardingPromptPriority.java
+    - src/main/java/mainstreet/onboarding/OnboardingCaseLifecycle.java
+    - src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryOption.java
+    - src/main/java/mainstreet/onboarding/OnboardingAnswerConstraint.java
+    - src/main/java/mainstreet/onboarding/OnboardingSubmissionBlocker.java
+    - src/main/java/mainstreet/onboarding/OnboardingSubmissionRejectedException.java
+    - src/main/java/mainstreet/onboarding/OnboardingCaseReviewCurrentness.java
   protected_identity_checks:
     - stable MS-* identifiers unchanged
     - applied Flyway content unchanged
     - legacy prototype paths unchanged
   expected_residuals:
+    - OnboardingCaseReviewCurrentness retains explicit mainstreet.onboarding imports for OnboardingCase and OnboardingCaseReview until those owners migrate
     - src/test/java/mainstreet/onboarding/** remains deferred to GR-REN-03
   changed_path_set: exact
   diff_integrity: required
@@ -177,13 +165,6 @@ aggregate:
   github_actions: prohibited_unless_separately_authorised
 
 preparation_notes:
-  - Eight public onboarding enums were selected because their production consumer closures are explicit and contain no package-private or sealed-hierarchy coupling.
-  - Test namespace consumers remain deferred to GR-REN-03.
+  - Eight small onboarding values/helpers selected; wide case-identity/revision closure remains for later preparation.
+  - OnboardingSubmissionBlocker and OnboardingSubmissionRejectedException move together to avoid a temporary cross-package dependency between those two owners.
   - No prototype path is selected or changed.
-
-completed:
-  last_leaf: GR-REN-02-01X249
-  completed_leaf_count_in_tranche: 8
-  aggregate_changed_path_count: 20
-  structural_verification: passed
-  next_tranche: GR-REN-02-T008

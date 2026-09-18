@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /** MS-PROT-052 v1.2 initial Onboarding Case lifecycle. */
 public enum OnboardingCaseLifecycle {

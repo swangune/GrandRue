@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.InitialCustomerInteractionDiscoveryOption;
 import java.util.Objects;
 import java.util.Set;
 
