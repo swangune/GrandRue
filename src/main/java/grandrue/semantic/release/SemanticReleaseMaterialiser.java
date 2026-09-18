@@ -1,4 +1,4 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 import grandrue.fulfilment.FulfilmentContractRegistrySnapshot;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;

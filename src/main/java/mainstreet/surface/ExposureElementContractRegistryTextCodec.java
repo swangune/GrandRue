@@ -1,6 +1,6 @@
 package mainstreet.surface;
 
-import mainstreet.semantic.release.SemanticDefinitionSectionDecoder;
+import grandrue.semantic.release.SemanticDefinitionSectionDecoder;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;

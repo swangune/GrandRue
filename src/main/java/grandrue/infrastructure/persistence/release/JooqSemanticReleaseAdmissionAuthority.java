@@ -1,14 +1,14 @@
 package grandrue.infrastructure.persistence.release;
 
-import mainstreet.semantic.release.AdvanceOrdinarySemanticReleaseCommand;
-import mainstreet.semantic.release.OrdinaryNewConfigurationSemanticReleaseReference;
-import mainstreet.semantic.release.RecordSemanticReleasePurposeAdmissionDecisionCommand;
-import mainstreet.semantic.release.SemanticReleaseAdmissionDisposition;
-import mainstreet.semantic.release.SemanticReleaseAdmissionFailureCategory;
-import mainstreet.semantic.release.SemanticReleaseAdmissionPersistenceException;
-import mainstreet.semantic.release.SemanticReleaseAdmissionAuthority;
-import mainstreet.semantic.release.SemanticReleasePurpose;
-import mainstreet.semantic.release.SemanticReleasePurposeAdmissionDecision;
+import grandrue.semantic.release.AdvanceOrdinarySemanticReleaseCommand;
+import grandrue.semantic.release.OrdinaryNewConfigurationSemanticReleaseReference;
+import grandrue.semantic.release.RecordSemanticReleasePurposeAdmissionDecisionCommand;
+import grandrue.semantic.release.SemanticReleaseAdmissionDisposition;
+import grandrue.semantic.release.SemanticReleaseAdmissionFailureCategory;
+import grandrue.semantic.release.SemanticReleaseAdmissionPersistenceException;
+import grandrue.semantic.release.SemanticReleaseAdmissionAuthority;
+import grandrue.semantic.release.SemanticReleasePurpose;
+import grandrue.semantic.release.SemanticReleasePurposeAdmissionDecision;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

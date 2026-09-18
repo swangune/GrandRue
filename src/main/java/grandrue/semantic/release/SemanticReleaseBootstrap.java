@@ -1,4 +1,4 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 import java.util.Collection;
 import java.util.HashSet;

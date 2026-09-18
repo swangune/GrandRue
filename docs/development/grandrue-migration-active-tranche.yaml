@@ -2,281 +2,167 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T018
-state: COMPLETE
-code_commit: 856f88bbef52bd38832f4abd493ae0e2f3726879
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: a9bff899ef038f1b3ac69b79f8761a5c2299cb24
+tranche: GR-REN-02-T019
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 4e1b504f9405e54c2ea21530d664cc8453bde3e0
 
 region:
-  identity: semantic/registry
-  closure_basis: complete live src/main/java/mainstreet/semantic/registry/** owner graph plus all proven in-scope production consumers and permitted prototype dependency repair
+  identity: semantic/release
+  closure_basis: complete live src/main/java/mainstreet/semantic/release/** owner graph plus all proven in-scope production consumers
 
 classification:
   normal_closed:
-    owner_count: 35
-    production_consumer_count: 22
-    prototype_dependency_repair_count: 1
+    owner_count: 23
+    production_consumer_count: 6
   exceptions: []
 
 subgraph:
   leaf_range:
-    first: GR-REN-02-01X394
-    last: GR-REN-02-01X428
-  leaf_count: 35
+    first: GR-REN-02-01X429
+    last: GR-REN-02-01X451
+  leaf_count: 23
   owners:
-    - leaf: GR-REN-02-01X394
-      from: src/main/java/mainstreet/semantic/registry/CapabilityDataConceptReference.java
-      to: src/main/java/grandrue/semantic/registry/CapabilityDataConceptReference.java
-      blob_sha: d96b1327d6cad4a63ceb69029f8cdce3449a415b
-    - leaf: GR-REN-02-01X395
-      from: src/main/java/mainstreet/semantic/registry/CapabilityRelationshipType.java
-      to: src/main/java/grandrue/semantic/registry/CapabilityRelationshipType.java
-      blob_sha: a197947cf074423952aaa93d1c405a6147c4a025
-    - leaf: GR-REN-02-01X396
-      from: src/main/java/mainstreet/semantic/registry/FieldSemanticBasis.java
-      to: src/main/java/grandrue/semantic/registry/FieldSemanticBasis.java
-      blob_sha: 1031ab51659161d33906de8849e995ec5d909895
-    - leaf: GR-REN-02-01X397
-      from: src/main/java/mainstreet/semantic/registry/FieldSpecificSemantics.java
-      to: src/main/java/grandrue/semantic/registry/FieldSpecificSemantics.java
-      blob_sha: cc3f18517d3d3101354c39b1c0b0c9a14768ac67
-    - leaf: GR-REN-02-01X398
-      from: src/main/java/mainstreet/semantic/registry/GlobalDataConceptReference.java
-      to: src/main/java/grandrue/semantic/registry/GlobalDataConceptReference.java
-      blob_sha: 7ed63c4f9eb2cfc800ad6254b141bc818fadf9c2
-    - leaf: GR-REN-02-01X399
-      from: src/main/java/mainstreet/semantic/registry/InMemorySemanticRegistry.java
-      to: src/main/java/grandrue/semantic/registry/InMemorySemanticRegistry.java
-      blob_sha: 2222a6c4d2d67fa674917ec94fa7b74b99d9ea52
-    - leaf: GR-REN-02-01X400
-      from: src/main/java/mainstreet/semantic/registry/OwnedAllocationClaimEffect.java
-      to: src/main/java/grandrue/semantic/registry/OwnedAllocationClaimEffect.java
-      blob_sha: 3bdc5d5ca07922b468f9cbea81e9ec2754d231a3
-    - leaf: GR-REN-02-01X401
-      from: src/main/java/mainstreet/semantic/registry/OwnedAllocationReleaseEffect.java
-      to: src/main/java/grandrue/semantic/registry/OwnedAllocationReleaseEffect.java
-      blob_sha: 4ffc5fcd55011183c4dff65c8292d4c6c2a07ba7
-    - leaf: GR-REN-02-01X402
-      from: src/main/java/mainstreet/semantic/registry/OwnedConditionalRequirementDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedConditionalRequirementDefinition.java
-      blob_sha: 1ec819fd73ae2a2f0c256480771d9d38a5024432
-    - leaf: GR-REN-02-01X403
-      from: src/main/java/mainstreet/semantic/registry/OwnedDataConceptDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedDataConceptDefinition.java
-      blob_sha: 3fb997c55e767a364a6aea3164a05d7dbdeea641
-    - leaf: GR-REN-02-01X404
-      from: src/main/java/mainstreet/semantic/registry/OwnedDataMutationEffect.java
-      to: src/main/java/grandrue/semantic/registry/OwnedDataMutationEffect.java
-      blob_sha: 26bd486048f1f870a3e4afb17d925029316d4952
-    - leaf: GR-REN-02-01X405
-      from: src/main/java/mainstreet/semantic/registry/OwnedFieldDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedFieldDefinition.java
-      blob_sha: 8b8f0f8486faa47d3af08aff4b85b14186b0cb9b
-    - leaf: GR-REN-02-01X406
-      from: src/main/java/mainstreet/semantic/registry/OwnedObjectCreationEffect.java
-      to: src/main/java/grandrue/semantic/registry/OwnedObjectCreationEffect.java
-      blob_sha: 3429a27b2258df6e915b2a2f7cfc00ca20427a93
-    - leaf: GR-REN-02-01X407
-      from: src/main/java/mainstreet/semantic/registry/OwnedOperationalObjectDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedOperationalObjectDefinition.java
-      blob_sha: 8e36199f8bb818f668b6f37aa7ea83d396ee3479
-    - leaf: GR-REN-02-01X408
-      from: src/main/java/mainstreet/semantic/registry/OwnedOperationalObjectTypeReference.java
-      to: src/main/java/grandrue/semantic/registry/OwnedOperationalObjectTypeReference.java
-      blob_sha: acceaf6d7998e3c82a566df336f3efe9002eabbd
-    - leaf: GR-REN-02-01X409
-      from: src/main/java/mainstreet/semantic/registry/OwnedOperationDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedOperationDefinition.java
-      blob_sha: f8433dae47e7f855a44da004718adf22dcebc710
-    - leaf: GR-REN-02-01X410
-      from: src/main/java/mainstreet/semantic/registry/OwnedOperationEffect.java
-      to: src/main/java/grandrue/semantic/registry/OwnedOperationEffect.java
-      blob_sha: 0ae93b28d8b06ef5545b929937cc9c0df2e4a247
-    - leaf: GR-REN-02-01X411
-      from: src/main/java/mainstreet/semantic/registry/OwnedPolicyDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedPolicyDefinition.java
-      blob_sha: e9c5f29720f988d94e84d13c9b50a57a8f143fe3
-    - leaf: GR-REN-02-01X412
-      from: src/main/java/mainstreet/semantic/registry/OwnedRelationshipDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedRelationshipDefinition.java
-      blob_sha: e6f0ddc56f53f35aa4b827044b8be31b02a190c7
-    - leaf: GR-REN-02-01X413
-      from: src/main/java/mainstreet/semantic/registry/OwnedRelationshipEstablishmentEffect.java
-      to: src/main/java/grandrue/semantic/registry/OwnedRelationshipEstablishmentEffect.java
-      blob_sha: 43a7d74f2bf24663ebc6151fd181221671fb55eb
-    - leaf: GR-REN-02-01X414
-      from: src/main/java/mainstreet/semantic/registry/OwnedRelationshipRemovalEffect.java
-      to: src/main/java/grandrue/semantic/registry/OwnedRelationshipRemovalEffect.java
-      blob_sha: 0763380642b689e5fe9fbe7306ef0f2cefed42f0
-    - leaf: GR-REN-02-01X415
-      from: src/main/java/mainstreet/semantic/registry/OwnedRequirementDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedRequirementDefinition.java
-      blob_sha: 7186659d9b69f4b838594adff8d6a4865d75fd84
-    - leaf: GR-REN-02-01X416
-      from: src/main/java/mainstreet/semantic/registry/OwnedSchemaDefinition.java
-      to: src/main/java/grandrue/semantic/registry/OwnedSchemaDefinition.java
-      blob_sha: 9570676d57734727630ee34352968c4daaa0ca67
-    - leaf: GR-REN-02-01X417
-      from: src/main/java/mainstreet/semantic/registry/OwnedSchemaReference.java
-      to: src/main/java/grandrue/semantic/registry/OwnedSchemaReference.java
-      blob_sha: 84280befe3cb606fd4e0d009e6272def9b0026bd
-    - leaf: GR-REN-02-01X418
-      from: src/main/java/mainstreet/semantic/registry/OwnedStateTransitionEffect.java
-      to: src/main/java/grandrue/semantic/registry/OwnedStateTransitionEffect.java
-      blob_sha: 452e6267558bfd0516888b6b543355dfb833b6be
-    - leaf: GR-REN-02-01X419
-      from: src/main/java/mainstreet/semantic/registry/RegisteredCapability.java
-      to: src/main/java/grandrue/semantic/registry/RegisteredCapability.java
-      blob_sha: 102780046a4eba0e12e3f2c618d4f69de9d382ca
-    - leaf: GR-REN-02-01X420
-      from: src/main/java/mainstreet/semantic/registry/RegisteredCapabilityRelationship.java
-      to: src/main/java/grandrue/semantic/registry/RegisteredCapabilityRelationship.java
-      blob_sha: 359d447697fb6118e0026f03cc8ee28de4620070
-    - leaf: GR-REN-02-01X421
-      from: src/main/java/mainstreet/semantic/registry/RegisteredDefinition.java
-      to: src/main/java/grandrue/semantic/registry/RegisteredDefinition.java
-      blob_sha: bf3391dde0904b77ec2724161be68c145b4f59e3
-    - leaf: GR-REN-02-01X422
-      from: src/main/java/mainstreet/semantic/registry/RegisteredGlobalDataConcept.java
-      to: src/main/java/grandrue/semantic/registry/RegisteredGlobalDataConcept.java
-      blob_sha: 6b895b7d2bc178a9449d51537036dfa6f79d2dbb
-    - leaf: GR-REN-02-01X423
-      from: src/main/java/mainstreet/semantic/registry/RelationshipCardinality.java
-      to: src/main/java/grandrue/semantic/registry/RelationshipCardinality.java
-      blob_sha: 05279439dc02f53f88d31ed8dded17fc38b1de40
-    - leaf: GR-REN-02-01X424
-      from: src/main/java/mainstreet/semantic/registry/RelationshipScopeConstraint.java
-      to: src/main/java/grandrue/semantic/registry/RelationshipScopeConstraint.java
-      blob_sha: fcb311c271a92bcd97039c4b8f748983c35d4c19
-    - leaf: GR-REN-02-01X425
-      from: src/main/java/mainstreet/semantic/registry/SemanticDefinitionKind.java
-      to: src/main/java/grandrue/semantic/registry/SemanticDefinitionKind.java
-      blob_sha: e5c46f5cd46ef859a1835b39212a5b8d8d66c73c
-    - leaf: GR-REN-02-01X426
-      from: src/main/java/mainstreet/semantic/registry/SemanticIdentity.java
-      to: src/main/java/grandrue/semantic/registry/SemanticIdentity.java
-      blob_sha: cf7f275fee60cc8bcd4730b7fea00cfae53e2ea4
-    - leaf: GR-REN-02-01X427
-      from: src/main/java/mainstreet/semantic/registry/SemanticRegistry.java
-      to: src/main/java/grandrue/semantic/registry/SemanticRegistry.java
-      blob_sha: 27095c2ecb8d74a5869e51bb215893a8445e35db
-    - leaf: GR-REN-02-01X428
-      from: src/main/java/mainstreet/semantic/registry/SemanticRegistrySnapshot.java
-      to: src/main/java/grandrue/semantic/registry/SemanticRegistrySnapshot.java
-      blob_sha: 239eca3835349e6fe83100fa2b41ed9d20abaca7
+    - leaf: GR-REN-02-01X429
+      from: src/main/java/mainstreet/semantic/release/AdvanceOrdinarySemanticReleaseCommand.java
+      to: src/main/java/grandrue/semantic/release/AdvanceOrdinarySemanticReleaseCommand.java
+      blob_sha: cecc810d420890958f93002ffa57e3f9739c84a4
+    - leaf: GR-REN-02-01X430
+      from: src/main/java/mainstreet/semantic/release/ClasspathSemanticDefinitionBundleLoader.java
+      to: src/main/java/grandrue/semantic/release/ClasspathSemanticDefinitionBundleLoader.java
+      blob_sha: 11223e028755a085ce8fbc8d49bb6d77d59bf6d0
+    - leaf: GR-REN-02-01X431
+      from: src/main/java/mainstreet/semantic/release/DeploymentSemanticMaterialisationSet.java
+      to: src/main/java/grandrue/semantic/release/DeploymentSemanticMaterialisationSet.java
+      blob_sha: 86f117893ddeddb2bbe086811fdaf705a1024780
+    - leaf: GR-REN-02-01X432
+      from: src/main/java/mainstreet/semantic/release/InMemorySemanticReleaseAssemblyRepository.java
+      to: src/main/java/grandrue/semantic/release/InMemorySemanticReleaseAssemblyRepository.java
+      blob_sha: e8401bc35f4be5eb621fbcdd15268ba199ef9069
+    - leaf: GR-REN-02-01X433
+      from: src/main/java/mainstreet/semantic/release/OrdinaryNewConfigurationSemanticReleaseReference.java
+      to: src/main/java/grandrue/semantic/release/OrdinaryNewConfigurationSemanticReleaseReference.java
+      blob_sha: 91066f872cc80790c394c2fea437586f170f8f79
+    - leaf: GR-REN-02-01X434
+      from: src/main/java/mainstreet/semantic/release/PackagedSemanticDefinitionBundle.java
+      to: src/main/java/grandrue/semantic/release/PackagedSemanticDefinitionBundle.java
+      blob_sha: 2a087746c3239f00e43bbcabf42facd174d76aa3
+    - leaf: GR-REN-02-01X435
+      from: src/main/java/mainstreet/semantic/release/PackagedSemanticDefinitionBundleTextCodec.java
+      to: src/main/java/grandrue/semantic/release/PackagedSemanticDefinitionBundleTextCodec.java
+      blob_sha: 92e1f830610dc7d513a74dd6105e753befaca8e5
+    - leaf: GR-REN-02-01X436
+      from: src/main/java/mainstreet/semantic/release/PublishedSemanticDefinitionSet.java
+      to: src/main/java/grandrue/semantic/release/PublishedSemanticDefinitionSet.java
+      blob_sha: e23a8334078fb239dde926d6a520d552ee3ccfdf
+    - leaf: GR-REN-02-01X437
+      from: src/main/java/mainstreet/semantic/release/RecordSemanticReleasePurposeAdmissionDecisionCommand.java
+      to: src/main/java/grandrue/semantic/release/RecordSemanticReleasePurposeAdmissionDecisionCommand.java
+      blob_sha: 07d4bc984ab502b4866e71f796500c8a82154e00
+    - leaf: GR-REN-02-01X438
+      from: src/main/java/mainstreet/semantic/release/SemanticDefinitionBundlePackager.java
+      to: src/main/java/grandrue/semantic/release/SemanticDefinitionBundlePackager.java
+      blob_sha: b08a77ab7c61b8a522115026ee0222cfd4628ed3
+    - leaf: GR-REN-02-01X439
+      from: src/main/java/mainstreet/semantic/release/SemanticDefinitionSectionDecoder.java
+      to: src/main/java/grandrue/semantic/release/SemanticDefinitionSectionDecoder.java
+      blob_sha: b4775c10b0451d8a777a5ac577a0d644f9d87c74
+    - leaf: GR-REN-02-01X440
+      from: src/main/java/mainstreet/semantic/release/SemanticMaterialisationException.java
+      to: src/main/java/grandrue/semantic/release/SemanticMaterialisationException.java
+      blob_sha: baf44dfa49cde5b3a00d127259e31a20d81b01c4
+    - leaf: GR-REN-02-01X441
+      from: src/main/java/mainstreet/semantic/release/SemanticMaterialisationFailure.java
+      to: src/main/java/grandrue/semantic/release/SemanticMaterialisationFailure.java
+      blob_sha: d8d8367cd8980e4fa79fad1881271dffaa7a1a1a
+    - leaf: GR-REN-02-01X442
+      from: src/main/java/mainstreet/semantic/release/SemanticReleaseAdmissionAuthority.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleaseAdmissionAuthority.java
+      blob_sha: 8f2e500abe079b8df4371d7627c75a0d626e3a07
+    - leaf: GR-REN-02-01X443
+      from: src/main/java/mainstreet/semantic/release/SemanticReleaseAdmissionDisposition.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleaseAdmissionDisposition.java
+      blob_sha: 069bf32087208d60f5f9d9d4e8a0577169635c6f
+    - leaf: GR-REN-02-01X444
+      from: src/main/java/mainstreet/semantic/release/SemanticReleaseAdmissionFailureCategory.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleaseAdmissionFailureCategory.java
+      blob_sha: 98bb0e61c05a91168eeb985020eef8fd98823dd0
+    - leaf: GR-REN-02-01X445
+      from: src/main/java/mainstreet/semantic/release/SemanticReleaseAdmissionPersistenceException.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleaseAdmissionPersistenceException.java
+      blob_sha: 8296339b2499252a783359bcafc6b8fe029d9124
+    - leaf: GR-REN-02-01X446
+      from: src/main/java/mainstreet/semantic/release/SemanticReleaseAssembly.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleaseAssembly.java
+      blob_sha: 405b6fdae0fbc1490b1e75dfbe5bde486d892396
+    - leaf: GR-REN-02-01X447
+      from: src/main/java/mainstreet/semantic/release/SemanticReleaseAssemblyRepository.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleaseAssemblyRepository.java
+      blob_sha: 92e603405064ed3c88f5271fc7c22385c7418a54
+    - leaf: GR-REN-02-01X448
+      from: src/main/java/mainstreet/semantic/release/SemanticReleaseBootstrap.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleaseBootstrap.java
+      blob_sha: ac3193ae251d6b8f5f4173a3e550b15d0d1a64f7
+    - leaf: GR-REN-02-01X449
+      from: src/main/java/mainstreet/semantic/release/SemanticReleaseMaterialiser.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleaseMaterialiser.java
+      blob_sha: 70d1adf8059eecc7ecbd4e77fd115894c99e4846
+    - leaf: GR-REN-02-01X450
+      from: src/main/java/mainstreet/semantic/release/SemanticReleasePurpose.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleasePurpose.java
+      blob_sha: d3b6ecb59487bdfdb73e8e230af79fb4347ef0e4
+    - leaf: GR-REN-02-01X451
+      from: src/main/java/mainstreet/semantic/release/SemanticReleasePurposeAdmissionDecision.java
+      to: src/main/java/grandrue/semantic/release/SemanticReleasePurposeAdmissionDecision.java
+      blob_sha: c9139c293ffa61839ca0a5f3ab2a08b057f227ab
   production_consumer_closure:
-    - path: src/main/java/grandrue/enquiry/EnquiryRevisionProvenance.java
-      blob_sha: d0b3a311f947a5ff4df8df91fdff08c48eb41b11
-    - path: src/main/java/grandrue/workforce/MerchantRoleDefinition.java
-      blob_sha: 2a391dc076f4de6d1558a6ea7dcf17189b3d6814
-    - path: src/main/java/grandrue/enquiry/delivery/MerchantEnquiryApiConfiguration.java
-      blob_sha: 09408fae1984e3e3e4917e4e14d30e7f2c7c20b1
-    - path: src/main/java/mainstreet/semantic/release/SemanticReleaseAssembly.java
-      blob_sha: 9475316e015be6d8d6b95f5114fdbd9fc7e8a2cd
-    - path: src/main/java/grandrue/semantic/executable/ExecutableRelationshipDefinition.java
-      blob_sha: ba1f5a3b33687861cbcdf7194e3726f84917b689
-    - path: src/main/java/mainstreet/semantic/compiler/ConfigurationCompiler.java
-      blob_sha: 5c1b9caa9ce096c4cd206370d4f5d1e2931d4752
-    - path: src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquiryApiConfiguration.java
-      blob_sha: c99e8204ffa8251e21ca3e711dca5e40c4d36545
-    - path: src/main/java/grandrue/publication/delivery/PublicOpportunityApiConfiguration.java
-      blob_sha: 7baf52b560a277059602cb8248155984088ae7ef
-    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryApiConfiguration.java
-      blob_sha: 566f2d16213e3097c7e3f62b952406ab6d6122d4
-    - path: src/main/java/grandrue/publication/OpportunityPublicationMaterialRevision.java
-      blob_sha: 95b34b8227dd43cb783afbff23a37c43f35c67b7
-    - path: src/main/java/grandrue/enquiry/delivery/MerchantEnquiryQuery.java
-      blob_sha: 258b348f86a89d1f4bff229728fa29fad659016f
-    - path: src/main/java/mainstreet/semantic/configuration/RegistryValidatedConfigurationPublication.java
-      blob_sha: 67e9a784477ef45b04245d6b6adba7d94e18ae87
-    - path: src/main/java/mainstreet/prototype/PrototypeExecutableModelFactory.java
-      blob_sha: 1fd591e28752db27a76b16caa4ed82a71c9f0e8e
-    - path: src/main/java/grandrue/publication/OpportunityEnquiryParticipationDefinition.java
-      blob_sha: 5a153e8d07993f0d68692c6d707a024b168a4880
-    - path: src/main/java/grandrue/publication/delivery/PublicOpportunityQuery.java
-      blob_sha: 334c52a0b0ab28b240c54a6075c0a389cc98de1b
-    - path: src/main/java/mainstreet/surface/ObservationRequestEstablisher.java
-      blob_sha: 41266177be031e3d65a3700db46ffe105f9e1390
-    - path: src/main/java/grandrue/enquiry/delivery/OpportunityEnquiryBindingCodec.java
-      blob_sha: 131136270912f4cfd730b527c63b6bf05fccd54a
-    - path: src/main/java/grandrue/enquiry/OpportunityEnquirySubmissionPreparation.java
-      blob_sha: f6cdd58dea56c7b20393ace38b87ff3313d4277d
-    - path: src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquirySubmission.java
-      blob_sha: a03005fe333d5952749910784cd6ab11b56e47e1
-    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryBindingQuery.java
-      blob_sha: 4923171c0c16a8d88dbf0c6e845b5ff4b4b143c4
-    - path: src/main/java/mainstreet/semantic/release/SemanticReleaseMaterialiser.java
-      blob_sha: 29c5c10bc2eb9ce21df0bbec8b9ec2600f06f85d
-    - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquirySubmission.java
-      blob_sha: d72aa9503125b1b7bd3d2b578a5646259d405f40
-    - path: src/main/java/grandrue/infrastructure/persistence/enquiry/JooqEnquirySubmissionStore.java
-      blob_sha: ad42df077b1b5f674fa275423908d0f140d7a949
+    - path: src/main/java/grandrue/deployment/RecordServingDeploymentAdmissionSnapshotCommand.java
+      blob_sha: 5168d402935b44fd0f6d7ae7c16095c9a051c623
+    - path: src/main/java/grandrue/fulfilment/FulfilmentRoutingImpactAssessment.java
+      blob_sha: 76a0b1fe9b5f2fbd23bd8b2cfdd7bcfc712abeee
+    - path: src/main/java/grandrue/infrastructure/persistence/release/JooqSemanticReleaseAdmissionAuthority.java
+      blob_sha: 7693b5ba7b3301539feb375952a5d97c7486ad93
+    - path: src/main/java/mainstreet/surface/ExposureElementContractRegistryTextCodec.java
+      blob_sha: 7801704cd7abe0ae8d2ba1b5d2f07390df486309
+    - path: src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
+      blob_sha: 09ec617cdbe865e93eba49ba612f6c37f7ef43dc
+    - path: src/main/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationActivationAdmissionAuthority.java
+      blob_sha: 2a2136499445093ce436723311d3150e615cfb80
   deterministic_transformations:
-    - package prefix mainstreet.semantic.registry -> grandrue.semantic.registry for every owner
-    - import prefix mainstreet.semantic.registry -> grandrue.semantic.registry in owners and declared consumers
-    - no comments, string literals or protocol identities are renamed
+    - package prefix mainstreet.semantic.release -> grandrue.semantic.release for every owner
+    - import prefix mainstreet.semantic.release -> grandrue.semantic.release in owners and declared consumers
+    - no comments, string literals or persisted identities are renamed
   permitted_changed_paths:
     - docs/development/grandrue-migration-active-tranche.yaml
-    - src/main/java/grandrue/semantic/registry/CapabilityDataConceptReference.java
-    - src/main/java/grandrue/semantic/registry/CapabilityRelationshipType.java
-    - src/main/java/grandrue/semantic/registry/FieldSemanticBasis.java
-    - src/main/java/grandrue/semantic/registry/FieldSpecificSemantics.java
-    - src/main/java/grandrue/semantic/registry/GlobalDataConceptReference.java
-    - src/main/java/grandrue/semantic/registry/InMemorySemanticRegistry.java
-    - src/main/java/grandrue/semantic/registry/OwnedAllocationClaimEffect.java
-    - src/main/java/grandrue/semantic/registry/OwnedAllocationReleaseEffect.java
-    - src/main/java/grandrue/semantic/registry/OwnedConditionalRequirementDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedDataConceptDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedDataMutationEffect.java
-    - src/main/java/grandrue/semantic/registry/OwnedFieldDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedObjectCreationEffect.java
-    - src/main/java/grandrue/semantic/registry/OwnedOperationalObjectDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedOperationalObjectTypeReference.java
-    - src/main/java/grandrue/semantic/registry/OwnedOperationDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedOperationEffect.java
-    - src/main/java/grandrue/semantic/registry/OwnedPolicyDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedRelationshipDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedRelationshipEstablishmentEffect.java
-    - src/main/java/grandrue/semantic/registry/OwnedRelationshipRemovalEffect.java
-    - src/main/java/grandrue/semantic/registry/OwnedRequirementDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedSchemaDefinition.java
-    - src/main/java/grandrue/semantic/registry/OwnedSchemaReference.java
-    - src/main/java/grandrue/semantic/registry/OwnedStateTransitionEffect.java
-    - src/main/java/grandrue/semantic/registry/RegisteredCapability.java
-    - src/main/java/grandrue/semantic/registry/RegisteredCapabilityRelationship.java
-    - src/main/java/grandrue/semantic/registry/RegisteredDefinition.java
-    - src/main/java/grandrue/semantic/registry/RegisteredGlobalDataConcept.java
-    - src/main/java/grandrue/semantic/registry/RelationshipCardinality.java
-    - src/main/java/grandrue/semantic/registry/RelationshipScopeConstraint.java
-    - src/main/java/grandrue/semantic/registry/SemanticDefinitionKind.java
-    - src/main/java/grandrue/semantic/registry/SemanticIdentity.java
-    - src/main/java/grandrue/semantic/registry/SemanticRegistry.java
-    - src/main/java/grandrue/semantic/registry/SemanticRegistrySnapshot.java
-    - src/main/java/grandrue/enquiry/EnquiryRevisionProvenance.java
-    - src/main/java/grandrue/workforce/MerchantRoleDefinition.java
-    - src/main/java/grandrue/enquiry/delivery/MerchantEnquiryApiConfiguration.java
-    - src/main/java/mainstreet/semantic/release/SemanticReleaseAssembly.java
-    - src/main/java/grandrue/semantic/executable/ExecutableRelationshipDefinition.java
-    - src/main/java/mainstreet/semantic/compiler/ConfigurationCompiler.java
-    - src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquiryApiConfiguration.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityApiConfiguration.java
-    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryApiConfiguration.java
-    - src/main/java/grandrue/publication/OpportunityPublicationMaterialRevision.java
-    - src/main/java/grandrue/enquiry/delivery/MerchantEnquiryQuery.java
-    - src/main/java/mainstreet/semantic/configuration/RegistryValidatedConfigurationPublication.java
-    - src/main/java/mainstreet/prototype/PrototypeExecutableModelFactory.java
-    - src/main/java/grandrue/publication/OpportunityEnquiryParticipationDefinition.java
-    - src/main/java/grandrue/publication/delivery/PublicOpportunityQuery.java
-    - src/main/java/mainstreet/surface/ObservationRequestEstablisher.java
-    - src/main/java/grandrue/enquiry/delivery/OpportunityEnquiryBindingCodec.java
-    - src/main/java/grandrue/enquiry/OpportunityEnquirySubmissionPreparation.java
-    - src/main/java/grandrue/enquiry/delivery/PublicGeneralEnquirySubmission.java
-    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryBindingQuery.java
-    - src/main/java/mainstreet/semantic/release/SemanticReleaseMaterialiser.java
-    - src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquirySubmission.java
-    - src/main/java/grandrue/infrastructure/persistence/enquiry/JooqEnquirySubmissionStore.java
+    - src/main/java/grandrue/semantic/release/AdvanceOrdinarySemanticReleaseCommand.java
+    - src/main/java/grandrue/semantic/release/ClasspathSemanticDefinitionBundleLoader.java
+    - src/main/java/grandrue/semantic/release/DeploymentSemanticMaterialisationSet.java
+    - src/main/java/grandrue/semantic/release/InMemorySemanticReleaseAssemblyRepository.java
+    - src/main/java/grandrue/semantic/release/OrdinaryNewConfigurationSemanticReleaseReference.java
+    - src/main/java/grandrue/semantic/release/PackagedSemanticDefinitionBundle.java
+    - src/main/java/grandrue/semantic/release/PackagedSemanticDefinitionBundleTextCodec.java
+    - src/main/java/grandrue/semantic/release/PublishedSemanticDefinitionSet.java
+    - src/main/java/grandrue/semantic/release/RecordSemanticReleasePurposeAdmissionDecisionCommand.java
+    - src/main/java/grandrue/semantic/release/SemanticDefinitionBundlePackager.java
+    - src/main/java/grandrue/semantic/release/SemanticDefinitionSectionDecoder.java
+    - src/main/java/grandrue/semantic/release/SemanticMaterialisationException.java
+    - src/main/java/grandrue/semantic/release/SemanticMaterialisationFailure.java
+    - src/main/java/grandrue/semantic/release/SemanticReleaseAdmissionAuthority.java
+    - src/main/java/grandrue/semantic/release/SemanticReleaseAdmissionDisposition.java
+    - src/main/java/grandrue/semantic/release/SemanticReleaseAdmissionFailureCategory.java
+    - src/main/java/grandrue/semantic/release/SemanticReleaseAdmissionPersistenceException.java
+    - src/main/java/grandrue/semantic/release/SemanticReleaseAssembly.java
+    - src/main/java/grandrue/semantic/release/SemanticReleaseAssemblyRepository.java
+    - src/main/java/grandrue/semantic/release/SemanticReleaseBootstrap.java
+    - src/main/java/grandrue/semantic/release/SemanticReleaseMaterialiser.java
+    - src/main/java/grandrue/semantic/release/SemanticReleasePurpose.java
+    - src/main/java/grandrue/semantic/release/SemanticReleasePurposeAdmissionDecision.java
+    - src/main/java/grandrue/deployment/RecordServingDeploymentAdmissionSnapshotCommand.java
+    - src/main/java/grandrue/fulfilment/FulfilmentRoutingImpactAssessment.java
+    - src/main/java/grandrue/infrastructure/persistence/release/JooqSemanticReleaseAdmissionAuthority.java
+    - src/main/java/mainstreet/surface/ExposureElementContractRegistryTextCodec.java
+    - src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
+    - src/main/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationActivationAdmissionAuthority.java
 
 verification:
   aggregate_changed_path_set: exact
@@ -291,24 +177,15 @@ verification:
 protected:
   - applied Flyway migration contents unchanged
   - stable MS-* identifiers unchanged
-  - semantic registry definition identities and release identifiers unchanged
+  - semantic release identifiers and admission decision identities unchanged
   - legacy prototype package/path/API naming unchanged
 
 expected_residuals:
-  - PrototypeExecutableModelFactory receives dependency-repair import changes only
   - src/test/java/mainstreet/** remains deferred to GR-REN-03
-  - remaining semantic and surface production namespaces are not part of T018
+  - remaining semantic and surface production namespaces are not part of T019
 
 preparation_notes:
-  - all 35 semantic/registry owners were analysed once as one natural region
-  - all 23 live consumer files were reconciled to current branch paths
-  - all owner and consumer namespace references were import/package based
+  - all 23 semantic/release owners were analysed once as one natural region
+  - all 6 live consumer files were reconciled to current branch paths
+  - all namespace references were package/import based
   - no FQCN, visibility, persistence, semantic or authority exception was identified
-
-completed:
-  last_leaf: GR-REN-02-01X428
-  completed_leaf_count_in_tranche: 35
-  aggregate_changed_path_count: 59
-  structural_verification: passed
-  semantic_registry_namespace_complete: true
-  next_tranche: GR-REN-02-T019

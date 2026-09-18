@@ -1,4 +1,4 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 /** Immutable disposition recorded by one release-purpose decision. */
 public enum SemanticReleaseAdmissionDisposition {

@@ -1,4 +1,4 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 /** Failure classes accepted by ADR-013 for semantic release materialisation. */
 public enum SemanticMaterialisationFailure {

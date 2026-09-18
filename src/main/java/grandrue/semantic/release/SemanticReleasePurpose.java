@@ -1,4 +1,4 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 /** Independently governed purposes for exact semantic-release admission. */
 public enum SemanticReleasePurpose {

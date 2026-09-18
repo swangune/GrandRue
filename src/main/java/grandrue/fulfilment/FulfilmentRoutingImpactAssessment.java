@@ -8,7 +8,7 @@ import mainstreet.semantic.configuration.ConfigurationImpactContext;
 import mainstreet.semantic.configuration.ConfigurationImpactContribution;
 import mainstreet.semantic.configuration.ConfigurationImpactFinding;
 import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.release.SemanticReleaseAssemblyRepository;
+import grandrue.semantic.release.SemanticReleaseAssemblyRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 /**
  * Registry-owned deterministic decoder for one immutable definition section of

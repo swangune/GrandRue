@@ -1,4 +1,4 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

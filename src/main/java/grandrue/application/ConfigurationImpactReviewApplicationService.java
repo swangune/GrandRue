@@ -28,7 +28,7 @@ import mainstreet.semantic.configuration.RecordConfigurationImpactReviewEvidence
 import mainstreet.semantic.configuration.RecordConfigurationValidationEvidenceCommand;
 import mainstreet.semantic.configuration.ResolvedConfigurationPackage;
 import mainstreet.semantic.configuration.ResolvedPolicyImpactAssessment;
-import mainstreet.semantic.release.SemanticReleaseAssemblyRepository;
+import grandrue.semantic.release.SemanticReleaseAssemblyRepository;
 
 import java.util.List;
 import java.util.Map;

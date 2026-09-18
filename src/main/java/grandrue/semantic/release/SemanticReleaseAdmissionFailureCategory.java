@@ -1,4 +1,4 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 public enum SemanticReleaseAdmissionFailureCategory {
     DECISION_IDENTITY_CONFLICT,

@@ -1,22 +1,26 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
 import java.time.Instant;
 import java.util.Objects;
 
-/** Exact retry-safe intent to advance the singleton ordinary reference. */
-public record AdvanceOrdinarySemanticReleaseCommand(
+/** Immutable versioned selection behind the singleton ordinary reference. */
+public record OrdinaryNewConfigurationSemanticReleaseReference(
         String referenceRevisionIdentifier,
         String semanticRegistryReleaseIdentifier,
-        long expectedReferenceEpoch,
+        String validationAdmissionDecisionIdentifier,
+        String businessActivityAdmissionDecisionIdentifier,
+        long referenceEpoch,
         String selectingPrincipalIdentifier,
         String selectionProvenanceReference,
         Instant selectedAt
 ) {
-    public AdvanceOrdinarySemanticReleaseCommand {
+    public OrdinaryNewConfigurationSemanticReleaseReference {
         requireIdentifier(referenceRevisionIdentifier, "Reference revision identifier");
         requireIdentifier(semanticRegistryReleaseIdentifier, "Semantic Registry Release identifier");
-        if (expectedReferenceEpoch < 0) {
-            throw new IllegalArgumentException("Expected reference epoch must not be negative");
+        requireIdentifier(validationAdmissionDecisionIdentifier, "Validation admission decision identifier");
+        requireIdentifier(businessActivityAdmissionDecisionIdentifier, "Business-activity admission decision identifier");
+        if (referenceEpoch <= 0) {
+            throw new IllegalArgumentException("Reference epoch must be positive");
         }
         requireIdentifier(selectingPrincipalIdentifier, "Selecting principal identifier");
         requireIdentifier(selectionProvenanceReference, "Selection provenance reference");
