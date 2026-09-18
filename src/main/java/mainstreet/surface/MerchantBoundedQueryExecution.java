@@ -2,6 +2,7 @@ package mainstreet.surface;
 
 import grandrue.api.*;
 import grandrue.application.MerchantScope;
+import grandrue.runtime.AuthenticationException;
 import grandrue.runtime.SessionTrustedExecutionContextEstablisher;
 import mainstreet.runtime.*;
 import java.time.Clock;

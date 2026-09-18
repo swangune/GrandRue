@@ -1,6 +1,5 @@
 package grandrue.runtime;
 
-import mainstreet.runtime.AuthenticationException;
 import mainstreet.runtime.SessionRecord;
 import mainstreet.runtime.SessionRecordStore;
 

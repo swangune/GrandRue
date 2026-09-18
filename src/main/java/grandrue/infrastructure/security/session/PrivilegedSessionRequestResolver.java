@@ -2,7 +2,7 @@ package grandrue.infrastructure.security.session;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
-import mainstreet.runtime.AuthenticationException;
+import grandrue.runtime.AuthenticationException;
 import grandrue.runtime.AuthenticationFailureCategory;
 import grandrue.runtime.AuthenticationSession;
 import grandrue.runtime.SessionCredentialResolver;

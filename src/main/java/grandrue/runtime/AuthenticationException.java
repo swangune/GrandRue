@@ -1,6 +1,4 @@
-package mainstreet.runtime;
-
-import grandrue.runtime.AuthenticationFailureCategory;
+package grandrue.runtime;
 
 import java.util.Objects;
 

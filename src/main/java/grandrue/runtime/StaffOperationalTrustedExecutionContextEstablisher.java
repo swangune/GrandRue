@@ -4,7 +4,6 @@ import grandrue.application.MerchantScope;
 import grandrue.application.TrustedDeviceApplicationContext;
 import grandrue.workforce.MerchantMembershipAuthority;
 import grandrue.workforce.MerchantOperationalDeviceAuthority;
-import mainstreet.runtime.AuthenticationException;
 import mainstreet.runtime.AuthenticationProvenance;
 import mainstreet.runtime.TrustedExecutionContext;
 
