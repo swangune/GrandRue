@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 /** Truthful application-layer progression outcomes from MS-PROT-072. */
 public enum ApplicationOutcomeClassification {

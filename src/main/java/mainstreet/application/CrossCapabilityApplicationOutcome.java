@@ -1,5 +1,6 @@
 package mainstreet.application;
 
+import grandrue.application.ApplicationOutcomeClassification;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
