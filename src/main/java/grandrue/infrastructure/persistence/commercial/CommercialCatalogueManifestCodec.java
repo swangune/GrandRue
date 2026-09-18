@@ -1,5 +1,7 @@
 package grandrue.infrastructure.persistence.commercial;
 
+import grandrue.commercial.CommercialAccessTarget;
+
 import grandrue.commercial.CommercialCatalogueManifest;
 
 import grandrue.commercial.StandardPlanCatalogueRevision;
