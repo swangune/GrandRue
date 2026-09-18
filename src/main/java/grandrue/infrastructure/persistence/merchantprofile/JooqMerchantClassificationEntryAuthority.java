@@ -2,7 +2,7 @@ package grandrue.infrastructure.persistence.merchantprofile;
 
 import grandrue.application.MerchantScope;
 import mainstreet.merchantprofile.CreateMerchantClassificationEntryCommand;
-import mainstreet.merchantprofile.MerchantClassificationEntryAuthority;
+import grandrue.merchantprofile.MerchantClassificationEntryAuthority;
 import mainstreet.merchantprofile.MerchantClassificationEntryRevision;
 import mainstreet.merchantprofile.MerchantClassificationEntryV1;
 import grandrue.merchantprofile.MerchantClassificationExposure;
