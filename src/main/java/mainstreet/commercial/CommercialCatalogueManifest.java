@@ -1,5 +1,7 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.StandardPlanCatalogueRevision;
+
 import grandrue.commercial.CommercialAccessBinding;
 
 import java.util.HashMap;

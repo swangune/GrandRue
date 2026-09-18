@@ -1,4 +1,7 @@
-package mainstreet.commercial;
+package grandrue.commercial;
+
+import mainstreet.commercial.StandardPlanLevel;
+import mainstreet.commercial.StandardPlanRevision;
 
 import java.util.Objects;
 import java.util.Set;
