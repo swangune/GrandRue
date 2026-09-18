@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 import grandrue.booking.BookingAvailabilityImpactAssessment;
 import grandrue.booking.BookingResidualObligationAuthority;
