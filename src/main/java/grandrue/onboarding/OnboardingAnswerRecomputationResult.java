@@ -1,7 +1,7 @@
 package grandrue.onboarding;
 
 import grandrue.onboarding.OnboardingAnswerMutationResult;
-import mainstreet.onboarding.OnboardingRecomputation;
+import grandrue.onboarding.OnboardingRecomputation;
 import java.util.Objects;
 
 /**

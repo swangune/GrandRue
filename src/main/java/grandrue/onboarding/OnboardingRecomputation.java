@@ -1,5 +1,6 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
+import mainstreet.onboarding.OnboardingPromptDefinition;
 import grandrue.onboarding.OnboardingAnswerEvidenceRevision;
 import grandrue.onboarding.OnboardingCase;
 import grandrue.onboarding.OnboardingSemanticSeed;

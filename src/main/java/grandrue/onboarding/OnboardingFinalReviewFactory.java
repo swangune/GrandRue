@@ -1,7 +1,7 @@
 package grandrue.onboarding;
 
-import mainstreet.onboarding.OnboardingFinalReview;
-import mainstreet.onboarding.OnboardingRecomputation;
+import grandrue.onboarding.OnboardingFinalReview;
+import grandrue.onboarding.OnboardingRecomputation;
 import grandrue.onboarding.OnboardingCase;
 import grandrue.onboarding.OnboardingCaseReview;
 import grandrue.onboarding.OnboardingAnswerEvidenceRevision;
