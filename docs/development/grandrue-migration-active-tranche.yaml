@@ -1,302 +1,79 @@
 migration: MAIN_STREET_TO_GRANDRUE
-execution_mode: WORDING_TRANSACTION
+execution_mode: VALIDATION_GATE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T024
-group: GR-REN-02-02
+tranche: GR-REN-02-T025
+group: GR-REN-02-03
 state: COMPLETE
-code_commit: dffa48aca6d5fa254e7e28ca2cea37db47dcab33
+code_commit: null
+validated_head: 5b40ed2d2591d91d3f3b7720ec7c596cc004730a
+validated_tree: aeb64a259ff68f0abb53ab903437aaf4c52026c8
 checkpoint_commit: THIS_COMMIT
 verified: true
-expected_parent: 2730fd14ed5cec62bee039c3fcd068e7a2b19a3f
-verification_evidence:
-  changed_path_count: 38
-  source_file_count: 37
-  exact_replacement_count: 52
-  source_delta_rule: every source changed line is exact "Main Street" to "GrandRue"
-  unrelated_source_delta_count: 0
+expected_parent: 5b40ed2d2591d91d3f3b7720ec7c596cc004730a
 
 scope:
-  identity: production-current-product-wording
-  file_count: 37
-  replacement_occurrence_count: 52
-  rule: replace only exact current-product prose token "Main Street" with "GrandRue" in the declared production files
+  identity: aggregate-production-namespace-wording-closure
+  source_mutation: none
+  test_mutation: none
+  baseline_commit: c4153441d8340b229a29884967d796280d949a7d
+  baseline_tree: 90f13fa113e770023652e40be20c0e7f894e0623
 
-discovery:
-  default_branch_index_commit: 5c73ed82248315a9e318289f032ed445573f8d37
-  migration_baseline: c4153441d8340b229a29884967d796280d949a7d
-  baseline_nonprototype_production_file_count: 1094
-  baseline_files_absent_from_default_branch_index:
-    - src/main/java/mainstreet/scheduling/AppointmentCommandIdentityConflictException.java
-  baseline_only_file_live_check: no exact "Main Street" occurrence
-  candidate_method: exact phrase search by production package plus live development blob reconciliation
-  enumeration_complete: true
+verification_evidence:
+  recursive_tree_inputs_truncated: false
+  baseline_nonprototype_production_owner_count: 1094
+  expected_grandrue_destination_count: 1094
+  actual_grandrue_production_owner_count: 1094
+  missing_mapped_destination_count: 0
+  unexpected_grandrue_production_path_count: 0
+  nonprototype_legacy_production_owner_count: 0
+  excluded_legacy_prototype_production_file_count: 49
+  t024_nonprototype_exact_Main_Street_residual: zero
+  t024_checkpoint_source_delta_count: 0
+  t024_checkpoint_changed_paths:
+    - GRANDRUE-MIGRATION.md
+    - docs/development/grandrue-migration-active-tranche.yaml
+    - docs/development/grandrue-migration-work.md
 
-files:
-  - path: src/main/java/grandrue/api/ApiMediaTransferContractDefinition.java
-    blob_sha: 04407de34efdc7cdafd8cc28488cedcffcd7b3b5
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/application/ConfigurationActivationApplicationService.java
-    blob_sha: ea4ce029c40dd77a32af935d422cce4bdee697ba
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/commercial/StandardPlanLevel.java
-    blob_sha: 4a3ea4369c1d3557c36db78e5d3903bb777ce02a
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/commercial/CommercialEntitlementIdentity.java
-    blob_sha: 254333870234042a8f077c3a21efc6d3cc440c52
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/commercial/AnnualBillingPricePolicy.java
-    blob_sha: d0cdfb7da4d0d10a8bb15e856d2c25b2dc1192ca
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/commercial/CommercialEntitlementTargetKind.java
-    blob_sha: 4dc2e5a206b85f5745ed1bc1f8e1e4945e0d9d2f
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/commercial/CommercialEntitlementDefinition.java
-    blob_sha: 87ff1ceea69230d20b98fb0f00dba35ca68a967c
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/enquiry/EnquiryAvailabilityImpactAssessment.java
-    blob_sha: d5cba8e4521119a27ea289c4173ec33c5943bb5c
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/fulfilment/FulfilmentRoleIdentity.java
-    blob_sha: d9c54b852f5a12ceb25378358a2b9a87c204c24d
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/inventory/InventoryAvailabilityImpactAssessment.java
-    blob_sha: b95bc0aa8b3396bf1ba3938b95f0af91ad6a58a0
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/media/MediaAsset.java
-    blob_sha: 3610b41e1c608a4125575b98b996ade0e517e31b
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/merchantaccount/MerchantAccount.java
-    blob_sha: 27f0b39dbf140e597d1e2539eb4cbdcff0a10f12
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/merchantaccount/MerchantControllerRelationship.java
-    blob_sha: c2cda2897540eb62e2df2c4bf2e84ef0855eae57
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/money/PaymentApplication.java
-    blob_sha: 47038519df4af5fa94b72aec232f3338d839f5df
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/money/PaymentObligation.java
-    blob_sha: f4ff104159929a7a32374258aae9d41c58c5c5b5
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/money/ProviderPaymentEvidence.java
-    blob_sha: eae9335925ce67a7732408ba2537d7bf6dfda7e4
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/money/PaymentAvailabilityImpactAssessment.java
-    blob_sha: 1dbd625c1e216d2830857bf6b6f330ac0065d3ff
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/notification/NotificationContractRegistry.java
-    blob_sha: c828896cf9d18715615e036eb7f4345b0ad84da5
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/ordering/OrderingAvailabilityImpactAssessment.java
-    blob_sha: 41013898e67d21eeced05acabdd3ec3a40cb45e7
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/privacy/DataHandlingClassification.java
-    blob_sha: a4b9b6d6a97084523dfb8479020af126d9e6e4da
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/privacy/DataSubjectReference.java
-    blob_sha: f45a7469a5f4f9b4ad6938394160931ddce8f733
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/publication/PublicationAvailabilityImpactAssessment.java
-    blob_sha: 332c30146997ae7a75199bd18824e38dc08888f7
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/scheduling/SchedulingAvailabilityImpactAssessment.java
-    blob_sha: a763d663b73cff6dfc12b87aa1f76a9fafe3b691
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/semantic/configuration/ConfigurationActivationAuthorizationAuthority.java
-    blob_sha: b16134b95fd670241baa46ca7f73f6fee31adb1c
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/surface/InitialProjectionContractPortfolio.java
-    blob_sha: 661258dcb70dfba6cdcee30f2ec99b71a54c583d
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/surface/ProjectionServiceabilityResult.java
-    blob_sha: c86e92573de9f39b0de212ff9f307ecfd14912ec
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/workforce/MerchantMembership.java
-    blob_sha: a644c140ce0e91098186d0d450bd4b9f17fd6175
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/workforce/MerchantRoleDefinition.java
-    blob_sha: 367fee34978aa01e2201096dadcd84fbdb4e14c2
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/infrastructure/security/webauthn/WebAuthnSessionEstablishmentPolicy.java
-    blob_sha: 30e74e65e50fe2943753d0beb0942d934003277e
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/infrastructure/security/webauthn/WebAuthnIdentityReferenceAuthority.java
-    blob_sha: bf03ded5c89c35a82279861cf9090d68f8f61d09
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/infrastructure/security/session/PrivilegedSessionCookieFactory.java
-    blob_sha: 7845664ee07394f3432537cda5c1f3097915ab29
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/infrastructure/security/webauthn/SpringWebAuthnSessionBridge.java
-    blob_sha: 4fdd7205b8ea5862379c081fcb535e9289864a24
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/infrastructure/security/session/PrivilegedSessionRequestResolver.java
-    blob_sha: 1c5b6e759ce92e94fe5d865e32ecbf3485f829f0
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/infrastructure/security/webauthn/PrivilegedWebAuthnRelyingPartyPolicy.java
-    blob_sha: 1d9dec6dc13ba41a341694a8e8eefbb62cc314bf
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 1
-  - path: src/main/java/grandrue/infrastructure/security/webauthn/WebAuthnAuthenticationSubjectService.java
-    blob_sha: d1180565bc80fc0432d72ac264fd9885ab28c3e6
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-  - path: src/main/java/grandrue/infrastructure/persistence/webauthn/JooqWebAuthnAuthenticationSubjectRepository.java
-    blob_sha: 9b719922ad2c53cc7606c0937c4e3816460acee5
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 6
-  - path: src/main/java/grandrue/infrastructure/persistence/webauthn/JooqWebAuthnUserCredentialRepository.java
-    blob_sha: 151e58ab58a1c58480c750ff8316c5073788f3da
-    replacement:
-      from: "Main Street"
-      to: "GrandRue"
-      expected_count: 2
-
-transformation:
-  exact_from: "Main Street"
-  exact_to: "GrandRue"
-  allowed_surfaces:
-    - Java comments and Javadocs
-    - human-readable current-product effect/error wording
-  prohibited:
-    - lowercase/camelcase package, key, field, method, class or protocol identifier mutation
-    - semantic redesign or behavioural change
-    - test mutation
-    - legacy prototype owner mutation
-    - persistence/schema/Flyway mutation
-    - protected historical or stable identity mutation
-
-protected:
-  exact_strings:
-    - mainstreet_correlation_identifier
-    - mainStreetCorrelationIdentity
-    - mainstreet/enquiry/opportunity-binding/v1/
-    - mainstreet-semantic-bundle-v1
-    - mainstreet-semantic-bundle-v2
-    - mainstreet-exposure-definitions-v1
-    - calendar/current-main-street-commitments
-  classes:
-    - applied Flyway migration contents
-    - historical notification failure FQCN evidence
-    - stable MS-* identifiers
-    - accepted DQ/rule/contract identifiers and historical evidence
-
-expected_residuals:
-  - src/main/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
-  - src/test/java/mainstreet/** remains deferred to GR-REN-03
-  - protected lowercase/camelcase legacy identities remain where explicitly governed
-  - repository historical/reference documents are outside GR-REN-02-02 unless separately governed
+residual_classification:
+  - class: NON_MIGRATING_LEGACY_PROTOTYPE
+    path: src/main/java/mainstreet/prototype/**
+    file_count: 49
+  - class: PROTECTED_IDENTITY
+    identity: mainstreet_correlation_identifier
+    live_occurrences_checked: 1
+  - class: PROTECTED_IDENTITY
+    identity: mainStreetCorrelationIdentity
+    live_occurrences_checked: 4
+  - class: PROTECTED_IDENTITY
+    identity: mainstreet/enquiry/opportunity-binding/v1/
+    live_occurrences_checked: 1
+  - class: PROTECTED_IDENTITY
+    identity: mainstreet-semantic-bundle-v1
+    live_occurrences_checked: 1
+  - class: PROTECTED_IDENTITY
+    identity: mainstreet-semantic-bundle-v2
+    live_occurrences_checked: 1
+  - class: PROTECTED_IDENTITY
+    identity: mainstreet-exposure-definitions-v1
+    live_occurrences_checked: 1
+  - class: PROTECTED_IDENTITY
+    identity: calendar/current-main-street-commitments
+    representation: composed calendar owner plus current-main-street-commitments policy key
+  - class: PROTECTED_IDENTITY_CLASS
+    identity: historical notification failure FQCN evidence
+  - class: PROTECTED_IDENTITY_CLASS
+    identity: stable MS-* and accepted DQ/rule/contract/historical evidence
 
 verification:
-  aggregate_changed_path_set: exact
-  expected_changed_path_count: 38
-  source_file_count: 37
-  exact_replacement_count: 52
-  nonprototype_production_exact_Main_Street_residual: zero
-  protected_identity_check: required
+  aggregate_path_set: exact
+  namespace_closure: pass
+  wording_closure: pass_from_fresh_T024_verified_source_tree
+  protected_identity_classification: pass
+  product_source_mutation: none
+  test_mutation: none
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED

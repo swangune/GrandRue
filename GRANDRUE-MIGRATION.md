@@ -122,7 +122,7 @@ The earlier frozen action-map references to prototype rebranding are prospective
 
 ### `GR-REN-02` — production Java namespace migration
 
-State: `OPEN`
+State: `COMPLETE_PENDING_FINAL_VERIFICATION`
 
 `GR-REN-02-01` is a parent group. Each completed leaf below is `COMPLETE_PENDING_FINAL_VERIFICATION`. The referenced code commits are the authoritative file-level evidence.
 
@@ -277,7 +277,7 @@ State: `OPEN`
 | `GR-REN-02-01X429..X451` | `COMPLETE_PENDING_FINAL_VERIFICATION` | semantic/release closed normal subgraph: 23 production owners + 6 proven production consumers; per-owner audit coordinates retained in T019 manifest | `0c610c66eef19d7f4136074ff9f520d4a22b0f9c` |
 | `GR-REN-02-01X562..X739` | `COMPLETE_PENDING_FINAL_VERIFICATION` | surface closed normal subgraph: 178 production owners + 47 in-scope production consumers + 1 permitted prototype compatibility repair; per-owner audit coordinates retained in T023 manifest | `0564a76df538c839c8ce7afe48861c948f80b1d3` |
 | `GR-REN-02-02` | `COMPLETE_PENDING_FINAL_VERIFICATION` | current-product production comments/Javadocs and human-readable effect/error wording; 37 files / 52 exact `Main Street` → `GrandRue` replacements | `dffa48aca6d5fa254e7e28ca2cea37db47dcab33` |
-| `GR-REN-02-03` | `NOT_STARTED` | aggregate production namespace closure/residual gate; validate current final state by closed region, not by replaying completed leaves | pending |
+| `GR-REN-02-03` | `COMPLETE_PENDING_FINAL_VERIFICATION` | aggregate production namespace closure/residual gate; two-sided baseline/T024 tree reconciliation proved exact 1,094 → 1,094 production path closure, zero non-prototype legacy owners, zero missing destinations and zero unexpected GrandRue production paths; protected residual identities and the excluded legacy prototype remain classified | validated target `5b40ed2d2591d91d3f3b7720ec7c596cc004730a` |
 
 ### Important lineage and boundary notes
 
@@ -834,6 +834,8 @@ State: `OPEN`
 
 - `GR-REN-02-T024` / `GR-REN-02-02`: completed the bounded current-product wording migration across migrated non-prototype production Java sources. Exhaustive package-scoped exact-phrase discovery against the default-branch index was reconciled to live `development` blobs; a recursive baseline/default-branch tree comparison found exactly one non-prototype production file absent from the index, `scheduling/AppointmentCommandIdentityConflictException.java`, and its live migrated form contains no `Main Street` wording. The frozen transaction changed exactly 38 paths: 37 production source files plus the active manifest. Source verification proved exactly 52 replacements and every source delta was the literal `Main Street` → `GrandRue` wording substitution in comments/Javadocs or human-readable effect/error text. No lowercase/camelcase package, key, class, field, method or protocol identifier changed; protected legacy strings, applied Flyway content, stable `MS-*` identifiers, accepted contract/rule identities, tests and the excluded legacy prototype remained untouched. No Maven tests or GitHub Actions were run. Code: `dffa48aca6d5fa254e7e28ca2cea37db47dcab33`.
 
+- `GR-REN-02-T025` / `GR-REN-02-03`: completed the aggregate production namespace closure/residual gate against checkpoint `5b40ed2d2591d91d3f3b7720ec7c596cc004730a` (tree `aeb64a259ff68f0abb53ab903437aaf4c52026c8`). Complete recursive-tree reconciliation against migration baseline `c4153441d8340b229a29884967d796280d949a7d` (tree `90f13fa113e770023652e40be20c0e7f894e0623`) proved an exact bijection of all 1,094 non-prototype production Java owner paths from `src/main/java/mainstreet/**` to `src/main/java/grandrue/**`: 1,094 expected GrandRue paths exist, zero mapped destinations are missing, zero unexpected GrandRue production paths exist and zero non-prototype legacy production owners remain. The remaining 49 `src/main/java/mainstreet/**` production files are all inside the expressly excluded `mainstreet.prototype/**` surface. T024 had already proved zero exact current-product `Main Street` wording residuals across migrated production sources, and the T024 checkpoint changed only the migration ledger, active manifest and work pointer after that code commit, so that wording result remains fresh at this target. Governed lowercase/camelcase residual identities remain intentionally preserved, including `mainstreet_correlation_identifier` / `mainStreetCorrelationIdentity`, Opportunity binding v1 AAD, semantic bundle v1/v2 formats, exposure-definition format, the calendar current-main-street commitments policy identity, historical notification failure FQCN evidence where retained, stable `MS-*` identities and accepted rule/contract/historical evidence. No product source, test, build, runtime/configuration, Flyway or prototype owner was mutated by this gate. No Maven tests or GitHub Actions were run.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -867,14 +869,14 @@ branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
-active_group: GR-REN-02
+active_group: GR-REN-03
 selected_execution_leaf: null
-last_completed_task: GR-REN-02-02
-last_task_commit: dffa48aca6d5fa254e7e28ca2cea37db47dcab33
+last_completed_task: GR-REN-02-03
+last_task_commit: 5b40ed2d2591d91d3f3b7720ec7c596cc004730a
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-next_action: Perform GR-REN-02-03 aggregate production namespace closure/residual validation against the live post-T024 tree. Prove that no in-scope non-prototype production owner remains under `src/main/java/mainstreet/**`, classify all production legacy-name residuals against protected identities or the legacy-prototype exclusion, and confirm the production namespace/wording migration is closed before advancing to GR-REN-03. Do not mutate tests in this gate. The stray branch cleanup remains deferred and non-blocking. Do not run Maven tests or GitHub Actions.
+last_verified_head: 5b40ed2d2591d91d3f3b7720ec7c596cc004730a
+next_action: Prepare GR-REN-03 as a dependency-bounded test namespace/runtime-coupled fixture migration from the live post-T025 checkpoint. Exclude src/test/java/mainstreet/prototype/** under NON_MIGRATING_LEGACY_PROTOTYPE, preserve protected identities and test semantics, freeze the complete normal closed subgraph before execution, and keep Maven tests and GitHub Actions prohibited unless separately authorised.
 ```
 
 ---
