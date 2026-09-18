@@ -1063,12 +1063,68 @@ This protocol changes reasoning/execution granularity only. All preservation, no
 
 ---
 
-## 9. Post-Migration Verification Handoff
+## 9. Automatic Post-Migration Verification Handoff
 
-Detailed migration-preservation and claim validation is owned by `GRANDRUE-POST-MIGRATION-VERIFICATION.md` and its subordinate work file `docs/development/grandrue-post-migration-verification-work.md`.
+`GRANDRUE-POST-MIGRATION-VERIFICATION.md` is the sole detailed owner of independent migration-preservation and claim verification. A separate user prompt is not required after migration execution finishes.
 
-This migration ledger remains the source of migration scope, protected identities, completion claims and history. The post-migration verification ledger independently validates those claims against complete pinned repository snapshots.
+### 9.1 Verification scope starts before the first migration
 
-Prospective verification uses whole-tree accounting, immutable-object fast paths, deterministic closed verification regions and exception-driven deep reasoning. Leaf/file-level results remain complete audit evidence but do not require one reasoning/execution cycle per leaf.
+Post-migration verification MUST cover the migration from the ledger's original migration baseline:
 
-`GR-REN-08..11` consume the applicable post-migration verification evidence plus separately authorised executable validation where required. Structural/post-migration audit evidence MUST NOT be represented as Maven, integration, runtime or GitHub Actions success unless those checks were actually authorised and run.
+```text
+M = c4153441d8340b229a29884967d796280d949a7d
+    repository state immediately before governed migration execution
+```
+
+through the final fully checkpointed migration target `D`.
+
+Every completed migration claim, historical one-leaf migration, transactional tranche, closed-subgraph tranche, repair/reconciliation and protected/excluded identity from the first migration onward is within verification scope. The later creation of the verification ledger creates no coverage boundary.
+
+### 9.2 Automatic trigger
+
+The migration workflow SHALL hand off automatically when:
+
+- migration execution through `GR-REN-07` is complete under its governed scope;
+- no tranche is `PREPARED`, `READY`, `CODE_COMMITTED` or awaiting reconciliation/checkpoint;
+- the final migration checkpoint is committed and ledger/work/manifest state is consistent;
+- no migration execution blocker must be resolved before independent verification; and
+- the final migration head can be pinned immutably as target `D`.
+
+The terminal checkpoint SHALL record an execution state equivalent to:
+
+```yaml
+migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
+verification_handoff: READY
+verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
+next_action: BEGIN_GRANDRUE_POST_MIGRATION_VERIFICATION
+verification_ledger: GRANDRUE-POST-MIGRATION-VERIFICATION.md
+```
+
+The commit containing that terminal checkpoint is identified by its Git envelope; it need not embed its own SHA.
+
+### 9.3 Automatic transition
+
+```text
+final GRANDRUE-MIGRATION checkpoint
+        ↓
+pin M = original migration baseline
+pin D = final migration checkpoint
+        ↓
+GRANDRUE-POST-MIGRATION-VERIFICATION
+        ↓
+verify M → D and every recorded migration claim from the first migration onward
+```
+
+The verifier SHALL NOT begin against an in-flight migration head and SHALL NOT treat the verification-ledger introduction date as the start of verification scope.
+
+### 9.4 Permission boundary
+
+The approved automatic handoff authorises transition into the verification workflow without another chat prompt, read-only repository inspection required by that workflow, and checkpoint/evidence writes strictly confined to the verification ledger, its work file and declared verification evidence paths.
+
+It does not authorise Maven tests or GitHub Actions unless separately authorised, branch creation, product/source/schema/configuration repair, migration-scope expansion, semantic/design decisions, or force/rebase/history rewriting.
+
+Findings are reported and routed; the verifier does not silently repair the repository.
+
+### 9.5 Relationship to `GR-REN-08..11`
+
+`GR-REN-08..11` consume the post-migration verification evidence plus separately authorised executable validation where required. Automatic handoff begins verification; it does not predeclare those gates passed.

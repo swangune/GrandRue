@@ -4,15 +4,19 @@
 
 **Repository:** `swangune/GrandRue`
 
-**Comparison:** baseline `master` against a pinned live `development` snapshot
+**Comparison:** original migration-start baseline `M = c4153441d8340b229a29884967d796280d949a7d` against the final pinned migration target `D`; `master` is optional contextual evidence only
 
-**Status:** `DRAFT_NOT_EXECUTED`
+**Status:** `WAITING_FOR_MIGRATION_EXECUTION_COMPLETE`
+
+**Activation:** `AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT`
 
 **Authority class:** non-semantic operational verification ledger
 
 **Work file:** `docs/development/grandrue-post-migration-verification-work.md`
 
 This is the resumable results registry for independent verification of migration claims. It is not a second migration programme. `GRANDRUE-MIGRATION.md` remains the source of migration scope, claims, protected identities and migration history. Accepted repository authority and `AGENTS.md` retain their existing precedence. This file does not amend acceptance gates or confer permission to implement, repair, redesign, rename more files, or run product verification.
+
+Verification scope begins at the original migration baseline `c4153441d8340b229a29884967d796280d949a7d`, before the first migration mutation, and includes every completed migration claim/repair through the final target `D`. Work completed before this verification ledger existed is fully in scope. This workflow remains dormant while migration execution is active and activates automatically when the migration terminal checkpoint sets `verification_handoff: READY`.
 
 > Account for every tracked file. Validate only recorded migration claims. Compare complete content. Report discrepancies; do not repair them inside verification.
 
@@ -39,49 +43,52 @@ The audit may run against the claims completed so far or after migration ends. I
 
 ## 2. Baseline, target and claim snapshot
 
-Use three explicitly different identities:
+Use these identities:
 
 | Identity | Meaning | Rule |
 |---|---|---|
-| `B` | Fixed baseline commit selected from `master` | Primary comparison baseline; never silently replace it. |
-| `D` | Live `development` commit captured when a run opens | Immutable target for that run; never mix reads from moving branch names. |
-| `M` | Migration-start baseline recorded by the migration ledger | Secondary attribution checkpoint only; it does not replace `B`. |
+| `M` | Original migration-start baseline recorded by `GRANDRUE-MIGRATION.md`: `c4153441d8340b229a29884967d796280d949a7d` | **Primary migration-verification baseline.** It is the state immediately before the first governed migration work and MUST never be silently replaced. |
+| `D` | Final fully checkpointed migration commit captured by automatic handoff | Immutable verification target. Pin once before verification evidence commits move `development`. |
+| `B` | Historical/current `master` reference where useful | Optional contextual evidence only. It may explain pre-migration repository history but MUST NOT replace `M` as the migration baseline. |
 
-Always inventory and compare **the complete endpoint trees `B` and `D`**. A merge-base comparison, a pull-request file list, a migration commit being an ancestor, or a clean working directory is not a substitute.
+Always inventory and compare the complete endpoint trees `M` and `D`. The primary migration-preservation question is:
 
-Where `B != M`, retain a separately evidenced `B → M` bridge and inspect `M → D` in addition to `B → D`. Determine ancestry rather than assuming it. Every earlier rename, addition or content change must have exact path/blob provenance and an independently identifiable explanation. An earlier commit is not, merely by existing, authority to disregard a difference.
+```text
+What changed from immediately before the first migration (M)
+to the final migration result (D),
+and is every change exactly accounted for by recorded migration claims/repairs/protected dispositions?
+```
 
-Pre-existing non-migration changes must remain visible. They may explain a difference without making the files equal. In particular, an executable non-naming difference, whether before or during migration, prevents an unqualified claim of “no logic-bearing source change since master”. Unresolved attribution blocks the relevant conclusion; do not reset the baseline to avoid it.
+The verifier MUST extract and validate every completed migration claim from the first migration onward, regardless of whether it predates this verification ledger, the transactional-tranche protocol or the closed-subgraph protocol.
 
-Freeze the complete migration ledger, its blob identity, applicable work-packet evidence, frozen action-map evidence, relevant repair receipts and claim IDs at `D`. Derive expected changes from that material, not from whichever live difference is convenient to accept. If the evidence is incomplete or contradictory, the affected check is `BLOCKED`, not inferred.
+`B` may be inspected to understand history before `M`, but a `B → M` difference is not itself a migration defect and does not need to be reclassified as migration work. If an overall claim about preservation since `master` is requested, report that separately from migration preservation.
+
+Freeze at `D`: the complete migration ledger blob, migration work blob, active/final manifests, frozen action-map evidence, repair/reconciliation receipts and all completed claim IDs/evidence. Derive expected transformations from those frozen sources, never from the observed final diff alone.
 
 ### Preparation observations — not an opened audit run
 
-These repository identities were inspected on **17 September 2026**. Reconfirm them at activation. The target will normally be newer when this post-migration audit is actually run.
+The historical observations below are navigation evidence only and must be refreshed where relevant when the automatic handoff activates. The immutable migration baseline remains:
 
 ```yaml
-observation:
-  repository: swangune/GrandRue
-  observed_on: '2026-09-17'
-  master_commit: 5c73ed82248315a9e318289f032ed445573f8d37
-  master_tree: 6538f5c5030eb0a443b1f43dec04434cb1cc709c
-  development_commit: cacbe071ecd5df6b99ef79923872971af0ee3607
-  development_tree: 529f287c5ba798fb3b45bc3ab30d1fc7984f6d3f
-  migration_start_commit: c4153441d8340b229a29884967d796280d949a7d
-  migration_ledger_blob: 5b7a0783d0f8c27297394c024ca41dabe97cc162
-  migration_work_blob: 88eead8627a33df715698f3d4614b87d067ca44e
-  agent_instructions_blob: a48013249eb72f3bb31a106bb559c148e552a913
-  frozen_action_map_commit: 08dcfda8a8b23bc442c3d63a4754c2ed6b74ab52
-  audit_executed: false
+migration_start:
+  commit: c4153441d8340b229a29884967d796280d949a7d
+  role: PRIMARY_VERIFICATION_BASELINE
+final_target:
+  commit: null
+  role: PIN_AT_AUTOMATIC_HANDOFF
+master_context:
+  commit: null
+  role: OPTIONAL_CONTEXT_ONLY
+audit_executed: false
 ```
 
-If `master` has moved before the first run, disclose the movement and establish the intended fixed baseline. Do not automatically replace the observed baseline or assume the newer `master` is pre-migration. Once a run opens, `B` remains immutable.
+Once `D` is pinned, it is immutable for that run.
 
 ## 3. Lowest-level preservation rule
 
 For an unchanged file, require identical full content and Git mode/type. For a rename, also require the exact destination, declared source-path disposition and unambiguous file identity.
 
-For a claimed naming change, construct an expected file from the complete baseline bytes using only independently justified, exact, location-bounded edits. Compare that expected file with the **entire** live file, byte for byte:
+For a claimed naming change, construct an expected file from the complete migration-start (`M`) bytes, or from an independently evidenced post-`M` introduction state where the file did not yet exist at `M`, using only independently justified, exact, location-bounded edits. Compare that expected file with the **entire** live file, byte for byte:
 
 ```text
 expected = exact_permitted_transform(complete_baseline_bytes)
@@ -89,7 +96,7 @@ PASS only when expected == complete_live_bytes
           and paths, type, mode and claim obligations also match
 ```
 
-When an evidenced pre-migration bridge is needed, reconstruct it separately and retain both raw `B → D` differences and the bridge evidence. Do not replace the baseline wholesale with `M` and call the original content preserved.
+For migration verification, no `B → M` bridge is required to establish the primary baseline because `M` is canonical. If optional master-context analysis is performed, keep it separate from the `M → D` migration result.
 
 Each edit must identify its input object, exact old/new bytes, position or uniquely constrained context, expected occurrence count, and justification. Every byte outside those edits must survive unchanged. A whole-file replacement justified only by the observed live file is circular evidence and prohibited.
 
@@ -229,10 +236,13 @@ This structured record is the sole current run pointer. Packet definitions and a
 ```yaml
 checkpoint:
   audit: MAIN_STREET_TO_GRANDRUE_CLAIM_PRESERVATION
-  status: DRAFT_NOT_EXECUTED
+  status: WAITING_FOR_MIGRATION_EXECUTION_COMPLETE
+  activation_mode: AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT
+  activation_state: WAITING
   execution_mode: CLOSED_REGION_BULK
   run_id: null
-  baseline_commit: null
+  baseline_commit: c4153441d8340b229a29884967d796280d949a7d
+  baseline_role: ORIGINAL_MIGRATION_START
   target_commit: null
   claim_snapshot_digest: null
   evidence_root: null
@@ -256,7 +266,7 @@ checkpoint:
     migration_preservation: NOT_RUN
     master_non_naming_executable_preservation: NOT_RUN
     live_freshness: NOT_RUN
-  next_action: Prepare GR-VV-00-01 from fresh repository evidence; pin snapshots/claims once, enumerate both trees once, then derive equality-fast-path, deterministic-region and exception populations before any verification result is opened.
+  next_action: Wait for the fully checkpointed migration terminal handoff. Then automatically pin final target D and prepare GR-VV-00-01 using M=c4153441d8340b229a29884967d796280d949a7d as the primary baseline; enumerate and verify every completed migration claim from the first migration onward.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.

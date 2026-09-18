@@ -532,3 +532,23 @@ verification:
 The exact manifest may retain the existing `leaves:` records for compatibility, but those records are evidence coordinates rather than independent execution instructions.
 
 All existing freshness, preservation, linear-lineage, no-force-update, prototype-exclusion and test-claim restrictions remain applicable.
+
+---
+
+## 15. Terminal automatic handoff
+
+When migration execution through `GR-REN-07` has no remaining executable migration work, finish the final migration checkpoint and automatically hand off to `GRANDRUE-POST-MIGRATION-VERIFICATION.md`; do not wait for another user prompt.
+
+The verification start point is always the original migration baseline `c4153441d8340b229a29884967d796280d949a7d`, not the verification-ledger adoption date or the latest tranche.
+
+```text
+original migration baseline M
+        ↓
+all historical migration leaves / tranches / repairs
+        ↓
+final fully checkpointed target D
+        ↓
+automatic post-migration verification
+```
+
+The handoff is valid only from a fully checkpointed migration state. A `CODE_COMMITTED`, stale, unresolved or partially prepared tranche must be reconciled first.

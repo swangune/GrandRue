@@ -6,7 +6,9 @@
 
 **Target branch:** `development`
 
-**Status:** `DRAFT_NOT_EXECUTED`
+**Status:** `WAITING_FOR_MIGRATION_EXECUTION_COMPLETE`
+
+**Activation:** `AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT`
 
 **Authority class:** non-semantic operational checking aid
 
@@ -38,7 +40,7 @@ A packet is not `READY` while it contains null required inputs, placeholders, un
 
 ## 2. Evidence layout and canonical records
 
-Use a run ID such as `GR-VV-R001`, unique within the audit ledger. One evidence root is associated with exactly one baseline, target and claim snapshot:
+Use a run ID such as `GR-VV-R001`, unique within the audit ledger. One evidence root is associated with exactly one original migration baseline `M`, final target `D` and claim snapshot:
 
 ```text
 <evidence-root>/
@@ -66,22 +68,22 @@ A receipt references the digest of the exact manifests and packet it consumed. L
 
 ### Minimum snapshot fields
 
-`snapshot.json` records: schema version, run ID, capture time, repository, `B`/`D`/`M` full commit and tree identities, observed branch heads, ancestry results, claim-source and instruction blob identities, source retrieval method, object-hash format, tool/checker versions, complete-evidence digests, and any external-content limitations. It must identify the baseline selection explicitly, not merely say `master`.
+`snapshot.json` records: schema version, run ID, capture time, repository, primary migration baseline `M`, final target `D`, optional master context `B`, full commit/tree identities, observed branch heads, ancestry results, claim-source and instruction blob identities, source retrieval method, object-hash format, tool/checker versions, complete-evidence digests, and external-content limitations. It MUST record `M=c4153441d8340b229a29884967d796280d949a7d` as the primary baseline.
 
 Every record below belongs to that snapshot. Neither `HEAD` nor a branch name is a substitute for a frozen object identity in a completed check.
 
 ## 3. GR-VV-00 — capture and freeze
 
-Prepare `GR-VV-00-01` as follows:
+Prepare `GR-VV-00-01` automatically after the migration terminal handoff:
 
-1. Read current `AGENTS.md`, `GRANDRUE-MIGRATION.md`, its migration work file and these two audit files. Reconfirm the repository and the intended `development` branch without switching or creating branches.
-2. Read current remote `master` and `development` refs. Compare them with the ledger's preparation observations. Establish `B` explicitly; capture current `development` as `D`. A moved `master` is a baseline-selection issue, not permission to change `B` silently.
-3. Read the migration-start baseline as `M`. Record ancestry and any divergence; do not merge or rebase to simplify comparison.
-4. Retrieve complete pinned source objects, including the ledger, referenced frozen action map, applicable packet/commit evidence and relevant repair records. Verify completeness and blob identities. A truncated connector response cannot supply a claim snapshot or an expected source file.
-5. Extract every completion claim and its obligations into `claims.jsonl`. Include completed portions of partially open parent groups. Do not convert future/deferred work into claims. Resolve any inconsistency between a summary count, leaf records and referenced receipts before declaring claim enumeration complete.
-6. Preserve relevant historical completion/repair references; a removed or superseded claim needs an explicit disposition, not disappearance. A commit message or ancestry assertion alone proves neither authorised scope nor live completion.
-7. Re-read the branch refs before sealing the snapshot. On unexpected movement, preserve the observation and prepare a new consistent capture.
-
+1. Read current `AGENTS.md`, final `GRANDRUE-MIGRATION.md`, its work file, final active/tranche manifest state and these two verification files.
+2. Pin `M = c4153441d8340b229a29884967d796280d949a7d` and retrieve its complete tree. This is the primary baseline immediately before the first migration.
+3. Pin the terminal migration checkpoint as immutable `D` before any audit-evidence commit moves `development`. Retrieve the complete tree.
+4. Optionally record `master` as contextual `B`; do not use it to replace `M` or redefine migration scope.
+5. Retrieve complete pinned claim/evidence sources at `D`: migration ledger/work blobs, frozen action map, historical leaf evidence, transactional and closed-subgraph manifests, lineage/integrity repairs and relevant commit evidence.
+6. Extract **every completed migration claim from the first migration onward** into `claims.jsonl`, including claims created before this verification ledger existed. Include completed children of still-open parents. Do not convert future/deferred work into claims.
+7. Reconcile historical protocol generations: early one-leaf migrations, batched/transactional tranches, closed-subgraph tranches and repairs all become claim evidence for the same `M → D` audit; none receives an exemption or duplicate reasoning requirement merely because its execution protocol differed.
+8. Re-read relevant refs before sealing the snapshot. Any movement affecting `D` before pinning requires a fresh capture; after `D` is pinned, later evidence commits do not change that target.
 A frozen claim record includes its migration node, source commit/path/blob and exact locator, recorded state, evidence commits, original owner paths, destination obligations, consumer obligations, permitted changes, protected content and named deferred obligations. Do not copy the whole migration programme into this work file.
 
 Claim extraction is only preparation. No claim is marked verified during this group.
@@ -94,13 +96,13 @@ Where a full authorised local repository is available, use immutable Git object 
 
 ```bash
 # These are command forms, not an already prepared executable packet.
-git --no-replace-objects ls-tree -r -z --full-tree "$B"
+git --no-replace-objects ls-tree -r -z --full-tree "$M"
 git --no-replace-objects ls-tree -r -z --full-tree "$D"
 git --no-replace-objects cat-file -t "$OID"
 git --no-replace-objects cat-file -s "$OID"
 git --no-replace-objects cat-file blob "$OID"
-git --no-replace-objects diff --raw -z --no-abbrev --no-renames --no-ext-diff --no-textconv "$B" "$D" --
-git --no-replace-objects diff --check --no-ext-diff --no-textconv "$B" "$D" --
+git --no-replace-objects diff --raw -z --no-abbrev --no-renames --no-ext-diff --no-textconv "$M" "$D" --
+git --no-replace-objects diff --check --no-ext-diff --no-textconv "$M" "$D" --
 ```
 
 Run from the declared repository root, record exit codes and capture binary stdout without text/newline conversion. Preserve NUL-delimited path output. Read the advertised number of blob bytes and verify the object identity; do not use text-mode redirection or line splitting that changes bytes. Record missing objects, shallow-history limitations, errors and unsupported object types as blockers rather than empty results. The final command is a supplementary diff-integrity check, not a preservation proof. [T1–T3]
@@ -168,10 +170,10 @@ receipt_ref: null
 
 ### 4.5 Coverage invariants
 
-Let `B_entries` and `D_entries` be all baseline and target leaf entries. Each endpoint key is the exact path, with its object/type/mode retained as evidence. Require:
+Let `M_entries` and `D_entries` be all baseline and target leaf entries. Each endpoint key is the exact path, with its object/type/mode retained as evidence. Require:
 
 ```text
-set(manifest.baseline.path where baseline exists) == set(B_entries.path)
+set(manifest.baseline.path where baseline exists) == set(M_entries.path)
 set(manifest.target.path where target exists)     == set(D_entries.path)
 each baseline path occurs exactly once on the baseline side
 each target path occurs exactly once on the target side
@@ -187,7 +189,7 @@ Both `enumeration_complete` and the concrete counts must be established before r
 
 ### 5.1 Baseline bridge
 
-For a file that changed between `B` and `M`, retain the complete raw difference, exact original/destination paths and objects, introducing commits, and the independent explanation for each edit. Classify each span as naming, documentation/formatting, executable, or unresolved. Do not use a commit title as proof of classification.
+Optional `B → M` analysis is contextual only. When performed, retain its raw differences separately; it MUST NOT become a prerequisite for primary `M → D` migration verification or redefine expected migration transformations. Classify each span as naming, documentation/formatting, executable, or unresolved. Do not use a commit title as proof of classification.
 
 A bridge permits attribution, not erasure. Check the file's `B → D` trajectory as well as its `M → D` migration transformation. Every bridge edit remains visible in the manifest. A pre-existing executable delta is reported even when migration preservation subsequently passes. If the earlier change cannot be adequately explained, the affected overall conclusion remains blocked.
 
@@ -407,26 +409,31 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-This is the sole active-state record. No comparison has been executed; no file or claim has passed.
+Verification is waiting for migration execution to finish. No file or claim has passed.
 
 ```yaml
 execution:
-  status: DRAFT_NOT_EXECUTED
-  execution_mode: CLOSED_REGION_BULK
-  run_id: null
+  status: WAITING_FOR_MIGRATION_EXECUTION_COMPLETE
+  activation_mode: AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT
+  activation_state: WAITING
+  primary_baseline:
+    commit: c4153441d8340b229a29884967d796280d949a7d
+    role: ORIGINAL_MIGRATION_START
+  target_commit: null
+  historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
   active_packet: null
-  active_state: PREPARATION_REQUIRED
-  queue:
-    - packet: GR-VV-00-01
-      kind: SNAPSHOT_CAPTURE
-      state: PREPARATION_REQUIRED
-      next_action: Reconfirm current refs and intended fixed master baseline, retrieve complete claim sources, and prepare the exact capture packet.
-  ready_packet_count: 0
+  queue: []
   results_recorded: false
-  repository_publication_authorised: false
+  on_activation:
+    - pin final migration checkpoint as D
+    - enumerate complete M and D trees once
+    - extract all completed claims from first migration onward
+    - classify equality-fast-path, deterministic regions and exceptions
+    - prepare GR-VV-00-01 automatically
+  next_action: Wait for final migration checkpoint; no separate user prompt is required.
 ```
 
-Do not pre-populate later file counts, claim passes or ready packets from the preparation observation. Generate the queue from the complete pinned manifests when the run opens. This file provides the protocol, not a pre-executed audit or an implemented checker.
+Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
 
 ## 11. Efficiency and validation-cost invariant
 

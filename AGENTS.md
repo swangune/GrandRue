@@ -13,6 +13,7 @@ If this file conflicts with accepted repository authority, the accepted authorit
 - `designs/IMPLEMENTATION-RULES.md` determines **how** accepted authority is implemented.
 - `designs/authorities/programme/MS-IMP-001/MS-IMP-001.md` plus its current accepted composition governs the macro implementation programme when applicable.
 - `/IMPLEMENTATION.md` is a non-authoritative live execution controller; it may accelerate resumability but MUST be checked against the canonical graph/status/evidence and cannot create implementation permission or semantic meaning.
+- At the fully checkpointed terminal state of `GRANDRUE-MIGRATION.md`, continue automatically into `GRANDRUE-POST-MIGRATION-VERIFICATION.md` without a new chat prompt. Verification begins at the original migration baseline `c4153441d8340b229a29884967d796280d949a7d` and covers every completed migration claim through the final target; the handoff grants audit/read-only permissions only.
 - Tests, production code, implementation evidence, conversation memory, agent judgement, framework behaviour, and this file are not semantic authority.
 
 Never fill a material semantic gap from plausibility, convention, adjacent code, or remembered context.
