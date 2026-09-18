@@ -1,13 +1,12 @@
-package mainstreet.enquiry.delivery;
+package grandrue.enquiry.delivery;
 
 import grandrue.enquiry.EnquiryIdentityConflictException;
 
 import grandrue.enquiry.EnquiryApplicationRequestConflictException;
 import grandrue.enquiry.EnquirySubmissionRevalidationException;
-import grandrue.enquiry.delivery.PublicEnquiryRequirementsUnsatisfiedException;
-import grandrue.enquiry.delivery.PublicGeneralEnquiryRequest;
 
 import grandrue.api.*;
+import mainstreet.enquiry.delivery.PublicGeneralEnquirySubmission;
 import mainstreet.enquiry.*;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.*;
