@@ -525,6 +525,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X179`: `SessionTrustedExecutionContextEstablisher.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Four bounded production consumers were updated atomically: `grandrue.enquiry.delivery.MerchantEnquiryApiConfiguration`, `mainstreet.surface.MerchantBoundedQueryExecution` and `grandrue.enquiry.delivery.MerchantEnquiryQuery` received explicit `grandrue.runtime.SessionTrustedExecutionContextEstablisher` imports while retaining unrelated legacy runtime wildcard imports, and `grandrue.runtime.StaffOperationalTrustedExecutionContextEstablisher` dropped its transitional legacy establisher import because the type is now in the same GrandRue package. Current tests remain deferred to `GR-REN-03`. The prepared parent was `4ff9f5413dc4ce2acfa582058ff57b2403cb40ae`; the owner input blob was `efbe6604f50cff24c2f9d4a7daf585d7d92fac8e`; consumer input blobs were `7ca4471b14c78ac66e0529e00116023f71f5d06b`, `b5a3062331ad0f9d8294aeb06dbb6945e24b4fe5`, `5cf15046c1ee8611d0276b2b2d98b84b079fcf45` and `f0550279c9b97149ec81bb92bd4131428606b0e0`; the GrandRue owner destination was absent at preflight. The moved owner received explicit transitional imports for the remaining legacy runtime collaborators `AuthenticationException`, `AuthenticationProvenance`, `ExecutionPrincipal` and `TrustedExecutionContext`. Existing server-authoritative session continuity and trusted scoped-principal establishment semantics were unchanged. Code commit `53eaf102cd17497e1bed19224860a45e4ae25d26` contains exactly one owner rename/package replacement, four transitional import additions, three production consumer import additions and one redundant legacy import removal.
 
+- `GR-REN-02-01X180`: `ActorAuthorisationAuthority.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Six bounded production consumers were updated atomically: `grandrue.workforce.WorkforceActorAuthorisationAuthority`, `mainstreet.surface.ContextualSurfaceResolver` and `grandrue.enquiry.EnquiryMerchantExposureRequirementEvaluator` now import `grandrue.runtime.ActorAuthorisationAuthority`; `grandrue.runtime.PrivilegeOperationExecutionGuard` dropped its transitional legacy authority import because the interface is now in the same GrandRue package; and `grandrue.enquiry.delivery.MerchantEnquiryApiConfiguration` plus `grandrue.enquiry.delivery.MerchantEnquiryQuery` received explicit `grandrue.runtime.ActorAuthorisationAuthority` imports while retaining unrelated `mainstreet.runtime.*` wildcard dependencies. Current tests remain deferred to `GR-REN-03`. The prepared parent was `e083445cb8499d14d12e6c4f667170afaf3d3fb5`; the owner input blob was `a5e69dc4b6dfd3085cd9cfde3d4f76f1142489e1`; consumer input blobs were `be792bc6595fc58e3e74bb7fffb382dbd4c96906`, `558678777bf2bd5a0a0126ea630a3e87234d0a20`, `b4ad790835cedc1d07b44f7d0bd190881b16e25b`, `7538b317d75576cf97ecddb9ae87d06b904ab5e4`, `7067aff4edc8259b14b0583885df302ba3dff728` and `3a287532f98de7fb6bdc1962c14d000ac87f9c21`; the GrandRue owner destination was absent at preflight. The moved authority received one explicit transitional import for the remaining legacy `ExecutionPrincipal` type. Existing merchant-scoped current privilege decision semantics were unchanged. Code commit `ac1368d04b53e99978e4328fb1dd6b407c126ce4` contains exactly one owner rename/package replacement, one transitional import addition, three production consumer import replacements, one redundant legacy import removal and two explicit production consumer import additions alongside retained wildcard dependencies.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -556,9 +558,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X179
-last_completed_task: GR-REN-02-01X179
-last_task_commit: 53eaf102cd17497e1bed19224860a45e4ae25d26
+selected_execution_leaf: GR-REN-02-01X180
+last_completed_task: GR-REN-02-01X180
+last_task_commit: ac1368d04b53e99978e4328fb1dd6b407c126ce4
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -644,8 +646,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X179
-last_prepared_execution_commit: 53eaf102cd17497e1bed19224860a45e4ae25d26
+last_prepared_execution_leaf: GR-REN-02-01X180
+last_prepared_execution_commit: ac1368d04b53e99978e4328fb1dd6b407c126ce4
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
