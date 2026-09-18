@@ -179,6 +179,7 @@ State: `OPEN`
 | `GR-REN-02-01X53` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/InitialTrialFromConfigurationActivationHandler.java`; no production consumers | `6f8f9609991ef0f8df5732b662f7cb27e4f92b06` |
 | `GR-REN-02-01X54` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/ConfigurationBackedFirstActivationAuthority.java`; no production consumers | `7c722eaf9a8a935ac842084fec9001c356b65eea` |
 | `GR-REN-02-01X55` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/ApplicationOutcomeClassification.java` + one bounded same-package production consumer | `4d0d635fe0f9d772324f0ae35c909442c9883b01` |
+| `GR-REN-02-01X56` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/CrossCapabilityApplicationOutcome.java`; no production consumers | `a74c70e504368edf1ad436c1e1f3382c89a2bd30` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -244,6 +245,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X55`: `ApplicationOutcomeClassification.java` moved from `mainstreet.application` to `grandrue.application`. The sole bounded same-package production consumer `mainstreet.application.CrossCapabilityApplicationOutcome` received only an explicit `grandrue.application.ApplicationOutcomeClassification` import; current tests remain deferred to `GR-REN-03`. The prepared parent was `a4e7b3c2a283aa204f40758efc80afdaaff9c96a`; owner input blob was `f6f933c9fffa342220ea7f0b8cd814a52ef54df1`; consumer input blob was `0c653f474942baa4284b06e106e7b6b520a1a331`; the GrandRue owner destination was absent at preflight. Existing MS-PROT-072 outcome vocabulary and CrossCapability progression invariants were unchanged. Code commit `4d0d635fe0f9d772324f0ae35c909442c9883b01` contains exactly one owner rename/package replacement and one explicit import addition in the bounded consumer.
 
+- `GR-REN-02-01X56`: `CrossCapabilityApplicationOutcome.java` moved from `mainstreet.application` to `grandrue.application`. No production consumers were found; current tests remain deferred to `GR-REN-03`. The prepared parent was `ecb0c94b8e85702bde22f2a49906d9b27e5580dd`; owner input blob was `41e1abed2c91e8a56191985c6f281e0dba6aa9ae`; the GrandRue owner destination was absent at preflight. Explicit legacy imports were added for `ApplicationRequestIdentity` and `CommittedProgressReference`; the GrandRue `ApplicationOutcomeClassification` dependency and all progression/result invariants were unchanged. Code commit `a74c70e504368edf1ad436c1e1f3382c89a2bd30` contains exactly one owner rename/package replacement and two explicit transitional imports.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -275,9 +278,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X55
-last_completed_task: GR-REN-02-01X55
-last_task_commit: 4d0d635fe0f9d772324f0ae35c909442c9883b01
+selected_execution_leaf: GR-REN-02-01X56
+last_completed_task: GR-REN-02-01X56
+last_task_commit: a74c70e504368edf1ad436c1e1f3382c89a2bd30
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -363,8 +366,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X55
-last_prepared_execution_commit: 4d0d635fe0f9d772324f0ae35c909442c9883b01
+last_prepared_execution_leaf: GR-REN-02-01X56
+last_prepared_execution_commit: a74c70e504368edf1ad436c1e1f3382c89a2bd30
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
