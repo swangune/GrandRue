@@ -1,5 +1,7 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.PublishedStandardPlanCatalogueRevision;
+
 import grandrue.commercial.CatalogueResolutionException;
 import grandrue.commercial.FreePlanRevisionAuthority;
 
