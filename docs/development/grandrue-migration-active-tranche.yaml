@@ -2,24 +2,21 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T008
+tranche: GR-REN-03-T009
 group: GR-REN-03
-state: COMPLETE
-code_commit: 111f8991861e6ef2c5b6d67f032bb55121ecf50a
-expected_parent: 6b2c565e424738e44ca0fac81cd2f3b812767abc
-validated_head: 111f8991861e6ef2c5b6d67f032bb55121ecf50a
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 4075380c4bb0075491bd219bb01527380af9a929
 
 region:
-  identity: test-ordering
-  closure_basis: complete live src/test/java/mainstreet/ordering/** Java test region; no external test consumers
+  identity: test-inventory
+  closure_basis: complete live src/test/java/mainstreet/inventory/** Java test region; no external test consumers
 
 classification:
   normal_closed:
     owner_count: 2
     external_test_consumer_count: 0
-    production_import_repair_count: 22
+    production_import_repair_count: 16
   embedded_current_product_wording_residuals:
     count: 2
     disposition: preserve_and_classify_separately
@@ -27,25 +24,25 @@ classification:
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/ordering/OrderingApplicationServiceTest.java
-      to: src/test/java/grandrue/ordering/OrderingApplicationServiceTest.java
-      blob_sha: 63d9fc83f15061dbf758f5519e468efd590854f7
-    - from: src/test/java/mainstreet/ordering/OrderingAvailabilityImpactAssessmentTest.java
-      to: src/test/java/grandrue/ordering/OrderingAvailabilityImpactAssessmentTest.java
-      blob_sha: f7da70eb25b5fc16d485d25d54b1c4794cc5a944
+    - from: src/test/java/mainstreet/inventory/InventoryAvailabilityImpactAssessmentTest.java
+      to: src/test/java/grandrue/inventory/InventoryAvailabilityImpactAssessmentTest.java
+      blob_sha: 6ddd8c118f174464d39dec8be1feb02f8c523b88
+    - from: src/test/java/mainstreet/inventory/QuantityAllocationAuthorityTest.java
+      to: src/test/java/grandrue/inventory/QuantityAllocationAuthorityTest.java
+      blob_sha: 102c5c1cba994ce29dbb9329b26b24da1102631e
 
 deterministic_transformations:
   owners:
-    - move both declared owners to the corresponding src/test/java/grandrue/ordering/** paths
-    - replace exactly two package declarations package mainstreet.ordering; with package grandrue.ordering;
-    - replace exactly twenty-two executable imports from migrated mainstreet.* production namespaces to their grandrue.* counterparts
+    - move both declared owners to the corresponding src/test/java/grandrue/inventory/** paths
+    - replace exactly two package declarations package mainstreet.inventory; with package grandrue.inventory;
+    - replace exactly sixteen executable imports from migrated mainstreet.* production namespaces to their grandrue.* counterparts
   consumers:
     - none; exact class-name search found no external test consumers
   prohibited:
     - no assertion, method body, string literal, comment, semantic or behavioural change
     - no legacy prototype test mutation
     - no Maven/build/CI/runtime configuration mutation
-    - do not rewrite the two preserved Main Street business-facing test literals in this namespace/import tranche
+    - do not rewrite the two preserved Main Street Inventory business-facing test literals in this namespace/import tranche
 
 verification:
   aggregate_changed_path_set: exact
@@ -53,7 +50,7 @@ verification:
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  import_repair_count: 22
+  import_repair_count: 16
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
@@ -61,24 +58,21 @@ verification:
 protected:
   - every assertion and method body unchanged
   - every string literal and test-data identity unchanged
-  - exactly two Main Street literal occurrences in OrderingAvailabilityImpactAssessmentTest preserved
+  - exactly two Main Street Inventory literal occurrences in InventoryAvailabilityImpactAssessmentTest preserved
   - legacy prototype tests unchanged
 
 expected_residuals:
-  - path: src/test/java/grandrue/ordering/OrderingAvailabilityImpactAssessmentTest.java
-    value: Main Street
+  - path: src/test/java/grandrue/inventory/InventoryAvailabilityImpactAssessmentTest.java
+    value: Main Street Inventory
     occurrence_count: 2
     reason: current-product business-facing test wording is classified separately from ordinary package/import/FQCN rewrites and remains for the applicable GR-REN-03 wording/residual decision
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - both source blobs and absent GrandRue destinations were reconciled against development at 6b2c565e424738e44ca0fac81cd2f3b812767abc
-  - all referenced GrandRue ordering, application, customer, inventory, money, runtime, semantic compiler/configuration and semantic registry production owners exist
+  - both source blobs and absent GrandRue destinations were reconciled against development at 4075380c4bb0075491bd219bb01527380af9a929
+  - all referenced GrandRue inventory, semantic, semantic compiler/configuration and semantic registry production owners exist
   - exact class-name searches found no external test consumers
-  - twenty-two executable legacy production imports are fully classified for deterministic replacement
-  - two Main Street business-facing literals are deliberately preserved rather than conflated with namespace migration
+  - sixteen executable legacy production imports are fully classified for deterministic replacement
+  - two Main Street Inventory business-facing literals are deliberately preserved rather than conflated with namespace migration
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

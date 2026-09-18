@@ -1,9 +1,9 @@
-package mainstreet.inventory;
+package grandrue.inventory;
 
-import mainstreet.semantic.AllocationClaim;
-import mainstreet.semantic.AllocationResolution;
-import mainstreet.semantic.AllocationResolutionType;
-import mainstreet.semantic.QuantityAllocationScope;
+import grandrue.semantic.AllocationClaim;
+import grandrue.semantic.AllocationResolution;
+import grandrue.semantic.AllocationResolutionType;
+import grandrue.semantic.QuantityAllocationScope;
 
 import org.junit.jupiter.api.Test;
 
