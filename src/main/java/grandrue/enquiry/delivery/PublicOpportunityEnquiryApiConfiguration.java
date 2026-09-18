@@ -1,9 +1,9 @@
-package mainstreet.enquiry.delivery;
+package grandrue.enquiry.delivery;
 
-import grandrue.enquiry.delivery.PublicEnquirySubmissionAdmissionAuthority;
-import grandrue.enquiry.delivery.PublicOpportunityEnquiryRequirements;
-import grandrue.enquiry.delivery.PublicEnquiryRouteScopeAuthority;
 import mainstreet.enquiry.EnquirySubmissionApplicationService;
+import mainstreet.enquiry.delivery.OpportunityEnquiryBindingCodec;
+import mainstreet.enquiry.delivery.PublicOpportunityEnquiryBindingQuery;
+import mainstreet.enquiry.delivery.PublicOpportunityEnquirySubmission;
 import mainstreet.publication.*;
 import mainstreet.publication.delivery.PublicOpportunityRouteScopeAuthority;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
