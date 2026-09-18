@@ -1,6 +1,5 @@
 package grandrue.runtime;
 
-import mainstreet.runtime.AuthenticationProvenance;
 import grandrue.runtime.IdentitySecurityGenerationAuthority;
 
 import java.time.Clock;
