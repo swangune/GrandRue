@@ -7,7 +7,7 @@ import mainstreet.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.CommercialTransitionConflictException;
 import mainstreet.commercial.MerchantCommercialAgreement;
-import mainstreet.commercial.MerchantCommercialAgreementStore;
+import grandrue.commercial.MerchantCommercialAgreementStore;
 import mainstreet.commercial.MerchantCommercialAgreementTransition;
 import mainstreet.commercial.StandardPlanLevel;
 import mainstreet.commercial.StandardPlanRevision;
