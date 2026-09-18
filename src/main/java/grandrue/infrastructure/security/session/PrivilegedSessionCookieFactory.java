@@ -1,6 +1,6 @@
 package grandrue.infrastructure.security.session;
 
-import mainstreet.runtime.OpaqueSessionCredential;
+import grandrue.runtime.OpaqueSessionCredential;
 import org.springframework.http.ResponseCookie;
 
 import java.util.Objects;

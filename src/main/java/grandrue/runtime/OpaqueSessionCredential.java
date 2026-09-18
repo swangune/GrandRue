@@ -1,4 +1,4 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
