@@ -1,6 +1,7 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 import grandrue.application.TrustedPlatformExecutionContext;
+import mainstreet.commercial.CommercialCatalogueManifest;
 
 /**
  * Required trusted admission boundary; deliberately has no permissive default.

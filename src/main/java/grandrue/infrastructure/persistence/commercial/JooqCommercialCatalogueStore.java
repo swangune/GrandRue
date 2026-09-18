@@ -1,6 +1,7 @@
 package grandrue.infrastructure.persistence.commercial;
 
 import grandrue.commercial.CataloguePublicationException;
+import grandrue.commercial.CommercialCataloguePublicationAdmission;
 import grandrue.commercial.CatalogueResolutionException;
 import grandrue.application.TrustedPlatformExecutionContext;
 import mainstreet.commercial.*;
