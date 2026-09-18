@@ -14,15 +14,15 @@
 
 **Migration claim source:** `GRANDRUE-MIGRATION.md`
 
-> Prepare the comparison once. Check one exact file identity at a time. Preserve complete evidence. Stop on an unexplained difference.
+> Prepare the comparison once. Prove deterministic populations in closed regions. Emit exact per-file evidence mechanically. Spend deeper reasoning only on exceptions and counterexamples.
 
 This work file holds preparation rules, the active queue and the current packet. The audit ledger holds the run pointer and completion history. Immutable generated evidence holds detailed file/claim results. Do not maintain competing copies of the same executable state.
 
 ## 1. Responsibility split and state machine
 
-**Preparation** pins complete inputs, enumerates trees and claims, resolves exact file identity and provenance, establishes the allowed edits independently, closes consumer obligations and prepares exact checks. It may inspect more files than one executor packet. It must not approve a migration difference merely because it is already present.
+**Preparation** pins complete inputs, enumerates both trees and claims once, resolves exact identity/provenance, establishes allowed edits independently, classifies the population into immutable-object fast-path entries, deterministic transformation classes and exceptions, and prepares dependency-/claim-closed verification regions. It must not approve a migration difference merely because it is already present.
 
-**Execution** consumes one `READY` packet, validates its inputs, performs only its declared read-only checks, writes its bounded evidence and checkpoints the outcome. It must not discover a new rename policy, widen the allowlist, repair source files or decide an unresolved semantic question.
+**Execution** consumes one `READY` closed-region or exception packet, validates its frozen inputs, performs only its declared read-only checks, mechanically emits exact per-file/per-claim evidence, and checkpoints the outcome. It must not rediscover the same mapping for each file, invent a new rename policy, widen the allowlist, repair source files or decide an unresolved semantic question.
 
 ```text
 PREPARATION_REQUIRED -> PREPARED -> READY -> IN_PROGRESS -> CHECKPOINTED
@@ -241,11 +241,11 @@ Preserve protected bytes at their corresponding occurrences; unchanged aggregate
 
 Only claimed changes are required. For example, deferred `GR-REN-03` test renaming and deferred `GR-REN-02-02` comments must not be treated as missing completed work. If those files unexpectedly changed anyway, their differences still require accounting.
 
-## 6. GR-VV-03 — validate the method, then check file pairs
+## 6. GR-VV-03 — validate the method, then verify closed regions
 
 ### 6.1 Falsify the checking method first
 
-Before accepting content receipts, establish that the exact checker/procedure rejects deliberate corruption in isolated scratch fixtures. Do not alter product files or run Maven/Actions for these negative controls. Record the method version/digest, fixture inputs, expected result and actual result. A later change to the method invalidates dependent receipts until revalidated.
+Before accepting region receipts, establish that the exact checker/procedure rejects deliberate corruption in isolated scratch fixtures. Do not alter product files or run Maven/Actions for these negative controls. Record the method version/digest, fixture inputs, expected result and actual result. A later change to the method invalidates dependent receipts until revalidated.
 
 Required controls include:
 
@@ -263,36 +263,52 @@ Required controls include:
 | Hide a non-naming executable change in the master bridge | Prevent the no-logic-change conclusion. |
 | Present a valid historical rename commit but a target tree without it | Fail the live-path/content obligation. |
 | Move the branch to an undeclared target during execution | Invalidate live freshness; do not certify the new head. |
+| Place one corrupt file inside an otherwise valid deterministic region | Fail that file and the affected region invariant; preserve passing evidence for unrelated files only when independence is mechanically established. |
 
-Method validation is validation of the audit mechanism only. It is not application testing. A human or tool-assisted procedure must still retain reproducible input/output evidence; a statement that the comparator “looks correct” is insufficient.
+Method validation is validation of the audit mechanism only. It is not application testing.
 
-### 6.2 File-pair execution algorithm
+### 6.2 Whole-tree fast path
 
-For one `READY` file packet:
+After the pinned baseline/target trees are enumerated, mechanically partition entries by exact object/type/mode/path evidence. Same immutable objects with equal modes enter the equality fast path where no unsatisfied claim requires a different path/content obligation.
 
-1. Check snapshot, source, packet, method and manifest digests; verify the permitted live-head/publication-parent state.
-2. Resolve every declared endpoint directly from the complete pinned trees. Confirm exact presence/absence, path, object identity, type and mode.
-3. Retrieve the complete bytes of each differing object, verify size/object identity, and preserve a reproducible content reference. Identical immutable blob IDs with equal modes may use the equality fast path only when no content edit is required; still verify path/claim obligations and issue a result for every file row. Raw equality never satisfies a claim that required a missing edit.
-4. Reconstruct any declared bridge independently; apply the exact migration transformation to the correct full input. Validate every byte range and count.
-5. Require the complete expected output to equal the complete live output. Compute and retain digests; record raw equality and transformed equality separately.
-6. Check old-path disposition, destinations, prohibited duplicates, protected occurrences and every declared claim obligation.
-7. Record any extra, missing or changed bytes, including comments and non-executable content. Classify executable differences only from sufficient evidence; otherwise block that conclusion. Do not infer behavioural equivalence.
-8. Check the packet's exact result/evidence write set. Save the immutable receipt and findings; publish/checkpoint only through the separately authorised path.
-9. Stop that packet on any mismatch. Return unresolved preparation questions to preparation; route semantic uncertainty through the existing escalation rules. Do not repair the target or overwrite failed evidence.
+Generate all fast-path file rows/results in one set operation. Do not open one execution packet per identical file.
 
-Content reads and comparisons are read-only. The only writes are the packet-declared audit artifacts; they never include the files being verified.
+### 6.3 Closed-region execution algorithm
+
+For one `READY` deterministic region:
+
+1. Check snapshot, region, method, manifest and claim digests.
+2. Resolve every declared endpoint from the complete pinned trees and verify the region's exact finite file/claim set.
+3. Retrieve complete bytes only where object equality cannot already establish the required content fact.
+4. Reconstruct all declared bridges and exact transformations from independently justified inputs; validate every edit range/count before applying it.
+5. Produce expected output bytes/digests for every changed file in the region and compare them with the complete target objects.
+6. Prove region-wide set invariants: no missing/extra member, no undeclared changed endpoint, no unresolved in-region mapping, no prohibited old/new duplicate, and all protected/residual obligations satisfied.
+7. Mechanically emit one result row per file and update all linked claim obligations from those exact results.
+8. Record extra/missing bytes, mode/type/path mismatches and protected-identity failures as findings without widening the allowed transformation.
+9. Save one immutable region receipt plus per-file result references; checkpoint only through the separately authorised path.
+10. On a mismatch, isolate the smallest affected file/claim/exception set. Preserve mechanically independent passing results; never rewrite history or absorb the discrepancy into the expected answer.
+
+### 6.4 Exception execution
+
+Exception packets handle ambiguous mapping, compatibility/protected identities, non-naming executable deltas, split/merge/delete cases, historical bridge uncertainty, incomplete evidence and other non-deterministic cases. Every exception is explicitly resolved as PASS, FAIL or BLOCKED.
+
+An exception packet may contain multiple cases only when their evidence/dependency boundary is closed and each case retains a separate result.
+
+Content reads and comparisons are read-only. The only writes are packet-declared audit artifacts; they never include the files being verified.
+
+## 7. READY region packet contract
 
 ## 7. READY packet contract
 
 The work file holds at most a small active queue. Completed packet definitions are preserved with their receipts; do not let this file become a second history ledger.
 
-Every file packet must contain concrete values for the following fields. This example is deliberately `PREPARATION_REQUIRED`, not executable:
+Every closed-region or exception packet must contain concrete values for the following fields. This example is deliberately `PREPARATION_REQUIRED`, not executable:
 
 ```yaml
 schema_version: 1
-packet: GR-VV-03-F000001
+packet: GR-VV-03-R000001
 state: PREPARATION_REQUIRED
-kind: FILE_PRESERVATION
+kind: CLOSED_REGION_PRESERVATION
 run_id: null
 snapshot_ref: null
 snapshot_sha256: null
@@ -302,8 +318,11 @@ expected_observed_live_head: null
 expected_publication_parent: null
 input_manifest_sha256: null
 method_receipt_ref: null
+region_id: null
+transformation_class: null
 file_ids: []
 claim_ids: []
+exception_ids: []
 reads: []
 # Each reads item supplies exact commit, path, object ID, type, mode and size.
 transformation_refs: []
@@ -324,9 +343,9 @@ on_failed_check: record_failure_without_repair
 on_unresolved_input: stop_and_return_to_preparation
 ```
 
-Different packet kinds are `SNAPSHOT_CAPTURE`, `TREE_ENUMERATION`, `IDENTITY_PREPARATION`, `METHOD_VALIDATION`, `FILE_PRESERVATION`, `CLAIM_RECONCILIATION` and `FINAL_RECONCILIATION`. Their required inputs must be concrete for that operation; a bootstrap capture packet does not need a not-yet-created file manifest, but it must have exact source refs, bounded reads, outputs and preconditions.
+Different packet kinds are `SNAPSHOT_CAPTURE`, `TREE_ENUMERATION`, `IDENTITY_PREPARATION`, `METHOD_VALIDATION`, `CLOSED_REGION_PRESERVATION`, `EXCEPTION_VALIDATION`, `CLAIM_RECONCILIATION` and `FINAL_RECONCILIATION`. Their required inputs must be concrete for that operation; a bootstrap capture packet does not need a not-yet-created file manifest, but it must have exact source refs, bounded reads, outputs and preconditions.
 
-A content packet normally contains one file ID. Exact unchanged-object batches are permitted only with a finite explicit ID list, per-file results and no unresolved mapping decisions. Split large preparation work by a deterministic manifest range, not by an invitation to “find whatever remains”.
+A normal content packet contains a finite, explicit closed region and may contain any number of file IDs that share a completely frozen deterministic rule set. Every file still receives an individual result. Partition by natural claim/transformation/exception boundaries or evidence/tool limits, not by an arbitrary file count.
 
 ## 8. GR-VV-04 — claim reconciliation
 
@@ -393,6 +412,7 @@ This is the sole active-state record. No comparison has been executed; no file o
 ```yaml
 execution:
   status: DRAFT_NOT_EXECUTED
+  execution_mode: CLOSED_REGION_BULK
   run_id: null
   active_packet: null
   active_state: PREPARATION_REQUIRED
@@ -408,7 +428,15 @@ execution:
 
 Do not pre-populate later file counts, claim passes or ready packets from the preparation observation. Generate the queue from the complete pinned manifests when the run opens. This file provides the protocol, not a pre-executed audit or an implemented checker.
 
-## 11. Technical references and repository inputs
+## 11. Efficiency and validation-cost invariant
+
+Verification effort SHOULD scale primarily with the number of deterministic transformation classes, closed verification regions, exception classes and actual counterexamples—not with the raw number of historical migration leaves or tracked files.
+
+Every tracked file is still accounted for and every changed/claimed file is still exactly checked. The optimisation is that identical objects, deterministic transformations and set invariants are processed mechanically in bulk while human/agent reasoning is concentrated on exceptional evidence.
+
+Leaf/file count is evidence cardinality, not a mandate for repeated reasoning.
+
+## 12. Technical references and repository inputs
 
 Repository-specific scope and constraints come from the sources identified in section 9 of `GRANDRUE-POST-MIGRATION-VERIFICATION.md`. The external references below explain object retrieval/comparison only; they do not authorise GrandRue changes. Consulted 17 September 2026.
 

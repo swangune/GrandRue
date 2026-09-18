@@ -1049,44 +1049,14 @@ This protocol changes reasoning/execution granularity only. All preservation, no
 
 ---
 
-## 9. Migration Validation Protocol — aggregate-first, exception-driven
+---
 
-Validation MUST prove the strongest invariants over the largest closed boundary once. Leaf evidence remains audit evidence; deeper reasoning is reserved for exceptions and counterexamples. Validation MUST NOT become a second leaf-by-leaf migration.
+## 9. Post-Migration Verification Handoff
 
-### 9.1 Closed-subgraph checkpoint validation
+Detailed migration-preservation and claim validation is owned by `GRANDRUE-POST-MIGRATION-VERIFICATION.md` and its subordinate work file `docs/development/grandrue-post-migration-verification-work.md`.
 
-For each future closed-subgraph tranche, validate in this order: frozen manifest; exact aggregate changed-path set; destination/legacy-owner/consumer closure; protected identities and expected residuals; region residual scan; mechanically derived owner/leaf evidence; checkpoint.
+This migration ledger remains the source of migration scope, protected identities, completion claims and history. The post-migration verification ledger independently validates those claims against complete pinned repository snapshots.
 
-A passing aggregate proof may satisfy all normal owners in that tranche. Repeat per-leaf repository discovery only when the aggregate proof cannot establish a property, an exception was isolated, evidence is stale/inconsistent, or a counterexample identifies that leaf or edge.
+Prospective verification uses whole-tree accounting, immutable-object fast paths, deterministic closed verification regions and exception-driven deep reasoning. Leaf/file-level results remain complete audit evidence but do not require one reasoning/execution cycle per leaf.
 
-### 9.2 Validation evidence hierarchy
-
-Current final repository state outranks closed-subgraph manifests and diffs; those outrank code/checkpoint commit evidence; those outrank leaf audit records and historical prose summaries. A historical completion record cannot override a contradictory current tree.
-
-### 9.3 GR-REN-08 — whole-repository coverage and residual classification
-
-Perform deterministic whole-repository scans over every in-scope surface. Every residual legacy identity must receive exactly one disposition: MIGRATED_CURRENT_IDENTITY, PROTECTED_STABLE_IDENTITY, NON_MIGRATING_LEGACY_PROTOTYPE, HISTORICAL_EVIDENCE, COMPATIBILITY_ALIAS_OR_FALLBACK, DEFERRED_TO_EXPLICIT_NAMED_GROUP, or MIGRATION_DEFECT.
-
-Completion requires exhaustive enumeration with zero unclassified, prepared, ready, uncheckpointed CODE_COMMITTED, unresolved-blocked, or MIGRATION_DEFECT items. Audit current path/reference/residual sets; do not read every completed leaf narrative.
-
-### 9.4 GR-REN-09 — falsification and exception validation
-
-Attempt to disprove owner closure, cross-package consumer closure, visibility-sensitive moves, transitional dependencies, protected persisted/external identities, Flyway/history preservation, prototype exclusion, stable MS-* identifiers, build/config/runtime naming boundaries, and every isolated exception.
-
-Normal deterministic populations SHOULD be validated by set/query invariants plus targeted representative falsification. Exception classes and protected-identity classes require 100% explicit disposition/checking. A counterexample reopens the smallest affected dependency-closed region rather than the whole migration unless the invariant itself is globally unsound.
-
-### 9.5 GR-REN-10 — executable validation
-
-When separately authorised, prove executable coherence with production/test structural checks, compile/test verification, the full backend gate where applicable, applicable storefront/build/CI-equivalent checks, and required configuration/startup checks.
-
-Existing restrictions remain in force: this protocol does not itself authorise Maven tests or GitHub Actions. If required executable validation remains unauthorised, GR-REN-10 remains incomplete; structural evidence must not be promoted into an executable-validation claim.
-
-### 9.6 GR-REN-11 — final closure
-
-Final completion requires GR-REN-02..07 complete; GR-REN-08 zero unexplained residuals; GR-REN-09 no unresolved counterexample; GR-REN-10 all required executable validation satisfied; protected identities/history/runtime-data boundaries preserved; no uncheckpointed CODE_COMMITTED tranche; ledger/work/manifests consistent with branch ancestry; and no known migration exception unresolved.
-
-The final decision is based on current state plus immutable evidence and MUST NOT require replaying hundreds of leaf-level reasoning cycles.
-
-### 9.7 Machine-readable validation state
-
-When GR-REN-08 begins, the canonical checkpoint SHOULD expose validation mode AGGREGATE_FIRST_EXCEPTION_DRIVEN plus coverage, falsification, executable and closure states. Only actually executed evidence may advance those states.
+`GR-REN-08..11` consume the applicable post-migration verification evidence plus separately authorised executable validation where required. Structural/post-migration audit evidence MUST NOT be represented as Maven, integration, runtime or GitHub Actions success unless those checks were actually authorised and run.

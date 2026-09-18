@@ -109,20 +109,82 @@ New operational records absent from `master` need independently established intr
 
 Use the work file's coverage invariants. Counts remain `null` until enumeration and reconciliation establish them. Zero is a measured result, never a default.
 
-## 5. Verification programme
+## 5. Verification programme — whole-set first, exception-driven
 
-Preparation resolves decisions. Execution performs bounded, read-only checks. The usual content unit is **one logical file pair**, including all claimed edits affecting that file. Unlike a mutation packet, a verification packet need not modify all consumers atomically; claim completion must still cover every owner and consumer.
+The verification unit is no longer one file at a time. The audit still produces one exact result row per tracked file and checks every claimed obligation, but it obtains those results through the largest deterministic closed verification regions that can be proved exactly.
+
+Canonical execution:
+
+```text
+pin B / D / M + claim snapshot once
+        ↓
+enumerate both complete trees once
+        ↓
+object-ID + mode equality fast path
+        ↓
+changed / moved / claimed population
+        ↓
+classify into deterministic transformation classes
+        +
+isolate exceptions / ambiguous mappings / protected-risk cases
+        ↓
+build dependency-/claim-closed verification regions
+        ↓
+bulk reconstruct exact expected bytes
+        ↓
+bulk full-content / path / mode / protection checks
+        ↓
+mechanically emit per-file and per-claim results
+        ↓
+deep reasoning only for exceptions and counterexamples
+```
+
+This changes execution granularity, not evidentiary strictness.
+
+### 5.1 Equality fast path
+
+If a baseline and target entry have the same immutable Git object ID, object type and mode, and no migration claim requires a path/content change that is absent, the content-equality result may be established without rereading/reasoning over that file independently. The file still receives its own manifest row and result.
+
+A same-object fast path never proves a required rename, required transformed content, protected-path obligation or claim that is not actually satisfied.
+
+### 5.2 Deterministic transformation classes
+
+Changed/claimed files SHOULD be grouped where their expected outputs are governed by the same independently established transformation class, for example a closed package/path/import namespace move with identical preservation rules.
+
+For each class, preparation freezes the exact input objects, file mappings, transformations, protected identities, expected residuals and claim obligations before execution. Expected outputs are then generated and compared in bulk, but every output retains a separate file result and digest.
+
+### 5.3 Closed verification regions
+
+A verification region is the largest finite set of files/claims that can be checked from one frozen snapshot and one closed deterministic rule set without unresolved mapping, semantic or compatibility judgement.
+
+Region size is determined by closure and proofability, not an arbitrary file count. Partition only at natural claim/dependency boundaries, exception boundaries, evidence/tool limits or where the exact region can no longer be reviewed and reproduced reliably.
+
+### 5.4 Exceptions
+
+The following are not absorbed into an ordinary deterministic region: ambiguous identity mapping; split/merge/delete semantics; unexplained additions; non-naming executable deltas; protected persisted/external identity questions; compatibility-sensitive residuals; package-private/visibility ambiguity; historical bridge uncertainty; incomplete bytes/objects; and any authority/semantic uncertainty.
+
+Exceptions receive 100% explicit checking and disposition. An exception does not force unrelated deterministic files back to one-file-at-a-time verification.
+
+### 5.5 No sampling does not mean one reasoning cycle per file
+
+No sampling remains mandatory for accounting and exact mechanical checking: every tracked endpoint is represented, every changed/claimed file is checked, and every claim obligation resolves to evidence.
+
+Human/agent deep reasoning may be targeted at exceptions, protected-risk classes and falsification counterexamples because deterministic populations are already checked exhaustively by exact set/object/byte invariants.
+
+### 5.6 Verification groups
 
 | Group | Work | Completion evidence |
 |---|---|---|
-| `GR-VV-00` | Pin snapshots and freeze claims | Exact refs, full source objects, claim snapshot and freshness receipt. |
-| `GR-VV-01` | Enumerate both trees and establish the master bridge | Complete manifests; all entries represented, unresolved rows exposed. |
-| `GR-VV-02` | Prepare exact file mappings and expected transformations | Closed read boundaries, claim/provenance links and no inferred permissions. |
-| `GR-VV-03` | Validate the checking method, then verify file pairs | Negative-control results and full-content/mode/path receipts. |
-| `GR-VV-04` | Reconcile claims, consumers and protected identities | Every claimed obligation checked; all residuals classified. |
-| `GR-VV-05` | Aggregate findings, coverage and final freshness | Evidence-backed conclusions for the pinned target and a live-head comparison. |
+| `GR-VV-00` | Pin snapshots and freeze claims | Exact refs, complete source objects, claim snapshot and freshness receipt. |
+| `GR-VV-01` | Enumerate both trees once and establish the master bridge | Complete manifests, exact two-sided set equality/accounting, immutable-object fast-path population and unresolved rows exposed. |
+| `GR-VV-02` | Classify changed/claimed population and prepare closed regions | Exact mappings, transformation classes, exception registry, provenance links and frozen region manifests. |
+| `GR-VV-03` | Validate the checker, then verify deterministic regions in bulk | Negative controls plus complete per-file path/mode/content/protection results mechanically emitted from region checks. |
+| `GR-VV-04` | Reconcile claims, exceptions, consumers and protected identities | Every claim obligation and every exception/protected class explicitly resolved; all residuals classified. |
+| `GR-VV-05` | Aggregate findings, falsify closure and refresh live target | Evidence-backed conclusions, zero unexplained residuals for any passing conclusion, and final live-head reconciliation. |
 
-Do not select the “next useful file” during execution. Prepare a small deterministic queue from the manifests; execute one fresh packet, checkpoint its result, then advance. Identical objects may be checked in bounded batches, but every file still receives a separate row/result. No sampling.
+Do not select the next arbitrary file during execution. Prepare the next closed region or exception set from the frozen manifests; execute it once; checkpoint its results; then advance.
+
+Leaf/file cardinality is an audit cardinality, not a reasoning-work multiplier.
 
 ## 6. Outcomes, findings and hand-off
 
@@ -168,6 +230,7 @@ This structured record is the sole current run pointer. Packet definitions and a
 checkpoint:
   audit: MAIN_STREET_TO_GRANDRUE_CLAIM_PRESERVATION
   status: DRAFT_NOT_EXECUTED
+  execution_mode: CLOSED_REGION_BULK
   run_id: null
   baseline_commit: null
   target_commit: null
@@ -181,6 +244,9 @@ checkpoint:
     represented_baseline_entries: null
     represented_target_entries: null
     unclassified_files: null
+    equality_fast_path_files: null
+    deterministic_regions: null
+    exception_files: null
     claims_total: null
     claims_verified: null
     open_findings: null
@@ -190,7 +256,7 @@ checkpoint:
     migration_preservation: NOT_RUN
     master_non_naming_executable_preservation: NOT_RUN
     live_freshness: NOT_RUN
-  next_action: Prepare GR-VV-00-01 from fresh repository evidence; open no audit result until snapshots and claims are pinned.
+  next_action: Prepare GR-VV-00-01 from fresh repository evidence; pin snapshots/claims once, enumerate both trees once, then derive equality-fast-path, deterministic-region and exception populations before any verification result is opened.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.
