@@ -1,6 +1,6 @@
 package grandrue.application;
 
-import mainstreet.commercial.FreePlanRevisionAuthority;
+import grandrue.commercial.FreePlanRevisionAuthority;
 import mainstreet.commercial.StandardPlanLevel;
 import mainstreet.commercial.StandardPlanRevision;
 import mainstreet.commercial.StandingFreeBaseline;

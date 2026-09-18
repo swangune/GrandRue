@@ -1,5 +1,6 @@
 package mainstreet.commercial;
 
+import grandrue.commercial.FreePlanRevisionAuthority;
 import grandrue.application.TrustedPlatformExecutionContext;
 import java.time.Instant;
 import java.util.Optional;

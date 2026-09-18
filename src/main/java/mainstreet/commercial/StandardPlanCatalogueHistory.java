@@ -1,6 +1,7 @@
 package mainstreet.commercial;
 
 import grandrue.commercial.CatalogueResolutionException;
+import grandrue.commercial.FreePlanRevisionAuthority;
 
 import java.time.Instant;
 import java.util.Collections;
