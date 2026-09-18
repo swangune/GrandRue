@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-import mainstreet.commercial.StandingFreeBaseline;
+import grandrue.commercial.StandingFreeBaseline;
 
 import grandrue.application.MerchantScope;
 

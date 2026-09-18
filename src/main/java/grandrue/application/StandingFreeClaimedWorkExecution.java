@@ -2,7 +2,7 @@ package grandrue.application;
 
 import grandrue.background.ClaimedWork;
 import grandrue.background.DurableWorkStore;
-import mainstreet.commercial.StandingFreeBaseline;
+import grandrue.commercial.StandingFreeBaseline;
 
 import java.util.Optional;
 
