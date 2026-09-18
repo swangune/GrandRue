@@ -1,6 +1,6 @@
 package grandrue.inventory;
 
-import mainstreet.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.compiler.ConfigurationCompiler;
 import grandrue.semantic.configuration.ConfigurationImpactAssessment;
 import grandrue.semantic.configuration.ConfigurationImpactClassification;
 import grandrue.semantic.configuration.ConfigurationImpactContext;

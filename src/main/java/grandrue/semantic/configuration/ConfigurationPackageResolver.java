@@ -4,7 +4,7 @@ import grandrue.fulfilment.FulfilmentBindingSetRevision;
 import grandrue.fulfilment.FulfilmentContractRegistrySnapshot;
 import grandrue.fulfilment.FulfilmentPlan;
 import grandrue.fulfilment.FulfilmentPlanResolver;
-import mainstreet.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.compiler.ConfigurationCompiler;
 import grandrue.semantic.executable.ExecutableMerchantModel;
 import mainstreet.surface.StaticSurfaceContributionCatalogue;
 import mainstreet.surface.SurfaceContributionRegistrySnapshot;

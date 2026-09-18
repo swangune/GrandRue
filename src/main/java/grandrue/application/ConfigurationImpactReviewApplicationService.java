@@ -11,7 +11,7 @@ import grandrue.money.PaymentAvailabilityImpactAssessment;
 import grandrue.ordering.OrderingAvailabilityImpactAssessment;
 import grandrue.publication.PublicationAvailabilityImpactAssessment;
 import grandrue.scheduling.SchedulingAvailabilityImpactAssessment;
-import mainstreet.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.compiler.ConfigurationCompiler;
 import grandrue.semantic.configuration.CapabilityMembershipImpactAssessment;
 import grandrue.semantic.configuration.ConfigurationImpactAnalysisResult;
 import grandrue.semantic.configuration.ConfigurationImpactAnalyzer;

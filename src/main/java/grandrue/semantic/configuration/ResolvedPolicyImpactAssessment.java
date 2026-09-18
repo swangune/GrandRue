@@ -1,6 +1,6 @@
 package grandrue.semantic.configuration;
 
-import mainstreet.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.compiler.ConfigurationCompiler;
 import grandrue.semantic.executable.ExecutableMerchantModel;
 
 import java.util.ArrayList;

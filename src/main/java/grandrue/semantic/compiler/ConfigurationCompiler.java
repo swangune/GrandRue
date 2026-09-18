@@ -1,4 +1,4 @@
-package mainstreet.semantic.compiler;
+package grandrue.semantic.compiler;
 
 import grandrue.semantic.configuration.MerchantConfiguration;
 import grandrue.semantic.configuration.PolicySelection;
