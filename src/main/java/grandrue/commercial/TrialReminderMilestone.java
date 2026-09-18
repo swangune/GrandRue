@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 /**
  * One accepted routine trial-expiry reminder milestone.
