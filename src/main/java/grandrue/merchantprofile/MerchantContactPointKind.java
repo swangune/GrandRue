@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 /** Initially supported platform-defined merchant contact channels. */
 public enum MerchantContactPointKind {

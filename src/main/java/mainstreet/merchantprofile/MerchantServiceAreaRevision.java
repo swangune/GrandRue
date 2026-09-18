@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantServiceAreaExposure;
+
 import grandrue.merchantprofile.MerchantServiceAreaLifecycle;
 
 import grandrue.application.MerchantScope;

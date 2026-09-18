@@ -1,7 +1,6 @@
 package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.merchantprofile.MerchantContactPointExposure;
 
 import java.util.Optional;
 

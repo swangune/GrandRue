@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantLocationExposure;
+
 import grandrue.application.MerchantScope;
 
 import java.time.Instant;

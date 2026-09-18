@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 /** Closed initial ServiceAreaGeographyV1 variant set. */
 public enum MerchantServiceAreaGeographyKind {

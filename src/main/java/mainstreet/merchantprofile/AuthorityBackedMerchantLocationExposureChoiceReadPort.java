@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantLocationExposure;
+
 import grandrue.merchantprofile.MerchantLocationAuthority;
 import grandrue.merchantprofile.MerchantLocationExposureChoiceAuthority;
 import grandrue.merchantprofile.MerchantLocationExposureChoiceReadPort;

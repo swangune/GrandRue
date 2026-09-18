@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantServiceAreaGeographyKind;
+
 /** Descriptive radius around one exact Merchant Location revision. */
 public record MerchantLocationRadiusGeographyV1(
         String merchantLocationIdentity,

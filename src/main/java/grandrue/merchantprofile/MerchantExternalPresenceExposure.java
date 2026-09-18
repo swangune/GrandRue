@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 /** Merchant-owned exposure choice retained on an external-presence fact. */
 public enum MerchantExternalPresenceExposure {

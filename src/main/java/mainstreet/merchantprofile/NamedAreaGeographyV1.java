@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantServiceAreaGeographyKind;
+
 /** Descriptive named-area geography qualified by one country. */
 public record NamedAreaGeographyV1(
         String countryCode,

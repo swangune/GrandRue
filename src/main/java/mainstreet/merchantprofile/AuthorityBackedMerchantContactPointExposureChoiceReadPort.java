@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantContactPointExposure;
+
 import grandrue.merchantprofile.MerchantContactPointAuthority;
 import grandrue.merchantprofile.MerchantContactPointExposureChoiceReadPort;
 import grandrue.merchantprofile.MerchantContactPointLifecycle;

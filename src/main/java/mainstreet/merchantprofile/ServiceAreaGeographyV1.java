@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantServiceAreaGeographyKind;
+
 import java.text.Normalizer;
 import java.util.Locale;
 

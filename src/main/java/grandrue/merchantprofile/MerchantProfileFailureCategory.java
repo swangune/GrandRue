@@ -1,4 +1,4 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
 /**
  * Recoverable failure classifications for authoritative profile mutation.

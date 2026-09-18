@@ -1,5 +1,8 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantContactPointExposure;
+import grandrue.merchantprofile.MerchantContactPointKind;
+
 import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;

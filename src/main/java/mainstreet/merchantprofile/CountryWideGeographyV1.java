@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantServiceAreaGeographyKind;
+
 /** Descriptive country-wide geography. */
 public record CountryWideGeographyV1(
         String countryCode

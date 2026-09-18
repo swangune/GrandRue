@@ -1,5 +1,7 @@
 package mainstreet.merchantprofile;
 
+import grandrue.merchantprofile.MerchantServiceAreaGeographyKind;
+
 import java.util.List;
 import java.util.Objects;
 
