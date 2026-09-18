@@ -213,6 +213,14 @@ State: `OPEN`
 | `GR-REN-02-01X60` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/StandingFreeDurableWorkWorker.java`; no production consumers | `24bfd5116fdae327bd7b11388c852986f43dfdb1` |
 | `GR-REN-02-01X61` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `application/StandingFreeBackgroundWorkExecution.java`; no production consumers | `5192135a2262c1c145407f6600c96b00eeff0b13` |
 | `GR-REN-02-01X241` | `COMPLETE_PENDING_FINAL_VERIFICATION` | remaining `merchantprofile/**` inseparable package closure + twelve bounded production consumers | code `01eff690ffb2d7090a1e162d34ac1722dd713307`; reconciliation `18bf2ef88f82b79d7c52c479e1f2c6fda72fa29c` |
+| `GR-REN-02-01X242` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingCasePurpose.java` + two bounded production consumers | `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1` |
+| `GR-REN-02-01X243` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingPromptCompletionRequirement.java` + two bounded production consumers | `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1` |
+| `GR-REN-02-01X244` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingPromptEligibility.java`; no production consumers | `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1` |
+| `GR-REN-02-01X245` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingPromptClass.java` + two bounded production consumers | `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1` |
+| `GR-REN-02-01X246` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingBlockingAnswerOutcome.java` + three bounded production consumers | `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1` |
+| `GR-REN-02-01X247` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingPersistenceFailureCategory.java` + two bounded production consumers | `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1` |
+| `GR-REN-02-01X248` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingSubmissionAuthority.java` + four bounded production consumers | `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1` |
+| `GR-REN-02-01X249` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingAnswerForm.java` + four bounded production consumers | `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
 | `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
@@ -682,6 +690,23 @@ State: `OPEN`
 
 - `GR-REN-02-01X241`: completed the remaining `merchantprofile/**` production namespace as one `INSEPARABLE_PACKAGE_CLOSURE`. `CreateMerchantLocationCommand.java` is the owner and its 26 dependency-owned members moved with it because package-private validation helpers and the sealed `ServiceAreaGeographyV1` hierarchy cannot be split safely across packages. The initial code commit repaired five migrated persistence consumers; structural verification then discovered seven additional same-package transitional imports, repaired by descendant reconciliation commit `18bf2ef88f82b79d7c52c479e1f2c6fda72fa29c`. Across both commits, the 27 moved sources changed only package declarations and the twelve consumers changed only imports. No helper visibility, validation, lifecycle, revision, mutation, persistence/schema/runtime-data semantics, stable `MS-*` identifiers, applied Flyway content, tests, or legacy prototype paths changed. Code: `01eff690ffb2d7090a1e162d34ac1722dd713307`; reconciliation: `18bf2ef88f82b79d7c52c479e1f2c6fda72fa29c`.
 
+
+- `GR-REN-02-01X242`: `OnboardingCasePurpose.java` moved to `grandrue.onboarding`; `OnboardingCase` and `JooqOnboardingCaseEvidenceStore` now resolve the GrandRue enum. Constants, declaration order and MS-PROT-052 wording unchanged. Code: `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1`.
+
+- `GR-REN-02-01X243`: `OnboardingPromptCompletionRequirement.java` moved to `grandrue.onboarding`; `OnboardingCompletionPolicy` and `OnboardingSubmissionReadinessEvaluator` now resolve the GrandRue enum. Completion semantics unchanged. Code: `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1`.
+
+- `GR-REN-02-01X244`: `OnboardingPromptEligibility.java` moved to `grandrue.onboarding`; no production consumers. Eligibility constants and registered-contract comments unchanged. Code: `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1`.
+
+- `GR-REN-02-01X245`: `OnboardingPromptClass.java` moved to `grandrue.onboarding`; `OnboardingPromptDefinition` and `InitialCustomerInteractionDiscoveryQuestion` now resolve the GrandRue enum. Prompt classification semantics unchanged. Code: `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1`.
+
+- `GR-REN-02-01X246`: `OnboardingBlockingAnswerOutcome.java` moved to `grandrue.onboarding`; `OnboardingCompletionPolicy`, `OnboardingAnswerOutcomeRule` and `OnboardingSubmissionReadinessEvaluator` now resolve the GrandRue enum. Blocking-outcome semantics unchanged. Code: `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1`.
+
+- `GR-REN-02-01X247`: `OnboardingPersistenceFailureCategory.java` moved to `grandrue.onboarding`; `OnboardingCasePersistenceException` and `JooqOnboardingCaseEvidenceStore` now resolve the GrandRue enum. Recovery categories unchanged. Code: `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1`.
+
+- `GR-REN-02-01X248`: `OnboardingSubmissionAuthority.java` moved to `grandrue.onboarding`; `OnboardingCaseEvidenceStore`, `OnboardingFinalReviewService`, `OnboardingSubmissionReadinessEvaluator` and `JooqOnboardingCaseEvidenceStore` now resolve the GrandRue enum. Submission-authority predicates unchanged. Code: `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1`.
+
+- `GR-REN-02-01X249`: `OnboardingAnswerForm.java` moved to `grandrue.onboarding`; `OnboardingPromptDefinition`, `OnboardingAnswerEvidence`, `InitialCustomerInteractionDiscoveryQuestion` and `JooqOnboardingCaseEvidenceStore` now resolve the GrandRue enum. Answer-form taxonomy unchanged. Code: `4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -713,9 +738,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X241
-last_completed_task: GR-REN-02-01X241
-last_task_commit: 18bf2ef88f82b79d7c52c479e1f2c6fda72fa29c
+selected_execution_leaf: GR-REN-02-01X249
+last_completed_task: GR-REN-02-01X249
+last_task_commit: 4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -833,8 +858,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X241
-last_prepared_execution_commit: 18bf2ef88f82b79d7c52c479e1f2c6fda72fa29c
+last_prepared_execution_leaf: GR-REN-02-01X249
+last_prepared_execution_commit: 4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce

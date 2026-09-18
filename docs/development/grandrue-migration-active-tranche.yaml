@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T007
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 4b38d7be9a1fcc5b19b7cbcdb3e8e8c0679c00b1
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 4ed95f129c7ba0df1104a70639d59855ef59ef17
 leaf_range:
   first: GR-REN-02-01X242
@@ -178,3 +180,10 @@ preparation_notes:
   - Eight public onboarding enums were selected because their production consumer closures are explicit and contain no package-private or sealed-hierarchy coupling.
   - Test namespace consumers remain deferred to GR-REN-03.
   - No prototype path is selected or changed.
+
+completed:
+  last_leaf: GR-REN-02-01X249
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 20
+  structural_verification: passed
+  next_tranche: GR-REN-02-T008
