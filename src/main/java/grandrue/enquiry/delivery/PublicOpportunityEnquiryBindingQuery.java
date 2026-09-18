@@ -4,7 +4,7 @@ import grandrue.api.*;
 import grandrue.enquiry.EnquiryRevisionProvenance;
 import grandrue.publication.*;
 import grandrue.publication.delivery.*;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.*;
 import mainstreet.surface.*;
 import java.time.Clock;

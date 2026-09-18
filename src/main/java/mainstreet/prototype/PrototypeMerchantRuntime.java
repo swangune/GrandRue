@@ -1,13 +1,13 @@
 package mainstreet.prototype;
 
-import mainstreet.semantic.configuration.ConfigurationActivationRequest;
-import mainstreet.semantic.configuration.ConfigurationActivationStatus;
-import mainstreet.semantic.configuration.ConfigurationRelease;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
-import mainstreet.semantic.configuration.ConfigurationRevisionApproval;
-import mainstreet.semantic.configuration.InMemoryConfigurationPublication;
-import mainstreet.semantic.configuration.InMemoryConfigurationReleaseActivation;
-import mainstreet.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.configuration.ConfigurationActivationRequest;
+import grandrue.semantic.configuration.ConfigurationActivationStatus;
+import grandrue.semantic.configuration.ConfigurationRelease;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationRevisionApproval;
+import grandrue.semantic.configuration.InMemoryConfigurationPublication;
+import grandrue.semantic.configuration.InMemoryConfigurationReleaseActivation;
+import grandrue.semantic.configuration.MerchantConfiguration;
 import grandrue.semantic.executable.ExecutableAllocationClaimEffect;
 import grandrue.semantic.executable.ExecutableMerchantModel;
 import grandrue.semantic.executable.ExecutableObjectCreationEffect;

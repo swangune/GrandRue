@@ -10,7 +10,7 @@ import grandrue.publication.OpportunityPublicationState;
 import grandrue.publication.OpportunityPublicationStateAuthority;
 import grandrue.publication.OpportunityPublicationSubmissionLock;
 import grandrue.publication.PublicationLifecycle;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.executable.ExecutableMerchantModel;
 import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;

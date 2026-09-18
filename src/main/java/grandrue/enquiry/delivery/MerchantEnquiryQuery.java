@@ -12,7 +12,7 @@ import grandrue.runtime.ActorAuthorisationAuthority;
 import grandrue.runtime.SessionTrustedExecutionContextEstablisher;
 import grandrue.runtime.TrustedExecutionContext;
 import mainstreet.runtime.*;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.*;
 import java.time.Clock;

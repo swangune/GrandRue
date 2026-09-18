@@ -1,8 +1,8 @@
 package grandrue.semantic.executable;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.configuration.ActiveRelease;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ActiveRelease;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 
 import java.util.Objects;
 

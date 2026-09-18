@@ -1,7 +1,7 @@
 package grandrue.publication.delivery;
 
 import grandrue.publication.OpportunityPublicationStateAuthority;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.AudienceObservationAdmissionEvaluator;
 import mainstreet.surface.AudienceObservationContextEstablisher;

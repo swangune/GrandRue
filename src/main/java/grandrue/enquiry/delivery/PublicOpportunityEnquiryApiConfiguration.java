@@ -3,7 +3,7 @@ package grandrue.enquiry.delivery;
 import grandrue.enquiry.EnquirySubmissionApplicationService;
 import grandrue.publication.*;
 import grandrue.publication.delivery.PublicOpportunityRouteScopeAuthority;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.*;
 import org.springframework.context.annotation.*;

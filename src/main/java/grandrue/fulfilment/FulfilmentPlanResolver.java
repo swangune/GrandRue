@@ -1,12 +1,12 @@
 package grandrue.fulfilment;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.configuration.CapabilityConfigurationResolutionStatus;
-import mainstreet.semantic.configuration.CapabilityConfigurationValueDomain;
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.configuration.ResolvedCapabilityConfiguration;
-import mainstreet.semantic.configuration.ResolvedCapabilityConfigurationDecision;
-import mainstreet.semantic.configuration.ResolvedEnumCapabilityConfigurationValue;
+import grandrue.semantic.configuration.CapabilityConfigurationResolutionStatus;
+import grandrue.semantic.configuration.CapabilityConfigurationValueDomain;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.configuration.ResolvedCapabilityConfiguration;
+import grandrue.semantic.configuration.ResolvedCapabilityConfigurationDecision;
+import grandrue.semantic.configuration.ResolvedEnumCapabilityConfigurationValue;
 import grandrue.semantic.executable.ExecutableMerchantModel;
 
 import java.util.ArrayList;

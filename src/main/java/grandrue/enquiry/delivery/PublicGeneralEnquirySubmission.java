@@ -9,7 +9,7 @@ import grandrue.enquiry.EnquirySubmissionApplicationService;
 import grandrue.enquiry.EnquirySubmissionIntent;
 import grandrue.publication.OpportunityPublicationStateAuthority;
 import grandrue.publication.OpportunityPublicationSubmissionLock;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import java.time.Clock;
 import java.util.*;

@@ -10,8 +10,8 @@ import grandrue.api.ApiTransportScopeEvidence;
 import grandrue.api.MerchantApiTransportScope;
 import grandrue.application.MerchantScope;
 import grandrue.runtime.TrustedExecutionContext;
-import mainstreet.semantic.configuration.ActiveRelease;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ActiveRelease;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
 
 import java.util.Objects;

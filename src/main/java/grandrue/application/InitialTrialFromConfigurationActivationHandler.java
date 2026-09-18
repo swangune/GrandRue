@@ -3,7 +3,7 @@ package grandrue.application;
 import grandrue.application.MerchantScope;
 import grandrue.commercial.InitialFullExperienceTrial;
 import grandrue.commercial.InitialFullExperienceTrialEstablisher;
-import mainstreet.semantic.configuration.ConfigurationActivation;
+import grandrue.semantic.configuration.ConfigurationActivation;
 
 import java.util.Objects;
 import java.util.Optional;

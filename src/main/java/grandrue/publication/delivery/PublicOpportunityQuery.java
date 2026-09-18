@@ -2,7 +2,7 @@ package grandrue.publication.delivery;
 
 import grandrue.api.*;
 import grandrue.publication.*;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import mainstreet.surface.*;
 import java.time.Clock;

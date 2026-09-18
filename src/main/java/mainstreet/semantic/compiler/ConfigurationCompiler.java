@@ -1,7 +1,7 @@
 package mainstreet.semantic.compiler;
 
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.configuration.PolicySelection;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.configuration.PolicySelection;
 import grandrue.semantic.executable.CapabilityActivationReason;
 import grandrue.semantic.executable.ExecutableAllocationClaimEffect;
 import grandrue.semantic.executable.ExecutableAllocationReleaseEffect;

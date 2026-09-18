@@ -3,7 +3,7 @@ package mainstreet.surface;
 import grandrue.api.ApiContractIdentity;
 import grandrue.api.ApiSurfaceClass;
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.configuration.ActiveRelease;
+import grandrue.semantic.configuration.ActiveRelease;
 
 import java.util.Objects;
 import java.util.Optional;

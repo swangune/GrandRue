@@ -1,6 +1,6 @@
 package grandrue.fulfilment;
 
-import mainstreet.semantic.configuration.CapabilityConfigurationDecisionIdentity;
+import grandrue.semantic.configuration.CapabilityConfigurationDecisionIdentity;
 
 import java.util.Objects;
 import java.util.Set;

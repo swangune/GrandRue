@@ -1,6 +1,6 @@
 package grandrue.semantic.executable;
 
-import mainstreet.semantic.configuration.ActiveRelease;
+import grandrue.semantic.configuration.ActiveRelease;
 
 import java.util.Objects;
 

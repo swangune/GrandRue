@@ -4,7 +4,7 @@ import grandrue.merchantaccount.MerchantAccountLifecycle;
 import grandrue.merchantaccount.MerchantAccountLifecycleStore;
 import grandrue.merchantaccount.MerchantControllerRelationshipLifecycle;
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.configuration
+import grandrue.semantic.configuration
         .ConfigurationActivationAuthorizationAuthority;
 
 import java.util.Objects;

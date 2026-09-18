@@ -5,7 +5,7 @@ import grandrue.enquiry.delivery.PublicGeneralEnquiryRequirements;
 import grandrue.enquiry.delivery.PublicEnquiryRouteScopeAuthority;
 import grandrue.enquiry.EnquirySubmissionApplicationService;
 import grandrue.publication.*;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import org.springframework.context.annotation.*;
 import java.time.Clock;

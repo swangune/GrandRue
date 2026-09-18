@@ -1,15 +1,15 @@
 package grandrue.infrastructure.persistence.configuration;
 
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.configuration.ConfigurationRevisionAuthority;
-import mainstreet.semantic.configuration.ConfigurationValidationEvidence;
-import mainstreet.semantic.configuration.ConfigurationValidationEvidenceAuthority;
-import mainstreet.semantic.configuration.ConfigurationValidationEvidenceFailureCategory;
-import mainstreet.semantic.configuration.ConfigurationValidationEvidencePersistenceException;
-import mainstreet.semantic.configuration.ConfigurationValidationOutcome;
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.configuration.RecordConfigurationValidationEvidenceCommand;
-import mainstreet.semantic.configuration.ResolvedConfigurationPackage;
+import grandrue.semantic.configuration.ConfigurationRevisionAuthority;
+import grandrue.semantic.configuration.ConfigurationValidationEvidence;
+import grandrue.semantic.configuration.ConfigurationValidationEvidenceAuthority;
+import grandrue.semantic.configuration.ConfigurationValidationEvidenceFailureCategory;
+import grandrue.semantic.configuration.ConfigurationValidationEvidencePersistenceException;
+import grandrue.semantic.configuration.ConfigurationValidationOutcome;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.configuration.RecordConfigurationValidationEvidenceCommand;
+import grandrue.semantic.configuration.ResolvedConfigurationPackage;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

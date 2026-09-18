@@ -2,11 +2,11 @@ package grandrue.infrastructure.persistence.configuration;
 
 import grandrue.application.MerchantScope;
 import grandrue.runtime.TrustedExecutionContext;
-import mainstreet.semantic.configuration.ApproveConfigurationReinstatementCommand;
-import mainstreet.semantic.configuration.ConfigurationReinstatementApproval;
-import mainstreet.semantic.configuration.ConfigurationReinstatementApprovalAuthority;
-import mainstreet.semantic.configuration.ConfigurationRevisionApprovalFailureCategory;
-import mainstreet.semantic.configuration.ConfigurationRevisionApprovalPersistenceException;
+import grandrue.semantic.configuration.ApproveConfigurationReinstatementCommand;
+import grandrue.semantic.configuration.ConfigurationReinstatementApproval;
+import grandrue.semantic.configuration.ConfigurationReinstatementApprovalAuthority;
+import grandrue.semantic.configuration.ConfigurationRevisionApprovalFailureCategory;
+import grandrue.semantic.configuration.ConfigurationRevisionApprovalPersistenceException;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.exception.DataAccessException;

@@ -1,11 +1,11 @@
 package grandrue.enquiry;
 
 import mainstreet.semantic.compiler.ConfigurationCompiler;
-import mainstreet.semantic.configuration.ConfigurationImpactAssessment;
-import mainstreet.semantic.configuration.ConfigurationImpactClassification;
-import mainstreet.semantic.configuration.ConfigurationImpactContext;
-import mainstreet.semantic.configuration.ConfigurationImpactContribution;
-import mainstreet.semantic.configuration.ConfigurationImpactFinding;
+import grandrue.semantic.configuration.ConfigurationImpactAssessment;
+import grandrue.semantic.configuration.ConfigurationImpactClassification;
+import grandrue.semantic.configuration.ConfigurationImpactContext;
+import grandrue.semantic.configuration.ConfigurationImpactContribution;
+import grandrue.semantic.configuration.ConfigurationImpactFinding;
 
 import java.util.List;
 import java.util.Objects;

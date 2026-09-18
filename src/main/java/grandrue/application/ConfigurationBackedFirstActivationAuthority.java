@@ -2,8 +2,8 @@ package grandrue.application;
 
 import grandrue.commercial.FirstConfigurationActivationAuthority;
 import grandrue.application.MerchantScope;
-import mainstreet.semantic.configuration.ConfigurationActivation;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.ConfigurationActivation;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 
 import java.time.Instant;
 import java.util.Objects;

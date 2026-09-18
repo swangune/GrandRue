@@ -1,8 +1,8 @@
 package grandrue.infrastructure.persistence.configuration;
 
-import mainstreet.semantic.configuration.SemanticCompatibilityAuthority;
-import mainstreet.semantic.configuration.SemanticCompatibilityDisposition;
-import mainstreet.semantic.configuration.SemanticCompatibilityEvidence;
+import grandrue.semantic.configuration.SemanticCompatibilityAuthority;
+import grandrue.semantic.configuration.SemanticCompatibilityDisposition;
+import grandrue.semantic.configuration.SemanticCompatibilityEvidence;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;
