@@ -1,5 +1,6 @@
 package mainstreet.application;
 
+import grandrue.application.StandingFreeBackgroundWorkContract;
 import grandrue.application.StandingFreeClaimedWorkExecution;
 import grandrue.background.ClaimedWork;
 import grandrue.background.DurableWorkStore;
