@@ -2,7 +2,7 @@ package grandrue.enquiry.delivery;
 
 import grandrue.enquiry.EnquiryMerchantExposureReferences;
 import grandrue.semantic.Privilege;
-import mainstreet.surface.ExposableElementReference;
+import grandrue.surface.ExposableElementReference;
 import java.util.Map;
 
 /** Explicit owner mapping of the four accepted MERCHANT families; no default read privilege. */

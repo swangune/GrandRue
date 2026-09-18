@@ -1,7 +1,7 @@
 package grandrue.publication;
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.ExposureCandidateObservation;
+import grandrue.surface.ExposureCandidateObservation;
 
 import java.util.Objects;
 import java.util.Optional;

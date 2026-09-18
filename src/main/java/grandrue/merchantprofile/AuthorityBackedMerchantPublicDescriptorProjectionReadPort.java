@@ -3,14 +3,14 @@ package grandrue.merchantprofile;
 
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.ExposableElementReference;
-import mainstreet.surface.ExposureCandidateObservation;
-import mainstreet.surface.ProjectionMaterialSourceAffinity;
-import mainstreet.surface.ProjectionSourceAvailability;
-import mainstreet.surface.ProjectionSourceCompleteness;
-import mainstreet.surface.ProjectionSourceDependencyReference;
-import mainstreet.surface.ProjectionSourceEvidence;
-import mainstreet.surface.ProjectionSourceRevocationState;
+import grandrue.surface.ExposableElementReference;
+import grandrue.surface.ExposureCandidateObservation;
+import grandrue.surface.ProjectionMaterialSourceAffinity;
+import grandrue.surface.ProjectionSourceAvailability;
+import grandrue.surface.ProjectionSourceCompleteness;
+import grandrue.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ProjectionSourceEvidence;
+import grandrue.surface.ProjectionSourceRevocationState;
 
 import java.time.Instant;
 import java.util.ArrayList;

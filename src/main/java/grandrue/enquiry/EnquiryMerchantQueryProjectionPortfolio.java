@@ -1,17 +1,17 @@
 package grandrue.enquiry;
 
-import mainstreet.surface.ProjectionContractApplicabilityTrigger;
-import mainstreet.surface.ProjectionContractDefinition;
-import mainstreet.surface.ProjectionContractRegistrySnapshot;
-import mainstreet.surface.ProjectionMaterialisationKind;
-import mainstreet.surface.ProjectionPolicyAssessment;
-import mainstreet.surface.ProjectionPolicyCategory;
-import mainstreet.surface.ProjectionPolicyEvaluatorBinding;
-import mainstreet.surface.ProjectionPolicyEvaluatorIdentity;
-import mainstreet.surface.ProjectionPolicyEvaluatorRegistrySnapshot;
-import mainstreet.surface.ProjectionPolicyReference;
-import mainstreet.surface.ProjectionReadUseContract;
-import mainstreet.surface.ProjectionServiceabilityReasonCode;
+import grandrue.surface.ProjectionContractApplicabilityTrigger;
+import grandrue.surface.ProjectionContractDefinition;
+import grandrue.surface.ProjectionContractRegistrySnapshot;
+import grandrue.surface.ProjectionMaterialisationKind;
+import grandrue.surface.ProjectionPolicyAssessment;
+import grandrue.surface.ProjectionPolicyCategory;
+import grandrue.surface.ProjectionPolicyEvaluatorBinding;
+import grandrue.surface.ProjectionPolicyEvaluatorIdentity;
+import grandrue.surface.ProjectionPolicyEvaluatorRegistrySnapshot;
+import grandrue.surface.ProjectionPolicyReference;
+import grandrue.surface.ProjectionReadUseContract;
+import grandrue.surface.ProjectionServiceabilityReasonCode;
 
 import java.util.HashSet;
 import java.util.Map;

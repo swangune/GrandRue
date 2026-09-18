@@ -1,9 +1,9 @@
 package grandrue.enquiry;
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.BoundedProjectionRead;
-import mainstreet.surface.EstablishedObservationRequest;
-import mainstreet.surface.ProjectionSourceEvidence;
+import grandrue.surface.BoundedProjectionRead;
+import grandrue.surface.EstablishedObservationRequest;
+import grandrue.surface.ProjectionSourceEvidence;
 
 import java.util.List;
 import java.util.Objects;

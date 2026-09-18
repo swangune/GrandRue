@@ -2,170 +2,857 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T022
-state: COMPLETE
-code_commit: f708b20a6e121cce0d699baa026c9a0ddee6366c
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: 9f49725a9149e4b051ffc43c524f96a7e187a6c6
+tranche: GR-REN-02-T023
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 6b7b46c3babc27c967862e4b5afbd8742833c435
 
 region:
-  identity: semantic/root
-  closure_basis: complete live src/main/java/mainstreet/semantic/*.java owner graph plus all proven in-scope production consumers
+  identity: surface
+  closure_basis: complete live src/main/java/mainstreet/surface/** owner package plus all proven production consumers
 
 classification:
   normal_closed:
-    owner_count: 18
+    owner_count: 178
     production_consumer_count: 48
-    prototype_compatibility_consumer_count: 7
+    prototype_compatibility_consumer_count: 1
+    owner_static_import_repair_count: 4
   exceptions: []
 
 subgraph:
   leaf_range:
-    first: GR-REN-02-01X544
-    last: GR-REN-02-01X561
-  leaf_count: 18
+    first: GR-REN-02-01X562
+    last: GR-REN-02-01X739
+  leaf_count: 178
   owners:
-    - leaf: GR-REN-02-01X544
-      from: src/main/java/mainstreet/semantic/AllocationAuthority.java
-      to: src/main/java/grandrue/semantic/AllocationAuthority.java
-      blob_sha: 33163196eb69d02eff1dbbc921291d383dce7fcb
-    - leaf: GR-REN-02-01X545
-      from: src/main/java/mainstreet/semantic/AllocationClaim.java
-      to: src/main/java/grandrue/semantic/AllocationClaim.java
-      blob_sha: dec31a8f8007591e94641acb858d661845935396
-    - leaf: GR-REN-02-01X546
-      from: src/main/java/mainstreet/semantic/AllocationConflictException.java
-      to: src/main/java/grandrue/semantic/AllocationConflictException.java
-      blob_sha: cf241c272a4dfc7c0023e15d97f193b677d4bddc
-    - leaf: GR-REN-02-01X547
-      from: src/main/java/mainstreet/semantic/AllocationConflictQuery.java
-      to: src/main/java/grandrue/semantic/AllocationConflictQuery.java
-      blob_sha: e8773137f4e7ca552dd87fbf58e33f1493ab828f
-    - leaf: GR-REN-02-01X548
-      from: src/main/java/mainstreet/semantic/AllocationResolution.java
-      to: src/main/java/grandrue/semantic/AllocationResolution.java
-      blob_sha: 5d331a9504e3c1fe81a5413a64c7d00c0d2ab158
-    - leaf: GR-REN-02-01X549
-      from: src/main/java/mainstreet/semantic/AllocationResolutionType.java
-      to: src/main/java/grandrue/semantic/AllocationResolutionType.java
-      blob_sha: 283839d83048c0e617de23339133d1e125cf6576
-    - leaf: GR-REN-02-01X550
-      from: src/main/java/mainstreet/semantic/AllocationScope.java
-      to: src/main/java/grandrue/semantic/AllocationScope.java
-      blob_sha: 41213819d4d0262a1825b45d9be59a6511b45b0f
-    - leaf: GR-REN-02-01X551
-      from: src/main/java/mainstreet/semantic/AvailabilityDecision.java
-      to: src/main/java/grandrue/semantic/AvailabilityDecision.java
-      blob_sha: 946207a79e4433c5814fba6e5b448f8c53584e1f
-    - leaf: GR-REN-02-01X552
-      from: src/main/java/mainstreet/semantic/DomainEvent.java
-      to: src/main/java/grandrue/semantic/DomainEvent.java
-      blob_sha: e6f763f5100ebc854d0d41aed53a1a43154728fb
-    - leaf: GR-REN-02-01X553
-      from: src/main/java/mainstreet/semantic/InMemoryTimeWindowAllocationAuthority.java
-      to: src/main/java/grandrue/semantic/InMemoryTimeWindowAllocationAuthority.java
-      blob_sha: d00e81048f3923e9cf90861c79e09809e022b947
-    - leaf: GR-REN-02-01X554
-      from: src/main/java/mainstreet/semantic/Operation.java
-      to: src/main/java/grandrue/semantic/Operation.java
-      blob_sha: e18e71a7c02545586fc51f52db683885ee7fc748
-    - leaf: GR-REN-02-01X555
-      from: src/main/java/mainstreet/semantic/Privilege.java
-      to: src/main/java/grandrue/semantic/Privilege.java
-      blob_sha: 83246a8178740f63ce200c82cb15e598bd2b7b77
-    - leaf: GR-REN-02-01X556
-      from: src/main/java/mainstreet/semantic/QuantityAllocationScope.java
-      to: src/main/java/grandrue/semantic/QuantityAllocationScope.java
-      blob_sha: 558131aa33d89a49b7e2624c6714fc8213402eec
-    - leaf: GR-REN-02-01X557
-      from: src/main/java/mainstreet/semantic/RequirementDefinition.java
-      to: src/main/java/grandrue/semantic/RequirementDefinition.java
-      blob_sha: 8809f98c0bbf6d9bfbb1f9818ac5b9b8d99e7e59
-    - leaf: GR-REN-02-01X558
-      from: src/main/java/mainstreet/semantic/Resource.java
-      to: src/main/java/grandrue/semantic/Resource.java
-      blob_sha: d1671549ba60e7aca1494c85db3bf3fbb3bcb98f
-    - leaf: GR-REN-02-01X559
-      from: src/main/java/mainstreet/semantic/State.java
-      to: src/main/java/grandrue/semantic/State.java
-      blob_sha: 86137840925374eed3ec2807ea5d516786372663
-    - leaf: GR-REN-02-01X560
-      from: src/main/java/mainstreet/semantic/TimeWindowAllocationScope.java
-      to: src/main/java/grandrue/semantic/TimeWindowAllocationScope.java
-      blob_sha: db35c9f5dc59cfba77ec5ec155471e55384cbaf3
-    - leaf: GR-REN-02-01X561
-      from: src/main/java/mainstreet/semantic/Transition.java
-      to: src/main/java/grandrue/semantic/Transition.java
-      blob_sha: 7b353c60bc89bf37ea473cf2193882b77645c1f6
+    - leaf: GR-REN-02-01X562
+      from: src/main/java/mainstreet/surface/ActiveCapabilitySurfaceEligibilityEvidence.java
+      to: src/main/java/grandrue/surface/ActiveCapabilitySurfaceEligibilityEvidence.java
+      blob_sha: 6d44717d2734400e5498cab4ee97d89bf690d532
+    - leaf: GR-REN-02-01X563
+      from: src/main/java/mainstreet/surface/ActorAuthoritySurfaceEligibilityEvidence.java
+      to: src/main/java/grandrue/surface/ActorAuthoritySurfaceEligibilityEvidence.java
+      blob_sha: 885269cb6149d806b4e0244dca311799fc723674
+    - leaf: GR-REN-02-01X564
+      from: src/main/java/mainstreet/surface/ApiAudienceObservationContext.java
+      to: src/main/java/grandrue/surface/ApiAudienceObservationContext.java
+      blob_sha: 96937347d896a98a52f43ee6ca7f971d854a23af
+    - leaf: GR-REN-02-01X565
+      from: src/main/java/mainstreet/surface/ApiAudienceObservationContextBinder.java
+      to: src/main/java/grandrue/surface/ApiAudienceObservationContextBinder.java
+      blob_sha: 099f12fe256aa4b13d973b836520625336b30c22
+    - leaf: GR-REN-02-01X566
+      from: src/main/java/mainstreet/surface/ApiAudienceObservationContextBindingFailure.java
+      to: src/main/java/grandrue/surface/ApiAudienceObservationContextBindingFailure.java
+      blob_sha: a595abd770848b1e4a7680fd1d0a6df93e2f1680
+    - leaf: GR-REN-02-01X567
+      from: src/main/java/mainstreet/surface/ApiAudienceObservationContextBindingResult.java
+      to: src/main/java/grandrue/surface/ApiAudienceObservationContextBindingResult.java
+      blob_sha: 73161206d7dcaae7a790a3616b2adb3ce5594e97
+    - leaf: GR-REN-02-01X568
+      from: src/main/java/mainstreet/surface/ApiAudienceObservationContextDetails.java
+      to: src/main/java/grandrue/surface/ApiAudienceObservationContextDetails.java
+      blob_sha: bd49ffc1ccbc30afa53354d7f1ec6022fcfabe98
+    - leaf: GR-REN-02-01X569
+      from: src/main/java/mainstreet/surface/ApiContinuationAffinityCandidate.java
+      to: src/main/java/grandrue/surface/ApiContinuationAffinityCandidate.java
+      blob_sha: 018a5dcc37032ad67bbab16dcf3d02a4dd39b5ca
+    - leaf: GR-REN-02-01X570
+      from: src/main/java/mainstreet/surface/ApiContinuationAffinityValidationFailure.java
+      to: src/main/java/grandrue/surface/ApiContinuationAffinityValidationFailure.java
+      blob_sha: f5465fded5b421cfde884f156c018a38f7169b18
+    - leaf: GR-REN-02-01X571
+      from: src/main/java/mainstreet/surface/ApiContinuationAffinityValidator.java
+      to: src/main/java/grandrue/surface/ApiContinuationAffinityValidator.java
+      blob_sha: 902c56a9afaa719723f5b5052e7362aa0bb13fe4
+    - leaf: GR-REN-02-01X572
+      from: src/main/java/mainstreet/surface/ApiExposedElementSet.java
+      to: src/main/java/grandrue/surface/ApiExposedElementSet.java
+      blob_sha: dd8c932f581c1c000b5f1a5f08d2ed9f208d67f2
+    - leaf: GR-REN-02-01X573
+      from: src/main/java/mainstreet/surface/ApiExposureResolution.java
+      to: src/main/java/grandrue/surface/ApiExposureResolution.java
+      blob_sha: f1682c7fa4b26bf83b6ff25ce9b9f9d76ef2c6fc
+    - leaf: GR-REN-02-01X574
+      from: src/main/java/mainstreet/surface/ApiExposureResolutionBinder.java
+      to: src/main/java/grandrue/surface/ApiExposureResolutionBinder.java
+      blob_sha: 29cf9225dd114b7472b3261d16bd84f6c72ffde2
+    - leaf: GR-REN-02-01X575
+      from: src/main/java/mainstreet/surface/ApiExposureResolutionBindingFailure.java
+      to: src/main/java/grandrue/surface/ApiExposureResolutionBindingFailure.java
+      blob_sha: 8119addeb705589631de94b1aee7511f664535f0
+    - leaf: GR-REN-02-01X576
+      from: src/main/java/mainstreet/surface/ApiExposureResolutionBindingResult.java
+      to: src/main/java/grandrue/surface/ApiExposureResolutionBindingResult.java
+      blob_sha: 6b05160f66d959775d0652f7594063fa27508311
+    - leaf: GR-REN-02-01X577
+      from: src/main/java/mainstreet/surface/AudienceObservationAdmissionEvaluator.java
+      to: src/main/java/grandrue/surface/AudienceObservationAdmissionEvaluator.java
+      blob_sha: e0d1af74e15c47f1869516c909f52e1eff9f027f
+    - leaf: GR-REN-02-01X578
+      from: src/main/java/mainstreet/surface/AudienceObservationAdmissionFailure.java
+      to: src/main/java/grandrue/surface/AudienceObservationAdmissionFailure.java
+      blob_sha: a184d982f168d14c4c308479850d1867fc16efd7
+    - leaf: GR-REN-02-01X579
+      from: src/main/java/mainstreet/surface/AudienceObservationAdmissionResult.java
+      to: src/main/java/grandrue/surface/AudienceObservationAdmissionResult.java
+      blob_sha: f85c90529e5f63be84e36bfc32e16346e50f0f31
+    - leaf: GR-REN-02-01X580
+      from: src/main/java/mainstreet/surface/AudienceObservationContext.java
+      to: src/main/java/grandrue/surface/AudienceObservationContext.java
+      blob_sha: 05832781fdceba03dd6e1c48be674807626a7679
+    - leaf: GR-REN-02-01X581
+      from: src/main/java/mainstreet/surface/AudienceObservationContextDetails.java
+      to: src/main/java/grandrue/surface/AudienceObservationContextDetails.java
+      blob_sha: c6ebfa5708c45146258b9d01e87b108b22b15a79
+    - leaf: GR-REN-02-01X582
+      from: src/main/java/mainstreet/surface/AudienceObservationContextEstablisher.java
+      to: src/main/java/grandrue/surface/AudienceObservationContextEstablisher.java
+      blob_sha: 851edbcdc9fe8d39240de8a651d0cac0789c440e
+    - leaf: GR-REN-02-01X583
+      from: src/main/java/mainstreet/surface/AudienceObservationContextEstablishmentFailure.java
+      to: src/main/java/grandrue/surface/AudienceObservationContextEstablishmentFailure.java
+      blob_sha: d4c807b9dc7cc7ad74326cce8daa750f94c38b4b
+    - leaf: GR-REN-02-01X584
+      from: src/main/java/mainstreet/surface/AudienceObservationContextEstablishmentResult.java
+      to: src/main/java/grandrue/surface/AudienceObservationContextEstablishmentResult.java
+      blob_sha: 19adb4b93a70c992d35ce57bd2f26683ea765e1f
+    - leaf: GR-REN-02-01X585
+      from: src/main/java/mainstreet/surface/AudienceObservationInvocationBinding.java
+      to: src/main/java/grandrue/surface/AudienceObservationInvocationBinding.java
+      blob_sha: 73dc0a66500c255fe99e643966cbc56476e1eb2d
+    - leaf: GR-REN-02-01X586
+      from: src/main/java/mainstreet/surface/AudienceObservationPlatformProtection.java
+      to: src/main/java/grandrue/surface/AudienceObservationPlatformProtection.java
+      blob_sha: 10c3ba1e16af9f5e1f7b6d0dbb034509e7c8dc0e
+    - leaf: GR-REN-02-01X587
+      from: src/main/java/mainstreet/surface/AudienceObservationPlatformProtectionAuthority.java
+      to: src/main/java/grandrue/surface/AudienceObservationPlatformProtectionAuthority.java
+      blob_sha: e03dbd40f22da3762a68d4a0d92bb680daa085a6
+    - leaf: GR-REN-02-01X588
+      from: src/main/java/mainstreet/surface/BoundedProjectionFragmentSelector.java
+      to: src/main/java/grandrue/surface/BoundedProjectionFragmentSelector.java
+      blob_sha: 83ffb7ee523ce04f251aca4edf2abeabc4e762f6
+    - leaf: GR-REN-02-01X589
+      from: src/main/java/mainstreet/surface/BoundedProjectionRead.java
+      to: src/main/java/grandrue/surface/BoundedProjectionRead.java
+      blob_sha: 706fa8875e7abf943e95fd5ea48da42f572ac8d6
+    - leaf: GR-REN-02-01X590
+      from: src/main/java/mainstreet/surface/BoundedProjectionReadBinding.java
+      to: src/main/java/grandrue/surface/BoundedProjectionReadBinding.java
+      blob_sha: 37c11bdeb49aad60892d3e87adb0ff9c499d1dd1
+    - leaf: GR-REN-02-01X591
+      from: src/main/java/mainstreet/surface/BoundedProjectionReadBindings.java
+      to: src/main/java/grandrue/surface/BoundedProjectionReadBindings.java
+      blob_sha: 0ebf82998cae521f4fd337afb573de69dc3904c9
+    - leaf: GR-REN-02-01X592
+      from: src/main/java/mainstreet/surface/CalendarProjectionPolicyEvaluators.java
+      to: src/main/java/grandrue/surface/CalendarProjectionPolicyEvaluators.java
+      blob_sha: 7b4b6cd6965d8b03fcf50a81dd381f17c57c5f62
+    - leaf: GR-REN-02-01X593
+      from: src/main/java/mainstreet/surface/CompositeCustomerSurfaceEligibilityAuthority.java
+      to: src/main/java/grandrue/surface/CompositeCustomerSurfaceEligibilityAuthority.java
+      blob_sha: b9223aed6eb97c9401aa093e49a7e7e3baddd988
+    - leaf: GR-REN-02-01X594
+      from: src/main/java/mainstreet/surface/CompositeResidualSurfaceObligationAuthority.java
+      to: src/main/java/grandrue/surface/CompositeResidualSurfaceObligationAuthority.java
+      blob_sha: 112c761f7b77a1966c22b764b1cbc3654823063f
+    - leaf: GR-REN-02-01X595
+      from: src/main/java/mainstreet/surface/ContextualAccessProofKind.java
+      to: src/main/java/grandrue/surface/ContextualAccessProofKind.java
+      blob_sha: 1d936da2ce768ba6800026c9e55682e2ca50995d
+    - leaf: GR-REN-02-01X596
+      from: src/main/java/mainstreet/surface/ContextualAccessProofRuntimeBinding.java
+      to: src/main/java/grandrue/surface/ContextualAccessProofRuntimeBinding.java
+      blob_sha: 0922c67c359f9d67cd78bdf014de5b560576f52b
+    - leaf: GR-REN-02-01X597
+      from: src/main/java/mainstreet/surface/ContextualAccessProofRuntimeBindingSnapshot.java
+      to: src/main/java/grandrue/surface/ContextualAccessProofRuntimeBindingSnapshot.java
+      blob_sha: 0afe2a827c43ff317dcd9d5818610e2b73a0b08b
+    - leaf: GR-REN-02-01X598
+      from: src/main/java/mainstreet/surface/ContextualSurfaceComposition.java
+      to: src/main/java/grandrue/surface/ContextualSurfaceComposition.java
+      blob_sha: 192302a8ae911d1e1d1f0f1f41fe007e4abc697d
+    - leaf: GR-REN-02-01X599
+      from: src/main/java/mainstreet/surface/ContextualSurfaceCompositionGroup.java
+      to: src/main/java/grandrue/surface/ContextualSurfaceCompositionGroup.java
+      blob_sha: 462c5949b6d7a62f5fb6db29fb00d37ad413730c
+    - leaf: GR-REN-02-01X600
+      from: src/main/java/mainstreet/surface/ContextualSurfaceContribution.java
+      to: src/main/java/grandrue/surface/ContextualSurfaceContribution.java
+      blob_sha: 2f176bb8d00ec94901d2db3cb927bcc8acdb853a
+    - leaf: GR-REN-02-01X601
+      from: src/main/java/mainstreet/surface/ContextualSurfaceEligibilityEvidence.java
+      to: src/main/java/grandrue/surface/ContextualSurfaceEligibilityEvidence.java
+      blob_sha: e20f30ce327db5dd54965e4a9c99af7e06d86b59
+    - leaf: GR-REN-02-01X602
+      from: src/main/java/mainstreet/surface/ContextualSurfaceResolver.java
+      to: src/main/java/grandrue/surface/ContextualSurfaceResolver.java
+      blob_sha: fee7205b4679b03989e0323fddafa6492f193b41
+    - leaf: GR-REN-02-01X603
+      from: src/main/java/mainstreet/surface/CustomerContextualSurfaceResolver.java
+      to: src/main/java/grandrue/surface/CustomerContextualSurfaceResolver.java
+      blob_sha: 14e8e028caf2e2efa4ff05ac173f2c393ba54756
+    - leaf: GR-REN-02-01X604
+      from: src/main/java/mainstreet/surface/CustomerRelationshipSurfaceEligibilityEvidence.java
+      to: src/main/java/grandrue/surface/CustomerRelationshipSurfaceEligibilityEvidence.java
+      blob_sha: 9926f1dd82ad5453b8b91488c594d763aef88e4e
+    - leaf: GR-REN-02-01X605
+      from: src/main/java/mainstreet/surface/CustomerSurfaceEligibilityAuthority.java
+      to: src/main/java/grandrue/surface/CustomerSurfaceEligibilityAuthority.java
+      blob_sha: de39e0c018aedcb74252e50fc405fb0c415ec89a
+    - leaf: GR-REN-02-01X606
+      from: src/main/java/mainstreet/surface/CustomerSurfaceEligibilityRequirementBinding.java
+      to: src/main/java/grandrue/surface/CustomerSurfaceEligibilityRequirementBinding.java
+      blob_sha: 8aa179913ca6d211110bd59ae8cef247124ab549
+    - leaf: GR-REN-02-01X607
+      from: src/main/java/mainstreet/surface/CustomerSurfaceEligibilityRequirementDefinition.java
+      to: src/main/java/grandrue/surface/CustomerSurfaceEligibilityRequirementDefinition.java
+      blob_sha: 09ae04db0070f98daf56f6294901d7c9776059a4
+    - leaf: GR-REN-02-01X608
+      from: src/main/java/mainstreet/surface/CustomerSurfaceEligibilityRequirementEvaluator.java
+      to: src/main/java/grandrue/surface/CustomerSurfaceEligibilityRequirementEvaluator.java
+      blob_sha: 021101f050a156d2fab81c27a6cbb2afb5152fb9
+    - leaf: GR-REN-02-01X609
+      from: src/main/java/mainstreet/surface/CustomerSurfaceEligibilityRequirementIdentity.java
+      to: src/main/java/grandrue/surface/CustomerSurfaceEligibilityRequirementIdentity.java
+      blob_sha: 84cf900023bbde515629b57d9bd9967856536541
+    - leaf: GR-REN-02-01X610
+      from: src/main/java/mainstreet/surface/CustomerSurfaceExposureAuthority.java
+      to: src/main/java/grandrue/surface/CustomerSurfaceExposureAuthority.java
+      blob_sha: 231668ef7dc1f1ef26fc14a3ac1ba43d7c39f186
+    - leaf: GR-REN-02-01X611
+      from: src/main/java/mainstreet/surface/CustomerSurfaceResolutionContext.java
+      to: src/main/java/grandrue/surface/CustomerSurfaceResolutionContext.java
+      blob_sha: 3462bb5b26f96b964b0f523ef214a30db877ae44
+    - leaf: GR-REN-02-01X612
+      from: src/main/java/mainstreet/surface/EstablishedContextualAccessProof.java
+      to: src/main/java/grandrue/surface/EstablishedContextualAccessProof.java
+      blob_sha: ea18769df8b15fc253d1923263cb4dcc679ad844
+    - leaf: GR-REN-02-01X613
+      from: src/main/java/mainstreet/surface/EstablishedObservationContribution.java
+      to: src/main/java/grandrue/surface/EstablishedObservationContribution.java
+      blob_sha: 395b649d9b2cdfd03c4f44ba5e321c6f44d9eb93
+    - leaf: GR-REN-02-01X614
+      from: src/main/java/mainstreet/surface/EstablishedObservationRequest.java
+      to: src/main/java/grandrue/surface/EstablishedObservationRequest.java
+      blob_sha: 1a76a58e5043a0a7bd982b8c0387e859c9f70226
+    - leaf: GR-REN-02-01X615
+      from: src/main/java/mainstreet/surface/EstablishedObservationRequestDetails.java
+      to: src/main/java/grandrue/surface/EstablishedObservationRequestDetails.java
+      blob_sha: d370535f27062d0e2a8fdf603e12271c7dac3719
+    - leaf: GR-REN-02-01X616
+      from: src/main/java/mainstreet/surface/ExposableElementReference.java
+      to: src/main/java/grandrue/surface/ExposableElementReference.java
+      blob_sha: 95973fe406ecd681a976c9c30d2726b892ea4f2f
+    - leaf: GR-REN-02-01X617
+      from: src/main/java/mainstreet/surface/ExposedElementMembership.java
+      to: src/main/java/grandrue/surface/ExposedElementMembership.java
+      blob_sha: 8b45e242c6cb6631633aa38ec7978b1ee6840619
+    - leaf: GR-REN-02-01X618
+      from: src/main/java/mainstreet/surface/ExposureCandidateEvaluationBinding.java
+      to: src/main/java/grandrue/surface/ExposureCandidateEvaluationBinding.java
+      blob_sha: 1bcd54de7e98869614c9e3efa1ec99dde1756cd1
+    - leaf: GR-REN-02-01X619
+      from: src/main/java/mainstreet/surface/ExposureCandidateEvaluationBindings.java
+      to: src/main/java/grandrue/surface/ExposureCandidateEvaluationBindings.java
+      blob_sha: 8cf704d67df5aef6b0268c33cf48d1e6e8f4825b
+    - leaf: GR-REN-02-01X620
+      from: src/main/java/mainstreet/surface/ExposureCandidateEvaluationSubmission.java
+      to: src/main/java/grandrue/surface/ExposureCandidateEvaluationSubmission.java
+      blob_sha: 11c4884238dd1049e8270e5176398de6fd9d5e14
+    - leaf: GR-REN-02-01X621
+      from: src/main/java/mainstreet/surface/ExposureCandidateInstanceKindReference.java
+      to: src/main/java/grandrue/surface/ExposureCandidateInstanceKindReference.java
+      blob_sha: ce63f0ca124c9f419409c67f2e695fdd23720898
+    - leaf: GR-REN-02-01X622
+      from: src/main/java/mainstreet/surface/ExposureCandidateInstanceReference.java
+      to: src/main/java/grandrue/surface/ExposureCandidateInstanceReference.java
+      blob_sha: 194bc72eb01241987dcb84bbfac5dd2be44c6d45
+    - leaf: GR-REN-02-01X623
+      from: src/main/java/mainstreet/surface/ExposureCandidateObservation.java
+      to: src/main/java/grandrue/surface/ExposureCandidateObservation.java
+      blob_sha: 711b35a5021ce10470ea1a13f4170640d3752358
+    - leaf: GR-REN-02-01X624
+      from: src/main/java/mainstreet/surface/ExposureDecision.java
+      to: src/main/java/grandrue/surface/ExposureDecision.java
+      blob_sha: fcf8e6de943d23595449bbed001d7b6d0387b7cc
+    - leaf: GR-REN-02-01X625
+      from: src/main/java/mainstreet/surface/ExposureElementContract.java
+      to: src/main/java/grandrue/surface/ExposureElementContract.java
+      blob_sha: 6bb9978f4c5800bd0afc7ced5fa1f43151747f03
+    - leaf: GR-REN-02-01X626
+      from: src/main/java/mainstreet/surface/ExposureElementContractIdentity.java
+      to: src/main/java/grandrue/surface/ExposureElementContractIdentity.java
+      blob_sha: 06a7d2a09fcf08683de5a34207bdfa27fcde4b3c
+    - leaf: GR-REN-02-01X627
+      from: src/main/java/mainstreet/surface/ExposureElementContractRegistrySnapshot.java
+      to: src/main/java/grandrue/surface/ExposureElementContractRegistrySnapshot.java
+      blob_sha: f3e631236fef0e50ebf8b7e1c3e2bd65797a5e70
+    - leaf: GR-REN-02-01X628
+      from: src/main/java/mainstreet/surface/ExposureElementContractRegistryTextCodec.java
+      to: src/main/java/grandrue/surface/ExposureElementContractRegistryTextCodec.java
+      blob_sha: 5f487f5f5b03075d3012a837681c44c9466be960
+    - leaf: GR-REN-02-01X629
+      from: src/main/java/mainstreet/surface/ExposureMemberIdentitySpecification.java
+      to: src/main/java/grandrue/surface/ExposureMemberIdentitySpecification.java
+      blob_sha: 89af07c61d5ade63647ebde4bbf42ce2914fb185
+    - leaf: GR-REN-02-01X630
+      from: src/main/java/mainstreet/surface/ExposureProjectionPolicyEvaluators.java
+      to: src/main/java/grandrue/surface/ExposureProjectionPolicyEvaluators.java
+      blob_sha: d7b52bc75722513c9fc80b23683d16cda88fef91
+    - leaf: GR-REN-02-01X631
+      from: src/main/java/mainstreet/surface/ExposureRequirementBatchEvaluation.java
+      to: src/main/java/grandrue/surface/ExposureRequirementBatchEvaluation.java
+      blob_sha: e867164693f475278a67b2b5fea11472f8f9aef3
+    - leaf: GR-REN-02-01X632
+      from: src/main/java/mainstreet/surface/ExposureRequirementCandidateEvaluation.java
+      to: src/main/java/grandrue/surface/ExposureRequirementCandidateEvaluation.java
+      blob_sha: 71951c60f3aaeef14a38ebf7267b164984441f7f
+    - leaf: GR-REN-02-01X633
+      from: src/main/java/mainstreet/surface/ExposureRequirementEvaluationDecision.java
+      to: src/main/java/grandrue/surface/ExposureRequirementEvaluationDecision.java
+      blob_sha: 42bf2e2b2ed0f56f7bc06bcd707ecdff2f246783
+    - leaf: GR-REN-02-01X634
+      from: src/main/java/mainstreet/surface/ExposureRequirementEvaluator.java
+      to: src/main/java/grandrue/surface/ExposureRequirementEvaluator.java
+      blob_sha: de81a0172748c6f063e6606b3e9e5118be189cfb
+    - leaf: GR-REN-02-01X635
+      from: src/main/java/mainstreet/surface/ExposureRequirementEvaluatorBinding.java
+      to: src/main/java/grandrue/surface/ExposureRequirementEvaluatorBinding.java
+      blob_sha: 9c6126370fb6354d68a4de9a1697e63738dd9b1e
+    - leaf: GR-REN-02-01X636
+      from: src/main/java/mainstreet/surface/ExposureRequirementEvaluatorBindingSnapshot.java
+      to: src/main/java/grandrue/surface/ExposureRequirementEvaluatorBindingSnapshot.java
+      blob_sha: 9ed6aaa0bc88460b3fc07f0abc7c766895c7cfb4
+    - leaf: GR-REN-02-01X637
+      from: src/main/java/mainstreet/surface/ExposureRequirementReference.java
+      to: src/main/java/grandrue/surface/ExposureRequirementReference.java
+      blob_sha: 73b32b483ee1f4d405e0fe21a49956efd9a1fcae
+    - leaf: GR-REN-02-01X638
+      from: src/main/java/mainstreet/surface/ExposureResolver.java
+      to: src/main/java/grandrue/surface/ExposureResolver.java
+      blob_sha: 74361eeaa54ba65440c07d37ed8fb55af0b3f152
+    - leaf: GR-REN-02-01X639
+      from: src/main/java/mainstreet/surface/FulfilmentRoleInteractionAvailabilityAuthority.java
+      to: src/main/java/grandrue/surface/FulfilmentRoleInteractionAvailabilityAuthority.java
+      blob_sha: 7efde080438671b675d3913d1d817397dbbd4470
+    - leaf: GR-REN-02-01X640
+      from: src/main/java/mainstreet/surface/InitialMerchantPresenceExposureContractPortfolio.java
+      to: src/main/java/grandrue/surface/InitialMerchantPresenceExposureContractPortfolio.java
+      blob_sha: 515cbce978971382b38b5ad2e39dded9b86ca048
+    - leaf: GR-REN-02-01X641
+      from: src/main/java/mainstreet/surface/InitialProjectionContractPortfolio.java
+      to: src/main/java/grandrue/surface/InitialProjectionContractPortfolio.java
+      blob_sha: 23c74db52bfd8911a68083ce2b11a55402ed4a5e
+    - leaf: GR-REN-02-01X642
+      from: src/main/java/mainstreet/surface/InitialProjectionPolicyEvaluatorPortfolio.java
+      to: src/main/java/grandrue/surface/InitialProjectionPolicyEvaluatorPortfolio.java
+      blob_sha: 4776874e54516c52721a9cb355fe8f3d49187f42
+    - leaf: GR-REN-02-01X643
+      from: src/main/java/mainstreet/surface/MerchantBoundedQueryExecution.java
+      to: src/main/java/grandrue/surface/MerchantBoundedQueryExecution.java
+      blob_sha: 9fe67bdbf58900f0e6b36ca6b69b944876180b7b
+    - leaf: GR-REN-02-01X644
+      from: src/main/java/mainstreet/surface/MerchantExposureChoiceBatchEvaluation.java
+      to: src/main/java/grandrue/surface/MerchantExposureChoiceBatchEvaluation.java
+      blob_sha: 10a32aead94b977a18332b3d5203a14337becef2
+    - leaf: GR-REN-02-01X645
+      from: src/main/java/mainstreet/surface/MerchantExposureChoiceCandidateEvaluation.java
+      to: src/main/java/grandrue/surface/MerchantExposureChoiceCandidateEvaluation.java
+      blob_sha: b3e96e1d5a175467f67dfc47517f9bf7330f2bdd
+    - leaf: GR-REN-02-01X646
+      from: src/main/java/mainstreet/surface/MerchantExposureChoiceEvaluationDecision.java
+      to: src/main/java/grandrue/surface/MerchantExposureChoiceEvaluationDecision.java
+      blob_sha: 7698797cf4f2d2cfba61a1f22785430e073d3c03
+    - leaf: GR-REN-02-01X647
+      from: src/main/java/mainstreet/surface/MerchantExposureChoiceEvaluator.java
+      to: src/main/java/grandrue/surface/MerchantExposureChoiceEvaluator.java
+      blob_sha: 43e217bffc86ec82bac0983ec044b60c2aa8eaf7
+    - leaf: GR-REN-02-01X648
+      from: src/main/java/mainstreet/surface/MerchantExposureChoiceEvaluatorBinding.java
+      to: src/main/java/grandrue/surface/MerchantExposureChoiceEvaluatorBinding.java
+      blob_sha: 8e3d033e24c4084a4cdb431167ed9b4474bfa4d0
+    - leaf: GR-REN-02-01X649
+      from: src/main/java/mainstreet/surface/MerchantExposureChoiceEvaluatorBindingSnapshot.java
+      to: src/main/java/grandrue/surface/MerchantExposureChoiceEvaluatorBindingSnapshot.java
+      blob_sha: a6ee6082a1168f4d851602e500b025875d278197
+    - leaf: GR-REN-02-01X650
+      from: src/main/java/mainstreet/surface/MerchantExposureChoiceSourceReference.java
+      to: src/main/java/grandrue/surface/MerchantExposureChoiceSourceReference.java
+      blob_sha: 46c08288ac69349ef137ba3171e9dcc727d330e9
+    - leaf: GR-REN-02-01X651
+      from: src/main/java/mainstreet/surface/MerchantProjectionAssembly.java
+      to: src/main/java/grandrue/surface/MerchantProjectionAssembly.java
+      blob_sha: c0439506920dfd0fcb0f809714723302028d562f
+    - leaf: GR-REN-02-01X652
+      from: src/main/java/mainstreet/surface/MerchantProjectionAssemblyService.java
+      to: src/main/java/grandrue/surface/MerchantProjectionAssemblyService.java
+      blob_sha: 6da2bede1074964528d4e677c247ffad466826e2
+    - leaf: GR-REN-02-01X653
+      from: src/main/java/mainstreet/surface/MerchantSurfaceResolutionContext.java
+      to: src/main/java/grandrue/surface/MerchantSurfaceResolutionContext.java
+      blob_sha: 68197ad07f64104949b88a6f5abf699299911cdb
+    - leaf: GR-REN-02-01X654
+      from: src/main/java/mainstreet/surface/ObservationContributionCardinality.java
+      to: src/main/java/grandrue/surface/ObservationContributionCardinality.java
+      blob_sha: 6a12ea31a9582a27ff8c19a97fbabda037285f5f
+    - leaf: GR-REN-02-01X655
+      from: src/main/java/mainstreet/surface/ObservationContributionConstructionBoundary.java
+      to: src/main/java/grandrue/surface/ObservationContributionConstructionBoundary.java
+      blob_sha: 2446469c9aaac0cf043be9350182aabe60aa2f00
+    - leaf: GR-REN-02-01X656
+      from: src/main/java/mainstreet/surface/ObservationContributionConstructor.java
+      to: src/main/java/grandrue/surface/ObservationContributionConstructor.java
+      blob_sha: e89ca98d7fbe725c8ecfbe45ff5f14a96c790679
+    - leaf: GR-REN-02-01X657
+      from: src/main/java/mainstreet/surface/ObservationContributionDefinition.java
+      to: src/main/java/grandrue/surface/ObservationContributionDefinition.java
+      blob_sha: 2d50d3c0622eaf290f96277229df0f7021e287f6
+    - leaf: GR-REN-02-01X658
+      from: src/main/java/mainstreet/surface/ObservationContributionDefinitionRegistrySnapshot.java
+      to: src/main/java/grandrue/surface/ObservationContributionDefinitionRegistrySnapshot.java
+      blob_sha: 2fbef03065ee8fce22eedf7f42cbf4d282a8caec
+    - leaf: GR-REN-02-01X659
+      from: src/main/java/mainstreet/surface/ObservationContributionKind.java
+      to: src/main/java/grandrue/surface/ObservationContributionKind.java
+      blob_sha: bd2dba815d0529f2b9857df14d18ed3123f0679b
+    - leaf: GR-REN-02-01X660
+      from: src/main/java/mainstreet/surface/ObservationContributionRuntimeBinding.java
+      to: src/main/java/grandrue/surface/ObservationContributionRuntimeBinding.java
+      blob_sha: a32e9ee848afa33daecb0b69c235719b3a4491dd
+    - leaf: GR-REN-02-01X661
+      from: src/main/java/mainstreet/surface/ObservationContributionRuntimeBindingSnapshot.java
+      to: src/main/java/grandrue/surface/ObservationContributionRuntimeBindingSnapshot.java
+      blob_sha: f1eb5933bea33a8f3e20a72d160e8a696a6e43f3
+    - leaf: GR-REN-02-01X662
+      from: src/main/java/mainstreet/surface/ObservationRequestBinding.java
+      to: src/main/java/grandrue/surface/ObservationRequestBinding.java
+      blob_sha: 8b7cf72e501ca57bdcf2a1bcdcba9dd2816626d5
+    - leaf: GR-REN-02-01X663
+      from: src/main/java/mainstreet/surface/ObservationRequestEstablisher.java
+      to: src/main/java/grandrue/surface/ObservationRequestEstablisher.java
+      blob_sha: 5ee63dccdc73bafe53e2a65223eb188c487ad416
+    - leaf: GR-REN-02-01X664
+      from: src/main/java/mainstreet/surface/ObservationRequestEstablishmentFailure.java
+      to: src/main/java/grandrue/surface/ObservationRequestEstablishmentFailure.java
+      blob_sha: 5be25dd7f52375f848686a7328780c193561a024
+    - leaf: GR-REN-02-01X665
+      from: src/main/java/mainstreet/surface/ObservationRequestEstablishmentResult.java
+      to: src/main/java/grandrue/surface/ObservationRequestEstablishmentResult.java
+      blob_sha: 028e4769b6429a07ed7a17eb76d065bb6b133480
+    - leaf: GR-REN-02-01X666
+      from: src/main/java/mainstreet/surface/ObservationSubject.java
+      to: src/main/java/grandrue/surface/ObservationSubject.java
+      blob_sha: 52be7b296b04f9b73c718b4eced371f6c83dd278
+    - leaf: GR-REN-02-01X667
+      from: src/main/java/mainstreet/surface/ObservationSubjectBinding.java
+      to: src/main/java/grandrue/surface/ObservationSubjectBinding.java
+      blob_sha: 417db9ab67868e890fb2407d0f9f0e050ac4b94a
+    - leaf: GR-REN-02-01X668
+      from: src/main/java/mainstreet/surface/OwnerExposureEvaluationContext.java
+      to: src/main/java/grandrue/surface/OwnerExposureEvaluationContext.java
+      blob_sha: 27571b799fa46a25933788fb368e90d16bd4488e
+    - leaf: GR-REN-02-01X669
+      from: src/main/java/mainstreet/surface/PlatformProjectionPolicyEvaluators.java
+      to: src/main/java/grandrue/surface/PlatformProjectionPolicyEvaluators.java
+      blob_sha: 0c1fd5b09ea8a90254f764a7282af4c3a5b7a09b
+    - leaf: GR-REN-02-01X670
+      from: src/main/java/mainstreet/surface/ProjectionConsumedPolicyEvaluator.java
+      to: src/main/java/grandrue/surface/ProjectionConsumedPolicyEvaluator.java
+      blob_sha: a8ef0b44aafad4abc6a3bd4917a6c263b97c8b4c
+    - leaf: GR-REN-02-01X671
+      from: src/main/java/mainstreet/surface/ProjectionContractApplicabilityTrigger.java
+      to: src/main/java/grandrue/surface/ProjectionContractApplicabilityTrigger.java
+      blob_sha: 923a7a769deb25f51a6e682b843ff3f6fabf32fb
+    - leaf: GR-REN-02-01X672
+      from: src/main/java/mainstreet/surface/ProjectionContractDefinition.java
+      to: src/main/java/grandrue/surface/ProjectionContractDefinition.java
+      blob_sha: 16f3ccd3c120cc9526eb55e2b9fd6e3bc32f8221
+    - leaf: GR-REN-02-01X673
+      from: src/main/java/mainstreet/surface/ProjectionContractIdentity.java
+      to: src/main/java/grandrue/surface/ProjectionContractIdentity.java
+      blob_sha: 74d7a255f9f476e55dc37ddc89a0ad668c36630a
+    - leaf: GR-REN-02-01X674
+      from: src/main/java/mainstreet/surface/ProjectionContractRegistrySnapshot.java
+      to: src/main/java/grandrue/surface/ProjectionContractRegistrySnapshot.java
+      blob_sha: 5e932421226a5957883b0b3d6af70ddc8236089c
+    - leaf: GR-REN-02-01X675
+      from: src/main/java/mainstreet/surface/ProjectionMaterialFragment.java
+      to: src/main/java/grandrue/surface/ProjectionMaterialFragment.java
+      blob_sha: 7e49041390caac9a92424f03a777f82fce799e71
+    - leaf: GR-REN-02-01X676
+      from: src/main/java/mainstreet/surface/ProjectionMaterialisationKind.java
+      to: src/main/java/grandrue/surface/ProjectionMaterialisationKind.java
+      blob_sha: 53a03e8d91c3dbd2c35e4ac76cac626423cf0817
+    - leaf: GR-REN-02-01X677
+      from: src/main/java/mainstreet/surface/ProjectionMaterialSourceAffinity.java
+      to: src/main/java/grandrue/surface/ProjectionMaterialSourceAffinity.java
+      blob_sha: 6270efdbcc41200ae9181dec004c945dab205c73
+    - leaf: GR-REN-02-01X678
+      from: src/main/java/mainstreet/surface/ProjectionPolicyAssessment.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyAssessment.java
+      blob_sha: 6a843634c3311d254bf1687fedd84d9691b83acb
+    - leaf: GR-REN-02-01X679
+      from: src/main/java/mainstreet/surface/ProjectionPolicyCategory.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyCategory.java
+      blob_sha: a92b3a4e12a639fb6dceb69a4a76d011c14e0547
+    - leaf: GR-REN-02-01X680
+      from: src/main/java/mainstreet/surface/ProjectionPolicyEvaluationContext.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyEvaluationContext.java
+      blob_sha: 7b45f1b59eeca5f3f9915810a4aa0791067de40f
+    - leaf: GR-REN-02-01X681
+      from: src/main/java/mainstreet/surface/ProjectionPolicyEvaluationSupport.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyEvaluationSupport.java
+      blob_sha: eabf929abb079d6fdbb73f0b467bf6679ed52125
+    - leaf: GR-REN-02-01X682
+      from: src/main/java/mainstreet/surface/ProjectionPolicyEvaluator.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyEvaluator.java
+      blob_sha: daa43d15e724c81dcae3894a69721fcb756bbee4
+    - leaf: GR-REN-02-01X683
+      from: src/main/java/mainstreet/surface/ProjectionPolicyEvaluatorBinding.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyEvaluatorBinding.java
+      blob_sha: 9129e96959de2d23b0d2e344c4391b71728884de
+    - leaf: GR-REN-02-01X684
+      from: src/main/java/mainstreet/surface/ProjectionPolicyEvaluatorIdentity.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyEvaluatorIdentity.java
+      blob_sha: e4227cc21f523ac83e16fae686cf3702a2262c3f
+    - leaf: GR-REN-02-01X685
+      from: src/main/java/mainstreet/surface/ProjectionPolicyEvaluatorRegistrySnapshot.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyEvaluatorRegistrySnapshot.java
+      blob_sha: f4ef935d8a396d31947f81b2a901cbc3acf52608
+    - leaf: GR-REN-02-01X686
+      from: src/main/java/mainstreet/surface/ProjectionPolicyReference.java
+      to: src/main/java/grandrue/surface/ProjectionPolicyReference.java
+      blob_sha: 642944cd26d8a454436269d1503b14853891863e
+    - leaf: GR-REN-02-01X687
+      from: src/main/java/mainstreet/surface/ProjectionReadUseContract.java
+      to: src/main/java/grandrue/surface/ProjectionReadUseContract.java
+      blob_sha: 589049677059498d3795d5011c22323931fee926
+    - leaf: GR-REN-02-01X688
+      from: src/main/java/mainstreet/surface/ProjectionReadUseIdentity.java
+      to: src/main/java/grandrue/surface/ProjectionReadUseIdentity.java
+      blob_sha: 3c129b67f4ffb6b48d41a97b2bf1ec93a4f3cd23
+    - leaf: GR-REN-02-01X689
+      from: src/main/java/mainstreet/surface/ProjectionServiceabilityAuthority.java
+      to: src/main/java/grandrue/surface/ProjectionServiceabilityAuthority.java
+      blob_sha: fa9be7972975e3e90b1a830bd78f0d9064e5546c
+    - leaf: GR-REN-02-01X690
+      from: src/main/java/mainstreet/surface/ProjectionServiceabilityEvaluationEngine.java
+      to: src/main/java/grandrue/surface/ProjectionServiceabilityEvaluationEngine.java
+      blob_sha: 6e9d48b1e82a831d2870f7bae385a0869f08fe7a
+    - leaf: GR-REN-02-01X691
+      from: src/main/java/mainstreet/surface/ProjectionServiceabilityEvaluationRequest.java
+      to: src/main/java/grandrue/surface/ProjectionServiceabilityEvaluationRequest.java
+      blob_sha: f4abdb57387381ea28e469b3fdf86ceec821b691
+    - leaf: GR-REN-02-01X692
+      from: src/main/java/mainstreet/surface/ProjectionServiceabilityOutcome.java
+      to: src/main/java/grandrue/surface/ProjectionServiceabilityOutcome.java
+      blob_sha: 70bf63e0da882f51baf1fe735529ab6c55260463
+    - leaf: GR-REN-02-01X693
+      from: src/main/java/mainstreet/surface/ProjectionServiceabilityReasonCode.java
+      to: src/main/java/grandrue/surface/ProjectionServiceabilityReasonCode.java
+      blob_sha: 869b48dd61bb9200ae4443002d6fc72a2cf5ef1d
+    - leaf: GR-REN-02-01X694
+      from: src/main/java/mainstreet/surface/ProjectionServiceabilityResult.java
+      to: src/main/java/grandrue/surface/ProjectionServiceabilityResult.java
+      blob_sha: 57f1bdc5027193911f788c7ca522911e34a46e67
+    - leaf: GR-REN-02-01X695
+      from: src/main/java/mainstreet/surface/ProjectionSourceAvailability.java
+      to: src/main/java/grandrue/surface/ProjectionSourceAvailability.java
+      blob_sha: a86c0d5351e90e64db4423db85ae043b70cb04aa
+    - leaf: GR-REN-02-01X696
+      from: src/main/java/mainstreet/surface/ProjectionSourceCompleteness.java
+      to: src/main/java/grandrue/surface/ProjectionSourceCompleteness.java
+      blob_sha: e21fbd45c61ac68224ff9d49ee397c5b3c0a313d
+    - leaf: GR-REN-02-01X697
+      from: src/main/java/mainstreet/surface/ProjectionSourceDependencyReference.java
+      to: src/main/java/grandrue/surface/ProjectionSourceDependencyReference.java
+      blob_sha: b024ba3f4de7c8cac844388c0faa520f87bec8d5
+    - leaf: GR-REN-02-01X698
+      from: src/main/java/mainstreet/surface/ProjectionSourceEvidence.java
+      to: src/main/java/grandrue/surface/ProjectionSourceEvidence.java
+      blob_sha: 4534e231e00f5b774ea2690d63b0887539a96590
+    - leaf: GR-REN-02-01X699
+      from: src/main/java/mainstreet/surface/ProjectionSourceRevocationState.java
+      to: src/main/java/grandrue/surface/ProjectionSourceRevocationState.java
+      blob_sha: b91b67a2b4a2ba4de692427093cb02ff584c93b1
+    - leaf: GR-REN-02-01X700
+      from: src/main/java/mainstreet/surface/PublicBoundedQueryExecution.java
+      to: src/main/java/grandrue/surface/PublicBoundedQueryExecution.java
+      blob_sha: bf6cedb5c8b6797ff1aff9c3b16be598efc37f7b
+    - leaf: GR-REN-02-01X701
+      from: src/main/java/mainstreet/surface/PublicContextualSurfaceResolver.java
+      to: src/main/java/grandrue/surface/PublicContextualSurfaceResolver.java
+      blob_sha: 9940dc57d54470b72cec4f407afa4c947b3c89b7
+    - leaf: GR-REN-02-01X702
+      from: src/main/java/mainstreet/surface/PublicCustomerProjectionAssembly.java
+      to: src/main/java/grandrue/surface/PublicCustomerProjectionAssembly.java
+      blob_sha: e33171d97a63c02b737c96aabe7e2183e22fbe73
+    - leaf: GR-REN-02-01X703
+      from: src/main/java/mainstreet/surface/PublicCustomerProjectionAssemblyService.java
+      to: src/main/java/grandrue/surface/PublicCustomerProjectionAssemblyService.java
+      blob_sha: e67ad435d4637ffffeea49854a53f80b8dddea66
+    - leaf: GR-REN-02-01X704
+      from: src/main/java/mainstreet/surface/PublicInteractionBinding.java
+      to: src/main/java/grandrue/surface/PublicInteractionBinding.java
+      blob_sha: a38c2017b82c728081479ed2e745bed4bf71ff44
+    - leaf: GR-REN-02-01X705
+      from: src/main/java/mainstreet/surface/PublicInteractionBindingExposureAuthority.java
+      to: src/main/java/grandrue/surface/PublicInteractionBindingExposureAuthority.java
+      blob_sha: 5d34268cc20c5d4fe0aea2b494d89e0c058ee14b
+    - leaf: GR-REN-02-01X706
+      from: src/main/java/mainstreet/surface/PublicInteractionBindingProjector.java
+      to: src/main/java/grandrue/surface/PublicInteractionBindingProjector.java
+      blob_sha: 32a613d26896515d933468144650a8a9e8574e68
+    - leaf: GR-REN-02-01X707
+      from: src/main/java/mainstreet/surface/PublicInteractionParticipationFact.java
+      to: src/main/java/grandrue/surface/PublicInteractionParticipationFact.java
+      blob_sha: b7037679b87f1b882c36a3b59798ad23a4d22fbd
+    - leaf: GR-REN-02-01X708
+      from: src/main/java/mainstreet/surface/PublicInteractionParticipationRequest.java
+      to: src/main/java/grandrue/surface/PublicInteractionParticipationRequest.java
+      blob_sha: b8f18bdcc36dd6b5738d3fef5c9c7fe0310931f9
+    - leaf: GR-REN-02-01X709
+      from: src/main/java/mainstreet/surface/PublicInteractionParticipationSource.java
+      to: src/main/java/grandrue/surface/PublicInteractionParticipationSource.java
+      blob_sha: 0e9b26f496b1b3f4280a8c9727500d4b75634305
+    - leaf: GR-REN-02-01X710
+      from: src/main/java/mainstreet/surface/PublicInteractionParticipationSourceIdentity.java
+      to: src/main/java/grandrue/surface/PublicInteractionParticipationSourceIdentity.java
+      blob_sha: ba177af10b4ec34a762fd0b0de407aeb19563907
+    - leaf: GR-REN-02-01X711
+      from: src/main/java/mainstreet/surface/PublicInteractionParticipationSourceRegistration.java
+      to: src/main/java/grandrue/surface/PublicInteractionParticipationSourceRegistration.java
+      blob_sha: 66ad7ce57df5ccd0fa2cbeb2fb79f2574f64045e
+    - leaf: GR-REN-02-01X712
+      from: src/main/java/mainstreet/surface/PublicInteractionParticipationSourceRegistrySnapshot.java
+      to: src/main/java/grandrue/surface/PublicInteractionParticipationSourceRegistrySnapshot.java
+      blob_sha: 15212c368af0c4a64b2f0ba1d64cab1ed1d89f63
+    - leaf: GR-REN-02-01X713
+      from: src/main/java/mainstreet/surface/PublicMerchantPresenceBoundedQuery.java
+      to: src/main/java/grandrue/surface/PublicMerchantPresenceBoundedQuery.java
+      blob_sha: 9cba567f76f6f4ffddf5d1b5704dd162c6d781b0
+    - leaf: GR-REN-02-01X714
+      from: src/main/java/mainstreet/surface/PublicMerchantPresenceQueryPath.java
+      to: src/main/java/grandrue/surface/PublicMerchantPresenceQueryPath.java
+      blob_sha: 34a30db2928b519d6c00194f037504782b6c3b22
+    - leaf: GR-REN-02-01X715
+      from: src/main/java/mainstreet/surface/PublicSurfaceExposureAuthority.java
+      to: src/main/java/grandrue/surface/PublicSurfaceExposureAuthority.java
+      blob_sha: dc9feaac0d3fefa37c0fe10fa39ba0067afc6664
+    - leaf: GR-REN-02-01X716
+      from: src/main/java/mainstreet/surface/PublicSurfaceResolutionContext.java
+      to: src/main/java/grandrue/surface/PublicSurfaceResolutionContext.java
+      blob_sha: 8cb0041d87f114f6d403bdc2b6a9fa7ff8a25f08
+    - leaf: GR-REN-02-01X717
+      from: src/main/java/mainstreet/surface/ResidualObligationProbe.java
+      to: src/main/java/grandrue/surface/ResidualObligationProbe.java
+      blob_sha: dea5305a96c154303912a979369d65e3a561f9b4
+    - leaf: GR-REN-02-01X718
+      from: src/main/java/mainstreet/surface/ResidualObligationSurfaceEligibilityEvidence.java
+      to: src/main/java/grandrue/surface/ResidualObligationSurfaceEligibilityEvidence.java
+      blob_sha: e30bf8fcd20b9dff40e97801bca7fa3847f0e243
+    - leaf: GR-REN-02-01X719
+      from: src/main/java/mainstreet/surface/ResidualSurfaceObligationAuthority.java
+      to: src/main/java/grandrue/surface/ResidualSurfaceObligationAuthority.java
+      blob_sha: ce04f3f8b3f6ea3ecd020f5385e6cd00b7a18997
+    - leaf: GR-REN-02-01X720
+      from: src/main/java/mainstreet/surface/ResidualSurfaceObligationBinding.java
+      to: src/main/java/grandrue/surface/ResidualSurfaceObligationBinding.java
+      blob_sha: 30de801196ac5588d7e04cffc70a244d6bcba425
+    - leaf: GR-REN-02-01X721
+      from: src/main/java/mainstreet/surface/ResolvedExposedElement.java
+      to: src/main/java/grandrue/surface/ResolvedExposedElement.java
+      blob_sha: 7d80b107e2ff78ec8d59c41a3af999b1695eb258
+    - leaf: GR-REN-02-01X722
+      from: src/main/java/mainstreet/surface/RuntimeBoundedProjectionReadBinding.java
+      to: src/main/java/grandrue/surface/RuntimeBoundedProjectionReadBinding.java
+      blob_sha: 9689a4aba746d769a9ac8fa0ccb2c18b20eb3ade
+    - leaf: GR-REN-02-01X723
+      from: src/main/java/mainstreet/surface/RuntimeExposureCandidateEvaluationBinding.java
+      to: src/main/java/grandrue/surface/RuntimeExposureCandidateEvaluationBinding.java
+      blob_sha: e6fed28a44eabcad44df799d23ade797c3e346f3
+    - leaf: GR-REN-02-01X724
+      from: src/main/java/mainstreet/surface/SchedulingProjectionPolicyEvaluators.java
+      to: src/main/java/grandrue/surface/SchedulingProjectionPolicyEvaluators.java
+      blob_sha: f90b5a4d23aa4fcb7382371684d1f1d278b75019
+    - leaf: GR-REN-02-01X725
+      from: src/main/java/mainstreet/surface/StaticSurfaceComposition.java
+      to: src/main/java/grandrue/surface/StaticSurfaceComposition.java
+      blob_sha: 8a19816e696171a054c9bd176f710574077f00ae
+    - leaf: GR-REN-02-01X726
+      from: src/main/java/mainstreet/surface/StaticSurfaceCompositionGroup.java
+      to: src/main/java/grandrue/surface/StaticSurfaceCompositionGroup.java
+      blob_sha: 14d364f986b7100284f462f8326c0aa04eb14510
+    - leaf: GR-REN-02-01X727
+      from: src/main/java/mainstreet/surface/StaticSurfaceContribution.java
+      to: src/main/java/grandrue/surface/StaticSurfaceContribution.java
+      blob_sha: ccee7aa63989d5044fc4a7d43c8ea96d1727ab5e
+    - leaf: GR-REN-02-01X728
+      from: src/main/java/mainstreet/surface/StaticSurfaceContributionCatalogue.java
+      to: src/main/java/grandrue/surface/StaticSurfaceContributionCatalogue.java
+      blob_sha: 8b31275994010df3f39486290b87bac04d2697d6
+    - leaf: GR-REN-02-01X729
+      from: src/main/java/mainstreet/surface/StaticSurfaceContributionComposer.java
+      to: src/main/java/grandrue/surface/StaticSurfaceContributionComposer.java
+      blob_sha: b9c361e811f3ad4f76a2f6bbbe5a212fb9236bdb
+    - leaf: GR-REN-02-01X730
+      from: src/main/java/mainstreet/surface/StaticSurfaceEligibilityEvidence.java
+      to: src/main/java/grandrue/surface/StaticSurfaceEligibilityEvidence.java
+      blob_sha: 1a880f7e7ed2df563344b110960558a90f676fa9
+    - leaf: GR-REN-02-01X731
+      from: src/main/java/mainstreet/surface/SurfaceAudience.java
+      to: src/main/java/grandrue/surface/SurfaceAudience.java
+      blob_sha: 2d50e689ff9df9d540c4256e89ec62a08dcc60ad
+    - leaf: GR-REN-02-01X732
+      from: src/main/java/mainstreet/surface/SurfaceCapabilityEligibility.java
+      to: src/main/java/grandrue/surface/SurfaceCapabilityEligibility.java
+      blob_sha: 4cc5dc1557a8bc97eaeb9584fcebf51198e55360
+    - leaf: GR-REN-02-01X733
+      from: src/main/java/mainstreet/surface/SurfaceContributionDefinition.java
+      to: src/main/java/grandrue/surface/SurfaceContributionDefinition.java
+      blob_sha: 516447d43908df5a344f0a5a1ac6ceaf499ad613
+    - leaf: GR-REN-02-01X734
+      from: src/main/java/mainstreet/surface/SurfaceContributionIdentity.java
+      to: src/main/java/grandrue/surface/SurfaceContributionIdentity.java
+      blob_sha: f5f0028904b12790090ae855d971eb67deeafa1b
+    - leaf: GR-REN-02-01X735
+      from: src/main/java/mainstreet/surface/SurfaceContributionKind.java
+      to: src/main/java/grandrue/surface/SurfaceContributionKind.java
+      blob_sha: 47f629164b3acc85856f2356e29ab5f8f24bd640
+    - leaf: GR-REN-02-01X736
+      from: src/main/java/mainstreet/surface/SurfaceContributionRegistrySnapshot.java
+      to: src/main/java/grandrue/surface/SurfaceContributionRegistrySnapshot.java
+      blob_sha: 087895a36ad2aa453f2a7d779f5b044b13c31f2f
+    - leaf: GR-REN-02-01X737
+      from: src/main/java/mainstreet/surface/SurfaceEligibilityContract.java
+      to: src/main/java/grandrue/surface/SurfaceEligibilityContract.java
+      blob_sha: b6f0b40dc55f1aed56b0de56c08d135b2216c4ef
+    - leaf: GR-REN-02-01X738
+      from: src/main/java/mainstreet/surface/SurfaceInteractionAvailability.java
+      to: src/main/java/grandrue/surface/SurfaceInteractionAvailability.java
+      blob_sha: 1fe9fb56c4da77f4cd9f2d8cf7d245ef24c15f83
+    - leaf: GR-REN-02-01X739
+      from: src/main/java/mainstreet/surface/SurfaceInteractionAvailabilityContract.java
+      to: src/main/java/grandrue/surface/SurfaceInteractionAvailabilityContract.java
+      blob_sha: 9ecd0a4591dc5268caa8ab6996816fa1f5c31089
 
 production_consumers:
-  - { path: src/main/java/grandrue/booking/BookingTransaction.java, blob_sha: dbeb4dddb777c4735f719902be4079d50f7c0826 }
-  - { path: src/main/java/grandrue/ordering/OrderingTransaction.java, blob_sha: 0ef153448c4f1d6266842f7380fd43d8595fe0c0 }
-  - { path: src/main/java/grandrue/scheduling/AppointmentTransaction.java, blob_sha: 34e09dde8a0386860ddbbb188a0358e85482a5c0 }
-  - { path: src/main/java/grandrue/inventory/InMemoryQuantityAllocationAuthority.java, blob_sha: 9beeee023f25ee91ab19f1c28b5c5b7c64ed6b9b }
-  - { path: src/main/java/grandrue/infrastructure/persistence/inventory/JooqQuantityAllocationAuthority.java, blob_sha: b9bca4bb017e2dc1461e583bd8e1736270ca68a2 }
-  - { path: src/main/java/grandrue/ordering/OrderConfirmation.java, blob_sha: a5e332e47608ce39395a53c4d877773bd1fd403d }
-  - { path: src/main/java/grandrue/booking/BookingConfirmation.java, blob_sha: 36beb2fe7e8237238e2dfad5e8855ddf5f3c875d }
-  - { path: src/main/java/grandrue/scheduling/AppointmentConfirmation.java, blob_sha: 8540a25e3831dc6062899e82a9bb39b51e2a5c88 }
-  - { path: src/main/java/grandrue/booking/BookingApplicationService.java, blob_sha: 27eb8f14f51810910d46d27f2e6efe02234cfd09 }
-  - { path: src/main/java/grandrue/booking/InMemoryBookingUnitOfWork.java, blob_sha: 32f67d7c6acd54466217fbdf99f24dbc1a98977a }
-  - { path: src/main/java/grandrue/ordering/OrderingApplicationService.java, blob_sha: 0baf59d2cb57cd6e825b276c13390cfa1cfcefe5 }
-  - { path: src/main/java/grandrue/ordering/InMemoryOrderingUnitOfWork.java, blob_sha: b30d708eb76171ceef7093aea7b0ae7c60a584d8 }
-  - { path: src/main/java/grandrue/scheduling/AppointmentApplicationService.java, blob_sha: cb6a4e931c19825fa76e135c2c72f989112922b8 }
-  - { path: src/main/java/grandrue/scheduling/InMemoryAppointmentUnitOfWork.java, blob_sha: 7901b2ab3e355d55b31f49eb13aff249ecfd12dd }
-  - { path: src/main/java/grandrue/infrastructure/persistence/booking/JooqBookingTransaction.java, blob_sha: 63dcb54564ac9d9d19fcb8fa37f9dde4d20c99e7 }
-  - { path: src/main/java/grandrue/infrastructure/persistence/booking/JooqBookingUnitOfWork.java, blob_sha: 15cef9edfcd5f1692a8514ece46d56bfea4ff170 }
-  - { path: src/main/java/grandrue/infrastructure/persistence/ordering/JooqOrderingTransaction.java, blob_sha: 8379e4c3e083262f984419413c2504a9e71eaa82 }
-  - { path: src/main/java/grandrue/infrastructure/persistence/ordering/JooqOrderingUnitOfWork.java, blob_sha: 0c286683c39ce755dc8514df00320d0872673337 }
-  - { path: src/main/java/grandrue/infrastructure/persistence/appointment/JooqAppointmentUnitOfWork.java, blob_sha: 0ab23a4825f0e935715443062c76b17835618037 }
-  - { path: src/main/java/grandrue/infrastructure/persistence/appointment/JooqAppointmentTransaction.java, blob_sha: 56c6cbe98784efecbf557eaf259911c556c37d3e }
-  - { path: src/main/java/mainstreet/prototype/delivery/PrototypeBookingController.java, blob_sha: 1356483a568381314200a366adaaa21dbf3cd4d3, compatibility_only: true }
-  - { path: src/main/java/mainstreet/prototype/delivery/PrototypePublicBookingController.java, blob_sha: 71d9d90e31ef19ecbb69f1bc0fa3246668a37114, compatibility_only: true }
-  - { path: src/main/java/mainstreet/prototype/delivery/PrototypeAppointmentController.java, blob_sha: 9e46fbd8ce8f89a8c41cb1d241fbc296026785ae, compatibility_only: true }
-  - { path: src/main/java/mainstreet/prototype/delivery/PrototypePublicAppointmentController.java, blob_sha: 6cef308809f72a84565aec5215874cddba508719, compatibility_only: true }
-  - { path: src/main/java/grandrue/inventory/QuantityFulfilment.java, blob_sha: e7c19b0b2ffcf1c796a882324e5233b950fbaabe }
-  - { path: src/main/java/grandrue/ordering/OrderInventoryClaimRequest.java, blob_sha: 558d1535dcad957a562f0a733c4d6658c654947d }
-  - { path: src/main/java/grandrue/booking/BookingOutbox.java, blob_sha: 513c8c9dced9691cd286a85d98501aa8fedc9017 }
-  - { path: src/main/java/grandrue/workforce/MerchantWorkforceStore.java, blob_sha: 236d2f2b3d41ed36a06cb8d9645a46fdd8166f34 }
-  - { path: src/main/java/grandrue/runtime/ActorAuthorisationAuthority.java, blob_sha: 2306dec775a9936c1b62287e23fb2cfb20959032 }
-  - { path: src/main/java/grandrue/workforce/MerchantWorkforceAuthority.java, blob_sha: 3b2c7c31b791c3ee8ec5e9401b5ef136bb3c7fa2 }
-  - { path: src/main/java/grandrue/runtime/PrivilegeOperationExecutionGuard.java, blob_sha: 153a46be2d8a855b1aff97ec98cc1f4d0101026b }
-  - { path: src/main/java/grandrue/workforce/WorkforceActorAuthorisationAuthority.java, blob_sha: 75fff77714b4b0e975a890bed799752d0a5b34f3 }
-  - { path: src/main/java/grandrue/workforce/MerchantRoleDefinition.java, blob_sha: e6cca5676d2daed1a28930df99f3d42bb6464f4b }
-  - { path: src/main/java/grandrue/enquiry/delivery/MerchantEnquiryObservationPrivileges.java, blob_sha: 9882ed154c876ab3afc14759d69ace87cf33a6c2 }
-  - { path: src/main/java/mainstreet/surface/ContextualSurfaceResolver.java, blob_sha: 9fdcd6ac48b4776ab60f7be70d9fa3da09054857 }
-  - { path: src/main/java/grandrue/enquiry/EnquiryMerchantExposureRequirementEvaluator.java, blob_sha: 0d559dc8a63c5ed21c91dc31fa3368d7a896204f }
-  - { path: src/main/java/grandrue/infrastructure/persistence/workforce/JooqMerchantWorkforceAuthority.java, blob_sha: 1ba010c75920247235c98fe65ea07938e286ce75 }
-  - { path: src/main/java/grandrue/infrastructure/persistence/workforce/JooqMerchantWorkforceStore.java, blob_sha: d633a0821cae71a774cbfec47627872e3774cdbf }
-  - { path: src/main/java/mainstreet/prototype/PrototypeJooqOrderingUseCase.java, blob_sha: 7ded78077ff953ee949740ba283fe1b7ac49bda0, compatibility_only: true }
-  - { path: src/main/java/grandrue/runtime/ResourceInstance.java, blob_sha: 6846acc9785aef94cb07d0b13ea75631986802b9 }
-  - { path: src/main/java/grandrue/scheduling/Appointment.java, blob_sha: 44f5a2cd3bebd971b7f70b8607588bc79cb5cd74 }
-  - { path: src/main/java/grandrue/booking/ConfirmBookingCommand.java, blob_sha: a1bf2c1a9b6255662f6ef5db17a6dc3119eb8e3e }
-  - { path: src/main/java/grandrue/scheduling/ConfirmAppointmentCommand.java, blob_sha: 1a3a6099fcdf0c36a63700b70b8f8fa7de05ee22 }
-  - { path: src/main/java/grandrue/scheduling/AppointmentSchedulingAuthority.java, blob_sha: 43eca8a000e6ae458aaedb573953eef1ceb13640 }
-  - { path: src/main/java/grandrue/scheduling/AppointmentConfirmationRequest.java, blob_sha: eb329e32c15142b0376eebe984bcf55566481efa }
-  - { path: src/main/java/grandrue/scheduling/TimeProposal.java, blob_sha: b14d5e253ba42445384e85308c52d0ddfd408950 }
-  - { path: src/main/java/mainstreet/prototype/PrototypeJooqBookingUseCase.java, blob_sha: fca1648aa6d977a5a527770f407ea8c88c7c76ff, compatibility_only: true }
-  - { path: src/main/java/mainstreet/prototype/PrototypeJooqAppointmentUseCase.java, blob_sha: edf99b404365497cbead447ead9de5b34bd4e448, compatibility_only: true }
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantRepresentation.java
+    blob_sha: fdd4ee7f4fd39c6957809abbddb6edfc457c19d7
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantExposureReferences.java
+    blob_sha: 4b83bede3179f6924be97150be28615dca10a453
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantQueryProjectionPortfolio.java
+    blob_sha: 68c565f81ae328639932ba7a8a6c8d5dea1980d2
+  - path: src/main/java/grandrue/enquiry/delivery/MerchantEnquiryResponseAdapter.java
+    blob_sha: 4ebb02485675650e36445464cb726b41c8eaf9fa
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantExposureContractPortfolio.java
+    blob_sha: a66d59f037f7047fe161b08a326825f331713d72
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantRepresentationProjectionFragment.java
+    blob_sha: c741c472540f2ff81ef5cd46e4aaf7c5001d8b8a
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantExposureCandidateSource.java
+    blob_sha: 8b68d7adcfc614c36fe19926e38a645523ce1a34
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantRepresentationProjectionReferences.java
+    blob_sha: 5d17ee702c0d0b01e54056d189c9e7b2c4723b83
+  - path: src/main/java/grandrue/enquiry/delivery/MerchantEnquiryQuery.java
+    blob_sha: 1fc1057d4e0b410db8870fa01d45a69df358d663
+  - path: src/main/java/grandrue/enquiry/delivery/MerchantEnquiryObservationPrivileges.java
+    blob_sha: 1456d333bcd6cf39860bc097445ec5643ae1b764
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantRepresentationProjectionObservation.java
+    blob_sha: d5ac16a857969c193637793fde2857c0022f4661
+  - path: src/main/java/grandrue/enquiry/EnquiryMerchantExposureRequirementEvaluator.java
+    blob_sha: ef8b976573968c5917715349fb20d4e214970f8a
+  - path: src/main/java/grandrue/enquiry/delivery/MerchantEnquiryApiConfiguration.java
+    blob_sha: 887472cd64c6df316f7fd8a45c2c4c641d729850
+  - path: src/main/java/grandrue/enquiry/AuthorityBackedEnquiryMerchantRepresentationProjectionReadPort.java
+    blob_sha: ab6226ac3845d0192855ebb4497e5bf269aa9897
+  - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryBindingQuery.java
+    blob_sha: 2c2d434e0d377110d8ee14db9ac95ba14a476b22
+  - path: src/main/java/grandrue/enquiry/delivery/PublicOpportunityEnquiryApiConfiguration.java
+    blob_sha: da9648fdee1bde08a63f85a1a478fbe57de0f0fe
+  - path: src/main/java/grandrue/enquiry/OpportunityEnquirySubmissionPreparation.java
+    blob_sha: 320e9aa4f1433bc4828451f74555973a9490843b
+  - path: src/main/java/grandrue/merchantprofile/ProfileMaterialAffinityEntry.java
+    blob_sha: 102312edc35698ab6e443533bdd7e77840c53e03
+  - path: src/main/java/grandrue/merchantprofile/ProfileMaterialAffinityEvidence.java
+    blob_sha: bda9ed767a7371d859c0869af694fda919be1637
+  - path: src/main/java/grandrue/merchantprofile/ProfileContactPointExposureChoiceEvaluator.java
+    blob_sha: 97e774a7e6597d3a24b46bcc2e7197c6872347b7
+  - path: src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorProjectionFragment.java
+    blob_sha: 57b4d98420183e8a959141b5f5e979efcd76ef2f
+  - path: src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorProjectionObservation.java
+    blob_sha: fcb2cfc5184f6a38f6885a9a27e2c0d1e8755d43
+  - path: src/main/java/grandrue/merchantprofile/ProfileMerchantLocationExposureChoiceEvaluator.java
+    blob_sha: f754cccc49f97a4405ffd39f8fb2491f368c4887
+  - path: src/main/java/grandrue/merchantprofile/MerchantPublicDescriptorProjectionMaterial.java
+    blob_sha: 0d11e1cdcb4208fd20c0a8c26166471476bf18b1
+  - path: src/main/java/grandrue/merchantprofile/ProfileMaterialAffinityObservationContribution.java
+    blob_sha: 06a3a288bcb26c5fa4892f3c5365a51a73699268
+  - path: src/main/java/grandrue/merchantprofile/ProfileMaterialAffinityObservationContributionRegistration.java
+    blob_sha: 03d16f7eb2097cda35505b9639cc7cfa27cc5040
+  - path: src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantPublicDescriptorProjectionReadPort.java
+    blob_sha: a6e85a2ce96f6df04f7377a7c166f587a2907bc4
+  - path: src/main/java/grandrue/publication/OpportunityPublicExposureReferences.java
+    blob_sha: 43d9f60cddf576a5bc7a6d8c7b8a9e4b80f00c12
+  - path: src/main/java/grandrue/publication/OpportunityPublicQueryProjectionPortfolio.java
+    blob_sha: 5093eb708b6fd41c3794a74eb735870b105ce61a
+  - path: src/main/java/grandrue/publication/OpportunityPublicExposureContractPortfolio.java
+    blob_sha: c974a788534d94106285c3e8d4b533e177bbeb5e
+  - path: src/main/java/grandrue/publication/OpportunityExposureWindowRequirementEvaluator.java
+    blob_sha: 24186f7bfa76db24a39dd06d095fcf37382aa442
+  - path: src/main/java/grandrue/publication/delivery/PublicOpportunityQueryResponseAdapter.java
+    blob_sha: e558fc9f6f72d2903e0044b0c41778280d78f4f6
+  - path: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionFragment.java
+    blob_sha: 91b2cedefc846ec8106e00d15246cda392179d2f
+  - path: src/main/java/grandrue/publication/OpportunityPublicExposureCandidateSource.java
+    blob_sha: fed28b7cc60d6a6e59e42f462a64885277cb62fc
+  - path: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionReferences.java
+    blob_sha: 6a33e7b4852d0b52c390a41d8ae4c368a44dbb6a
+  - path: src/main/java/grandrue/publication/delivery/PublicOpportunityQuery.java
+    blob_sha: 376c1839ddd9a8c3cd574e7407d7ee2f4e147d0e
+  - path: src/main/java/grandrue/publication/OpportunityEnquiryParticipationDefinition.java
+    blob_sha: 24bf4458c4833a999435c686780839cfbbb8f6dc
+  - path: src/main/java/grandrue/publication/OpportunityEnquiryParticipationSource.java
+    blob_sha: 7aebe698701d9eed659a11b40fb63a57b3a27a44
+  - path: src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContribution.java
+    blob_sha: 17e18982a0a398e91bd9fa3f718b6ad37549927c
+  - path: src/main/java/grandrue/publication/OpportunityMaterialAffinityObservationContributionRegistration.java
+    blob_sha: 906682e3ed5c6b5281feb354a257a79dac7ea777
+  - path: src/main/java/grandrue/publication/OpportunityPublicRepresentationProjectionObservation.java
+    blob_sha: 689e4a86c7b42d93b0ae5dee6251131c436c7fd6
+  - path: src/main/java/grandrue/publication/delivery/PublicOpportunityApiConfiguration.java
+    blob_sha: 9d878257338fc296decf37d7b191aa8275ecc1ea
+  - path: src/main/java/grandrue/publication/AuthorityBackedOpportunityPublicRepresentationProjectionReadPort.java
+    blob_sha: bebab25d88b02240790860c8225e052134c648e9
+  - path: src/main/java/grandrue/semantic/release/SemanticReleaseAssembly.java
+    blob_sha: b9fed62b77634ed5c67152569ba20799fb5e9686
+  - path: src/main/java/grandrue/semantic/release/SemanticReleaseMaterialiser.java
+    blob_sha: d5a2ca5f38adbb78ad96862145d3c46b685d41d9
+  - path: src/main/java/grandrue/semantic/configuration/ConfigurationPackageResolver.java
+    blob_sha: fb27ee4495c2c59e715335df1e7b883f9cf27bfa
+  - path: src/main/java/grandrue/semantic/configuration/ResolvedConfigurationPackage.java
+    blob_sha: c3c3e420adf017de9370f62a1548c6af85d59a05
+  - path: src/main/java/mainstreet/prototype/PrototypeStorefrontSurfaceProjection.java
+    blob_sha: e263deed2ea1182192af23a20180e74c2b4768e4
+    compatibility_only: true
 
-transform:
+deterministic_transformations:
   owners:
-    - move each declared root semantic owner from src/main/java/mainstreet/semantic/<Type>.java to src/main/java/grandrue/semantic/<Type>.java
-    - replace exactly one package declaration package mainstreet.semantic; with package grandrue.semantic; in each owner
+    - move every declared owner from src/main/java/mainstreet/surface/<Type>.java to src/main/java/grandrue/surface/<Type>.java
+    - replace exactly one package declaration package mainstreet.surface; with package grandrue.surface; in every owner
+    - in CalendarProjectionPolicyEvaluators.java, ExposureProjectionPolicyEvaluators.java, PlatformProjectionPolicyEvaluators.java and SchedulingProjectionPolicyEvaluators.java, also replace static imports mainstreet.surface.ProjectionPolicyEvaluationSupport.* with grandrue.surface.ProjectionPolicyEvaluationSupport.*
   consumers:
-    - replace only imports/FQCN references to the eighteen declared root semantic owners from mainstreet.semantic.<Type> to grandrue.semantic.<Type>
-    - retain all semantic subpackage names not owned by this tranche
-    - prototype consumer changes are compatibility-only dependency repairs permitted by the prototype exclusion
+    - replace only executable imports/FQCN references mainstreet.surface.<Type> with grandrue.surface.<Type> in every declared consumer
+    - PrototypeStorefrontSurfaceProjection receives only the compatibility dependency repair permitted by the prototype exclusion
   prohibited:
-    - no method, field, literal, comment, semantic or behavioural change
+    - no method, field, literal, comment, persisted identity, semantic or behavioural change
     - no test namespace mutation
     - no legacy prototype owner package/path/API naming mutation
-    - no surface owner package/path mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 67
+  expected_changed_path_count: 227
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -177,33 +864,21 @@ verification:
 protected:
   - applied Flyway migration contents unchanged
   - stable MS-* identifiers unchanged
-  - root semantic behaviour and semantic identities unchanged
+  - surface/exposure/projection semantic identities unchanged
   - comments, string literals and persisted identity values unchanged
-  - semantic subpackages remain unchanged by this tranche
   - legacy prototype owner package/path/API naming unchanged
-  - surface owner package/path naming unchanged
 
 expected_residuals:
   - src/test/java/mainstreet/** remains deferred to GR-REN-03
-  - src/main/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE except declared compatibility import repairs
-  - src/main/java/mainstreet/surface/** remains for later GR-REN-02 work
-  - root src/main/java/mainstreet/semantic/*.java owners are expected to be absent after this tranche
+  - src/main/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE except declared compatibility import repair
+  - no non-prototype src/main/java/mainstreet/** Java owner is expected after this tranche
 
 preparation_notes:
-  - all eighteen live root semantic owners are public top-level production types and move atomically as one package
-  - each owner contains exactly one legacy root-semantic package declaration and no other mainstreet.semantic identity
-  - exact owner-name reference discovery was reconciled to current development paths; no unresolved production consumer was found
-  - no wildcard mainstreet.semantic root import was found
-  - all forty-eight current production consumers were reconciled to live development paths and source blobs
-  - seven excluded prototype consumers receive import-only compatibility repairs; no prototype owner is selected
-  - one still-legacy surface consumer receives only the root-semantic import repair; surface ownership remains outside this tranche
+  - the complete live surface package was analysed as one natural package-cohesion region and moves atomically
+  - all 178 owner source blobs and destinations were reconciled against development
+  - 174 owners contain only the package-declaration mainstreet.surface occurrence
+  - four projection-policy evaluator owners contain only deterministic static imports of the in-package ProjectionPolicyEvaluationSupport helper in addition to the package declaration
+  - all 48 production consumers were reconciled to live development paths and source blobs
+  - every consumer mainstreet.surface occurrence was classified as an import or executable FQCN reference; no quoted string, comment or persisted identity occurrence was selected
+  - package-private cohesion is preserved by moving the entire surface package atomically
   - no persistence, semantic, security, authority or compatibility exception was identified
-
-completed:
-  last_leaf: GR-REN-02-01X561
-  completed_leaf_count_in_tranche: 18
-  aggregate_changed_path_count: 67
-  structural_verification: passed
-  semantic_root_namespace_complete: true
-  remaining_nonprototype_production_legacy_region: surface
-  next_tranche: GR-REN-02-T023

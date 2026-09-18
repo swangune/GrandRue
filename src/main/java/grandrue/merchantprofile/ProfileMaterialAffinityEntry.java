@@ -1,9 +1,9 @@
 package grandrue.merchantprofile;
 
-import mainstreet.surface.ExposableElementReference;
-import mainstreet.surface.ExposureCandidateInstanceReference;
-import mainstreet.surface.ExposureCandidateObservation;
-import mainstreet.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ExposableElementReference;
+import grandrue.surface.ExposureCandidateInstanceReference;
+import grandrue.surface.ExposureCandidateObservation;
+import grandrue.surface.ProjectionSourceDependencyReference;
 
 import java.util.Objects;
 

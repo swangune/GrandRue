@@ -1,6 +1,6 @@
 package grandrue.publication;
 
-import mainstreet.surface.*;
+import grandrue.surface.*;
 import java.util.*;
 
 /** Request-scoped P5 serviceability: complete exact published material, no stale fallback. */

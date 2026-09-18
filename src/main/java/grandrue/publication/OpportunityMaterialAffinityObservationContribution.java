@@ -1,15 +1,15 @@
 package grandrue.publication;
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.BoundedProjectionRead;
-import mainstreet.surface.EstablishedObservationContribution;
-import mainstreet.surface.ExposureCandidateObservation;
-import mainstreet.surface.ObservationContributionKind;
-import mainstreet.surface.ObservationRequestBinding;
-import mainstreet.surface.ProjectionMaterialFragment;
-import mainstreet.surface.ProjectionMaterialSourceAffinity;
-import mainstreet.surface.ProjectionSourceEvidence;
-import mainstreet.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.BoundedProjectionRead;
+import grandrue.surface.EstablishedObservationContribution;
+import grandrue.surface.ExposureCandidateObservation;
+import grandrue.surface.ObservationContributionKind;
+import grandrue.surface.ObservationRequestBinding;
+import grandrue.surface.ProjectionMaterialFragment;
+import grandrue.surface.ProjectionMaterialSourceAffinity;
+import grandrue.surface.ProjectionSourceEvidence;
+import grandrue.surface.ProjectionSourceDependencyReference;
 
 import java.util.LinkedHashSet;
 import java.util.List;

@@ -1,8 +1,8 @@
 package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.ProjectionMaterialSourceAffinity;
-import mainstreet.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ProjectionMaterialSourceAffinity;
+import grandrue.surface.ProjectionSourceDependencyReference;
 
 import java.util.List;
 import java.util.Objects;

@@ -4,18 +4,18 @@ import grandrue.merchantprofile.MerchantContactPointExposure;
 
 import grandrue.merchantprofile.MerchantContactPointExposureChoiceReadPort;
 
-import mainstreet.surface.ExposableElementReference;
-import mainstreet.surface.ExposureCandidateEvaluationSubmission;
-import mainstreet.surface.ExposureCandidateInstanceKindReference;
-import mainstreet.surface.ExposureCandidateInstanceReference;
-import mainstreet.surface.ExposureCandidateObservation;
-import mainstreet.surface.MerchantExposureChoiceBatchEvaluation;
-import mainstreet.surface.MerchantExposureChoiceCandidateEvaluation;
-import mainstreet.surface.MerchantExposureChoiceEvaluationDecision;
-import mainstreet.surface.MerchantExposureChoiceEvaluator;
-import mainstreet.surface.MerchantExposureChoiceSourceReference;
-import mainstreet.surface.OwnerExposureEvaluationContext;
-import mainstreet.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ExposableElementReference;
+import grandrue.surface.ExposureCandidateEvaluationSubmission;
+import grandrue.surface.ExposureCandidateInstanceKindReference;
+import grandrue.surface.ExposureCandidateInstanceReference;
+import grandrue.surface.ExposureCandidateObservation;
+import grandrue.surface.MerchantExposureChoiceBatchEvaluation;
+import grandrue.surface.MerchantExposureChoiceCandidateEvaluation;
+import grandrue.surface.MerchantExposureChoiceEvaluationDecision;
+import grandrue.surface.MerchantExposureChoiceEvaluator;
+import grandrue.surface.MerchantExposureChoiceSourceReference;
+import grandrue.surface.OwnerExposureEvaluationContext;
+import grandrue.surface.ProjectionSourceDependencyReference;
 
 import java.util.List;
 import java.util.Objects;

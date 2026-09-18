@@ -2,7 +2,7 @@ package grandrue.publication.delivery;
 
 import grandrue.api.ApiSurfaceClass;
 import grandrue.publication.*;
-import mainstreet.surface.*;
+import grandrue.surface.*;
 
 import java.util.Objects;
 import java.util.Optional;

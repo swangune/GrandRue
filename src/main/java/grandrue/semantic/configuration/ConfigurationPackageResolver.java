@@ -6,8 +6,8 @@ import grandrue.fulfilment.FulfilmentPlan;
 import grandrue.fulfilment.FulfilmentPlanResolver;
 import grandrue.semantic.compiler.ConfigurationCompiler;
 import grandrue.semantic.executable.ExecutableMerchantModel;
-import mainstreet.surface.StaticSurfaceContributionCatalogue;
-import mainstreet.surface.SurfaceContributionRegistrySnapshot;
+import grandrue.surface.StaticSurfaceContributionCatalogue;
+import grandrue.surface.SurfaceContributionRegistrySnapshot;
 
 import java.time.Instant;
 import java.util.Objects;

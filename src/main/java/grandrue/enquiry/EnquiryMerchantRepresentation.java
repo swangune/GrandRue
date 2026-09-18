@@ -1,6 +1,6 @@
 package grandrue.enquiry;
 
-import mainstreet.surface.ExposableElementReference;
+import grandrue.surface.ExposableElementReference;
 import java.time.Instant;
 import java.util.Objects;
 

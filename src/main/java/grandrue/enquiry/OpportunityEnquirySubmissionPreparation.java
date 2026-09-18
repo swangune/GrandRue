@@ -14,11 +14,11 @@ import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.executable.ExecutableMerchantModel;
 import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
-import mainstreet.surface.PublicInteractionParticipationRequest;
-import mainstreet.surface.StaticSurfaceContribution;
-import mainstreet.surface.SurfaceAudience;
-import mainstreet.surface.SurfaceContributionIdentity;
-import mainstreet.surface.SurfaceContributionKind;
+import grandrue.surface.PublicInteractionParticipationRequest;
+import grandrue.surface.StaticSurfaceContribution;
+import grandrue.surface.SurfaceAudience;
+import grandrue.surface.SurfaceContributionIdentity;
+import grandrue.surface.SurfaceContributionKind;
 
 import java.time.Clock;
 import java.time.Instant;

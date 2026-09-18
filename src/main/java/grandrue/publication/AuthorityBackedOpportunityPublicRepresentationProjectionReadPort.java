@@ -1,11 +1,11 @@
 package grandrue.publication;
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.ProjectionMaterialSourceAffinity;
-import mainstreet.surface.ProjectionSourceAvailability;
-import mainstreet.surface.ProjectionSourceCompleteness;
-import mainstreet.surface.ProjectionSourceEvidence;
-import mainstreet.surface.ProjectionSourceRevocationState;
+import grandrue.surface.ProjectionMaterialSourceAffinity;
+import grandrue.surface.ProjectionSourceAvailability;
+import grandrue.surface.ProjectionSourceCompleteness;
+import grandrue.surface.ProjectionSourceEvidence;
+import grandrue.surface.ProjectionSourceRevocationState;
 
 import java.time.Instant;
 import java.util.List;

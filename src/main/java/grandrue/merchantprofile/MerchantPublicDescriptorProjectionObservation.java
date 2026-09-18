@@ -1,7 +1,7 @@
 package grandrue.merchantprofile;
 
-import mainstreet.surface.ProjectionSourceDependencyReference;
-import mainstreet.surface.ProjectionSourceEvidence;
+import grandrue.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ProjectionSourceEvidence;
 
 import java.util.Objects;
 import java.util.Optional;

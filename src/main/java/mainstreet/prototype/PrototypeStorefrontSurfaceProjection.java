@@ -1,18 +1,18 @@
 package mainstreet.prototype;
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.ContextualSurfaceContribution;
-import mainstreet.surface.ExposureDecision;
-import mainstreet.surface.ProjectionServiceabilityAuthority;
-import mainstreet.surface.PublicContextualSurfaceResolver;
-import mainstreet.surface.PublicInteractionBindingExposureAuthority;
-import mainstreet.surface.PublicSurfaceExposureAuthority;
-import mainstreet.surface.PublicSurfaceResolutionContext;
-import mainstreet.surface.SurfaceAudience;
-import mainstreet.surface.SurfaceContributionDefinition;
-import mainstreet.surface.SurfaceContributionIdentity;
-import mainstreet.surface.SurfaceContributionKind;
-import mainstreet.surface.SurfaceContributionRegistrySnapshot;
+import grandrue.surface.ContextualSurfaceContribution;
+import grandrue.surface.ExposureDecision;
+import grandrue.surface.ProjectionServiceabilityAuthority;
+import grandrue.surface.PublicContextualSurfaceResolver;
+import grandrue.surface.PublicInteractionBindingExposureAuthority;
+import grandrue.surface.PublicSurfaceExposureAuthority;
+import grandrue.surface.PublicSurfaceResolutionContext;
+import grandrue.surface.SurfaceAudience;
+import grandrue.surface.SurfaceContributionDefinition;
+import grandrue.surface.SurfaceContributionIdentity;
+import grandrue.surface.SurfaceContributionKind;
+import grandrue.surface.SurfaceContributionRegistrySnapshot;
 
 import java.util.List;
 import java.util.Objects;

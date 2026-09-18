@@ -2,8 +2,8 @@ package grandrue.semantic.release;
 
 import grandrue.fulfilment.FulfilmentContractRegistrySnapshot;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
-import mainstreet.surface.ExposureElementContractRegistrySnapshot;
-import mainstreet.surface.SurfaceContributionRegistrySnapshot;
+import grandrue.surface.ExposureElementContractRegistrySnapshot;
+import grandrue.surface.SurfaceContributionRegistrySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;

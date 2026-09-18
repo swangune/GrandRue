@@ -1,8 +1,8 @@
 package grandrue.enquiry;
 
-import mainstreet.surface.ProjectionContractIdentity;
-import mainstreet.surface.ProjectionReadUseIdentity;
-import mainstreet.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ProjectionContractIdentity;
+import grandrue.surface.ProjectionReadUseIdentity;
+import grandrue.surface.ProjectionSourceDependencyReference;
 
 /** Owner-qualified references for one request-scoped initial merchant Enquiry projection. */
 public final class EnquiryMerchantRepresentationProjectionReferences {

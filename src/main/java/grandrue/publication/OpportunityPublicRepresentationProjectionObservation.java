@@ -1,11 +1,11 @@
 package grandrue.publication;
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.BoundedProjectionRead;
-import mainstreet.surface.EstablishedObservationRequest;
-import mainstreet.surface.ProjectionMaterialFragment;
-import mainstreet.surface.ProjectionMaterialSourceAffinity;
-import mainstreet.surface.ProjectionSourceEvidence;
+import grandrue.surface.BoundedProjectionRead;
+import grandrue.surface.EstablishedObservationRequest;
+import grandrue.surface.ProjectionMaterialFragment;
+import grandrue.surface.ProjectionMaterialSourceAffinity;
+import grandrue.surface.ProjectionSourceEvidence;
 
 import java.util.List;
 import java.util.Objects;

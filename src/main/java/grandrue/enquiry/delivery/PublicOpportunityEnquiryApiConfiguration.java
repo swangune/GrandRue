@@ -5,7 +5,7 @@ import grandrue.publication.*;
 import grandrue.publication.delivery.PublicOpportunityRouteScopeAuthority;
 import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
-import mainstreet.surface.*;
+import grandrue.surface.*;
 import org.springframework.context.annotation.*;
 import java.time.Clock;
 

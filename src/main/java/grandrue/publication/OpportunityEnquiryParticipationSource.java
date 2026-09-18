@@ -2,11 +2,11 @@ package grandrue.publication;
 
 import grandrue.application.MerchantScope;
 import grandrue.semantic.executable.ExecutableMerchantModel;
-import mainstreet.surface.PublicInteractionParticipationFact;
-import mainstreet.surface.PublicInteractionParticipationRequest;
-import mainstreet.surface.PublicInteractionParticipationSource;
-import mainstreet.surface.PublicInteractionParticipationSourceRegistration;
-import mainstreet.surface.SurfaceAudience;
+import grandrue.surface.PublicInteractionParticipationFact;
+import grandrue.surface.PublicInteractionParticipationRequest;
+import grandrue.surface.PublicInteractionParticipationSource;
+import grandrue.surface.PublicInteractionParticipationSourceRegistration;
+import grandrue.surface.SurfaceAudience;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;

@@ -1,9 +1,9 @@
 package grandrue.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.surface.EstablishedObservationContribution;
-import mainstreet.surface.ObservationContributionKind;
-import mainstreet.surface.ObservationRequestBinding;
+import grandrue.surface.EstablishedObservationContribution;
+import grandrue.surface.ObservationContributionKind;
+import grandrue.surface.ObservationRequestBinding;
 
 import java.util.Objects;
 import java.util.Set;

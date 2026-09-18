@@ -5,7 +5,7 @@ import grandrue.enquiry.EnquiryMerchantRepresentationProjectionReferences;
 import grandrue.enquiry.EnquiryMerchantExposureReferences;
 import grandrue.enquiry.EnquiryMerchantRepresentation;
 import grandrue.enquiry.EnquiryMerchantRepresentationProjectionFragment;
-import mainstreet.surface.*;
+import grandrue.surface.*;
 import java.util.*;
 
 /** Maps only exact M2 fragments selected by P2/E4. No owner reads or fresh authorization occur here. */

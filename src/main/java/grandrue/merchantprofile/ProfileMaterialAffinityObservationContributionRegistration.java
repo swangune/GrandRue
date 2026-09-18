@@ -1,12 +1,12 @@
 package grandrue.merchantprofile;
 
-import mainstreet.surface.BoundedProjectionRead;
-import mainstreet.surface.ObservationContributionCardinality;
-import mainstreet.surface.ObservationContributionConstructor;
-import mainstreet.surface.ObservationContributionDefinition;
-import mainstreet.surface.ObservationContributionKind;
-import mainstreet.surface.ObservationContributionRuntimeBinding;
-import mainstreet.surface.SurfaceAudience;
+import grandrue.surface.BoundedProjectionRead;
+import grandrue.surface.ObservationContributionCardinality;
+import grandrue.surface.ObservationContributionConstructor;
+import grandrue.surface.ObservationContributionDefinition;
+import grandrue.surface.ObservationContributionKind;
+import grandrue.surface.ObservationContributionRuntimeBinding;
+import grandrue.surface.SurfaceAudience;
 
 import java.util.Objects;
 import java.util.Set;

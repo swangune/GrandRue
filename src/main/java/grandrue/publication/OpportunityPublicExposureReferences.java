@@ -1,10 +1,10 @@
 package grandrue.publication;
 
-import mainstreet.surface.ExposableElementReference;
-import mainstreet.surface.ExposureCandidateInstanceKindReference;
-import mainstreet.surface.ExposureCandidateInstanceReference;
-import mainstreet.surface.ExposureCandidateObservation;
-import mainstreet.surface.ExposureRequirementReference;
+import grandrue.surface.ExposableElementReference;
+import grandrue.surface.ExposureCandidateInstanceKindReference;
+import grandrue.surface.ExposureCandidateInstanceReference;
+import grandrue.surface.ExposureCandidateObservation;
+import grandrue.surface.ExposureRequirementReference;
 
 import java.util.Objects;
 import java.util.Optional;

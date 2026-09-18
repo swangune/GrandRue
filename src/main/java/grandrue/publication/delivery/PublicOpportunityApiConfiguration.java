@@ -3,8 +3,8 @@ package grandrue.publication.delivery;
 import grandrue.publication.OpportunityPublicationStateAuthority;
 import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.SemanticRegistrySnapshot;
-import mainstreet.surface.AudienceObservationAdmissionEvaluator;
-import mainstreet.surface.AudienceObservationContextEstablisher;
+import grandrue.surface.AudienceObservationAdmissionEvaluator;
+import grandrue.surface.AudienceObservationContextEstablisher;
 import org.springframework.context.annotation.*;
 import java.time.Clock;
 

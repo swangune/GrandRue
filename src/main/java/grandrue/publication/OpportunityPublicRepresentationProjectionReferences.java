@@ -1,8 +1,8 @@
 package grandrue.publication;
 
-import mainstreet.surface.ProjectionContractIdentity;
-import mainstreet.surface.ProjectionReadUseIdentity;
-import mainstreet.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ProjectionContractIdentity;
+import grandrue.surface.ProjectionReadUseIdentity;
+import grandrue.surface.ProjectionSourceDependencyReference;
 
 /** Stable implementation references for the P5 bounded public Opportunity projection. */
 public final class OpportunityPublicRepresentationProjectionReferences {

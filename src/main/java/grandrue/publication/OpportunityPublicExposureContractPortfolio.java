@@ -1,11 +1,11 @@
 package grandrue.publication;
 
-import mainstreet.surface.ExposureDecision;
-import mainstreet.surface.ExposureElementContract;
-import mainstreet.surface.ExposureElementContractIdentity;
-import mainstreet.surface.ExposureElementContractRegistrySnapshot;
-import mainstreet.surface.ExposureMemberIdentitySpecification;
-import mainstreet.surface.SurfaceAudience;
+import grandrue.surface.ExposureDecision;
+import grandrue.surface.ExposureElementContract;
+import grandrue.surface.ExposureElementContractIdentity;
+import grandrue.surface.ExposureElementContractRegistrySnapshot;
+import grandrue.surface.ExposureMemberIdentitySpecification;
+import grandrue.surface.SurfaceAudience;
 
 import java.util.Optional;
 import java.util.Set;

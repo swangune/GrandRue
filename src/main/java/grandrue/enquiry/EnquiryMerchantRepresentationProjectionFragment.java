@@ -1,8 +1,8 @@
 package grandrue.enquiry;
 
-import mainstreet.surface.ExposureCandidateObservation;
-import mainstreet.surface.ProjectionMaterialFragment;
-import mainstreet.surface.ProjectionMaterialSourceAffinity;
+import grandrue.surface.ExposureCandidateObservation;
+import grandrue.surface.ProjectionMaterialFragment;
+import grandrue.surface.ProjectionMaterialSourceAffinity;
 
 import java.util.Objects;
 import java.util.Set;

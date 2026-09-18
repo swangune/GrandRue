@@ -6,7 +6,7 @@ import grandrue.publication.*;
 import grandrue.publication.delivery.*;
 import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.semantic.registry.*;
-import mainstreet.surface.*;
+import grandrue.surface.*;
 import java.time.Clock;
 import java.util.*;
 
