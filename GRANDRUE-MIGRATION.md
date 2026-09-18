@@ -271,7 +271,7 @@ State: `OPEN`
 | `GR-REN-02-01X297` | `COMPLETE_PENDING_FINAL_VERIFICATION` | `onboarding/OnboardingSubmissionReadinessEvaluator.java` + one bounded persistence consumer | `6010bbfde05c194951280ecfcb737f092a2ddffc` |
 | `GR-REN-02-01X+` | `EXPANSION_REQUIRED` | remaining production package roots; prepare next leaf from live bounded dependency evidence | pending |
 | `GR-REN-02-02` | `NOT_STARTED` | current-product comments/wording only in touched production source files | pending |
-| `GR-REN-02-03` | `NOT_STARTED` | production namespace structural consistency/residual gate | pending |
+| `GR-REN-02-03` | `NOT_STARTED` | aggregate production namespace closure/residual gate; validate current final state by closed region, not by replaying completed leaves | pending |
 
 ### Important lineage and boundary notes
 
@@ -818,7 +818,10 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 - `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `NOT_STARTED`
 - `GR-REN-06` — compatibility aliases/preserved identities: `NOT_STARTED`
 - `GR-REN-07` — active controls/canonical governance wording: `NOT_STARTED`
-- `GR-REN-08..11` — residual audit, falsification, structural/final verification: `NOT_STARTED`
+- `GR-REN-08` — whole-repository migration coverage and residual classification: `NOT_STARTED`
+- `GR-REN-09` — migration falsification and exception/protected-identity validation: `NOT_STARTED`
+- `GR-REN-10` — executable structural/build/test validation: `NOT_STARTED`
+- `GR-REN-11` — final closure/reconciliation and migration completion decision: `NOT_STARTED`
 
 ---
 
@@ -1043,3 +1046,47 @@ Verification is **aggregate-first**:
 6. leaf-level evidence is retained or mechanically derived from the manifest/diff for traceability.
 
 This protocol changes reasoning/execution granularity only. All preservation, no-force-update, prototype exclusion, test deferral and final migration gates remain unchanged.
+
+---
+
+## 9. Migration Validation Protocol — aggregate-first, exception-driven
+
+Validation MUST prove the strongest invariants over the largest closed boundary once. Leaf evidence remains audit evidence; deeper reasoning is reserved for exceptions and counterexamples. Validation MUST NOT become a second leaf-by-leaf migration.
+
+### 9.1 Closed-subgraph checkpoint validation
+
+For each future closed-subgraph tranche, validate in this order: frozen manifest; exact aggregate changed-path set; destination/legacy-owner/consumer closure; protected identities and expected residuals; region residual scan; mechanically derived owner/leaf evidence; checkpoint.
+
+A passing aggregate proof may satisfy all normal owners in that tranche. Repeat per-leaf repository discovery only when the aggregate proof cannot establish a property, an exception was isolated, evidence is stale/inconsistent, or a counterexample identifies that leaf or edge.
+
+### 9.2 Validation evidence hierarchy
+
+Current final repository state outranks closed-subgraph manifests and diffs; those outrank code/checkpoint commit evidence; those outrank leaf audit records and historical prose summaries. A historical completion record cannot override a contradictory current tree.
+
+### 9.3 GR-REN-08 — whole-repository coverage and residual classification
+
+Perform deterministic whole-repository scans over every in-scope surface. Every residual legacy identity must receive exactly one disposition: MIGRATED_CURRENT_IDENTITY, PROTECTED_STABLE_IDENTITY, NON_MIGRATING_LEGACY_PROTOTYPE, HISTORICAL_EVIDENCE, COMPATIBILITY_ALIAS_OR_FALLBACK, DEFERRED_TO_EXPLICIT_NAMED_GROUP, or MIGRATION_DEFECT.
+
+Completion requires exhaustive enumeration with zero unclassified, prepared, ready, uncheckpointed CODE_COMMITTED, unresolved-blocked, or MIGRATION_DEFECT items. Audit current path/reference/residual sets; do not read every completed leaf narrative.
+
+### 9.4 GR-REN-09 — falsification and exception validation
+
+Attempt to disprove owner closure, cross-package consumer closure, visibility-sensitive moves, transitional dependencies, protected persisted/external identities, Flyway/history preservation, prototype exclusion, stable MS-* identifiers, build/config/runtime naming boundaries, and every isolated exception.
+
+Normal deterministic populations SHOULD be validated by set/query invariants plus targeted representative falsification. Exception classes and protected-identity classes require 100% explicit disposition/checking. A counterexample reopens the smallest affected dependency-closed region rather than the whole migration unless the invariant itself is globally unsound.
+
+### 9.5 GR-REN-10 — executable validation
+
+When separately authorised, prove executable coherence with production/test structural checks, compile/test verification, the full backend gate where applicable, applicable storefront/build/CI-equivalent checks, and required configuration/startup checks.
+
+Existing restrictions remain in force: this protocol does not itself authorise Maven tests or GitHub Actions. If required executable validation remains unauthorised, GR-REN-10 remains incomplete; structural evidence must not be promoted into an executable-validation claim.
+
+### 9.6 GR-REN-11 — final closure
+
+Final completion requires GR-REN-02..07 complete; GR-REN-08 zero unexplained residuals; GR-REN-09 no unresolved counterexample; GR-REN-10 all required executable validation satisfied; protected identities/history/runtime-data boundaries preserved; no uncheckpointed CODE_COMMITTED tranche; ledger/work/manifests consistent with branch ancestry; and no known migration exception unresolved.
+
+The final decision is based on current state plus immutable evidence and MUST NOT require replaying hundreds of leaf-level reasoning cycles.
+
+### 9.7 Machine-readable validation state
+
+When GR-REN-08 begins, the canonical checkpoint SHOULD expose validation mode AGGREGATE_FIRST_EXCEPTION_DRIVEN plus coverage, falsification, executable and closure states. Only actually executed evidence may advance those states.
