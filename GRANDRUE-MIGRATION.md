@@ -527,6 +527,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X180`: `ActorAuthorisationAuthority.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Six bounded production consumers were updated atomically: `grandrue.workforce.WorkforceActorAuthorisationAuthority`, `mainstreet.surface.ContextualSurfaceResolver` and `grandrue.enquiry.EnquiryMerchantExposureRequirementEvaluator` now import `grandrue.runtime.ActorAuthorisationAuthority`; `grandrue.runtime.PrivilegeOperationExecutionGuard` dropped its transitional legacy authority import because the interface is now in the same GrandRue package; and `grandrue.enquiry.delivery.MerchantEnquiryApiConfiguration` plus `grandrue.enquiry.delivery.MerchantEnquiryQuery` received explicit `grandrue.runtime.ActorAuthorisationAuthority` imports while retaining unrelated `mainstreet.runtime.*` wildcard dependencies. Current tests remain deferred to `GR-REN-03`. The prepared parent was `e083445cb8499d14d12e6c4f667170afaf3d3fb5`; the owner input blob was `a5e69dc4b6dfd3085cd9cfde3d4f76f1142489e1`; consumer input blobs were `be792bc6595fc58e3e74bb7fffb382dbd4c96906`, `558678777bf2bd5a0a0126ea630a3e87234d0a20`, `b4ad790835cedc1d07b44f7d0bd190881b16e25b`, `7538b317d75576cf97ecddb9ae87d06b904ab5e4`, `7067aff4edc8259b14b0583885df302ba3dff728` and `3a287532f98de7fb6bdc1962c14d000ac87f9c21`; the GrandRue owner destination was absent at preflight. The moved authority received one explicit transitional import for the remaining legacy `ExecutionPrincipal` type. Existing merchant-scoped current privilege decision semantics were unchanged. Code commit `ac1368d04b53e99978e4328fb1dd6b407c126ce4` contains exactly one owner rename/package replacement, one transitional import addition, three production consumer import replacements, one redundant legacy import removal and two explicit production consumer import additions alongside retained wildcard dependencies.
 
+- `GR-REN-02-01X181`: `RequirementEvaluation.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Two bounded production consumers were updated atomically: `grandrue.runtime.ScopedOperationDispatcher` and `grandrue.runtime.OperationRequirementEvaluator` dropped their transitional legacy evaluation imports because the type is now in the same GrandRue package. Current tests remain deferred to `GR-REN-03`. The prepared parent was `9c5dc10c4698bf36f4f96b0f7249239942b0d847`; the owner input blob was `df10ea8303c462ea1fc8314fbeea793fb08bcb32`; consumer input blobs were `d74ad4278c00b43101f789899f1ceb9f7ec8bd69` and `04d65ec9682f5520f97a289450baa928a1cc16a0`; the GrandRue owner destination was absent at preflight. Existing captured-operation requirement applicability, satisfaction and unsatisfied-requirement evidence semantics were unchanged. Code commit `21f48ffaebac1f20ed7e9e3b37da2df83011a315` contains exactly one owner rename/package replacement and two redundant legacy import removals.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -558,9 +560,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X180
-last_completed_task: GR-REN-02-01X180
-last_task_commit: ac1368d04b53e99978e4328fb1dd6b407c126ce4
+selected_execution_leaf: GR-REN-02-01X181
+last_completed_task: GR-REN-02-01X181
+last_task_commit: 21f48ffaebac1f20ed7e9e3b37da2df83011a315
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -646,8 +648,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X180
-last_prepared_execution_commit: ac1368d04b53e99978e4328fb1dd6b407c126ce4
+last_prepared_execution_leaf: GR-REN-02-01X181
+last_prepared_execution_commit: 21f48ffaebac1f20ed7e9e3b37da2df83011a315
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
