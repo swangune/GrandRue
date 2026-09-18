@@ -1,75 +1,58 @@
 migration: MAIN_STREET_TO_GRANDRUE
-execution_mode: VALIDATION_GATE
+execution_mode: VALIDATION_SUPPLEMENT
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T025
+tranche: GR-REN-02-T026
 group: GR-REN-02-03
 state: COMPLETE
 code_commit: null
-validated_head: 5b40ed2d2591d91d3f3b7720ec7c596cc004730a
-validated_tree: aeb64a259ff68f0abb53ab903437aaf4c52026c8
+validated_head: 0d0dc1ed887673e8d3f25658d209752ebff905fd
 checkpoint_commit: THIS_COMMIT
 verified: true
-expected_parent: 5b40ed2d2591d91d3f3b7720ec7c596cc004730a
+expected_parent: 0d0dc1ed887673e8d3f25658d209752ebff905fd
 
 scope:
-  identity: aggregate-production-namespace-wording-closure
+  identity: production-standalone-symbolic-product-name-closure
   source_mutation: none
   test_mutation: none
-  baseline_commit: c4153441d8340b229a29884967d796280d949a7d
-  baseline_tree: 90f13fa113e770023652e40be20c0e7f894e0623
+  standalone_tokens:
+    - MAIN_STREET
+    - MAINSTREET
+    - MainStreet
+    - mainStreet
+  exact_token_regex: '\b(MAIN_STREET|MAINSTREET|MainStreet|mainStreet)\b'
 
-verification_evidence:
-  recursive_tree_inputs_truncated: false
-  baseline_nonprototype_production_owner_count: 1094
-  expected_grandrue_destination_count: 1094
-  actual_grandrue_production_owner_count: 1094
-  missing_mapped_destination_count: 0
-  unexpected_grandrue_production_path_count: 0
-  nonprototype_legacy_production_owner_count: 0
-  excluded_legacy_prototype_production_file_count: 49
-  t024_nonprototype_exact_Main_Street_residual: zero
-  t024_checkpoint_source_delta_count: 0
-  t024_checkpoint_changed_paths:
-    - GRANDRUE-MIGRATION.md
-    - docs/development/grandrue-migration-active-tranche.yaml
-    - docs/development/grandrue-migration-work.md
+evidence:
+  default_branch_index_commit: 5c73ed82248315a9e318289f032ed445573f8d37
+  migration_baseline: c4153441d8340b229a29884967d796280d949a7d
+  default_branch_production_symbolic_hits: 0
+  default_to_baseline_changed_or_added_production_java_files: 34
+  changed_or_added_baseline_blobs_directly_checked: 34
+  baseline_changed_or_added_symbolic_hits: 0
+  derived_baseline_production_standalone_symbolic_hits: 0
+  migration_transformation_classes_introduce_standalone_legacy_symbol: false
+  t025_checkpoint_product_source_delta_count: 0
+  live_production_standalone_symbolic_residuals: 0
 
-residual_classification:
-  - class: NON_MIGRATING_LEGACY_PROTOTYPE
-    path: src/main/java/mainstreet/prototype/**
-    file_count: 49
-  - class: PROTECTED_IDENTITY
-    identity: mainstreet_correlation_identifier
-    live_occurrences_checked: 1
-  - class: PROTECTED_IDENTITY
-    identity: mainStreetCorrelationIdentity
-    live_occurrences_checked: 4
-  - class: PROTECTED_IDENTITY
-    identity: mainstreet/enquiry/opportunity-binding/v1/
-    live_occurrences_checked: 1
-  - class: PROTECTED_IDENTITY
-    identity: mainstreet-semantic-bundle-v1
-    live_occurrences_checked: 1
-  - class: PROTECTED_IDENTITY
-    identity: mainstreet-semantic-bundle-v2
-    live_occurrences_checked: 1
-  - class: PROTECTED_IDENTITY
-    identity: mainstreet-exposure-definitions-v1
-    live_occurrences_checked: 1
-  - class: PROTECTED_IDENTITY
-    identity: calendar/current-main-street-commitments
-    representation: composed calendar owner plus current-main-street-commitments policy key
-  - class: PROTECTED_IDENTITY_CLASS
-    identity: historical notification failure FQCN evidence
-  - class: PROTECTED_IDENTITY_CLASS
-    identity: stable MS-* and accepted DQ/rule/contract/historical evidence
+classification:
+  standalone_current_product_enum_or_static_constant:
+    count: 0
+  embedded_protected_or_compatibility_identifiers:
+    examples:
+      - mainStreetCorrelationIdentity
+      - MAINSTREET_CORRELATION_IDENTIFIER
+    disposition: preserve_or_handle_under_GR_REN_06
+  test_runtime_identifiers:
+    examples:
+      - MAINSTREET_TEST_POSTGRES_URL
+      - MAINSTREET_TEST_POSTGRES_USER
+      - MAINSTREET_TEST_POSTGRES_PASSWORD
+    disposition: deferred_to_applicable_GR_REN_03_04_05_scope
+  design_governance_or_historical_occurrences:
+    disposition: deferred_to_GR_REN_07_or_preserved_if_stable_historical_identity
 
 verification:
-  aggregate_path_set: exact
-  namespace_closure: pass
-  wording_closure: pass_from_fresh_T024_verified_source_tree
-  protected_identity_classification: pass
+  symbolic_enum_constant_gap: closed
   product_source_mutation: none
   test_mutation: none
   maven_tests: prohibited_unless_separately_authorised

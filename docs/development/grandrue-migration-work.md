@@ -397,9 +397,10 @@ active_tranche: null
 active_state: PREPARATION_REQUIRED
 last_completed_leaf: GR-REN-02-01X739
 last_code_commit: dffa48aca6d5fa254e7e28ca2cea37db47dcab33
-last_validation_gate: GR-REN-02-03
-last_validation_target: 5b40ed2d2591d91d3f3b7720ec7c596cc004730a
-next_action: GR-REN-02 production namespace and current-product wording are closed pending final verification. Prepare GR-REN-03 from the live post-T025 checkpoint as one dependency-bounded test namespace/runtime-coupled fixture region, excluding legacy prototype tests and preserving protected identities; do not run Maven tests or GitHub Actions without separate authorisation.
+last_validation_gate: GR-REN-02-03_SYMBOLIC_SUPPLEMENT
+last_validation_target: 0d0dc1ed887673e8d3f25658d209752ebff905fd
+symbolic_standalone_production_residuals: 0
+next_action: GR-REN-02 production namespace, current-product wording and standalone symbolic product-name closure are complete pending final verification. Prepare GR-REN-03 from the live post-T026 checkpoint as one dependency-bounded test namespace/runtime-coupled fixture region, excluding legacy prototype tests; classify embedded compatibility/runtime identifiers separately from ordinary package/import/FQCN rewrites; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
