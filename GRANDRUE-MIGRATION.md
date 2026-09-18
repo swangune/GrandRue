@@ -558,6 +558,9 @@ State: `OPEN`
 
 - `GR-REN-02-01X193`: `MerchantClassificationExposure.java` moved from `mainstreet.merchantprofile` to `grandrue.merchantprofile`. Three bounded production consumers were updated atomically: `mainstreet.merchantprofile.MerchantClassificationEntryV1` and `mainstreet.merchantprofile.UpdateMerchantClassificationEntryCommand` received explicit `grandrue.merchantprofile.MerchantClassificationExposure` imports, while `grandrue.infrastructure.persistence.merchantprofile.JooqMerchantClassificationEntryAuthority` replaced its legacy exposure import with the GrandRue owner. Current tests remain deferred to `GR-REN-03`. The prepared parent was `9a6ea0231ae3813e41c9cf9430a21abc6ecc4d28`; the owner input blob was `c53534b990f8f1b7f00baa8eeffa8817420779dc`; consumer input blobs were `8886115da1d00e4dec29b0b195828fe70cb16930`, `d2a77eeaeb92a314748877e1f112a74ff9e2c591` and `8cce3c719345d404175f31c0a1478a9880606760`; the GrandRue owner destination was absent at preflight. Existing merchant-owned PRIVATE_INTERNAL/PUBLIC source-exposure values and persisted exposure-choice name semantics were unchanged. Code commit `7bd94c6a415db822cf735a9756ef35c225dd3ffe` contains exactly one owner rename/package replacement, two production consumer import additions and one production consumer import replacement; structural verification confirmed a four-file production diff, the GrandRue owner at blob `f5660674b20ed59181b6a9564d3616e1a4c7d1ed`, and absence of the legacy owner path.
 
+
+- `GR-REN-02-01X194`: `MerchantExternalPresenceLifecycle.java` moved from `mainstreet.merchantprofile` to `grandrue.merchantprofile`. Two bounded production consumers were updated atomically: `mainstreet.merchantprofile.MerchantExternalPresenceLinkRevision` received an explicit `grandrue.merchantprofile.MerchantExternalPresenceLifecycle` import, and `grandrue.infrastructure.persistence.merchantprofile.JooqMerchantExternalPresenceLinkAuthority` replaced its legacy lifecycle import with the GrandRue owner. Current tests remain deferred to `GR-REN-03`. The prepared parent was `65a9bcb9794b31d87e1bb6d7774a397e3a9ea348`; the owner input blob was `3192dc154470f9bf39a9848ba5f5dddf2228db70`; consumer input blobs were `e8d57b50bed21c5523b65726db6c95140bf7ce54` and `1ac77ef2adc05229d1cb7d67863364906fb77afd`; the GrandRue owner destination was absent at preflight. Existing ACTIVE/RETIRED lifecycle values and persisted lifecycle-name semantics were unchanged. Code commit `1ae06aa23fe3d5b495ee6155a8694008d0e959e4` contains exactly one owner rename/package replacement, one production consumer import addition and one production consumer import replacement; structural verification confirmed a three-file production diff, the GrandRue owner at blob `1669d9aade33f03d76709873bfdd3e1bc1e06d12`, and absence of the legacy owner path.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -589,9 +592,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X193
-last_completed_task: GR-REN-02-01X193
-last_task_commit: 7bd94c6a415db822cf735a9756ef35c225dd3ffe
+selected_execution_leaf: GR-REN-02-01X194
+last_completed_task: GR-REN-02-01X194
+last_task_commit: 1ae06aa23fe3d5b495ee6155a8694008d0e959e4
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -677,8 +680,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X193
-last_prepared_execution_commit: 7bd94c6a415db822cf735a9756ef35c225dd3ffe
+last_prepared_execution_leaf: GR-REN-02-01X194
+last_prepared_execution_commit: 1ae06aa23fe3d5b495ee6155a8694008d0e959e4
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
