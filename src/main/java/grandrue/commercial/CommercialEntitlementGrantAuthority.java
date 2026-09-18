@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-import mainstreet.commercial.CommercialEntitlementGrant;
+import grandrue.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 
 import grandrue.application.MerchantScope;
