@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T013
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 6010bbfde05c194951280ecfcb737f092a2ddffc
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: c84ce509d13f8460fbb45d63cfdd4a7ad0fd546a
 leaf_range:
   first: GR-REN-02-01X290
@@ -153,3 +155,11 @@ preparation_notes:
   - T013 is the final onboarding production namespace closure.
   - All eight remaining owners move together, eliminating the four transitional imports recorded by T012.
   - No prototype path is selected or changed.
+
+completed:
+  last_leaf: GR-REN-02-01X297
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 16
+  structural_verification: passed
+  onboarding_production_namespace_complete: true
+  next_tranche: GR-REN-02-T014
