@@ -5,7 +5,7 @@ import mainstreet.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementGrantAuthority;
 import mainstreet.commercial.CommercialEntitlementIdentity;
 import mainstreet.commercial.InitialFullExperienceTrial;
-import mainstreet.commercial.InitialFullExperienceTrialGrantSource;
+import grandrue.commercial.InitialFullExperienceTrialGrantSource;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;

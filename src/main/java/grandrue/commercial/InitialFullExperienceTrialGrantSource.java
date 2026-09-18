@@ -1,4 +1,8 @@
-package mainstreet.commercial;
+package grandrue.commercial;
+
+import mainstreet.commercial.CommercialEntitlementGrant;
+import mainstreet.commercial.CommercialEntitlementIdentity;
+import mainstreet.commercial.InitialFullExperienceTrial;
 
 import java.util.List;
 import java.util.Objects;
