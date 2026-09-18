@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * Authoritative merchant-scoped workforce relationship for one Main Street
+ * Authoritative merchant-scoped workforce relationship for one GrandRue
  * identity. Membership alone grants no capability privilege.
  */
 public final class MerchantMembership {

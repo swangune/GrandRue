@@ -6,7 +6,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * Main Street media identity plus canonical-source provenance. Storage reference
+ * GrandRue media identity plus canonical-source provenance. Storage reference
  * remains infrastructure metadata and is never the MediaAsset identity.
  */
 public record MediaAsset(

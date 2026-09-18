@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * Code-owned initial Merchant Presence and Main Street Calendar Projection
+ * Code-owned initial Merchant Presence and GrandRue Calendar Projection
  * Contract portfolio accepted by MS-PROT-027 v1.7.
  */
 public final class InitialProjectionContractPortfolio {

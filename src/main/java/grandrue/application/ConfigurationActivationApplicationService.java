@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * Trusted application boundary for human Merchant Configuration activation.
  *
- * <p>This service binds caller intent to a Main Street-established
+ * <p>This service binds caller intent to a GrandRue-established
  * TrustedExecutionContext before a new activation attempt may reach the
  * authoritative activation boundary.</p>
  *

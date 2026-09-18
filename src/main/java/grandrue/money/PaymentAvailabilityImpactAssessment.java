@@ -23,9 +23,9 @@ import java.util.Objects;
  */
 public final class PaymentAvailabilityImpactAssessment implements ConfigurationImpactAssessment {
     private static final String ENABLED_EFFECT =
-            "New payment activity can use Main Street Payment where applicable payment semantics and authority permit it.";
+            "New payment activity can use GrandRue Payment where applicable payment semantics and authority permit it.";
     private static final String DISABLED_EFFECT =
-            "New payment activity will no longer be initiated through Main Street Payment.";
+            "New payment activity will no longer be initiated through GrandRue Payment.";
 
     private final ConfigurationCompiler compiler;
 

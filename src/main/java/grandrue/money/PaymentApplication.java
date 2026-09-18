@@ -6,7 +6,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * Main Street interpretation that a bounded amount from one provider evidence
+ * GrandRue interpretation that a bounded amount from one provider evidence
  * item is applied to one payment obligation. It does not rewrite either source.
  */
 public record PaymentApplication(

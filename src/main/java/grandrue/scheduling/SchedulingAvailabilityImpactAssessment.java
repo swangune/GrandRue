@@ -24,9 +24,9 @@ import java.util.Objects;
  */
 public final class SchedulingAvailabilityImpactAssessment implements ConfigurationImpactAssessment {
     private static final String ENABLED_EFFECT =
-            "New appointment scheduling activity can use Main Street Scheduling where applicable scheduling semantics and authority permit it.";
+            "New appointment scheduling activity can use GrandRue Scheduling where applicable scheduling semantics and authority permit it.";
     private static final String DISABLED_EFFECT =
-            "New appointment scheduling activity will no longer be initiated through Main Street Scheduling.";
+            "New appointment scheduling activity will no longer be initiated through GrandRue Scheduling.";
 
     private final ConfigurationCompiler compiler;
 

@@ -23,9 +23,9 @@ import java.util.Objects;
  */
 public final class EnquiryAvailabilityImpactAssessment implements ConfigurationImpactAssessment {
     private static final String ENABLED_EFFECT =
-            "New customer enquiries can be accepted through Main Street where an applicable enquiry interaction is available.";
+            "New customer enquiries can be accepted through GrandRue where an applicable enquiry interaction is available.";
     private static final String DISABLED_EFFECT =
-            "New customer enquiries will no longer be accepted through Main Street.";
+            "New customer enquiries will no longer be accepted through GrandRue.";
 
     private final ConfigurationCompiler compiler;
 

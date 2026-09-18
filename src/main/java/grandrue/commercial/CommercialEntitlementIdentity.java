@@ -1,6 +1,6 @@
 package grandrue.commercial;
 
-/** Stable identity of one Main Street commercial entitlement definition. */
+/** Stable identity of one GrandRue commercial entitlement definition. */
 public record CommercialEntitlementIdentity(String identifier) {
 
     public CommercialEntitlementIdentity {

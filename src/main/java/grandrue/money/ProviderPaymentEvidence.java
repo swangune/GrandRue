@@ -8,7 +8,7 @@ import java.util.Optional;
 
 /**
  * Authenticated/correlated external payment execution evidence. Provider result
- * vocabulary remains evidence and is not copied into a Main Street lifecycle.
+ * vocabulary remains evidence and is not copied into a GrandRue lifecycle.
  */
 public record ProviderPaymentEvidence(
         String evidenceIdentity,

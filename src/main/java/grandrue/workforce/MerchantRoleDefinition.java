@@ -9,7 +9,7 @@ import java.util.Set;
 
 /**
  * Merchant-scoped reusable access profile composed only from privileges already
- * registered by Main Street semantic authority.
+ * registered by GrandRue semantic authority.
  */
 public final class MerchantRoleDefinition {
 

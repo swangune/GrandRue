@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.Objects;
 
 /**
- * Bounded post-verification evidence supplied to Main Street Session
+ * Bounded post-verification evidence supplied to GrandRue Session
  * establishment for one configured WebAuthn authentication path.
  *
  * <p>This policy does not decide whether a WebAuthn assertion satisfied user

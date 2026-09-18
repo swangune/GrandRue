@@ -10,7 +10,7 @@ package grandrue.semantic.configuration;
  * application boundary, then evaluates this current business authority inside
  * the serialized activation transaction.</p>
  *
- * <p>For the current Main Street MVP, approved MS-PROT-040 v1.7 establishes
+ * <p>For the current GrandRue MVP, approved MS-PROT-040 v1.7 establishes
  * ordinary non-initial Configuration activation authority as the current
  * active Merchant Controller of an OPEN, unsuspended Merchant Account.</p>
  *

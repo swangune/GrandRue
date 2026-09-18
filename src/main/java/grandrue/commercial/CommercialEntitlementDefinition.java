@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * Commercial-owned definition of one stable entitlement identity and the
- * already-defined Main Street access point it may satisfy.
+ * already-defined GrandRue access point it may satisfy.
  *
  * <p>The definition references a target; it does not create, configure,
  * activate or make the target semantically applicable.</p>

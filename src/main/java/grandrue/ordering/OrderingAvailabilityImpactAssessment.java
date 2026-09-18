@@ -21,9 +21,9 @@ import java.util.Objects;
  */
 public final class OrderingAvailabilityImpactAssessment implements ConfigurationImpactAssessment {
     private static final String ENABLED_EFFECT =
-            "New orders can be accepted through Main Street where applicable ordering requirements are satisfied.";
+            "New orders can be accepted through GrandRue where applicable ordering requirements are satisfied.";
     private static final String DISABLED_EFFECT =
-            "New orders will no longer be accepted through Main Street.";
+            "New orders will no longer be accepted through GrandRue.";
 
     private final ConfigurationCompiler compiler;
 

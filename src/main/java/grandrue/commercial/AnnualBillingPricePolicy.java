@@ -6,7 +6,7 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 /**
- * Initial accepted Main Street annual-billing commercial price policy.
+ * Initial accepted GrandRue annual-billing commercial price policy.
  *
  * <p>Annual billing is twelve monthly periods with a five-percent discount.
  * If that calculation produces a fractional minor unit, the result is rounded

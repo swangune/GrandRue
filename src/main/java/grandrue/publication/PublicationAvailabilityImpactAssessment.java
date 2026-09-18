@@ -22,9 +22,9 @@ import java.util.Objects;
  */
 public final class PublicationAvailabilityImpactAssessment implements ConfigurationImpactAssessment {
     private static final String ENABLED_EFFECT =
-            "New publishing activity can use Main Street Publication where applicable authority permits it.";
+            "New publishing activity can use GrandRue Publication where applicable authority permits it.";
     private static final String DISABLED_EFFECT =
-            "New publishing activity will no longer be initiated through Main Street Publication.";
+            "New publishing activity will no longer be initiated through GrandRue Publication.";
 
     private final ConfigurationCompiler compiler;
 

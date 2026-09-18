@@ -12,11 +12,11 @@ import java.util.Objects;
 
 /**
  * ADR-015 adapter from a successful Spring WebAuthn authentication to the
- * Main Street-owned opaque Session authority.
+ * GrandRue-owned opaque Session authority.
  *
  * <p>This adapter deliberately does not consume Spring GrantedAuthority,
  * SecurityContext, HttpSession or Merchant Scope. Authentication establishes
- * Identity evidence only; Main Street creates its own fresh Session Credential
+ * Identity evidence only; GrandRue creates its own fresh Session Credential
  * and resolves merchant/business authority later from current sources.</p>
  */
 public final class SpringWebAuthnSessionBridge {

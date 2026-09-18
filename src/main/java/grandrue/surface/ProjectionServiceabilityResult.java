@@ -108,7 +108,7 @@ public record ProjectionServiceabilityResult(
 
     /**
      * Returns whether this result preserves P2 provenance affinity to the exact bounded-read
-     * carrier supplied by Main Street. This is an identity-only correlation check; it grants no
+     * carrier supplied by GrandRue. This is an identity-only correlation check; it grants no
      * authorization and introduces no alternate semantic facts.
      */
     public boolean hasExactBoundedReadAffinity(BoundedProjectionRead boundedRead) {

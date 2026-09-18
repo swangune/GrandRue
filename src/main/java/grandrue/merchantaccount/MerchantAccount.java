@@ -5,7 +5,7 @@ import grandrue.application.MerchantScope;
 import java.util.Objects;
 
 /**
- * Authoritative Main Street merchant tenancy identity.
+ * Authoritative GrandRue merchant tenancy identity.
  *
  * <p>This value establishes only the identity of one Merchant Account. It does
  * not imply onboarding completion, configuration activation, trust,

@@ -5,7 +5,7 @@ import grandrue.application.MerchantScope;
 import java.time.Instant;
 import java.util.Objects;
 
-/** Authoritative Main Street obligation; not a provider transaction. */
+/** Authoritative GrandRue obligation; not a provider transaction. */
 public record PaymentObligation(
         String obligationIdentity,
         MerchantScope merchantScope,

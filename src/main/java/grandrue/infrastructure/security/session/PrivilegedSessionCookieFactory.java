@@ -9,7 +9,7 @@ import java.util.Objects;
  * ADR-014 host-bound cookie contract for privileged human browser sessions.
  *
  * <p>This factory only materialises the accepted transport attributes for an
- * already-issued opaque Main Street session credential. It does not establish
+ * already-issued opaque GrandRue session credential. It does not establish
  * authentication, session authority, Merchant Scope or CSRF policy.</p>
  */
 public final class PrivilegedSessionCookieFactory {

@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * Bounded merchant/contextual reference to an affected natural-person subject.
- * It is not a Main Street Identity, CustomerAccount, CustomerContext or
+ * It is not a GrandRue Identity, CustomerAccount, CustomerContext or
  * Merchant Membership.
  */
 public record DataSubjectReference(

@@ -10,9 +10,9 @@ import java.security.SecureRandom;
 import java.util.Objects;
 
 /**
- * Establishes the Main Street-owned opaque WebAuthn authentication subject for an Identity.
+ * Establishes the GrandRue-owned opaque WebAuthn authentication subject for an Identity.
  *
- * <p>The generated handle is authentication infrastructure only. It contains no Main Street
+ * <p>The generated handle is authentication infrastructure only. It contains no GrandRue
  * Identity identifier, Merchant Scope or business-authority data.</p>
  */
 public final class WebAuthnAuthenticationSubjectService {

@@ -22,9 +22,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Main Street-owned durable persistence adapter for Spring WebAuthn credential records.
+ * GrandRue-owned durable persistence adapter for Spring WebAuthn credential records.
  *
- * <p>This table stores authentication credential state only. It does not own Main Street
+ * <p>This table stores authentication credential state only. It does not own GrandRue
  * Identity relationships, Merchant Scope, Controller authority, roles or privileges.</p>
  */
 public final class JooqWebAuthnUserCredentialRepository implements UserCredentialRepository {

@@ -22,9 +22,9 @@ import java.util.Objects;
  */
 public final class InventoryAvailabilityImpactAssessment implements ConfigurationImpactAssessment {
     private static final String ENABLED_EFFECT =
-            "New inventory-tracked activity can use Main Street Inventory where applicable inventory requirements are satisfied.";
+            "New inventory-tracked activity can use GrandRue Inventory where applicable inventory requirements are satisfied.";
     private static final String DISABLED_EFFECT =
-            "New inventory-tracked activity will no longer be initiated through Main Street Inventory.";
+            "New inventory-tracked activity will no longer be initiated through GrandRue Inventory.";
 
     private final ConfigurationCompiler compiler;
 

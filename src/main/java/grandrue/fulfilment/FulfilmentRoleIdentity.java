@@ -1,6 +1,6 @@
 package grandrue.fulfilment;
 
-/** Stable Main Street identity for one fulfilment responsibility. */
+/** Stable GrandRue identity for one fulfilment responsibility. */
 public record FulfilmentRoleIdentity(
         String ownerContextIdentifier,
         String roleIdentifier

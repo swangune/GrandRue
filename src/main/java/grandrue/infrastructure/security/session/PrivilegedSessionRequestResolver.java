@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  * ADR-014 request adapter from the host-bound privileged browser cookie to the
- * Main Street-owned server-authoritative Session resolver.
+ * GrandRue-owned server-authoritative Session resolver.
  *
  * <p>This adapter establishes no Merchant Scope, relationship, role,
  * privilege, entitlement or capability authority. Headers, request parameters

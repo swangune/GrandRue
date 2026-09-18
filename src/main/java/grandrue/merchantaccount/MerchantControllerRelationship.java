@@ -4,7 +4,7 @@ import grandrue.application.MerchantScope;
 
 import java.util.Objects;
 
-/** Main Street control relationship; it does not assert legal ownership. */
+/** GrandRue control relationship; it does not assert legal ownership. */
 public record MerchantControllerRelationship(
         String relationshipIdentifier,
         MerchantScope merchantScope,

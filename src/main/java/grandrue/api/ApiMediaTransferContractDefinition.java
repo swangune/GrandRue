@@ -27,7 +27,7 @@ public record ApiMediaTransferContractDefinition(
     public sealed interface Authority permits UploadAuthority, DownloadAuthority {
     }
 
-    /** Bounded Main Street authority required before media bytes are uploaded. */
+    /** Bounded GrandRue authority required before media bytes are uploaded. */
     public record UploadAuthority(
             String merchantActorScopeAuthorityReference,
             String permittedMediaRoleContextReference,

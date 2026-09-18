@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Main Street registry preventing duplicate notification semantic identities. */
+/** GrandRue registry preventing duplicate notification semantic identities. */
 public final class NotificationContractRegistry {
     private final Map<String, NotificationContract> contracts = new LinkedHashMap<>();
 

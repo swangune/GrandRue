@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * ADR-015 production policy for the privileged Main Street WebAuthn relying party.
+ * ADR-015 production policy for the privileged GrandRue WebAuthn relying party.
  *
  * <p>The policy is intentionally independent of merchant storefront/custom domains.
  * Only explicitly configured HTTPS origins participate in privileged authentication.</p>

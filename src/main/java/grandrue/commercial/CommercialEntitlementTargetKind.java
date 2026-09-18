@@ -3,7 +3,7 @@ package grandrue.commercial;
 /**
  * Accepted commercial-entitlement target families.
  *
- * <p>These categories describe what kind of already-defined Main Street access
+ * <p>These categories describe what kind of already-defined GrandRue access
  * point an entitlement references. They do not create or activate that target.</p>
  */
 public enum CommercialEntitlementTargetKind {

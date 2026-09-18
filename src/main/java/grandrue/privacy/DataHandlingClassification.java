@@ -1,6 +1,6 @@
 package grandrue.privacy;
 
-/** Main Street engineering/governance handling classifications. */
+/** GrandRue engineering/governance handling classifications. */
 public enum DataHandlingClassification {
     STANDARD,
     PERSONAL,

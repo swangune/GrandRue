@@ -16,9 +16,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Main Street-owned persistence for the technical WebAuthn authentication subject.
+ * GrandRue-owned persistence for the technical WebAuthn authentication subject.
  *
- * <p>The opaque user handle is bound one-to-one to a Main Street Identity reference,
+ * <p>The opaque user handle is bound one-to-one to a GrandRue Identity reference,
  * but this repository does not own Merchant Scope, Controller relationships, roles,
  * privileges, entitlements or any other business authority.</p>
  */
@@ -54,7 +54,7 @@ public final class JooqWebAuthnAuthenticationSubjectRepository
             byte[] existingHandle = existingIdentity.get(USER_HANDLE);
             if (!Arrays.equals(existingHandle, requiredEntity.getId().getBytes())) {
                 throw new IllegalStateException(
-                        "Main Street Identity is already bound to another WebAuthn user handle"
+                        "GrandRue Identity is already bound to another WebAuthn user handle"
                 );
             }
             save(requiredEntity);
@@ -64,7 +64,7 @@ public final class JooqWebAuthnAuthenticationSubjectRepository
         Record existingHandle = rowById(requiredEntity.getId());
         if (existingHandle != null) {
             throw new IllegalStateException(
-                    "WebAuthn user handle is already bound to another Main Street Identity"
+                    "WebAuthn user handle is already bound to another GrandRue Identity"
             );
         }
 
@@ -148,7 +148,7 @@ public final class JooqWebAuthnAuthenticationSubjectRepository
                     .execute();
             if (updated != 1) {
                 throw new IllegalStateException(
-                        "Spring WebAuthn cannot create a caller-selected Main Street user handle"
+                        "Spring WebAuthn cannot create a caller-selected GrandRue user handle"
                 );
             }
         } catch (DataAccessException exception) {
@@ -173,7 +173,7 @@ public final class JooqWebAuthnAuthenticationSubjectRepository
         Record row = rowById(requiredPrincipal.getId());
         if (row == null) {
             throw new IllegalStateException(
-                    "Verified WebAuthn user handle has no Main Street Identity binding"
+                    "Verified WebAuthn user handle has no GrandRue Identity binding"
             );
         }
         return row.get(IDENTITY_REFERENCE);
