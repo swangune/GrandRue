@@ -483,6 +483,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X158`: `ScheduledBackgroundWorkExecutionAuthority.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Two bounded production consumers were updated atomically: `grandrue.runtime.RegisteredScheduledBackgroundWorkExecutionAuthority` dropped its transitional legacy authority import because the interface is now in the same GrandRue package, and `grandrue.application.StandingFreeBackgroundWorkExecution` now imports `grandrue.runtime.ScheduledBackgroundWorkExecutionAuthority`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `47b0969e5b5825d2c7807f6cc9fa67469dfe939c`; the owner input blob was `72791220a50589afd6275d88fb90cd7c67cbd847`; consumer input blobs were `fd1839a968896b2472d8b9e1bbdc0a4b81bb7f58` and `55b0cb558ce45a9e612e8627a42086742eb7db31`; the GrandRue owner destination was absent at preflight. The moved interface received one explicit transitional import for the remaining legacy `TrustedExecutionContext` type. Existing contract-bounded scheduled background-work principal establishment semantics were unchanged. Code commit `23f3085d0b97c030b120d38522f6f32870bd0a8e` contains exactly one owner rename/package replacement, one transitional import addition, one redundant legacy import removal and one production consumer import replacement.
 
+- `GR-REN-02-01X159`: `ScheduledEventReactionExecutionAuthority.java` moved from `mainstreet.runtime` to `grandrue.runtime`. Two bounded production consumers were updated atomically: `grandrue.runtime.RegisteredScheduledEventReactionExecutionAuthority` dropped its transitional legacy authority import because the interface is now in the same GrandRue package, and `grandrue.application.StandingFreeMerchantAccountEstablishedReaction` now imports `grandrue.runtime.ScheduledEventReactionExecutionAuthority`. Current tests remain deferred to `GR-REN-03`. The prepared parent was `cf6f5f931f664df6da725770b03a3d0f24c96c66`; the owner input blob was `6b6c207f22a38fbfd0aae206abe21ed16ad938fc`; consumer input blobs were `aac17044bb16572f38b8f051828b0918f9308884` and `ae1611054b8775bf467beae7ac497fccb6fad33b`; the GrandRue owner destination was absent at preflight. The moved interface received one explicit transitional import for the remaining legacy `TrustedExecutionContext` type; existing legacy Semantic Event contract imports remain transitional. Existing contract-bounded scheduled event-reaction principal establishment semantics were unchanged. Code commit `83887c097c9cc4ecc31c45dcda2dabb0aa6e19c7` contains exactly one owner rename/package replacement, one transitional import addition, one redundant legacy import removal and one production consumer import replacement.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -514,9 +516,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X158
-last_completed_task: GR-REN-02-01X158
-last_task_commit: 23f3085d0b97c030b120d38522f6f32870bd0a8e
+selected_execution_leaf: GR-REN-02-01X159
+last_completed_task: GR-REN-02-01X159
+last_task_commit: 83887c097c9cc4ecc31c45dcda2dabb0aa6e19c7
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -602,8 +604,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X158
-last_prepared_execution_commit: 23f3085d0b97c030b120d38522f6f32870bd0a8e
+last_prepared_execution_leaf: GR-REN-02-01X159
+last_prepared_execution_commit: 83887c097c9cc4ecc31c45dcda2dabb0aa6e19c7
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
