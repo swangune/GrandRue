@@ -2,7 +2,7 @@ package grandrue.commercial;
 
 import grandrue.commercial.CommercialEntitlementDefinition;
 import mainstreet.commercial.CommercialEntitlementIdentity;
-import mainstreet.commercial.CommercialEntitlementTargetKind;
+import grandrue.commercial.CommercialEntitlementTargetKind;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

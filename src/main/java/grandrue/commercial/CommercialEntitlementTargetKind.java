@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 /**
  * Accepted commercial-entitlement target families.
