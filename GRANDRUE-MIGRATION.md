@@ -403,6 +403,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X118`: `PublicEnquiryRequirementsUnsatisfiedException.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Two bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.PublicGeneralEnquiryController` and `mainstreet.enquiry.delivery.PublicOpportunityEnquiryController` received explicit `grandrue.enquiry.delivery.PublicEnquiryRequirementsUnsatisfiedException` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `54bcb6d8dc92d676a7984bb7e69817bda44ffcf5`; owner input blob was `55dd0bfa89ee81230cad31896bbe94e570bdec3c`; consumer input blobs were `291ef3917bceea13a720619e91ec987cba1da23b` and `ffd0bd1fb96882d5aa3486c1e04133a167c79f38`; the GrandRue owner destination was absent at preflight. The moved owner required no transitional imports. Existing known pre-Enquiry owner-requirement rejection semantics were unchanged. Code commit `2e9d34d4ed104637c54a3ac68ef9bdda6535b8d6` contains exactly one owner rename/package replacement and two production consumer import additions.
 
+- `GR-REN-02-01X119`: `PublicEnquirySubmissionAdmissionAuthority.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Four bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.PublicGeneralEnquiryApiConfiguration`, `mainstreet.enquiry.delivery.PublicOpportunityEnquiryApiConfiguration`, `mainstreet.enquiry.delivery.PublicGeneralEnquirySubmission` and `mainstreet.enquiry.delivery.PublicOpportunityEnquirySubmission` received explicit `grandrue.enquiry.delivery.PublicEnquirySubmissionAdmissionAuthority` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `05d063e0f9d42ff74899b0ee4391c9b846247930`; owner input blob was `90af659f9d105eda517cef066e4b08b831b47721`; consumer input blobs were `39f87538d2c74c286023d4edbcbc53cf3620ec28`, `743cb447b86e1ae5413a0322c8803aa56735df0f`, `d1e3202a65322006be64e75cc9c64e1b3515d83e` and `4f1c6ec30ff39db7c07650a01f95d34ac6948a0c`; the GrandRue owner destination was absent at preflight. The moved owner required no transitional imports. Existing current permission/protection admission semantics for public Enquiry submission were unchanged. Code commit `b4a3ef3058d3a3823a5b61c98b0bf15aaa033eda` contains exactly one owner rename/package replacement and four production consumer import additions.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -434,9 +436,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X118
-last_completed_task: GR-REN-02-01X118
-last_task_commit: 2e9d34d4ed104637c54a3ac68ef9bdda6535b8d6
+selected_execution_leaf: GR-REN-02-01X119
+last_completed_task: GR-REN-02-01X119
+last_task_commit: b4a3ef3058d3a3823a5b61c98b0bf15aaa033eda
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -522,8 +524,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X118
-last_prepared_execution_commit: 2e9d34d4ed104637c54a3ac68ef9bdda6535b8d6
+last_prepared_execution_leaf: GR-REN-02-01X119
+last_prepared_execution_commit: b4a3ef3058d3a3823a5b61c98b0bf15aaa033eda
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
