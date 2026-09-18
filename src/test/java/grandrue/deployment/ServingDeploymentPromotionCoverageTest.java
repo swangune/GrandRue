@@ -1,8 +1,8 @@
-package mainstreet.deployment;
+package grandrue.deployment;
 
-import mainstreet.semantic.execution.ExecutableSupportManifest;
-import mainstreet.semantic.execution.ExecutableSupportRequirement;
-import mainstreet.semantic.execution.SemanticExecutionContractReference;
+import grandrue.semantic.execution.ExecutableSupportManifest;
+import grandrue.semantic.execution.ExecutableSupportRequirement;
+import grandrue.semantic.execution.SemanticExecutionContractReference;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
