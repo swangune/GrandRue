@@ -1,5 +1,7 @@
 package mainstreet.enquiry.delivery;
 
+import grandrue.enquiry.EnquiryApplicationRequestConflictException;
+
 import grandrue.api.*;
 import mainstreet.enquiry.*;
 import org.springframework.context.annotation.Profile;
