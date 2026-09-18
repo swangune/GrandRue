@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import mainstreet.runtime.AuthenticationException;
 import mainstreet.runtime.AuthenticationFailureCategory;
 import grandrue.runtime.AuthenticationSession;
-import mainstreet.runtime.SessionCredentialResolver;
+import grandrue.runtime.SessionCredentialResolver;
 
 import java.util.Objects;
 

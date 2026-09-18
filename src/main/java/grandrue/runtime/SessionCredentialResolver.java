@@ -1,7 +1,10 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import grandrue.runtime.AuthenticationSession;
-import grandrue.runtime.IdentitySecurityGenerationAuthority;
+import mainstreet.runtime.AuthenticationException;
+import mainstreet.runtime.AuthenticationFailureCategory;
+import mainstreet.runtime.OpaqueSessionCredential;
+import mainstreet.runtime.SessionRecord;
+import mainstreet.runtime.SessionRecordStore;
 
 import java.time.Clock;
 import java.time.Instant;

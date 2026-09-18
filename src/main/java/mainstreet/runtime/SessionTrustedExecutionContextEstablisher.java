@@ -3,6 +3,7 @@ package mainstreet.runtime;
 import grandrue.application.MerchantScope;
 import grandrue.runtime.AuthenticationSession;
 import grandrue.runtime.ScopedExecutionPrincipalResolver;
+import grandrue.runtime.SessionCredentialResolver;
 
 import java.util.Objects;
 import java.util.Optional;
