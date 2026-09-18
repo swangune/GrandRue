@@ -1,4 +1,4 @@
-package mainstreet.application;
+package grandrue.application;
 
 import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;

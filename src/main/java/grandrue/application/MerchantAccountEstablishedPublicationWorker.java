@@ -2,7 +2,7 @@ package grandrue.application;
 
 import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
 import grandrue.merchantaccount.MerchantAccountEstablishedPublicationSource;
-import mainstreet.application.StandingFreeEventReactionContract;
+import grandrue.application.StandingFreeEventReactionContract;
 import mainstreet.semantic.event.EventReactionContractDefinition;
 import mainstreet.semantic.event.EventReactionContractRegistrySnapshot;
 import mainstreet.semantic.event.EventReactionIdentity;
