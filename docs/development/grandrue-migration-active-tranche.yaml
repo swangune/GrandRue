@@ -3,8 +3,10 @@ execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T022
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: f708b20a6e121cce0d699baa026c9a0ddee6366c
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 9f49725a9149e4b051ffc43c524f96a7e187a6c6
 
 region:
@@ -196,3 +198,12 @@ preparation_notes:
   - seven excluded prototype consumers receive import-only compatibility repairs; no prototype owner is selected
   - one still-legacy surface consumer receives only the root-semantic import repair; surface ownership remains outside this tranche
   - no persistence, semantic, security, authority or compatibility exception was identified
+
+completed:
+  last_leaf: GR-REN-02-01X561
+  completed_leaf_count_in_tranche: 18
+  aggregate_changed_path_count: 67
+  structural_verification: passed
+  semantic_root_namespace_complete: true
+  remaining_nonprototype_production_legacy_region: surface
+  next_tranche: GR-REN-02-T023

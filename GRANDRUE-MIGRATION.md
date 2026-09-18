@@ -828,6 +828,8 @@ State: `OPEN`
 
 - `GR-REN-02-T021` / `GR-REN-02-01X543`: migrated the complete live `src/main/java/mainstreet/semantic/compiler/**` region as one dependency-closed normal subgraph. The frozen manifest contains the single stable leaf/audit coordinate, exact source blob and destination plus the exact twelve-file production-consumer closure. Aggregate verification proved exactly 14 changed paths: one true owner rename, twelve consumer import repairs and the manifest. Every Java delta was package/import-only: `ConfigurationCompiler` now declares `grandrue.semantic.compiler`, every declared production consumer imports `grandrue.semantic.compiler.ConfigurationCompiler`, and the legacy production owner path is absent. The owner already depended only on migrated GrandRue semantic configuration/executable/registry packages; no FQCN/string-literal package identity, persistence, semantic, security, authority, prototype-owner or compatibility exception was identified. Applied Flyway content, stable `MS-*` identities, test namespace and unrelated behaviour were unchanged. Current tests remain deferred to `GR-REN-03`. Code: `22dc83ad7c2248679a44d3b82b5423934d6ecc58`.
 
+- `GR-REN-02-T022` / `GR-REN-02-01X544..X561`: migrated the complete live root `src/main/java/mainstreet/semantic/*.java` region as one dependency-closed normal subgraph. The frozen manifest contains all 18 stable leaf/audit coordinates, exact source blobs and destinations plus the exact 48-file production-consumer closure; seven consumers are excluded legacy-prototype files receiving only the permitted minimal dependency import repair, and `mainstreet.surface.ContextualSurfaceResolver` receives only its root-semantic import repair while surface ownership remains outside this tranche. Aggregate verification proved exactly 67 changed paths: 18 true owner renames, 48 consumer import repairs and the manifest. Every Java delta was package/import-only. Structural verification confirmed zero legacy production root-semantic owners remain, all 18 GrandRue destinations exist, and only `surface/**` remains as the non-prototype production namespace still under `mainstreet`. No wildcard root-semantic import, FQCN/string-literal package identity, persistence, semantic, security, authority or compatibility exception was identified. Applied Flyway content, stable `MS-*` identities, test namespace, prototype package/API naming and unrelated behaviour were unchanged. Current tests remain deferred to `GR-REN-03`. Code: `f708b20a6e121cce0d699baa026c9a0ddee6366c`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -862,9 +864,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X543
-last_completed_task: GR-REN-02-01X543
-last_task_commit: 22dc83ad7c2248679a44d3b82b5423934d6ecc58
+selected_execution_leaf: GR-REN-02-01X561
+last_completed_task: GR-REN-02-01X561
+last_task_commit: f708b20a6e121cce0d699baa026c9a0ddee6366c
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -983,8 +985,8 @@ numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X543
-last_prepared_execution_commit: 22dc83ad7c2248679a44d3b82b5423934d6ecc58
+last_prepared_execution_leaf: GR-REN-02-01X561
+last_prepared_execution_commit: f708b20a6e121cce0d699baa026c9a0ddee6366c
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
