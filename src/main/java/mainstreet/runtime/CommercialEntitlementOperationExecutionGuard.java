@@ -3,7 +3,7 @@ package mainstreet.runtime;
 import grandrue.application.MerchantScope;
 import grandrue.commercial.CommercialEntitlementAuthority;
 import grandrue.commercial.CommercialEntitlementException;
-import mainstreet.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialEntitlementIdentity;
 import mainstreet.semantic.executable.ApplicableOperation;
 
 import java.util.Map;

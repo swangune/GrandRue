@@ -4,7 +4,7 @@ import grandrue.application.MerchantScope;
 import grandrue.commercial.BillingCadence;
 import grandrue.commercial.CommercialAcceptanceProvenance;
 import grandrue.commercial.CommercialEntitlementGrant;
-import mainstreet.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.CommercialTransitionConflictException;
 import grandrue.commercial.MerchantCommercialAgreement;
 import grandrue.commercial.MerchantCommercialAgreementStore;

@@ -3,7 +3,7 @@ package grandrue.infrastructure.persistence.commercial;
 import grandrue.application.MerchantScope;
 import grandrue.commercial.CommercialEntitlementGrant;
 import grandrue.commercial.CommercialEntitlementGrantAuthority;
-import mainstreet.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.InitialFullExperienceTrial;
 import grandrue.commercial.InitialFullExperienceTrialGrantSource;
 import org.jooq.DSLContext;

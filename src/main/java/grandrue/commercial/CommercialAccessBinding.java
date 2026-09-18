@@ -1,7 +1,7 @@
 package grandrue.commercial;
 
 import grandrue.commercial.CommercialAccessTarget;
-import mainstreet.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.CommercialEntitlementTargetKind;
 
 import grandrue.commercial.CommercialSupportingAccessRequirement;

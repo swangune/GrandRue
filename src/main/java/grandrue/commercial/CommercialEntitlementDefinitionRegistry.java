@@ -1,7 +1,7 @@
 package grandrue.commercial;
 
 import grandrue.commercial.CommercialEntitlementDefinition;
-import mainstreet.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.CommercialEntitlementTargetKind;
 
 import java.util.ArrayList;

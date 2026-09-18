@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.commercial;
 
 import grandrue.application.MerchantScope;
-import mainstreet.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.StandingFreeBaseline;
 import grandrue.commercial.StandingFreeBaselineStore;
 import org.jooq.DSLContext;

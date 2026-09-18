@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 /** Stable identity of one Main Street commercial entitlement definition. */
 public record CommercialEntitlementIdentity(String identifier) {

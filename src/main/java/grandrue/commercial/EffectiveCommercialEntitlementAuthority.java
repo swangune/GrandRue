@@ -6,7 +6,7 @@ import grandrue.commercial.CommercialEntitlementAuthority;
 import grandrue.commercial.CommercialEntitlementGrant;
 import grandrue.commercial.CommercialEntitlementGrantAuthority;
 import grandrue.commercial.CommercialEntitlementGrantProvenance;
-import mainstreet.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialEntitlementIdentity;
 
 import java.time.Clock;
 import java.time.Instant;

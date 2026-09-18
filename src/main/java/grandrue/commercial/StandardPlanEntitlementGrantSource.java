@@ -2,7 +2,7 @@ package grandrue.commercial;
 
 import grandrue.commercial.CommercialEntitlementGrant;
 import grandrue.commercial.CommercialEntitlementGrantProvenance;
-import mainstreet.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialEntitlementIdentity;
 import grandrue.commercial.StandardPlanRevision;
 
 import grandrue.application.MerchantScope;
