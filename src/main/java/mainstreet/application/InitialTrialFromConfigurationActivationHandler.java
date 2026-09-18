@@ -1,7 +1,7 @@
 package mainstreet.application;
 
 import mainstreet.commercial.InitialFullExperienceTrial;
-import mainstreet.commercial.InitialFullExperienceTrialEstablisher;
+import grandrue.commercial.InitialFullExperienceTrialEstablisher;
 import mainstreet.semantic.configuration.ConfigurationActivation;
 
 import java.util.Objects;
