@@ -445,6 +445,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X139`: `PublicOpportunityEnquiryController.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. No external production consumers were found. Current tests remain deferred to `GR-REN-03`. The prepared parent was `e584f52c518f889252e895f3eb08beb178ba9541`; owner input blob was `82030c096109e828afcb1e8f589dc74dd63442c5`; the GrandRue owner destination was absent at preflight. Four previously migrated delivery collaborators became same-package and their explicit imports were removed. Existing public opportunity Enquiry HTTP delivery and problem-mapping semantics were unchanged. Code commit `09ebb34c26595a03a64cf59933a78a732cd5d2b5` contains exactly one owner rename/package replacement and four same-package import removals.
 
+- `GR-REN-02-01X140`: `PublicGeneralEnquirySubmission.java` moved from `mainstreet.enquiry.delivery` to `grandrue.enquiry.delivery`. Two bounded production consumers `grandrue.enquiry.delivery.PublicGeneralEnquiryApiConfiguration` and `grandrue.enquiry.delivery.PublicGeneralEnquiryController` became same-package and their transitional legacy imports were removed. Current tests remain deferred to `GR-REN-03`. The prepared parent was `6cb5548ce2797aee3f0b7220f2ef250d7ec55f20`; owner input blob was `f4aa20fc4234e92e88dc41f172dd5a13e29af554`; consumer input blobs were `befc97b257f717ab94a05781fdca5af47e4e36b3` and `035550de4bc7c3fcecdac4316896f6c5662450d8`; the GrandRue owner destination was absent at preflight. Previously migrated delivery dependencies became same-package and five explicit imports were removed. Existing public general Enquiry submission composition and retry-boundary semantics were unchanged. Code commit `75f8b791b981babf362efeface99077ec9ae031d` contains exactly one owner rename/package replacement, two transitional import removals and five same-package import removals. Structural verification also confirmed that no production file remains under `src/main/java/mainstreet/enquiry/delivery/**`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -476,9 +478,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X139
-last_completed_task: GR-REN-02-01X139
-last_task_commit: 09ebb34c26595a03a64cf59933a78a732cd5d2b5
+selected_execution_leaf: GR-REN-02-01X140
+last_completed_task: GR-REN-02-01X140
+last_task_commit: 75f8b791b981babf362efeface99077ec9ae031d
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -564,8 +566,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X139
-last_prepared_execution_commit: 09ebb34c26595a03a64cf59933a78a732cd5d2b5
+last_prepared_execution_leaf: GR-REN-02-01X140
+last_prepared_execution_commit: 75f8b791b981babf362efeface99077ec9ae031d
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
