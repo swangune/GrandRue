@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 import grandrue.onboarding.OnboardingFinalReview;
 import grandrue.onboarding.OnboardingRecomputation;

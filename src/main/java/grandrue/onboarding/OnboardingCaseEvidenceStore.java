@@ -1,6 +1,6 @@
 package grandrue.onboarding;
 
-import mainstreet.onboarding.OnboardingCompletionPolicy;
+import grandrue.onboarding.OnboardingCompletionPolicy;
 import grandrue.onboarding.AcknowledgeInitialConfigurationIntentCommand;
 import grandrue.onboarding.StartInitialOnboardingCaseCommand;
 import grandrue.onboarding.OnboardingAnswerEvidenceRevision;

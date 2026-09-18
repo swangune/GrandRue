@@ -1,6 +1,6 @@
 package grandrue.onboarding;
 
-import mainstreet.onboarding.DeterministicOnboardingRecomputation;
+import grandrue.onboarding.DeterministicOnboardingRecomputation;
 import grandrue.onboarding.OnboardingAnswerMutationResult;
 import grandrue.onboarding.OnboardingCaseEvidenceSnapshot;
 import grandrue.onboarding.OnboardingCaseRevision;

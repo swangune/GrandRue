@@ -5,7 +5,7 @@ import grandrue.onboarding.OnboardingRecomputation;
 import grandrue.onboarding.OnboardingCase;
 import grandrue.onboarding.OnboardingCaseReview;
 import grandrue.onboarding.OnboardingAnswerEvidenceRevision;
-import mainstreet.onboarding.OnboardingPromptDefinition;
+import grandrue.onboarding.OnboardingPromptDefinition;
 import java.util.Objects;
 
 /**
