@@ -395,6 +395,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X114`: `EnquiryIdentityConflictException.java` moved from `mainstreet.enquiry` to `grandrue.enquiry`. Three bounded production consumers were updated atomically: `mainstreet.enquiry.delivery.PublicGeneralEnquiryController` and `mainstreet.enquiry.delivery.PublicOpportunityEnquiryController` retained their still-required legacy Enquiry wildcard imports and received explicit `grandrue.enquiry.EnquiryIdentityConflictException` imports, while `grandrue.infrastructure.persistence.enquiry.JooqEnquirySubmissionStore` received the corresponding GrandRue import replacement. Current tests remain deferred to `GR-REN-03`. The prepared parent was `32b5cbdba4899a0036b9c40845ef2c5a487bb475`; owner input blob was `1e258e2b59ec9eae7cc2f4d00bb2bfaba3c9c08c`; consumer input blobs were `23a2e89a70739a1a6993eef0aa402fe705d6ea94`, `8d7ffee743bab5be75581ed13e2aa4eaef9b7cb9` and `3adf829e6517706cd3e45c2823133633b1fcb4a7`; the GrandRue owner destination was absent at preflight. The moved owner required no transitional imports. Existing merchant-scoped Enquiry identity-conflict semantics were unchanged. Code commit `2808651927b9bc570cca1a7b70a89a99b44bcba3` contains exactly one owner rename/package replacement, two wildcard-retaining explicit import additions and one production consumer import replacement.
 
+- `GR-REN-02-01X115`: `EnquiryAvailabilityImpactAssessment.java` moved from `mainstreet.enquiry` to `grandrue.enquiry`. The sole bounded production consumer `grandrue.application.ConfigurationImpactReviewApplicationService` received the corresponding GrandRue import replacement; current tests remain deferred to `GR-REN-03`. The prepared parent was `d63fe3f4bc2091ff6486a6b60391218637f12a39`; owner input blob was `60725bcc6e93ce4214166bc4faebbb99f61b2dbf`; consumer input blob was `206774d6a3748d58e957d78a9d450d78c6341bbe`; the GrandRue owner destination was absent at preflight. Existing Enquiry capability new-activity impact assessment semantics were unchanged; current-product prose in the moved source remains deferred to `GR-REN-02-02`. Code commit `3ac99d978cbaa44dd9b507f967704add1273c297` contains exactly one owner rename/package replacement and one production consumer import replacement.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -426,9 +428,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X114
-last_completed_task: GR-REN-02-01X114
-last_task_commit: 2808651927b9bc570cca1a7b70a89a99b44bcba3
+selected_execution_leaf: GR-REN-02-01X115
+last_completed_task: GR-REN-02-01X115
+last_task_commit: 3ac99d978cbaa44dd9b507f967704add1273c297
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -514,8 +516,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X114
-last_prepared_execution_commit: 2808651927b9bc570cca1a7b70a89a99b44bcba3
+last_prepared_execution_leaf: GR-REN-02-01X115
+last_prepared_execution_commit: 3ac99d978cbaa44dd9b507f967704add1273c297
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
