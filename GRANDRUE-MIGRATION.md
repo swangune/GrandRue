@@ -594,6 +594,25 @@ State: `OPEN`
 
 - `GR-REN-02-01X205`: `MerchantServiceAreaAuthority.java` moved from `mainstreet.merchantprofile` to `grandrue.merchantprofile`. Its sole bounded production implementation `grandrue.infrastructure.persistence.merchantprofile.JooqMerchantServiceAreaAuthority` replaced its legacy authority import with the GrandRue owner. Current tests remain deferred to `GR-REN-03`. The prepared parent was `d77638322fb43fea294aa7b9948a1b2c870a6789`; the owner input blob was `05c10aa46e6f61313ddd14537b6f6ac4fc130490`; implementation input blob was `eb42243a8f235a81e2dcdfafa80ce3c38378d6d4`; the GrandRue owner destination was absent at preflight. The moved authority received explicit transitional imports for the still-legacy Create/Update/Retire Service Area commands and `MerchantServiceAreaRevision`. Existing mutation/currentness boundary, trusted execution context and return semantics were unchanged. Code commit `67fceabe3da77a5d2bc51f99e338033556968753` contains exactly one owner rename/package replacement, four transitional import additions and one production implementation import replacement; structural verification confirmed a two-file production diff, the GrandRue owner at blob `0c6ce15b7529243d8d3297003ef799eb79c8f869`, and absence of the legacy owner path.
 
+
+- `GR-REN-02-T001`: first transactional tranche completed from parent `05eaf333a43437e8cdea2912beb184f1913a7ca6` in code commit `e9dc8776b41dc9a26eee5d635abb06e2d9023515`. The code commit contains the `CODE_COMMITTED` manifest plus exactly eight owner moves and ten shared production-consumer repairs; aggregate comparison contains exactly the 19 manifest-declared paths. Structural verification confirmed every new owner, every old-owner absence, all declared consumer repairs, and preserved protected identity text including `MS-PROT-051 v1.1`. No Maven tests or GitHub Actions were run.
+
+- `GR-REN-02-01X206`: `MerchantContactPointAuthority.java` moved to `grandrue.merchantprofile`; bounded consumers `JooqMerchantContactPointAuthority` and `AuthorityBackedMerchantContactPointExposureChoiceReadPort` now resolve the GrandRue authority. Input owner blob `138bd5d1ff4aa16c3bd8405b1c6bafdfa1824ce8`; new owner blob `d68fd4534879f0544009aca3a9ef7491fb8de804`. Mutation/currentness and trusted-context semantics unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
+
+- `GR-REN-02-01X207`: `MerchantLocationAuthority.java` moved to `grandrue.merchantprofile`; bounded consumers `JooqMerchantLocationAuthority` and `AuthorityBackedMerchantLocationExposureChoiceReadPort` now resolve the GrandRue authority. Input owner blob `54d0d7d9263083d8bdd78fac3bf9f3f4631f867d`; new owner blob `2b63f98f1aaefa42c7ac200cbcb4761cd082ace9`. Mutation/revision/currentness semantics unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
+
+- `GR-REN-02-01X208`: `MerchantLocationExposureChoiceAuthority.java` moved to `grandrue.merchantprofile`; bounded consumers `JooqMerchantLocationExposureChoiceAuthority` and `AuthorityBackedMerchantLocationExposureChoiceReadPort` now resolve the GrandRue authority. Input owner blob `591cbfcbbf9be1ca58ed74e0e0d4c7fa8cdc6691`; new owner blob `8df7cf62e926fb1b296f3cc3174705baad30bb99`. Exposure-choice current/revision semantics unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
+
+- `GR-REN-02-01X209`: `MerchantPublicDescriptorAuthority.java` moved to `grandrue.merchantprofile`; bounded consumers `JooqMerchantPublicDescriptorAuthority` and `AuthorityBackedMerchantPublicDescriptorProjectionReadPort` now resolve the GrandRue authority. Input owner blob `c96f28143319c1dd861dccab3d91a99eed933e3a`; new owner blob `e15b1618212ba78930411304f1ab1406386970ec`. Singleton revision-authority/currentness semantics unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
+
+- `GR-REN-02-01X210`: `MerchantContactPointExposureChoiceReadPort.java` moved to `grandrue.merchantprofile`; `AuthorityBackedMerchantContactPointExposureChoiceReadPort` and `ProfileContactPointExposureChoiceEvaluator` now resolve the GrandRue read port. Input owner blob `d25d4dd1ffd8f5d4851e01a8ca91f1dd278823b9`; new owner blob `5ab44941c4e99bd8ac310588d0303ea9700bfea0`. Functional read-port and BR5 progress-affinity semantics unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
+
+- `GR-REN-02-01X211`: `MerchantLocationExposureChoiceReadPort.java` moved to `grandrue.merchantprofile`; `AuthorityBackedMerchantLocationExposureChoiceReadPort` and `ProfileMerchantLocationExposureChoiceEvaluator` now resolve the GrandRue read port. Input owner blob `9bd4a77b33006ddcb56667e0666ef1545f6b9266`; new owner blob `f73e718f5ae62683bd859630441921900d8d5623`. Functional read-port and BR5 progress-affinity semantics unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
+
+- `GR-REN-02-01X212`: `ExpectedMerchantLocationExposureChoice.java` moved to `grandrue.merchantprofile`; `SetMerchantLocationExposureChoiceCommand` and `JooqMerchantLocationExposureChoiceAuthority` now resolve the GrandRue owner. Input owner blob `5129260aa04041a6165192ad0867e29b6d2085e3`; new owner blob `84ab6fc665aa92b042c227444f416cfbca49ab64`. `Absent`/`Revision` optimistic-concurrency semantics unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
+
+- `GR-REN-02-01X213`: `MerchantPublicDescriptorMutationCommand.java` moved to `grandrue.merchantprofile`; co-moved `MerchantPublicDescriptorAuthority` retains a same-package reference and `JooqMerchantPublicDescriptorAuthority` now imports the GrandRue command. Input owner blob `41ecc96ef7b821fe71a39b1c6a95b167fb2e5591`; new owner blob `5922c42093c3a033af7f39ac085b3b366a3b77d7`. Mutation-intent validation and `MS-PROT-051 v1.1` identity text unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -625,9 +644,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X205
-last_completed_task: GR-REN-02-01X205
-last_task_commit: 67fceabe3da77a5d2bc51f99e338033556968753
+selected_execution_leaf: GR-REN-02-01X213
+last_completed_task: GR-REN-02-01X213
+last_task_commit: e9dc8776b41dc9a26eee5d635abb06e2d9023515
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -745,10 +764,10 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X205
-last_prepared_execution_commit: 67fceabe3da77a5d2bc51f99e338033556968753
+last_prepared_execution_leaf: GR-REN-02-01X213
+last_prepared_execution_commit: e9dc8776b41dc9a26eee5d635abb06e2d9023515
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
-next_procedural_action: Prepare the first dependency-bounded transactional tranche from current live production evidence, targeting 8 independently closed consecutive leaves and never exceeding 15. Freeze per-leaf evidence in the active tranche manifest, establish freshness against one exact parent, attach one atomic code+manifest commit only when READY, verify every leaf and the aggregate diff, then publish one combined ledger/work-pointer checkpoint. Exclude legacy prototype owners under section 1; permit only minimal dependency-repair edits in prototype consumers when an in-scope owner move requires them. Keep other in-scope test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
+next_procedural_action: Prepare the next dependency-bounded transactional tranche from current live production evidence, targeting 8 independently closed consecutive leaves by default and never exceeding 15. Freeze per-leaf evidence in the active tranche manifest, establish freshness against one exact parent, attach one atomic code+manifest commit only when READY, verify every leaf and the aggregate diff, then publish one combined ledger/work-pointer checkpoint. Exclude legacy prototype owners under section 1; permit only minimal dependency-repair edits in prototype consumers when an in-scope owner move requires them. Keep other in-scope test namespace changes for GR-REN-03. Do not run Maven tests or GitHub Actions unless separately authorised.
 ```
