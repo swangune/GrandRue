@@ -1,6 +1,4 @@
-package mainstreet.merchantprofile;
-
-import grandrue.merchantprofile.LocationCoordinateSourceKind;
+package grandrue.merchantprofile;
 
 import java.math.BigDecimal;
 import java.time.Instant;

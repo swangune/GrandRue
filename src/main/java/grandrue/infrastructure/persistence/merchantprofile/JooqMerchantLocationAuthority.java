@@ -1,7 +1,7 @@
 package grandrue.infrastructure.persistence.merchantprofile;
 
 import grandrue.application.MerchantScope;
-import mainstreet.merchantprofile.AcceptedLocationCoordinates;
+import grandrue.merchantprofile.AcceptedLocationCoordinates;
 import mainstreet.merchantprofile.CorrectMerchantLocationCommand;
 import mainstreet.merchantprofile.CreateMerchantLocationCommand;
 import grandrue.merchantprofile.LocationCoordinateSourceKind;
