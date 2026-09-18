@@ -1,7 +1,7 @@
 package grandrue.commercial;
 
 import mainstreet.commercial.CommercialAccessTarget;
-import mainstreet.commercial.CommercialCatalogueManifest;
+import grandrue.commercial.CommercialCatalogueManifest;
 
 import java.util.Objects;
 import java.util.Optional;
