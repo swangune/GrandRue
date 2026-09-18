@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * MS-PROT-052 authority/purpose classification for onboarding interactions.

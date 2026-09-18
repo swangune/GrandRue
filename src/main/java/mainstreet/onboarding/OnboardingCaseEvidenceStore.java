@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingSubmissionAuthority;
 import grandrue.application.MerchantScope;
 
 import java.util.List;

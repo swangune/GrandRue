@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingBlockingAnswerOutcome;
+import grandrue.onboarding.OnboardingPromptCompletionRequirement;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;

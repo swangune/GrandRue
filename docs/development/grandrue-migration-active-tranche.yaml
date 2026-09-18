@@ -2,231 +2,179 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-02-T006
-state: COMPLETE
-code_commit: 01eff690ffb2d7090a1e162d34ac1722dd713307
-reconciliation_commit: 18bf2ef88f82b79d7c52c479e1f2c6fda72fa29c
-checkpoint_commit: THIS_COMMIT
-verified: true
-expected_parent: 85a668639e4ccc4b7be6f8a48a7feda7496d994b
+tranche: GR-REN-02-T007
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 4ed95f129c7ba0df1104a70639d59855ef59ef17
 leaf_range:
-  first: GR-REN-02-01X241
-  last: GR-REN-02-01X241
-leaf_count: 1
+  first: GR-REN-02-01X242
+  last: GR-REN-02-01X249
+leaf_count: 8
 
 leaves:
-  - id: GR-REN-02-01X241
-    unit_kind: INSEPARABLE_PACKAGE_CLOSURE
+  - id: GR-REN-02-01X242
     owner:
-      from: src/main/java/mainstreet/merchantprofile/CreateMerchantLocationCommand.java
-      to: src/main/java/grandrue/merchantprofile/CreateMerchantLocationCommand.java
-      blob_sha: a57c240482ce96bbcdbd1415400816f82ea0d030
-    dependency_owned_members:
-      - from: src/main/java/mainstreet/merchantprofile/CorrectMerchantLocationCommand.java
-        to: src/main/java/grandrue/merchantprofile/CorrectMerchantLocationCommand.java
-        blob_sha: ec76a6fca3be9aab1f735885fd57771debf4ce27
-      - from: src/main/java/mainstreet/merchantprofile/CountryWideGeographyV1.java
-        to: src/main/java/grandrue/merchantprofile/CountryWideGeographyV1.java
-        blob_sha: 95f67c679481f351f19390be12dbffe845afaf42
-      - from: src/main/java/mainstreet/merchantprofile/CreateMerchantClassificationEntryCommand.java
-        to: src/main/java/grandrue/merchantprofile/CreateMerchantClassificationEntryCommand.java
-        blob_sha: fbae8a1c254d898fa4674b1751ecfcdcf61b8b62
-      - from: src/main/java/mainstreet/merchantprofile/CreateMerchantContactPointCommand.java
-        to: src/main/java/grandrue/merchantprofile/CreateMerchantContactPointCommand.java
-        blob_sha: e776fdf9fcf473bceeea892c4dfef88221ea3da8
-      - from: src/main/java/mainstreet/merchantprofile/CreateMerchantExternalPresenceLinkCommand.java
-        to: src/main/java/grandrue/merchantprofile/CreateMerchantExternalPresenceLinkCommand.java
-        blob_sha: 4f52b5d6c29e147f96e18f994ba555b7dd38a421
-      - from: src/main/java/mainstreet/merchantprofile/CreateMerchantServiceAreaCommand.java
-        to: src/main/java/grandrue/merchantprofile/CreateMerchantServiceAreaCommand.java
-        blob_sha: 53ad03bb23dbf2a3a749df39b17487832970f6a2
-      - from: src/main/java/mainstreet/merchantprofile/MerchantClassificationEntryRevision.java
-        to: src/main/java/grandrue/merchantprofile/MerchantClassificationEntryRevision.java
-        blob_sha: 8186fb6375b779b065c97e0842bb28e771916cd0
-      - from: src/main/java/mainstreet/merchantprofile/MerchantClassificationEntryV1.java
-        to: src/main/java/grandrue/merchantprofile/MerchantClassificationEntryV1.java
-        blob_sha: 4588f9b117da76e243f6bfaa0720f8999589666b
-      - from: src/main/java/mainstreet/merchantprofile/MerchantContactPointRevision.java
-        to: src/main/java/grandrue/merchantprofile/MerchantContactPointRevision.java
-        blob_sha: e89e92d7afc811ef4923f468d8948aeb5485545a
-      - from: src/main/java/mainstreet/merchantprofile/MerchantContactPointScope.java
-        to: src/main/java/grandrue/merchantprofile/MerchantContactPointScope.java
-        blob_sha: f295a99e56899f8d0a8c135ade4613d895ea3161
-      - from: src/main/java/mainstreet/merchantprofile/MerchantExternalPresenceLinkRevision.java
-        to: src/main/java/grandrue/merchantprofile/MerchantExternalPresenceLinkRevision.java
-        blob_sha: dd7b7653ab505c0ed00a4a13c373a44101f34cfd
-      - from: src/main/java/mainstreet/merchantprofile/MerchantLocationRadiusGeographyV1.java
-        to: src/main/java/grandrue/merchantprofile/MerchantLocationRadiusGeographyV1.java
-        blob_sha: 203898113098913f53c656bbebe664795d0d479c
-      - from: src/main/java/mainstreet/merchantprofile/MerchantLocationRevision.java
-        to: src/main/java/grandrue/merchantprofile/MerchantLocationRevision.java
-        blob_sha: 3fae566f741421cf0fa56ab4f7fe1bed94e10273
-      - from: src/main/java/mainstreet/merchantprofile/MerchantServiceAreaRevision.java
-        to: src/main/java/grandrue/merchantprofile/MerchantServiceAreaRevision.java
-        blob_sha: 37c2e9f74b9ba21641456bb8723984beab69b9f3
-      - from: src/main/java/mainstreet/merchantprofile/NamedAreaGeographyV1.java
-        to: src/main/java/grandrue/merchantprofile/NamedAreaGeographyV1.java
-        blob_sha: 53cd89a793e815d3589c538f0a39cc96c8da4012
-      - from: src/main/java/mainstreet/merchantprofile/RemoteCountriesGeographyV1.java
-        to: src/main/java/grandrue/merchantprofile/RemoteCountriesGeographyV1.java
-        blob_sha: dded469b17467af48ddcbdfe56c941daac405d74
-      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantClassificationEntryCommand.java
-        to: src/main/java/grandrue/merchantprofile/RetireMerchantClassificationEntryCommand.java
-        blob_sha: 0ade1faceba68e21d29c8b833f76cea0b423adf9
-      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantContactPointCommand.java
-        to: src/main/java/grandrue/merchantprofile/RetireMerchantContactPointCommand.java
-        blob_sha: c30fe1a4245d46c03b93ad1fe815ea56dc52cbab
-      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantExternalPresenceLinkCommand.java
-        to: src/main/java/grandrue/merchantprofile/RetireMerchantExternalPresenceLinkCommand.java
-        blob_sha: 151f9ad1395daa65a9da66c1e957d34971908727
-      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantLocationCommand.java
-        to: src/main/java/grandrue/merchantprofile/RetireMerchantLocationCommand.java
-        blob_sha: bd71a6018322909ece9d07dba7e1fe7d88068580
-      - from: src/main/java/mainstreet/merchantprofile/RetireMerchantServiceAreaCommand.java
-        to: src/main/java/grandrue/merchantprofile/RetireMerchantServiceAreaCommand.java
-        blob_sha: 6e7d4e3a1a1b6b406b6eb81d8b005929d956b0ce
-      - from: src/main/java/mainstreet/merchantprofile/ServiceAreaGeographyV1.java
-        to: src/main/java/grandrue/merchantprofile/ServiceAreaGeographyV1.java
-        blob_sha: cd45b7cef07c1d65f66636463f3dfebfb7588084
-      - from: src/main/java/mainstreet/merchantprofile/UpdateMerchantClassificationEntryCommand.java
-        to: src/main/java/grandrue/merchantprofile/UpdateMerchantClassificationEntryCommand.java
-        blob_sha: 8227feb3fd3795b8425ae1635c2630543c18b572
-      - from: src/main/java/mainstreet/merchantprofile/UpdateMerchantContactPointCommand.java
-        to: src/main/java/grandrue/merchantprofile/UpdateMerchantContactPointCommand.java
-        blob_sha: cbd9de4f4145bd9907d8202b2bfc1595fc319f00
-      - from: src/main/java/mainstreet/merchantprofile/UpdateMerchantExternalPresenceLinkCommand.java
-        to: src/main/java/grandrue/merchantprofile/UpdateMerchantExternalPresenceLinkCommand.java
-        blob_sha: 17138f2f42e708f8d42e67cff6a9051f469cf333
-      - from: src/main/java/mainstreet/merchantprofile/UpdateMerchantServiceAreaCommand.java
-        to: src/main/java/grandrue/merchantprofile/UpdateMerchantServiceAreaCommand.java
-        blob_sha: a477a0dcc9cb19de0ffc619219a8cfe144eed6ae
+      from: src/main/java/mainstreet/onboarding/OnboardingCasePurpose.java
+      to: src/main/java/grandrue/onboarding/OnboardingCasePurpose.java
+      blob_sha: 54af989bc3dde5501ff4c32b5199b5ab001eade8
     production_consumers:
-      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthority.java
-        blob_sha: f43740f9e3fcf2c7e6afb1c10cc276090ab349af
-      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthority.java
-        blob_sha: bebf3b7c8304b5183a13a0365a53fd337023ed47
-      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthority.java
-        blob_sha: 56f8661b4a1ae449477c4e39d5a28dc69def132f
-      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthority.java
-        blob_sha: e52b41b5aa72866b3f4a03d27bfc9e2401cc37b5
-      - path: src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthority.java
-        blob_sha: 95ac12649749422685e7b08695922d1eef9b3e48
-      - path: src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantContactPointExposureChoiceReadPort.java
-        blob_sha: 671176b83f49374ceab63efc93dd7272b148f96e
-      - path: src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
-        blob_sha: d2c7d33103644587540b56f8aecf7ba789a368f2
-      - path: src/main/java/grandrue/merchantprofile/MerchantClassificationEntryAuthority.java
-        blob_sha: 5dbcc57b7067040b9088cfddd5a011c63b92647d
-      - path: src/main/java/grandrue/merchantprofile/MerchantContactPointAuthority.java
-        blob_sha: d68fd4534879f0544009aca3a9ef7491fb8de804
-      - path: src/main/java/grandrue/merchantprofile/MerchantExternalPresenceLinkAuthority.java
-        blob_sha: a250c5b16f2bcc20a202c9112e51acb43cfde179
-      - path: src/main/java/grandrue/merchantprofile/MerchantLocationAuthority.java
-        blob_sha: 2b63f98f1aaefa42c7ac200cbcb4761cd082ace9
-      - path: src/main/java/grandrue/merchantprofile/MerchantServiceAreaAuthority.java
-        blob_sha: 0c6ce15b7529243d8d3297003ef799eb79c8f869
+      - path: src/main/java/mainstreet/onboarding/OnboardingCase.java
+        blob_sha: c0c307519e49e820b70ff20b263ae4d0bb1dea67
+      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
+        blob_sha: 0deb16d3f7e393818b06a3d1de7ae494f5728abc
     invariants:
-      - package-private CreateMerchantLocationCommand validation helper visibility unchanged
-      - sealed ServiceAreaGeographyV1 hierarchy unchanged
-      - merchant-profile validation, lifecycle, revision and mutation semantics unchanged
-      - no persistence/schema/runtime-data identity changes
+      - enum constants and declaration order unchanged
+      - comments and semantic meaning unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X243
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingPromptCompletionRequirement.java
+      to: src/main/java/grandrue/onboarding/OnboardingPromptCompletionRequirement.java
+      blob_sha: 0068358606a3d538cf3893baf25a5e5b2277aff7
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingCompletionPolicy.java
+        blob_sha: d058394bae50473736e72712bc6e7770421b7468
+      - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
+        blob_sha: 95b4e9146a71000eac5986926a4b8f924f5e517d
+    invariants:
+      - enum constants and declaration order unchanged
+      - comments and semantic meaning unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X244
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingPromptEligibility.java
+      to: src/main/java/grandrue/onboarding/OnboardingPromptEligibility.java
+      blob_sha: 2389b51e209d3a8b88d093d028694b8763de30f9
+    production_consumers:
+      []
+    invariants:
+      - enum constants and declaration order unchanged
+      - comments and semantic meaning unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X245
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingPromptClass.java
+      to: src/main/java/grandrue/onboarding/OnboardingPromptClass.java
+      blob_sha: 5f2a72277da262d1db1a12d94a0662b95f2ba2ba
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
+        blob_sha: 0d6e5b9518cd37f6d2859f8abcadd34f58e55e5a
+      - path: src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestion.java
+        blob_sha: 70d671b929cfc3e24ac3c1a8fef8747a1e1c0a5a
+    invariants:
+      - enum constants and declaration order unchanged
+      - comments and semantic meaning unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X246
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingBlockingAnswerOutcome.java
+      to: src/main/java/grandrue/onboarding/OnboardingBlockingAnswerOutcome.java
+      blob_sha: 77986033ad18b05e5042e7b0fb2ec98021f632bb
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingCompletionPolicy.java
+        blob_sha: d058394bae50473736e72712bc6e7770421b7468
+      - path: src/main/java/mainstreet/onboarding/OnboardingAnswerOutcomeRule.java
+        blob_sha: 22bedc6b16c46c213ee7fc74f55c19a83ae2d28a
+      - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
+        blob_sha: 95b4e9146a71000eac5986926a4b8f924f5e517d
+    invariants:
+      - enum constants and declaration order unchanged
+      - comments and semantic meaning unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X247
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingPersistenceFailureCategory.java
+      to: src/main/java/grandrue/onboarding/OnboardingPersistenceFailureCategory.java
+      blob_sha: ecd5bd1f1ee4e8ab1e26038acc7651780a16a7e0
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingCasePersistenceException.java
+        blob_sha: e8b2952187f72ad8ae251b046d714106eab2670b
+      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
+        blob_sha: 0deb16d3f7e393818b06a3d1de7ae494f5728abc
+    invariants:
+      - enum constants and declaration order unchanged
+      - comments and semantic meaning unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X248
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingSubmissionAuthority.java
+      to: src/main/java/grandrue/onboarding/OnboardingSubmissionAuthority.java
+      blob_sha: 9c1a9fc1b789e0cdf0fcccb20ee34861ede91dee
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingCaseEvidenceStore.java
+        blob_sha: 5b46365f9e75d98af8b46adfe3fda8451a9fd3c9
+      - path: src/main/java/mainstreet/onboarding/OnboardingFinalReviewService.java
+        blob_sha: 144018aa445dfcda03255b936cf4b7395870857b
+      - path: src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
+        blob_sha: 95b4e9146a71000eac5986926a4b8f924f5e517d
+      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
+        blob_sha: 0deb16d3f7e393818b06a3d1de7ae494f5728abc
+    invariants:
+      - enum constants and declaration order unchanged
+      - comments and semantic meaning unchanged
+      - only namespace/import wiring changes
+  - id: GR-REN-02-01X249
+    owner:
+      from: src/main/java/mainstreet/onboarding/OnboardingAnswerForm.java
+      to: src/main/java/grandrue/onboarding/OnboardingAnswerForm.java
+      blob_sha: 717ff7b2ded1a0a08589d5d4e8416f3fe5010ce5
+    production_consumers:
+      - path: src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
+        blob_sha: 0d6e5b9518cd37f6d2859f8abcadd34f58e55e5a
+      - path: src/main/java/mainstreet/onboarding/OnboardingAnswerEvidence.java
+        blob_sha: 90463ad2571a4c0c2666c013ff0b1834ea14ee3e
+      - path: src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestion.java
+        blob_sha: 70d671b929cfc3e24ac3c1a8fef8747a1e1c0a5a
+      - path: src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
+        blob_sha: 0deb16d3f7e393818b06a3d1de7ae494f5728abc
+    invariants:
+      - enum constants and declaration order unchanged
+      - comments and semantic meaning unchanged
+      - only namespace/import wiring changes
 
 aggregate:
   permitted_changed_paths:
     - docs/development/grandrue-migration-active-tranche.yaml
-    - src/main/java/grandrue/merchantprofile/CorrectMerchantLocationCommand.java
-    - src/main/java/grandrue/merchantprofile/CountryWideGeographyV1.java
-    - src/main/java/grandrue/merchantprofile/CreateMerchantClassificationEntryCommand.java
-    - src/main/java/grandrue/merchantprofile/CreateMerchantContactPointCommand.java
-    - src/main/java/grandrue/merchantprofile/CreateMerchantExternalPresenceLinkCommand.java
-    - src/main/java/grandrue/merchantprofile/CreateMerchantLocationCommand.java
-    - src/main/java/grandrue/merchantprofile/CreateMerchantServiceAreaCommand.java
-    - src/main/java/grandrue/merchantprofile/MerchantClassificationEntryRevision.java
-    - src/main/java/grandrue/merchantprofile/MerchantClassificationEntryV1.java
-    - src/main/java/grandrue/merchantprofile/MerchantContactPointRevision.java
-    - src/main/java/grandrue/merchantprofile/MerchantContactPointScope.java
-    - src/main/java/grandrue/merchantprofile/MerchantExternalPresenceLinkRevision.java
-    - src/main/java/grandrue/merchantprofile/MerchantLocationRadiusGeographyV1.java
-    - src/main/java/grandrue/merchantprofile/MerchantLocationRevision.java
-    - src/main/java/grandrue/merchantprofile/MerchantServiceAreaRevision.java
-    - src/main/java/grandrue/merchantprofile/NamedAreaGeographyV1.java
-    - src/main/java/grandrue/merchantprofile/RemoteCountriesGeographyV1.java
-    - src/main/java/grandrue/merchantprofile/RetireMerchantClassificationEntryCommand.java
-    - src/main/java/grandrue/merchantprofile/RetireMerchantContactPointCommand.java
-    - src/main/java/grandrue/merchantprofile/RetireMerchantExternalPresenceLinkCommand.java
-    - src/main/java/grandrue/merchantprofile/RetireMerchantLocationCommand.java
-    - src/main/java/grandrue/merchantprofile/RetireMerchantServiceAreaCommand.java
-    - src/main/java/grandrue/merchantprofile/ServiceAreaGeographyV1.java
-    - src/main/java/grandrue/merchantprofile/UpdateMerchantClassificationEntryCommand.java
-    - src/main/java/grandrue/merchantprofile/UpdateMerchantContactPointCommand.java
-    - src/main/java/grandrue/merchantprofile/UpdateMerchantExternalPresenceLinkCommand.java
-    - src/main/java/grandrue/merchantprofile/UpdateMerchantServiceAreaCommand.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthority.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthority.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthority.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthority.java
-    - src/main/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthority.java
-    - src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantContactPointExposureChoiceReadPort.java
-    - src/main/java/grandrue/merchantprofile/AuthorityBackedMerchantLocationExposureChoiceReadPort.java
-    - src/main/java/grandrue/merchantprofile/MerchantClassificationEntryAuthority.java
-    - src/main/java/grandrue/merchantprofile/MerchantContactPointAuthority.java
-    - src/main/java/grandrue/merchantprofile/MerchantExternalPresenceLinkAuthority.java
-    - src/main/java/grandrue/merchantprofile/MerchantLocationAuthority.java
-    - src/main/java/grandrue/merchantprofile/MerchantServiceAreaAuthority.java
+    - src/main/java/grandrue/onboarding/OnboardingCasePurpose.java
+    - src/main/java/grandrue/onboarding/OnboardingPromptCompletionRequirement.java
+    - src/main/java/grandrue/onboarding/OnboardingPromptEligibility.java
+    - src/main/java/grandrue/onboarding/OnboardingPromptClass.java
+    - src/main/java/grandrue/onboarding/OnboardingBlockingAnswerOutcome.java
+    - src/main/java/grandrue/onboarding/OnboardingPersistenceFailureCategory.java
+    - src/main/java/grandrue/onboarding/OnboardingSubmissionAuthority.java
+    - src/main/java/grandrue/onboarding/OnboardingAnswerForm.java
+    - src/main/java/mainstreet/onboarding/OnboardingCase.java
+    - src/main/java/mainstreet/onboarding/OnboardingCompletionPolicy.java
+    - src/main/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluator.java
+    - src/main/java/mainstreet/onboarding/OnboardingPromptDefinition.java
+    - src/main/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestion.java
+    - src/main/java/mainstreet/onboarding/OnboardingAnswerOutcomeRule.java
+    - src/main/java/mainstreet/onboarding/OnboardingCasePersistenceException.java
+    - src/main/java/mainstreet/onboarding/OnboardingCaseEvidenceStore.java
+    - src/main/java/mainstreet/onboarding/OnboardingFinalReviewService.java
+    - src/main/java/mainstreet/onboarding/OnboardingAnswerEvidence.java
+    - src/main/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStore.java
   legacy_owner_paths_removed:
-    - src/main/java/mainstreet/merchantprofile/CorrectMerchantLocationCommand.java
-    - src/main/java/mainstreet/merchantprofile/CountryWideGeographyV1.java
-    - src/main/java/mainstreet/merchantprofile/CreateMerchantClassificationEntryCommand.java
-    - src/main/java/mainstreet/merchantprofile/CreateMerchantContactPointCommand.java
-    - src/main/java/mainstreet/merchantprofile/CreateMerchantExternalPresenceLinkCommand.java
-    - src/main/java/mainstreet/merchantprofile/CreateMerchantLocationCommand.java
-    - src/main/java/mainstreet/merchantprofile/CreateMerchantServiceAreaCommand.java
-    - src/main/java/mainstreet/merchantprofile/MerchantClassificationEntryRevision.java
-    - src/main/java/mainstreet/merchantprofile/MerchantClassificationEntryV1.java
-    - src/main/java/mainstreet/merchantprofile/MerchantContactPointRevision.java
-    - src/main/java/mainstreet/merchantprofile/MerchantContactPointScope.java
-    - src/main/java/mainstreet/merchantprofile/MerchantExternalPresenceLinkRevision.java
-    - src/main/java/mainstreet/merchantprofile/MerchantLocationRadiusGeographyV1.java
-    - src/main/java/mainstreet/merchantprofile/MerchantLocationRevision.java
-    - src/main/java/mainstreet/merchantprofile/MerchantServiceAreaRevision.java
-    - src/main/java/mainstreet/merchantprofile/NamedAreaGeographyV1.java
-    - src/main/java/mainstreet/merchantprofile/RemoteCountriesGeographyV1.java
-    - src/main/java/mainstreet/merchantprofile/RetireMerchantClassificationEntryCommand.java
-    - src/main/java/mainstreet/merchantprofile/RetireMerchantContactPointCommand.java
-    - src/main/java/mainstreet/merchantprofile/RetireMerchantExternalPresenceLinkCommand.java
-    - src/main/java/mainstreet/merchantprofile/RetireMerchantLocationCommand.java
-    - src/main/java/mainstreet/merchantprofile/RetireMerchantServiceAreaCommand.java
-    - src/main/java/mainstreet/merchantprofile/ServiceAreaGeographyV1.java
-    - src/main/java/mainstreet/merchantprofile/UpdateMerchantClassificationEntryCommand.java
-    - src/main/java/mainstreet/merchantprofile/UpdateMerchantContactPointCommand.java
-    - src/main/java/mainstreet/merchantprofile/UpdateMerchantExternalPresenceLinkCommand.java
-    - src/main/java/mainstreet/merchantprofile/UpdateMerchantServiceAreaCommand.java
+    - src/main/java/mainstreet/onboarding/OnboardingCasePurpose.java
+    - src/main/java/mainstreet/onboarding/OnboardingPromptCompletionRequirement.java
+    - src/main/java/mainstreet/onboarding/OnboardingPromptEligibility.java
+    - src/main/java/mainstreet/onboarding/OnboardingPromptClass.java
+    - src/main/java/mainstreet/onboarding/OnboardingBlockingAnswerOutcome.java
+    - src/main/java/mainstreet/onboarding/OnboardingPersistenceFailureCategory.java
+    - src/main/java/mainstreet/onboarding/OnboardingSubmissionAuthority.java
+    - src/main/java/mainstreet/onboarding/OnboardingAnswerForm.java
   protected_identity_checks:
-    - applied Flyway content unchanged
     - stable MS-* identifiers unchanged
-    - MS-PROT-051 identity text unchanged
+    - applied Flyway content unchanged
+    - legacy prototype paths unchanged
+  expected_residuals:
+    - src/test/java/mainstreet/onboarding/** remains deferred to GR-REN-03
   changed_path_set: exact
   diff_integrity: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
-verification_reconciliation:
-  initial_code_commit: 01eff690ffb2d7090a1e162d34ac1722dd713307
-  reason: structural verification discovered seven migration-introduced same-package transitional imports not visible in the default-branch dependency search
-  action: repair only those seven imports from mainstreet.merchantprofile to grandrue.merchantprofile; no semantic or visibility change
-
 preparation_notes:
-  - T006 contains one logical leaf because package-private CreateMerchantLocationCommand helpers couple the command/revision family across ordinary file boundaries.
-  - ServiceAreaGeographyV1 and all permitted implementations move in the same closure; no sealed-hierarchy or helper visibility widening is introduced.
-  - The leaf remains the smallest dependency-complete unit even though it owns multiple source files.
-  - Legacy prototype owners remain excluded and no prototype path is changed.
-  - Reconciliation preserves the attached initial code commit and extends the frozen consumer closure only with the seven structurally proven transitional imports.
-
-completed:
-  last_leaf: GR-REN-02-01X241
-  completed_leaf_count_in_tranche: 1
-  dependency_owned_member_count: 26
-  production_consumer_count: 12
-  aggregate_changed_path_count: 40
-  structural_verification: passed
-  next_tranche: GR-REN-02-T007
+  - Eight public onboarding enums were selected because their production consumer closures are explicit and contain no package-private or sealed-hierarchy coupling.
+  - Test namespace consumers remain deferred to GR-REN-03.
+  - No prototype path is selected or changed.

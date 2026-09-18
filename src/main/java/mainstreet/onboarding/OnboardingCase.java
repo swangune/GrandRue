@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingCasePurpose;
 import grandrue.application.MerchantScope;
 
 import java.util.Objects;

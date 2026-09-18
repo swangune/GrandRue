@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * MS-PROT-039 / MS-PROT-052 merchant interaction shape for an onboarding

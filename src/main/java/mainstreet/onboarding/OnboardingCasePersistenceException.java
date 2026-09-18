@@ -1,5 +1,6 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingPersistenceFailureCategory;
 import java.util.Objects;
 
 /**

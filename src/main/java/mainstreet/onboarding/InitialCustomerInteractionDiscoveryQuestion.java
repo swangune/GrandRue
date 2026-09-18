@@ -1,5 +1,7 @@
 package mainstreet.onboarding;
 
+import grandrue.onboarding.OnboardingAnswerForm;
+import grandrue.onboarding.OnboardingPromptClass;
 /**
  * Stable definition metadata authority for the initial customer-interaction discovery question.
  *

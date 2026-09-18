@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 /**
  * MS-PROT-052 deterministic outcome of onboarding prompt applicability
