@@ -2,47 +2,47 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T007
+tranche: GR-REN-03-T008
 group: GR-REN-03
-state: COMPLETE
-code_commit: a3f3e5049431f69ed7407a05756b8619205ca048
-expected_parent: 149dedc66fe9196096050091e3f1cb08a6ef5177
-validated_head: a3f3e5049431f69ed7407a05756b8619205ca048
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 6b2c565e424738e44ca0fac81cd2f3b812767abc
 
 region:
-  identity: test-identitysecurity
-  closure_basis: complete live src/test/java/mainstreet/identitysecurity/** Java test region; no external test consumers
+  identity: test-ordering
+  closure_basis: complete live src/test/java/mainstreet/ordering/** Java test region; no external test consumers
 
 classification:
   normal_closed:
     owner_count: 2
     external_test_consumer_count: 0
-    production_import_repair_count: 0
-  embedded_legacy_symbolic_or_wording_residuals:
-    count: 0
+    production_import_repair_count: 22
+  embedded_current_product_wording_residuals:
+    count: 2
+    disposition: preserve_and_classify_separately
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/identitysecurity/IdentitySecurityGenerationServiceTest.java
-      to: src/test/java/grandrue/identitysecurity/IdentitySecurityGenerationServiceTest.java
-      blob_sha: 2288c0ac4cb81a98691fb93d7c4ad6813e80338e
-    - from: src/test/java/mainstreet/identitysecurity/IdentitySecurityGenerationTest.java
-      to: src/test/java/grandrue/identitysecurity/IdentitySecurityGenerationTest.java
-      blob_sha: 7f2ba458d29cc2e1bcdfc88973bc596e5093f2f2
+    - from: src/test/java/mainstreet/ordering/OrderingApplicationServiceTest.java
+      to: src/test/java/grandrue/ordering/OrderingApplicationServiceTest.java
+      blob_sha: 63d9fc83f15061dbf758f5519e468efd590854f7
+    - from: src/test/java/mainstreet/ordering/OrderingAvailabilityImpactAssessmentTest.java
+      to: src/test/java/grandrue/ordering/OrderingAvailabilityImpactAssessmentTest.java
+      blob_sha: f7da70eb25b5fc16d485d25d54b1c4794cc5a944
 
 deterministic_transformations:
   owners:
-    - move both declared owners to the corresponding src/test/java/grandrue/identitysecurity/** paths
-    - replace exactly two package declarations package mainstreet.identitysecurity; with package grandrue.identitysecurity;
+    - move both declared owners to the corresponding src/test/java/grandrue/ordering/** paths
+    - replace exactly two package declarations package mainstreet.ordering; with package grandrue.ordering;
+    - replace exactly twenty-two executable imports from migrated mainstreet.* production namespaces to their grandrue.* counterparts
   consumers:
     - none; exact class-name search found no external test consumers
   prohibited:
     - no assertion, method body, string literal, comment, semantic or behavioural change
     - no legacy prototype test mutation
     - no Maven/build/CI/runtime configuration mutation
+    - do not rewrite the two preserved Main Street business-facing test literals in this namespace/import tranche
 
 verification:
   aggregate_changed_path_set: exact
@@ -50,25 +50,29 @@ verification:
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  import_repair_count: 0
+  import_repair_count: 22
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 protected:
-  - every assertion, method body, string literal and test-data identity unchanged
+  - every assertion and method body unchanged
+  - every string literal and test-data identity unchanged
+  - exactly two Main Street literal occurrences in OrderingAvailabilityImpactAssessmentTest preserved
   - legacy prototype tests unchanged
 
 expected_residuals:
+  - path: src/test/java/grandrue/ordering/OrderingAvailabilityImpactAssessmentTest.java
+    value: Main Street
+    occurrence_count: 2
+    reason: current-product business-facing test wording is classified separately from ordinary package/import/FQCN rewrites and remains for the applicable GR-REN-03 wording/residual decision
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - both source blobs and absent GrandRue destinations were reconciled against development at 149dedc66fe9196096050091e3f1cb08a6ef5177
-  - all referenced GrandRue identity-security production owners exist
+  - both source blobs and absent GrandRue destinations were reconciled against development at 6b2c565e424738e44ca0fac81cd2f3b812767abc
+  - all referenced GrandRue ordering, application, customer, inventory, money, runtime, semantic compiler/configuration and semantic registry production owners exist
   - exact class-name searches found no external test consumers
-  - no executable legacy import or embedded Main Street/current-product identifier occurs in this region
+  - twenty-two executable legacy production imports are fully classified for deterministic replacement
+  - two Main Street business-facing literals are deliberately preserved rather than conflated with namespace migration
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
