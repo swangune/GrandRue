@@ -579,6 +579,9 @@ State: `OPEN`
 
 - `GR-REN-02-01X200`: `MerchantContactPointProgressAffinityReadPort.java` moved from `mainstreet.merchantprofile` to `grandrue.merchantprofile`. Its sole bounded production consumer `mainstreet.merchantprofile.MerchantContactPointExposureChoiceReadPort` received an explicit `grandrue.merchantprofile.MerchantContactPointProgressAffinityReadPort` import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `23ff984c5b3e1b808b8080c69404a36874f67552`; the owner input blob was `b4ec4bd4b785adf7c217a70c93eea51a58adfef1`; consumer input blob was `2b42b4fd0d8ea8c98873b72f54c814f77c882843`; the GrandRue owner destination was absent at preflight. The moved interface received one explicit transitional import for the still-legacy `MerchantContactPointExposure` type. Existing BR5 progress-affinity default-unresolved semantics and current-progress proof boundary were unchanged. Code commit `b3cc1e5b96f1b7b8c1697a0c2cad14e13356389d` contains exactly one owner rename/package replacement, one transitional import addition and one production consumer import addition; structural verification confirmed a two-file production diff, the GrandRue owner at blob `649e0df4edf65cac5f22ef22b143e3d7a33d5bad`, and absence of the legacy owner path.
 
+
+- `GR-REN-02-01X201`: `MerchantLocationProgressAffinityReadPort.java` moved from `mainstreet.merchantprofile` to `grandrue.merchantprofile`. Its sole bounded production consumer `mainstreet.merchantprofile.MerchantLocationExposureChoiceReadPort` received an explicit `grandrue.merchantprofile.MerchantLocationProgressAffinityReadPort` import. Current tests remain deferred to `GR-REN-03`. The prepared parent was `a35aa438175aa742ed96a3ab95ba05658203ddfe`; the owner input blob was `8c94ae79def43057bbc93de07e31636a5389c881`; consumer input blob was `59c56787ac6cb3cff487de679a27942c0ee946fa`; the GrandRue owner destination was absent at preflight. The moved interface received one explicit transitional import for the still-legacy `MerchantLocationExposure` type. Existing BR5 progress-affinity default-unresolved semantics and current-progress proof boundary were unchanged. Code commit `3a66e4717666d7897a3d3807d3bd99680137b0d6` contains exactly one owner rename/package replacement, one transitional import addition and one production consumer import addition; structural verification confirmed a two-file production diff, the GrandRue owner at blob `d95a65efdf4c2b3162e4054da8219c6be3fc5d8a`, and absence of the legacy owner path.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -610,9 +613,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X200
-last_completed_task: GR-REN-02-01X200
-last_task_commit: b3cc1e5b96f1b7b8c1697a0c2cad14e13356389d
+selected_execution_leaf: GR-REN-02-01X201
+last_completed_task: GR-REN-02-01X201
+last_task_commit: 3a66e4717666d7897a3d3807d3bd99680137b0d6
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -698,8 +701,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X200
-last_prepared_execution_commit: b3cc1e5b96f1b7b8c1697a0c2cad14e13356389d
+last_prepared_execution_leaf: GR-REN-02-01X201
+last_prepared_execution_commit: 3a66e4717666d7897a3d3807d3bd99680137b0d6
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
