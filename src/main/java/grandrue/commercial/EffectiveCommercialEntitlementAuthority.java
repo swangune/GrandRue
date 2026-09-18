@@ -1,7 +1,12 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 import grandrue.commercial.CommercialAccessDecision;
 import mainstreet.application.MerchantScope;
+import mainstreet.commercial.CommercialEntitlementAuthority;
+import mainstreet.commercial.CommercialEntitlementGrant;
+import mainstreet.commercial.CommercialEntitlementGrantAuthority;
+import mainstreet.commercial.CommercialEntitlementGrantProvenance;
+import mainstreet.commercial.CommercialEntitlementIdentity;
 
 import java.time.Clock;
 import java.time.Instant;
