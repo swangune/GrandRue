@@ -613,6 +613,25 @@ State: `OPEN`
 
 - `GR-REN-02-01X213`: `MerchantPublicDescriptorMutationCommand.java` moved to `grandrue.merchantprofile`; co-moved `MerchantPublicDescriptorAuthority` retains a same-package reference and `JooqMerchantPublicDescriptorAuthority` now imports the GrandRue command. Input owner blob `41ecc96ef7b821fe71a39b1c6a95b167fb2e5591`; new owner blob `5922c42093c3a033af7f39ac085b3b366a3b77d7`. Mutation-intent validation and `MS-PROT-051 v1.1` identity text unchanged. Code: `e9dc8776b41dc9a26eee5d635abb06e2d9023515`.
 
+
+- `GR-REN-02-T002`: transactional tranche completed from parent `6fbb45d8a42765b2b17fcd5e7dcd3f1e326b4bad` in code commit `725360526d3b816de2b0e92a5665297f8cbd1a12`. The code commit contains the `CODE_COMMITTED` manifest plus exactly eight owner moves and thirty-one shared production-consumer repairs; aggregate comparison contains exactly the 40 manifest-declared paths. Structural verification confirmed every new owner, every old-owner absence, all declared consumer repairs, preserved enum values, failure-category semantics and `MS_SERVICE_AREA_GEOGRAPHY_V1`. No Maven tests or GitHub Actions were run.
+
+- `GR-REN-02-01X214`: `MerchantExternalPresenceExposure.java` moved to `grandrue.merchantprofile`; three legacy command/revision consumers and `JooqMerchantExternalPresenceLinkAuthority` now resolve the GrandRue enum. Input owner blob `3a02e3142ca27432b9a11369d73a35cf9aaf43ed`; new owner blob `a6bc7e96bc63bdca553fc1295c179dd637a402af`. `PRIVATE_INTERNAL`/`PUBLIC` values and persisted exposure-name semantics unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
+
+- `GR-REN-02-01X215`: `MerchantContactPointExposure.java` moved to `grandrue.merchantprofile`; all eight bounded production consumers now resolve the GrandRue enum. Input owner blob `fa41a13df6276278257c21391181cc2788a9af81`; new owner blob `3daf8c62518f5856ffd280b9bf2e1d3b90c27424`. Exposure values, current-exposure and BR5 progress-affinity semantics unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
+
+- `GR-REN-02-01X216`: `MerchantContactPointKind.java` moved to `grandrue.merchantprofile`; create/update/revision and persistence consumers now resolve the GrandRue enum. Input owner blob `fbd7d0853a13177256b2dcd15239909ed5fd371f`; new owner blob `abbf8d94d30b006545f93beeacd5cd5468e4ef89`. `TELEPHONE`/`EMAIL`/`MOBILE`/`WEB_LINK` and persisted name semantics unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
+
+- `GR-REN-02-01X217`: `MerchantLocationExposure.java` moved to `grandrue.merchantprofile`; all seven direct production consumers now resolve the GrandRue enum. Input owner blob `e2984e80a04237af95ac1cf024bbed013178c983`; new owner blob `f646379df9d45e3fdcbf4d4f15732eebbe9e25c4`. Exposure-choice and BR5 progress-affinity semantics unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
+
+- `GR-REN-02-01X218`: `MerchantServiceAreaExposure.java` moved to `grandrue.merchantprofile`; create/update/revision and persistence consumers now resolve the GrandRue enum. Input owner blob `83cade65dff7fdd71d5571ee5f271b17f31cb366`; new owner blob `4a98d56ad17c492acce1e1614cd2fddc91f1aad4`. Exposure values and persisted semantics unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
+
+- `GR-REN-02-01X219`: `MerchantServiceAreaGeographyKind.java` moved to `grandrue.merchantprofile`; all geography variants, `ServiceAreaGeographyV1` and persistence now resolve the GrandRue enum. Input owner blob `18ac9a18345c81e5c4fdb0e90c326ba0b74e543b`; new owner blob `4a13bc991b47821fba8df93e86cf72bb6b319a89`. Variant values, `MS_SERVICE_AREA_GEOGRAPHY_V1` and persisted kind-name semantics unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
+
+- `GR-REN-02-01X220`: `MerchantProfileFailureCategory.java` moved to `grandrue.merchantprofile`; the co-moved mutation exception retains same-package affinity and all seven persistence consumers now resolve the GrandRue enum. Input owner blob `9e6b2dfb46f078e68bf1c388d7ed77084787c602`; new owner blob `cbd9c8358a4e249298bd1ebaeb7d39316ad764b4`. All eight stable failure categories and recovery semantics unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
+
+- `GR-REN-02-01X221`: `MerchantProfileMutationException.java` moved to `grandrue.merchantprofile`; all seven persistence consumers now resolve the GrandRue exception. Input owner blob `a8bbbd8b2f18ea8b96519e758c3748821fc55dd8`; new owner blob `d62e1fc103c980361ae292d485dbbada56efa28c`. Exception inheritance and category/message/cause behaviour unchanged. Code: `725360526d3b816de2b0e92a5665297f8cbd1a12`.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -644,9 +663,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X213
-last_completed_task: GR-REN-02-01X213
-last_task_commit: e9dc8776b41dc9a26eee5d635abb06e2d9023515
+selected_execution_leaf: GR-REN-02-01X221
+last_completed_task: GR-REN-02-01X221
+last_task_commit: 725360526d3b816de2b0e92a5665297f8cbd1a12
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -764,8 +783,8 @@ tranche_max_leaf_count: 15
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X213
-last_prepared_execution_commit: e9dc8776b41dc9a26eee5d635abb06e2d9023515
+last_prepared_execution_leaf: GR-REN-02-01X221
+last_prepared_execution_commit: 725360526d3b816de2b0e92a5665297f8cbd1a12
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce

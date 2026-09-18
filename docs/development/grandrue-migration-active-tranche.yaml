@@ -3,8 +3,10 @@ execution_mode: TRANSACTIONAL_TRANCHE
 repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-02-T002
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 725360526d3b816de2b0e92a5665297f8cbd1a12
+checkpoint_commit: THIS_COMMIT
+verified: true
 expected_parent: 6fbb45d8a42765b2b17fcd5e7dcd3f1e326b4bad
 leaf_range:
   first: GR-REN-02-01X214
@@ -255,3 +257,10 @@ aggregate:
 preparation_notes:
   - The classification/External Presence command-revision cluster was rejected because its callers depend on package-private CreateMerchantLocationCommand.require methods; no visibility was widened.
   - All selected T002 owners are public enums/exceptions and cross the package boundary without package-private coupling.
+
+completed:
+  last_leaf: GR-REN-02-01X221
+  completed_leaf_count_in_tranche: 8
+  aggregate_changed_path_count: 40
+  structural_verification: passed
+  next_tranche: GR-REN-02-T003
