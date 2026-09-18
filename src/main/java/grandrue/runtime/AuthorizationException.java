@@ -1,4 +1,4 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 public final class AuthorizationException
         extends RuntimeException {

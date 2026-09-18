@@ -1,7 +1,7 @@
 package grandrue.scheduling;
 
 import grandrue.customer.CustomerContextAuthority;
-import mainstreet.runtime.AuthorizationException;
+import grandrue.runtime.AuthorizationException;
 import grandrue.runtime.CapabilityOperationHandler;
 import grandrue.runtime.OperationExecutionContext;
 import mainstreet.runtime.OperationExecutionGuard;
