@@ -286,6 +286,8 @@ State: `OPEN`
 
 - `GR-REN-02-01X73`: `MerchantScope.java` moved from `mainstreet.application` to `grandrue.application`. The complete live production dependency boundary contained 278 consumers: 272 existing explicit `mainstreet.application.MerchantScope` imports, two Enquiry delivery consumers using the legacy application wildcard, and four previously migrated `grandrue.application` consumers carrying transitional `MerchantScope` imports. All were updated atomically to the GrandRue owner; the two wildcard consumers now use explicit `grandrue.application.MerchantScope` imports. Current tests remain deferred to `GR-REN-03`. The prepared parent was `06cdcdf562f2c4bbf8b62f5eed751340bdc25dab`; owner input blob was `f9a0239db338c2065ac1d413f4ba7a2377901fcc`; the GrandRue owner destination was absent at preflight. Aggregate structural verification found exactly 279 changed production paths—one owner rename plus 278 one-line consumer import substitutions—and no remaining production path under `src/main/java/mainstreet/application/`. Existing merchant authority/ownership boundary semantics were unchanged. Code commit `aa1ff2f9ce8cf05fc0cefabf9614b7fb56ad171c` is the authoritative file-level evidence.
 
+- `GR-REN-02-01X74`: `TrialReminderCadence.java` moved from `mainstreet.commercial` to `grandrue.commercial`. No production consumers were found; current tests remain deferred to `GR-REN-03`. The prepared parent was `e467c29a887eabfd862605bb761ab2221b1783be`; owner input blob was `3c444e0ce3f0b55102c5fe15a82baa58473efdd4`; the GrandRue owner destination was absent at preflight. An explicit legacy `mainstreet.commercial.TrialReminderMilestone` import was added because that milestone owner remains in the legacy Commercial package. Existing trial reminder milestone days, remaining-day values, lookup behaviour and commercial policy semantics were unchanged. Code commit `50ac9b4de7efaad2ba4e65ef862b5aef000fec50` contains exactly one owner rename/package replacement and one explicit transitional import.
+
 ### Ledger integrity repair
 
 Checkpoint commit `ee7b9c659b8038cd8ef14af9c80ac29102322516` correctly recorded the `GR-REN-02-01N` table entry but accidentally truncated later portions of this non-semantic ledger during file replacement. No production source was affected. Repair commit `abda517cd8f42a197c95af8adec55d1843576ea1` reconstructed the canonical operational record from the last intact checkpoint and retained commit evidence, while compacting repeated file-level detail into commit references.
@@ -317,9 +319,9 @@ baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-02
-selected_execution_leaf: GR-REN-02-01X73
-last_completed_task: GR-REN-02-01X73
-last_task_commit: aa1ff2f9ce8cf05fc0cefabf9614b7fb56ad171c
+selected_execution_leaf: GR-REN-02-01X74
+last_completed_task: GR-REN-02-01X74
+last_task_commit: 50ac9b4de7efaad2ba4e65ef862b5aef000fec50
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 last_verified_head: 075fe5ae53a0e513960c6965634a5720cd1a23eb
@@ -405,8 +407,8 @@ prepared_work_protocol: docs/development/grandrue-migration-work.md
 prepared_work_state: PREPARATION_REQUIRED
 prepared_work_node: GR-REN-02-01X+
 ready_packet: null
-last_prepared_execution_leaf: GR-REN-02-01X73
-last_prepared_execution_commit: aa1ff2f9ce8cf05fc0cefabf9614b7fb56ad171c
+last_prepared_execution_leaf: GR-REN-02-01X74
+last_prepared_execution_commit: 50ac9b4de7efaad2ba4e65ef862b5aef000fec50
 post_adoption_integrity_repair_leaf: GR-REN-02-01X6
 post_adoption_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
 protocol_adoption_parent: d3e20efdfa3acda54ed511e8c2f2374d3ae2d2ce
