@@ -4,7 +4,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import mainstreet.runtime.AuthenticationException;
 import mainstreet.runtime.AuthenticationFailureCategory;
-import mainstreet.runtime.AuthenticationSession;
+import grandrue.runtime.AuthenticationSession;
 import mainstreet.runtime.SessionCredentialResolver;
 
 import java.util.Objects;

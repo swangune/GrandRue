@@ -1,5 +1,6 @@
 package mainstreet.runtime;
 
+import grandrue.runtime.AuthenticationSession;
 import grandrue.runtime.IdentitySecurityGenerationAuthority;
 
 import java.time.Clock;
