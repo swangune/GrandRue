@@ -6,7 +6,6 @@ import grandrue.runtime.UnsatisfiedOperationRequirementsException;
 import mainstreet.runtime.ExecutionPrincipal;
 import mainstreet.runtime.OperationExecutionContext;
 import mainstreet.runtime.OperationExecutionGuard;
-import mainstreet.runtime.OperationFulfilment;
 import mainstreet.runtime.RequirementEvaluation;
 import mainstreet.runtime.TrustedExecutionContext;
 import mainstreet.semantic.executable.ActiveOperationResolver;

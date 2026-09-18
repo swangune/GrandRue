@@ -5,7 +5,7 @@ import mainstreet.runtime.AuthorizationException;
 import grandrue.runtime.CapabilityOperationHandler;
 import mainstreet.runtime.OperationExecutionContext;
 import mainstreet.runtime.OperationExecutionGuard;
-import mainstreet.runtime.OperationFulfilment;
+import grandrue.runtime.OperationFulfilment;
 import mainstreet.semantic.AllocationClaim;
 import mainstreet.semantic.DomainEvent;
 import mainstreet.semantic.executable.ExecutableAllocationClaimEffect;
