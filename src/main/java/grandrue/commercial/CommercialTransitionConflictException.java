@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 /**
  * Commercial transition conflict caused by an expected-current mismatch.

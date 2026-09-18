@@ -5,7 +5,7 @@ import mainstreet.commercial.BillingCadence;
 import mainstreet.commercial.CommercialAcceptanceProvenance;
 import mainstreet.commercial.CommercialEntitlementGrant;
 import mainstreet.commercial.CommercialEntitlementIdentity;
-import mainstreet.commercial.CommercialTransitionConflictException;
+import grandrue.commercial.CommercialTransitionConflictException;
 import mainstreet.commercial.MerchantCommercialAgreement;
 import mainstreet.commercial.MerchantCommercialAgreementStore;
 import mainstreet.commercial.MerchantCommercialAgreementTransition;
