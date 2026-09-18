@@ -5,6 +5,7 @@ import grandrue.application.ApplicationRequestIdentity;
 import grandrue.application.MerchantScope;
 import grandrue.enquiry.EnquirySubmittedContact;
 import grandrue.enquiry.OpportunityEnquirySubmissionPreparation;
+import grandrue.enquiry.EnquirySubmissionApplicationService;
 import mainstreet.enquiry.*;
 import mainstreet.publication.OpportunityPublicationStateAuthority;
 import mainstreet.publication.OpportunityPublicationSubmissionLock;

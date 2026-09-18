@@ -4,7 +4,7 @@ import grandrue.application.ApplicationRequestIdentity;
 import grandrue.application.MerchantScope;
 import grandrue.enquiry.EnquiryApplicationRequestConflictException;
 import mainstreet.enquiry.EnquirySubmission;
-import mainstreet.enquiry.EnquirySubmissionApplicationService;
+import grandrue.enquiry.EnquirySubmissionApplicationService;
 import mainstreet.enquiry.EnquirySubmissionIntent;
 import mainstreet.enquiry.EnquirySubmissionPreparation;
 import mainstreet.enquiry.EnquirySubmissionStore;
