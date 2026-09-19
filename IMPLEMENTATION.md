@@ -1,11 +1,11 @@
 # GrandRue Implementation Controller
 
-**Status:** `PAUSED_FOR_MIGRATION_VERIFICATION`  
+**Status:** `ACTIVE`  
 **Authority class:** `NON-AUTHORITATIVE OPERATIONAL CONTROLLER`  
 **Repository:** `swangune/GrandRue`  
 **Branch:** `development`  
 **Controller schema:** `grandrue-implementation-controller/v2`  
-**Governed execution rules:** `MS-IMPLEMENTATION-RULES-001 v2.0` — `designs/IMPLEMENTATION-RULES.md`
+**Governed execution rules:** `MS-IMPLEMENTATION-RULES-001 v2.1` — `designs/IMPLEMENTATION-RULES.md`
 
 This is the single live implementation execution pointer. It does not create semantic meaning, architecture, implementation-programme authority, graph edges, completion permission or design approval.
 
@@ -13,46 +13,51 @@ The canonical fine-grained dependency/readiness graph is `docs/development/imple
 
 ## 1. Current gate
 
-Implementation is intentionally paused while the GrandRue naming migration and required post-migration verification/closure are incomplete.
+GrandRue naming migration, independent post-migration preservation verification and GR-REN-08 through GR-REN-11 closure are complete. Implementation has re-entered the preserved programme frontier.
 
 ```yaml
 controller_schema: grandrue-implementation-controller/v2
 repository: swangune/GrandRue
 branch: development
-observed_head_at_v2_formalisation: 058d7264836f22c03f6954a979e767127c0f8f3c
+observed_head_at_resume_reconciliation: 895aab8729e863040b212cab5cdfbe9d01bda1d7
 
-phase: MIGRATION_AND_POST_MIGRATION_VERIFICATION
-implementation_state: PAUSED_FOR_MIGRATION_VERIFICATION
+phase: IMPLEMENTATION
+implementation_state: IN_PROGRESS
 
-preserved_programme_frontier:
+migration_handoff:
+  migration_execution_complete: true
+  post_migration_verification_complete: true
+  gr_ren_08_through_11_closed: true
+  unresolved_migration_defect: false
+  implementation_handoff: READY
+
+programme_frontier:
   macro:
     id: IMP-08C
     state: IN_PROGRESS
   node:
     id: IMP-08C-C3
     state: IN_PROGRESS
-  note: Reconcile against the canonical graph/current tree after post-migration verification before resuming.
+  note: >
+    DQ-001 is resolved by accepted MS-PROT-056 v1.10. C3 remains open for
+    faithful initial-catalogue implementation, trusted publication admission,
+    production composition/rollout ordering and final verification.
 
 slice:
-  id: null
-  state: null
+  id: C3-INITIAL-CATALOGUE-INTEGRATION
+  state: READY
+  behaviour: >
+    Represent the approved standard-commercial-catalogue@1 exactly, including
+    owner-qualified conditional supporting-commercial requirements, and prove
+    its structural/admission boundary before production activation.
 
 canonical_graph: docs/development/implementation-programme-state.json
 historical_status_compatibility: docs/development/implementation-status.md
 
-resume_gate:
-  migration_execution_complete: required
-  post_migration_verification_complete: required
-  gr_ren_08_through_11_closed: required
-  unresolved_migration_defect: false_required
-  blocking_design_escalation: false_required
-
 next_action: >
-  Continue governed migration and automatic post-migration verification. When the
-  verification/GR-REN closure succeeds, reconcile the canonical implementation graph
-  against the verified final repository, refresh this controller, select an eligible
-  READY node, prepare one dependency-complete behavioural slice and resume
-  implementation automatically without another user prompt.
+  Execute the C3 initial-catalogue integration slice tests first. Implement only
+  the minimum accepted v1.10 representation/admission behaviour needed by that
+  slice, verify proportionally, then checkpoint graph/evidence/controller.
 ```
 
 ## 2. Governing sources
@@ -64,15 +69,14 @@ next_action: >
 | Macro programme | `designs/authorities/programme/MS-IMP-001/MS-IMP-001.md` + current accepted composition |
 | Fine-grained dependency/readiness graph | `docs/development/implementation-programme-state.json` |
 | Repository agent navigation | `AGENTS.md` |
-| Migration execution | `GRANDRUE-MIGRATION.md` |
+| Migration execution closure | `GRANDRUE-MIGRATION.md` |
 | Independent migration verification | `GRANDRUE-POST-MIGRATION-VERIFICATION.md` |
+| Initial standard commercial catalogue | `designs/authorities/ms-prot/MS-PROT-056/MS-PROT-056 v1.10 — Initial Standard Commercial Catalogue Manifest.md` |
 
-## 3. v2 execution model after resume
+## 3. Current execution model
 
 ```text
-eligible READY node
-        ↓
-prepare authority / dependency boundary once
+active IN_PROGRESS node
         ↓
 dependency-complete behavioural slice
         ↓
@@ -99,10 +103,9 @@ On any new implementation session:
 2. read `AGENTS.md` and this controller;
 3. verify this controller against the canonical graph and current evidence;
 4. resolve exact accepted authority through `AUTHORITY-INDEX.md`;
-5. if migration/post-migration verification is incomplete, remain paused;
-6. after successful handoff, reconcile the graph/current tree before selecting work;
-7. prepare one dependency-complete behavioural slice and execute under v2.0;
-8. synchronise this controller at durable slice checkpoints and terminal node transitions.
+5. continue the active C3 slice while its authority/dependencies remain unchanged;
+6. use tests first and source-rooted correction under `IMPLEMENTATION-RULES.md`;
+7. synchronise this controller at durable slice checkpoints and terminal node transitions.
 
 Conversation memory is never a substitute for repository state.
 
