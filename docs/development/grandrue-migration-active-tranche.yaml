@@ -2,46 +2,39 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T028
+tranche: GR-REN-03-T029
 group: GR-REN-03
-state: COMPLETE
-code_commit: e49a0f868fbde98eafe1990af421d0bc9312328f
-expected_parent: e1d7dd2a0464f3159623d461cd2b03289f2ed090
-validated_head: e49a0f868fbde98eafe1990af421d0bc9312328f
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 30d87cce1c8b593def40da0cf626c2e2271f7045
 
 region:
-  identity: test-semantic-event
-  closure_basis: complete live src/test/java/mainstreet/semantic/event/** Java test-owner region
+  identity: test-semantic-execution
+  closure_basis: complete live src/test/java/mainstreet/semantic/execution/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 3
+    owner_count: 2
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 6
+    executable_namespace_replacement_count: 25
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/semantic/event/MerchantEventReactionReceiptTest.java
-      to: src/test/java/grandrue/semantic/event/MerchantEventReactionReceiptTest.java
-      blob_sha: ee41e3dcba3ba213da08aaee55ca9e9a8edf95cc
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/event/EventContractRegistrySnapshotTest.java
-      to: src/test/java/grandrue/semantic/event/EventContractRegistrySnapshotTest.java
-      blob_sha: 22bf5f5ee7567cac79d38f97f3f310aaa1dd425f
+    - from: src/test/java/mainstreet/semantic/execution/SemanticExecutionSpineConformanceTest.java
+      to: src/test/java/grandrue/semantic/execution/SemanticExecutionSpineConformanceTest.java
+      blob_sha: 1578366d6c7b389d31fa7936e2823beaed593ef6
+      executable_namespace_replacements: 24
+    - from: src/test/java/mainstreet/semantic/execution/ExecutableSupportRegistryTest.java
+      to: src/test/java/grandrue/semantic/execution/ExecutableSupportRegistryTest.java
+      blob_sha: f85e06609230c07c55803fd1ba71794d23e78e43
       executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/event/EventReactionContractTest.java
-      to: src/test/java/grandrue/semantic/event/EventReactionContractTest.java
-      blob_sha: c51e30a3130621552b87fbeb5057b716ae399353
-      executable_namespace_replacements: 3
 
 deterministic_transformations:
   owners:
-    - move all three declared owners to corresponding src/test/java/grandrue/semantic/event/** paths
+    - move both declared owners to corresponding src/test/java/grandrue/semantic/execution/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -51,7 +44,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 4
+  expected_changed_path_count: 3
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -67,11 +60,3 @@ protected:
 expected_residuals:
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
-
-preparation_notes:
-  - all owner blobs and absent GrandRue destinations reconciled against development at e1d7dd2a0464f3159623d461cd2b03289f2ed090
-  - no external test consumer of the test-owned classes was discovered
-  - Maven tests and GitHub Actions were not run
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
