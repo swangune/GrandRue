@@ -1,0 +1,32 @@
+{
+  "schema_version": "grandrue-region-progress/v1",
+  "run_id": "GR-VV-R001",
+  "region_id": "GR-VV-03-R003",
+  "region_name": "build_ci_storefront_current_naming",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method_version": "grandrue-preservation-checker/v1",
+  "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+  "state": "CHECKPOINTED",
+  "total_files": 5,
+  "verified_files": 5,
+  "passing_files": 5,
+  "failing_files": 0,
+  "blocked_files": 0,
+  "remaining_files": 0,
+  "completed_packages": [
+    "build/CI/storefront"
+  ],
+  "chunks": [
+    {
+      "chunk": "build-ci-storefront",
+      "git_blob": "0547f8811d56d7fd1d6f5349b351084c953ae7db",
+      "sha256": "7656d046ca997a33137cb0c3ac9d640aa428387086b1dd11a9af3aed3932d57d",
+      "files": 5,
+      "pass": 5,
+      "fail": 0
+    }
+  ],
+  "conclusion": "PASS",
+  "next_action": "Execute GR-VV-03-R004 against the frozen 6-file pure control/governance wording deterministic region. Preserve GR-VV-F001 and GR-VV-F002 unchanged; continue independent verification without repairing discrepancies.",
+  "finding_ids": []
+}
