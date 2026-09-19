@@ -984,19 +984,20 @@ post_migration_verification_run: GR-VV-R003
 post_migration_verification_result: PASS
 gr_ren_08: COMPLETE
 gr_ren_09: COMPLETE
-gr_ren_10: IN_PROGRESS_SECOND_QUARANTINE_APPLIED_RERUN_REQUIRED
+gr_ren_10: IN_PROGRESS_TEST_EXPECTATION_REPAIR_APPLIED_RERUN_REQUIRED
 gr_ren_10_command: mvn --batch-mode clean verify -Ppostgres-it
-gr_ren_10_initial_result: FAIL_MAIN_SOURCE_COMPILATION
-gr_ren_10_initial_error_count: 38
-gr_ren_10_initial_failure_scope: src/main/java/mainstreet/prototype/**
-gr_ren_10_production_quarantine_commit: f4a95ce81e2a6d7a058b93c46048862b9275aabb
-gr_ren_10_first_rerun_result: FAIL_TEST_SOURCE_COMPILATION
-gr_ren_10_first_rerun_production_compile: PASS_1094_SOURCES
-gr_ren_10_first_rerun_test_compile_attempted_sources: 394
-gr_ren_10_first_rerun_reported_error_count: 100
-gr_ren_10_first_rerun_failure_scope: src/test/java/mainstreet/prototype/**
-gr_ren_10_test_quarantine_commit: ca2d004b418397fa75abd2e46012f86d7f66fde5
-gr_ren_10_test_quarantine: EXCLUDE_mainstreet/prototype/**_FROM_MAVEN_TEST_COMPILATION
+gr_ren_10_latest_run_compile_main: PASS_1094_SOURCES
+gr_ren_10_latest_run_compile_test: PASS_376_SOURCES
+gr_ren_10_latest_run_unit_tests: 1252
+gr_ren_10_latest_run_failures: 28
+gr_ren_10_latest_run_errors: 2
+gr_ren_10_latest_run_skipped: 0
+gr_ren_10_latest_run_failure_classes:
+  stale_current_product_wording_expectations: 19
+  stale_surface_package_identity_expectations: 4
+  stale_governance_controller_authority_navigation: 7
+gr_ren_10_test_repair_commit: a55de294fba72fe071194c13a7ee123d518ea7dc
+gr_ren_10_test_repair_changed_paths: 13
 gr_ren_10_rerun_required: true
 gr_ren_11: BLOCKED_BY_GR_REN_10_FINAL_RERUN
 migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
@@ -1007,7 +1008,26 @@ next_action: RERUN_MVN_BATCH_MODE_CLEAN_VERIFY_POSTGRES_IT
 
 ### Post-verification defect repair — GR-REN-REPAIR-T001
 
-Post-migration verification runs `GR-VV-R001` and `GR-VV-R002` isolated two exact byte-preservation defects and no semantic discrepancy. Separately authorised migration repair GR-REN-REPAIR-T001 corrected only those bytes:
+Post-migration verification runs `GR-VV-R001` and `GR-VV-R002` isolated two exact byte-preservatio### GR-REN-10 executable validation — full unit-suite exposure after prototype quarantine
+
+After both legacy prototype source-set quarantines, the exact Maven command reached normal GrandRue compilation and unit execution:
+
+- main compilation: **PASS**, 1,094 sources;
+- test compilation: **PASS**, 376 sources;
+- unit/governance tests executed: **1,252**;
+- failures: **28**;
+- errors: **2**;
+- skipped: **0**.
+
+The failures were migration-era test drift rather than newly observed production behaviour changes:
+
+1. current-product business-facing expectations still asserted `Main Street` while production correctly emitted `GrandRue`;
+2. Exposure architecture tests still asserted `mainstreet.surface` after the approved package migration to `grandrue.surface`;
+3. governance tests still navigated the retired `implementation-status.md` live-controller model or pre-colocation authority paths.
+
+Bounded repair commit `a55de294fba72fe071194c13a7ee123d518ea7dc` changes exactly 13 GrandRue test files. It changes no production source, schema, runtime configuration or accepted authority. The repairs preserve the original test invariants while rebinding them to current GrandRue names, `/IMPLEMENTATION.md`, the canonical implementation graph and the live accepted authority locations. GR-REN-10 remains open pending rerun of the same Maven command.
+
+n defects and no semantic discrepancy. Separately authorised migration repair GR-REN-REPAIR-T001 corrected only those bytes:
 
 - `GR-VV-F001`: `src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java` — removed one final LF byte, changing blob `3700ba0e2a6af3e9552d5de53834095168f3f4f8` to the independently expected blob `95b85896aa89326927b084a83ea54fcdfde20cc8`.
 - `GR-VV-F002`: `src/main/java/grandrue/infrastructure/persistence/notification/JooqNotificationStore.java` — added one final LF byte, changing blob `0269458ed06c1572d1cba4798fc7476e0bf16b93` to the independently expected blob `ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3`.

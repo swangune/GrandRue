@@ -394,7 +394,7 @@ leaf_role: AUDIT_COORDINATE_NOT_EXECUTION_UNIT
 numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
-active_state: IN_PROGRESS_SECOND_QUARANTINE_APPLIED_RERUN_REQUIRED
+active_state: IN_PROGRESS_TEST_EXPECTATION_REPAIR_APPLIED_RERUN_REQUIRED
 last_completed_leaf: GR-REN-02-01X739
 last_completed_task: GR-REN-09
 last_code_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
@@ -512,23 +512,22 @@ closure_gates:
     open_findings: 0
     negative_controls: RETAINED_PASS_FROM_GR_VV_R001
   gr_ren_10:
-    state: IN_PROGRESS_SECOND_QUARANTINE_APPLIED_RERUN_REQUIRED
+    state: IN_PROGRESS_TEST_EXPECTATION_REPAIR_APPLIED_RERUN_REQUIRED
     structural_migration_validation: PASS
     command: mvn --batch-mode clean verify -Ppostgres-it
-    initial_result: FAIL_MAIN_SOURCE_COMPILATION
-    initial_error_count: 38
-    initial_failure_scope: src/main/java/mainstreet/prototype/**
-    production_quarantine_commit: f4a95ce81e2a6d7a058b93c46048862b9275aabb
-    first_rerun_production_compile: PASS_1094_SOURCES
-    first_rerun_result: FAIL_TEST_SOURCE_COMPILATION
-    first_rerun_test_compile_attempted_sources: 394
-    first_rerun_reported_error_count: 100
-    first_rerun_failure_scope: src/test/java/mainstreet/prototype/**
-    classification: NON_MIGRATING_LEGACY_PROTOTYPE_TEST_ACTIVE_SOURCESET_CONTAMINATION
-    test_quarantine_commit: ca2d004b418397fa75abd2e46012f86d7f66fde5
-    test_quarantine_changed_paths: 1
-    test_quarantine_path: pom.xml
-    test_quarantine: EXCLUDE_mainstreet/prototype/**_FROM_TEST_COMPILATION
+    latest_main_compile: PASS_1094_SOURCES
+    latest_test_compile: PASS_376_SOURCES
+    latest_unit_governance_tests: 1252
+    latest_failures: 28
+    latest_errors: 2
+    latest_skipped: 0
+    failure_classes:
+      stale_current_product_wording_expectations: 19
+      stale_surface_package_identity_expectations: 4
+      stale_governance_controller_authority_navigation: 7
+    test_repair_commit: a55de294fba72fe071194c13a7ee123d518ea7dc
+    test_repair_changed_paths: 13
+    production_changes_in_test_repair: 0
     rerun_required: true
     github_actions: NOT_RUN_NOT_AUTHORISED
   gr_ren_11:
