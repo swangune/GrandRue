@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.50
+**Version:** 1.51
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -3125,7 +3125,7 @@ Payment Obligation
     Money-owned amount required to be discharged
 
 Invoice
-    not established by MS-PROT-095; native authority remains deferred
+    merchant-issued customer billing record under MS-PROT-096
 ```
 
 Hard boundaries:
@@ -3145,4 +3145,88 @@ Quotation Acceptance
 
 Quotation Acceptance
     ≠ Invoice
+```
+---
+
+## 33. Invoice, Payment Binding and billing resolution
+
+These terms are high-risk because billing representation, customer monetary obligation, payment execution, Financial Operations and customer relationship are independently owned.
+
+### Invoice
+
+**Authority:** MS-PROT-096 v1.0.  
+A merchant-scoped Operational Object representing one merchant-issued customer billing record. Invoicing owns Invoice identity, issued content, Invoice Reference, Invoice Items, Invoice Payment Binding, withdrawal and Invoice-owned billing-cancellation truth.
+
+Invoice is not a Payment Obligation, Amount Due, PaymentApplication, Finance-Native Receivable, PDF, email or generic accounting record.
+
+### Invoice Item
+
+**Authority:** MS-PROT-096 v1.0.  
+An identity-bearing component of one Invoice describing one billed commercial scope and one exact billed monetary contribution.
+
+### Invoice Reference
+
+**Authority:** MS-PROT-096 v1.0.  
+A merchant-scoped human-facing immutable reference allocated to one Invoice at issuance. It is distinct from Invoice identity, unique within Merchant Scope and never reused after allocation.
+
+### Invoice Payment Binding
+
+**Authority:** MS-PROT-096 v1.0.  
+The immutable relationship between one issued Invoice and exactly one Payment Obligation. The initial binding modes are `INVOICE_ESTABLISHES_OBLIGATION` and `EXISTING_OBLIGATION`.
+
+The binding does not transfer Payment ownership to Invoicing.
+
+### Invoice Withdrawal
+
+**Authority:** MS-PROT-096 v1.0.  
+An immutable Invoicing-owned fact that one issued Invoice is no longer the current customer billing representation. Withdrawal does not itself mutate the bound Payment Obligation.
+
+### Invoice Billing Cancellation
+
+**Authority:** MS-PROT-096 v1.0.  
+An immutable Invoicing-owned fact cancelling billing created by an Invoice whose issuance itself established its Payment Obligation. Required Payment reduction remains Payment-owned and is coordinated atomically; Refund is separate.
+
+### Invoice customer relationship
+
+**Authority:** MS-PROT-096 v1.0 composed with composite MS-PROT-043 and customer-surface/access authority.  
+Where recipient context is a CustomerContext, the Invoice retains an owner-qualified relationship to that exact CustomerContext. Merchant customer-history projections may compose authorised Invoice information through that relationship, but CustomerContext does not own or duplicate Invoice or Payment truth. A one-off guest Invoice does not require manufacture of a CustomerContext.
+
+Canonical distinctions:
+
+```text
+Invoice
+    merchant-issued billing record
+
+Payment Obligation
+    customer monetary obligation
+
+Amount Due
+    Payment-derived current result
+
+Finance-Native Receivable
+    residual Financial Operations obligation only
+    where no more specific source owns the meaning
+
+Invoice → CustomerContext
+    customer-history relationship
+    not ownership transfer
+```
+
+Hard boundaries:
+
+```text
+Invoice total
+    ≠ Amount Due
+
+Invoice paid presentation
+    ≠ Invoice-owned paid state
+
+Invoice Withdrawal
+    ≠ Payment Obligation cancellation
+
+Invoice Billing Cancellation
+    ≠ Refund
+
+CustomerContext
+    ≠ Invoice owner
 ```

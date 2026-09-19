@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.37
+**Version:** 4.38
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -47,7 +47,7 @@ The older `docs/foundation/Vision.md` remains historical foundation/product evid
 MS-PROT-001..019
     research / prototype / proposed evidence unless explicitly incorporated
 
-MS-PROT-020..095
+MS-PROT-020..096
     accepted design series where indexed below, subject to scope-aware version composition
     MS-PROT-078 is non-current historical readiness evidence and is not required current authority
 ```
@@ -135,10 +135,13 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-093 | v1.0 |
 | MS-PROT-094 | v1.0 |
 | MS-PROT-095 | v1.0 |
+| MS-PROT-096 | v1.0 |
 
 ### 3.1 Key scope-aware links
 
 The following cross-authority links are retained explicitly because they materially affect current navigation:
+
+- MS-PROT-096 v1.0 — `MS-PROT-096 — Invoice, Issuance & Payment Relationship Model.md` — establishes native outbound customer Invoicing, resolves `MS-PROT-084-DQ-006`, keeps Payment as owner of Payment Obligation/Amount Due/payment truth, prevents duplicate Financial Operations Receivables, establishes exact CustomerContext linkage where a durable customer relationship exists, admits `invoicing/invoice-issuance-access@1` / `ISSUE_CUSTOMER_INVOICE` for BUSINESS + GROWTH, classifies bounded preparation/observation/resolution without independent Invoicing entitlement, advances `MS-PROT-056-V17-DQ-004`, narrows `MS-PROT-056-V17-DQ-001`, and activates no implementation.
 
 - MS-PROT-095 v1.0 — `MS-PROT-095 — Quotation, Revision & Acceptance Model.md` — establishes Quotation as the owner of merchant-issued quoted commercial offers, immutable issued revisions and recipient responses while preserving Enquiry ownership of customer requests. It admits the existing BUSINESS Quotation reservation through `quotation/commercial-offer-issuance-access@1` / `ISSUE_QUOTATION_COMMERCIAL_OFFER` for BUSINESS + GROWTH, classifies bounded preparation/observation/response/resolution without independent Commercial Entitlement, partially resolves `MS-PROT-056-V17-DQ-004`, narrows `MS-PROT-056-V17-DQ-001`, preserves `MS-PROT-084-DQ-006` Invoice authority as deferred, and activates no implementation.
 
