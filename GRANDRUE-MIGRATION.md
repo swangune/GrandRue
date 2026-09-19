@@ -874,6 +874,8 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-03-T012`: migrated the complete live `src/test/java/mainstreet/resilience/**` Java test region as one dependency-bounded closed subgraph. One test owner moved to the corresponding `src/test/java/grandrue/resilience/**` path with exactly one package-declaration replacement and no import/FQCN repairs. Exact class-name search found no external test consumers. No embedded Main Street/current-product identifier was present in the region. Aggregate structural verification proved exactly one rename plus the active-manifest change; the destination reconstructs exactly from its source blob plus only the declared package replacement, the legacy owner path is absent, and no legacy `mainstreet.*` FQCN/import remains. Code commit `9470af6893f6524abbb48cf387130cf6552be1f5`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-03-T013`: migrated nine complete live single-owner top-level test package regions (`audit`, `businesshours`, `credential`, `customer`, `experiments`, `media`, `observability`, `privacy`, and `protection`) as one mechanically closed normal subgraph. Nine test owners moved to their corresponding `src/test/java/grandrue/**` paths with exactly nine package-declaration replacements and ten executable migrated-production import repairs. Exact class-name searches found no external test consumers; one documentation-only `ResourceProtectionModelTest` name reference was classified as non-executable and left unchanged. No embedded Main Street/current-product wording was present in the migrated owners. Aggregate structural verification proved exactly nine renames plus the active-manifest change; the rename diffs contain exactly nineteen additions and nineteen deletions matching the frozen namespace/import substitutions, all legacy owner paths are absent, and the GrandRue destinations are present. Code commit `bcafc8535e4c9d591ce4e46f058df4f4cb473901`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `IN_PROGRESS`
@@ -899,12 +901,12 @@ status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-03
 selected_execution_leaf: null
-last_completed_task: GR-REN-03-T012
-last_task_commit: 9470af6893f6524abbb48cf387130cf6552be1f5
+last_completed_task: GR-REN-03-T013
+last_task_commit: bcafc8535e4c9d591ce4e46f058df4f4cb473901
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 9470af6893f6524abbb48cf387130cf6552be1f5
-next_action: Continue GR-REN-03 from the live post-T012 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 343 in-scope legacy test Java files remain after T012, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: bcafc8535e4c9d591ce4e46f058df4f4cb473901
+next_action: Continue GR-REN-03 from the live post-T013 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; 334 in-scope legacy test Java files remain after T013, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Continue classifying embedded legacy product/runtime/compatibility identifiers separately from ordinary package/import/FQCN rewrites; preserve protected identities and test semantics; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---

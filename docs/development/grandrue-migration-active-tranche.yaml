@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T013
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: bcafc8535e4c9d591ce4e46f058df4f4cb473901
 expected_parent: bf9cd6a3f8b0ddc9e628ab6920f25619667753b9
+validated_head: bcafc8535e4c9d591ce4e46f058df4f4cb473901
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: isolated-single-owner-top-level-test-packages
@@ -92,3 +95,6 @@ preparation_notes:
   - exactly nineteen executable mainstreet.* occurrences are classified as nine package declarations plus ten production imports
   - no embedded Main Street/current-product wording occurs in the nine-owner region
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
