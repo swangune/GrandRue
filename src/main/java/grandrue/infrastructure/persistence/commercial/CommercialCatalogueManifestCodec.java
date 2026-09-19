@@ -18,7 +18,6 @@ import grandrue.commercial.CommercialAccessBinding;
 
 import grandrue.commercial.CatalogueResolutionException;
 import grandrue.commercial.CommercialSupportingAccessRequirement;
-import mainstreet.commercial.*;
 
 import java.io.*;
 import java.nio.ByteBuffer;
