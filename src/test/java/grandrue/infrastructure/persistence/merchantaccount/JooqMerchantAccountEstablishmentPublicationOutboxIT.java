@@ -1,7 +1,7 @@
-package mainstreet.infrastructure.persistence.merchantaccount;
+package grandrue.infrastructure.persistence.merchantaccount;
 
-import mainstreet.application.TrustedPlatformHumanPrincipal;
-import mainstreet.merchantaccount.MerchantAccountEstablished;
+import grandrue.application.TrustedPlatformHumanPrincipal;
+import grandrue.merchantaccount.MerchantAccountEstablished;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -173,7 +173,7 @@ class JooqMerchantAccountEstablishmentPublicationOutboxIT {
     void registered_occurrence_survives_store_recreation_replay_and_publication_completion() {
         var principal = new TrustedPlatformHumanPrincipal("identity-1");
         store(() -> "establishment-1", () -> "publication-1").establishIfAbsent("request-1", principal);
-        var registry = mainstreet.merchantaccount.MerchantAccountEstablishedEventContract.registry();
+        var registry = grandrue.merchantaccount.MerchantAccountEstablishedEventContract.registry();
         var before = new JooqMerchantAccountEstablishmentPublicationOutbox(dsl).pending(10).getFirst()
                 .registeredOccurrence(registry).orElseThrow();
         store(() -> "must-not-be-generated", () -> "must-not-be-generated").establishIfAbsent("request-1", principal);
@@ -189,7 +189,7 @@ class JooqMerchantAccountEstablishmentPublicationOutboxIT {
     void missing_or_unknown_historical_affinity_is_not_replaced_by_the_current_contract() {
         store(() -> "establishment-1", () -> "publication-1")
                 .establishIfAbsent("request-1", new TrustedPlatformHumanPrincipal("identity-1"));
-        var registry = mainstreet.merchantaccount.MerchantAccountEstablishedEventContract.registry();
+        var registry = grandrue.merchantaccount.MerchantAccountEstablishedEventContract.registry();
         dsl.execute("update merchant_account_establishment_publication_intent set event_semantic_release = 'unknown'");
         var unknown = new JooqMerchantAccountEstablishmentPublicationOutbox(dsl).pending(10).getFirst();
         assertTrue(unknown.registeredOccurrence(registry).isEmpty());
@@ -210,7 +210,7 @@ class JooqMerchantAccountEstablishmentPublicationOutboxIT {
         assertThrows(DataAccessException.class, () -> dsl.execute(
                 "update merchant_account_establishment_publication_intent set event_contract_identifier = ' '"));
         assertTrue(new JooqMerchantAccountEstablishmentPublicationOutbox(dsl).pending(10).getFirst()
-                .registeredOccurrence(mainstreet.merchantaccount.MerchantAccountEstablishedEventContract.registry()).isPresent());
+                .registeredOccurrence(grandrue.merchantaccount.MerchantAccountEstablishedEventContract.registry()).isPresent());
     }
 
     private JooqMerchantAccountBootstrapStore store(

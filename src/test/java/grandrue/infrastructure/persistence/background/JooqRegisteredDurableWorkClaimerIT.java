@@ -1,12 +1,12 @@
-package mainstreet.infrastructure.persistence.background;
+package grandrue.infrastructure.persistence.background;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.application.StandingFreeBackgroundWorkContract;
-import mainstreet.background.BackgroundExecutionScope;
-import mainstreet.background.BackgroundWorkContractAffinity;
-import mainstreet.background.BackgroundWorkContractIdentity;
-import mainstreet.background.DurableWorkInstruction;
-import mainstreet.background.OverdueHandling;
+import grandrue.application.MerchantScope;
+import grandrue.application.StandingFreeBackgroundWorkContract;
+import grandrue.background.BackgroundExecutionScope;
+import grandrue.background.BackgroundWorkContractAffinity;
+import grandrue.background.BackgroundWorkContractIdentity;
+import grandrue.background.DurableWorkInstruction;
+import grandrue.background.OverdueHandling;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

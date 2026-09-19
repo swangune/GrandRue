@@ -1,12 +1,12 @@
-package mainstreet.infrastructure.persistence.publication;
+package grandrue.infrastructure.persistence.publication;
 
-import mainstreet.application.ApplicationRequestIdentity;
-import mainstreet.application.MerchantScope;
-import mainstreet.publication.OpportunityPublicationMaterialRevision;
-import mainstreet.publication.OpportunityPublicationState;
-import mainstreet.publication.PublicationApplicationRequestConflictException;
-import mainstreet.publication.PublicationLifecycle;
-import mainstreet.publication.PublicationRevisionConflictException;
+import grandrue.application.ApplicationRequestIdentity;
+import grandrue.application.MerchantScope;
+import grandrue.publication.OpportunityPublicationMaterialRevision;
+import grandrue.publication.OpportunityPublicationState;
+import grandrue.publication.PublicationApplicationRequestConflictException;
+import grandrue.publication.PublicationLifecycle;
+import grandrue.publication.PublicationRevisionConflictException;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

@@ -1,11 +1,11 @@
-package mainstreet.infrastructure.persistence.protection;
+package grandrue.infrastructure.persistence.protection;
 
-import mainstreet.protection.ProtectionAdmissionDecision;
-import mainstreet.protection.ProtectionPolicy;
-import mainstreet.protection.ProtectionStateFailureBehaviour;
-import mainstreet.protection.ProtectionSubject;
-import mainstreet.protection.ProtectionTarget;
-import mainstreet.protection.TemporaryProtectiveRestriction;
+import grandrue.protection.ProtectionAdmissionDecision;
+import grandrue.protection.ProtectionPolicy;
+import grandrue.protection.ProtectionStateFailureBehaviour;
+import grandrue.protection.ProtectionSubject;
+import grandrue.protection.ProtectionTarget;
+import grandrue.protection.TemporaryProtectiveRestriction;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

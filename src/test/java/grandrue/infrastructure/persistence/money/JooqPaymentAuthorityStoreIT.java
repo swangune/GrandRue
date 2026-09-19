@@ -1,11 +1,11 @@
-package mainstreet.infrastructure.persistence.money;
+package grandrue.infrastructure.persistence.money;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.money.CurrencyIdentity;
-import mainstreet.money.MonetaryAmount;
-import mainstreet.money.PaymentApplication;
-import mainstreet.money.PaymentObligation;
-import mainstreet.money.ProviderPaymentEvidence;
+import grandrue.application.MerchantScope;
+import grandrue.money.CurrencyIdentity;
+import grandrue.money.MonetaryAmount;
+import grandrue.money.PaymentApplication;
+import grandrue.money.PaymentObligation;
+import grandrue.money.ProviderPaymentEvidence;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

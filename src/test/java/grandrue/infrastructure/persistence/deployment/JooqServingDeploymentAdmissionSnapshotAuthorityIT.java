@@ -1,14 +1,14 @@
-package mainstreet.infrastructure.persistence.deployment;
+package grandrue.infrastructure.persistence.deployment;
 
-import mainstreet.deployment.RecordServingDeploymentAdmissionSnapshotCommand;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshot;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshotFailureCategory;
-import mainstreet.deployment.ServingDeploymentAdmissionSnapshotPersistenceException;
-import mainstreet.semantic.execution.ExecutableSupportManifest;
-import mainstreet.semantic.execution.ExecutableSupportRequirement;
-import mainstreet.semantic.execution.SemanticExecutionContractReference;
-import mainstreet.semantic.release.DeploymentSemanticMaterialisationSet;
-import mainstreet.semantic.release.PackagedSemanticDefinitionBundle;
+import grandrue.deployment.RecordServingDeploymentAdmissionSnapshotCommand;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshot;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshotFailureCategory;
+import grandrue.deployment.ServingDeploymentAdmissionSnapshotPersistenceException;
+import grandrue.semantic.execution.ExecutableSupportManifest;
+import grandrue.semantic.execution.ExecutableSupportRequirement;
+import grandrue.semantic.execution.SemanticExecutionContractReference;
+import grandrue.semantic.release.DeploymentSemanticMaterialisationSet;
+import grandrue.semantic.release.PackagedSemanticDefinitionBundle;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

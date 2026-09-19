@@ -1,12 +1,12 @@
-package mainstreet.infrastructure.persistence.booking;
+package grandrue.infrastructure.persistence.booking;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.booking.BookingAvailabilityImpactAssessment;
-import mainstreet.semantic.compiler.ConfigurationCompiler;
-import mainstreet.semantic.configuration.*;
-import mainstreet.semantic.registry.InMemorySemanticRegistry;
-import mainstreet.semantic.registry.RegisteredCapability;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.application.MerchantScope;
+import grandrue.booking.BookingAvailabilityImpactAssessment;
+import grandrue.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.configuration.*;
+import grandrue.semantic.registry.InMemorySemanticRegistry;
+import grandrue.semantic.registry.RegisteredCapability;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

@@ -1,19 +1,19 @@
-package mainstreet.infrastructure.persistence.identitysecurity;
+package grandrue.infrastructure.persistence.identitysecurity;
 
-import mainstreet.audit.AuditActionClass;
-import mainstreet.audit.AuditExecutionScope;
-import mainstreet.audit.AuditRecord;
-import mainstreet.audit.AuditStore;
-import mainstreet.identitysecurity.IdentitySecurityGeneration;
-import mainstreet.identitysecurity.IdentitySecurityGenerationException;
-import mainstreet.identitysecurity.IdentitySecurityGenerationFailureCategory;
-import mainstreet.identitysecurity.IdentitySecurityRotationCommand;
-import mainstreet.identitysecurity.IdentitySecurityRotationReason;
-import mainstreet.infrastructure.persistence.audit.JooqAuditStore;
-import mainstreet.infrastructure.persistence.runtime.JooqSessionRecordStore;
-import mainstreet.runtime.OpaqueSessionCredential;
-import mainstreet.runtime.SessionRecord;
-import mainstreet.runtime.SessionRecordStore;
+import grandrue.audit.AuditActionClass;
+import grandrue.audit.AuditExecutionScope;
+import grandrue.audit.AuditRecord;
+import grandrue.audit.AuditStore;
+import grandrue.identitysecurity.IdentitySecurityGeneration;
+import grandrue.identitysecurity.IdentitySecurityGenerationException;
+import grandrue.identitysecurity.IdentitySecurityGenerationFailureCategory;
+import grandrue.identitysecurity.IdentitySecurityRotationCommand;
+import grandrue.identitysecurity.IdentitySecurityRotationReason;
+import grandrue.infrastructure.persistence.audit.JooqAuditStore;
+import grandrue.infrastructure.persistence.runtime.JooqSessionRecordStore;
+import grandrue.runtime.OpaqueSessionCredential;
+import grandrue.runtime.SessionRecord;
+import grandrue.runtime.SessionRecordStore;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -351,7 +351,7 @@ class JooqIdentitySecurityGenerationManagementIT {
 
         @Override
         public List<AuditRecord> merchantRecords(
-                mainstreet.application.MerchantScope merchantScope,
+                grandrue.application.MerchantScope merchantScope,
                 Instant fromInclusive,
                 Instant untilExclusive,
                 int limit

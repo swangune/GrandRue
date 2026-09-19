@@ -1,12 +1,12 @@
-package mainstreet.infrastructure.persistence.background;
+package grandrue.infrastructure.persistence.background;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.background.BackgroundExecutionScope;
-import mainstreet.background.BackgroundWorkResultClassification;
-import mainstreet.background.ClaimedWork;
-import mainstreet.background.DurableWorkInstruction;
-import mainstreet.background.OverdueHandling;
-import mainstreet.background.WorkAttempt;
+import grandrue.application.MerchantScope;
+import grandrue.background.BackgroundExecutionScope;
+import grandrue.background.BackgroundWorkResultClassification;
+import grandrue.background.ClaimedWork;
+import grandrue.background.DurableWorkInstruction;
+import grandrue.background.OverdueHandling;
+import grandrue.background.WorkAttempt;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -880,8 +880,8 @@ class JooqDurableWorkStoreIT {
     @Test
     void contract_affinity_survives_restart_claim_and_exact_replay() {
         var affinity =
-                new mainstreet.background.BackgroundWorkContractAffinity(
-                        new mainstreet.background
+                new grandrue.background.BackgroundWorkContractAffinity(
+                        new grandrue.background
                                 .BackgroundWorkContractIdentity(
                                 "booking",
                                 "reminder-evaluation"
@@ -933,7 +933,7 @@ class JooqDurableWorkStoreIT {
     @Test
     void replay_cannot_replace_contract_release_identity_or_legacy_affinity() {
         var identity =
-                new mainstreet.background.BackgroundWorkContractIdentity(
+                new grandrue.background.BackgroundWorkContractIdentity(
                         "booking",
                         "reminder-evaluation"
                 );
@@ -941,7 +941,7 @@ class JooqDurableWorkStoreIT {
         var original =
                 work("affinity-2", T0)
                         .withContractAffinity(
-                                new mainstreet.background
+                                new grandrue.background
                                         .BackgroundWorkContractAffinity(
                                         identity,
                                         "release-1"
@@ -955,7 +955,7 @@ class JooqDurableWorkStoreIT {
                 () -> independentStore()
                         .schedule(
                                 original.withContractAffinity(
-                                        new mainstreet.background
+                                        new grandrue.background
                                                 .BackgroundWorkContractAffinity(
                                                 identity,
                                                 "release-2"
@@ -969,9 +969,9 @@ class JooqDurableWorkStoreIT {
                 () -> independentStore()
                         .schedule(
                                 original.withContractAffinity(
-                                        new mainstreet.background
+                                        new grandrue.background
                                                 .BackgroundWorkContractAffinity(
-                                                new mainstreet.background
+                                                new grandrue.background
                                                         .BackgroundWorkContractIdentity(
                                                         "booking",
                                                         "other"

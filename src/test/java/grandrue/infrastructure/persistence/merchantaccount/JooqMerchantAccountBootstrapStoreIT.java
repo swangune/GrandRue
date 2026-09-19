@@ -1,7 +1,7 @@
-package mainstreet.infrastructure.persistence.merchantaccount;
+package grandrue.infrastructure.persistence.merchantaccount;
 
-import mainstreet.application.TrustedPlatformHumanPrincipal;
-import mainstreet.merchantaccount.MerchantAccountBootstrapStore;
+import grandrue.application.TrustedPlatformHumanPrincipal;
+import grandrue.merchantaccount.MerchantAccountBootstrapStore;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
