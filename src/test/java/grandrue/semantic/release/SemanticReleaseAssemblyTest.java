@@ -1,9 +1,9 @@
-package mainstreet.semantic.release;
+package grandrue.semantic.release;
 
-import mainstreet.fulfilment.FulfilmentContractRegistrySnapshot;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
-import mainstreet.surface.ExposureElementContractRegistrySnapshot;
-import mainstreet.surface.SurfaceContributionRegistrySnapshot;
+import grandrue.fulfilment.FulfilmentContractRegistrySnapshot;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.surface.ExposureElementContractRegistrySnapshot;
+import grandrue.surface.SurfaceContributionRegistrySnapshot;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
