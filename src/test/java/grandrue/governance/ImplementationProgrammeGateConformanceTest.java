@@ -198,7 +198,12 @@ class ImplementationProgrammeGateConformanceTest {
         assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C2\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"IN_PROGRESS\""));
-        assertTrue(controller.contains("implementation-status-history-2026-09-14-pre-c2b-closure.md"));
+        assertTrue(controller.contains("canonical_graph: docs/development/implementation-programme-state.json"));
+        assertTrue(controller.contains("historical_status_compatibility: docs/development/implementation-status.md"));
+        String compatibility = Files.readString(Path.of(
+                "docs", "development", "implementation-status.md"
+        ));
+        assertTrue(compatibility.contains("implementation-status-history-2026-09-14-pre-c2b-closure.md"));
         assertTrue(status.contains(
                 "Restored programme target:** `IMP-07 — Publication → Enquiry vertical slice` — **CONFORMING_COMPLETE from retained scoped proof after prerequisite restoration**"
         ));
