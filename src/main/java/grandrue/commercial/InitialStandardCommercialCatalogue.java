@@ -27,6 +27,7 @@ public final class InitialStandardCommercialCatalogue {
 
     public static CommercialCatalogueManifest manifest() {
         var bindings = new LinkedHashSet<CommercialAccessBinding>();
+        var taggedBindings = new LinkedHashSet<TaggedBinding>();
 
         add(bindings, free(
                 "profile/merchant-presence-authoring",
@@ -301,13 +302,13 @@ public final class InitialStandardCommercialCatalogue {
                 "MS-PROT-087 v1.4",
                 Set.of(marketingPublicationSupport)));
 
-        Set<CommercialEntitlementIdentity> free = identities(bindings, Tier.FREE);
+        Set<CommercialEntitlementIdentity> free = identities(taggedBindings, Tier.FREE);
         Set<CommercialEntitlementIdentity> business = union(
                 free,
-                identities(bindings, Tier.BUSINESS));
+                identities(taggedBindings, Tier.BUSINESS));
         Set<CommercialEntitlementIdentity> growth = union(
                 business,
-                identities(bindings, Tier.GROWTH));
+                identities(taggedBindings, Tier.GROWTH));
 
         var revision = new StandardPlanCatalogueRevision(
                 CATALOGUE,
@@ -407,26 +408,24 @@ public final class InitialStandardCommercialCatalogue {
     }
 
     private static void add(
+            Set<TaggedBinding> taggedBindings,
             Set<CommercialAccessBinding> bindings,
             TaggedBinding tagged
     ) {
-        if (!bindings.add(tagged.binding())) {
+        if (!bindings.add(tagged.binding()) || !taggedBindings.add(tagged)) {
             throw new IllegalStateException(
                     "Duplicate initial catalogue binding: "
                             + tagged.binding().entitlementIdentity().identifier());
         }
-        TIERS.add(tagged);
     }
 
-    private static final Set<TaggedBinding> TIERS = new LinkedHashSet<>();
-
     private static Set<CommercialEntitlementIdentity> identities(
-            Set<CommercialAccessBinding> currentBindings,
+            Set<TaggedBinding> taggedBindings,
             Tier tier
     ) {
         Set<CommercialEntitlementIdentity> result = new HashSet<>();
-        for (var tagged : TIERS) {
-            if (tagged.tier() == tier && currentBindings.contains(tagged.binding())) {
+        for (var tagged : taggedBindings) {
+            if (tagged.tier() == tier) {
                 result.add(tagged.binding().entitlementIdentity());
             }
         }
