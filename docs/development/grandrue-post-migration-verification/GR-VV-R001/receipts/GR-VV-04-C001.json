@@ -1,0 +1,98 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-04-C001",
+  "packet_kind": "CLAIM_EXCEPTION_PROTECTED_IDENTITY_RECONCILIATION",
+  "result": "FAIL",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "immutable_inputs": {
+    "claim_snapshot_digest": "20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362",
+    "files_sha256": "37e86a85135386ee68a39c9bb99cb473539a15dab3b24f485ac5ab73597fbfea",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323"
+  },
+  "checks": {
+    "claims_total": 847,
+    "claims_passed": 842,
+    "claims_failed": 5,
+    "claims_blocked": 0,
+    "production_leaf_claims": 762,
+    "production_leaf_passed": 758,
+    "production_leaf_failed": 4,
+    "test_tranches": 47,
+    "test_tranches_passed": 47,
+    "protected_identity_reconciliation": "PASS",
+    "exception_packets_passed": 4,
+    "exception_packets_failed": 0,
+    "unclassified_residuals": 0
+  },
+  "failed_claims": [
+    {
+      "claim_id": "GR-REN-02-01P",
+      "finding_ids": [
+        "GR-VV-F001"
+      ],
+      "basis": "DIRECT"
+    },
+    {
+      "claim_id": "GR-REN-02-01X64",
+      "finding_ids": [
+        "GR-VV-F001"
+      ],
+      "basis": "DIRECT"
+    },
+    {
+      "claim_id": "GR-REN-02-01Q",
+      "finding_ids": [
+        "GR-VV-F002"
+      ],
+      "basis": "DIRECT"
+    },
+    {
+      "claim_id": "GR-REN-02-01X15",
+      "finding_ids": [
+        "GR-VV-F002"
+      ],
+      "basis": "DIRECT"
+    },
+    {
+      "claim_id": "GR-REN-02",
+      "finding_ids": [
+        "GR-VV-F001",
+        "GR-VV-F002"
+      ],
+      "basis": "DERIVED_CHILD_FAILURE"
+    }
+  ],
+  "findings": [
+    "GR-VV-F001",
+    "GR-VV-F002"
+  ],
+  "prior_findings_preserved": true,
+  "outputs": {
+    "claim_reconciliation": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-C001/claim-reconciliation.jsonl",
+      "git_blob": "e17f604cbb009fbb8fbe5b74a54d64c30ac73495",
+      "sha256": "63b15d16d5b731e9bbb7f897af37ab4fb8fe9c4ea5ffa792ea272c5604061c85",
+      "rows": 847
+    },
+    "protected_identities": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-C001/protected-identities.json",
+      "git_blob": "2c94544b2bb8b77c46133e380063bc69194169c5",
+      "sha256": "561f305c71a2aa31f5b9f803edf957969e9face492e8080acebb859c22fc27c3",
+      "result": "PASS"
+    },
+    "progress": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-C001/progress.json",
+      "git_blob": "3ed9f1906d62a93fa9d7ccc001565ce001e31bcf",
+      "sha256": "6125997fdf87238bb250022084a0836df43abdafe1db007bbd2c28e4d1d8e819"
+    }
+  },
+  "conclusion_scope": "frozen_claims_exceptions_consumers_protected_identities",
+  "conclusion": "FAIL",
+  "limitations": [
+    "FAIL is caused only by the two previously recorded exact-byte findings and their directly affected claims plus the derived GR-REN-02 parent claim; no additional finding was discovered.",
+    "Protected-identity reconciliation passed and all four exception packets passed.",
+    "Maven tests, GitHub Actions, runtime and database execution checks were not run."
+  ],
+  "next_packet": "GR-VV-05-01"
+}

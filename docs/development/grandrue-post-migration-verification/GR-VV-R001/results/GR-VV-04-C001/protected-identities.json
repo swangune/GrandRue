@@ -1,0 +1,127 @@
+{
+  "schema_version": "grandrue-protected-identity-reconciliation/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-04-C001",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "result": "PASS",
+  "checks": [
+    {
+      "id": "mainstreet_correlation_identifier",
+      "result": "PASS",
+      "paths": [
+        "src/main/java/grandrue/infrastructure/persistence/money/JooqPaymentAuthorityStore.java",
+        "src/main/resources/db/migration/V24__money__create_payment_authority.sql"
+      ],
+      "target_objects": [
+        "cd0e990283a58890176776edfa087334af4c539c",
+        "2912fa59bb860bcf618f8f49521a19b4accd4617"
+      ]
+    },
+    {
+      "id": "mainStreetCorrelationIdentity",
+      "result": "PASS",
+      "paths": [
+        "src/main/java/grandrue/money/ProviderPaymentEvidence.java"
+      ],
+      "target_objects": [
+        "31f948035edea8c65ba4b81b4f59ccff0e44c66a"
+      ]
+    },
+    {
+      "id": "opportunity_binding_aad_v1",
+      "value": "mainstreet/enquiry/opportunity-binding/v1/",
+      "result": "PASS",
+      "paths": [
+        "src/main/java/grandrue/enquiry/delivery/OpportunityEnquiryBindingCodec.java"
+      ],
+      "target_objects": [
+        "3c707402927871ebd7b1cf99cfa79f7e93248e74"
+      ]
+    },
+    {
+      "id": "semantic_bundle_v1_v2",
+      "values": [
+        "mainstreet-semantic-bundle-v1",
+        "mainstreet-semantic-bundle-v2"
+      ],
+      "result": "PASS",
+      "paths": [
+        "src/main/java/grandrue/semantic/release/PackagedSemanticDefinitionBundle.java"
+      ],
+      "target_objects": [
+        "b0ca5e77b71e955ad0f524fefd95a38cf8339a23"
+      ]
+    },
+    {
+      "id": "exposure_definitions_v1",
+      "value": "mainstreet-exposure-definitions-v1",
+      "result": "PASS",
+      "paths": [
+        "src/main/java/grandrue/surface/ExposureElementContractRegistryTextCodec.java"
+      ],
+      "target_objects": [
+        "aa910cc04323e6ba217053c4e0edbb193b1d313e"
+      ]
+    },
+    {
+      "id": "calendar_current_main_street_commitments",
+      "value": "current-main-street-commitments",
+      "result": "PASS",
+      "paths": [
+        "src/main/java/grandrue/surface/InitialProjectionContractPortfolio.java",
+        "src/main/java/grandrue/surface/CalendarProjectionPolicyEvaluators.java"
+      ],
+      "target_objects": [
+        "300d317c21e64956a1764f092e3fe385b987bd67",
+        "e1eb57bf53696d3f9045885d21ffb2d0a8e5039d"
+      ]
+    },
+    {
+      "id": "storefront_backend_compatibility_fallback",
+      "values": [
+        "GRANDRUE_BACKEND_URL",
+        "MAINSTREET_BACKEND_URL"
+      ],
+      "result": "PASS",
+      "evidence_packet": "GR-VV-03-R003",
+      "path": "storefront-web/src/lib/grandrue-api.ts",
+      "target_object": "26b5cf2a447d0bff7a6a065d8188435453e99c7f"
+    },
+    {
+      "id": "privileged_session_cookie",
+      "value": "__Host-MS-SESSION",
+      "result": "PASS",
+      "path": "src/main/java/grandrue/infrastructure/security/session/PrivilegedSessionCookieFactory.java",
+      "target_object": "4da758801bde5c39f75440dee8cd60ec82cca64a"
+    },
+    {
+      "id": "flyway_migrations_preserved",
+      "result": "PASS",
+      "rows": 67,
+      "same_object_and_mode": 67,
+      "changed": 0
+    },
+    {
+      "id": "prototype_configuration_exclusions",
+      "result": "PASS",
+      "rows": [
+        {
+          "path": "compose.prototype.yml",
+          "file_id": "GR-F00011",
+          "same_object": true
+        },
+        {
+          "path": "src/main/resources/application-prototype.properties",
+          "file_id": "GR-F01777",
+          "same_object": true
+        }
+      ]
+    },
+    {
+      "id": "stable_ms_symbolic_identifiers",
+      "result": "PASS",
+      "basis": "complete-byte deterministic regions permit no MS-* transformation; governance region explicitly preserves stable symbolic identifiers"
+    }
+  ],
+  "findings": []
+}

@@ -3,9 +3,9 @@
   "run_id": "GR-VV-R001",
   "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
   "latest_packet": {
-    "id": "GR-VV-03-R004",
-    "kind": "CLOSED_REGION_PRESERVATION",
-    "result": "PASS"
+    "id": "GR-VV-04-C001",
+    "kind": "CLAIM_EXCEPTION_PROTECTED_IDENTITY_RECONCILIATION",
+    "result": "FAIL"
   },
   "coverage": {
     "baseline_entries": 2258,
@@ -29,21 +29,27 @@
   },
   "conclusions": {
     "file_accounting": "PASS",
-    "claim_validation": "NOT_RUN",
+    "claim_validation": "FAIL",
     "migration_preservation": "NOT_RUN",
     "master_non_naming_executable_preservation": "NOT_RUN",
     "live_freshness": "NOT_RUN"
   },
-  "next_packet": "GR-VV-04-E001",
+  "next_packet": "GR-VV-05-01",
   "active_progress": {
-    "region_id": "GR-VV-04-E001",
+    "region_id": "GR-VV-05-01",
     "state": "READY",
-    "total_files": 26,
-    "verified_files": 0,
-    "passing_files": 0,
-    "failing_files": 0,
-    "blocked_files": 0,
-    "remaining_files": 26,
+    "open_findings": 2,
+    "conclusions_finalised": 1,
+    "conclusions_remaining": 4,
     "progress_evidence": null
+  },
+  "claim_reconciliation": {
+    "claims_total": 847,
+    "passed": 842,
+    "failed": 5,
+    "blocked": 0,
+    "direct_failed": 4,
+    "derived_failed": 1,
+    "protected_identity_result": "PASS"
   }
 }

@@ -1,0 +1,28 @@
+{
+  "schema_version": "grandrue-claim-reconciliation-progress/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-04-C001",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "state": "CHECKPOINTED",
+  "claims_total": 847,
+  "reconciled_claims": 847,
+  "passing_claims": 842,
+  "failing_claims": 5,
+  "blocked_claims": 0,
+  "remaining_claims": 0,
+  "direct_failed_claims": 4,
+  "derived_failed_claims": 1,
+  "protected_identity_result": "PASS",
+  "exception_packets": {
+    "GR_VV_04_E001": "PASS",
+    "GR_VV_04_E002": "PASS",
+    "GR_VV_04_E003": "PASS",
+    "GR_VV_04_E004": "PASS"
+  },
+  "finding_ids": [
+    "GR-VV-F001",
+    "GR-VV-F002"
+  ],
+  "conclusion": "FAIL",
+  "next_action": "Execute GR-VV-05-01 findings/closure/freshness aggregation. Preserve all failed receipts and do not repair discrepancies."
+}
