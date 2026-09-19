@@ -1,7 +1,7 @@
-package mainstreet.semantic.event;
+package grandrue.semantic.event;
 
-import mainstreet.application.StandingFreeEventReactionContract;
-import mainstreet.merchantaccount.MerchantAccountEstablishedEventContract;
+import grandrue.application.StandingFreeEventReactionContract;
+import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
 import org.junit.jupiter.api.Test;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;

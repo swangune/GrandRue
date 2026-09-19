@@ -2,58 +2,43 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T027
+tranche: GR-REN-03-T028
 group: GR-REN-03
-state: COMPLETE
-code_commit: f8867475c6f80bfb5ae131f7776d014946474bd6
-expected_parent: d6300c18b66c7ef6361bc3e42fdf7797d374e2e0
-validated_head: f8867475c6f80bfb5ae131f7776d014946474bd6
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: e1d7dd2a0464f3159623d461cd2b03289f2ed090
 
 region:
-  identity: test-semantic-compiler
-  closure_basis: complete live src/test/java/mainstreet/semantic/compiler/** Java test-owner region
+  identity: test-semantic-event
+  closure_basis: complete live src/test/java/mainstreet/semantic/event/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 6
+    owner_count: 3
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 112
+    executable_namespace_replacement_count: 6
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/semantic/compiler/ConfigurationPolicyResolutionTest.java
-      to: src/test/java/grandrue/semantic/compiler/ConfigurationPolicyResolutionTest.java
-      blob_sha: f13cd02c72655eb74813e08d2201d7b69560d7a8
-      executable_namespace_replacements: 9
-    - from: src/test/java/mainstreet/semantic/compiler/OperationalObjectTypeIdentityConformanceTest.java
-      to: src/test/java/grandrue/semantic/compiler/OperationalObjectTypeIdentityConformanceTest.java
-      blob_sha: 42f70786b4a057fd108fa3457e5fc8c7b9311882
-      executable_namespace_replacements: 12
-    - from: src/test/java/mainstreet/semantic/compiler/ConfigurationCompilerTest.java
-      to: src/test/java/grandrue/semantic/compiler/ConfigurationCompilerTest.java
-      blob_sha: 70d2a3c973872531a79d2a9181e6f74e80828ce9
-      executable_namespace_replacements: 18
-    - from: src/test/java/mainstreet/semantic/compiler/SemanticV14V45ConformanceTest.java
-      to: src/test/java/grandrue/semantic/compiler/SemanticV14V45ConformanceTest.java
-      blob_sha: 23217e8d1a602287bc463acd410773c2b4f4c504
-      executable_namespace_replacements: 38
-    - from: src/test/java/mainstreet/semantic/compiler/RelationshipApplicabilityResolutionTest.java
-      to: src/test/java/grandrue/semantic/compiler/RelationshipApplicabilityResolutionTest.java
-      blob_sha: 3e6236b3b40a32fcbcd8d063d7c0ad05992fb33e
-      executable_namespace_replacements: 23
-    - from: src/test/java/mainstreet/semantic/compiler/ConfigurationDependencyResolutionTest.java
-      to: src/test/java/grandrue/semantic/compiler/ConfigurationDependencyResolutionTest.java
-      blob_sha: 391b89f186a58eb71123f5e2fec3a486904b32b2
-      executable_namespace_replacements: 12
+    - from: src/test/java/mainstreet/semantic/event/MerchantEventReactionReceiptTest.java
+      to: src/test/java/grandrue/semantic/event/MerchantEventReactionReceiptTest.java
+      blob_sha: ee41e3dcba3ba213da08aaee55ca9e9a8edf95cc
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/semantic/event/EventContractRegistrySnapshotTest.java
+      to: src/test/java/grandrue/semantic/event/EventContractRegistrySnapshotTest.java
+      blob_sha: 22bf5f5ee7567cac79d38f97f3f310aaa1dd425f
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/semantic/event/EventReactionContractTest.java
+      to: src/test/java/grandrue/semantic/event/EventReactionContractTest.java
+      blob_sha: c51e30a3130621552b87fbeb5057b716ae399353
+      executable_namespace_replacements: 3
 
 deterministic_transformations:
   owners:
-    - move all six declared owners to corresponding src/test/java/grandrue/semantic/compiler/** paths
+    - move all three declared owners to corresponding src/test/java/grandrue/semantic/event/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -63,7 +48,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 7
+  expected_changed_path_count: 4
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -81,9 +66,6 @@ expected_residuals:
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
 
 preparation_notes:
-  - all owner blobs and absent GrandRue destinations reconciled against development at d6300c18b66c7ef6361bc3e42fdf7797d374e2e0
+  - all owner blobs and absent GrandRue destinations reconciled against development at e1d7dd2a0464f3159623d461cd2b03289f2ed090
   - no external test consumer of the test-owned classes was discovered
   - Maven tests and GitHub Actions were not run
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

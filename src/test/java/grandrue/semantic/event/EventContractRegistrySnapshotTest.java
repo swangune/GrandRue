@@ -1,4 +1,4 @@
-package mainstreet.semantic.event;
+package grandrue.semantic.event;
 
 import org.junit.jupiter.api.Test;
 import java.util.*;
