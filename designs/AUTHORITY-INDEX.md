@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.42
+**Version:** 4.43
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -150,6 +150,8 @@ The following cross-authority links are retained explicitly because they materia
 - MS-PROT-044 v1.3 — `MS-PROT-044 v1.3 — Merchant Offering & Product Commercial Access Classification Amendment.md` — classifies `offering/merchant-definition-authoring-access@1` / `MAINTAIN_MERCHANT_OFFERING_DEFINITION` and `product/merchant-definition-authoring-access@1` / `MAINTAIN_MERCHANT_PRODUCT_DEFINITION` for FREE + BUSINESS + GROWTH, while the two merchant-definition observation contracts require no independent Commercial Entitlement. It preserves Product optionality, Listing exclusion and independent Inventory/transaction/Exposure/Storefront authority, narrows `MS-PROT-056-V17-DQ-001`, mints no final entitlement identity, publishes no catalogue and activates no implementation.
 
 - MS-PROT-044 v1.4 — `MS-PROT-044 v1.4 — Merchant Subject Categories, Merchandise Condition & Listing Transaction Mode Amendment.md` — resolves the bounded initial `classification/category system` deferral through merchant-scoped non-executable Categories over Offering/Product/Listing, establishes `NEW`, `USED`, `REFURBISHED` as initial Merchandise Condition values and `SALE`, `RENT` as initial Listing Transaction Mode values, preserves ProductVariant and capability ownership boundaries, classifies Category maintenance/assignment with no independent Commercial Entitlement, creates no Listing commercial-authoring authority and activates no implementation.
+
+- MS-PROT-044 v1.5 — `MS-PROT-044 v1.5 — Listing Lifecycle, Immutable Revision & Merchant Authoring Access Amendment.md` — establishes stable Listing identity, immutable primary-subject affinity, immutable Listing revisions, exact ACTIVE/WITHDRAWN lifecycle, no reactivation, field-bounded merchant revision, terminal withdrawal and exact Listing observation/authoring/withdrawal access contracts. ACTIVE remains separate from Exposure/availability; changing primary subject or SALE↔RENT requires a new Listing identity; Commercial tier classification remains open and implementation activation is NONE.
 
 - MS-PROT-044 v1.5 — `MS-PROT-044 v1.5 — Listing Lifecycle, Immutable Revision & Merchant Authoring Access Amendment.md` — establishes stable Listing identity, immutable primary-subject affinity, immutable Listing revisions, exact ACTIVE/WITHDRAWN lifecycle, no reactivation, field-bounded merchant revision, terminal withdrawal and exact Listing observation/authoring/withdrawal access contracts. ACTIVE remains separate from Exposure/availability; SALE↔RENT and primary-subject changes require a new Listing identity; Commercial tier classification remains open and implementation activation is NONE.
 
