@@ -1,11 +1,11 @@
-package mainstreet.infrastructure.persistence.merchantprofile;
+package grandrue.infrastructure.persistence.merchantprofile;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.merchantprofile.MerchantProfileFailureCategory;
-import mainstreet.merchantprofile.MerchantProfileMutationException;
-import mainstreet.merchantprofile.MerchantPublicDescriptor;
-import mainstreet.merchantprofile.MerchantPublicDescriptorMutationCommand;
-import mainstreet.merchantprofile.MerchantPublicDescriptorRevision;
+import grandrue.application.MerchantScope;
+import grandrue.merchantprofile.MerchantProfileFailureCategory;
+import grandrue.merchantprofile.MerchantProfileMutationException;
+import grandrue.merchantprofile.MerchantPublicDescriptor;
+import grandrue.merchantprofile.MerchantPublicDescriptorMutationCommand;
+import grandrue.merchantprofile.MerchantPublicDescriptorRevision;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

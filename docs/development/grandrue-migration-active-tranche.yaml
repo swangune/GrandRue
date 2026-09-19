@@ -2,58 +2,59 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T035
+tranche: GR-REN-03-T036
 group: GR-REN-03
-state: COMPLETE
-code_commit: 8a613531caa916f158d31acd7b7a6c35d9230d32
-expected_parent: 64e5aa74996cd6362ae6c66f9ec59e7717e2b521
-validated_head: 8a613531caa916f158d31acd7b7a6c35d9230d32
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: ac193552e4ea957d83e16826a0890ce34a58a06e
 
 region:
-  identity: test-infrastructure-persistence-enquiry-webauthn-businesshours
-  closure_basis: live independently closed test-owner subpackages under src/test/java/mainstreet/infrastructure/persistence/{enquiry,webauthn,businesshours}/**
+  identity: test-infrastructure-persistence-merchantprofile
+  closure_basis: complete live src/test/java/mainstreet/infrastructure/persistence/merchantprofile/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 6
+    owner_count: 7
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 45
+    executable_namespace_replacement_count: 111
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/infrastructure/persistence/enquiry/JooqEnquirySubmissionStoreIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/enquiry/JooqEnquirySubmissionStoreIT.java
-      blob_sha: a9ba4a8816799d7c8a60a2f5f10dc2018992d780
+    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthorityIT.java
+      blob_sha: 774b2a5c0c5b6d1d9995341e13046819347cd768
+      executable_namespace_replacements: 13
+    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthorityIT.java
+      blob_sha: 5136ca90fc650f9204802dac28004760da6b9e84
       executable_namespace_replacements: 7
-    - from: src/test/java/mainstreet/infrastructure/persistence/enquiry/JooqEnquirySubmissionApplicationServiceIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/enquiry/JooqEnquirySubmissionApplicationServiceIT.java
-      blob_sha: 7404afa7daf0624015502f471c1638c53dd6b9c2
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/infrastructure/persistence/webauthn/JooqWebAuthnUserCredentialRepositoryIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/webauthn/JooqWebAuthnUserCredentialRepositoryIT.java
-      blob_sha: 8bd54e05ad5f78e9266bbb4b488e503ffa218a1f
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/infrastructure/persistence/webauthn/JooqWebAuthnAuthenticationSubjectRepositoryIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/webauthn/JooqWebAuthnAuthenticationSubjectRepositoryIT.java
-      blob_sha: 1d41b2458860ece4b136fc91ac83677bbd190500
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/infrastructure/persistence/businesshours/JooqStandardBusinessHoursAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/businesshours/JooqStandardBusinessHoursAuthorityIT.java
-      blob_sha: 50b5624a6449a996bc2a2903796b46d59edbd8e9
+    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthorityIT.java
+      blob_sha: 9aa102a724754f96f6b044b455703618a01df9b1
+      executable_namespace_replacements: 20
+    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthorityIT.java
+      blob_sha: f3df99c290fa825ef8833571d941d398ce6c422d
+      executable_namespace_replacements: 24
+    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthorityIT.java
+      blob_sha: 3c52d43f7d179311927953e030d21d0dde9dc5a5
       executable_namespace_replacements: 14
-    - from: src/test/java/mainstreet/infrastructure/persistence/businesshours/JooqLocationScopedStandardBusinessHoursAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/businesshours/JooqLocationScopedStandardBusinessHoursAuthorityIT.java
-      blob_sha: 0531893ed8d0d0d6737c6d5b42840f370533ad02
+    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthorityIT.java
+      blob_sha: af387a0003295514384089836cfcc6afe504f346
       executable_namespace_replacements: 16
+    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthorityIT.java
+      blob_sha: 42a40182a7a596fa3f8e0d9108e05cbedf8acd07
+      executable_namespace_replacements: 17
 
 deterministic_transformations:
   owners:
-    - move all six declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/** paths
+    - move all seven declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/merchantprofile/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -63,7 +64,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 7
+  expected_changed_path_count: 8
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -71,6 +72,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
