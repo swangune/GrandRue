@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 40,
-  "passing_files": 40,
+  "verified_files": 65,
+  "passing_files": 65,
   "failing_files": 0,
   "blocked_files": 0,
-  "remaining_files": 1054,
+  "remaining_files": 1029,
   "completed_packages": [
     "(root)",
     "audit",
@@ -20,7 +20,8 @@
     "credential",
     "identitysecurity",
     "resilience",
-    "observability"
+    "observability",
+    "api"
   ],
   "chunks": [
     {
@@ -45,6 +46,14 @@
       "sha256": "3df2f75cd2868e53112bb27913325d73c8191d6b9421f658c1b3b7ec22e5a15e",
       "files": 16,
       "pass": 16,
+      "fail": 0
+    },
+    {
+      "chunk": "api",
+      "git_blob": "4dac8160a7150c55898901134538d30809e57e54",
+      "sha256": "34cb62bfd37c323932e80022217363416f648682992a90f7589fa3c474e398e2",
+      "files": 25,
+      "pass": 25,
       "fail": 0
     }
   ],
