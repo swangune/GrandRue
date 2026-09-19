@@ -3,26 +3,32 @@
   "run_id": "GR-VV-R001",
   "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
   "latest_packet": {
-    "id": "GR-VV-00-01",
-    "kind": "SNAPSHOT_CAPTURE",
+    "id": "GR-VV-01-01",
+    "kind": "TREE_ENUMERATION",
     "result": "PASS"
   },
   "coverage": {
     "baseline_entries": 2258,
     "target_entries": 2266,
-    "represented_baseline_entries": null,
-    "represented_target_entries": null,
+    "represented_baseline_entries": 2258,
+    "represented_target_entries": 2266,
+    "file_rows": 2266,
+    "unchanged_equality_fast_path": 744,
+    "claimed_migration_rows": 1507,
+    "non_migration_delta_rows": 7,
+    "operational_evidence_rows": 8,
+    "unclassified_files": 0,
     "claims_total": 847,
     "production_leaf_claims": 762,
     "manifest_versions": 152,
-    "open_findings": "NOT_EVALUATED"
+    "open_findings": 0
   },
   "conclusions": {
-    "file_accounting": "NOT_RUN",
+    "file_accounting": "PASS",
     "claim_validation": "NOT_RUN",
     "migration_preservation": "NOT_RUN",
     "master_non_naming_executable_preservation": "NOT_RUN",
     "live_freshness": "NOT_RUN"
   },
-  "next_packet": "GR-VV-01-01"
+  "next_packet": "GR-VV-02-01"
 }

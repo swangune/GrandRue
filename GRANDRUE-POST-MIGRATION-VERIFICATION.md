@@ -269,28 +269,28 @@ checkpoint:
   target_role: TERMINAL_MIGRATION_CHECKPOINT
   claim_snapshot_digest: 20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
-  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-00-01.json
+  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-01-01.json
   implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
   coverage:
-    enumeration_complete: false
+    enumeration_complete: true
     baseline_entries: 2258
     target_entries: 2266
-    represented_baseline_entries: null
-    represented_target_entries: null
-    unclassified_files: null
-    equality_fast_path_files: null
+    represented_baseline_entries: 2258
+    represented_target_entries: 2266
+    unclassified_files: 0
+    equality_fast_path_files: 744
     deterministic_regions: null
     exception_files: null
     claims_total: 847
     claims_verified: 0
-    open_findings: NOT_EVALUATED
+    open_findings: 0
   conclusions:
-    file_accounting: NOT_RUN
+    file_accounting: PASS
     claim_validation: NOT_RUN
     migration_preservation: NOT_RUN
     master_non_naming_executable_preservation: NOT_RUN
     live_freshness: NOT_RUN
-  next_action: Prepare and execute GR-VV-01-01 against immutable M/D endpoint inventories; establish exactly-once file correspondence and equality-fast-path population without treating rename heuristics or counts as proof.
+  next_action: Prepare GR-VV-02-01 from the frozen file manifest: classify the 1,507 claimed-migration rows into exact deterministic transformation classes, isolate the 7 non-migration deltas and 8 operational-evidence additions as exceptions, and freeze region inputs before preservation execution.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.

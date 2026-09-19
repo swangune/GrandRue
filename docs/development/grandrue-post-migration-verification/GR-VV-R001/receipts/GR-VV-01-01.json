@@ -1,0 +1,107 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-01-01",
+  "packet_kind": "TREE_ENUMERATION",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "immutable_inputs": {
+    "baseline_tree_sha256": "c1756aa8e99dcecbfdbf48ea9f7a99b444beef01fb3e739a2f347e501cf6547c",
+    "target_tree_sha256": "07a5b13f3d27b8e4b1dde8caa6bf93b75b8f8fa2b94204b6ae4cfa66e2c94275",
+    "claim_snapshot_digest": "20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362"
+  },
+  "checks": [
+    {
+      "id": "baseline_endpoint_set_exactly_once",
+      "result": "PASS",
+      "evidence": {
+        "expected": 2258,
+        "represented": 2258,
+        "duplicates": 0
+      }
+    },
+    {
+      "id": "target_endpoint_set_exactly_once",
+      "result": "PASS",
+      "evidence": {
+        "expected": 2266,
+        "represented": 2266,
+        "duplicates": 0
+      }
+    },
+    {
+      "id": "same_path_same_object_population",
+      "result": "PASS",
+      "evidence": {
+        "files": 744
+      }
+    },
+    {
+      "id": "same_path_changed_population",
+      "result": "PASS",
+      "evidence": {
+        "files": 44
+      }
+    },
+    {
+      "id": "claimed_namespace_move_correspondence",
+      "result": "PASS",
+      "evidence": {
+        "baseline_only": 1470,
+        "mapped_one_to_one": 1470,
+        "unmatched_baseline": 0
+      }
+    },
+    {
+      "id": "target_only_operational_introductions",
+      "result": "PASS",
+      "evidence": {
+        "files": 8,
+        "all_introduction_commits_status_added": true,
+        "all_parent_paths_absent": true
+      }
+    },
+    {
+      "id": "unclassified_endpoint_population",
+      "result": "PASS",
+      "evidence": {
+        "files": 0
+      }
+    },
+    {
+      "id": "role_accounting",
+      "result": "PASS",
+      "evidence": {
+        "CLAIMED_MIGRATION": 1507,
+        "UNCHANGED": 744,
+        "NON_MIGRATION_DELTA": 7,
+        "OPERATIONAL_EVIDENCE": 8
+      }
+    }
+  ],
+  "outputs": {
+    "files": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/files.jsonl",
+      "git_blob": "4f5dad63ca89cdca0a837dfa978633132f4afea4",
+      "sha256": "37e86a85135386ee68a39c9bb99cb473539a15dab3b24f485ac5ab73597fbfea",
+      "rows": 2266
+    },
+    "findings": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/findings.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "open": 0
+    },
+    "summary": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/summary.json",
+      "sha256": "d423bc8b1fe292205816daae82420916ef2024006e2308fb87dc288149d48609"
+    }
+  },
+  "conclusion_scope": "file_accounting",
+  "conclusion": "PASS",
+  "limitations": [
+    "PASS establishes endpoint enumeration, identity correspondence and exactly-once accounting only.",
+    "Moved/changed file content, claim obligations, protected identities and non-migration deltas are not yet preservation-verified.",
+    "Maven tests and GitHub Actions were not run."
+  ],
+  "next_packet": "GR-VV-02-01"
+}

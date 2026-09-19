@@ -417,7 +417,7 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-GR-VV-00-01 snapshot capture is checkpointed PASS. No file or migration claim has yet passed preservation/claim verification.
+GR-VV-00-01 snapshot capture and GR-VV-01-01 file accounting are checkpointed PASS. No moved/changed file or migration claim has yet passed preservation/claim verification.
 
 ```yaml
 execution:
@@ -434,18 +434,21 @@ execution:
   historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
   active_packet:
-    id: GR-VV-01-01
-    kind: TREE_ENUMERATION
+    id: GR-VV-02-01
+    kind: IDENTITY_PREPARATION
     state: PREPARATION_REQUIRED
   queue:
-    - GR-VV-01-01
+    - GR-VV-02-01
   completed_packets:
     - id: GR-VV-00-01
       result: PASS
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-00-01.json
+    - id: GR-VV-01-01
+      result: PASS
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-01-01.json
   results_recorded: true
   implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
-  next_action: Establish exactly-once M/D file correspondence, equality fast path, changed/moved populations and explicit unmatched endpoint findings; do not infer rename identity from similarity alone.
+  next_action: Classify the frozen file manifest into deterministic transformation regions and explicit exceptions. Prepare expected transformations from migration evidence before comparing target content; do not absorb non-migration deltas or operational records into naming transformations.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
