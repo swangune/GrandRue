@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T019
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 69407548d5d21f82801e446802048a82ed77b585
 expected_parent: f69d84dbaed3a4628c43e931dd5bd448e4cd90f0
+validated_head: 69407548d5d21f82801e446802048a82ed77b585
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-enquiry
@@ -94,3 +97,6 @@ preparation_notes:
   - all owner blobs and absent GrandRue destinations reconciled against development at f69d84dbaed3a4628c43e931dd5bd448e4cd90f0
   - the OpportunityEnquirySubmissionPreparationTest static helper dependencies are internal to this transaction
   - Maven tests and GitHub Actions were not run
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
