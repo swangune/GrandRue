@@ -1,6 +1,6 @@
-package mainstreet.api;
+package grandrue.api;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

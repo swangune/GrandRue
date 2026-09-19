@@ -1,6 +1,6 @@
-package mainstreet.api;
+package grandrue.api;
 
-import mainstreet.protection.ProtectionTarget;
+import grandrue.protection.ProtectionTarget;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

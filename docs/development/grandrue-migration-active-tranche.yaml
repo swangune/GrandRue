@@ -2,117 +2,90 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T016
+tranche: GR-REN-03-T017
 group: GR-REN-03
-state: COMPLETE
-code_commit: d13a6370e2fb2626b0750ea09c59d0c3e903e105
-expected_parent: befc8a69047ee0f9975b7b59ace8d02d127af625
-validated_head: d13a6370e2fb2626b0750ea09c59d0c3e903e105
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 75a1e2b9a182bf69bcec06a67641d16e92c1fe91
 
 region:
-  identity: test-shared-fixtures
-  closure_basis: complete live src/test/java/mainstreet/testing/** Java fixture-owner region plus every proven external test consumer
+  identity: test-api
+  closure_basis: complete live src/test/java/mainstreet/api/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 3
-    external_test_consumer_count: 15
-    owner_production_import_repair_count: 16
-    consumer_fixture_import_repair_count: 15
+    owner_count: 8
+    external_test_consumer_count: 0
+    executable_namespace_replacement_count: 10
   embedded_runtime_compatibility_residuals:
-    disposition: preserve_all_non_declared_consumer_content
+    disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/testing/ConfigurationActivationApprovals.java
-      to: src/test/java/grandrue/testing/ConfigurationActivationApprovals.java
-      blob_sha: e8d38a36dda5bc2477b9c24cf0a49f36284c7a91
-    - from: src/test/java/mainstreet/testing/TestConfigurationReleases.java
-      to: src/test/java/grandrue/testing/TestConfigurationReleases.java
-      blob_sha: 74b98c728dc303bcbab2fa54585c87331be992a6
-    - from: src/test/java/mainstreet/testing/TestSessionRecordStore.java
-      to: src/test/java/grandrue/testing/TestSessionRecordStore.java
-      blob_sha: 5ee667e6cbd020212dd2a6efc57fcce2c50af335
-  consumers:
-    - path: src/test/java/mainstreet/runtime/SessionLogoutServiceTest.java
-      blob_sha: 59f0fba44c7b162fd08986f947b45f4fd5855357
-    - path: src/test/java/mainstreet/runtime/CapabilityOperationHandlerTest.java
-      blob_sha: 0600ccef3358508f75f53e650b40ce6c0725dcdd
-    - path: src/test/java/mainstreet/runtime/HumanSessionEstablishmentServiceTest.java
-      blob_sha: 1555f2a27912481c7481185fc175b5dbeba0325e
-    - path: src/test/java/mainstreet/booking/BookingOperationHandlerTest.java
-      blob_sha: acf2bcdfcf7d53c7b1df6df4677136098a98d2bc
-    - path: src/test/java/mainstreet/semantic/executable/ActiveOperationResolverTest.java
-      blob_sha: af7bb2a54182337dd552acfd0cc1a233f2afd2cb
-    - path: src/test/java/mainstreet/runtime/PrivilegeOperationExecutionGuardTest.java
-      blob_sha: 44786db05b98b0cbb5281439aae43aa744a4275c
-    - path: src/test/java/mainstreet/runtime/ScopedOperationDispatcherTest.java
-      blob_sha: 6be3aa5667ccfba75c81458b011038a93bdeadd7
-    - path: src/test/java/mainstreet/runtime/SessionTrustedExecutionContextEstablisherTest.java
-      blob_sha: 50bcbfdf006b7bd6243f4363ceedf78731716a90
-    - path: src/test/java/mainstreet/runtime/OperationRequirementEvaluationTest.java
-      blob_sha: 9d0bc88b68c320a65fc5efac6d71bcd95e6cc779
-    - path: src/test/java/mainstreet/booking/AppointmentOperationalObjectOwnershipTest.java
-      blob_sha: 323e1e0df5dd72e8691a2bddde5003a840811613
-    - path: src/test/java/mainstreet/runtime/ExecutableSupportOperationExecutionGuardTest.java
-      blob_sha: f9a4c2d966492f574dca2dce1bb06c5b8ff17706
-    - path: src/test/java/mainstreet/runtime/CommercialEntitlementOperationExecutionGuardTest.java
-      blob_sha: 0f85aac22381351c954c7b95139a704becd69276
-    - path: src/test/java/mainstreet/runtime/StaffOperationalTrustedExecutionContextEstablisherTest.java
-      blob_sha: 7cca6017c06ec5e45124c78a75173ae676ea2668
-    - path: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqSemanticCompatibilityActivationIT.java
-      blob_sha: 0c9c441eb91b0b477e542c5843038e76ee78d3f2
-    - path: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqConfigurationActivationPublicationOutboxIT.java
-      blob_sha: 11956cf7eb4452a45f1543d81fb43fdfcca3759c
+    - from: src/test/java/mainstreet/api/ApiBoundedCollectionContractTest.java
+      to: src/test/java/grandrue/api/ApiBoundedCollectionContractTest.java
+      blob_sha: 9923a07843fb1546bf77ac5b32686d72f4081d07
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/api/ApiCallbackContractDefinitionTest.java
+      to: src/test/java/grandrue/api/ApiCallbackContractDefinitionTest.java
+      blob_sha: d67ed108dac2d5d6fdaf95d11088f67a15193982
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/api/ApiCommandContractDefinitionTest.java
+      to: src/test/java/grandrue/api/ApiCommandContractDefinitionTest.java
+      blob_sha: f91f768323c564fedf09f2635f96577d3f9214ee
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/api/ApiContractRegistrySnapshotTest.java
+      to: src/test/java/grandrue/api/ApiContractRegistrySnapshotTest.java
+      blob_sha: 8ae189b95694d523cfc83ed8405003209b2625a9
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/api/ApiMediaTransferContractDefinitionTest.java
+      to: src/test/java/grandrue/api/ApiMediaTransferContractDefinitionTest.java
+      blob_sha: 7f7915807990e7c2840f219a2fabfdb6c6f50c4c
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/api/ApiProblemMappingRegistrySnapshotTest.java
+      to: src/test/java/grandrue/api/ApiProblemMappingRegistrySnapshotTest.java
+      blob_sha: c10d574e21b944164d41e2e22bd15f09de32443e
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/api/ApiTransportScopeAuthorityRegistrySnapshotTest.java
+      to: src/test/java/grandrue/api/ApiTransportScopeAuthorityRegistrySnapshotTest.java
+      blob_sha: 4ffa1044334a001de4b2af14746826477e56c583
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/api/ApiTransportSemanticVocabularyTest.java
+      to: src/test/java/grandrue/api/ApiTransportSemanticVocabularyTest.java
+      blob_sha: b0f70e12581fe4960215898d84e0084b4824fa2f
+      executable_namespace_replacements: 1
 
 deterministic_transformations:
   owners:
-    - move all three declared fixture owners to the corresponding src/test/java/grandrue/testing/** paths
-    - replace exactly three package declarations package mainstreet.testing; with package grandrue.testing;
-    - replace exactly sixteen executable owner imports from migrated mainstreet.* production namespaces to grandrue.*
-  consumers:
-    - replace exactly fifteen executable imports mainstreet.testing.* with grandrue.testing.* in the declared external consumers
-    - preserve every other import and byte in each consumer because those consumer packages remain open GR-REN-03 scope
+    - move every declared owner to the corresponding src/test/java/grandrue/api/** path
+    - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
+    - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
-    - no assertion, method body, string literal, comment, semantic or behavioural change
-    - no non-fixture legacy import rewrite in consumers
+    - no assertion, test-data, semantic or behavioural change
     - no legacy prototype test mutation
     - no Maven/build/CI/runtime configuration mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 19
+  expected_changed_path_count: 9
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  owner_production_import_repair_count: 16
-  consumer_fixture_import_repair_count: 15
-  consumer_non_fixture_content_preservation: exact
+  executable_legacy_reference_absence: required
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 protected:
-  - all consumer imports other than mainstreet.testing.* remain unchanged
-  - every assertion, method body, string literal, comment and test-data identity unchanged
+  - every string literal, character literal, text block and comment unchanged
   - legacy prototype tests unchanged
 
 expected_residuals:
-  - declared consumers remain under src/test/java/mainstreet/** until their own later GR-REN-03 package migration
-  - their non-fixture mainstreet.* imports remain expected until the corresponding owner/consumer region is migrated
-  - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
+  - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
 
 preparation_notes:
-  - all three owner blobs, fifteen consumer blobs and absent GrandRue fixture destinations were reconciled against development at befc8a69047ee0f9975b7b59ace8d02d127af625
-  - every one of the sixteen owner production imports resolves to an existing src/main/java/grandrue/** owner
-  - exact fixture-class searches established the complete fifteen-consumer boundary
-  - every consumer has exactly one executable mainstreet.testing.* import and no quoted fixture-namespace occurrence
-  - consumer repairs are intentionally limited to the fixture import so unrelated still-open legacy test namespaces remain untouched
+  - all owner blobs and absent GrandRue destinations reconciled against development at 75a1e2b9a182bf69bcec06a67641d16e92c1fe91
+  - all owner transformations are deterministic code-only namespace moves
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
