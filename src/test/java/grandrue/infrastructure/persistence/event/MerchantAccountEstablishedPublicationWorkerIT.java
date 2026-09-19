@@ -1,13 +1,13 @@
-package mainstreet.infrastructure.persistence.event;
+package grandrue.infrastructure.persistence.event;
 
-import mainstreet.application.MerchantAccountEstablishedPublicationWorker;
-import mainstreet.application.StandingFreeEventReactionContract;
-import mainstreet.application.TrustedPlatformHumanPrincipal;
-import mainstreet.infrastructure.persistence.merchantaccount.JooqMerchantAccountBootstrapStore;
-import mainstreet.infrastructure.persistence.merchantaccount.JooqMerchantAccountEstablishmentPublicationOutbox;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
-import mainstreet.merchantaccount.MerchantAccountEstablishedPublicationSource;
-import mainstreet.semantic.event.EventReactionIdentity;
+import grandrue.application.MerchantAccountEstablishedPublicationWorker;
+import grandrue.application.StandingFreeEventReactionContract;
+import grandrue.application.TrustedPlatformHumanPrincipal;
+import grandrue.infrastructure.persistence.merchantaccount.JooqMerchantAccountBootstrapStore;
+import grandrue.infrastructure.persistence.merchantaccount.JooqMerchantAccountEstablishmentPublicationOutbox;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
+import grandrue.merchantaccount.MerchantAccountEstablishedPublicationSource;
+import grandrue.semantic.event.EventReactionIdentity;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

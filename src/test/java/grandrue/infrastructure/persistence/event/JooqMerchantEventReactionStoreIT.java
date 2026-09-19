@@ -1,7 +1,7 @@
-package mainstreet.infrastructure.persistence.event;
+package grandrue.infrastructure.persistence.event;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.event.*;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.event.*;
 import org.flywaydb.core.Flyway;
 import org.jooq.*;
 import org.jooq.exception.DataAccessException;

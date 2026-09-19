@@ -2,38 +2,39 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T031
+tranche: GR-REN-03-T032
 group: GR-REN-03
-state: COMPLETE
-code_commit: 8e7a2f5b549db81348d885f99403d3f05e9713dc
-expected_parent: 61aa57f70c7fb39171f00ea2c37be3bbee8b74c9
-validated_head: 8e7a2f5b549db81348d885f99403d3f05e9713dc
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: cd3f1b8556170cea99b8182ed7edb56c111e0054
 
 region:
-  identity: test-semantic-executable
-  closure_basis: complete live src/test/java/mainstreet/semantic/executable/** Java test-owner region
+  identity: test-infrastructure-persistence-event
+  closure_basis: complete live src/test/java/mainstreet/infrastructure/persistence/event/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 1
+    owner_count: 2
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 3
+    executable_namespace_replacement_count: 12
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/semantic/executable/ActiveOperationResolverTest.java
-      to: src/test/java/grandrue/semantic/executable/ActiveOperationResolverTest.java
-      blob_sha: 2eefa6dbfdbcdef80b3f5235373ab90454f37fcc
+    - from: src/test/java/mainstreet/infrastructure/persistence/event/JooqMerchantEventReactionStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/event/JooqMerchantEventReactionStoreIT.java
+      blob_sha: 73a29548a69ab535b5a71f98518448e5d1a6c4f9
       executable_namespace_replacements: 3
+    - from: src/test/java/mainstreet/infrastructure/persistence/event/MerchantAccountEstablishedPublicationWorkerIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/event/MerchantAccountEstablishedPublicationWorkerIT.java
+      blob_sha: c5ce03af95fabfdefadb35dd6ed58df216bdd392
+      executable_namespace_replacements: 9
 
 deterministic_transformations:
   owners:
-    - move the declared owner to corresponding src/test/java/grandrue/semantic/executable/** path
+    - move both declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/event/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -43,7 +44,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 2
+  expected_changed_path_count: 3
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -51,6 +52,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
