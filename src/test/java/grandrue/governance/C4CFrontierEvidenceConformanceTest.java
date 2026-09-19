@@ -70,9 +70,20 @@ class C4CFrontierEvidenceConformanceTest {
                 "designs/authorities/ms-prot/MS-PROT-063/MS-PROT-063 — Authentication, Session & Trusted Execution Principal Establishment Model.md",
                 List.of("12. System and scheduled principals"),
                 "designs/authorities/programme/MS-IMP-001/MS-IMP-001.md", List.of("16. IMP-08C — Durable Execution Foundation"));
+        var historicalPointers = Map.of(
+                "designs/authorities/ms-prot/MS-PROT-026/MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment.md",
+                "designs/MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment.md",
+                "designs/authorities/ms-prot/MS-PROT-056/MS-PROT-056 v1.6 — Standing Free Baseline Temporal Anchor Amendment.md",
+                "designs/MS-PROT-056 v1.6 — Standing Free Baseline Temporal Anchor Amendment.md",
+                "designs/authorities/ms-prot/MS-PROT-063/MS-PROT-063 — Authentication, Session & Trusted Execution Principal Establishment Model.md",
+                "designs/MS-PROT-063 — Authentication, Session & Trusted Execution Principal Establishment Model.md",
+                "designs/authorities/programme/MS-IMP-001/MS-IMP-001.md",
+                "designs/MS-IMP-001.md");
         for (var anchor : anchors.entrySet()) {
-            assertTrue(evidence.contains(anchor.getKey()), anchor.getKey());
-            String authority = Files.readString(Path.of(anchor.getKey()));
+            String currentPath = anchor.getKey();
+            String evidencePointer = historicalPointers.getOrDefault(currentPath, currentPath);
+            assertTrue(evidence.contains(evidencePointer), evidencePointer);
+            String authority = Files.readString(Path.of(currentPath));
             for (String heading : anchor.getValue()) {
                 assertTrue(authority.contains("# " + heading), heading);
             }
