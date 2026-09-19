@@ -1,8 +1,8 @@
-package mainstreet.publication;
+package grandrue.publication;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.surface.ProjectionSourceAvailability;
-import mainstreet.surface.ProjectionSourceCompleteness;
+import grandrue.application.MerchantScope;
+import grandrue.surface.ProjectionSourceAvailability;
+import grandrue.surface.ProjectionSourceCompleteness;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Modifier;

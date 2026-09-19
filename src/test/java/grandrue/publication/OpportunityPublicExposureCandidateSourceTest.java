@@ -1,8 +1,8 @@
-package mainstreet.publication;
+package grandrue.publication;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.surface.ExposureCandidateInstanceReference;
-import mainstreet.surface.ExposureCandidateObservation;
+import grandrue.application.MerchantScope;
+import grandrue.surface.ExposureCandidateInstanceReference;
+import grandrue.surface.ExposureCandidateObservation;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

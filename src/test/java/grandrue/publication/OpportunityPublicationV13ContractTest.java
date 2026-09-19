@@ -1,7 +1,7 @@
-package mainstreet.publication;
+package grandrue.publication;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.registry.OwnedSchemaReference;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.registry.OwnedSchemaReference;
 import org.junit.jupiter.api.Test;
 
 import java.net.URI;
