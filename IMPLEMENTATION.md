@@ -40,8 +40,9 @@ programme_frontier:
     state: IN_PROGRESS
   note: >
     DQ-001 is resolved by accepted MS-PROT-056 v1.10. C3 remains open for
-    faithful initial-catalogue implementation, trusted publication admission,
-    production composition/rollout ordering and final verification.
+    faithful initial-catalogue implementation and trusted publication admission
+    are checkpointed; production composition/rollout ordering and final
+    verification remain.
 
 slice:
   id: C3-TRUSTED-CATALOGUE-ADMISSION
@@ -55,9 +56,11 @@ canonical_graph: docs/development/implementation-programme-state.json
 historical_status_compatibility: docs/development/implementation-status.md
 
 next_action: >
-  Execute trusted catalogue-admission tests first. Implement only the minimum
-  accepted v1.9/v1.10 exact-content approval and platform-authorisation
-  composition, verify proportionally, then checkpoint before rollout wiring.
+  Execute C3 rollout-ordering tests first. Prove the ordinary new-account path
+  fails closed until an initial published catalogue exists, while catalogue
+  publication remains a separate trusted Commercial operation. Implement only
+  the minimum production composition needed by that accepted sequencing rule,
+  then run the full C3 completion gate before any closure claim.
 ```
 
 ## 2. Governing sources
