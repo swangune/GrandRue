@@ -1,0 +1,46 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-03-R003",
+  "packet_kind": "CLOSED_REGION_PRESERVATION",
+  "region_id": "GR-VV-DET-003",
+  "region_name": "build_ci_storefront_current_naming",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method": {
+    "version": "grandrue-preservation-checker/v1",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323"
+  },
+  "checks": {
+    "total_files": 5,
+    "passed": 5,
+    "failed": 0,
+    "blocked": 0,
+    "remaining": 0,
+    "exact_path_mode_checked": 5,
+    "complete_baseline_evidence": 5
+  },
+  "findings": [],
+  "independent_passing_results_preserved": true,
+  "outputs": {
+    "progress": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R003/progress.json",
+      "git_blob": "6c45f3b6c54db9ebf66564dbc1fe9cbb74d5914a",
+      "sha256": "82d278a5f4dae263766c1fbc19a1c38ea2cd396801b33bb1d28b369485996ca1"
+    },
+    "build_ci_storefront": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R003/build-ci-storefront.jsonl",
+      "git_blob": "0547f8811d56d7fd1d6f5349b351084c953ae7db",
+      "sha256": "7656d046ca997a33137cb0c3ac9d640aa428387086b1dd11a9af3aed3932d57d",
+      "files": 5,
+      "result": "PASS"
+    }
+  },
+  "conclusion_scope": "build_ci_storefront_current_naming_only",
+  "conclusion": "PASS",
+  "limitations": [
+    "This packet establishes exact path, mode and complete-byte preservation for its five frozen deterministic files under the declared build/CI/storefront naming transformations.",
+    "Maven tests and GitHub Actions were not run."
+  ],
+  "next_packet": "GR-VV-03-R004"
+}
