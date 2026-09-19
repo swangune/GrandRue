@@ -269,7 +269,7 @@ checkpoint:
   target_role: TERMINAL_MIGRATION_CHECKPOINT
   claim_snapshot_digest: 20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
-  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-01-01.json
+  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-02-01.json
   implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
   coverage:
     enumeration_complete: true
@@ -279,8 +279,8 @@ checkpoint:
     represented_target_entries: 2266
     unclassified_files: 0
     equality_fast_path_files: 744
-    deterministic_regions: null
-    exception_files: null
+    deterministic_regions: 4
+    exception_files: 41
     claims_total: 847
     claims_verified: 0
     open_findings: 0
@@ -290,7 +290,7 @@ checkpoint:
     migration_preservation: NOT_RUN
     master_non_naming_executable_preservation: NOT_RUN
     live_freshness: NOT_RUN
-  next_action: Prepare GR-VV-02-01 from the frozen file manifest: classify the 1,507 claimed-migration rows into exact deterministic transformation classes, isolate the 7 non-migration deltas and 8 operational-evidence additions as exceptions, and freeze region inputs before preservation execution.
+  next_action: Execute GR-VV-03-00 method validation with negative controls before any preservation region is allowed to pass; then run closed deterministic regions against generated expected bytes and target blobs.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.

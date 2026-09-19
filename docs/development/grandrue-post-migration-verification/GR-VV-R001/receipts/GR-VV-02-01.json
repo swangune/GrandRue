@@ -1,0 +1,97 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-02-01",
+  "packet_kind": "IDENTITY_PREPARATION",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "immutable_inputs": {
+    "files_sha256": "37e86a85135386ee68a39c9bb99cb473539a15dab3b24f485ac5ab73597fbfea",
+    "claim_snapshot_digest": "20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362"
+  },
+  "checks": [
+    {
+      "id": "partition_complete",
+      "result": "PASS",
+      "evidence": {
+        "equality": 744,
+        "production": 1094,
+        "test": 376,
+        "build_ci": 5,
+        "pure_governance": 6,
+        "prototype_exceptions": 26,
+        "mixed_governance_exceptions": 3,
+        "non_migration_document_exceptions": 4,
+        "operational_evidence_exceptions": 8,
+        "total": 2266
+      }
+    },
+    {
+      "id": "deterministic_claimed_population",
+      "result": "PASS",
+      "evidence": {
+        "rows": 1481,
+        "regions": 4
+      }
+    },
+    {
+      "id": "exception_population",
+      "result": "PASS",
+      "evidence": {
+        "rows": 41,
+        "groups": 4
+      }
+    },
+    {
+      "id": "production_wording_overlay",
+      "result": "PASS",
+      "evidence": {
+        "files": 37,
+        "recorded_replacements": 52
+      }
+    },
+    {
+      "id": "t047_overlays",
+      "result": "PASS",
+      "evidence": {
+        "governance_files": 6,
+        "fixture_identifier_files": 20,
+        "method_name_files": 6
+      }
+    },
+    {
+      "id": "gr04_test_environment_overlay",
+      "result": "PASS",
+      "evidence": {
+        "files": 74
+      }
+    },
+    {
+      "id": "late_production_residual_gates",
+      "result": "PASS",
+      "evidence": {
+        "GR_REN_02_T025": "validation-only/no mutation",
+        "GR_REN_02_T026": "validation-only/no mutation"
+      }
+    }
+  ],
+  "outputs": {
+    "regions": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/regions.json",
+      "git_blob": "43b467d784ad7c2b4af9a76c2df9bc9d9cefa375",
+      "sha256": "942ee057307b8b8f9b7cb9d8f6233e4c3b78b6eab6d1e7be4419ff9f4408f140"
+    },
+    "summary": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/summary.json",
+      "sha256": "5b4af6a6696301ef39ec0b21753273d53352edf658a7b8730207f12a786a2420"
+    }
+  },
+  "conclusion_scope": "identity_and_transformation_preparation",
+  "conclusion": "PASS",
+  "limitations": [
+    "PASS freezes region membership and transformation expectations only; no moved/changed target content has passed preservation comparison yet.",
+    "Exception groups remain unresolved until explicit exception validation.",
+    "Maven tests and GitHub Actions were not run."
+  ],
+  "next_packet": "GR-VV-03-00"
+}
