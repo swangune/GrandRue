@@ -107,6 +107,9 @@
                     <excludes>
                         <exclude>mainstreet/prototype/**</exclude>
                     </excludes>
+                    <testExcludes>
+                        <testExclude>mainstreet/prototype/**</testExclude>
+                    </testExcludes>
                 </configuration>
             </plugin>
 
