@@ -3,9 +3,9 @@
   "run_id": "GR-VV-R001",
   "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
   "latest_packet": {
-    "id": "GR-VV-03-R001",
+    "id": "GR-VV-03-R002",
     "kind": "CLOSED_REGION_PRESERVATION",
-    "result": "FAIL"
+    "result": "PASS"
   },
   "coverage": {
     "baseline_entries": 2258,
@@ -34,16 +34,16 @@
     "master_non_naming_executable_preservation": "NOT_RUN",
     "live_freshness": "NOT_RUN"
   },
-  "next_packet": "GR-VV-03-R002",
+  "next_packet": "GR-VV-03-R003",
   "active_progress": {
-    "region_id": "GR-VV-03-R002",
+    "region_id": "GR-VV-03-R003",
     "state": "READY",
-    "total_files": 376,
+    "total_files": 5,
     "verified_files": 0,
     "passing_files": 0,
     "failing_files": 0,
     "blocked_files": 0,
-    "remaining_files": 376,
+    "remaining_files": 5,
     "progress_evidence": null
   }
 }
