@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T015
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 5251273e9039ec0ced5311eee42812ce6dfe09ae
 expected_parent: bb55eefca37e0716a8e3f07387173b1883a240a4
+validated_head: 5251273e9039ec0ced5311eee42812ce6dfe09ae
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: root-application-test
@@ -63,3 +66,6 @@ preparation_notes:
   - exact class-name search found no external test consumers
   - no executable legacy import or embedded Main Street/current-product identifier occurs in this owner
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED

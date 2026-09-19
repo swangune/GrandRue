@@ -396,10 +396,10 @@ active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
 last_completed_leaf: GR-REN-02-01X739
-last_completed_task: GR-REN-03-T014
-last_code_commit: 7cfdd071e166313bc242488c5a0d11fa079bc4d1
-last_validation_gate: GR-REN-03-T014_STRUCTURAL
-last_validation_target: 7cfdd071e166313bc242488c5a0d11fa079bc4d1
+last_completed_task: GR-REN-03-T015
+last_code_commit: 5251273e9039ec0ced5311eee42812ce6dfe09ae
+last_validation_gate: GR-REN-03-T015_STRUCTURAL
+last_validation_target: 5251273e9039ec0ced5311eee42812ce6dfe09ae
 symbolic_standalone_production_residuals: 0
 
 gr_ren_03:
@@ -419,12 +419,13 @@ gr_ren_03:
     - GR-REN-03-T012
     - GR-REN-03-T013
     - GR-REN-03-T014
-  migrated_test_java_files: 44
-  remaining_in_scope_legacy_test_java_files: 332
+    - GR-REN-03-T015
+  migrated_test_java_files: 45
+  remaining_in_scope_legacy_test_java_files: 331
   excluded_legacy_prototype_test_java_files: 18
   embedded_runtime_compatibility_identifiers: DEFERRED_CLASSIFICATION
 
-next_action: Continue GR-REN-03 from the live post-T014 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; preserve the 18 excluded legacy prototype tests; classify embedded runtime/compatibility identifiers separately; do not run Maven tests or GitHub Actions without separate authorisation.
+next_action: Continue GR-REN-03 from the live post-T015 checkpoint. Prepare the next natural dependency-bounded in-scope test namespace/runtime-coupled fixture region; preserve the 18 excluded legacy prototype tests; classify embedded runtime/compatibility identifiers separately; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
