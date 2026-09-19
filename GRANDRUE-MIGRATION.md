@@ -942,9 +942,11 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-03-T046`: migrated the complete remaining in-scope `src/test/java/mainstreet/semantic/**` Java test-owner graph across capability, configuration and policy packages as one dependency-closed normal subgraph. Forty owners moved to corresponding `src/test/java/grandrue/semantic/**` paths with 165 deterministic executable namespace replacements. Repository evidence showed the public test-scope capability/policy helpers had no consumers outside the closed semantic region; configuration tests were package-local. Every string literal, character literal, text block, comment, assertion and test datum was preserved byte-for-byte. Aggregate structural verification proved the exact forty-one-entry transaction (forty renames plus the active manifest), all legacy Java owners absent, all destination blobs exactly matching their deterministic transformed sources, and `src/test/java/mainstreet/semantic/capability/LEGACY-PROTOTYPE.md` preserved at blob `e3c0e1f49ca0291e4e2d1247ed8d9c0427beba53`. Code commit `4033ba0bcf3bbbf775afae01bf57042064bea19f`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-03-T047`: completed the post-T046 non-prototype test residual classification and current-name cleanup. Thirty-two test files changed in one deterministic transaction: six governance/current-path conformance tests, twenty current fixture-identity tests/fixtures, and six current-product test method-name files. The transaction applied 76 exact current-name replacements, including `mainstreet-compiler-1` → `grandrue-compiler-1`, `mainstreet-booking-storage` → `grandrue-booking-storage`, stale governance source/package/import paths → `grandrue`, and current test-method `main_street` wording → `grandrue`. The 74 non-prototype `MAINSTREET_TEST_POSTGRES_{URL,USER,PASSWORD}` consumers were explicitly classified `DEFERRED_TO_GR_REN_04` so the CI/build producer and all consumers can be renamed atomically. Protected `mainstreet-semantic-bundle-v1/v2` and `mainstreet-exposure-definitions-v1` identities, all other section-3 protected identities, the two non-Java legacy prototype markers, and all 18 excluded legacy prototype Java tests were preserved. Aggregate structural verification proved exactly 33 changed paths (32 tests + active manifest) and no unexpected production/build/configuration changes. Code commit `26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
-- `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `IN_PROGRESS`
+- `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `NOT_STARTED`
 - `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `NOT_STARTED`
 - `GR-REN-06` — compatibility aliases/preserved identities: `NOT_STARTED`
@@ -965,14 +967,14 @@ branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
-active_group: GR-REN-03
+active_group: GR-REN-04
 selected_execution_leaf: null
-last_completed_task: GR-REN-03-T046
-last_task_commit: 4033ba0bcf3bbbf775afae01bf57042064bea19f
+last_completed_task: GR-REN-03-T047
+last_task_commit: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 4033ba0bcf3bbbf775afae01bf57042064bea19f
-next_action: Complete GR-REN-03 residual compatibility classification from the live post-T046 checkpoint. No in-scope legacy test Java owners remain; classify embedded runtime/path/package compatibility identifiers and expected non-Java legacy residuals, preserve the 18 src/test/java/mainstreet/prototype/** Java files under NON_MIGRATING_LEGACY_PROTOTYPE, and do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
+next_action: Prepare GR-REN-04 as one build/CI compatibility transaction. Freeze the live producer/consumer closure for MAINSTREET_TEST_POSTGRES_{URL,USER,PASSWORD}, rename the current GrandRue build/CI identity and all 74 classified non-prototype test consumers atomically, preserve excluded prototype consumers/legacy compatibility only where explicitly required, and do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---

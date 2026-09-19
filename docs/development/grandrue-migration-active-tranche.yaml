@@ -4,8 +4,8 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T047
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
 expected_parent: 70559f902ab778a46c9e8d4546821c3d3a629d48
 
 region:
@@ -105,5 +105,9 @@ verification:
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
-next_group: GR-REN-03
-next_state: CODE_COMMITTED
+validated_head: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
+checkpoint_commit: THIS_COMMIT
+verified: true
+
+next_group: GR-REN-04
+next_state: PREPARATION_REQUIRED

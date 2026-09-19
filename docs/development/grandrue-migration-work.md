@@ -396,10 +396,10 @@ active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
 last_completed_leaf: GR-REN-02-01X739
-last_completed_task: GR-REN-03-T046
-last_code_commit: 4033ba0bcf3bbbf775afae01bf57042064bea19f
-last_validation_gate: GR-REN-03-T046_STRUCTURAL
-last_validation_target: 4033ba0bcf3bbbf775afae01bf57042064bea19f
+last_completed_task: GR-REN-03-T047
+last_code_commit: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
+last_validation_gate: GR-REN-03-T047_STRUCTURAL
+last_validation_target: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
 symbolic_standalone_production_residuals: 0
 
 gr_ren_03:
@@ -451,12 +451,17 @@ gr_ren_03:
     - GR-REN-03-T044
     - GR-REN-03-T045
     - GR-REN-03-T046
+    - GR-REN-03-T047
   migrated_test_java_files: 376
   remaining_in_scope_legacy_test_java_files: 0
   excluded_legacy_prototype_test_java_files: 18
-  embedded_runtime_compatibility_identifiers: DEFERRED_CLASSIFICATION
+  embedded_runtime_compatibility_identifiers: CLASSIFIED_T047
+  current_test_naming_cleanup_files: 32
+  deferred_gr_ren_04_test_postgres_consumers: 74
+  protected_test_residuals: CLASSIFIED_PRESERVE
+  state: COMPLETE_PENDING_FINAL_VERIFICATION
 
-next_action: Complete GR-REN-03 residual compatibility classification from the live post-T046 checkpoint. No in-scope legacy test Java owners remain; preserve the 18 excluded legacy prototype tests, classify embedded path/package/runtime compatibility identifiers and expected non-Java residuals, and do not run Maven tests or GitHub Actions without separate authorisation.
+next_action: Prepare GR-REN-04 from the live post-T047 checkpoint. Freeze the build/CI producer and 74 non-prototype MAINSTREET_TEST_POSTGRES_* consumers as one atomic compatibility transaction, then migrate the remaining essential build/CI current-product naming without touching excluded prototype configuration. Do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
