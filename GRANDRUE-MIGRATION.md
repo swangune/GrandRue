@@ -944,10 +944,12 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-03-T047`: completed the post-T046 non-prototype test residual classification and current-name cleanup. Thirty-two test files changed in one deterministic transaction: six governance/current-path conformance tests, twenty current fixture-identity tests/fixtures, and six current-product test method-name files. The transaction applied 76 exact current-name replacements, including `mainstreet-compiler-1` → `grandrue-compiler-1`, `mainstreet-booking-storage` → `grandrue-booking-storage`, stale governance source/package/import paths → `grandrue`, and current test-method `main_street` wording → `grandrue`. The 74 non-prototype `MAINSTREET_TEST_POSTGRES_{URL,USER,PASSWORD}` consumers were explicitly classified `DEFERRED_TO_GR_REN_04` so the CI/build producer and all consumers can be renamed atomically. Protected `mainstreet-semantic-bundle-v1/v2` and `mainstreet-exposure-definitions-v1` identities, all other section-3 protected identities, the two non-Java legacy prototype markers, and all 18 excluded legacy prototype Java tests were preserved. Aggregate structural verification proved exactly 33 changed paths (32 tests + active manifest) and no unexpected production/build/configuration changes. Code commit `26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-04-T001`: completed the essential build/CI current-naming transaction. The closed transaction renamed all 74 classified non-prototype test PostgreSQL environment consumers from `MAINSTREET_TEST_POSTGRES_{URL,USER,PASSWORD}` to `GRANDRUE_TEST_POSTGRES_{URL,USER,PASSWORD}`; changed Maven coordinates from `mainstreet:mainstreet` to `grandrue:grandrue`; changed the isolated Maven CI PostgreSQL database/user/password from `mainstreet_test/mainstreet` to `grandrue_test/grandrue`; changed storefront package metadata from `mainstreet-storefront-web` to `grandrue-storefront-web`; and made `GRANDRUE_BACKEND_URL` the preferred storefront backend variable while retaining `MAINSTREET_BACKEND_URL` as the explicit compatibility fallback. Legacy prototype tests/configuration were not migrated. Aggregate verification proved exactly 80 changed paths (74 test consumers + 5 build/CI/storefront files + active manifest) and no undeclared path. Code commit `89b314bf27c7c50944efb5257fa38c087f412183`; storefront formatting reconciliation `c8821cf489735d34de341e50c4c2508bda8c4b4f`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
-- `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `NOT_STARTED`
+- `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `NOT_STARTED`
 - `GR-REN-06` — compatibility aliases/preserved identities: `NOT_STARTED`
 - `GR-REN-07` — active controls/canonical governance wording: `NOT_STARTED`
@@ -967,14 +969,14 @@ branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
-active_group: GR-REN-04
+active_group: GR-REN-05
 selected_execution_leaf: null
-last_completed_task: GR-REN-03-T047
-last_task_commit: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
+last_completed_task: GR-REN-04-T001
+last_task_commit: c8821cf489735d34de341e50c4c2508bda8c4b4f
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
-next_action: Prepare GR-REN-04 as one build/CI compatibility transaction. Freeze the live producer/consumer closure for MAINSTREET_TEST_POSTGRES_{URL,USER,PASSWORD}, rename the current GrandRue build/CI identity and all 74 classified non-prototype test consumers atomically, preserve excluded prototype consumers/legacy compatibility only where explicitly required, and do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: c8821cf489735d34de341e50c4c2508bda8c4b4f
+next_action: Prepare GR-REN-05 from the live post-GR-REN-04 checkpoint. Enumerate essential runtime/config current-product naming, exclude the legacy prototype profile/configuration, preserve required compatibility aliases and protected persisted/external identities, then execute one or more deterministic closed transactions. Do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---

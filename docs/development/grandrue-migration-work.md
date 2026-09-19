@@ -396,10 +396,10 @@ active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
 last_completed_leaf: GR-REN-02-01X739
-last_completed_task: GR-REN-03-T047
-last_code_commit: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
-last_validation_gate: GR-REN-03-T047_STRUCTURAL
-last_validation_target: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
+last_completed_task: GR-REN-04-T001
+last_code_commit: c8821cf489735d34de341e50c4c2508bda8c4b4f
+last_validation_gate: GR-REN-04-T001_STRUCTURAL
+last_validation_target: c8821cf489735d34de341e50c4c2508bda8c4b4f
 symbolic_standalone_production_residuals: 0
 
 gr_ren_03:
@@ -461,7 +461,7 @@ gr_ren_03:
   protected_test_residuals: CLASSIFIED_PRESERVE
   state: COMPLETE_PENDING_FINAL_VERIFICATION
 
-next_action: Prepare GR-REN-04 from the live post-T047 checkpoint. Freeze the build/CI producer and 74 non-prototype MAINSTREET_TEST_POSTGRES_* consumers as one atomic compatibility transaction, then migrate the remaining essential build/CI current-product naming without touching excluded prototype configuration. Do not run Maven tests or GitHub Actions without separate authorisation.
+gr_ren_04:\n  state: COMPLETE_PENDING_FINAL_VERIFICATION\n  tranche: GR-REN-04-T001\n  test_postgres_consumers: 74\n  changed_paths: 80\n  code_commit: 89b314bf27c7c50944efb5257fa38c087f412183\n  reconciliation_commit: c8821cf489735d34de341e50c4c2508bda8c4b4f\n\nnext_action: Prepare GR-REN-05 from the live post-GR-REN-04 checkpoint. Enumerate essential runtime/config current-product naming, excluding legacy prototype profile/configuration; preserve compatibility aliases/protected identities; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
