@@ -19,7 +19,7 @@ import org.junit.jupiter.api.io.TempDir;
 /**
  * Mechanically reliable checks for the non-authoritative repository agent adapter.
  *
- * <p>Authority: MS-IMPLEMENTATION-RULES-001 v2.0,
+ * <p>Authority: MS-IMPLEMENTATION-RULES-001 v2.1,
  * {@code designs/IMPLEMENTATION-RULES.md}, §55 — Agent Context-Efficient Authority Loading.
  * These checks prove adapter structure only; they do not attempt semantic reasoning over prose.
  */
