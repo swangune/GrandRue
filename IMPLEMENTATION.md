@@ -19,7 +19,7 @@ GrandRue naming migration, independent post-migration preservation verification 
 controller_schema: grandrue-implementation-controller/v2
 repository: swangune/GrandRue
 branch: development
-observed_head_at_resume_reconciliation: e3761e83bf151fe37600fb03a264201afa53520a
+observed_head_at_resume_reconciliation: 345bd7b7295a6b387b8af3d5b1c25bf0019c8afd
 
 phase: IMPLEMENTATION
 implementation_state: IN_PROGRESS
@@ -36,30 +36,32 @@ programme_frontier:
     id: IMP-08C
     state: IN_PROGRESS
   node:
-    id: IMP-08C-C4E
+    id: IMP-08C-C5A
     state: READY
   note: >
-    IMP-08C-C3 and IMP-08C-C4B2 are CONFORMING_COMPLETE. C4B is therefore
-    CONFORMING_COMPLETE; C4 remains PARTIALLY_CONFORMING because C4E is READY.
-    C5A is independently READY and C5 remains dependency-blocked.
+    IMP-08C-C3, C4B2 and C4E are CONFORMING_COMPLETE. C4 is therefore
+    CONFORMING_COMPLETE. C5A is the remaining READY child required before C5;
+    IMP-08C remains IN_PROGRESS.
 
 slice:
-  id: C4E-BOOKING-PUBLICATION-SEPARATION
+  id: C5A-OPERATIONAL-EVIDENCE-FOUNDATION
   state: PREPARATION_REQUIRED
   behaviour: >
-    Correct the retained Booking event-global publication acknowledgement so
-    publication responsibility remains distinct from independently progressing
-    registered Event Reactions, while preserving owner and merchant occurrence identity.
+    Register bounded operational-evidence semantics for the active durable
+    Event Reaction and Background Work responsibilities, preserve UNKNOWN
+    evidence honestly, and expose only read-only progression evidence needed
+    for diagnosis and recovery.
 
 canonical_graph: docs/development/implementation-programme-state.json
 historical_status_compatibility: docs/development/implementation-status.md
 
 next_action: >
-  Prepare the exact C4E authority/dependency boundary once, inspect the current
-  Booking outbox and retained IMP-00 conflict evidence, derive the first
-  dependency-complete correction slice and tests, then implement the minimum
-  accepted correction under IMPLEMENTATION-RULES. Run the full applicable gate
-  before any C4E completion claim.
+  Execute C5A tests first from accepted MS-PROT-068 v1.1 / MS-PROT-069 v1.1:
+  add the minimum OperationalEvidenceContract registration needed by the active
+  Event Reaction and Durable Background Work paths, preserve UNKNOWN rather
+  than manufacturing health, and add read-only progression evidence where the
+  existing stores cannot diagnose backlog safely. Do not make telemetry,
+  alerts or evidence readers mutation/completion authority.
 ```
 
 ## 2. Governing sources
@@ -73,7 +75,7 @@ next_action: >
 | Repository agent navigation | `AGENTS.md` |
 | Migration execution closure | `GRANDRUE-MIGRATION.md` |
 | Independent migration verification | `GRANDRUE-POST-MIGRATION-VERIFICATION.md` |
-| Current event/reaction authority | `designs/authorities/ms-prot/MS-PROT-026/MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment.md` |
+| Current operational-evidence authority | `designs/authorities/ms-prot/MS-PROT-068/MS-PROT-068 v1.1 — Production Operational Evidence, Health & Alerting Contract Amendment.md` + `designs/authorities/ms-prot/MS-PROT-069/MS-PROT-069 v1.1 — Production Reconciliation Responsibility, Evidence & Resolution Contract Amendment.md` |
 
 ## 3. Current execution model
 
