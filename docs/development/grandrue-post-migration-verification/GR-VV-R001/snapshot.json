@@ -1,0 +1,109 @@
+{
+  "schema_version": "grandrue-post-migration-snapshot/v1",
+  "run_id": "GR-VV-R001",
+  "capture_time": "2026-09-19T03:52:11Z",
+  "capture_time_basis": "terminal_target_commit_committer_time",
+  "repository": "swangune/GrandRue",
+  "branch_observed": "development",
+  "branch_head_at_capture": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "primary_migration_baseline": {
+    "commit": "c4153441d8340b229a29884967d796280d949a7d",
+    "tree": "90f13fa113e770023652e40be20c0e7f894e0623",
+    "role": "ORIGINAL_MIGRATION_START"
+  },
+  "final_migration_target": {
+    "commit": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+    "tree": "1614a2be044bff8284ba2b6999dc5418c018430b",
+    "role": "TERMINAL_MIGRATION_CHECKPOINT"
+  },
+  "master_context": {
+    "commit": "5c73ed82248315a9e318289f032ed445573f8d37",
+    "tree": "6538f5c5030eb0a443b1f43dec04434cb1cc709c",
+    "role": "CONTEXT_ONLY_NOT_PRIMARY_BASELINE"
+  },
+  "ancestry": {
+    "base": "c4153441d8340b229a29884967d796280d949a7d",
+    "head": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+    "status": "ahead",
+    "ahead_by": 876,
+    "behind_by": 0,
+    "total_commits": 876
+  },
+  "object_hash_format": "git-sha1",
+  "retrieval_method": "GitHub connector immutable commit/tree/blob/file reads",
+  "source_identities": {
+    "AGENTS.md": {
+      "blob_sha": "468bfe229e5236d5cba69e4cd56ed6a71992a6bc",
+      "sha256": "c5d141e6c5019736911e475833e0ceba3d16eea4b77d86055b4ae50409159ea4",
+      "utf8_bytes": 5176
+    },
+    "GRANDRUE-MIGRATION.md": {
+      "blob_sha": "209befc21540fb25481452fb15a5c175cc27665e",
+      "sha256": "8a44ee7d3970a523bce2878309c28f5981720f4383184e44751cff0df35d5590",
+      "utf8_bytes": 397102
+    },
+    "docs/development/grandrue-migration-work.md": {
+      "blob_sha": "4cf3103384852813d1c69ee8de88245d5b04e0cf",
+      "sha256": "09ba8ca3278b1531b798f9de32729dce1906290fac17b342d47155a9c320f2e7",
+      "utf8_bytes": 24399
+    },
+    "docs/development/grandrue-migration-active-tranche.yaml": {
+      "blob_sha": "93091f075ea94f71f1c4a63ddf07080d7310780e",
+      "sha256": "709876c0c050ee1949efc3e6adfa904d0301d4593f478d9ba4585b1298e090c1",
+      "utf8_bytes": 1977
+    },
+    "GRANDRUE-POST-MIGRATION-VERIFICATION.md": {
+      "blob_sha": "7a814987ebe72aebc2d1840dced0afab4ba08a29",
+      "sha256": "2e14ba42ab07bb3bc125ce4114718d8bbb5bf1f1a4651c8246c1f5acc00550d6",
+      "utf8_bytes": 23224
+    },
+    "docs/development/grandrue-post-migration-verification-work.md": {
+      "blob_sha": "7f171dc192beb0a95a0e687bcef3a163dc94f65b",
+      "sha256": "e03d4cb5866c55b0af03fe47a43048ff56d03ec094a051fe16869ae3e42e292f",
+      "utf8_bytes": 34681
+    }
+  },
+  "frozen_evidence": {
+    "baseline-tree.jsonl": {
+      "git_blob": "d9f471e24d5a691a3c24dd45b1c80f32b2c0696f",
+      "sha256": "c1756aa8e99dcecbfdbf48ea9f7a99b444beef01fb3e739a2f347e501cf6547c",
+      "utf8_bytes": 599543,
+      "entries": 2258,
+      "sort": "raw UTF-8 byte order"
+    },
+    "target-tree.jsonl": {
+      "git_blob": "ac275477d98f3f77d45486983c716694e51319b6",
+      "sha256": "07a5b13f3d27b8e4b1dde8caa6bf93b75b8f8fa2b94204b6ae4cfa66e2c94275",
+      "utf8_bytes": 598426,
+      "entries": 2266,
+      "sort": "raw UTF-8 byte order"
+    },
+    "claims.jsonl": {
+      "git_blob": "45c5966f994552e9338220b2ad52cc520a113571",
+      "sha256": "0a3b173f4df71ed27a2d8fc2754c4b284ff4428d40b3ce52a76b0f869ef0f340",
+      "utf8_bytes": 932460,
+      "claims": 847,
+      "production_leaf_claims": 762
+    },
+    "manifest-history.jsonl": {
+      "git_blob": "55a21158b91c3fa06dcce65955ea1c6417e97d64",
+      "sha256": "b7b221db4ae1fe5ca8410f72d761a5b25bd824c34b6d4e80692a1c3d7923169d",
+      "utf8_bytes": 70604,
+      "versions": 152
+    },
+    "findings.jsonl": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "utf8_bytes": 0
+    }
+  },
+  "claim_snapshot_material": "claims_sha256=0a3b173f4df71ed27a2d8fc2754c4b284ff4428d40b3ce52a76b0f869ef0f340\nmanifest_history_sha256=b7b221db4ae1fe5ca8410f72d761a5b25bd824c34b6d4e80692a1c3d7923169d\nmigration_ledger_blob_sha=209befc21540fb25481452fb15a5c175cc27665e\n",
+  "claim_snapshot_digest": {
+    "algorithm": "sha256",
+    "value": "20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362"
+  },
+  "external_content_limitations": [
+    "This capture inventories committed Git tree entries and complete UTF-8 governance/claim sources; it does not certify external Git LFS payloads or submodule contents unless separately evidenced.",
+    "No Maven tests, GitHub Actions, runtime execution, or build verification were performed by GR-VV-00-01."
+  ]
+}

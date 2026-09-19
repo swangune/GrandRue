@@ -1,0 +1,139 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-00-01",
+  "packet_kind": "SNAPSHOT_CAPTURE",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "immutable_inputs": {
+    "baseline_commit": "c4153441d8340b229a29884967d796280d949a7d",
+    "baseline_tree": "90f13fa113e770023652e40be20c0e7f894e0623",
+    "target_commit": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+    "target_tree": "1614a2be044bff8284ba2b6999dc5418c018430b",
+    "master_context_commit": "5c73ed82248315a9e318289f032ed445573f8d37",
+    "claim_snapshot_digest": "20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362"
+  },
+  "checks": [
+    {
+      "id": "terminal_target_pin",
+      "result": "PASS",
+      "evidence": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011"
+    },
+    {
+      "id": "baseline_target_ancestry",
+      "result": "PASS",
+      "evidence": {
+        "ahead_by": 876,
+        "behind_by": 0
+      }
+    },
+    {
+      "id": "complete_endpoint_tree_capture",
+      "result": "PASS",
+      "evidence": {
+        "baseline_entries": 2258,
+        "target_entries": 2266
+      }
+    },
+    {
+      "id": "raw_utf8_path_ordering",
+      "result": "PASS",
+      "evidence": {
+        "baseline_non_ascii_paths": 251,
+        "target_non_ascii_paths": 251
+      }
+    },
+    {
+      "id": "production_leaf_claim_invariant",
+      "result": "PASS",
+      "evidence": {
+        "lettered": 23,
+        "numeric": 739,
+        "total": 762,
+        "missing_numeric": []
+      }
+    },
+    {
+      "id": "historical_manifest_version_freeze",
+      "result": "PASS",
+      "evidence": {
+        "versions": 152,
+        "unique_commits": 152
+      }
+    },
+    {
+      "id": "source_identity_freeze",
+      "result": "PASS",
+      "evidence": {
+        "AGENTS.md": {
+          "blob_sha": "468bfe229e5236d5cba69e4cd56ed6a71992a6bc",
+          "sha256": "c5d141e6c5019736911e475833e0ceba3d16eea4b77d86055b4ae50409159ea4",
+          "utf8_bytes": 5176
+        },
+        "GRANDRUE-MIGRATION.md": {
+          "blob_sha": "209befc21540fb25481452fb15a5c175cc27665e",
+          "sha256": "8a44ee7d3970a523bce2878309c28f5981720f4383184e44751cff0df35d5590",
+          "utf8_bytes": 397102
+        },
+        "docs/development/grandrue-migration-work.md": {
+          "blob_sha": "4cf3103384852813d1c69ee8de88245d5b04e0cf",
+          "sha256": "09ba8ca3278b1531b798f9de32729dce1906290fac17b342d47155a9c320f2e7",
+          "utf8_bytes": 24399
+        },
+        "docs/development/grandrue-migration-active-tranche.yaml": {
+          "blob_sha": "93091f075ea94f71f1c4a63ddf07080d7310780e",
+          "sha256": "709876c0c050ee1949efc3e6adfa904d0301d4593f478d9ba4585b1298e090c1",
+          "utf8_bytes": 1977
+        },
+        "GRANDRUE-POST-MIGRATION-VERIFICATION.md": {
+          "blob_sha": "7a814987ebe72aebc2d1840dced0afab4ba08a29",
+          "sha256": "2e14ba42ab07bb3bc125ce4114718d8bbb5bf1f1a4651c8246c1f5acc00550d6",
+          "utf8_bytes": 23224
+        },
+        "docs/development/grandrue-post-migration-verification-work.md": {
+          "blob_sha": "7f171dc192beb0a95a0e687bcef3a163dc94f65b",
+          "sha256": "e03d4cb5866c55b0af03fe47a43048ff56d03ec094a051fe16869ae3e42e292f",
+          "utf8_bytes": 34681
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "snapshot": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/snapshot.json",
+      "sha256": "4c4636f3cb883614e92c832049ce0b212594a0187f5c8982d3537d357117ab2c"
+    },
+    "baseline_tree": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/baseline-tree.jsonl",
+      "sha256": "c1756aa8e99dcecbfdbf48ea9f7a99b444beef01fb3e739a2f347e501cf6547c"
+    },
+    "target_tree": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/target-tree.jsonl",
+      "sha256": "07a5b13f3d27b8e4b1dde8caa6bf93b75b8f8fa2b94204b6ae4cfa66e2c94275"
+    },
+    "claims": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/claims.jsonl",
+      "sha256": "0a3b173f4df71ed27a2d8fc2754c4b284ff4428d40b3ce52a76b0f869ef0f340"
+    },
+    "manifest_history": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/manifest-history.jsonl",
+      "sha256": "b7b221db4ae1fe5ca8410f72d761a5b25bd824c34b6d4e80692a1c3d7923169d"
+    },
+    "files": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/files.jsonl",
+      "state": "EMPTY_UNTIL_GR_VV_01"
+    },
+    "findings": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/findings.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "summary": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/summary.json",
+      "sha256": "138520e54bd87512aba2f67ee98e44ecb0ed3e72c9c280c810b1c63416cfb9c6"
+    }
+  },
+  "limitations": [
+    "PASS is limited to capture/freeze. File accounting, claim validation, migration preservation, master executable preservation and live freshness remain NOT_RUN.",
+    "Maven tests and GitHub Actions were not run."
+  ]
+}

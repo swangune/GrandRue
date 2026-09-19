@@ -1,0 +1,28 @@
+{
+  "schema_version": "grandrue-post-migration-summary/v1",
+  "run_id": "GR-VV-R001",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "latest_packet": {
+    "id": "GR-VV-00-01",
+    "kind": "SNAPSHOT_CAPTURE",
+    "result": "PASS"
+  },
+  "coverage": {
+    "baseline_entries": 2258,
+    "target_entries": 2266,
+    "represented_baseline_entries": null,
+    "represented_target_entries": null,
+    "claims_total": 847,
+    "production_leaf_claims": 762,
+    "manifest_versions": 152,
+    "open_findings": "NOT_EVALUATED"
+  },
+  "conclusions": {
+    "file_accounting": "NOT_RUN",
+    "claim_validation": "NOT_RUN",
+    "migration_preservation": "NOT_RUN",
+    "master_non_naming_executable_preservation": "NOT_RUN",
+    "live_freshness": "NOT_RUN"
+  },
+  "next_packet": "GR-VV-01-01"
+}

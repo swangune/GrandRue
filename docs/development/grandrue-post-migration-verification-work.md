@@ -6,7 +6,7 @@
 
 **Target branch:** `development`
 
-**Status:** `WAITING_FOR_MIGRATION_EXECUTION_COMPLETE`
+**Status:** `ACTIVE`
 
 **Activation:** `AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT`
 
@@ -417,29 +417,35 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-Verification is waiting for migration execution to finish. No file or claim has passed.
+GR-VV-00-01 snapshot capture is checkpointed PASS. No file or migration claim has yet passed preservation/claim verification.
 
 ```yaml
 execution:
-  status: WAITING_FOR_MIGRATION_EXECUTION_COMPLETE
+  status: ACTIVE
   activation_mode: AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT
-  activation_state: WAITING
+  activation_state: ACTIVE
+  run_id: GR-VV-R001
   primary_baseline:
     commit: c4153441d8340b229a29884967d796280d949a7d
+    tree: 90f13fa113e770023652e40be20c0e7f894e0623
     role: ORIGINAL_MIGRATION_START
-  target_commit: null
+  target_commit: afb0d3631fcd916f3ba9c830c9c19108bb7a4011
+  target_tree: 1614a2be044bff8284ba2b6999dc5418c018430b
   historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
-  active_packet: null
-  queue: []
-  results_recorded: false
+  evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
+  active_packet:
+    id: GR-VV-01-01
+    kind: TREE_ENUMERATION
+    state: PREPARATION_REQUIRED
+  queue:
+    - GR-VV-01-01
+  completed_packets:
+    - id: GR-VV-00-01
+      result: PASS
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-00-01.json
+  results_recorded: true
   implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
-  on_activation:
-    - pin final migration checkpoint as D
-    - enumerate complete M and D trees once
-    - extract all completed claims from first migration onward
-    - classify equality-fast-path, deterministic regions and exceptions
-    - prepare GR-VV-00-01 automatically
-  next_action: Wait for final migration checkpoint; no separate user prompt is required.
+  next_action: Establish exactly-once M/D file correspondence, equality fast path, changed/moved populations and explicit unmatched endpoint findings; do not infer rename identity from similarity alone.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.

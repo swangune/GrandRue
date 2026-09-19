@@ -6,7 +6,7 @@
 
 **Comparison:** original migration-start baseline `M = c4153441d8340b229a29884967d796280d949a7d` against the final pinned migration target `D`; `master` is optional contextual evidence only
 
-**Status:** `WAITING_FOR_MIGRATION_EXECUTION_COMPLETE`
+**Status:** `IN_PROGRESS`
 
 **Activation:** `AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT`
 
@@ -258,38 +258,39 @@ This structured record is the sole current run pointer. Packet definitions and a
 ```yaml
 checkpoint:
   audit: MAIN_STREET_TO_GRANDRUE_CLAIM_PRESERVATION
-  status: WAITING_FOR_MIGRATION_EXECUTION_COMPLETE
+  status: IN_PROGRESS
   activation_mode: AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT
-  activation_state: WAITING
+  activation_state: ACTIVE
   execution_mode: CLOSED_REGION_BULK
-  run_id: null
+  run_id: GR-VV-R001
   baseline_commit: c4153441d8340b229a29884967d796280d949a7d
   baseline_role: ORIGINAL_MIGRATION_START
-  target_commit: null
-  claim_snapshot_digest: null
-  evidence_root: null
-  latest_receipt: null
+  target_commit: afb0d3631fcd916f3ba9c830c9c19108bb7a4011
+  target_role: TERMINAL_MIGRATION_CHECKPOINT
+  claim_snapshot_digest: 20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362
+  evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
+  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-00-01.json
   implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
   coverage:
     enumeration_complete: false
-    baseline_entries: null
-    target_entries: null
+    baseline_entries: 2258
+    target_entries: 2266
     represented_baseline_entries: null
     represented_target_entries: null
     unclassified_files: null
     equality_fast_path_files: null
     deterministic_regions: null
     exception_files: null
-    claims_total: null
-    claims_verified: null
-    open_findings: null
+    claims_total: 847
+    claims_verified: 0
+    open_findings: NOT_EVALUATED
   conclusions:
     file_accounting: NOT_RUN
     claim_validation: NOT_RUN
     migration_preservation: NOT_RUN
     master_non_naming_executable_preservation: NOT_RUN
     live_freshness: NOT_RUN
-  next_action: Wait for the fully checkpointed migration terminal handoff. Then automatically pin final target D and prepare GR-VV-00-01 using M=c4153441d8340b229a29884967d796280d949a7d as the primary baseline; enumerate and verify every completed migration claim from the first migration onward.
+  next_action: Prepare and execute GR-VV-01-01 against immutable M/D endpoint inventories; establish exactly-once file correspondence and equality-fast-path population without treating rename heuristics or counts as proof.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.
