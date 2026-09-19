@@ -1,0 +1,32 @@
+{
+  "schema_version": "grandrue-region-progress/v1",
+  "run_id": "GR-VV-R001",
+  "region_id": "GR-VV-03-R002",
+  "region_name": "test_java_namespace",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method_version": "grandrue-preservation-checker/v1",
+  "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+  "state": "CHECKPOINTED",
+  "total_files": 376,
+  "verified_files": 376,
+  "passing_files": 376,
+  "failing_files": 0,
+  "blocked_files": 0,
+  "remaining_files": 0,
+  "completed_packages": [
+    "(all test Java deterministic region)"
+  ],
+  "chunks": [
+    {
+      "chunk": "test-java",
+      "git_blob": "2362fed794d1a7870965a01c145a9b716d013c6a",
+      "sha256": "b2b115d9c7529ade6b5cabdffb55834bc81dbfc9518393b3fcef532bc9510734",
+      "files": 376,
+      "pass": 376,
+      "fail": 0
+    }
+  ],
+  "conclusion": "PASS",
+  "next_action": "Execute GR-VV-03-R003 against the frozen 5-file build/CI/storefront current-naming deterministic region. Preserve GR-VV-F001 and GR-VV-F002 unchanged; continue independent verification without repairing discrepancies.",
+  "finding_ids": []
+}
