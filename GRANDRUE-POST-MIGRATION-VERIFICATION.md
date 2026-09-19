@@ -271,7 +271,7 @@ checkpoint:
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R003
   latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R003/receipts/GR-VV-R003-01.json
   evidence_publication_commit: eacfd433ef68f0bf8b338493e00d4e5bc71c355b
-  implementation_handoff: BLOCKED_PENDING_GR_REN_08_11
+  implementation_handoff: BLOCKED_PENDING_GR_REN_10_11
   coverage:
     previous_target_entries: 2327
     target_entries: 2355
@@ -299,7 +299,7 @@ checkpoint:
     - GR-VV-F001
     - GR-VV-F002
     - GR-VV-F003
-  next_action: Reconcile GR-REN-08 through GR-REN-11 using R003 evidence. GR-REN-10 executable build/test validation still requires separate explicit authorisation before Maven tests or GitHub Actions may run.
+  next_action: GR-REN-08 and GR-REN-09 are complete from R003 evidence. GR-REN-10 remains blocked pending explicit executable-validation authorisation; GR-REN-11 remains blocked by GR-REN-10.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.

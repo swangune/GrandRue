@@ -959,10 +959,10 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 - `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-06` — compatibility aliases/preserved identities: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-07` — active controls/canonical governance wording: `COMPLETE_PENDING_FINAL_VERIFICATION`
-- `GR-REN-08` — whole-repository migration coverage and residual classification: `NOT_STARTED`
-- `GR-REN-09` — migration falsification and exception/protected-identity validation: `NOT_STARTED`
-- `GR-REN-10` — executable structural/build/test validation: `NOT_STARTED`
-- `GR-REN-11` — final closure/reconciliation and migration completion decision: `NOT_STARTED`
+- `GR-REN-08` — whole-repository migration coverage and residual classification: `COMPLETE` — GR-VV-R003 file accounting PASS, 847/847 claims reconciled, zero unexpected incremental paths.
+- `GR-REN-09` — migration falsification and exception/protected-identity validation: `COMPLETE` — checker negative controls retained from R001; R003 preservation/protected-identity checks PASS; zero open findings.
+- `GR-REN-10` — executable structural/build/test validation: `BLOCKED_PENDING_EXPLICIT_EXECUTABLE_VALIDATION_AUTHORISATION` — structural migration evidence passes; Maven tests / GitHub Actions remain unauthorised.
+- `GR-REN-11` — final closure/reconciliation and migration completion decision: `BLOCKED_BY_GR_REN_10`.
 
 ---
 
@@ -973,25 +973,26 @@ migration: MAIN_STREET_TO_GRANDRUE
 repository: swangune/GrandRue
 branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
-status: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
+status: COMPLETE_PENDING_EXECUTABLE_VALIDATION
 mutation_authorised: true
-active_group: POST_MIGRATION_VERIFICATION
+active_group: GR-REN-10
 selected_execution_leaf: null
-last_completed_task: GR-REN-REPAIR-T001
-last_task_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
+last_completed_task: GR-REN-09
+last_task_commit: da7be427cb2c7b8c90ee8dcadc87bc0f791e048b
 last_integrity_repair: GR-REN-REPAIR-T001
 last_integrity_repair_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
-last_verified_head: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
-post_verification_repair_findings:
-  - GR-VV-F001
-  - GR-VV-F002
-post_verification_repair_result: STRUCTURAL_PASS_EXACT_EXPECTED_OBJECTS
-migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
-verification_handoff: READY
-verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
-verification_target: THIS_CHECKPOINT_COMMIT
-verification_ledger: GRANDRUE-POST-MIGRATION-VERIFICATION.md
-next_action: BEGIN_GRANDRUE_POST_MIGRATION_VERIFICATION
+post_migration_verification_run: GR-VV-R003
+post_migration_verification_target: 923db363003976856683a1b353845ecc9a29a714
+post_migration_verification_checkpoint: da7be427cb2c7b8c90ee8dcadc87bc0f791e048b
+post_migration_verification_result: PASS
+gr_ren_08: COMPLETE
+gr_ren_09: COMPLETE
+gr_ren_10: BLOCKED_PENDING_EXPLICIT_EXECUTABLE_VALIDATION_AUTHORISATION
+gr_ren_11: BLOCKED_BY_GR_REN_10
+migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
+verification_handoff: COMPLETE_PASS
+implementation_handoff: BLOCKED
+next_action: EXPLICITLY_AUTHORISE_GR_REN_10_EXECUTABLE_VALIDATION_OR_STOP
 ```
 
 ### Post-verification defect repair — GR-REN-REPAIR-T001

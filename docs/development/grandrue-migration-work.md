@@ -393,13 +393,13 @@ selection_unit: DEPENDENCY_CLOSED_NORMAL_SUBGRAPH
 leaf_role: AUDIT_COORDINATE_NOT_EXECUTION_UNIT
 numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
-active_tranche: GR-REN-REPAIR-T001
-active_state: COMPLETE
+active_tranche: null
+active_state: BLOCKED_PENDING_EXPLICIT_EXECUTABLE_VALIDATION_AUTHORISATION
 last_completed_leaf: GR-REN-02-01X739
-last_completed_task: GR-REN-REPAIR-T001
+last_completed_task: GR-REN-09
 last_code_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
-last_validation_gate: GR-REN-REPAIR-T001_STRUCTURAL
-last_validation_target: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
+last_validation_gate: GR-VV-R003_POST_MIGRATION_VERIFICATION
+last_validation_target: 923db363003976856683a1b353845ecc9a29a714
 symbolic_standalone_production_residuals: 0
 
 gr_ren_03:
@@ -497,11 +497,33 @@ post_verification_repair:
   maven_tests: not_run_not_authorised
   github_actions: not_run_not_authorised
 
-migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
-verification_handoff: READY
+closure_gates:
+  gr_ren_08:
+    state: COMPLETE
+    evidence: GR-VV-R003
+    file_accounting: PASS
+    claims: 847_PASS_0_FAIL_0_BLOCKED
+    unexpected_paths: 0
+  gr_ren_09:
+    state: COMPLETE
+    evidence: GR-VV-R003
+    migration_preservation: PASS
+    protected_identities: PASS
+    open_findings: 0
+    negative_controls: RETAINED_PASS_FROM_GR_VV_R001
+  gr_ren_10:
+    state: BLOCKED_PENDING_EXPLICIT_EXECUTABLE_VALIDATION_AUTHORISATION
+    structural_migration_validation: PASS
+    maven_tests: NOT_RUN_NOT_AUTHORISED
+    github_actions: NOT_RUN_NOT_AUTHORISED
+  gr_ren_11:
+    state: BLOCKED_BY_GR_REN_10
+
+migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
+verification_handoff: COMPLETE_PASS
 verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
 verification_target: THIS_CHECKPOINT_COMMIT
-next_action: BEGIN_GRANDRUE_POST_MIGRATION_VERIFICATION
+next_action: AWAIT_EXPLICIT_GR_REN_10_EXECUTABLE_VALIDATION_AUTHORISATION
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.

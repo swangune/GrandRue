@@ -449,8 +449,8 @@ execution:
       result: PASS
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R003/receipts/GR-VV-R003-01.json
   results_recorded: true
-  implementation_handoff: BLOCKED_PENDING_GR_REN_08_11
-  next_action: Reconcile GR-REN-08 through GR-REN-11. Do not run Maven tests or GitHub Actions without separate explicit authorisation.
+  implementation_handoff: BLOCKED_PENDING_GR_REN_10_11
+  next_action: GR-REN-08 and GR-REN-09 are complete. GR-REN-10 awaits separate explicit executable-validation authorisation; GR-REN-11 remains blocked by GR-REN-10.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
