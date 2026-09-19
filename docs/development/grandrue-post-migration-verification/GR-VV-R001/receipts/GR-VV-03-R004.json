@@ -1,0 +1,46 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-03-R004",
+  "packet_kind": "CLOSED_REGION_PRESERVATION",
+  "region_id": "GR-VV-DET-004",
+  "region_name": "pure_control_governance_wording",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method": {
+    "version": "grandrue-preservation-checker/v1",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323"
+  },
+  "checks": {
+    "total_files": 6,
+    "passed": 6,
+    "failed": 0,
+    "blocked": 0,
+    "remaining": 0,
+    "exact_path_mode_checked": 6,
+    "complete_baseline_evidence": 6
+  },
+  "findings": [],
+  "independent_passing_results_preserved": true,
+  "outputs": {
+    "progress": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R004/progress.json",
+      "git_blob": "3fdea1ea6c9443a7e036c7724aec8a7063b8e136",
+      "sha256": "b9fed20133134fd2fac8763bfec1f3dbc56b318140c43fc45c6d8a4edaa6f774"
+    },
+    "governance_wording": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R004/governance-wording.jsonl",
+      "git_blob": "d119768d21d81b5f25174ef718722a9c87d6664a",
+      "sha256": "6dff18f0b1c613630b5ac7139acafbbbd4e13f22a66166673b6ec42f669c7503",
+      "files": 6,
+      "result": "PASS"
+    }
+  },
+  "conclusion_scope": "pure_control_governance_wording_only",
+  "conclusion": "PASS",
+  "limitations": [
+    "This packet establishes exact path, mode and complete-byte preservation for the six frozen governance/control files while preserving the declared historical titles and stable symbolic identifiers.",
+    "Maven tests and GitHub Actions were not run."
+  ],
+  "next_packet": "GR-VV-04"
+}
