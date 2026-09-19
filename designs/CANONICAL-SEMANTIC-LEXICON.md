@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.54
+**Version:** 1.55
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -3331,5 +3331,46 @@ Listing Transaction Mode
 
 Capability participation
     executable customer-operation meaning
+```
+
+---
+
+## 35. Listing identity, revision and lifecycle
+
+### Listing Revision
+
+**Authority:** MS-PROT-044 v1.5.
+
+An immutable Listing-owned representation of the exact current proposition truth established at one point in a Listing lineage. It retains schema/version affinity and predecessor provenance where applicable. A material Listing-owned change creates another revision; earlier revisions are not mutated.
+
+### ACTIVE Listing
+
+**Authority:** MS-PROT-044 v1.5.
+
+A Listing whose proposition remains current for the merchant. ACTIVE does not itself mean publicly exposed, operationally available, sold/unsold, let/unlet or executable by a customer.
+
+### WITHDRAWN Listing
+
+**Authority:** MS-PROT-044 v1.5.
+
+A terminal Listing lifecycle condition meaning the merchant has ended that Listing as a current proposition for new ordinary Listing-based interaction. Identity, revisions, primary-subject affinity and historical consumer relationships remain retained under applicable lifecycle authority. Reactivation is not admitted in the initial model.
+
+Canonical distinctions:
+
+```text
+Listing identity
+    ≠ Listing Revision
+
+ACTIVE
+    ≠ public Exposure
+    ≠ operational availability
+
+WITHDRAWN
+    ≠ deleted subject
+    ≠ deleted history
+
+SALE ↔ RENT
+    → new Listing identity
+    not ordinary revision
 ```
 
