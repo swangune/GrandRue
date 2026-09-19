@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.55
+**Version:** 1.56
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
