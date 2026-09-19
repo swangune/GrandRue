@@ -1,0 +1,62 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-04-E002",
+  "packet_kind": "EXCEPTION_VALIDATION",
+  "exception_id": "GR-VV-EXC-002",
+  "exception_name": "mixed_governance_non_migration_deltas",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method": {
+    "version": "grandrue-preservation-checker/v1",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+    "exception_rule": "exact_post_baseline_object_chain_attribution/v1"
+  },
+  "checks": {
+    "total_files": 3,
+    "passed": 3,
+    "failed": 0,
+    "blocked": 0,
+    "remaining": 0,
+    "complete_object_chains": 3,
+    "unattributed_deltas": 0,
+    "modes_preserved": 3
+  },
+  "provenance_commits": [
+    "52f88632f076b6e11fe67bb6383fc2ba9d2089ef",
+    "ea6f807eaf0dad74cfece1dc55ce4510d227d86a",
+    "69f8882a9a66c80ee203d22bcd794d3eff57fc9f",
+    "70559f902ab778a46c9e8d4546821c3d3a629d48",
+    "4752cd2193fa8e895a1784668fe64a71b7329155"
+  ],
+  "migration_manifest_blob": "ffec9ee968943878817d956adb542a79bcf0ae84",
+  "findings": [],
+  "prior_open_findings_preserved": [
+    "GR-VV-F001",
+    "GR-VV-F002"
+  ],
+  "independent_passing_results_preserved": true,
+  "outputs": {
+    "progress": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-E002/progress.json",
+      "git_blob": "23fa8ceaeb9c93720e0e4484e7af4033eedff61b",
+      "sha256": "a331f9a93ec5961e0819cfdd121f6d705030fb78c992968a49ce8e7d7cc6fb0a"
+    },
+    "exception_results": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-E002/mixed-governance-non-migration-deltas.jsonl",
+      "git_blob": "51a75395c33f808c1df168932b980d684f39d252",
+      "sha256": "c5ba30671dc75d5e7e6952739aad0123b06058782c4761304a848df73f1184b3",
+      "files": 3,
+      "result": "PASS"
+    }
+  },
+  "conclusion_scope": "mixed_governance_non_migration_deltas_only",
+  "conclusion": "PASS",
+  "limitations": [
+    "These three files intentionally contain independently recorded non-migration governance/operational revisions; PASS means every M-to-D byte state is attributable through the exact path history, not that baseline bytes were unchanged.",
+    "The GR-REN-07-T001 portion is checked against its frozen manifest; historical stable/protected identities remain subject to the later protected-identity reconciliation packet.",
+    "Maven tests and GitHub Actions were not run.",
+    "GR-VV-F001 and GR-VV-F002 remain OPEN and are unaffected by this packet."
+  ],
+  "next_packet": "GR-VV-04-E003"
+}
