@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T026
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 810e5d4182e1aa5d3f723a6eb9294f671704fa13
 expected_parent: 2637311131a5f8dbc64a9c1626595964bb58d393
+validated_head: 810e5d4182e1aa5d3f723a6eb9294f671704fa13
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-semantic-release
@@ -81,3 +84,6 @@ preparation_notes:
   - all owner blobs and absent GrandRue destinations reconciled against development at 2637311131a5f8dbc64a9c1626595964bb58d393
   - no external test consumer of the test-owned classes was discovered
   - Maven tests and GitHub Actions were not run
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
