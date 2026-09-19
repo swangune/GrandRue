@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T045
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 869fd84cffc672425919e2c13ea5014596e06a3c
 expected_parent: 6e4ea56acf635c8756511419bbb5fe254969dc8a
+validated_head: 87a5c0b98e8080be5abbfb54a6bf486ac879485a
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-governance
@@ -24,6 +27,7 @@ classification:
 reconciliation:
   reason: corrected changed-file-entry accounting from 29 tree-path endpoints to 15 Git diff entries (14 renames plus manifest)
   code_commit_preserved: 869fd84cffc672425919e2c13ea5014596e06a3c
+  reconciliation_commit: 87a5c0b98e8080be5abbfb54a6bf486ac879485a
   source_or_test_content_changed: false
 
 subgraph:
@@ -105,3 +109,6 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
