@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.47
+**Version:** 4.48
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -96,7 +96,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-053 | v1.0 + v1.1 + v1.2 + v1.3 |
 | MS-PROT-054 | v1.0 |
 | MS-PROT-055 | v1.0 + v1.1 + v1.2 |
-| MS-PROT-056 | v1.0 through v1.9, scope-aware |
+| MS-PROT-056 | v1.0 through v1.10, scope-aware; v1.10 supplies the approved initial immutable standard Commercial Catalogue Manifest |
 | MS-PROT-057 | v1.0 + v1.1 + v1.2 + v1.3 within merchant-assistance commercial-access classification + MS-PROT-094 within website presentation-assistance scope |
 | MS-PROT-058 | v1.0 + v1.1 + v1.2 + v1.3 |
 | MS-PROT-059 | v1.0 |
@@ -158,6 +158,8 @@ The following cross-authority links are retained explicitly because they materia
 - MS-PROT-045 v1.2 — `MS-PROT-045 v1.2 — Reusable Physical Location, Provider-Neutral Resolution & Map Presentation Amendment.md` — establishes reusable `PhysicalLocationBindingV1` with `MERCHANT_LOCATION_REFERENCE` and `INDEPENDENT_PHYSICAL_PLACE`, reuses `PostalAddressV1`, defines provider-neutral `AcceptedNavigationPoint`, preserves source-owner field authority, makes maps/directions/street-level imagery derived presentation, resolves the retained MS-PROT-044 location/map semantic deferrals, narrows `MS-PROT-051-V11-DQ-003` to concrete provider/geocoding implementation, creates no independent Commercial Entitlement and activates no implementation.
 
 - MS-PROT-057 v1.3 — `MS-PROT-057 v1.3 — Merchant Assistance Commercial Access Classification Amendment.md` — classifies exact `merchant-assistance/supporting-interaction-access@1` as `PLATFORM_SERVICE_ACCESS` with no independent Commercial Entitlement across the bounded v1.2 merchant-assistance responsibility portfolio. It preserves all underlying semantic, Actor Authorisation, Commercial, Exposure, Provider Readiness and business-truth boundaries, rejects a generic `USE_AI` entitlement, closes the final owner/supporting classification gap under `MS-PROT-056-V17-DQ-001`, mints no entitlement identity and activates no implementation.
+
+- MS-PROT-056 v1.10 — `MS-PROT-056 v1.10 — Initial Standard Commercial Catalogue Manifest.md` — approves `standard-commercial-catalogue@1` with exact plan revisions `standard-plan/free@1`, `standard-plan/business@1` and `standard-plan/growth@1`, exactly 36 stable Commercial Entitlement identities/bindings, explicit 13/34/36 FREE/BUSINESS/GROWTH snapshots satisfying strict monotonicity, and owner-qualified conditional supporting-commercial relationships. It excludes unresolved reservations, Notification/client/AI-brand pseudo-entitlements and no-independent-entitlement support paths; leaves DQ-003 and remaining DQ-004 reservations open; resolves `MS-PROT-056-V17-DQ-001`; approves manifest content only and does not publish the catalogue or activate implementation.
 
 
 - MS-PROT-083 v1.7 — `MS-PROT-083 v1.7 — Business Intelligence Commercial Access Classification Amendment.md` — classifies `business-intelligence/business-analytics-evaluation-access@1` / `USE_BUSINESS_ANALYTICS` for BUSINESS + GROWTH, `business-intelligence/campaign-analytics-evaluation-access@1` / `USE_CAMPAIGN_ANALYTICS` for GROWTH, and `business-intelligence/merchant-analytics-presentation-access@1` with no independent Commercial Entitlement. It preserves source-capability ownership, analytical applicability/coverage, retained-history and downgrade boundaries, keeps Campaign execution and source mutation independently governed, and leaves report/export commercial classification plus the final concrete DQ-001 catalogue manifest open.
