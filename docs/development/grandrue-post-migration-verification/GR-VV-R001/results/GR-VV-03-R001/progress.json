@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 204,
-  "passing_files": 203,
+  "verified_files": 262,
+  "passing_files": 261,
   "failing_files": 1,
   "blocked_files": 0,
-  "remaining_files": 890,
+  "remaining_files": 832,
   "completed_packages": [
     "(root)",
     "audit",
@@ -32,7 +32,10 @@
     "money",
     "protection",
     "privacy",
-    "notification"
+    "notification",
+    "ordering",
+    "scheduling",
+    "fulfilment"
   ],
   "chunks": [
     {
@@ -153,6 +156,30 @@
       "sha256": "37e0484f4a71359a012aa0ae394407d3624750164bccbab4ca61d29d652394a7",
       "files": 19,
       "pass": 19,
+      "fail": 0
+    },
+    {
+      "chunk": "ordering",
+      "git_blob": "aee8c6e5aa03816e88883fce4c7e3958d13b5d06",
+      "sha256": "866b6bbe2b30f2cd9f36b43549637a05403f6bb9d3c4dbce3abf5252473fd3c9",
+      "files": 16,
+      "pass": 16,
+      "fail": 0
+    },
+    {
+      "chunk": "scheduling",
+      "git_blob": "95beae061b1360d4480d1ab8a8c3c5e576a42e7b",
+      "sha256": "ca88771ab7d1d2a2807c15bad1f92532a33935c8e4cd3c941106c3e6959bbdbd",
+      "files": 22,
+      "pass": 22,
+      "fail": 0
+    },
+    {
+      "chunk": "fulfilment",
+      "git_blob": "6e0a1663168fc94f7f9f914266a1e85f28f0b0d5",
+      "sha256": "930c1aafeb0ae3be0010593ded2e78dc9bde48b40e07934273fa7ac0a7d77aa8",
+      "files": 20,
+      "pass": 20,
       "fail": 0
     }
   ],
