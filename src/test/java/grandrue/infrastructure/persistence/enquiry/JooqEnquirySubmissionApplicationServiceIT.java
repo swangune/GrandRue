@@ -31,8 +31,8 @@ class JooqEnquirySubmissionApplicationServiceIT {
 
     @BeforeEach
     void setUp() {
-        var dataSource = new DriverManagerDataSource(env("MAINSTREET_TEST_POSTGRES_URL"),
-                env("MAINSTREET_TEST_POSTGRES_USER"), env("MAINSTREET_TEST_POSTGRES_PASSWORD"));
+        var dataSource = new DriverManagerDataSource(env("GRANDRUE_TEST_POSTGRES_URL"),
+                env("GRANDRUE_TEST_POSTGRES_USER"), env("GRANDRUE_TEST_POSTGRES_PASSWORD"));
         Flyway.configure().dataSource(dataSource).locations("classpath:db/migration").load().migrate();
         transactionManager = new DataSourceTransactionManager(dataSource);
         dsl = DSL.using(new TransactionAwareDataSourceProxy(dataSource), SQLDialect.POSTGRES);

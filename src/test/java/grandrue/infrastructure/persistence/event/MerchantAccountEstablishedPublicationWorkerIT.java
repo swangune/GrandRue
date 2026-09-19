@@ -38,9 +38,9 @@ class MerchantAccountEstablishedPublicationWorkerIT {
     @BeforeEach
     void setUp() {
         DataSource dataSource = new DriverManagerDataSource(
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_URL"),
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_USER"),
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_PASSWORD"));
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_URL"),
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_USER"),
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_PASSWORD"));
         Flyway.configure().dataSource(dataSource).locations("classpath:db/migration")
                 .load().migrate();
         dsl = DSL.using(new TransactionAwareDataSourceProxy(dataSource), SQLDialect.POSTGRES);

@@ -22,9 +22,9 @@ class PostgresPersistenceFoundationIT {
     @Test
     void postgres18_flyway_jooq_and_spring_transactions_form_one_persistence_foundation() {
         DataSource authoritativeDataSource = new DriverManagerDataSource(
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_URL"),
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_USER"),
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_PASSWORD")
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_URL"),
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_USER"),
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_PASSWORD")
         );
 
         Flyway flyway = Flyway.configure()

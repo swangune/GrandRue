@@ -21,21 +21,21 @@ jobs:
       postgres:
         image: postgres:18-alpine
         env:
-          POSTGRES_DB: mainstreet_test
-          POSTGRES_USER: mainstreet
-          POSTGRES_PASSWORD: mainstreet
+          POSTGRES_DB: grandrue_test
+          POSTGRES_USER: grandrue
+          POSTGRES_PASSWORD: grandrue
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U mainstreet -d mainstreet_test"
+          --health-cmd "pg_isready -U grandrue -d grandrue_test"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
 
     env:
-      MAINSTREET_TEST_POSTGRES_URL: jdbc:postgresql://localhost:5432/mainstreet_test
-      MAINSTREET_TEST_POSTGRES_USER: mainstreet
-      MAINSTREET_TEST_POSTGRES_PASSWORD: mainstreet
+      GRANDRUE_TEST_POSTGRES_URL: jdbc:postgresql://localhost:5432/grandrue_test
+      GRANDRUE_TEST_POSTGRES_USER: grandrue
+      GRANDRUE_TEST_POSTGRES_PASSWORD: grandrue
 
     steps:
       - name: Check out repository

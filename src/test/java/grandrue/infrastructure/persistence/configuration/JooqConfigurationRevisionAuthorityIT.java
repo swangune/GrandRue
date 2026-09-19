@@ -57,9 +57,9 @@ class JooqConfigurationRevisionAuthorityIT {
     @BeforeEach
     void setUp() {
         DataSource dataSource = new DriverManagerDataSource(
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_URL"),
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_USER"),
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_PASSWORD")
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_URL"),
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_USER"),
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_PASSWORD")
         );
         transactionManager = new DataSourceTransactionManager(dataSource);
         Flyway.configure()

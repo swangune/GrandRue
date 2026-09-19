@@ -34,8 +34,8 @@ class OpportunityEnquirySubmissionE3IT {
 
     @BeforeEach
     void setUp() {
-        var source = new DriverManagerDataSource(env("MAINSTREET_TEST_POSTGRES_URL"),
-                env("MAINSTREET_TEST_POSTGRES_USER"), env("MAINSTREET_TEST_POSTGRES_PASSWORD"));
+        var source = new DriverManagerDataSource(env("GRANDRUE_TEST_POSTGRES_URL"),
+                env("GRANDRUE_TEST_POSTGRES_USER"), env("GRANDRUE_TEST_POSTGRES_PASSWORD"));
         Flyway.configure().dataSource(source).locations("classpath:db/migration").load().migrate();
         transactions = new DataSourceTransactionManager(source);
         dsl = DSL.using(new TransactionAwareDataSourceProxy(source), SQLDialect.POSTGRES);

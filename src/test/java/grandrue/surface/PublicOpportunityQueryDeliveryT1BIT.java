@@ -22,8 +22,8 @@ class PublicOpportunityQueryDeliveryT1BIT {
 
     @BeforeEach
     void setUp() {
-        var source = new DriverManagerDataSource(env("MAINSTREET_TEST_POSTGRES_URL"),
-                env("MAINSTREET_TEST_POSTGRES_USER"), env("MAINSTREET_TEST_POSTGRES_PASSWORD"));
+        var source = new DriverManagerDataSource(env("GRANDRUE_TEST_POSTGRES_URL"),
+                env("GRANDRUE_TEST_POSTGRES_USER"), env("GRANDRUE_TEST_POSTGRES_PASSWORD"));
         Flyway.configure().dataSource(source).locations("classpath:db/migration").load().migrate();
         var dsl = DSL.using(new TransactionAwareDataSourceProxy(source), SQLDialect.POSTGRES);
         dsl.execute("truncate table opportunity_publication_application_request, "

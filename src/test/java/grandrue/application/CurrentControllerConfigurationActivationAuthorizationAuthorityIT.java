@@ -41,13 +41,13 @@ class CurrentControllerConfigurationActivationAuthorizationAuthorityIT {
         DataSource source =
                 new DriverManagerDataSource(
                         required(
-                                "MAINSTREET_TEST_POSTGRES_URL"
+                                "GRANDRUE_TEST_POSTGRES_URL"
                         ),
                         required(
-                                "MAINSTREET_TEST_POSTGRES_USER"
+                                "GRANDRUE_TEST_POSTGRES_USER"
                         ),
                         required(
-                                "MAINSTREET_TEST_POSTGRES_PASSWORD"
+                                "GRANDRUE_TEST_POSTGRES_PASSWORD"
                         )
                 );
 

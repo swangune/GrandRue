@@ -51,9 +51,9 @@ class JooqOrdinaryServingGenerationPromotionAuthorityIT {
     @BeforeEach
     void setUp() {
         DataSource source = new DriverManagerDataSource(
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_URL"),
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_USER"),
-                requiredEnvironment("MAINSTREET_TEST_POSTGRES_PASSWORD"));
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_URL"),
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_USER"),
+                requiredEnvironment("GRANDRUE_TEST_POSTGRES_PASSWORD"));
         transactionManager = new DataSourceTransactionManager(source);
         Flyway.configure().dataSource(source).locations("classpath:db/migration").load().migrate();
         dsl = DSL.using(new TransactionAwareDataSourceProxy(source), SQLDialect.POSTGRES);

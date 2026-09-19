@@ -2,112 +2,138 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T047
-group: GR-REN-03
-state: COMPLETE
-code_commit: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
-expected_parent: 70559f902ab778a46c9e8d4546821c3d3a629d48
+tranche: GR-REN-04-T001
+group: GR-REN-04
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: ec2b4875be6aed34f8af3f62b91c463e1388fe3b
 
 region:
-  identity: test-residual-current-naming
-  closure_basis: post-T046 classification of non-prototype test current-path checks, current fixture identifiers and current-product test method names
-
-head_reconciliation:
-  previous_checkpoint: f7cbbdebebbf9bc4c86588037b4b499e11c8dfd9
-  live_parent: 70559f902ab778a46c9e8d4546821c3d3a629d48
-  intervening_change: AGENTS.md only
-  overlap_with_tranche: false
+  identity: essential-build-ci-current-naming
+  closure_basis: Maven identity + Maven CI database producer + complete non-prototype test database consumer closure + executable storefront package/backend configuration
 
 classification:
   normal_closed:
-    changed_test_files: 32
-    governance_current_path_files: 6
-    current_fixture_identifier_files: 20
-    current_test_method_name_files: 6
-    deterministic_replacements: 76
-  deferred_to_named_group:
-    group: GR-REN-04
-    class: MAINSTREET_TEST_POSTGRES_URL_USER_PASSWORD
-    discovered_non_prototype_test_consumers: 74
-    reason: rename CI/build producer and all test consumers atomically
-  protected_residuals:
-    - mainstreet-semantic-bundle-v1
-    - mainstreet-semantic-bundle-v2
-    - mainstreet-exposure-definitions-v1
-    - all other section-3 protected identities remain governed by GRANDRUE-MIGRATION.md
-  excluded_non_java_residuals:
-    - src/test/java/mainstreet/booking/LEGACY-NOTIFICATION-PROTOTYPE.md
-    - src/test/java/mainstreet/semantic/capability/LEGACY-PROTOTYPE.md
-  excluded_legacy_prototype_test_java_files: 18
+    test_postgres_consumers: 74
+    build_ci_files: 5
+    expected_changed_files_excluding_manifest: 79
+  compatibility_aliases:
+    - MAINSTREET_BACKEND_URL retained as fallback after preferred GRANDRUE_BACKEND_URL
+  protected_or_excluded:
+    - legacy prototype Java tests and prototype configuration remain non-migrating
+    - applied Flyway content unchanged
+    - section-3 protected identities unchanged
   exceptions: []
 
 deterministic_transformations:
-  governance_tests:
-    - current source-tree/package/import assertions mainstreet -> grandrue
-    - MAINSTREET_IMPORT helper name -> GRANDRUE_IMPORT
-    - current repository instruction wording Main Street -> GrandRue
-  current_fixture_identifiers:
-    - mainstreet-compiler-1 -> grandrue-compiler-1
-    - mainstreet-booking-storage -> grandrue-booking-storage
-  current_test_method_names:
-    - main_street -> grandrue
+  test_environment:
+    - MAINSTREET_TEST_POSTGRES_URL -> GRANDRUE_TEST_POSTGRES_URL
+    - MAINSTREET_TEST_POSTGRES_USER -> GRANDRUE_TEST_POSTGRES_USER
+    - MAINSTREET_TEST_POSTGRES_PASSWORD -> GRANDRUE_TEST_POSTGRES_PASSWORD
+  maven:
+    - groupId mainstreet -> grandrue
+    - artifactId mainstreet -> grandrue
+  ci_database:
+    - mainstreet_test -> grandrue_test
+    - mainstreet database user/password -> grandrue within isolated test service
+  storefront:
+    - mainstreet-storefront-web -> grandrue-storefront-web
+    - GRANDRUE_BACKEND_URL preferred; MAINSTREET_BACKEND_URL remains compatibility fallback
   prohibited:
-    - no MAINSTREET_TEST_POSTGRES_* mutation in this tranche
+    - no prototype configuration mutation
+    - no production Java mutation
     - no protected identity mutation
-    - no excluded prototype mutation
-    - no production source mutation
     - no Maven test execution
     - no GitHub Actions execution
 
-files:
-  - {path: src/test/java/grandrue/governance/AgentInstructionsConformanceTest.java, source: db5e3b853a77f94ad8d9e892f2c19913e591be45}
-  - {path: src/test/java/grandrue/governance/ImplementationBoundaryConformanceTest.java, source: 487a372a149d376b0a5a6213bb433904afcdc745}
-  - {path: src/test/java/grandrue/governance/ModuleDependencyConformanceTest.java, source: d5ffe049a12fa57bad6ee66cbba75e3fb782d57f}
-  - {path: src/test/java/grandrue/governance/ProfileSurfaceDependencyConformanceTest.java, source: 0e47bbb1eefb4e65585dd8f3bef1ecb336625b88}
-  - {path: src/test/java/grandrue/governance/SemanticReleaseBoundaryConformanceTest.java, source: 81405ef821eebff98b6cff1bdad896d16e71e11a}
-  - {path: src/test/java/grandrue/governance/TimeDeterminismConformanceTest.java, source: 923cc52dbb365fafb693b26469c194555a73a44a}
-  - {path: src/test/java/grandrue/semantic/configuration/ResolvedConfigurationPackageTest.java, source: 478dcb5d16211b1c0a68d93473c644f3a5098d31}
-  - {path: src/test/java/grandrue/semantic/configuration/FulfilmentRequirementResolutionTest.java, source: d52888d3e4c75ad409cebb2bfb460d3e765bbc92}
-  - {path: src/test/java/grandrue/semantic/configuration/FulfilmentBindingSetRevisionPackageResolutionTest.java, source: edacec809e72fb1c6786fd12502f4838a93d89ca}
-  - {path: src/test/java/grandrue/semantic/configuration/ConfigurationReleaseLifecycleTest.java, source: 0b2f264d7aa51b7e012507c1e6ae5d588b3c02f6}
-  - {path: src/test/java/grandrue/semantic/configuration/SurfaceContributionPackageResolutionTest.java, source: c12fdc2be7047947c13ab52ab774424072247bea}
-  - {path: src/test/java/grandrue/semantic/configuration/SurfaceFulfilmentRoleDependencyPackageResolutionTest.java, source: 492f570a8ca66c93bc0d94959bb1f4500e4bbadf}
-  - {path: src/test/java/grandrue/semantic/configuration/ConfigurationPublicationTest.java, source: a9118a4e6d2361ae81019599bd5d343aa4ddb2c8}
-  - {path: src/test/java/grandrue/semantic/execution/SemanticExecutionSpineConformanceTest.java, source: e374f8a307b22359c17834baf4bac8a38436d0bb}
-  - {path: src/test/java/grandrue/semantic/configuration/RegistryValidatedConfigurationPublicationTest.java, source: f4e6f139925c06a65dbb424db9a1bda09c8acd0b}
-  - {path: src/test/java/grandrue/semantic/configuration/ConfigurationReleaseActivationTest.java, source: 66194cda00ecf59af32c4320070757120b71b6a7}
-  - {path: src/test/java/grandrue/application/InitialTrialFromConfigurationActivationHandlerTest.java, source: bd7d5f014276ecad7525606b75b0acc3b511aac8}
-  - {path: src/test/java/grandrue/semantic/configuration/SemanticCompatibilityActivationTest.java, source: 6ee2f51edbb924cf80ed9a72f426818fe6265f50}
-  - {path: src/test/java/grandrue/semantic/configuration/RegisteredConfigurationNewActivityRequirementResolverTest.java, source: 451dd78b449b410cbffdd40af5e98e11e4653479}
-  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqSemanticCompatibilityActivationIT.java, source: ac8a8514559fa96a426719ac35289c6a0c6e1045}
-  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/MerchantEstablishmentRuntimeFixture.java, source: 52d7e05818ba474e949333010e9a0a217427ff77}
-  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationValidationEvidenceAuthorityIT.java, source: e0dc41fd7a0a6975815ea36f3a91fb9fe8425f0b}
-  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationActivationPublicationOutboxIT.java, source: 8d92d2a12b83af4711fd24a29d89ad7b0e951ac3}
-  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationImpactReviewEvidenceAuthorityIT.java, source: 802e59ba9fe0d448f560dbaa95e015707e1c9cf7}
-  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqReplacementConfigurationReleaseActivationIT.java, source: 63f08f1f998ec9f9b8a0381e439b65fa5a04c538}
-  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationNewActivityRequirementSetAuthorityIT.java, source: a822af8c928b018390ccd3146389c5665a2d5777}
-  - {path: src/test/java/grandrue/merchantaccount/MerchantAccountTest.java, source: 9aac2f4b8ba649a12133520be345fa86dbebe8f9}
-  - {path: src/test/java/grandrue/workforce/MerchantWorkforceModelTest.java, source: 23d531df606e43433cca34d94a1e4f5dae8d59d6}
-  - {path: src/test/java/grandrue/infrastructure/persistence/audit/JooqAuditStoreIT.java, source: a1b1d9194dc1686774f088c27470b29f3f252d39}
-  - {path: src/test/java/grandrue/infrastructure/security/webauthn/SpringWebAuthnSessionBridgeTest.java, source: 956f6f957840ac6782bf760ab24f358cf5bbdbb5}
-  - {path: src/test/java/grandrue/infrastructure/security/session/PrivilegedSessionRequestResolverTest.java, source: 48bdec2f8d603dbf8ded9a3104712aa9478c324b}
-  - {path: src/test/java/grandrue/infrastructure/persistence/webauthn/JooqWebAuthnAuthenticationSubjectRepositoryIT.java, source: 99b71217a710b947e1788ad840ab0f6c1becf14c}
+test_consumer_paths:
+  - src/test/java/grandrue/application/CurrentControllerConfigurationActivationAuthorizationAuthorityIT.java
+  - src/test/java/grandrue/enquiry/OpportunityEnquirySubmissionE3IT.java
+  - src/test/java/grandrue/enquiry/PublicGeneralEnquiryDeliveryT2AIT.java
+  - src/test/java/grandrue/enquiry/PublicOpportunityEnquiryDeliveryT2BIT.java
+  - src/test/java/grandrue/infrastructure/persistence/FlywayMigrationChainIT.java
+  - src/test/java/grandrue/infrastructure/persistence/PostgresPersistenceFoundationIT.java
+  - src/test/java/grandrue/infrastructure/persistence/audit/JooqAuditStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/background/JooqDurableWorkStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/background/JooqRegisteredDurableWorkClaimerIT.java
+  - src/test/java/grandrue/infrastructure/persistence/booking/JooqBookingResidualObligationAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/booking/JooqBookingUnitOfWorkIT.java
+  - src/test/java/grandrue/infrastructure/persistence/businesshours/JooqLocationScopedStandardBusinessHoursAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/businesshours/JooqStandardBusinessHoursAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/commercial/JooqCommercialCatalogueStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/commercial/JooqEffectiveCommercialEntitlementAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/commercial/JooqInitialFullExperienceTrialStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/commercial/JooqMerchantCommercialAgreementReplayIT.java
+  - src/test/java/grandrue/infrastructure/persistence/commercial/JooqMerchantCommercialAgreementStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/commercial/JooqStandingFreeBaselineStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/commercial/StandingFreeBackgroundWorkExecutionIT.java
+  - src/test/java/grandrue/infrastructure/persistence/commercial/StandingFreeMerchantAccountEstablishedReactionIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationActivationPublicationOutboxIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationImpactReviewEvidenceAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationNewActivityRequirementSetAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationRevisionAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationValidationEvidenceAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqInitialConfigurationRevisionApprovalAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqNonInitialConfigurationRevisionApprovalAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqReplacementConfigurationReleaseActivationIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/JooqSemanticCompatibilityActivationIT.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/MerchantEstablishmentRuntimeFixture.java
+  - src/test/java/grandrue/infrastructure/persistence/configuration/configuration/JooqConfigurationReinstatementApprovalAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/credential/JooqCredentialSecurityStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/deployment/JooqOrdinaryServingGenerationPromotionAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/deployment/JooqServingDeploymentAdmissionSnapshotAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/enquiry/JooqEnquirySubmissionApplicationServiceIT.java
+  - src/test/java/grandrue/infrastructure/persistence/enquiry/JooqEnquirySubmissionStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/event/JooqMerchantEventReactionStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/event/MerchantAccountEstablishedPublicationWorkerIT.java
+  - src/test/java/grandrue/infrastructure/persistence/identitysecurity/JooqIdentitySecurityGenerationManagementIT.java
+  - src/test/java/grandrue/infrastructure/persistence/identitysecurity/JooqWebAuthnIdentitySecurityBootstrapIT.java
+  - src/test/java/grandrue/infrastructure/persistence/media/JooqMediaStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantaccount/JooqMerchantAccountBootstrapStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantaccount/JooqMerchantAccountEstablishmentPublicationOutboxIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantaccount/JooqMerchantAccountLifecycleStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/money/JooqPaymentAuthorityStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/notification/JooqNotificationStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/onboarding/JooqOnboardingCaseEvidenceStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/ordering/JooqOrderingUnitOfWorkIT.java
+  - src/test/java/grandrue/infrastructure/persistence/privacy/JooqPersonalDataUseBasisStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/protection/JooqResourceProtectionAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationApplicationServiceIT.java
+  - src/test/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationRevisionHistoryIT.java
+  - src/test/java/grandrue/infrastructure/persistence/publication/JooqOpportunityPublicationStateAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/release/JooqSemanticReleaseAdmissionAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/runtime/JooqSessionRecordStoreIT.java
+  - src/test/java/grandrue/infrastructure/persistence/webauthn/JooqWebAuthnAuthenticationSubjectRepositoryIT.java
+  - src/test/java/grandrue/infrastructure/persistence/webauthn/JooqWebAuthnUserCredentialRepositoryIT.java
+  - src/test/java/grandrue/infrastructure/persistence/workforce/JooqMerchantMembershipAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/workforce/JooqMerchantOperationalDeviceAuthorisationIT.java
+  - src/test/java/grandrue/infrastructure/persistence/workforce/JooqMerchantWorkforceAuthorityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/workforce/JooqMerchantWorkforceIntegrityIT.java
+  - src/test/java/grandrue/infrastructure/persistence/workforce/JooqMerchantWorkforceStoreIT.java
+  - src/test/java/grandrue/surface/EnquiryMerchantExposureM1IT.java
+  - src/test/java/grandrue/surface/EnquiryMerchantRepresentationM2IT.java
+  - src/test/java/grandrue/surface/MerchantEnquiryQueryT3IT.java
+  - src/test/java/grandrue/surface/PublicOpportunityQueryDeliveryT1BIT.java
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 33
-  current_path_residual_absence: required
-  current_fixture_residual_absence: required
-  current_test_method_name_residual_absence: required
-  deferred_ci_env_presence: required
-  protected_identity_presence: required
-  excluded_prototype_presence: required
+  expected_changed_path_count: 80
+  legacy_test_env_absence_non_prototype: required
+  grandrue_test_env_presence_non_prototype: required
+  maven_coordinates: required
+  ci_database_coherence: required
+  storefront_package_identity: required
+  backend_preference_and_fallback: required
+  prototype_exclusion: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
-validated_head: 26bb68e1ddd3bad5bf89f30d3206f2c69417e6d7
-checkpoint_commit: THIS_COMMIT
-verified: true
-
 next_group: GR-REN-04
-next_state: PREPARATION_REQUIRED
+next_state: CODE_COMMITTED

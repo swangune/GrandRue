@@ -36,8 +36,8 @@ class JooqCommercialCatalogueStoreIT {
 
     @BeforeEach
     void setUp() {
-        var source = new DriverManagerDataSource(System.getenv("MAINSTREET_TEST_POSTGRES_URL"),
-                System.getenv("MAINSTREET_TEST_POSTGRES_USER"), System.getenv("MAINSTREET_TEST_POSTGRES_PASSWORD"));
+        var source = new DriverManagerDataSource(System.getenv("GRANDRUE_TEST_POSTGRES_URL"),
+                System.getenv("GRANDRUE_TEST_POSTGRES_USER"), System.getenv("GRANDRUE_TEST_POSTGRES_PASSWORD"));
         Flyway.configure().dataSource(source).locations("classpath:db/migration").load().migrate();
         dsl = DSL.using(new TransactionAwareDataSourceProxy(source), SQLDialect.POSTGRES);
         transactions = new DataSourceTransactionManager(source);

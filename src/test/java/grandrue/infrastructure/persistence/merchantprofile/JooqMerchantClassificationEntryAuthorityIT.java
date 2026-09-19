@@ -48,9 +48,9 @@ class JooqMerchantClassificationEntryAuthorityIT {
     @BeforeEach
     void setUp() {
         DataSource source = new DriverManagerDataSource(
-                required("MAINSTREET_TEST_POSTGRES_URL"),
-                required("MAINSTREET_TEST_POSTGRES_USER"),
-                required("MAINSTREET_TEST_POSTGRES_PASSWORD")
+                required("GRANDRUE_TEST_POSTGRES_URL"),
+                required("GRANDRUE_TEST_POSTGRES_USER"),
+                required("GRANDRUE_TEST_POSTGRES_PASSWORD")
         );
         transactions = new DataSourceTransactionManager(source);
         Flyway.configure().dataSource(source).locations("classpath:db/migration")
