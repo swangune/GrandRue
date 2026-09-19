@@ -1,9 +1,9 @@
-package mainstreet.infrastructure.persistence.enquiry;
+package grandrue.infrastructure.persistence.enquiry;
 
-import mainstreet.application.ApplicationRequestIdentity;
-import mainstreet.application.MerchantScope;
-import mainstreet.enquiry.*;
-import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
+import grandrue.application.ApplicationRequestIdentity;
+import grandrue.application.MerchantScope;
+import grandrue.enquiry.*;
+import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

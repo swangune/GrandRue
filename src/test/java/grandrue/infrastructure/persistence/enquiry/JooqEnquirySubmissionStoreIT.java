@@ -1,11 +1,11 @@
-package mainstreet.infrastructure.persistence.enquiry;
+package grandrue.infrastructure.persistence.enquiry;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.enquiry.*;
-import mainstreet.infrastructure.persistence.publication.JooqOpportunityPublicationStateAuthority;
-import mainstreet.publication.OpportunityPublicationMaterialRevision;
-import mainstreet.publication.OpportunityPublicationState;
-import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
+import grandrue.application.MerchantScope;
+import grandrue.enquiry.*;
+import grandrue.infrastructure.persistence.publication.JooqOpportunityPublicationStateAuthority;
+import grandrue.publication.OpportunityPublicationMaterialRevision;
+import grandrue.publication.OpportunityPublicationState;
+import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

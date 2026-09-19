@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence.webauthn;
+package grandrue.infrastructure.persistence.webauthn;
 
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
