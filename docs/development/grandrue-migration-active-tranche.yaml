@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T014
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 7cfdd071e166313bc242488c5a0d11fa079bc4d1
 expected_parent: 193fb83edd7bc356e82a7a3997493a776755b944
+validated_head: 7cfdd071e166313bc242488c5a0d11fa079bc4d1
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-scheduling
@@ -79,3 +82,6 @@ preparation_notes:
   - exactly seventeen executable mainstreet.* occurrences are classified as two package declarations, fourteen imports and one FQCN
   - exactly two Main Street Scheduling literals are protected and preserved
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
