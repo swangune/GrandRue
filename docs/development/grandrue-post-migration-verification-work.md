@@ -417,7 +417,7 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-GR-VV-00-01 snapshot capture, GR-VV-01-01 file accounting, GR-VV-02-01 region preparation and GR-VV-03-00 method validation are checkpointed PASS. No moved/changed migration region or migration claim has yet passed preservation comparison.
+GR-VV-00-01 snapshot capture, GR-VV-01-01 file accounting, GR-VV-02-01 region preparation and GR-VV-03-00 method validation are checkpointed PASS. GR-VV-03-R001 is checkpointed FAIL with 1,092/1,094 independent production-Java file results PASS and two exact byte-preservation findings (GR-VV-F001 and GR-VV-F002) preserved OPEN. Unaffected verification continues; no discrepancy is repaired inside this audit.
 
 ```yaml
 execution:
@@ -434,19 +434,18 @@ execution:
   historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
   active_packet:
-    id: GR-VV-03-R001
+    id: GR-VV-03-R002
     kind: CLOSED_REGION_PRESERVATION
-    state: IN_PROGRESS
+    state: READY
     progress:
-      total_files: 1094
-      verified_files: 959
-      passing_files: 957
-      failing_files: 2
+      total_files: 376
+      verified_files: 0
+      passing_files: 0
+      failing_files: 0
       blocked_files: 0
-      remaining_files: 135
-      progress_evidence: docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R001/progress.json
+      remaining_files: 376
+      progress_evidence: null
   queue:
-    - GR-VV-03-R001
     - GR-VV-03-R002
     - GR-VV-03-R003
     - GR-VV-03-R004
@@ -463,9 +462,12 @@ execution:
     - id: GR-VV-03-00
       result: PASS
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-00.json
+    - id: GR-VV-03-R001
+      result: FAIL
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R001.json
   results_recorded: true
-  implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
-  next_action: Continue GR-VV-03-R001 from the durable 959/1094 production-file checkpoint with open findings GR-VV-F001 and GR-VV-F002 preserved; reconstruct recorded claim lineage for merchantprofile (79 files) and onboarding (56 files), then verify exact baseline-to-target preservation including staged consumer-import transitions. Do not repair discrepancies.
+  implementation_handoff: BLOCKED
+  next_action: Execute GR-VV-03-R002 against the frozen 376-file test Java deterministic region. Preserve GR-VV-F001 and GR-VV-F002 unchanged; continue independent verification without repairing discrepancies. Apply the frozen test namespace rule plus only the explicit overlays recorded in regions.json, and emit exact per-file results.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
