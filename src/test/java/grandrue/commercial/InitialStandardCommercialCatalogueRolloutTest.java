@@ -72,6 +72,25 @@ class InitialStandardCommercialCatalogueRolloutTest {
         assertEquals(CatalogueResolutionException.Reason.INTEGRITY_FAILURE, failure.reason());
     }
 
+    @Test
+    void initial_generation_with_a_predecessor_is_not_rollout_ready() {
+        var approved = InitialStandardCommercialCatalogue.manifest();
+        var store = new RecordingStore();
+        store.publication = new CommercialCataloguePublication(
+                "publish-initial-1",
+                approved,
+                Optional.of("unexpected-predecessor"),
+                "catalogue-publisher",
+                Instant.parse("2026-09-19T19:00:00Z"));
+
+        var failure = assertThrows(
+                CatalogueResolutionException.class,
+                new InitialStandardCommercialCatalogueRollout(store)
+                        ::requireOrdinaryMerchantAccountPathReady);
+
+        assertEquals(CatalogueResolutionException.Reason.INTEGRITY_FAILURE, failure.reason());
+    }
+
     private static CommercialCataloguePublication publication(CommercialCatalogueManifest manifest) {
         return new CommercialCataloguePublication(
                 "publish-initial-1",

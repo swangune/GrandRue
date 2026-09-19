@@ -60,6 +60,33 @@ class JooqCommercialCatalogueStoreIT {
     }
 
     @Test
+    void approved_initial_rollout_becomes_ready_only_after_committed_postgres_publication() {
+        var admitted = adapter(new InitialStandardCommercialCataloguePublicationAdmission(
+                context -> context.equals(CALLER)));
+        var rollout = new InitialStandardCommercialCatalogueRollout(admitted);
+
+        assertResolution(
+                CatalogueResolutionException.Reason.NOT_ESTABLISHED,
+                rollout::requireOrdinaryMerchantAccountPathReady);
+
+        var publication = rollout.publishInitial("initial-standard-catalogue", CALLER);
+
+        assertEquals("standard-commercial-catalogue@1",
+                publication.manifest().revision().catalogueRevisionIdentifier());
+        assertEquals(Optional.empty(), publication.predecessor());
+        assertEquals(T0, publication.publishedAt());
+        assertDoesNotThrow(rollout::requireOrdinaryMerchantAccountPathReady);
+
+        var recreated = adapter(new InitialStandardCommercialCataloguePublicationAdmission(
+                context -> context.equals(CALLER)));
+        assertEquals(publication,
+                recreated.exactGeneration("standard-commercial-catalogue@1").orElseThrow());
+        assertDoesNotThrow(new InitialStandardCommercialCatalogueRollout(recreated)
+                ::requireOrdinaryMerchantAccountPathReady);
+        assertEquals(1, count());
+    }
+
+    @Test
     void storage_backed_selection_uses_half_open_intervals_and_retained_snapshots() {
         var first = store.publish(request("one", Optional.empty()), CALLER);
         now.set(T0.plusSeconds(10));
