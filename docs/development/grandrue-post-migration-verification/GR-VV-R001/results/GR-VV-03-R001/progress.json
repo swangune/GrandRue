@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 176,
-  "passing_files": 175,
+  "verified_files": 204,
+  "passing_files": 203,
   "failing_files": 1,
   "blocked_files": 0,
-  "remaining_files": 918,
+  "remaining_files": 890,
   "completed_packages": [
     "(root)",
     "audit",
@@ -30,7 +30,9 @@
     "inventory",
     "media",
     "money",
-    "protection"
+    "protection",
+    "privacy",
+    "notification"
   ],
   "chunks": [
     {
@@ -135,6 +137,22 @@
       "sha256": "86bb5b527d1d418d05fc0633b5a1e416b563391ee9a4e92c7720bd3263843fbf",
       "files": 9,
       "pass": 9,
+      "fail": 0
+    },
+    {
+      "chunk": "privacy",
+      "git_blob": "739292be2b4c3df8da65829444fd8f4b08faf868",
+      "sha256": "91ec2fa342379ddd5cfe25c480c32fc9a97f63f0db16d3cab205e9973d4622ae",
+      "files": 9,
+      "pass": 9,
+      "fail": 0
+    },
+    {
+      "chunk": "notification",
+      "git_blob": "eb7364f94905d1ed775a200aff9b5593458fac6f",
+      "sha256": "37e0484f4a71359a012aa0ae394407d3624750164bccbab4ca61d29d652394a7",
+      "files": 19,
+      "pass": 19,
       "fail": 0
     }
   ],
