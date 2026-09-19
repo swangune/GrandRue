@@ -650,7 +650,7 @@ class ImplementationProgrammeGateConformanceTest {
         assertTrue(status.contains("`IMP-08C-C4C — Reaction registration and identity` — **CONFORMING_COMPLETE under current v1.7 evidence**"));
 
         String authority = Files.readString(Path.of(
-                "designs",
+                "designs", "authorities", "ms-prot", "MS-PROT-046",
                 "MS-PROT-046 v1.3 — Opportunity Material Revision & Publication History Amendment.md"
         ));
         assertTrue(authority.contains(
