@@ -21,6 +21,11 @@ classification:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
+reconciliation:
+  reason: corrected changed-file-entry accounting from 29 tree-path endpoints to 15 Git diff entries (14 renames plus manifest)
+  code_commit_preserved: 869fd84cffc672425919e2c13ea5014596e06a3c
+  source_or_test_content_changed: false
+
 subgraph:
   owners:
     - from: src/test/java/mainstreet/governance/AgentInstructionsConformanceTest.java
@@ -92,7 +97,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 29
+  expected_changed_path_count: 15
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
