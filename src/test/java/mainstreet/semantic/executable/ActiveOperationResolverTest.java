@@ -2,7 +2,7 @@ package mainstreet.semantic.executable;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
-import mainstreet.testing.TestConfigurationReleases;
+import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
-import mainstreet.testing.TestSessionRecordStore;
+import grandrue.testing.TestSessionRecordStore;
 import org.junit.jupiter.api.Test;
 
 import java.security.SecureRandom;

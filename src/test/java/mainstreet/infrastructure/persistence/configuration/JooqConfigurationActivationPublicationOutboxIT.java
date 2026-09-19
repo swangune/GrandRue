@@ -8,7 +8,7 @@ import mainstreet.semantic.configuration.ConfigurationRevisionApproval;
 import mainstreet.semantic.configuration.InMemoryConfigurationPublication;
 import mainstreet.semantic.configuration.MerchantConfiguration;
 import mainstreet.semantic.executable.ExecutableMerchantModel;
-import mainstreet.testing.ConfigurationActivationApprovals;
+import grandrue.testing.ConfigurationActivationApprovals;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

@@ -21,7 +21,7 @@ import mainstreet.semantic.executable.ExecutableRelationshipDefinition;
 import mainstreet.semantic.executable.ExecutableRelationshipEstablishmentEffect;
 import mainstreet.semantic.registry.RelationshipCardinality;
 import mainstreet.semantic.registry.RelationshipScopeConstraint;
-import mainstreet.testing.TestConfigurationReleases;
+import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

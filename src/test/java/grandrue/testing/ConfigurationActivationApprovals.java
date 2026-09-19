@@ -1,8 +1,8 @@
-package mainstreet.testing;
+package grandrue.testing;
 
-import mainstreet.semantic.configuration.ConfigurationPublication;
-import mainstreet.semantic.configuration.InitialConfigurationRevisionApproval;
-import mainstreet.semantic.configuration.InitialConfigurationRevisionApprovalApplicabilityAuthority;
+import grandrue.semantic.configuration.ConfigurationPublication;
+import grandrue.semantic.configuration.InitialConfigurationRevisionApproval;
+import grandrue.semantic.configuration.InitialConfigurationRevisionApprovalApplicabilityAuthority;
 
 import java.time.Instant;
 import java.util.Objects;

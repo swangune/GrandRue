@@ -11,7 +11,7 @@ import mainstreet.semantic.configuration.SemanticCompatibilityDisposition;
 import mainstreet.semantic.configuration.SemanticCompatibilityEvidence;
 import mainstreet.semantic.configuration.SemanticCompatibilityReferenceScope;
 import mainstreet.semantic.executable.ExecutableMerchantModel;
-import mainstreet.testing.ConfigurationActivationApprovals;
+import grandrue.testing.ConfigurationActivationApprovals;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

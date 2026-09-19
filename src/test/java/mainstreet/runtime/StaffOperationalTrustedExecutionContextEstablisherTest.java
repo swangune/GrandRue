@@ -2,7 +2,7 @@ package mainstreet.runtime;
 
 import mainstreet.application.MerchantScope;
 import mainstreet.application.TrustedDeviceApplicationContext;
-import mainstreet.testing.TestSessionRecordStore;
+import grandrue.testing.TestSessionRecordStore;
 import mainstreet.workforce.MerchantMembershipAuthority;
 import mainstreet.workforce.MerchantOperationalDeviceAuthority;
 import org.junit.jupiter.api.Test;

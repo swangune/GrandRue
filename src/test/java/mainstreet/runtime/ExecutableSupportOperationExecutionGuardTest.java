@@ -13,7 +13,7 @@ import mainstreet.semantic.execution.ExecutableSupportRegistry;
 import mainstreet.semantic.execution.ExecutableSupportRequirement;
 import mainstreet.semantic.execution.SemanticExecutionContractReference;
 import mainstreet.semantic.execution.UnsupportedExecutableSupportException;
-import mainstreet.testing.TestConfigurationReleases;
+import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

@@ -23,7 +23,7 @@ import mainstreet.scheduling.AppointmentApplicationService;
 import mainstreet.scheduling.AppointmentCommandIdentityConflictException;
 import mainstreet.scheduling.ConfirmAppointmentCommand;
 import mainstreet.scheduling.InMemoryAppointmentUnitOfWork;
-import mainstreet.testing.TestConfigurationReleases;
+import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

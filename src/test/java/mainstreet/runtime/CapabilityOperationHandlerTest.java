@@ -10,7 +10,7 @@ import mainstreet.semantic.executable.ExecutableOperationalObjectTypeIdentity;
 import mainstreet.semantic.executable.ExecutableOperationDefinition;
 import mainstreet.semantic.executable.ExecutableOperationEffect;
 import mainstreet.semantic.executable.ExecutableStateTransitionEffect;
-import mainstreet.testing.TestConfigurationReleases;
+import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
-package mainstreet.testing;
+package grandrue.testing;
 
-import mainstreet.runtime.SessionRecord;
-import mainstreet.runtime.SessionRecordStore;
+import grandrue.runtime.SessionRecord;
+import grandrue.runtime.SessionRecordStore;
 
 import java.time.Instant;
 import java.util.HashMap;
