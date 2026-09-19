@@ -38,7 +38,10 @@ class ImplementationGraphIntegrityTest {
         String history = Files.readString(HISTORY);
         assertTrue(controller.contains("id: IMP-08C"));
         assertTrue(controller.contains("state: IN_PROGRESS"));
-        assertTrue(controller.contains("implementation-status-history-2026-09-14-pre-c2b-closure.md"));
+        assertTrue(controller.contains("canonical_graph: docs/development/implementation-programme-state.json"));
+        assertTrue(controller.contains("historical_status_compatibility: docs/development/implementation-status.md"));
+        String compatibility = Files.readString(Path.of("docs/development/implementation-status.md"));
+        assertTrue(compatibility.contains(HISTORY.getFileName().toString()));
         assertTrue(history.contains("IMP-05") && history.contains("CONFORMING_COMPLETE"));
         assertTrue(history.contains("imp-programme-integrity-review-2026-09-06.md"));
         assertTrue(history.contains("imp-05-r3b-reinstatement-conformance-2026-09-12.md"));
