@@ -19,7 +19,7 @@ GrandRue naming migration, independent post-migration preservation verification 
 controller_schema: grandrue-implementation-controller/v2
 repository: swangune/GrandRue
 branch: development
-observed_head_at_resume_reconciliation: 895aab8729e863040b212cab5cdfbe9d01bda1d7
+observed_head_at_resume_reconciliation: e3761e83bf151fe37600fb03a264201afa53520a
 
 phase: IMPLEMENTATION
 implementation_state: IN_PROGRESS
@@ -36,30 +36,30 @@ programme_frontier:
     id: IMP-08C
     state: IN_PROGRESS
   node:
-    id: IMP-08C-C4B2
+    id: IMP-08C-C4E
     state: READY
   note: >
-    IMP-08C-C3 is CONFORMING_COMPLETE from the 19 September rollout-ordering
-    closure and full Maven/PostgreSQL gate. IMP-08C remains IN_PROGRESS; C4B2,
-    C4E and C5A are READY siblings and C5 remains dependency-blocked.
-    verification remain.
+    IMP-08C-C3 and IMP-08C-C4B2 are CONFORMING_COMPLETE. C4B is therefore
+    CONFORMING_COMPLETE; C4 remains PARTIALLY_CONFORMING because C4E is READY.
+    C5A is independently READY and C5 remains dependency-blocked.
 
 slice:
-  id: C3-TRUSTED-CATALOGUE-ADMISSION
-  state: READY
+  id: C4E-BOOKING-PUBLICATION-SEPARATION
+  state: PREPARATION_REQUIRED
   behaviour: >
-    Admit only the exact approved standard-commercial-catalogue@1 at the trusted
-    publication boundary while keeping exact-content approval distinct from
-    explicit platform publication authorisation.
+    Correct the retained Booking event-global publication acknowledgement so
+    publication responsibility remains distinct from independently progressing
+    registered Event Reactions, while preserving owner and merchant occurrence identity.
 
 canonical_graph: docs/development/implementation-programme-state.json
 historical_status_compatibility: docs/development/implementation-status.md
 
 next_action: >
-  Prepare the exact C4B2 authority/dependency boundary once, derive the first
-  dependency-complete behavioural slice and tests, then implement the minimum
-  accepted source/discovery/publication integration under IMPLEMENTATION-RULES.
-  then run the full C3 completion gate before any closure claim.
+  Prepare the exact C4E authority/dependency boundary once, inspect the current
+  Booking outbox and retained IMP-00 conflict evidence, derive the first
+  dependency-complete correction slice and tests, then implement the minimum
+  accepted correction under IMPLEMENTATION-RULES. Run the full applicable gate
+  before any C4E completion claim.
 ```
 
 ## 2. Governing sources
@@ -73,7 +73,7 @@ next_action: >
 | Repository agent navigation | `AGENTS.md` |
 | Migration execution closure | `GRANDRUE-MIGRATION.md` |
 | Independent migration verification | `GRANDRUE-POST-MIGRATION-VERIFICATION.md` |
-| Initial standard commercial catalogue | `designs/authorities/ms-prot/MS-PROT-056/MS-PROT-056 v1.10 — Initial Standard Commercial Catalogue Manifest.md` |
+| Current event/reaction authority | `designs/authorities/ms-prot/MS-PROT-026/MS-PROT-026 v1.1 — Production Domain Event Publication, Reaction & Consumption Contract Amendment.md` |
 
 ## 3. Current execution model
 
