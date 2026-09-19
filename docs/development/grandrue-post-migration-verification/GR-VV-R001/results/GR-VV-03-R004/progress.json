@@ -1,0 +1,32 @@
+{
+  "schema_version": "grandrue-region-progress/v1",
+  "run_id": "GR-VV-R001",
+  "region_id": "GR-VV-03-R004",
+  "region_name": "pure_control_governance_wording",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method_version": "grandrue-preservation-checker/v1",
+  "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+  "state": "CHECKPOINTED",
+  "total_files": 6,
+  "verified_files": 6,
+  "passing_files": 6,
+  "failing_files": 0,
+  "blocked_files": 0,
+  "remaining_files": 0,
+  "completed_packages": [
+    "control/governance wording"
+  ],
+  "chunks": [
+    {
+      "chunk": "governance-wording",
+      "git_blob": "d119768d21d81b5f25174ef718722a9c87d6664a",
+      "sha256": "6dff18f0b1c613630b5ac7139acafbbbd4e13f22a66166673b6ec42f669c7503",
+      "files": 6,
+      "pass": 6,
+      "fail": 0
+    }
+  ],
+  "conclusion": "PASS",
+  "next_action": "Begin GR-VV-04 exception, claim, consumer and protected-identity reconciliation from the frozen exception registry. Preserve GR-VV-F001 and GR-VV-F002 unchanged; do not repair discrepancies inside verification.",
+  "finding_ids": []
+}
