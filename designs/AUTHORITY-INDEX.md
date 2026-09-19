@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.38
+**Version:** 4.39
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -91,7 +91,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-048 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
 | MS-PROT-049 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + MS-PROT-094 within storefront presentation-profile and website-presentation recommendation scope |
 | MS-PROT-050 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
-| MS-PROT-051 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
+| MS-PROT-051 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 + v1.7 |
 | MS-PROT-052 | v1.0 + v1.1 + v1.2 |
 | MS-PROT-053 | v1.0 + v1.1 + v1.2 + v1.3 |
 | MS-PROT-054 | v1.0 |
@@ -158,6 +158,8 @@ The following cross-authority links are retained explicitly because they materia
 - MS-PROT-061 v1.2 — `MS-PROT-061 v1.2 — Returns Commercial Access Classification Amendment.md` — supplies the current Returns owner-qualified commercial classifications: applicable-policy observation, existing-Order return-resolution support, return-label preparation and existing return-label observation/reconciliation require no independent Commercial Entitlement. It preserves Merchant Configuration ownership of Returns applicability and the independent Ordering, Payment, Inventory, Fulfilment/Shipment and provider boundaries; it contributes zero new standard entitlement identities and partially resolves `MS-PROT-056-V17-DQ-001`, which remains OPEN pending the complete concrete manifest.
 
 - MS-PROT-051 v1.6 — `MS-PROT-051 v1.6 — Merchant Profile Commercial Access Amendment.md` — supplies exact commercial classifications for existing Profile public source observation, merchant preparation, observation, presence authoring, retirement and privacy-only restriction. §§1–9 allocate `MAINTAIN_MERCHANT_PRESENCE` to FREE with explicit BUSINESS/GROWTH inclusion and exempt the five bounded non-authoring contracts. §§3, 10–12 preserve the initial PUBLIC portfolio exclusions, source ownership, current authority, lifecycle, concurrency, historical recovery and neighbouring service boundaries. Exact entitlement identities and the complete catalogue remain unresolved under `MS-PROT-056-V17-DQ-001`; existing Profile deferred decisions and C3 status remain unchanged.
+
+- MS-PROT-051 v1.7 — `MS-PROT-051 v1.7 — Precise Public Merchant Location, Relocation & Optional Verification Amendment.md` — requires precise provider-neutral navigation resolution before a Merchant Location is rendered as a public customer destination; keeps coordinates internal and map manipulation/physical presence non-mandatory; preserves optional, scoped Trust-domain verification; and makes ordinary merchant-facing shop-address change one workflow while retaining same-place correction versus physical-relocation history internally. It activates resolution of `MS-PROT-051-V11-DQ-003` before public-navigation implementation and leaves the exact correction-versus-relocation UI/API mechanism under `MS-PROT-051-V11-DQ-004`. Implementation activation remains NONE.
 
 - MS-PROT-043 v1.6 §§1–12 establishes `enquiry/public-interaction-preparation-access@1` with no independent Commercial Entitlement for bounded public entry and non-committing preparation of general and Opportunity-linked Enquiries. Submission retains its v1.5 origination requirements; source access and delivery remain independently governed. `MS-PROT-056-V17-DQ-001` remains OPEN; no implementation activation is authorised.
 
