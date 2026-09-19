@@ -1,16 +1,16 @@
-package mainstreet.semantic.compiler;
+package grandrue.semantic.compiler;
 
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
-import mainstreet.semantic.executable.ExecutableOperationalObjectTypeIdentity;
-import mainstreet.semantic.registry.InMemorySemanticRegistry;
-import mainstreet.semantic.registry.OwnedOperationalObjectDefinition;
-import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
-import mainstreet.semantic.registry.OwnedRelationshipDefinition;
-import mainstreet.semantic.registry.RegisteredCapability;
-import mainstreet.semantic.registry.RelationshipCardinality;
-import mainstreet.semantic.registry.RelationshipScopeConstraint;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableOperationalObjectTypeIdentity;
+import grandrue.semantic.registry.InMemorySemanticRegistry;
+import grandrue.semantic.registry.OwnedOperationalObjectDefinition;
+import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
+import grandrue.semantic.registry.OwnedRelationshipDefinition;
+import grandrue.semantic.registry.RegisteredCapability;
+import grandrue.semantic.registry.RelationshipCardinality;
+import grandrue.semantic.registry.RelationshipScopeConstraint;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

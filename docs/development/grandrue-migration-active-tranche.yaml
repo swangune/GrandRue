@@ -2,58 +2,55 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T026
+tranche: GR-REN-03-T027
 group: GR-REN-03
-state: COMPLETE
-code_commit: 810e5d4182e1aa5d3f723a6eb9294f671704fa13
-expected_parent: 2637311131a5f8dbc64a9c1626595964bb58d393
-validated_head: 810e5d4182e1aa5d3f723a6eb9294f671704fa13
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: d6300c18b66c7ef6361bc3e42fdf7797d374e2e0
 
 region:
-  identity: test-semantic-release
-  closure_basis: complete live src/test/java/mainstreet/semantic/release/** Java test-owner region
+  identity: test-semantic-compiler
+  closure_basis: complete live src/test/java/mainstreet/semantic/compiler/** Java test-owner region
 
 classification:
   normal_closed:
     owner_count: 6
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 26
+    executable_namespace_replacement_count: 112
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/semantic/release/SemanticReleaseBootstrapTest.java
-      to: src/test/java/grandrue/semantic/release/SemanticReleaseBootstrapTest.java
-      blob_sha: 65de67b58455bfb28bf154959dbd1558ee3d9ee3
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/semantic/release/SemanticMaterialisationFailureTest.java
-      to: src/test/java/grandrue/semantic/release/SemanticMaterialisationFailureTest.java
-      blob_sha: 29c7e33a8ff8063627e054bff9b1c28a910539ea
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/semantic/release/PublishedSemanticDefinitionSetTest.java
-      to: src/test/java/grandrue/semantic/release/PublishedSemanticDefinitionSetTest.java
-      blob_sha: 8cb810d918377b2c0708cd465d537fd347045477
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/release/ExposureDefinitionBundleV2ConformanceTest.java
-      to: src/test/java/grandrue/semantic/release/ExposureDefinitionBundleV2ConformanceTest.java
-      blob_sha: 5af9892c8b1cde96255f021726089f79a9c1b3d2
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/semantic/release/SemanticReleaseAssemblyTest.java
-      to: src/test/java/grandrue/semantic/release/SemanticReleaseAssemblyTest.java
-      blob_sha: 2fd53c1f2581b5900b28e7008c05aaa3050bc729
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/semantic/release/SemanticDefinitionBundleMaterialisationTest.java
-      to: src/test/java/grandrue/semantic/release/SemanticDefinitionBundleMaterialisationTest.java
-      blob_sha: 16bb97cb5b8aedbc13c5c1564cf03ed5ac82ae1a
-      executable_namespace_replacements: 5
+    - from: src/test/java/mainstreet/semantic/compiler/ConfigurationPolicyResolutionTest.java
+      to: src/test/java/grandrue/semantic/compiler/ConfigurationPolicyResolutionTest.java
+      blob_sha: f13cd02c72655eb74813e08d2201d7b69560d7a8
+      executable_namespace_replacements: 9
+    - from: src/test/java/mainstreet/semantic/compiler/OperationalObjectTypeIdentityConformanceTest.java
+      to: src/test/java/grandrue/semantic/compiler/OperationalObjectTypeIdentityConformanceTest.java
+      blob_sha: 42f70786b4a057fd108fa3457e5fc8c7b9311882
+      executable_namespace_replacements: 12
+    - from: src/test/java/mainstreet/semantic/compiler/ConfigurationCompilerTest.java
+      to: src/test/java/grandrue/semantic/compiler/ConfigurationCompilerTest.java
+      blob_sha: 70d2a3c973872531a79d2a9181e6f74e80828ce9
+      executable_namespace_replacements: 18
+    - from: src/test/java/mainstreet/semantic/compiler/SemanticV14V45ConformanceTest.java
+      to: src/test/java/grandrue/semantic/compiler/SemanticV14V45ConformanceTest.java
+      blob_sha: 23217e8d1a602287bc463acd410773c2b4f4c504
+      executable_namespace_replacements: 38
+    - from: src/test/java/mainstreet/semantic/compiler/RelationshipApplicabilityResolutionTest.java
+      to: src/test/java/grandrue/semantic/compiler/RelationshipApplicabilityResolutionTest.java
+      blob_sha: 3e6236b3b40a32fcbcd8d063d7c0ad05992fb33e
+      executable_namespace_replacements: 23
+    - from: src/test/java/mainstreet/semantic/compiler/ConfigurationDependencyResolutionTest.java
+      to: src/test/java/grandrue/semantic/compiler/ConfigurationDependencyResolutionTest.java
+      blob_sha: 391b89f186a58eb71123f5e2fec3a486904b32b2
+      executable_namespace_replacements: 12
 
 deterministic_transformations:
   owners:
-    - move all six declared owners to corresponding src/test/java/grandrue/semantic/release/** paths
+    - move all six declared owners to corresponding src/test/java/grandrue/semantic/compiler/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -81,9 +78,6 @@ expected_residuals:
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
 
 preparation_notes:
-  - all owner blobs and absent GrandRue destinations reconciled against development at 2637311131a5f8dbc64a9c1626595964bb58d393
+  - all owner blobs and absent GrandRue destinations reconciled against development at d6300c18b66c7ef6361bc3e42fdf7797d374e2e0
   - no external test consumer of the test-owned classes was discovered
   - Maven tests and GitHub Actions were not run
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

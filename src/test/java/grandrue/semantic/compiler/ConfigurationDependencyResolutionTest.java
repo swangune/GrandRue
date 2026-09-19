@@ -1,16 +1,16 @@
-package mainstreet.semantic.compiler;
+package grandrue.semantic.compiler;
 
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.configuration.PolicySelection;
-import mainstreet.semantic.executable.CapabilityActivationReason;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
-import mainstreet.semantic.executable.PolicyResolutionStatus;
-import mainstreet.semantic.registry.CapabilityRelationshipType;
-import mainstreet.semantic.registry.InMemorySemanticRegistry;
-import mainstreet.semantic.registry.OwnedPolicyDefinition;
-import mainstreet.semantic.registry.RegisteredCapability;
-import mainstreet.semantic.registry.RegisteredCapabilityRelationship;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.configuration.PolicySelection;
+import grandrue.semantic.executable.CapabilityActivationReason;
+import grandrue.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.PolicyResolutionStatus;
+import grandrue.semantic.registry.CapabilityRelationshipType;
+import grandrue.semantic.registry.InMemorySemanticRegistry;
+import grandrue.semantic.registry.OwnedPolicyDefinition;
+import grandrue.semantic.registry.RegisteredCapability;
+import grandrue.semantic.registry.RegisteredCapabilityRelationship;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
