@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.59
+**Version:** 1.60
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -709,6 +709,60 @@ The complete immutable content proposed for one standard catalogue generation, i
 **Authority:** MS-PROT-056 v1.9 §3.
 
 The Commercial-owned committed fact that one exact manifest became the next published generation at its authoritative publication instant.
+
+### Initial Standard Commercial Catalogue
+
+**Authority:** MS-PROT-056 v1.10.
+
+The exact approved initial immutable standard catalogue manifest identified as `standard-commercial-catalogue@1`. It contains exactly three explicit standard plan revisions:
+
+```text
+standard-plan/free@1
+standard-plan/business@1
+standard-plan/growth@1
+```
+
+and exactly 36 stable Commercial Entitlement identities/bindings. The explicit grant snapshots contain exactly 13 FREE, 34 BUSINESS and 36 GROWTH identities and satisfy:
+
+```text
+FREE ⊂ BUSINESS ⊂ GROWTH
+```
+
+Approval of this manifest is not Commercial Catalogue Publication and does not establish its effective start.
+
+### Conditional Commercial Supporting Requirement
+
+**Authority:** MS-PROT-056 v1.10.
+
+Manifest evidence that another protected Commercial purpose is required only when the exact owner-qualified semantic condition that requires that support applies. It does not create the condition; the source owner's accepted authority remains controlling.
+
+Canonical example:
+
+```text
+website delivery
+    +
+actual namespace family
+
+PLATFORM_DELEGATED_NAMESPACE
+    → USE_PLATFORM_WEBSITE_NAMESPACE
+
+MERCHANT_CONTROLLED_DOMAIN
+    → USE_MERCHANT_CONTROLLED_WEBSITE_DOMAIN
+```
+
+A conditional supporting requirement MUST NOT be flattened into an unconditional requirement for every alternative purpose.
+
+### Initial Commercial Entitlement Identity Convention
+
+**Authority:** MS-PROT-056 v1.10.
+
+Initial standard-catalogue identities use:
+
+```text
+commercial-entitlement/{owner}/{bounded-target}@1
+```
+
+The identity belongs to Commercial and names one immutable exact target/protected-purpose binding. Shared protected purpose does not merge different owner-qualified targets, and unchanged repackaging does not create a new entitlement identity.
 
 These concepts are distinct from Merchant Publication, Merchant Configuration and Semantic Registry Release publication. Source owners retain their operations, analytical definitions, service contracts, applicability rules, actor authority and business invariants.
 
