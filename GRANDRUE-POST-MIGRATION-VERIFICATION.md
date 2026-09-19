@@ -6,7 +6,7 @@
 
 **Comparison:** original migration-start baseline `M = c4153441d8340b229a29884967d796280d949a7d` against the final pinned migration target `D`; `master` is optional contextual evidence only
 
-**Status:** `IN_PROGRESS`
+**Status:** `COMPLETED_WITH_FINDINGS`
 
 **Activation:** `AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT`
 
@@ -269,7 +269,7 @@ checkpoint:
   target_role: TERMINAL_MIGRATION_CHECKPOINT
   claim_snapshot_digest: 20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
-  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-C001.json
+  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-05-01.json
   implementation_handoff: BLOCKED
   coverage:
     enumeration_complete: true
@@ -290,7 +290,7 @@ checkpoint:
     migration_preservation: NOT_RUN
     master_non_naming_executable_preservation: NOT_RUN
     live_freshness: NOT_RUN
-  next_action: Execute GR-VV-05-01 findings/closure/freshness aggregation. GR-VV-04-C001 reconciled all 847 claims with 842 PASS and 5 FAIL; protected identities PASS. GR-VV-F001 and GR-VV-F002 remain OPEN. Do not repair discrepancies.
+  next_action: Open GR-VV-R002 for incremental live revalidation against the latest substantive pre-audit head. R001 is complete for immutable target D with file_accounting PASS, claim_validation FAIL, migration_preservation FAIL, master_non_naming_executable_preservation DIFFERENT and live_freshness FAIL. GR-VV-F001 through GR-VV-F003 remain OPEN. Do not repair discrepancies inside verification.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.

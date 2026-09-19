@@ -1,0 +1,13 @@
+{
+  "schema_version": "grandrue-final-closure-progress/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-05-01",
+  "state": "CHECKPOINTED",
+  "findings_total": 3,
+  "findings_open": 3,
+  "conclusions_finalised": 5,
+  "conclusions_remaining": 0,
+  "overall": "FAIL",
+  "implementation_handoff": "BLOCKED",
+  "next_action": "OPEN_GR_VV_R002_INCREMENTAL_LIVE_REVALIDATION"
+}

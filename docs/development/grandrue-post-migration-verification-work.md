@@ -417,11 +417,11 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-GR-VV-00-01 through GR-VV-02-01 and method validation are checkpointed PASS. GR-VV-03-R001 remains checkpointed FAIL with 1,092/1,094 production-Java results PASS and GR-VV-F001/GR-VV-F002 OPEN; GR-VV-03-R002 through R004 PASS. All four GR-VV-04 exception packets PASS. GR-VV-04-C001 is checkpointed FAIL after reconciling all 847 frozen claims: 842 PASS, four leaf claims FAIL directly on GR-VV-F001/F002, and parent claim GR-REN-02 FAILS derivatively; protected-identity reconciliation PASS. No discrepancy is repaired inside this audit.
+GR-VV-R001 is structurally complete with findings. File accounting PASS; all 847 claims are reconciled with 842 PASS and 5 FAIL; migration preservation FAILS only on GR-VV-F001/F002; protected identities PASS; historical-master executable preservation is DIFFERENT because pre-migration B→M executable changes exist; live freshness FAILS on GR-VV-F003 because five substantive governance paths changed after D. R001 certifies immutable target D only, not the live development branch. No discrepancy is repaired inside this audit.
 
 ```yaml
 execution:
-  status: ACTIVE
+  status: COMPLETE_WITH_FINDINGS
   activation_mode: AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT
   activation_state: ACTIVE
   run_id: GR-VV-R001
@@ -436,14 +436,13 @@ execution:
   active_packet:
     id: GR-VV-05-01
     kind: FINDINGS_CLOSURE_AND_FRESHNESS
-    state: READY
+    state: CHECKPOINTED
     progress:
-      open_findings: 2
-      conclusions_finalised: 1
-      conclusions_remaining: 4
-      progress_evidence: null
-  queue:
-    - GR-VV-05-01
+      open_findings: 3
+      conclusions_finalised: 5
+      conclusions_remaining: 0
+      progress_evidence: docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-05-01/progress.json
+  queue: []
   completed_packets:
     - id: GR-VV-00-01
       result: PASS
@@ -484,9 +483,12 @@ execution:
     - id: GR-VV-04-C001
       result: FAIL
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-C001.json
+    - id: GR-VV-05-01
+      result: FAIL
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-05-01.json
   results_recorded: true
   implementation_handoff: BLOCKED
-  next_action: Execute GR-VV-05-01. Aggregate findings and final conclusions, falsify closure predicates, and reconcile the entire D-to-live-development delta. Preserve GR-VV-F001 and GR-VV-F002 OPEN; do not repair discrepancies.
+  next_action: Open GR-VV-R002 against the latest substantive pre-audit live target and incrementally revalidate the five non-audit post-D governance changes plus dependent migration claims. Preserve GR-VV-F001, GR-VV-F002 and GR-VV-F003 as historical findings; do not repair discrepancies inside verification.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.

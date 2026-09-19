@@ -3,8 +3,8 @@
   "run_id": "GR-VV-R001",
   "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
   "latest_packet": {
-    "id": "GR-VV-04-C001",
-    "kind": "CLAIM_EXCEPTION_PROTECTED_IDENTITY_RECONCILIATION",
+    "id": "GR-VV-05-01",
+    "kind": "FINDINGS_CLOSURE_AND_FRESHNESS",
     "result": "FAIL"
   },
   "coverage": {
@@ -25,23 +25,23 @@
     "claims_total": 847,
     "production_leaf_claims": 762,
     "manifest_versions": 152,
-    "open_findings": 2
+    "open_findings": 3
   },
   "conclusions": {
     "file_accounting": "PASS",
     "claim_validation": "FAIL",
-    "migration_preservation": "NOT_RUN",
-    "master_non_naming_executable_preservation": "NOT_RUN",
-    "live_freshness": "NOT_RUN"
+    "migration_preservation": "FAIL",
+    "master_non_naming_executable_preservation": "DIFFERENT",
+    "live_freshness": "FAIL"
   },
-  "next_packet": "GR-VV-05-01",
+  "next_packet": "GR-VV-R002",
   "active_progress": {
     "region_id": "GR-VV-05-01",
-    "state": "READY",
-    "open_findings": 2,
-    "conclusions_finalised": 1,
-    "conclusions_remaining": 4,
-    "progress_evidence": null
+    "state": "CHECKPOINTED",
+    "open_findings": 3,
+    "conclusions_finalised": 5,
+    "conclusions_remaining": 0,
+    "progress_evidence": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-05-01/progress.json"
   },
   "claim_reconciliation": {
     "claims_total": 847,
@@ -51,5 +51,14 @@
     "direct_failed": 4,
     "derived_failed": 1,
     "protected_identity_result": "PASS"
+  },
+  "overall": "FAIL",
+  "implementation_handoff": "BLOCKED",
+  "live_freshness": {
+    "observed_head": "88c46ec4a6cebb949a959acb54b41a50f2920acd",
+    "changed_paths": 82,
+    "audit_evidence_paths": 77,
+    "non_audit_paths": 5,
+    "finding_id": "GR-VV-F003"
   }
 }

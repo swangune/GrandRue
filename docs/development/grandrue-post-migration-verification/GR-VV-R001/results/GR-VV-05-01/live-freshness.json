@@ -1,0 +1,49 @@
+{
+  "schema_version": "grandrue-live-freshness/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-05-01",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "observed_live_head": "88c46ec4a6cebb949a959acb54b41a50f2920acd",
+  "compare_status": "ahead",
+  "ahead_by": 93,
+  "behind_by": 0,
+  "total_commits": 93,
+  "changed_paths": 82,
+  "audit_evidence_paths": 77,
+  "non_audit_paths": 5,
+  "non_audit_delta": [
+    {
+      "path": "designs/AUTHORITY-INDEX.md",
+      "status": "modified",
+      "D_object": "de8c6dc0cc6a2822e95223732bbd14efb7447420",
+      "live_object": "e0783645e8c1cafcc15aaf64e4caefb7363febba"
+    },
+    {
+      "path": "designs/CANONICAL-SEMANTIC-LEXICON.md",
+      "status": "modified",
+      "D_object": "6016be44a337a5b6ccbad06a0345ce076c94040b",
+      "live_object": "106add97e9ca2f398f56e30edf2ac34004a47155"
+    },
+    {
+      "path": "designs/DEFERRED-DECISION-REGISTER.md",
+      "status": "modified",
+      "D_object": "56c64e6783f148a49ee6f60cf15f7a48fb930bc7",
+      "live_object": "14fd629dc5494eff623ef7fc91adc6fb049f1781"
+    },
+    {
+      "path": "designs/authorities/ms-prot/MS-PROT-095/MS-PROT-095 — Quotation, Revision & Acceptance Model.md",
+      "status": "added",
+      "D_object": null,
+      "live_object": "f3524f71792f0882c25d3da28df20cf958c3f849"
+    },
+    {
+      "path": "designs/authorities/ms-prot/MS-PROT-096/MS-PROT-096 — Invoice, Issuance & Payment Relationship Model.md",
+      "status": "added",
+      "D_object": null,
+      "live_object": "7bb1dfae11f61b270bb9c6982ce67d773eda5a02"
+    }
+  ],
+  "result": "FAIL",
+  "finding_id": "GR-VV-F003",
+  "effect": "R001 remains valid as historical certification of immutable target D, but cannot certify the live development branch because five substantive governance paths changed after D."
+}
