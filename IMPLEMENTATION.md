@@ -36,12 +36,12 @@ programme_frontier:
     id: IMP-08C
     state: IN_PROGRESS
   node:
-    id: IMP-08C-C3
-    state: IN_PROGRESS
+    id: IMP-08C-C4B2
+    state: READY
   note: >
-    DQ-001 is resolved by accepted MS-PROT-056 v1.10. C3 remains open for
-    faithful initial-catalogue implementation and trusted publication admission
-    are checkpointed; production composition/rollout ordering and final
+    IMP-08C-C3 is CONFORMING_COMPLETE from the 19 September rollout-ordering
+    closure and full Maven/PostgreSQL gate. IMP-08C remains IN_PROGRESS; C4B2,
+    C4E and C5A are READY siblings and C5 remains dependency-blocked.
     verification remain.
 
 slice:
@@ -56,10 +56,9 @@ canonical_graph: docs/development/implementation-programme-state.json
 historical_status_compatibility: docs/development/implementation-status.md
 
 next_action: >
-  Execute C3 rollout-ordering tests first. Prove the ordinary new-account path
-  fails closed until an initial published catalogue exists, while catalogue
-  publication remains a separate trusted Commercial operation. Implement only
-  the minimum production composition needed by that accepted sequencing rule,
+  Prepare the exact C4B2 authority/dependency boundary once, derive the first
+  dependency-complete behavioural slice and tests, then implement the minimum
+  accepted source/discovery/publication integration under IMPLEMENTATION-RULES.
   then run the full C3 completion gate before any closure claim.
 ```
 
@@ -106,7 +105,7 @@ On any new implementation session:
 2. read `AGENTS.md` and this controller;
 3. verify this controller against the canonical graph and current evidence;
 4. resolve exact accepted authority through `AUTHORITY-INDEX.md`;
-5. continue the active C3 slice while its authority/dependencies remain unchanged;
+5. continue the selected READY/IN_PROGRESS node while its authority/dependencies remain unchanged;
 6. use tests first and source-rooted correction under `IMPLEMENTATION-RULES.md`;
 7. synchronise this controller at durable slice checkpoints and terminal node transitions.
 
