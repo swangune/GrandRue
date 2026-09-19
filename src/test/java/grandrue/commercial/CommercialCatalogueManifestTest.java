@@ -120,6 +120,81 @@ class CommercialCatalogueManifestTest {
     }
 
     @Test
+    void conditional_support_requires_one_available_alternative_not_every_alternative() {
+        var platform = entitlement("fixture-platform");
+        var custom = entitlement("fixture-custom");
+        var platformTarget = target("fixture-brand", "fixture/platform-namespace", "1");
+        var customTarget = target("fixture-brand", "fixture/custom-domain", "1");
+        var alternatives = Set.of(
+                new CommercialConditionalSupportAlternative(
+                        "PLATFORM_DELEGATED_NAMESPACE", platformTarget, Set.of("USE_PLATFORM")),
+                new CommercialConditionalSupportAlternative(
+                        "MERCHANT_CONTROLLED_DOMAIN", customTarget, Set.of("USE_CUSTOM")));
+        var conditional = new CommercialConditionalSupportingAccessRequirement(
+                "fixture-namespace-family-authority", alternatives, "fixture-classification-authority");
+        var root = new CommercialAccessBinding(
+                READ, CommercialEntitlementTargetKind.PLATFORM_SERVICE_ACCESS, TARGET, "SERVE",
+                "fixture-target-authority", Set.of(), Set.of(conditional), "fixture-boundary");
+        var platformBinding = binding(platform, platformTarget, "USE_PLATFORM", Set.of());
+        var customBinding = binding(custom, customTarget, "USE_CUSTOM", Set.of());
+
+        var revisions = new StandardPlanCatalogueRevision("one",
+                new StandardPlanRevision(StandardPlanLevel.FREE, "one-free", Set.of(READ, platform)),
+                new StandardPlanRevision(StandardPlanLevel.BUSINESS, "one-business", Set.of(READ, platform, custom)),
+                new StandardPlanRevision(StandardPlanLevel.GROWTH, "one-growth", Set.of(READ, platform, custom)));
+
+        assertDoesNotThrow(() -> new CommercialCatalogueManifest(
+                revisions, Set.of(root, platformBinding, customBinding),
+                Set.of("fixture-evidence"), "fixture-approval"));
+    }
+
+    @Test
+    void conditional_support_fails_when_a_granted_plan_has_no_satisfied_alternative() {
+        var platform = entitlement("fixture-platform");
+        var custom = entitlement("fixture-custom");
+        var platformTarget = target("fixture-brand", "fixture/platform-namespace", "1");
+        var customTarget = target("fixture-brand", "fixture/custom-domain", "1");
+        var conditional = new CommercialConditionalSupportingAccessRequirement(
+                "fixture-namespace-family-authority",
+                Set.of(
+                        new CommercialConditionalSupportAlternative(
+                                "PLATFORM_DELEGATED_NAMESPACE", platformTarget, Set.of("USE_PLATFORM")),
+                        new CommercialConditionalSupportAlternative(
+                                "MERCHANT_CONTROLLED_DOMAIN", customTarget, Set.of("USE_CUSTOM"))),
+                "fixture-classification-authority");
+        var root = new CommercialAccessBinding(
+                READ, CommercialEntitlementTargetKind.PLATFORM_SERVICE_ACCESS, TARGET, "SERVE",
+                "fixture-target-authority", Set.of(), Set.of(conditional), "fixture-boundary");
+        var platformBinding = binding(platform, platformTarget, "USE_PLATFORM", Set.of());
+        var customBinding = binding(custom, customTarget, "USE_CUSTOM", Set.of());
+
+        var revisions = new StandardPlanCatalogueRevision("one",
+                new StandardPlanRevision(StandardPlanLevel.FREE, "one-free", Set.of(READ)),
+                new StandardPlanRevision(StandardPlanLevel.BUSINESS, "one-business", Set.of(READ, platform, custom)),
+                new StandardPlanRevision(StandardPlanLevel.GROWTH, "one-growth", Set.of(READ, platform, custom)));
+
+        assertThrows(IllegalArgumentException.class, () -> new CommercialCatalogueManifest(
+                revisions, Set.of(root, platformBinding, customBinding),
+                Set.of("fixture-evidence"), "fixture-approval"));
+    }
+
+    @Test
+    void every_conditional_alternative_must_resolve_to_an_exact_binding() {
+        var missingTarget = target("fixture-brand", "fixture/missing-namespace", "1");
+        var conditional = new CommercialConditionalSupportingAccessRequirement(
+                "fixture-namespace-family-authority",
+                Set.of(new CommercialConditionalSupportAlternative(
+                        "MISSING", missingTarget, Set.of("USE_MISSING"))),
+                "fixture-classification-authority");
+        var root = new CommercialAccessBinding(
+                READ, CommercialEntitlementTargetKind.PLATFORM_SERVICE_ACCESS, TARGET, "SERVE",
+                "fixture-target-authority", Set.of(), Set.of(conditional), "fixture-boundary");
+
+        assertThrows(IllegalArgumentException.class, () -> manifest(
+                "one", Set.of(READ), Set.of(READ), Set.of(root)));
+    }
+
+    @Test
     void immutable_snapshots_do_not_retain_mutable_caller_collections() {
         var purposes = new HashSet<>(Set.of("PRESENT"));
         var support = requirement(SUPPORT, purposes);
