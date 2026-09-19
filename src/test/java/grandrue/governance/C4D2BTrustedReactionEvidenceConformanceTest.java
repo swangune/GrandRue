@@ -33,7 +33,7 @@ class C4D2BTrustedReactionEvidenceConformanceTest {
     }
 
     @Test
-    void c4d_closure_is_preserved_after_c2b_and_active_c3_advance_the_live_frontier() throws Exception {
+    void c4d_closure_is_preserved_as_later_frontier_work_advances() throws Exception {
         String graph = Files.readString(Path.of("docs/development",
                 "implementation-programme-state.json"));
         String controller = Files.readString(Path.of("IMPLEMENTATION.md"));
@@ -48,10 +48,11 @@ class C4D2BTrustedReactionEvidenceConformanceTest {
         assertTrue(graph.contains("\"id\":\"IMP-08C-C4D2\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(graph.contains("\"id\":\"IMP-08C-C4D\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(graph.contains("\"id\":\"IMP-08C-C2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
-        assertTrue(graph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"IN_PROGRESS\""));
+        assertTrue(graph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(graph.contains("imp-08c-c3-attempt-ledger-checkpoint-2026-09-14.md"));
-        assertTrue(controller.contains("id: IMP-08C-C3"));
-        assertTrue(controller.contains("state: IN_PROGRESS"));
+        assertTrue(graph.contains("imp-08c-c3-rollout-ordering-closure-2026-09-19.md"));
+        assertTrue(controller.contains("id: IMP-08C"));
+        assertTrue(controller.contains("canonical_graph: docs/development/implementation-programme-state.json"));
         assertTrue(history.contains("`IMP-08C-C2B — Registered work owner binding/current revalidation` — **READY**"));
     }
 }

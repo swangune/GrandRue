@@ -36,8 +36,9 @@ class C4CFrontierEvidenceConformanceTest {
         assertTrue(history.contains("CONFORMING_COMPLETE under current v1.7 evidence"));
         assertTrue(programmeGraph.contains("\"id\":\"IMP-08C-C4D2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(programmeGraph.contains("\"id\":\"IMP-08C-C2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
-        assertTrue(programmeGraph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"IN_PROGRESS\""));
+        assertTrue(programmeGraph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(programmeGraph.contains("imp-08c-c3-attempt-ledger-checkpoint-2026-09-14.md"));
+        assertTrue(programmeGraph.contains("imp-08c-c3-rollout-ordering-closure-2026-09-19.md"));
         assertTrue(controller.contains("implementation_state: IN_PROGRESS"));
         assertTrue(graph.contains(REVIEW.getFileName().toString()));
         assertTrue(evidence.contains("Counterevidence and completion falsification"));

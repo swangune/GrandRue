@@ -194,10 +194,10 @@ class ImplementationProgrammeGateConformanceTest {
                 "docs", "development", "implementation-programme-state.json"
         ));
         assertTrue(controller.contains("id: IMP-08C"));
-        assertTrue(controller.contains("state: IN_PROGRESS"));
         assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C2\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
-        assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"IN_PROGRESS\""));
+        assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
+        assertTrue(currentGraph.contains("imp-08c-c3-rollout-ordering-closure-2026-09-19.md"));
         assertTrue(controller.contains("canonical_graph: docs/development/implementation-programme-state.json"));
         assertTrue(controller.contains("historical_status_compatibility: docs/development/implementation-status.md"));
         String compatibility = Files.readString(Path.of(
