@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.58
+**Version:** 1.59
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -3435,5 +3435,32 @@ Physical Location
 
 Map / directions / street-level imagery
     ≠ source business truth
+```
+---
+
+## 37. Merchant assistance commercial-support boundary
+
+### Merchant Assistance Supporting Interaction
+
+**Authority:** MS-PROT-057 v1.3.
+
+The exact bounded `merchant-assistance/supporting-interaction-access@1` platform-service access contract over the merchant-assistance responsibility portfolio accepted through MS-PROT-057 v1.2. It requires no independent Commercial Entitlement and mints no `CommercialEntitlementIdentity`.
+
+It permits assistance to interpret, explain, prepare and coordinate only within independently applicable underlying authority. It does not create semantic applicability, Actor Authorisation, Commercial permission, Provider Readiness, Exposure, merchant intent or business truth.
+
+Canonical distinctions:
+
+```text
+Merchant Assistance
+    ≠ underlying capability permission
+    ≠ Actor Authorisation
+    ≠ Commercial Entitlement
+    ≠ business truth
+
+AI/provider choice
+    ≠ commercial identity
+
+NO INDEPENDENT COMMERCIAL ENTITLEMENT
+    ≠ unlimited resource consumption
 ```
 
