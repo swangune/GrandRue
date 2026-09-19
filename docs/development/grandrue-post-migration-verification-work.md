@@ -434,19 +434,18 @@ execution:
   historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
   active_packet:
-    id: GR-VV-03-R002
+    id: GR-VV-03-R003
     kind: CLOSED_REGION_PRESERVATION
     state: READY
     progress:
-      total_files: 376
+      total_files: 5
       verified_files: 0
       passing_files: 0
       failing_files: 0
       blocked_files: 0
-      remaining_files: 376
+      remaining_files: 5
       progress_evidence: null
   queue:
-    - GR-VV-03-R002
     - GR-VV-03-R003
     - GR-VV-03-R004
   completed_packets:
@@ -465,9 +464,12 @@ execution:
     - id: GR-VV-03-R001
       result: FAIL
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R001.json
+    - id: GR-VV-03-R002
+      result: PASS
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R002.json
   results_recorded: true
   implementation_handoff: BLOCKED
-  next_action: Execute GR-VV-03-R002 against the frozen 376-file test Java deterministic region. Preserve GR-VV-F001 and GR-VV-F002 unchanged; continue independent verification without repairing discrepancies. Apply the frozen test namespace rule plus only the explicit overlays recorded in regions.json, and emit exact per-file results.
+  next_action: Execute GR-VV-03-R003 against the frozen 5-file build/CI/storefront current-naming deterministic region. Preserve GR-VV-F001 and GR-VV-F002 unchanged; continue independent verification without repairing discrepancies.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
