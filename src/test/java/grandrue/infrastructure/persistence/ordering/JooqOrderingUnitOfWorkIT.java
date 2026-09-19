@@ -1,15 +1,15 @@
-package mainstreet.ordering;
+package grandrue.ordering;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.customer.CustomerContext;
-import mainstreet.customer.InMemoryCustomerContextAuthority;
-import mainstreet.infrastructure.persistence.ordering.JooqOrderingUnitOfWork;
-import mainstreet.inventory.InsufficientQuantityException;
-import mainstreet.money.CurrencyIdentity;
-import mainstreet.money.MonetaryAmount;
-import mainstreet.runtime.OperationExecutionGuard;
-import mainstreet.semantic.DomainEvent;
-import mainstreet.semantic.QuantityAllocationScope;
+import grandrue.application.MerchantScope;
+import grandrue.customer.CustomerContext;
+import grandrue.customer.InMemoryCustomerContextAuthority;
+import grandrue.infrastructure.persistence.ordering.JooqOrderingUnitOfWork;
+import grandrue.inventory.InsufficientQuantityException;
+import grandrue.money.CurrencyIdentity;
+import grandrue.money.MonetaryAmount;
+import grandrue.runtime.OperationExecutionGuard;
+import grandrue.semantic.DomainEvent;
+import grandrue.semantic.QuantityAllocationScope;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
