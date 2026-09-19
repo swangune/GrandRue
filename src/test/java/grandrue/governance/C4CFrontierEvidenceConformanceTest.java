@@ -38,7 +38,7 @@ class C4CFrontierEvidenceConformanceTest {
         assertTrue(programmeGraph.contains("\"id\":\"IMP-08C-C2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(programmeGraph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"IN_PROGRESS\""));
         assertTrue(programmeGraph.contains("imp-08c-c3-attempt-ledger-checkpoint-2026-09-14.md"));
-        assertTrue(controller.contains("implementation_state: PAUSED_FOR_MIGRATION_VERIFICATION"));
+        assertTrue(controller.contains("implementation_state: IN_PROGRESS"));
         assertTrue(graph.contains(REVIEW.getFileName().toString()));
         assertTrue(evidence.contains("Counterevidence and completion falsification"));
         assertTrue(evidence.contains("UNCERTAIN / outside evidence"));
