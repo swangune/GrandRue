@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.57
+**Version:** 1.58
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -691,6 +691,12 @@ The protected Commercial purpose for otherwise-valid establishment or material r
 **Authority:** MS-PROT-044 v1.3.
 
 The protected Commercial purpose for otherwise-valid establishment or material revision of Product and, where semantically justified, ProductVariant definition truth. It is allocated to FREE + BUSINESS + GROWTH for the current standard catalogue. Product remains optional, ProductVariant remains Product-owned, and this purpose does not grant Inventory, transaction, Exposure, Storefront or Actor Authorisation.
+
+### MAINTAIN_MERCHANT_LISTING_DEFINITION
+
+**Authority:** MS-PROT-044 v1.6.
+
+The protected Commercial purpose for otherwise-valid creation of a new Listing or establishment of a new current immutable ListingRevision. It is allocated to FREE + BUSINESS + GROWTH for the current standard catalogue. It does not grant underlying-subject mutation, Category authority, Physical Location authority, Exposure, Storefront delivery, Enquiry, Booking, Appointment, Ordering, Payment, Quotation, Invoicing or Actor Authorisation. Listing observation and terminal withdrawal require no independent Commercial Entitlement.
 
 ### Commercial Catalogue Manifest
 
