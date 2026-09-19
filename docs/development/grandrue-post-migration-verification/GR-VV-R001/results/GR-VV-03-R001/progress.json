@@ -6,13 +6,13 @@
   "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
   "method_version": "grandrue-preservation-checker/v1",
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
-  "state": "IN_PROGRESS",
+  "state": "CHECKPOINTED",
   "total_files": 1094,
-  "verified_files": 959,
-  "passing_files": 957,
+  "verified_files": 1094,
+  "passing_files": 1092,
   "failing_files": 2,
   "blocked_files": 0,
-  "remaining_files": 135,
+  "remaining_files": 0,
   "completed_packages": [
     "(root)",
     "audit",
@@ -44,7 +44,9 @@
     "commercial",
     "infrastructure",
     "semantic",
-    "surface"
+    "surface",
+    "merchantprofile",
+    "onboarding"
   ],
   "chunks": [
     {
@@ -262,8 +264,28 @@
       "files": 178,
       "pass": 178,
       "fail": 0
+    },
+    {
+      "chunk": "merchantprofile",
+      "git_blob": "e997264e96128c8737758d95f563b4026c84749e",
+      "sha256": "ef7b31983466093d5b5ace51f1460adc594b763e72c868603378a52e70a884a0",
+      "files": 79,
+      "pass": 79,
+      "fail": 0
+    },
+    {
+      "chunk": "onboarding",
+      "git_blob": "5fb3534f1c8c1f61eef8683da7e76c6ebfecb9b6",
+      "sha256": "6f09d22af1d38c27f289e71e59eff23afe2196ce256f0ec7c431766ead014fef",
+      "files": 56,
+      "pass": 56,
+      "fail": 0
     }
   ],
-  "conclusion": "NO_REGION_VERDICT_YET",
-  "next_action": "Continue GR-VV-03-R001 from the durable 959/1094 production-file checkpoint with open findings GR-VV-F001 and GR-VV-F002 preserved. Reconstruct recorded claim lineage for merchantprofile (79 files) and onboarding (56 files), then verify each against complete M blobs, exact path/mode obligations, frozen namespace transformation plus any recorded wording overlay, and independently evidenced staged consumer-import transitions. Do not repair discrepancies."
+  "conclusion": "FAIL",
+  "next_action": "Execute GR-VV-03-R002 against the 376-file test Java deterministic region. Preserve GR-VV-F001 and GR-VV-F002 unchanged; continue independent verification without repairing discrepancies.",
+  "finding_ids": [
+    "GR-VV-F001",
+    "GR-VV-F002"
+  ]
 }
