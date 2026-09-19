@@ -396,10 +396,10 @@ active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
 active_state: PREPARATION_REQUIRED
 last_completed_leaf: GR-REN-02-01X739
-last_completed_task: GR-REN-03-T019
-last_code_commit: 69407548d5d21f82801e446802048a82ed77b585
-last_validation_gate: GR-REN-03-T019_STRUCTURAL
-last_validation_target: 69407548d5d21f82801e446802048a82ed77b585
+last_completed_task: GR-REN-03-T020
+last_code_commit: 1002edf8509524bdf113c277a37ce3cc2b6d087b
+last_validation_gate: GR-REN-03-T020_STRUCTURAL
+last_validation_target: 1002edf8509524bdf113c277a37ce3cc2b6d087b
 symbolic_standalone_production_residuals: 0
 
 gr_ren_03:
@@ -424,12 +424,13 @@ gr_ren_03:
     - GR-REN-03-T017
     - GR-REN-03-T018
     - GR-REN-03-T019
-  migrated_test_java_files: 78
-  remaining_in_scope_legacy_test_java_files: 298
+    - GR-REN-03-T020
+  migrated_test_java_files: 98
+  remaining_in_scope_legacy_test_java_files: 278
   excluded_legacy_prototype_test_java_files: 18
   embedded_runtime_compatibility_identifiers: DEFERRED_CLASSIFICATION
 
-next_action: Continue GR-REN-03 from the live post-T019 checkpoint. Reuse the whole-region analysis and execute the next largest mechanically provable dependency-closed normal test subgraph; preserve the 18 excluded legacy prototype tests; classify path/package/runtime compatibility assertions separately; do not run Maven tests or GitHub Actions without separate authorisation.
+next_action: Continue GR-REN-03 from the live post-T020 checkpoint. Reuse the whole-region analysis and execute the next largest mechanically provable dependency-closed normal test subgraph; preserve the 18 excluded legacy prototype tests; classify path/package/runtime compatibility assertions separately; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
