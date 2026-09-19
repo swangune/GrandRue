@@ -916,6 +916,8 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-03-T033`: migrated the complete live `src/test/java/mainstreet/infrastructure/persistence/audit/**` Java test-owner region as one dependency-closed normal subgraph. One owner moved to the corresponding `src/test/java/grandrue/infrastructure/persistence/audit/**` path with 5 deterministic executable namespace replacements. Every string literal, character literal, text block, comment, assertion and test datum was preserved byte-for-byte. Aggregate structural verification proved the exact two-path transaction, the frozen source blob, the expected replacement count, legacy-owner absence, destination presence, and exact destination-blob identity. Code commit `99556730d3fb75c8826ef56f37ac92238b0e8da1`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-03-T034`: migrated five independently closed singleton persistence test subpackages under `src/test/java/mainstreet/infrastructure/persistence/{media,privacy,release,runtime,credential}/**` as one parent-region closed subgraph. Five owners moved to corresponding GrandRue paths with 32 deterministic executable namespace replacements. Every string literal, character literal, text block, comment, assertion and test datum was preserved byte-for-byte. Aggregate structural verification proved the exact six-path transaction, all five frozen source blobs, all expected replacement counts, all five legacy owners absent, all five destinations present, and every destination blob exactly matched the deterministic transformed source. Code commit `4b121b308bfbae862667786757e9849b02d29b97`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `IN_PROGRESS`
@@ -941,12 +943,12 @@ status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-03
 selected_execution_leaf: null
-last_completed_task: GR-REN-03-T033
-last_task_commit: 99556730d3fb75c8826ef56f37ac92238b0e8da1
+last_completed_task: GR-REN-03-T034
+last_task_commit: 4b121b308bfbae862667786757e9849b02d29b97
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 99556730d3fb75c8826ef56f37ac92238b0e8da1
-next_action: Continue GR-REN-03 from the live post-T033 checkpoint. Reuse the whole-region analysis and execute the next largest mechanically provable dependency-closed normal test subgraph; 193 in-scope legacy test Java files remain after T033, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Preserve strings/comments/stable compatibility identities unless explicitly classified; isolate runtime/path/package-assertion exceptions; do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: 4b121b308bfbae862667786757e9849b02d29b97
+next_action: Continue GR-REN-03 from the live post-T034 checkpoint. Reuse the whole-region analysis and execute the next largest mechanically provable dependency-closed normal test subgraph; 188 in-scope legacy test Java files remain after T034, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Preserve strings/comments/stable compatibility identities unless explicitly classified; isolate runtime/path/package-assertion exceptions; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---
