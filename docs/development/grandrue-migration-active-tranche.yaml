@@ -2,100 +2,48 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T041
+tranche: GR-REN-03-T042
 group: GR-REN-03
-state: COMPLETE
-code_commit: 4bd709e6fd3797695c162ccd0ed6dbc7ef54acaf
-expected_parent: ca8b8c9e3102982b0bd09de34aa15d5ae036eedb
-validated_head: 4bd709e6fd3797695c162ccd0ed6dbc7ef54acaf
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 324cbc3f39fa45e1197665ff2fb309fecf732012
 
 region:
-  identity: test-booking
-  closure_basis: complete live src/test/java/mainstreet/booking/** Java owner region; governance references to test-scope booking helper names are string/path evidence only and remain unchanged
+  identity: test-infrastructure-persistence-root
+  closure_basis: complete live flat src/test/java/mainstreet/infrastructure/persistence/*.java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 12
+    owner_count: 2
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 81
+    executable_namespace_replacement_count: 2
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/booking/BookingNotificationGateway.java
-      to: src/test/java/grandrue/booking/BookingNotificationGateway.java
-      blob_sha: 38ad73db5ce578ca6fdb8d6715d5c7447944e01c
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/booking/BookingNotificationDelivery.java
-      to: src/test/java/grandrue/booking/BookingNotificationDelivery.java
-      blob_sha: 52c39a0f140fd03a85aed9eba1cf6b49797043c7
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/booking/NotificationDeliveryException.java
-      to: src/test/java/grandrue/booking/NotificationDeliveryException.java
-      blob_sha: 42b88aa7e85f981266a42dd6f8213c5e290edba0
+    - from: src/test/java/mainstreet/infrastructure/persistence/FlywayMigrationChainIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/FlywayMigrationChainIT.java
+      blob_sha: 87fcdec2fdb19401e06dbc77749d461479dbe493
       executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/booking/TemporalProvenanceContractTest.java
-      to: src/test/java/grandrue/booking/TemporalProvenanceContractTest.java
-      blob_sha: f2c967a93726c129fd5fe6f02af7e6da266c38f4
+    - from: src/test/java/mainstreet/infrastructure/persistence/PostgresPersistenceFoundationIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/PostgresPersistenceFoundationIT.java
+      blob_sha: 08dde1df09c0ce1194b60c68dacb19e7e8aa3618
       executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/booking/BookingOutboxPublicationContractTest.java
-      to: src/test/java/grandrue/booking/BookingOutboxPublicationContractTest.java
-      blob_sha: db7debbe1371f2a961629ed66c43f8fd14092ac3
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/booking/BookingAppointmentExecutionContractTest.java
-      to: src/test/java/grandrue/booking/BookingAppointmentExecutionContractTest.java
-      blob_sha: e3c99c09b9aa36b85a9a3ed0129b9477c244b91a
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/booking/AppointmentMutationOwnershipBoundaryTest.java
-      to: src/test/java/grandrue/booking/AppointmentMutationOwnershipBoundaryTest.java
-      blob_sha: 35f36d694c5051e87acf5bbda5e445ce311cbad4
-      executable_namespace_replacements: 8
-    - from: src/test/java/mainstreet/booking/BookingAvailabilityImpactAssessmentTest.java
-      to: src/test/java/grandrue/booking/BookingAvailabilityImpactAssessmentTest.java
-      blob_sha: 09044445792231bb0c4dd34bb791bf13b61356a5
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/booking/BookingApplicationServiceTest.java
-      to: src/test/java/grandrue/booking/BookingApplicationServiceTest.java
-      blob_sha: 847211d2dca95701123e1a2889d856e2c0bfdfdb
-      executable_namespace_replacements: 6
-    - from: src/test/java/mainstreet/booking/BookingNotificationDeliveryTest.java
-      to: src/test/java/grandrue/booking/BookingNotificationDeliveryTest.java
-      blob_sha: c96d61dbaa9cb03d51fa19d550be98cb77b0d695
-      executable_namespace_replacements: 6
-    - from: src/test/java/mainstreet/booking/BookingOperationHandlerTest.java
-      to: src/test/java/grandrue/booking/BookingOperationHandlerTest.java
-      blob_sha: 44ba0bf2ba1b0b49007242445f2eddf85aed686e
-      executable_namespace_replacements: 22
-    - from: src/test/java/mainstreet/booking/AppointmentOperationalObjectOwnershipTest.java
-      to: src/test/java/grandrue/booking/AppointmentOperationalObjectOwnershipTest.java
-      blob_sha: e83c29ce90fb143598321b4c3071e90db43c382f
-      executable_namespace_replacements: 24
 
 deterministic_transformations:
   owners:
-    - move all twelve declared owners to corresponding src/test/java/grandrue/booking/** paths
+    - move both declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/ paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
-  prohibited:
-    - no governance string/path rewrite
-    - no assertion, test-data, semantic or behavioural change
-    - no legacy prototype mutation
-    - no Maven/build/CI/runtime configuration mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 13
+  expected_changed_path_count: 3
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  executable_legacy_reference_absence: required
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

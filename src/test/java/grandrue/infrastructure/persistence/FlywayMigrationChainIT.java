@@ -1,4 +1,4 @@
-package mainstreet.infrastructure.persistence;
+package grandrue.infrastructure.persistence;
 
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.AfterEach;
