@@ -1,6 +1,6 @@
-package mainstreet.media;
+package grandrue.media;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;

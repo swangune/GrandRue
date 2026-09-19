@@ -1,4 +1,4 @@
-package mainstreet.credential;
+package grandrue.credential;
 
 import org.junit.jupiter.api.Test;
 

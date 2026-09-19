@@ -2,58 +2,83 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T012
+tranche: GR-REN-03-T013
 group: GR-REN-03
-state: COMPLETE
-code_commit: 9470af6893f6524abbb48cf387130cf6552be1f5
-expected_parent: 29280eb4c335ff46090e901a003248c92824d801
-validated_head: 9470af6893f6524abbb48cf387130cf6552be1f5
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: bf9cd6a3f8b0ddc9e628ab6920f25619667753b9
 
 region:
-  identity: test-resilience
-  closure_basis: complete live src/test/java/mainstreet/resilience/** Java test region; no external test consumers
+  identity: isolated-single-owner-top-level-test-packages
+  closure_basis: nine complete live single-owner top-level test package regions with no external test consumers; one documentation-only class-name reference is non-executable and unchanged
 
 classification:
   normal_closed:
-    owner_count: 1
+    owner_count: 9
     external_test_consumer_count: 0
-    production_import_repair_count: 0
+    production_import_repair_count: 10
   embedded_legacy_symbolic_or_wording_residuals:
     count: 0
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/resilience/ExecutionUncertaintyAndResilienceTest.java
-      to: src/test/java/grandrue/resilience/ExecutionUncertaintyAndResilienceTest.java
-      blob_sha: dc0e207294b49ab5cf6ad711fce165702201851c
+    - from: src/test/java/mainstreet/audit/AuditRecordTest.java
+      to: src/test/java/grandrue/audit/AuditRecordTest.java
+      blob_sha: 91da902efce76cf970b20c38d3cce65c588a66c2
+    - from: src/test/java/mainstreet/businesshours/StandardBusinessHoursTest.java
+      to: src/test/java/grandrue/businesshours/StandardBusinessHoursTest.java
+      blob_sha: 8713fe376ae84cd703d395c42db709737238abe5
+    - from: src/test/java/mainstreet/credential/CredentialGenerationPolicyTest.java
+      to: src/test/java/grandrue/credential/CredentialGenerationPolicyTest.java
+      blob_sha: 6b4d31a25f404d8634b52c20eca3b545f02af38a
+    - from: src/test/java/mainstreet/customer/CustomerContextAuthorityTest.java
+      to: src/test/java/grandrue/customer/CustomerContextAuthorityTest.java
+      blob_sha: 1f30fe1304f1ecdf7605cb9777630521dc64438d
+    - from: src/test/java/mainstreet/experiments/AllocationGenericityExperimentTest.java
+      to: src/test/java/grandrue/experiments/AllocationGenericityExperimentTest.java
+      blob_sha: 17c673051cf3d19696dced4cc65ec6c825dd9dfc
+    - from: src/test/java/mainstreet/media/MediaSemanticModelTest.java
+      to: src/test/java/grandrue/media/MediaSemanticModelTest.java
+      blob_sha: e146b27b20219dd5955b0da0463bbeebcbd9d8de
+    - from: src/test/java/mainstreet/observability/OperationalObservabilityModelTest.java
+      to: src/test/java/grandrue/observability/OperationalObservabilityModelTest.java
+      blob_sha: e4fb23ed26fe4b7a5f2614804ba196797f5404d6
+    - from: src/test/java/mainstreet/privacy/PersonalMediaUseEligibilityAuthorityTest.java
+      to: src/test/java/grandrue/privacy/PersonalMediaUseEligibilityAuthorityTest.java
+      blob_sha: f359dd716468dec5a7865cef7c5a2b5a0d55cdb8
+    - from: src/test/java/mainstreet/protection/ResourceProtectionModelTest.java
+      to: src/test/java/grandrue/protection/ResourceProtectionModelTest.java
+      blob_sha: e7f07acf557e04006b45140fb21825aaefb972d4
 
 deterministic_transformations:
   owners:
-    - move the declared owner to the corresponding src/test/java/grandrue/resilience/** path
-    - replace exactly one package declaration package mainstreet.resilience; with package grandrue.resilience;
+    - move all nine declared owners to their corresponding src/test/java/grandrue/<package>/** paths
+    - replace exactly nine package declarations from package mainstreet.<package>; to package grandrue.<package>;
+    - replace exactly ten executable imports from migrated mainstreet.* production namespaces to their grandrue.* counterparts
   consumers:
-    - none; exact class-name search found no external test consumers
+    - none; exact class-name searches found no external test consumers
+    - docs/development/imp-06-conformance-baseline-2026-08-30.md contains a documentation-only ResourceProtectionModelTest name reference and remains unchanged
   prohibited:
     - no assertion, method body, string literal, comment, semantic or behavioural change
     - no legacy prototype test mutation
+    - no documentation mutation
     - no Maven/build/CI/runtime configuration mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 3
+  expected_changed_path_count: 19
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  import_repair_count: 0
+  import_repair_count: 10
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 protected:
-  - every assertion, method body, string literal and test-data identity unchanged
+  - every assertion, method body, string literal, comment and test-data identity unchanged
+  - documentation-only class-name references unchanged
   - legacy prototype tests unchanged
 
 expected_residuals:
@@ -61,11 +86,9 @@ expected_residuals:
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - source blob and absent GrandRue destination were reconciled against development at 29280eb4c335ff46090e901a003248c92824d801
-  - all referenced GrandRue resilience production owners exist
-  - exact class-name search found no external test consumers
-  - no executable legacy import or embedded Main Street/current-product identifier occurs in this region
+  - all nine source blobs and absent GrandRue destinations were reconciled against development at bf9cd6a3f8b0ddc9e628ab6920f25619667753b9
+  - all required migrated GrandRue production import targets exist
+  - exact class-name searches found no external test consumers
+  - exactly nineteen executable mainstreet.* occurrences are classified as nine package declarations plus ten production imports
+  - no embedded Main Street/current-product wording occurs in the nine-owner region
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

@@ -1,10 +1,10 @@
-package mainstreet.experiments;
+package grandrue.experiments;
 
-import mainstreet.inventory.InMemoryQuantityAllocationAuthority;
-import mainstreet.semantic.AllocationClaim;
-import mainstreet.semantic.InMemoryTimeWindowAllocationAuthority;
-import mainstreet.semantic.QuantityAllocationScope;
-import mainstreet.semantic.TimeWindowAllocationScope;
+import grandrue.inventory.InMemoryQuantityAllocationAuthority;
+import grandrue.semantic.AllocationClaim;
+import grandrue.semantic.InMemoryTimeWindowAllocationAuthority;
+import grandrue.semantic.QuantityAllocationScope;
+import grandrue.semantic.TimeWindowAllocationScope;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

@@ -1,4 +1,4 @@
-package mainstreet.protection;
+package grandrue.protection;
 
 import org.junit.jupiter.api.Test;
 

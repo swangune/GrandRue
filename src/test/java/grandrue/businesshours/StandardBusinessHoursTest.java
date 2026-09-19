@@ -1,6 +1,6 @@
-package mainstreet.businesshours;
+package grandrue.businesshours;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import org.junit.jupiter.api.Test;
 
 import java.time.DayOfWeek;
