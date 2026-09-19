@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 65,
-  "passing_files": 65,
-  "failing_files": 0,
+  "verified_files": 86,
+  "passing_files": 85,
+  "failing_files": 1,
   "blocked_files": 0,
-  "remaining_files": 1029,
+  "remaining_files": 1008,
   "completed_packages": [
     "(root)",
     "audit",
@@ -21,7 +21,8 @@
     "identitysecurity",
     "resilience",
     "observability",
-    "api"
+    "api",
+    "application"
   ],
   "chunks": [
     {
@@ -55,8 +56,16 @@
       "files": 25,
       "pass": 25,
       "fail": 0
+    },
+    {
+      "chunk": "application",
+      "git_blob": "d34bb54ddf94988656f5df8eac34b1e969ccc653",
+      "sha256": "6f2b8e7db6c2447b1c2671760d52c9ba9097dee5663de64261af96e2bd09899d",
+      "files": 21,
+      "pass": 20,
+      "fail": 1
     }
   ],
   "conclusion": "NO_REGION_VERDICT_YET",
-  "next_action": "Continue package-closed production verification from remaining packages; apply explicit production wording overlay to the 37 declared files when encountered."
+  "next_action": "Continue package-closed production verification from remaining packages while preserving open finding GR-VV-F001; apply explicit production wording overlay to the 37 declared files when encountered. Do not repair discrepancies."
 }
