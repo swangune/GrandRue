@@ -439,11 +439,11 @@ execution:
     state: IN_PROGRESS
     progress:
       total_files: 1094
-      verified_files: 145
-      passing_files: 144
+      verified_files: 160
+      passing_files: 159
       failing_files: 1
       blocked_files: 0
-      remaining_files: 949
+      remaining_files: 934
       progress_evidence: docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R001/progress.json
   queue:
     - GR-VV-03-R001
@@ -465,7 +465,7 @@ execution:
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-00.json
   results_recorded: true
   implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
-  next_action: Continue GR-VV-03-R001 from the durable 145/1094 production-file checkpoint with open finding GR-VV-F001 preserved. Verify remaining package-closed subsets using complete M blob retrieval, baseline-object self-check, frozen namespace transformation plus the explicit 37-file wording overlay where applicable, expected Git blob SHA comparison to D, and exact mode/path obligations. Do not repair discrepancies.
+  next_action: Continue GR-VV-03-R001 from the durable 160/1094 production-file checkpoint with open finding GR-VV-F001 preserved. Verify remaining package-closed subsets using complete M blob retrieval, baseline-object self-check, frozen namespace transformation plus the explicit 37-file wording overlay where applicable, expected Git blob SHA comparison to D, and exact mode/path obligations. Do not repair discrepancies.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
