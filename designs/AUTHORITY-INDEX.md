@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.41
+**Version:** 4.42
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -84,7 +84,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-041 | through v1.1 |
 | MS-PROT-042 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 + v1.7 + v1.8 + v1.9 + v1.10 + v1.11 + v1.12 + v1.13 + v1.14 + v1.15 + v1.16 |
 | MS-PROT-043 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
-| MS-PROT-044 | base + v1.1 + v1.2 within Offering/Product/ProductVariant owner-qualified merchant-definition access scope + v1.3 within Offering/Product commercial-access classification scope + v1.4 within merchant subject categorisation, Merchandise Condition and Listing Transaction Mode scope |
+| MS-PROT-044 | base + v1.1 + v1.2 within Offering/Product/ProductVariant owner-qualified merchant-definition access scope + v1.3 within Offering/Product commercial-access classification scope + v1.4 within merchant subject categorisation, Merchandise Condition and Listing Transaction Mode scope + v1.5 within Listing lifecycle, immutable revision and merchant-definition access scope |
 | MS-PROT-045 | through v1.1 |
 | MS-PROT-046 | v1.1 + v1.2 + v1.3 + v1.4 + v1.5 |
 | MS-PROT-047 | v1.0 |
@@ -150,6 +150,8 @@ The following cross-authority links are retained explicitly because they materia
 - MS-PROT-044 v1.3 — `MS-PROT-044 v1.3 — Merchant Offering & Product Commercial Access Classification Amendment.md` — classifies `offering/merchant-definition-authoring-access@1` / `MAINTAIN_MERCHANT_OFFERING_DEFINITION` and `product/merchant-definition-authoring-access@1` / `MAINTAIN_MERCHANT_PRODUCT_DEFINITION` for FREE + BUSINESS + GROWTH, while the two merchant-definition observation contracts require no independent Commercial Entitlement. It preserves Product optionality, Listing exclusion and independent Inventory/transaction/Exposure/Storefront authority, narrows `MS-PROT-056-V17-DQ-001`, mints no final entitlement identity, publishes no catalogue and activates no implementation.
 
 - MS-PROT-044 v1.4 — `MS-PROT-044 v1.4 — Merchant Subject Categories, Merchandise Condition & Listing Transaction Mode Amendment.md` — resolves the bounded initial `classification/category system` deferral through merchant-scoped non-executable Categories over Offering/Product/Listing, establishes `NEW`, `USED`, `REFURBISHED` as initial Merchandise Condition values and `SALE`, `RENT` as initial Listing Transaction Mode values, preserves ProductVariant and capability ownership boundaries, classifies Category maintenance/assignment with no independent Commercial Entitlement, creates no Listing commercial-authoring authority and activates no implementation.
+
+- MS-PROT-044 v1.5 — `MS-PROT-044 v1.5 — Listing Lifecycle, Immutable Revision & Merchant Authoring Access Amendment.md` — establishes stable Listing identity, immutable primary-subject affinity, immutable Listing revisions, exact ACTIVE/WITHDRAWN lifecycle, no reactivation, field-bounded merchant revision, terminal withdrawal and exact Listing observation/authoring/withdrawal access contracts. ACTIVE remains separate from Exposure/availability; SALE↔RENT and primary-subject changes require a new Listing identity; Commercial tier classification remains open and implementation activation is NONE.
 
 - MS-PROT-083 v1.7 — `MS-PROT-083 v1.7 — Business Intelligence Commercial Access Classification Amendment.md` — classifies `business-intelligence/business-analytics-evaluation-access@1` / `USE_BUSINESS_ANALYTICS` for BUSINESS + GROWTH, `business-intelligence/campaign-analytics-evaluation-access@1` / `USE_CAMPAIGN_ANALYTICS` for GROWTH, and `business-intelligence/merchant-analytics-presentation-access@1` with no independent Commercial Entitlement. It preserves source-capability ownership, analytical applicability/coverage, retained-history and downgrade boundaries, keeps Campaign execution and source mutation independently governed, and leaves report/export commercial classification plus the final concrete DQ-001 catalogue manifest open.
 
