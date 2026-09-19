@@ -1,7 +1,7 @@
-package mainstreet.semantic.executable;
+package grandrue.semantic.executable;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
 import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 

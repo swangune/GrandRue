@@ -2,38 +2,35 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T030
+tranche: GR-REN-03-T031
 group: GR-REN-03
-state: COMPLETE
-code_commit: 3499d61144e25e58f107c123a08c31e560c4c89d
-expected_parent: 6b77f7d3acbf87a560e005869ea1ce4d133465f1
-validated_head: 3499d61144e25e58f107c123a08c31e560c4c89d
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 61aa57f70c7fb39171f00ea2c37be3bbee8b74c9
 
 region:
-  identity: test-semantic-registry
-  closure_basis: complete live src/test/java/mainstreet/semantic/registry/** Java test-owner region
+  identity: test-semantic-executable
+  closure_basis: complete live src/test/java/mainstreet/semantic/executable/** Java test-owner region
 
 classification:
   normal_closed:
     owner_count: 1
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 1
+    executable_namespace_replacement_count: 3
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/semantic/registry/SemanticRegistrySnapshotTest.java
-      to: src/test/java/grandrue/semantic/registry/SemanticRegistrySnapshotTest.java
-      blob_sha: 4b517db1e716f3413988c2f291edf5e1777bb793
-      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/semantic/executable/ActiveOperationResolverTest.java
+      to: src/test/java/grandrue/semantic/executable/ActiveOperationResolverTest.java
+      blob_sha: 2eefa6dbfdbcdef80b3f5235373ab90454f37fcc
+      executable_namespace_replacements: 3
 
 deterministic_transformations:
   owners:
-    - move the declared owner to corresponding src/test/java/grandrue/semantic/registry/** path
+    - move the declared owner to corresponding src/test/java/grandrue/semantic/executable/** path
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -51,6 +48,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
