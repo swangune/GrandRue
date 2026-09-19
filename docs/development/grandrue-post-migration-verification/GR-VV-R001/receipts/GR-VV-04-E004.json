@@ -1,0 +1,65 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-04-E004",
+  "packet_kind": "EXCEPTION_VALIDATION",
+  "exception_id": "GR-VV-EXC-004",
+  "exception_name": "introduced_operational_evidence",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method": {
+    "version": "grandrue-preservation-checker/v1",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+    "exception_rule": "independent_introduction_plus_complete_path_history/v1"
+  },
+  "checks": {
+    "total_files": 8,
+    "passed": 8,
+    "failed": 0,
+    "blocked": 0,
+    "remaining": 0,
+    "introduction_objects_verified": 8,
+    "target_objects_verified": 8,
+    "total_path_touch_commits": 802,
+    "manual_reviewed_distinct_commits": 6,
+    "unattributed_history_mutations": 0,
+    "modes_preserved": 8
+  },
+  "manual_reviewed_commits": [
+    "469a11da4a0101710ef931147c39ee9a5c038a29",
+    "301ea024c926a4748cc2e01936210dbf7739eb46",
+    "5e37476e9948b85aa5926c93527ec16c65e2861c",
+    "2cca86dce3e6868b3b8ce91c56a2016e1e3df9a5",
+    "6010bbfde05c194951280ecfcb737f092a2ddffc",
+    "18bf2ef88f82b79d7c52c479e1f2c6fda72fa29c"
+  ],
+  "findings": [],
+  "prior_open_findings_preserved": [
+    "GR-VV-F001",
+    "GR-VV-F002"
+  ],
+  "independent_passing_results_preserved": true,
+  "outputs": {
+    "progress": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-E004/progress.json",
+      "git_blob": "1379da674159bfdcb26e46787ca48011ede0ba74",
+      "sha256": "4221a6490bbfa0b0f0c1b4a738551132aaf6ea703042dd848c37d4b1266cf530"
+    },
+    "exception_results": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-E004/introduced-operational-evidence.jsonl",
+      "git_blob": "9fb7cfc37d0b9f626cea84adf5f7b91fb4fd0b46",
+      "sha256": "80aaa43f069e25b68ea172feb63b718c899297e21cc2091614c4ef801b461000",
+      "files": 8,
+      "result": "PASS"
+    }
+  },
+  "conclusion_scope": "introduced_operational_evidence_only",
+  "conclusion": "PASS",
+  "limitations": [
+    "These files do not exist at migration baseline M. Verification begins from each independently evidenced introduction object; no empty baseline is invented.",
+    "Operational ledgers/manifests are intentionally evolving records. PASS establishes exact introduction identity, exact target-D identity, complete path-touch history attribution and zero unexplained mutation; it does not assert that each file remained byte-identical after introduction.",
+    "Maven tests and GitHub Actions were not run.",
+    "GR-VV-F001 and GR-VV-F002 remain OPEN and are unaffected by this packet."
+  ],
+  "next_packet": "GR-VV-04-C001"
+}
