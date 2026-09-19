@@ -1,0 +1,46 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-03-R002",
+  "packet_kind": "CLOSED_REGION_PRESERVATION",
+  "region_id": "GR-VV-DET-002",
+  "region_name": "test_java_namespace",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method": {
+    "version": "grandrue-preservation-checker/v1",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323"
+  },
+  "checks": {
+    "total_files": 376,
+    "passed": 376,
+    "failed": 0,
+    "blocked": 0,
+    "remaining": 0,
+    "exact_path_mode_checked": 376,
+    "complete_baseline_evidence": 376
+  },
+  "findings": [],
+  "independent_passing_results_preserved": true,
+  "outputs": {
+    "progress": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R002/progress.json",
+      "git_blob": "585053cbb40e75b6ae3c234b63c7a9dde84966d0",
+      "sha256": "2c1307b27174f8a2dddc4ea278bc23f7e011f1c6801d56a374ce3730e5ab03dd"
+    },
+    "test_java": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R002/test-java.jsonl",
+      "git_blob": "2362fed794d1a7870965a01c145a9b716d013c6a",
+      "sha256": "b2b115d9c7529ade6b5cabdffb55834bc81dbfc9518393b3fcef532bc9510734",
+      "files": 376,
+      "result": "PASS"
+    }
+  },
+  "conclusion_scope": "test_java_namespace_only",
+  "conclusion": "PASS",
+  "limitations": [
+    "This packet establishes exact path, mode and complete-byte preservation for the frozen test-Java deterministic region under its declared namespace rule and explicit overlays.",
+    "Maven tests and GitHub Actions were not run."
+  ],
+  "next_packet": "GR-VV-03-R003"
+}
