@@ -461,7 +461,19 @@ gr_ren_03:
   protected_test_residuals: CLASSIFIED_PRESERVE
   state: COMPLETE_PENDING_FINAL_VERIFICATION
 
-gr_ren_04:\n  state: COMPLETE_PENDING_FINAL_VERIFICATION\n  tranche: GR-REN-04-T001\n  test_postgres_consumers: 74\n  changed_paths: 80\n  code_commit: 89b314bf27c7c50944efb5257fa38c087f412183\n  reconciliation_commit: c8821cf489735d34de341e50c4c2508bda8c4b4f\n\nnext_action: Prepare GR-REN-05 from the live post-GR-REN-04 checkpoint. Enumerate essential runtime/config current-product naming, excluding legacy prototype profile/configuration; preserve compatibility aliases/protected identities; do not run Maven tests or GitHub Actions without separate authorisation.
+gr_ren_04:\n  state: COMPLETE_PENDING_FINAL_VERIFICATION\n  tranche: GR-REN-04-T001\n  test_postgres_consumers: 74\n  changed_paths: 80\n  code_commit: 89b314bf27c7c50944efb5257fa38c087f412183\n  reconciliation_commit: c8821cf489735d34de341e50c4c2508bda8c4b4f\n\ngr_ren_05:
+  state: COMPLETE_PENDING_FINAL_VERIFICATION
+  evidence_target: 7591466bf16b165d549161cd9e8369a1dac41674
+  executable_mutations: 0
+  excluded_prototype_profile_configuration: preserved
+
+gr_ren_06:
+  state: COMPLETE_PENDING_FINAL_VERIFICATION
+  evidence_target: 7591466bf16b165d549161cd9e8369a1dac41674
+  protected_identity_mutations: 0
+  compatibility_aliases: preserved
+
+next_action: Prepare GR-REN-07 against SEQUENCE.md and the seven canonical root governance files. Replace only current product wording/navigation that is still Main Street; preserve stable MS-* identifiers, accepted document IDs, protected identities and historical evidence. AGENTS.md is already GrandRue-current. Do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.

@@ -946,12 +946,16 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-04-T001`: completed the essential build/CI current-naming transaction. The closed transaction renamed all 74 classified non-prototype test PostgreSQL environment consumers from `MAINSTREET_TEST_POSTGRES_{URL,USER,PASSWORD}` to `GRANDRUE_TEST_POSTGRES_{URL,USER,PASSWORD}`; changed Maven coordinates from `mainstreet:mainstreet` to `grandrue:grandrue`; changed the isolated Maven CI PostgreSQL database/user/password from `mainstreet_test/mainstreet` to `grandrue_test/grandrue`; changed storefront package metadata from `mainstreet-storefront-web` to `grandrue-storefront-web`; and made `GRANDRUE_BACKEND_URL` the preferred storefront backend variable while retaining `MAINSTREET_BACKEND_URL` as the explicit compatibility fallback. Legacy prototype tests/configuration were not migrated. Aggregate verification proved exactly 80 changed paths (74 test consumers + 5 build/CI/storefront files + active manifest) and no undeclared path. Code commit `89b314bf27c7c50944efb5257fa38c087f412183`; storefront formatting reconciliation `c8821cf489735d34de341e50c4c2508bda8c4b4f`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-05-C001`: completed essential runtime/config current-name classification with no executable mutation required. The live tree contains no non-prototype `application.properties`/runtime configuration owner requiring a Main Street → GrandRue rewrite. `src/main/resources/application-prototype.properties` and `compose.prototype.yml` remain excluded under `NON_MIGRATING_LEGACY_PROTOTYPE`; applied Flyway migration content remains protected; the storefront runtime backend preference was already completed under GR-REN-04 with `GRANDRUE_BACKEND_URL` primary and the legacy variable retained only as compatibility fallback. Evidence target `7591466bf16b165d549161cd9e8369a1dac41674`. No Maven tests or GitHub Actions were run.
+
+- `GR-REN-06-C001`: completed compatibility-alias/protected-identity classification with no mutation required. Live evidence preserves `mainstreet_correlation_identifier` / `mainStreetCorrelationIdentity`, Opportunity binding v1 AAD `mainstreet/enquiry/opportunity-binding/v1/`, `mainstreet-semantic-bundle-v1`, `mainstreet-semantic-bundle-v2`, `mainstreet-exposure-definitions-v1`, the calendar policy identity `calendar/current-main-street-commitments`, stable `MS-*` authority identifiers and historical evidence identities. `MAINSTREET_BACKEND_URL` remains an explicit compatibility fallback behind `GRANDRUE_BACKEND_URL`. No protected identity was rewritten. Evidence target `7591466bf16b165d549161cd9e8369a1dac41674`.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
-- `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `NOT_STARTED`
-- `GR-REN-06` — compatibility aliases/preserved identities: `NOT_STARTED`
+- `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
+- `GR-REN-06` — compatibility aliases/preserved identities: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-07` — active controls/canonical governance wording: `NOT_STARTED`
 - `GR-REN-08` — whole-repository migration coverage and residual classification: `NOT_STARTED`
 - `GR-REN-09` — migration falsification and exception/protected-identity validation: `NOT_STARTED`
@@ -969,14 +973,14 @@ branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
 status: IN_PROGRESS
 mutation_authorised: true
-active_group: GR-REN-05
+active_group: GR-REN-07
 selected_execution_leaf: null
-last_completed_task: GR-REN-04-T001
-last_task_commit: c8821cf489735d34de341e50c4c2508bda8c4b4f
+last_completed_task: GR-REN-06-C001
+last_task_commit: 7591466bf16b165d549161cd9e8369a1dac41674
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: c8821cf489735d34de341e50c4c2508bda8c4b4f
-next_action: Prepare GR-REN-05 from the live post-GR-REN-04 checkpoint. Enumerate essential runtime/config current-product naming, exclude the legacy prototype profile/configuration, preserve required compatibility aliases and protected persisted/external identities, then execute one or more deterministic closed transactions. Do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: 7591466bf16b165d549161cd9e8369a1dac41674
+next_action: Prepare GR-REN-07 against the live canonical control/governance set. Migrate current GrandRue product wording in SEQUENCE.md and the seven canonical root governance files without rewriting stable MS-* identifiers, historical evidence, protected identities or accepted document IDs; AGENTS.md is already GrandRue-current. Do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---
