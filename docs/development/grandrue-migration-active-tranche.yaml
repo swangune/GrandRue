@@ -2,86 +2,64 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T014
+tranche: GR-REN-03-T015
 group: GR-REN-03
-state: COMPLETE
-code_commit: 7cfdd071e166313bc242488c5a0d11fa079bc4d1
-expected_parent: 193fb83edd7bc356e82a7a3997493a776755b944
-validated_head: 7cfdd071e166313bc242488c5a0d11fa079bc4d1
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: bb55eefca37e0716a8e3f07387173b1883a240a4
 
 region:
-  identity: test-scheduling
-  closure_basis: complete live src/test/java/mainstreet/scheduling/** Java test region; no external test consumers; one documentation-only class-name reference is non-executable and unchanged
+  identity: root-application-test
+  closure_basis: complete live root src/test/java/mainstreet/GrandRueApplicationTest.java test owner; no external test consumers
 
 classification:
   normal_closed:
-    owner_count: 2
+    owner_count: 1
     external_test_consumer_count: 0
-    production_import_repair_count: 14
-    executable_fqcn_repair_count: 1
+    production_import_repair_count: 0
   embedded_legacy_symbolic_or_wording_residuals:
-    count: 2
-    disposition: PROTECTED_BUSINESS_FACING_TEST_WORDING
+    count: 0
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/scheduling/SchedulingAvailabilityImpactAssessmentTest.java
-      to: src/test/java/grandrue/scheduling/SchedulingAvailabilityImpactAssessmentTest.java
-      blob_sha: cd7fc8430c163389de1b44e4ac8467cb328caeae
-    - from: src/test/java/mainstreet/scheduling/SchedulingIntentAuthorityTest.java
-      to: src/test/java/grandrue/scheduling/SchedulingIntentAuthorityTest.java
-      blob_sha: a180c4ab43352c3140f2d3a41f1342da82321526
+    - from: src/test/java/mainstreet/GrandRueApplicationTest.java
+      to: src/test/java/grandrue/GrandRueApplicationTest.java
+      blob_sha: b8b30a722f1ca8024a793702b33c2f197c0dee6a
 
 deterministic_transformations:
   owners:
-    - move both declared owners to the corresponding src/test/java/grandrue/scheduling/** paths
-    - replace exactly two package declarations package mainstreet.scheduling; with package grandrue.scheduling;
-    - replace exactly fourteen executable imports from migrated mainstreet.* production namespaces to grandrue.* counterparts
-    - replace exactly one executable mainstreet.semantic.AllocationAuthority FQCN with grandrue.semantic.AllocationAuthority
+    - move the declared root test owner to src/test/java/grandrue/GrandRueApplicationTest.java
+    - replace exactly one package declaration package mainstreet; with package grandrue;
   consumers:
-    - none; exact class-name searches found no external test consumers
-    - docs/development/imp-05-r4b-scheduling-impact-progress-2026-09-08.md contains a documentation-only SchedulingAvailabilityImpactAssessmentTest name reference and remains unchanged
+    - none; exact class-name search found no external test consumers
   prohibited:
-    - no assertion, method-body, comment, semantic or behavioural change
-    - do not change the two Main Street Scheduling business-facing test literals
+    - no assertion, method body, string literal, comment, semantic or behavioural change
     - no legacy prototype test mutation
-    - no documentation mutation
     - no Maven/build/CI/runtime configuration mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 5
+  expected_changed_path_count: 3
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  import_repair_count: 14
-  executable_fqcn_repair_count: 1
-  protected_wording_occurrence_count: 2
+  import_repair_count: 0
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 protected:
-  - both Main Street Scheduling business-facing literals remain byte-identical
-  - every assertion and test-data identity outside declared namespace/FQCN repairs remains unchanged
-  - documentation-only class-name reference unchanged
+  - every assertion, method body and test identity unchanged
   - legacy prototype tests unchanged
 
 expected_residuals:
-  - the two Main Street Scheduling literals remain for later applicable wording/compatibility classification
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - both source blobs and absent GrandRue destinations were reconciled against development at 193fb83edd7bc356e82a7a3997493a776755b944
-  - all required migrated GrandRue production import/FQCN targets exist
-  - exact class-name searches found no external test consumers
-  - exactly seventeen executable mainstreet.* occurrences are classified as two package declarations, fourteen imports and one FQCN
-  - exactly two Main Street Scheduling literals are protected and preserved
+  - source blob and absent GrandRue destination were reconciled against development at bb55eefca37e0716a8e3f07387173b1883a240a4
+  - src/main/java/grandrue/GrandRueApplication.java exists
+  - exact class-name search found no external test consumers
+  - no executable legacy import or embedded Main Street/current-product identifier occurs in this owner
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
