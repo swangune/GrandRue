@@ -473,7 +473,20 @@ gr_ren_06:
   protected_identity_mutations: 0
   compatibility_aliases: preserved
 
-next_action: Prepare GR-REN-07 against SEQUENCE.md and the seven canonical root governance files. Replace only current product wording/navigation that is still Main Street; preserve stable MS-* identifiers, accepted document IDs, protected identities and historical evidence. AGENTS.md is already GrandRue-current. Do not run Maven tests or GitHub Actions without separate authorisation.
+gr_ren_07:
+  state: COMPLETE_PENDING_FINAL_VERIFICATION
+  tranche: GR-REN-07-T001
+  changed_paths: 9
+  code_commit: 4752cd2193fa8e895a1784668fe64a71b7329155
+  current_product_wording_migrated: true
+  historical_titles_preserved: true
+  symbolic_identifiers_preserved: true
+
+migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
+verification_handoff: READY
+verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
+verification_target: THIS_CHECKPOINT_COMMIT
+next_action: BEGIN_GRANDRUE_POST_MIGRATION_VERIFICATION
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.

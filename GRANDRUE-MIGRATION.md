@@ -4,7 +4,7 @@
 **Repository:** `swangune/GrandRue`  
 **Branch:** `development`  
 **Baseline:** `c4153441d8340b229a29884967d796280d949a7d`  
-**Status:** `IN_PROGRESS`  
+**Status:** `COMPLETE_PENDING_POST_MIGRATION_VERIFICATION`  
 **Authority class:** non-semantic operational migration ledger
 
 This is the canonical resumable execution registry for the Main Street → GrandRue naming migration. It records operational scope and evidence; it does not redefine accepted semantic authority. Detailed file-level evidence is retained in the referenced commits rather than duplicated here.
@@ -950,13 +950,15 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-06-C001`: completed compatibility-alias/protected-identity classification with no mutation required. Live evidence preserves `mainstreet_correlation_identifier` / `mainStreetCorrelationIdentity`, Opportunity binding v1 AAD `mainstreet/enquiry/opportunity-binding/v1/`, `mainstreet-semantic-bundle-v1`, `mainstreet-semantic-bundle-v2`, `mainstreet-exposure-definitions-v1`, the calendar policy identity `calendar/current-main-street-commitments`, stable `MS-*` authority identifiers and historical evidence identities. `MAINSTREET_BACKEND_URL` remains an explicit compatibility fallback behind `GRANDRUE_BACKEND_URL`. No protected identity was rewritten. Evidence target `7591466bf16b165d549161cd9e8369a1dac41674`.
 
+- `GR-REN-07-T001`: completed active control/canonical-governance current-product wording migration across `SEQUENCE.md` and the seven canonical root governance files. Current `Main Street` product prose became `GrandRue`, and `SEQUENCE.md` repository navigation now targets `swangune/GrandRue`. The transaction intentionally preserved the formal historical `MS-FUNDAMENTAL-VISION-001 — Main Street Fundamental Vision, Mission and Product Constitution` title, the recovered historical `MS-AVS-001 — Main Street Architecture & Domain Validation Standard` title, and the stable `HANDLED_OUTSIDE_MAIN_STREET_RECORDED` symbolic identifier. `AUTHORITY-INDEX.md` now records that current implementation/package identifiers use `grandrue.*` while protected `mainstreet*` external/persisted compatibility identities and historical provenance remain unchanged. Aggregate verification proved exactly nine changed paths (eight control/governance files + active manifest). Code commit `4752cd2193fa8e895a1784668fe64a71b7329155`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-06` — compatibility aliases/preserved identities: `COMPLETE_PENDING_FINAL_VERIFICATION`
-- `GR-REN-07` — active controls/canonical governance wording: `NOT_STARTED`
+- `GR-REN-07` — active controls/canonical governance wording: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-08` — whole-repository migration coverage and residual classification: `NOT_STARTED`
 - `GR-REN-09` — migration falsification and exception/protected-identity validation: `NOT_STARTED`
 - `GR-REN-10` — executable structural/build/test validation: `NOT_STARTED`
@@ -971,16 +973,21 @@ migration: MAIN_STREET_TO_GRANDRUE
 repository: swangune/GrandRue
 branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
-status: IN_PROGRESS
+status: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
 mutation_authorised: true
-active_group: GR-REN-07
+active_group: POST_MIGRATION_VERIFICATION
 selected_execution_leaf: null
-last_completed_task: GR-REN-06-C001
-last_task_commit: 7591466bf16b165d549161cd9e8369a1dac41674
+last_completed_task: GR-REN-07-T001
+last_task_commit: 4752cd2193fa8e895a1784668fe64a71b7329155
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 7591466bf16b165d549161cd9e8369a1dac41674
-next_action: Prepare GR-REN-07 against the live canonical control/governance set. Migrate current GrandRue product wording in SEQUENCE.md and the seven canonical root governance files without rewriting stable MS-* identifiers, historical evidence, protected identities or accepted document IDs; AGENTS.md is already GrandRue-current. Do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: 4752cd2193fa8e895a1784668fe64a71b7329155
+migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
+verification_handoff: READY
+verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
+verification_target: THIS_CHECKPOINT_COMMIT
+verification_ledger: GRANDRUE-POST-MIGRATION-VERIFICATION.md
+next_action: BEGIN_GRANDRUE_POST_MIGRATION_VERIFICATION
 ```
 
 ---
