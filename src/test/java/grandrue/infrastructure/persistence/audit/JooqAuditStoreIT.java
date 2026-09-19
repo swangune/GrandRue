@@ -1,9 +1,9 @@
-package mainstreet.infrastructure.persistence.audit;
+package grandrue.infrastructure.persistence.audit;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.audit.AuditActionClass;
-import mainstreet.audit.AuditExecutionScope;
-import mainstreet.audit.AuditRecord;
+import grandrue.application.MerchantScope;
+import grandrue.audit.AuditActionClass;
+import grandrue.audit.AuditExecutionScope;
+import grandrue.audit.AuditRecord;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

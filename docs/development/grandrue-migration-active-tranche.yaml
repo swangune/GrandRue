@@ -2,42 +2,35 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T032
+tranche: GR-REN-03-T033
 group: GR-REN-03
-state: COMPLETE
-code_commit: 30180aa9c700ee9b31ba10169904fe2c6a940c4d
-expected_parent: cd3f1b8556170cea99b8182ed7edb56c111e0054
-validated_head: 30180aa9c700ee9b31ba10169904fe2c6a940c4d
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: de333ecc65a6bdc3447e8afb740b70de80d052f3
 
 region:
-  identity: test-infrastructure-persistence-event
-  closure_basis: complete live src/test/java/mainstreet/infrastructure/persistence/event/** Java test-owner region
+  identity: test-infrastructure-persistence-audit
+  closure_basis: complete live src/test/java/mainstreet/infrastructure/persistence/audit/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 2
+    owner_count: 1
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 12
+    executable_namespace_replacement_count: 5
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/infrastructure/persistence/event/JooqMerchantEventReactionStoreIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/event/JooqMerchantEventReactionStoreIT.java
-      blob_sha: 73a29548a69ab535b5a71f98518448e5d1a6c4f9
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/infrastructure/persistence/event/MerchantAccountEstablishedPublicationWorkerIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/event/MerchantAccountEstablishedPublicationWorkerIT.java
-      blob_sha: c5ce03af95fabfdefadb35dd6ed58df216bdd392
-      executable_namespace_replacements: 9
+    - from: src/test/java/mainstreet/infrastructure/persistence/audit/JooqAuditStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/audit/JooqAuditStoreIT.java
+      blob_sha: 7280feda3c0b4f507b3cdf682e0f56561df2d5e4
+      executable_namespace_replacements: 5
 
 deterministic_transformations:
   owners:
-    - move both declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/event/** paths
+    - move the declared owner to corresponding src/test/java/grandrue/infrastructure/persistence/audit/** path
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -47,7 +40,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 3
+  expected_changed_path_count: 2
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -55,6 +48,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
