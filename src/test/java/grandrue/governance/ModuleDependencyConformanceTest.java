@@ -21,9 +21,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class ModuleDependencyConformanceTest {
 
-    private static final Path MAIN = Path.of("src", "main", "java", "mainstreet");
-    private static final Pattern MAINSTREET_IMPORT = Pattern.compile(
-            "^import\\s+mainstreet\\.([a-zA-Z0-9_]+)\\.([a-zA-Z0-9_.$]+);$",
+    private static final Path MAIN = Path.of("src", "main", "java", "grandrue");
+    private static final Pattern GRANDRUE_IMPORT = Pattern.compile(
+            "^import\\s+grandrue\\.([a-zA-Z0-9_]+)\\.([a-zA-Z0-9_.$]+);$",
             Pattern.MULTILINE
     );
 
@@ -66,7 +66,7 @@ class ModuleDependencyConformanceTest {
             if (isSpringCompositionRoot(content)) {
                 continue;
             }
-            if (content.contains("import mainstreet.infrastructure.")) {
+            if (content.contains("import grandrue.infrastructure.")) {
                 violations.add(relative(source));
             }
         }
@@ -118,7 +118,7 @@ class ModuleDependencyConformanceTest {
                 continue;
             }
 
-            Matcher matcher = MAINSTREET_IMPORT.matcher(Files.readString(source));
+            Matcher matcher = GRANDRUE_IMPORT.matcher(Files.readString(source));
             while (matcher.find()) {
                 String importedRoot = matcher.group(1);
                 if (sourceRoot.equals(importedRoot) || !OWNERSHIP_ROOTS.contains(importedRoot)) {
@@ -132,7 +132,7 @@ class ModuleDependencyConformanceTest {
                         || simpleName.startsWith("Jdbc")
                         || simpleName.startsWith("Jooq")) {
                     violations.add(
-                            relative(source) + " -> mainstreet." + importedRoot + "." + importedType
+                            relative(source) + " -> grandrue." + importedRoot + "." + importedType
                     );
                 }
             }

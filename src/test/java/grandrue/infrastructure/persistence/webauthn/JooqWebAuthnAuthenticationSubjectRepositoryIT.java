@@ -44,7 +44,7 @@ class JooqWebAuthnAuthenticationSubjectRepositoryIT {
     }
 
     @Test
-    void main_street_establishes_one_opaque_subject_handle_for_one_identity() {
+    void grandrue_establishes_one_opaque_subject_handle_for_one_identity() {
         JooqWebAuthnAuthenticationSubjectRepository repository = repository();
         WebAuthnAuthenticationSubjectService service =
                 subjectService(repository);

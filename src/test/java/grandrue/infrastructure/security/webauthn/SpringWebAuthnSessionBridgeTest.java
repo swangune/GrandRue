@@ -33,7 +33,7 @@ class SpringWebAuthnSessionBridgeTest {
             Instant.parse("2026-08-28T08:00:00Z");
 
     @Test
-    void verified_webauthn_establishes_a_fresh_main_street_session_from_authoritative_identity_mapping() {
+    void verified_webauthn_establishes_a_fresh_grandrue_session_from_authoritative_identity_mapping() {
         InMemorySessionStore store = new InMemorySessionStore();
         PublicKeyCredentialUserEntity springPrincipal = springPrincipal(
                 "human-readable@example.test"
@@ -81,7 +81,7 @@ class SpringWebAuthnSessionBridgeTest {
     }
 
     @Test
-    void repeated_successful_webauthn_proofs_create_independent_main_street_sessions() {
+    void repeated_successful_webauthn_proofs_create_independent_grandrue_sessions() {
         InMemorySessionStore store = new InMemorySessionStore();
         PublicKeyCredentialUserEntity springPrincipal = springPrincipal("controller@example.test");
         SpringWebAuthnSessionBridge bridge = bridge(

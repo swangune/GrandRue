@@ -330,7 +330,7 @@ class SemanticCompatibilityActivationTest {
                         List.of(),
                         List.of()
                 ),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 ACTIVATED_AT.minusSeconds(120)
         );
     }

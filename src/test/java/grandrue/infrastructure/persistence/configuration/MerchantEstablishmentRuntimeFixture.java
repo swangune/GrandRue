@@ -266,7 +266,7 @@ final class MerchantEstablishmentRuntimeFixture {
                         new ConfigurationCompiler(semanticRegistry())
                 ).resolve(
                         revision.configuration(),
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         NOW.plusSeconds(4)
                 );
         ResolvedConfigurationPackage resolvedPackage = publicationSlice

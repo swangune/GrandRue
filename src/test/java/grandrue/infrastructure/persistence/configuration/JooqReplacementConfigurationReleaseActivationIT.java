@@ -1301,7 +1301,7 @@ class JooqReplacementConfigurationReleaseActivationIT {
                         List.of(),
                         List.of()
                 ),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 NOW.minusSeconds(120)
         );
     }

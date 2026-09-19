@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 class PrivilegedSessionRequestResolverTest {
 
     @Test
-    void exact_privileged_cookie_is_resolved_through_main_street_session_authority() {
+    void exact_privileged_cookie_is_resolved_through_grandrue_session_authority() {
         SessionCredentialResolver sessionCredentialResolver = mock(SessionCredentialResolver.class);
         AuthenticationSession expected = authenticationSession();
         when(sessionCredentialResolver.resolve("opaque-session-credential"))

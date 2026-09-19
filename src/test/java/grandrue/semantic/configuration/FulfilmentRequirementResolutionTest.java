@@ -53,7 +53,7 @@ class FulfilmentRequirementResolutionTest {
                 () -> resolver(requirements(), providers()).resolve(
                         configuration,
                         bindingSet,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -70,7 +70,7 @@ class FulfilmentRequirementResolutionTest {
         ).resolve(
                 configuration,
                 bindingSet(Set.of(providerBinding("provider-confirmation"))),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 GENERATED_AT
         );
 
@@ -95,7 +95,7 @@ class FulfilmentRequirementResolutionTest {
                 () -> resolver(requirements(), providers()).resolve(
                         configuration,
                         bindingSet(Set.of(providerBinding("provider-confirmation"))),
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -118,7 +118,7 @@ class FulfilmentRequirementResolutionTest {
         ).resolve(
                 configuration,
                 bindingSet(Set.of(providerBinding("provider-full"))),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 GENERATED_AT
         );
 
@@ -138,7 +138,7 @@ class FulfilmentRequirementResolutionTest {
                 () -> resolver(requirements(), providers()).resolve(
                         configuration,
                         bindingSet(Set.of()),
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -154,7 +154,7 @@ class FulfilmentRequirementResolutionTest {
                 () -> resolver(Set.of(), providers()).resolve(
                         configuration,
                         bindingSet(Set.of(providerBinding("provider-full"))),
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );

@@ -32,7 +32,7 @@ class ResolvedConfigurationPackageTest {
 
         ResolvedConfigurationPackage resolved = resolver.resolve(
                 configuration,
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 GENERATED_AT
         );
 
@@ -56,7 +56,7 @@ class ResolvedConfigurationPackageTest {
                         .isEmpty()
         );
         assertEquals(
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 resolved.provenance().compilerIdentifier()
         );
         assertEquals(GENERATED_AT, resolved.provenance().generatedAt());
@@ -70,7 +70,7 @@ class ResolvedConfigurationPackageTest {
                         new ConfigurationCompiler(registry())
                 ).resolve(
                         configuration,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 );
 
@@ -82,7 +82,7 @@ class ResolvedConfigurationPackageTest {
 
         assertSame(resolved, release.resolvedPackage());
         assertSame(resolved.executableSemanticModel(), release.executableModel());
-        assertEquals("mainstreet-compiler-1", release.compilerIdentifier());
+        assertEquals("grandrue-compiler-1", release.compilerIdentifier());
         assertEquals(GENERATED_AT, release.generatedAt());
     }
 
@@ -100,7 +100,7 @@ class ResolvedConfigurationPackageTest {
                         source,
                         wrongMerchantModel,
                         new ResolvedConfigurationProvenance(
-                                "mainstreet-compiler-1",
+                                "grandrue-compiler-1",
                                 GENERATED_AT
                         )
                 )

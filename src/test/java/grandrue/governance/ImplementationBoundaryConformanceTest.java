@@ -22,13 +22,13 @@ class ImplementationBoundaryConformanceTest {
     @Test
     void canonical_configuration_compiler_is_the_only_production_compiler_path() {
         assertTrue(Files.isRegularFile(MAIN.resolve(
-                "mainstreet/semantic/compiler/ConfigurationCompiler.java"
+                "grandrue/semantic/compiler/ConfigurationCompiler.java"
         )));
 
         for (String rejectedPath : List.of(
-                "mainstreet/semantic/capability/CapabilityCompiler.java",
-                "mainstreet/semantic/capability/OperationComposition.java",
-                "mainstreet/semantic/capability/CapabilityCompositionDefinition.java"
+                "grandrue/semantic/capability/CapabilityCompiler.java",
+                "grandrue/semantic/capability/OperationComposition.java",
+                "grandrue/semantic/capability/CapabilityCompositionDefinition.java"
         )) {
             assertFalse(
                     Files.exists(MAIN.resolve(rejectedPath)),
@@ -46,9 +46,9 @@ class ImplementationBoundaryConformanceTest {
     @Test
     void booking_does_not_own_a_parallel_production_notification_delivery_stack() {
         for (String rejectedPath : List.of(
-                "mainstreet/booking/BookingNotificationGateway.java",
-                "mainstreet/booking/BookingNotificationDelivery.java",
-                "mainstreet/booking/NotificationDeliveryException.java"
+                "grandrue/booking/BookingNotificationGateway.java",
+                "grandrue/booking/BookingNotificationDelivery.java",
+                "grandrue/booking/NotificationDeliveryException.java"
         )) {
             assertFalse(
                     Files.exists(MAIN.resolve(rejectedPath)),
@@ -63,7 +63,7 @@ class ImplementationBoundaryConformanceTest {
         }
 
         assertTrue(Files.isRegularFile(MAIN.resolve(
-                "mainstreet/notification/NotificationDeliveryCoordinator.java"
+                "grandrue/notification/NotificationDeliveryCoordinator.java"
         )));
     }
 

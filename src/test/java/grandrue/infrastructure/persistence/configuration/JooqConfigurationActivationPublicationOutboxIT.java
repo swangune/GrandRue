@@ -330,7 +330,7 @@ class JooqConfigurationActivationPublicationOutboxIT {
                 "release-" + merchantIdentifier + "-" + version,
                 configuration,
                 model(merchantIdentifier, version),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 ACTIVATED_AT.minusSeconds(120)
         );
     }

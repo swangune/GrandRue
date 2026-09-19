@@ -100,7 +100,7 @@ class RegisteredConfigurationNewActivityRequirementResolverTest {
                 new ConfigurationCompiler(registry)
         ).resolve(
                 configuration,
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 Instant.parse("2026-08-29T11:00:00Z")
         );
     }

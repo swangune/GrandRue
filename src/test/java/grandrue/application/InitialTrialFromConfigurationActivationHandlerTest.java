@@ -173,7 +173,7 @@ class InitialTrialFromConfigurationActivationHandlerTest {
                 "release-" + version,
                 configuration,
                 model(version),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 FIRST_ACTIVATED_AT.minusSeconds(120)
         );
     }

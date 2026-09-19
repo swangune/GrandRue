@@ -33,7 +33,7 @@ class SurfaceContributionPackageResolutionTest {
 
         ResolvedConfigurationPackage resolved = resolver.resolve(
                 configuration(Set.of("booking")),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 Instant.parse("2026-08-25T14:30:00Z")
         );
 
@@ -77,7 +77,7 @@ class SurfaceContributionPackageResolutionTest {
                 IllegalArgumentException.class,
                 () -> resolver.resolve(
                         configuration(Set.of("booking")),
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         Instant.parse("2026-08-25T14:30:00Z")
                 )
         );
@@ -107,7 +107,7 @@ class SurfaceContributionPackageResolutionTest {
                 IllegalArgumentException.class,
                 () -> resolver.resolve(
                         configuration(Set.of("booking")),
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         Instant.parse("2026-08-25T14:30:00Z")
                 )
         );

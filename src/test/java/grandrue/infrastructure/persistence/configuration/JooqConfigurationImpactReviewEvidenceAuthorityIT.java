@@ -540,7 +540,7 @@ class JooqConfigurationImpactReviewEvidenceAuthorityIT {
                 new ConfigurationCompiler(registry)
         ).resolve(
                 source,
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 PACKAGE_GENERATED_AT
         );
     }

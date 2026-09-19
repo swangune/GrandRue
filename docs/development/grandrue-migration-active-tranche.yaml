@@ -2,215 +2,108 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T046
+tranche: GR-REN-03-T047
 group: GR-REN-03
-state: COMPLETE
-code_commit: 4033ba0bcf3bbbf775afae01bf57042064bea19f
-expected_parent: 888f3760a13292e5ad1f33ec9170253a20bda1f8
-validated_head: 4033ba0bcf3bbbf775afae01bf57042064bea19f
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 70559f902ab778a46c9e8d4546821c3d3a629d48
 
 region:
-  identity: test-semantic-remainder
-  closure_basis: complete remaining in-scope src/test/java/mainstreet/semantic/** Java test-owner graph across capability, configuration and policy packages
+  identity: test-residual-current-naming
+  closure_basis: post-T046 classification of non-prototype test current-path checks, current fixture identifiers and current-product test method names
+
+head_reconciliation:
+  previous_checkpoint: f7cbbdebebbf9bc4c86588037b4b499e11c8dfd9
+  live_parent: 70559f902ab778a46c9e8d4546821c3d3a629d48
+  intervening_change: AGENTS.md only
+  overlap_with_tranche: false
 
 classification:
   normal_closed:
-    owner_count: 40
-    executable_namespace_replacement_count: 165
-    external_capability_policy_consumers_outside_region: 0
-  embedded_runtime_compatibility_residuals:
-    disposition: preserve_all_strings_comments_and_non_code_content
-  expected_non_java_residuals:
+    changed_test_files: 32
+    governance_current_path_files: 6
+    current_fixture_identifier_files: 20
+    current_test_method_name_files: 6
+    deterministic_replacements: 76
+  deferred_to_named_group:
+    group: GR-REN-04
+    class: MAINSTREET_TEST_POSTGRES_URL_USER_PASSWORD
+    discovered_non_prototype_test_consumers: 74
+    reason: rename CI/build producer and all test consumers atomically
+  protected_residuals:
+    - mainstreet-semantic-bundle-v1
+    - mainstreet-semantic-bundle-v2
+    - mainstreet-exposure-definitions-v1
+    - all other section-3 protected identities remain governed by GRANDRUE-MIGRATION.md
+  excluded_non_java_residuals:
+    - src/test/java/mainstreet/booking/LEGACY-NOTIFICATION-PROTOTYPE.md
     - src/test/java/mainstreet/semantic/capability/LEGACY-PROTOTYPE.md
+  excluded_legacy_prototype_test_java_files: 18
   exceptions: []
 
-subgraph:
-  owners:
-    - from: src/test/java/mainstreet/semantic/capability/BookingPolicies.java
-      to: src/test/java/grandrue/semantic/capability/BookingPolicies.java
-      blob_sha: a5528b5f3aa947cd8ce0527af8e3141ceb841420
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/semantic/capability/Capability.java
-      to: src/test/java/grandrue/semantic/capability/Capability.java
-      blob_sha: 8e4e972d865d8f5ee2cbb1e765ecc3a6da690af5
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityCompiler.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityCompiler.java
-      blob_sha: 5dc30de16a5f1ccf569001876a06fdc2bb99dcf3
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityCompilerTest.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityCompilerTest.java
-      blob_sha: 31b5f62a4150f41d9e72605bf66594e1da95e3c1
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityCompositionDefinition.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityCompositionDefinition.java
-      blob_sha: f4e4f8ba6e8ebeeb4173900727c071e28d8a0d83
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityCompositionDefinitionTest.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityCompositionDefinitionTest.java
-      blob_sha: 4fc067aa5e5ed1699922f90407e1d5837d9c2d7f
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityCompositionTest.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityCompositionTest.java
-      blob_sha: d5f7cd8acb8df9f79b68a27fd73de90c999c5291
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityConfiguration.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityConfiguration.java
-      blob_sha: c8dc18fdd420407159401e10ace7b2a3c2ff4765
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityOperation.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityOperation.java
-      blob_sha: 72c1d07e22c4438a012f5546686ef892218b18c9
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityPolicyOwnershipTest.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityPolicyOwnershipTest.java
-      blob_sha: e731f2c43f24e69f52198dc8391e7a9bb5953581
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityPolicySelectionTest.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityPolicySelectionTest.java
-      blob_sha: 11f53da0b24b86354472cbe511ae8b79cbda924d
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityRegistry.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityRegistry.java
-      blob_sha: aebd4921ccef7ffd7fb0a414544be0bfe85fe8b3
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityRegistryTest.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityRegistryTest.java
-      blob_sha: d75abbcb508b99cc61f863efb838b16a79a80cd8
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/CapabilityTest.java
-      to: src/test/java/grandrue/semantic/capability/CapabilityTest.java
-      blob_sha: fa26f021a77f2c053085eb93f98f67e0219c220a
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/CompiledModelCompositionTest.java
-      to: src/test/java/grandrue/semantic/capability/CompiledModelCompositionTest.java
-      blob_sha: 84f5a9c59b03430ead3b5e9abfd62bffd27449b9
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/capability/MerchantCapabilityCompositionTest.java
-      to: src/test/java/grandrue/semantic/capability/MerchantCapabilityCompositionTest.java
-      blob_sha: d229c0de63a61a31b2be90b8e7522cc17bf9dd3c
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/MerchantCapabilityConfiguration.java
-      to: src/test/java/grandrue/semantic/capability/MerchantCapabilityConfiguration.java
-      blob_sha: fec22fc60814fb50ddf64e891c4842ab58b38a1b
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/MerchantCapabilityTest.java
-      to: src/test/java/grandrue/semantic/capability/MerchantCapabilityTest.java
-      blob_sha: e6059ce5c299c59fd78f63dabc571541ca4b30b4
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/capability/OperationComposition.java
-      to: src/test/java/grandrue/semantic/capability/OperationComposition.java
-      blob_sha: 2a51539ad8e7db2384c0e43d0745fbee45d00e3d
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/capability/OperationCompositionTest.java
-      to: src/test/java/grandrue/semantic/capability/OperationCompositionTest.java
-      blob_sha: 3f7269616b9c975f79c49304052350e0043f5fce
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/configuration/CapabilityMembershipImpactAssessmentTest.java
-      to: src/test/java/grandrue/semantic/configuration/CapabilityMembershipImpactAssessmentTest.java
-      blob_sha: 48348e58a9539b27c8d72d031bca7403ccb26798
-      executable_namespace_replacements: 6
-    - from: src/test/java/mainstreet/semantic/configuration/ConfigurationChangeSetTest.java
-      to: src/test/java/grandrue/semantic/configuration/ConfigurationChangeSetTest.java
-      blob_sha: f8e66487b8408b783bd52519f4221021a8021432
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/semantic/configuration/ConfigurationImpactAnalyzerTest.java
-      to: src/test/java/grandrue/semantic/configuration/ConfigurationImpactAnalyzerTest.java
-      blob_sha: 8ec381ba3605ec73c681bcbcb3f03fc62750f470
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/semantic/configuration/ConfigurationNewActivityRequirementSetIdentityTest.java
-      to: src/test/java/grandrue/semantic/configuration/ConfigurationNewActivityRequirementSetIdentityTest.java
-      blob_sha: d28b656f6523e7f5e9090c6cd7fe4db6ee08bf72
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/semantic/configuration/ConfigurationPublicationTest.java
-      to: src/test/java/grandrue/semantic/configuration/ConfigurationPublicationTest.java
-      blob_sha: a22f14f584ae883fc3cf3afa3b8c81aac15369a4
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/configuration/ConfigurationReinstatementEvidenceAffinityTest.java
-      to: src/test/java/grandrue/semantic/configuration/ConfigurationReinstatementEvidenceAffinityTest.java
-      blob_sha: 6cff489829ca1d886db6ebac1905c404f8d5f3b8
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/semantic/configuration/ConfigurationReleaseActivationTest.java
-      to: src/test/java/grandrue/semantic/configuration/ConfigurationReleaseActivationTest.java
-      blob_sha: ec7018025db7817046ac00fa132edac4ba3148f1
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/configuration/ConfigurationReleaseLifecycleTest.java
-      to: src/test/java/grandrue/semantic/configuration/ConfigurationReleaseLifecycleTest.java
-      blob_sha: f941927e620e70b886f6ea7c26c51436307c3242
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/configuration/FulfilmentBindingSetRevisionPackageResolutionTest.java
-      to: src/test/java/grandrue/semantic/configuration/FulfilmentBindingSetRevisionPackageResolutionTest.java
-      blob_sha: 26eb7c5319b45b314466cd81e4848ac7f03b66cc
-      executable_namespace_replacements: 21
-    - from: src/test/java/mainstreet/semantic/configuration/FulfilmentRequirementResolutionTest.java
-      to: src/test/java/grandrue/semantic/configuration/FulfilmentRequirementResolutionTest.java
-      blob_sha: a4bf5e0d5410902fea3aafdc21365cedc7a1d90c
-      executable_namespace_replacements: 21
-    - from: src/test/java/mainstreet/semantic/configuration/RegisteredConfigurationNewActivityRequirementResolverTest.java
-      to: src/test/java/grandrue/semantic/configuration/RegisteredConfigurationNewActivityRequirementResolverTest.java
-      blob_sha: a86172b3f30996120e770c144e7bc5f4a7b283d2
-      executable_namespace_replacements: 9
-    - from: src/test/java/mainstreet/semantic/configuration/RegistryValidatedConfigurationPublicationTest.java
-      to: src/test/java/grandrue/semantic/configuration/RegistryValidatedConfigurationPublicationTest.java
-      blob_sha: edce3a1c69fa1ade962f1ecce0f931388af3fc2a
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/semantic/configuration/ResolvedCapabilityConfigurationDecisionTest.java
-      to: src/test/java/grandrue/semantic/configuration/ResolvedCapabilityConfigurationDecisionTest.java
-      blob_sha: 93722119a3b89397c5b2b20a8a92e2af452b7592
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/configuration/ResolvedConfigurationPackageTest.java
-      to: src/test/java/grandrue/semantic/configuration/ResolvedConfigurationPackageTest.java
-      blob_sha: 7c7701f226c3d83f5f891837c8894846b59092f2
-      executable_namespace_replacements: 8
-    - from: src/test/java/mainstreet/semantic/configuration/ResolvedPolicyImpactAssessmentTest.java
-      to: src/test/java/grandrue/semantic/configuration/ResolvedPolicyImpactAssessmentTest.java
-      blob_sha: 89a0e98c2a355d70f009409187cd0a69ad4722fd
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/semantic/configuration/SemanticCompatibilityActivationTest.java
-      to: src/test/java/grandrue/semantic/configuration/SemanticCompatibilityActivationTest.java
-      blob_sha: 789e00412294db1addbf2ff4c78f5907807a1b9a
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/configuration/SurfaceContributionPackageResolutionTest.java
-      to: src/test/java/grandrue/semantic/configuration/SurfaceContributionPackageResolutionTest.java
-      blob_sha: c4dccc9554b34ee993f2a628abb4606dc777a532
-      executable_namespace_replacements: 13
-    - from: src/test/java/mainstreet/semantic/configuration/SurfaceFulfilmentRoleDependencyPackageResolutionTest.java
-      to: src/test/java/grandrue/semantic/configuration/SurfaceFulfilmentRoleDependencyPackageResolutionTest.java
-      blob_sha: d97b7676ecceaa5ea411631b800824aeee05797a
-      executable_namespace_replacements: 17
-    - from: src/test/java/mainstreet/semantic/policy/PolicyDefinition.java
-      to: src/test/java/grandrue/semantic/policy/PolicyDefinition.java
-      blob_sha: 0f0895825cd9d6509e8f851772508498c6b5206a
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/semantic/policy/PolicyValue.java
-      to: src/test/java/grandrue/semantic/policy/PolicyValue.java
-      blob_sha: 7fdbdc64a8122bf435f5959d721a5ca29a215247
-      executable_namespace_replacements: 1
-
 deterministic_transformations:
-  owners:
-    - move all forty declared Java owners to corresponding src/test/java/grandrue/semantic/** paths
-    - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
-    - preserve every string literal, character literal, text block and comment byte-for-byte
+  governance_tests:
+    - current source-tree/package/import assertions mainstreet -> grandrue
+    - MAINSTREET_IMPORT helper name -> GRANDRUE_IMPORT
+    - current repository instruction wording Main Street -> GrandRue
+  current_fixture_identifiers:
+    - mainstreet-compiler-1 -> grandrue-compiler-1
+    - mainstreet-booking-storage -> grandrue-booking-storage
+  current_test_method_names:
+    - main_street -> grandrue
   prohibited:
-    - no assertion, test-data, semantic or behavioural change
-    - no non-Java legacy-prototype marker mutation
-    - no legacy prototype test mutation
-    - no Maven/build/CI/runtime configuration mutation
+    - no MAINSTREET_TEST_POSTGRES_* mutation in this tranche
+    - no protected identity mutation
+    - no excluded prototype mutation
+    - no production source mutation
+    - no Maven test execution
+    - no GitHub Actions execution
+
+files:
+  - {path: src/test/java/grandrue/governance/AgentInstructionsConformanceTest.java, source: db5e3b853a77f94ad8d9e892f2c19913e591be45}
+  - {path: src/test/java/grandrue/governance/ImplementationBoundaryConformanceTest.java, source: 487a372a149d376b0a5a6213bb433904afcdc745}
+  - {path: src/test/java/grandrue/governance/ModuleDependencyConformanceTest.java, source: d5ffe049a12fa57bad6ee66cbba75e3fb782d57f}
+  - {path: src/test/java/grandrue/governance/ProfileSurfaceDependencyConformanceTest.java, source: 0e47bbb1eefb4e65585dd8f3bef1ecb336625b88}
+  - {path: src/test/java/grandrue/governance/SemanticReleaseBoundaryConformanceTest.java, source: 81405ef821eebff98b6cff1bdad896d16e71e11a}
+  - {path: src/test/java/grandrue/governance/TimeDeterminismConformanceTest.java, source: 923cc52dbb365fafb693b26469c194555a73a44a}
+  - {path: src/test/java/grandrue/semantic/configuration/ResolvedConfigurationPackageTest.java, source: 478dcb5d16211b1c0a68d93473c644f3a5098d31}
+  - {path: src/test/java/grandrue/semantic/configuration/FulfilmentRequirementResolutionTest.java, source: d52888d3e4c75ad409cebb2bfb460d3e765bbc92}
+  - {path: src/test/java/grandrue/semantic/configuration/FulfilmentBindingSetRevisionPackageResolutionTest.java, source: edacec809e72fb1c6786fd12502f4838a93d89ca}
+  - {path: src/test/java/grandrue/semantic/configuration/ConfigurationReleaseLifecycleTest.java, source: 0b2f264d7aa51b7e012507c1e6ae5d588b3c02f6}
+  - {path: src/test/java/grandrue/semantic/configuration/SurfaceContributionPackageResolutionTest.java, source: c12fdc2be7047947c13ab52ab774424072247bea}
+  - {path: src/test/java/grandrue/semantic/configuration/SurfaceFulfilmentRoleDependencyPackageResolutionTest.java, source: 492f570a8ca66c93bc0d94959bb1f4500e4bbadf}
+  - {path: src/test/java/grandrue/semantic/configuration/ConfigurationPublicationTest.java, source: a9118a4e6d2361ae81019599bd5d343aa4ddb2c8}
+  - {path: src/test/java/grandrue/semantic/execution/SemanticExecutionSpineConformanceTest.java, source: e374f8a307b22359c17834baf4bac8a38436d0bb}
+  - {path: src/test/java/grandrue/semantic/configuration/RegistryValidatedConfigurationPublicationTest.java, source: f4e6f139925c06a65dbb424db9a1bda09c8acd0b}
+  - {path: src/test/java/grandrue/semantic/configuration/ConfigurationReleaseActivationTest.java, source: 66194cda00ecf59af32c4320070757120b71b6a7}
+  - {path: src/test/java/grandrue/application/InitialTrialFromConfigurationActivationHandlerTest.java, source: bd7d5f014276ecad7525606b75b0acc3b511aac8}
+  - {path: src/test/java/grandrue/semantic/configuration/SemanticCompatibilityActivationTest.java, source: 6ee2f51edbb924cf80ed9a72f426818fe6265f50}
+  - {path: src/test/java/grandrue/semantic/configuration/RegisteredConfigurationNewActivityRequirementResolverTest.java, source: 451dd78b449b410cbffdd40af5e98e11e4653479}
+  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqSemanticCompatibilityActivationIT.java, source: ac8a8514559fa96a426719ac35289c6a0c6e1045}
+  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/MerchantEstablishmentRuntimeFixture.java, source: 52d7e05818ba474e949333010e9a0a217427ff77}
+  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationValidationEvidenceAuthorityIT.java, source: e0dc41fd7a0a6975815ea36f3a91fb9fe8425f0b}
+  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationActivationPublicationOutboxIT.java, source: 8d92d2a12b83af4711fd24a29d89ad7b0e951ac3}
+  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationImpactReviewEvidenceAuthorityIT.java, source: 802e59ba9fe0d448f560dbaa95e015707e1c9cf7}
+  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqReplacementConfigurationReleaseActivationIT.java, source: 63f08f1f998ec9f9b8a0381e439b65fa5a04c538}
+  - {path: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationNewActivityRequirementSetAuthorityIT.java, source: a822af8c928b018390ccd3146389c5665a2d5777}
+  - {path: src/test/java/grandrue/merchantaccount/MerchantAccountTest.java, source: 9aac2f4b8ba649a12133520be345fa86dbebe8f9}
+  - {path: src/test/java/grandrue/workforce/MerchantWorkforceModelTest.java, source: 23d531df606e43433cca34d94a1e4f5dae8d59d6}
+  - {path: src/test/java/grandrue/infrastructure/persistence/audit/JooqAuditStoreIT.java, source: a1b1d9194dc1686774f088c27470b29f3f252d39}
+  - {path: src/test/java/grandrue/infrastructure/security/webauthn/SpringWebAuthnSessionBridgeTest.java, source: 956f6f957840ac6782bf760ab24f358cf5bbdbb5}
+  - {path: src/test/java/grandrue/infrastructure/security/session/PrivilegedSessionRequestResolverTest.java, source: 48bdec2f8d603dbf8ded9a3104712aa9478c324b}
+  - {path: src/test/java/grandrue/infrastructure/persistence/webauthn/JooqWebAuthnAuthenticationSubjectRepositoryIT.java, source: 99b71217a710b947e1788ad840ab0f6c1becf14c}
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 41
-  owner_evidence: required
-  destination_presence: required
-  legacy_owner_absence: required
-  executable_legacy_reference_absence: required
-  protected_identity_check: required
-  expected_non_java_residual_check: required
+  expected_changed_path_count: 33
+  current_path_residual_absence: required
+  current_fixture_residual_absence: required
+  current_test_method_name_residual_absence: required
+  deferred_ci_env_presence: required
+  protected_identity_presence: required
+  excluded_prototype_presence: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
+next_state: CODE_COMMITTED

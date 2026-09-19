@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ProfileSurfaceDependencyConformanceTest {
 
     private static final Path SURFACE = Path.of(
-            "src", "main", "java", "mainstreet", "surface"
+            "src", "main", "java", "grandrue", "surface"
     );
 
     @Test
@@ -45,7 +45,7 @@ class ProfileSurfaceDependencyConformanceTest {
 
     private static boolean containsProfileDependency(Path source) {
         try {
-            return Files.readString(source).contains("mainstreet.merchantprofile.");
+            return Files.readString(source).contains("grandrue.merchantprofile.");
         } catch (IOException exception) {
             throw new IllegalStateException("Could not inspect " + source, exception);
         }

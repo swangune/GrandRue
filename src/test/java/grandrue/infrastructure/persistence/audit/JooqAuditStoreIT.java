@@ -101,7 +101,7 @@ class JooqAuditStoreIT {
     }
 
     @Test
-    void platform_and_merchant_evidence_remain_distinct_without_fake_main_street_merchant() {
+    void platform_and_merchant_evidence_remain_distinct_without_fake_grandrue_merchant() {
         JooqAuditStore store = store();
         AuditRecord merchant = merchantRecord("audit-merchant", MERCHANT_A, T0);
         AuditRecord platform = new AuditRecord(

@@ -53,7 +53,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
                         BOOKING_STORAGE,
                         Optional.empty(),
                         FulfillerKind.INTERNAL,
-                        "mainstreet-booking-storage",
+                        "grandrue-booking-storage",
                         Optional.empty()
                 )
         );
@@ -61,7 +61,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
         ResolvedConfigurationPackage resolved = resolver().resolve(
                 configuration,
                 bindingSet,
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 GENERATED_AT
         );
 
@@ -79,7 +79,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
                 binding.requiredObligations()
         );
         assertEquals(FulfillerKind.INTERNAL, binding.fulfillerKind());
-        assertEquals("mainstreet-booking-storage", binding.fulfillerIdentity());
+        assertEquals("grandrue-booking-storage", binding.fulfillerIdentity());
         assertEquals(
                 "fulfilment-binding-set:merchant-routing@8",
                 binding.bindingProvenance()
@@ -102,7 +102,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
                 () -> resolver().resolve(
                         configuration,
                         wrongRevision,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -124,7 +124,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
                 () -> resolver().resolve(
                         configuration,
                         otherMerchant,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -146,7 +146,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
                 () -> resolver().resolve(
                         configuration,
                         wrongRelease,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -174,7 +174,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
                 () -> resolver().resolve(
                         configuration,
                         bindingSet,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -202,7 +202,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
                 () -> resolverWithPartialProvider().resolve(
                         configuration,
                         bindingSet,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -228,7 +228,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
         ResolvedConfigurationPackage resolved = resolver().resolve(
                 configuration,
                 bindingSet,
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 GENERATED_AT
         );
 
@@ -247,7 +247,7 @@ class FulfilmentBindingSetRevisionPackageResolutionTest {
                 BOOKING_STORAGE,
                 Optional.empty(),
                 FulfillerKind.INTERNAL,
-                "mainstreet-booking-storage",
+                "grandrue-booking-storage",
                 Optional.empty()
         );
     }

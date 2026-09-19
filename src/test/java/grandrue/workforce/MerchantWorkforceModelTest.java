@@ -103,7 +103,7 @@ class MerchantWorkforceModelTest {
     }
 
     @Test
-    void role_definition_accepts_only_privileges_registered_by_main_street_semantics() {
+    void role_definition_accepts_only_privileges_registered_by_grandrue_semantics() {
         SemanticRegistrySnapshot registry = registryWithBookingCreatePrivilege();
 
         MerchantRoleDefinition role = MerchantRoleDefinition.define(

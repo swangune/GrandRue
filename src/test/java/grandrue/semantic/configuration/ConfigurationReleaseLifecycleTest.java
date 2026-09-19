@@ -35,7 +35,7 @@ class ConfigurationReleaseLifecycleTest {
                         "release-1",
                         source,
                         wrongModel,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -60,7 +60,7 @@ class ConfigurationReleaseLifecycleTest {
                         "release-1",
                         source,
                         incomplete,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         GENERATED_AT
                 )
         );
@@ -226,7 +226,7 @@ class ConfigurationReleaseLifecycleTest {
                         source.configurationIdentifier(),
                         source.version()
                 ),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 GENERATED_AT
         );
     }

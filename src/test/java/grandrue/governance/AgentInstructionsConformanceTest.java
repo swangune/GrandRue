@@ -36,7 +36,7 @@ class AgentInstructionsConformanceTest {
     /**
      * Local/generated directory families excluded from repository governance discovery.
      * These correspond to repository-ignored dependency, build, coverage and IDE trees;
-     * their contents are not controlled Main Street repository instructions.
+     * their contents are not controlled GrandRue repository instructions.
      */
     private static final Set<String> UNCONTROLLED_LOCAL_DIRECTORIES = Set.of(
             ".git",
@@ -110,7 +110,7 @@ class AgentInstructionsConformanceTest {
             throws IOException {
         Files.writeString(tempDir.resolve("AGENTS.md"), "root");
 
-        Path sourceAgent = Files.createDirectories(tempDir.resolve("src/main/java/mainstreet/example"))
+        Path sourceAgent = Files.createDirectories(tempDir.resolve("src/main/java/grandrue/example"))
                 .resolve("AGENTS.md");
         Files.writeString(sourceAgent, "prohibited repository instruction");
 

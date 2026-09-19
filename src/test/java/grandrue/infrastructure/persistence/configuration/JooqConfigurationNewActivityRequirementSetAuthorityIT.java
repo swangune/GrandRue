@@ -287,7 +287,7 @@ class JooqConfigurationNewActivityRequirementSetAuthorityIT {
         ));
         return new ConfigurationPackageResolver(
                 new ConfigurationCompiler(registry)
-        ).resolve(source, "mainstreet-compiler-1", PACKAGE_GENERATED_AT);
+        ).resolve(source, "grandrue-compiler-1", PACKAGE_GENERATED_AT);
     }
 
     private void seedIntent() {

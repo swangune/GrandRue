@@ -66,7 +66,7 @@ class SemanticExecutionSpineConformanceTest {
                         new ConfigurationCompiler(semanticRegistry)
                 ).resolve(
                         configuration,
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         NOW.minusSeconds(60)
                 );
 

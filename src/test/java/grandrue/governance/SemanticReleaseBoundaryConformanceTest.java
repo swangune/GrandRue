@@ -22,16 +22,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SemanticReleaseBoundaryConformanceTest {
 
     private static final Path RELEASE_PACKAGE = Path.of(
-            "src", "main", "java", "mainstreet", "semantic", "release"
+            "src", "main", "java", "grandrue", "semantic", "release"
     );
 
     @Test
     void materialisation_package_does_not_own_execution_or_configuration_authority()
             throws IOException {
         List<String> violations = forbiddenReferences(List.of(
-                "import mainstreet.semantic.executable.",
-                "import mainstreet.runtime.",
-                "import mainstreet.semantic.configuration."
+                "import grandrue.semantic.executable.",
+                "import grandrue.runtime.",
+                "import grandrue.semantic.configuration."
         ));
 
         assertTrue(
@@ -45,7 +45,7 @@ class SemanticReleaseBoundaryConformanceTest {
     void database_schema_state_does_not_become_semantic_release_authority()
             throws IOException {
         List<String> violations = forbiddenReferences(List.of(
-                "import mainstreet.infrastructure.",
+                "import grandrue.infrastructure.",
                 "import org.flywaydb.",
                 "flyway_schema_history",
                 "schemaVersion",

@@ -126,7 +126,7 @@ class JooqConfigurationValidationEvidenceAuthorityIT {
         assertEquals("configuration-1", evidence.configurationRevisionIdentifier());
         assertEquals("semantic-release-21", evidence.semanticRegistryReleaseIdentifier());
         assertEquals("resolved-package-1", evidence.resolvedPackageEvidenceIdentifier());
-        assertEquals("mainstreet-compiler-1", evidence.compilerIdentifier());
+        assertEquals("grandrue-compiler-1", evidence.compilerIdentifier());
         assertEquals(PACKAGE_GENERATED_AT, evidence.packageGeneratedAt());
         assertEquals(EVIDENCE_PRODUCED_AT, evidence.evidenceProducedAt());
         assertEquals(
@@ -434,7 +434,7 @@ class JooqConfigurationValidationEvidenceAuthorityIT {
                 new ConfigurationCompiler(registry)
         ).resolve(
                 source,
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 PACKAGE_GENERATED_AT
         );
     }

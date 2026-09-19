@@ -47,7 +47,7 @@ class SurfaceFulfilmentRoleDependencyPackageResolutionTest {
                 IllegalArgumentException.class,
                 () -> resolver.resolve(
                         configuration(),
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         Instant.parse("2026-08-25T20:00:00Z")
                 )
         );
@@ -67,7 +67,7 @@ class SurfaceFulfilmentRoleDependencyPackageResolutionTest {
 
         ResolvedConfigurationPackage resolved = resolver.resolve(
                 configuration(),
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 Instant.parse("2026-08-25T20:00:00Z")
         );
 
@@ -91,7 +91,7 @@ class SurfaceFulfilmentRoleDependencyPackageResolutionTest {
                 IllegalArgumentException.class,
                 () -> resolver.resolve(
                         configuration(),
-                        "mainstreet-compiler-1",
+                        "grandrue-compiler-1",
                         Instant.parse("2026-08-25T20:00:00Z")
                 )
         );

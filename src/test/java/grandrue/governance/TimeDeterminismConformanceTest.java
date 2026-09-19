@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class TimeDeterminismConformanceTest {
 
-    private static final Path MAIN = Path.of("src", "main", "java", "mainstreet");
+    private static final Path MAIN = Path.of("src", "main", "java", "grandrue");
 
     private static final Map<String, String> FORBIDDEN_WALL_CLOCK_CALLS = Map.of(
             "Instant.now(", "Instant.now",

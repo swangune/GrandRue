@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class MerchantAccountTest {
 
     @Test
-    void exposes_the_immutable_main_street_merchant_identity() {
+    void exposes_the_immutable_grandrue_merchant_identity() {
         MerchantAccount account = new MerchantAccount(
                 new MerchantScope("merchant-a")
         );

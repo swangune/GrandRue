@@ -150,7 +150,7 @@ class RegistryValidatedConfigurationPublicationTest {
                 "release-grocery-00" + version,
                 configuration,
                 model,
-                "mainstreet-compiler-1",
+                "grandrue-compiler-1",
                 GENERATED_AT
         );
     }
