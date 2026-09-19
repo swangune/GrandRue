@@ -1,0 +1,37 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-03-00",
+  "packet_kind": "METHOD_VALIDATION",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method": {
+    "version": "grandrue-preservation-checker/v1",
+    "checker_path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/checker.js",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323"
+  },
+  "checks": {
+    "required_negative_controls": 20,
+    "passed": 20,
+    "failed": 0
+  },
+  "outputs": {
+    "negative_controls": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/negative-controls.json",
+      "git_blob": "74e47e335574225d2db67be81889c7772ebd22f8",
+      "sha256": "897c2e5719da8af239a54e4ba7c744363f6ed8ccff813c06666c33e89084b239"
+    },
+    "summary": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/summary.json",
+      "sha256": "c891e8a7246192f50b9f0cd2f114c2b91c4de18aa6a065e46b5e894c974863c6"
+    }
+  },
+  "conclusion_scope": "verification_method_only",
+  "conclusion": "PASS",
+  "limitations": [
+    "Method validation does not establish migration preservation, claim validation, executable equivalence or live freshness.",
+    "Changing checker version/source invalidates dependent future region receipts until revalidated.",
+    "Maven tests and GitHub Actions were not run."
+  ],
+  "next_packet": "GR-VV-03-R001"
+}

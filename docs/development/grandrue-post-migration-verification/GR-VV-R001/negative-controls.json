@@ -1,0 +1,133 @@
+{
+  "schema_version": "grandrue-method-validation/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-03-00",
+  "method_version": "grandrue-preservation-checker/v1",
+  "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+  "controls": [
+    {
+      "id": "positive_exact",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    },
+    {
+      "id": "inventory_missing_baseline",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "inventory_omitted_row",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "inventory_duplicate_target",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "truncate_tail",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "remove_interior",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "same_length_operator",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "protected_identity_change",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "old_and_new_owner_both_present",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "mode_only_change",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "eol_change",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "final_newline_change",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "missing_consumer_edit",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "truncated_evidence",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "pass": true
+    },
+    {
+      "id": "unknown_object_bytes",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "pass": true
+    },
+    {
+      "id": "hidden_bridge_executable_delta",
+      "expected": "DIFFERENT",
+      "actual": "DIFFERENT",
+      "pass": true
+    },
+    {
+      "id": "historical_rename_missing_live_target",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "undeclared_live_target",
+      "expected": "STALE",
+      "actual": "STALE",
+      "pass": true
+    },
+    {
+      "id": "corrupt_file_fails_region",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "id": "independent_good_file_preserved",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    }
+  ],
+  "total": 20,
+  "passed": 20,
+  "failed": 0,
+  "result": "PASS"
+}

@@ -417,7 +417,7 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-GR-VV-00-01 snapshot capture, GR-VV-01-01 file accounting and GR-VV-02-01 region preparation are checkpointed PASS. No moved/changed file or migration claim has yet passed preservation/claim verification.
+GR-VV-00-01 snapshot capture, GR-VV-01-01 file accounting, GR-VV-02-01 region preparation and GR-VV-03-00 method validation are checkpointed PASS. No moved/changed migration region or migration claim has yet passed preservation comparison.
 
 ```yaml
 execution:
@@ -434,11 +434,14 @@ execution:
   historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
   active_packet:
-    id: GR-VV-03-00
-    kind: METHOD_VALIDATION
+    id: GR-VV-03-R001
+    kind: CLOSED_REGION_PRESERVATION
     state: PREPARATION_REQUIRED
   queue:
-    - GR-VV-03-00
+    - GR-VV-03-R001
+    - GR-VV-03-R002
+    - GR-VV-03-R003
+    - GR-VV-03-R004
   completed_packets:
     - id: GR-VV-00-01
       result: PASS
@@ -449,9 +452,12 @@ execution:
     - id: GR-VV-02-01
       result: PASS
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-02-01.json
+    - id: GR-VV-03-00
+      result: PASS
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-00.json
   results_recorded: true
   implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
-  next_action: Validate the preservation checker/method against the mandatory negative-control cases before accepting any deterministic-region result. A failed negative control blocks preservation execution.
+  next_action: Execute the production Java deterministic region first. Generate expected target bytes from each M blob using only the frozen namespace transform plus the explicit 37-file current-wording overlay, then compare complete target bytes/type/mode/path obligations. Do not repair discrepancies.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.

@@ -3,8 +3,8 @@
   "run_id": "GR-VV-R001",
   "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
   "latest_packet": {
-    "id": "GR-VV-02-01",
-    "kind": "IDENTITY_PREPARATION",
+    "id": "GR-VV-03-00",
+    "kind": "METHOD_VALIDATION",
     "result": "PASS"
   },
   "coverage": {
@@ -20,6 +20,7 @@
     "deterministic_regions": 4,
     "exception_groups": 4,
     "overlays": 5,
+    "method_negative_controls": 20,
     "unclassified_files": 0,
     "claims_total": 847,
     "production_leaf_claims": 762,
@@ -33,5 +34,5 @@
     "master_non_naming_executable_preservation": "NOT_RUN",
     "live_freshness": "NOT_RUN"
   },
-  "next_packet": "GR-VV-03-00"
+  "next_packet": "GR-VV-03-R001"
 }
