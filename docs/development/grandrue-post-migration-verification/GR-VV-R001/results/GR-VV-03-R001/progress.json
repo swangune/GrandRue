@@ -1,0 +1,53 @@
+{
+  "schema_version": "grandrue-region-progress/v1",
+  "run_id": "GR-VV-R001",
+  "region_id": "GR-VV-03-R001",
+  "region_name": "production_java_namespace",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method_version": "grandrue-preservation-checker/v1",
+  "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+  "state": "IN_PROGRESS",
+  "total_files": 1094,
+  "verified_files": 40,
+  "passing_files": 40,
+  "failing_files": 0,
+  "blocked_files": 0,
+  "remaining_files": 1054,
+  "completed_packages": [
+    "(root)",
+    "audit",
+    "customer",
+    "credential",
+    "identitysecurity",
+    "resilience",
+    "observability"
+  ],
+  "chunks": [
+    {
+      "chunk": "root-audit-customer",
+      "git_blob": "b482983ba0457b2da2073a83116084b2a59b1fae",
+      "sha256": "30a558f6db9fe70b39c943f631d56e5c87584caeeb37ea7ae6d2d2a883a407b0",
+      "files": 9,
+      "pass": 9,
+      "fail": 0
+    },
+    {
+      "chunk": "credential-identitysecurity",
+      "git_blob": "390c91c25eb96844042cb14af8372815d0710c65",
+      "sha256": "127ba82230056f843399fcc08765624e3aeafaef7f1ac061b95c705b8d8737f8",
+      "files": 15,
+      "pass": 15,
+      "fail": 0
+    },
+    {
+      "chunk": "resilience-observability",
+      "git_blob": "62a43e984fe557a4fb4ec0b7810870944b74fef5",
+      "sha256": "3df2f75cd2868e53112bb27913325d73c8191d6b9421f658c1b3b7ec22e5a15e",
+      "files": 16,
+      "pass": 16,
+      "fail": 0
+    }
+  ],
+  "conclusion": "NO_REGION_VERDICT_YET",
+  "next_action": "Continue package-closed production verification from remaining packages; apply explicit production wording overlay to the 37 declared files when encountered."
+}
