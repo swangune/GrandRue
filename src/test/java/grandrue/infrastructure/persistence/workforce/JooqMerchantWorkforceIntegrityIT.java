@@ -1,9 +1,9 @@
-package mainstreet.infrastructure.persistence.workforce;
+package grandrue.infrastructure.persistence.workforce;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.workforce.MerchantAccessGroup;
-import mainstreet.workforce.MerchantGroupMembership;
-import mainstreet.workforce.MerchantMembership;
+import grandrue.application.MerchantScope;
+import grandrue.workforce.MerchantAccessGroup;
+import grandrue.workforce.MerchantGroupMembership;
+import grandrue.workforce.MerchantMembership;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

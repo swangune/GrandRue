@@ -1,10 +1,10 @@
-package mainstreet.infrastructure.persistence.workforce;
+package grandrue.infrastructure.persistence.workforce;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.application.TrustedDeviceApplicationContext;
-import mainstreet.runtime.AuthorizationException;
-import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.workforce.MerchantOperationalDeviceAuthorisation;
+import grandrue.application.MerchantScope;
+import grandrue.application.TrustedDeviceApplicationContext;
+import grandrue.runtime.AuthorizationException;
+import grandrue.runtime.ExecutionPrincipal;
+import grandrue.workforce.MerchantOperationalDeviceAuthorisation;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
