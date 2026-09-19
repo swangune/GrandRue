@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 305,
-  "passing_files": 304,
+  "verified_files": 344,
+  "passing_files": 343,
   "failing_files": 1,
   "blocked_files": 0,
-  "remaining_files": 789,
+  "remaining_files": 750,
   "completed_packages": [
     "(root)",
     "audit",
@@ -37,7 +37,8 @@
     "scheduling",
     "fulfilment",
     "merchantaccount",
-    "workforce"
+    "workforce",
+    "runtime"
   ],
   "chunks": [
     {
@@ -199,8 +200,16 @@
       "files": 18,
       "pass": 18,
       "fail": 0
+    },
+    {
+      "chunk": "runtime",
+      "git_blob": "29d4fc37ac367590b5b8e3380e5ea9088c89d6d4",
+      "sha256": "adec2d3d363139548c0fa0ab8170af8e3aaedfc243ef7b9aa1c5730d6e87c388",
+      "files": 39,
+      "pass": 39,
+      "fail": 0
     }
   ],
   "conclusion": "NO_REGION_VERDICT_YET",
-  "next_action": "Continue package-closed production verification from remaining packages while preserving open finding GR-VV-F001; apply explicit production wording overlay to the 37 declared files when encountered. Do not repair discrepancies."
+  "next_action": "Continue package-closed production verification from remaining packages while preserving open finding GR-VV-F001; use recorded claim lineage for staged import-transition rows and apply explicit production wording overlays where applicable. Do not repair discrepancies."
 }
