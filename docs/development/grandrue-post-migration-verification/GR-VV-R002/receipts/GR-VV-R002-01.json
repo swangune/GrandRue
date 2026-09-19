@@ -1,0 +1,52 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R002",
+  "packet_id": "GR-VV-R002-01",
+  "packet_kind": "INCREMENTAL_LIVE_REVALIDATION",
+  "result": "FAIL",
+  "checked_target": "0a4a7b90364c1aa32262f29da65bc29173e29e81",
+  "inherited_run": "GR-VV-R001",
+  "checks": {
+    "file_accounting": "PASS",
+    "claim_validation": "FAIL",
+    "migration_preservation": "FAIL",
+    "master_non_naming_executable_preservation": "DIFFERENT",
+    "protected_identities": "PASS",
+    "live_freshness": "PASS",
+    "incremental_delta": {
+      "added": 61,
+      "modified": 5,
+      "deleted": 0,
+      "total_paths": 66,
+      "substantive": 5,
+      "operational": 61,
+      "unclassified": 0
+    },
+    "frozen_claims": {
+      "total": 847,
+      "pass": 842,
+      "fail": 5,
+      "blocked": 0
+    },
+    "findings": {
+      "open": 2,
+      "open_ids": [
+        "GR-VV-F001",
+        "GR-VV-F002"
+      ],
+      "resolved_ids": [
+        "GR-VV-F003"
+      ]
+    }
+  },
+  "publication_parent": "a91b1dd59ccf7dc1183ddf085e69d9833d4b62cc",
+  "conclusion_scope": "R002_INCREMENTAL_REVALIDATION_FROM_D_TO_LATEST_SUBSTANTIVE_TARGET",
+  "conclusion": "FAIL",
+  "implementation_handoff": "BLOCKED",
+  "limitations": [
+    "The only remaining migration-preservation failures are GR-VV-F001/F002.",
+    "No migration repair is performed inside verification.",
+    "No Maven tests, product GitHub Actions, runtime checks or database execution checks were run."
+  ],
+  "next_action": "MIGRATION_DEFECT_REVIEW_FOR_GR_VV_F001_F002"
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "grandrue-r002-live-freshness/v1",
+  "run_id": "GR-VV-R002",
+  "checked_target": "0a4a7b90364c1aa32262f29da65bc29173e29e81",
+  "publication_parent": "a91b1dd59ccf7dc1183ddf085e69d9833d4b62cc",
+  "commits_after_target_through_publication_parent": 6,
+  "changed_paths_after_target_through_publication_parent": 24,
+  "non_audit_paths_after_target_through_publication_parent": 0,
+  "result": "PASS",
+  "publication_note": "R002 publication is restricted to declared audit evidence. Its commit SHA is supplied by the Git envelope rather than embedded recursively."
+}

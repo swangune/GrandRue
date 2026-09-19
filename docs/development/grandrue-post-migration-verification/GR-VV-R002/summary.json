@@ -1,0 +1,45 @@
+{
+  "schema_version": "grandrue-post-migration-summary/v1",
+  "run_id": "GR-VV-R002",
+  "checked_target": "0a4a7b90364c1aa32262f29da65bc29173e29e81",
+  "target_tree": "5a27e7f326c163f91656bf3f7192798473a81544",
+  "mode": "INCREMENTAL_LIVE_REVALIDATION",
+  "inherited_run": "GR-VV-R001",
+  "coverage": {
+    "baseline_entries": 2258,
+    "terminal_migration_target_entries": 2266,
+    "target_entries": 2327,
+    "incremental_added": 61,
+    "incremental_modified": 5,
+    "incremental_deleted": 0,
+    "incremental_changed_paths": 66,
+    "substantive_governance_paths": 5,
+    "operational_verification_paths": 61,
+    "unclassified_incremental_paths": 0,
+    "claims_total": 847,
+    "claims_passed": 842,
+    "claims_failed": 5,
+    "claims_blocked": 0,
+    "open_findings": 2
+  },
+  "conclusions": {
+    "file_accounting": "PASS",
+    "claim_validation": "FAIL",
+    "migration_preservation": "FAIL",
+    "master_non_naming_executable_preservation": "DIFFERENT",
+    "protected_identities": "PASS",
+    "live_freshness": "PASS"
+  },
+  "findings": {
+    "open": [
+      "GR-VV-F001",
+      "GR-VV-F002"
+    ],
+    "resolved_by_this_run": [
+      "GR-VV-F003"
+    ]
+  },
+  "overall": "FAIL",
+  "implementation_handoff": "BLOCKED",
+  "next_action": "HAND_OFF_GR_VV_F001_F002_TO_MIGRATION_DEFECT_REVIEW_OUTSIDE_VERIFICATION"
+}

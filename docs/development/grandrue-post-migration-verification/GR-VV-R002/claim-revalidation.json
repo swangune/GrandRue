@@ -1,0 +1,37 @@
+{
+  "schema_version": "grandrue-r002-claim-revalidation/v1",
+  "run_id": "GR-VV-R002",
+  "target": "0a4a7b90364c1aa32262f29da65bc29173e29e81",
+  "claim_snapshot_digest": "20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362",
+  "claims_total": 847,
+  "changed_paths_intersecting_frozen_claim_records": 0,
+  "changed_src_paths": 0,
+  "inherited_claim_results": {
+    "pass": 842,
+    "fail": 5,
+    "blocked": 0,
+    "direct_fail": 4,
+    "derived_fail": 1
+  },
+  "protected_identities": "PASS_INHERITED_UNCHANGED_SCOPE",
+  "persistent_findings": [
+    {
+      "finding_id": "GR-VV-F001",
+      "D_object": "3700ba0e2a6af3e9552d5de53834095168f3f4f8",
+      "T_object": "3700ba0e2a6af3e9552d5de53834095168f3f4f8",
+      "unchanged": true
+    },
+    {
+      "finding_id": "GR-VV-F002",
+      "D_object": "0269458ed06c1572d1cba4798fc7476e0bf16b93",
+      "T_object": "0269458ed06c1572d1cba4798fc7476e0bf16b93",
+      "unchanged": true
+    }
+  ],
+  "stale_target_finding": {
+    "finding_id": "GR-VV-F003",
+    "disposition": "RESOLVED_BY_R002_TARGET_PIN"
+  },
+  "result": "FAIL",
+  "reason": "No post-D change alters a frozen migration claim, but the five R001 claim failures caused by GR-VV-F001/F002 remain unresolved."
+}
