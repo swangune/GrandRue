@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 99,
-  "passing_files": 98,
+  "verified_files": 123,
+  "passing_files": 122,
   "failing_files": 1,
   "blocked_files": 0,
-  "remaining_files": 995,
+  "remaining_files": 971,
   "completed_packages": [
     "(root)",
     "audit",
@@ -23,7 +23,9 @@
     "observability",
     "api",
     "application",
-    "background"
+    "background",
+    "booking",
+    "businesshours"
   ],
   "chunks": [
     {
@@ -72,6 +74,22 @@
       "sha256": "cfc4b7dae9df847cc70c75c2f374fbf927ca5626e9e736f1a3d6a0de4d69f9b4",
       "files": 13,
       "pass": 13,
+      "fail": 0
+    },
+    {
+      "chunk": "booking",
+      "git_blob": "66a54fdf33d3011a5b6e5b0154f23094ba33f150",
+      "sha256": "93ffb7ff06feb3d5f274dea3e52eebd7f6b12f123dbea9d279fea7e6b8763027",
+      "files": 13,
+      "pass": 13,
+      "fail": 0
+    },
+    {
+      "chunk": "businesshours",
+      "git_blob": "e7e0ab6e400bf13c56a3cffefba3837a9a8d0ae1",
+      "sha256": "1fa9f9713c66cbc8ce8a79290376a4448a3642bec026fd11c0f6c3d64ec3c2c3",
+      "files": 11,
+      "pass": 11,
       "fail": 0
     }
   ],
