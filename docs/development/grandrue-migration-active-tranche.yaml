@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T017
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 109e3a89c8b0f0307b4d0cd634b21c057b1d91a1
 expected_parent: 75a1e2b9a182bf69bcec06a67641d16e92c1fe91
+validated_head: 109e3a89c8b0f0307b4d0cd634b21c057b1d91a1
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-api
@@ -89,3 +92,6 @@ preparation_notes:
   - all owner blobs and absent GrandRue destinations reconciled against development at 75a1e2b9a182bf69bcec06a67641d16e92c1fe91
   - all owner transformations are deterministic code-only namespace moves
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
