@@ -3,9 +3,9 @@
   "run_id": "GR-VV-R001",
   "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
   "latest_packet": {
-    "id": "GR-VV-03-00",
-    "kind": "METHOD_VALIDATION",
-    "result": "PASS"
+    "id": "GR-VV-03-R001",
+    "kind": "CLOSED_REGION_PRESERVATION",
+    "result": "FAIL"
   },
   "coverage": {
     "baseline_entries": 2258,
@@ -34,16 +34,16 @@
     "master_non_naming_executable_preservation": "NOT_RUN",
     "live_freshness": "NOT_RUN"
   },
-  "next_packet": "GR-VV-03-R001",
+  "next_packet": "GR-VV-03-R002",
   "active_progress": {
-    "region_id": "GR-VV-03-R001",
-    "state": "IN_PROGRESS",
-    "total_files": 1094,
-    "verified_files": 959,
-    "passing_files": 957,
-    "failing_files": 2,
+    "region_id": "GR-VV-03-R002",
+    "state": "READY",
+    "total_files": 376,
+    "verified_files": 0,
+    "passing_files": 0,
+    "failing_files": 0,
     "blocked_files": 0,
-    "remaining_files": 135,
-    "progress_evidence": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R001/progress.json"
+    "remaining_files": 376,
+    "progress_evidence": null
   }
 }
