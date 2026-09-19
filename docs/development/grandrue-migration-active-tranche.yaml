@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T023
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 32b152813d1fb77b0f8896c0c076e61e85af67c5
 expected_parent: 94bd013f7795a6d0b7bc9c765ee2d2312197e685
+validated_head: 32b152813d1fb77b0f8896c0c076e61e85af67c5
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-merchantprofile
@@ -94,3 +97,6 @@ preparation_notes:
   - no external test consumer of the test-owned classes was discovered
   - semantic/capability and booking regions were isolated for later closed-subgraph handling after external consumer evidence was found
   - Maven tests and GitHub Actions were not run
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
