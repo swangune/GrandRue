@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 344,
-  "passing_files": 343,
+  "verified_files": 390,
+  "passing_files": 389,
   "failing_files": 1,
   "blocked_files": 0,
-  "remaining_files": 750,
+  "remaining_files": 704,
   "completed_packages": [
     "(root)",
     "audit",
@@ -38,7 +38,8 @@
     "fulfilment",
     "merchantaccount",
     "workforce",
-    "runtime"
+    "runtime",
+    "publication"
   ],
   "chunks": [
     {
@@ -208,8 +209,16 @@
       "files": 39,
       "pass": 39,
       "fail": 0
+    },
+    {
+      "chunk": "publication",
+      "git_blob": "444ecb4412a54bcf33aa63d174abe89620844e09",
+      "sha256": "e424369959ccaa089d15deda31a693951f3164ca72c32c8b713dd0eef8671327",
+      "files": 46,
+      "pass": 46,
+      "fail": 0
     }
   ],
   "conclusion": "NO_REGION_VERDICT_YET",
-  "next_action": "Continue package-closed production verification from remaining packages while preserving open finding GR-VV-F001; use recorded claim lineage for staged import-transition rows and apply explicit production wording overlays where applicable. Do not repair discrepancies."
+  "next_action": "Continue GR-VV-03-R001 from remaining packages. Preserve GR-VV-F001. Treat onboarding and merchantprofile as claim-lineage packages rather than simple-transform packages; exploratory reads are not counted. Use recorded claim lineage for staged import-transition rows and explicit wording overlays where applicable. Do not repair discrepancies."
 }
