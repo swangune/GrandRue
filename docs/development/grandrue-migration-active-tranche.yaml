@@ -2,114 +2,99 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T020
+tranche: GR-REN-03-T021
 group: GR-REN-03
-state: COMPLETE
-code_commit: 1002edf8509524bdf113c277a37ce3cc2b6d087b
-expected_parent: 11880c9732aa1f6eb18aa84c9c4af716513bf07a
-validated_head: 1002edf8509524bdf113c277a37ce3cc2b6d087b
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: c6e7404bfa9b0f73e5f384283486a233352e0447
 
 region:
-  identity: test-onboarding
-  closure_basis: complete live src/test/java/mainstreet/onboarding/** Java test-owner region
+  identity: test-commercial
+  closure_basis: complete live src/test/java/mainstreet/commercial/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 20
+    owner_count: 17
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 25
+    executable_namespace_replacement_count: 28
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/onboarding/OnboardingAnswerFormTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingAnswerFormTest.java
-      blob_sha: 85652a8ce2771f57a90a414359fc919717cf714a
+    - from: src/test/java/mainstreet/commercial/TrialReminderCadenceTest.java
+      to: src/test/java/grandrue/commercial/TrialReminderCadenceTest.java
+      blob_sha: 9a54e636b7d8bf6e54ded9b22eb886494f14ac95
       executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingPromptClassTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingPromptClassTest.java
-      blob_sha: 49a1db58dbd7114e64049ac73d23eea7304b9f64
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingAnswerOriginTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingAnswerOriginTest.java
-      blob_sha: 7df8e1f55768a837f1acfee66dac553ae5123f53
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingCaseLifecycleTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingCaseLifecycleTest.java
-      blob_sha: 9fe898d7b5be03f3ce1dbe5c9a5177d705edfc96
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingCaseOwnershipTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingCaseOwnershipTest.java
-      blob_sha: d5163ea44e56f309176a0201ae6a82086ae124dc
+    - from: src/test/java/mainstreet/commercial/CommercialAccessDecisionTest.java
+      to: src/test/java/grandrue/commercial/CommercialAccessDecisionTest.java
+      blob_sha: 35588a1877c75ef0e5e3435eb27e9f3f491ff840
       executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/onboarding/OnboardingPromptPriorityTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingPromptPriorityTest.java
-      blob_sha: fb641e6f59224d6e43d03e8b510d7f9029e59b5a
+    - from: src/test/java/mainstreet/commercial/StandardPlanChangePolicyTest.java
+      to: src/test/java/grandrue/commercial/StandardPlanChangePolicyTest.java
+      blob_sha: 3965e3825bca8abfdf3b3433bcff18491a97b6bb
       executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingAnswerEvidenceTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingAnswerEvidenceTest.java
-      blob_sha: 8c1394a89398bebc2f65203ee38701808def09d3
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingQuestionIdentityTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingQuestionIdentityTest.java
-      blob_sha: f24bbfa02a9774c52f926c99268f025150b6476f
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingPromptEligibilityTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingPromptEligibilityTest.java
-      blob_sha: 95dd45225394e55badcf79c7c54d2f1f3dcb334d
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingCaseReviewAffinityTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingCaseReviewAffinityTest.java
-      blob_sha: 8284012331f0dd0b2bc202a750ed4027a485e43c
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingPromptRegistryTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingPromptRegistryTest.java
-      blob_sha: 8ce1c43b8555c585d148e03af6db67b6b417d8b9
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/OnboardingCaseReviewCurrentnessTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingCaseReviewCurrentnessTest.java
-      blob_sha: e24c8fb50ec4b299d699258e20cff75dd7097898
+    - from: src/test/java/mainstreet/commercial/AnnualBillingPricePolicyTest.java
+      to: src/test/java/grandrue/commercial/AnnualBillingPricePolicyTest.java
+      blob_sha: e9bdc879907638eef05031099c785f65f4e3bda4
+      executable_namespace_replacements: 3
+    - from: src/test/java/mainstreet/commercial/InitialFullExperienceTrialTest.java
+      to: src/test/java/grandrue/commercial/InitialFullExperienceTrialTest.java
+      blob_sha: e518f4c355fbc64290babc6c8caf64a5c966fd07
       executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/onboarding/OnboardingCaseRevisionConcurrencyTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingCaseRevisionConcurrencyTest.java
-      blob_sha: 3fc0982df88615d2aafb1f1bc7963015c518de3d
+    - from: src/test/java/mainstreet/commercial/ScheduledStandardPlanChangeTest.java
+      to: src/test/java/grandrue/commercial/ScheduledStandardPlanChangeTest.java
+      blob_sha: 65dfbd8b34e98cf67a4296735591acb322e964f4
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/commercial/MerchantCommercialAgreementTest.java
+      to: src/test/java/grandrue/commercial/MerchantCommercialAgreementTest.java
+      blob_sha: 8a14d6ee4655243b3c153f1c512c17d2a3a4373d
       executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/onboarding/OnboardingQuestionDefinitionVersionTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingQuestionDefinitionVersionTest.java
-      blob_sha: b0d4de490ff3bcf1cbbecd556b54027fe76ed852
+    - from: src/test/java/mainstreet/commercial/CommercialEntitlementGrantProvenanceTest.java
+      to: src/test/java/grandrue/commercial/CommercialEntitlementGrantProvenanceTest.java
+      blob_sha: cbec7665cc5ae215c1b0ad2b377e7050c93515c0
       executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryOptionTest.java
-      to: src/test/java/grandrue/onboarding/InitialCustomerInteractionDiscoveryOptionTest.java
-      blob_sha: aaf5b3302a357c818a3277494d931774d27a8d94
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestionTest.java
-      to: src/test/java/grandrue/onboarding/InitialCustomerInteractionDiscoveryQuestionTest.java
-      blob_sha: 0f447668807b114c639f57131c9ad0c86835a453
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/InitialCustomerInteractionDiscoveryQuestionDefinitionTest.java
-      to: src/test/java/grandrue/onboarding/InitialCustomerInteractionDiscoveryQuestionDefinitionTest.java
-      blob_sha: af9af6763a8d6f007805da0cd4b89db5786052f2
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/InitialCustomerInteractionDiscoverySelectionConsistencyTest.java
-      to: src/test/java/grandrue/onboarding/InitialCustomerInteractionDiscoverySelectionConsistencyTest.java
-      blob_sha: 42f1fa1688f9c06d2073a396b87ce9f3b520b14d
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/onboarding/DeterministicOnboardingRecomputationTest.java
-      to: src/test/java/grandrue/onboarding/DeterministicOnboardingRecomputationTest.java
-      blob_sha: 3773de57f788268a83ae0191e871582228c2d695
+    - from: src/test/java/mainstreet/commercial/MerchantCommercialAgreementTransitionTest.java
+      to: src/test/java/grandrue/commercial/MerchantCommercialAgreementTransitionTest.java
+      blob_sha: 4ad3fe421d3c40cd01fa777c6a04afd1c8d5b75c
       executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/onboarding/OnboardingSubmissionReadinessEvaluatorTest.java
-      to: src/test/java/grandrue/onboarding/OnboardingSubmissionReadinessEvaluatorTest.java
-      blob_sha: dd9afca4d9a6e1f83b6abe8a7bc9d1aabd9fa4ab
+    - from: src/test/java/mainstreet/commercial/CommercialEntitlementDefinitionRegistryTest.java
+      to: src/test/java/grandrue/commercial/CommercialEntitlementDefinitionRegistryTest.java
+      blob_sha: d87f617f796c1096424e14765a913271fb014d46
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/commercial/InitialFullExperienceTrialGrantSourceTest.java
+      to: src/test/java/grandrue/commercial/InitialFullExperienceTrialGrantSourceTest.java
+      blob_sha: a874e37a5cab95b9ee252920802ae78f916168df
       executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/commercial/EffectiveCommercialEntitlementAuthorityTest.java
+      to: src/test/java/grandrue/commercial/EffectiveCommercialEntitlementAuthorityTest.java
+      blob_sha: 63b6a846c6d7d9efd66ec078dca30abd2397a507
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/commercial/InitialFullExperienceTrialEstablisherTest.java
+      to: src/test/java/grandrue/commercial/InitialFullExperienceTrialEstablisherTest.java
+      blob_sha: ac6b2ae2ceac887f565ede17433d03f3d9bbc8cc
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/commercial/StandardPlanCatalogueHistoryTest.java
+      to: src/test/java/grandrue/commercial/StandardPlanCatalogueHistoryTest.java
+      blob_sha: 1c8cf13778819fa24762de19162faeda53c50e05
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/commercial/StandardPlanCatalogueRevisionTest.java
+      to: src/test/java/grandrue/commercial/StandardPlanCatalogueRevisionTest.java
+      blob_sha: 01ef3a41422495bcf85dbc0c75ab443481c6e9d5
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/commercial/StandardPlanEntitlementGrantSourceTest.java
+      to: src/test/java/grandrue/commercial/StandardPlanEntitlementGrantSourceTest.java
+      blob_sha: f5492de49fbbfb68762987140274c7a90f5ddfe0
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/commercial/CommercialCatalogueManifestTest.java
+      to: src/test/java/grandrue/commercial/CommercialCatalogueManifestTest.java
+      blob_sha: bd1e082478968ffb39e3e725097657b2909aa924
+      executable_namespace_replacements: 1
 
 deterministic_transformations:
   owners:
-    - move all twenty declared owners to corresponding src/test/java/grandrue/onboarding/** paths
+    - move all seventeen declared owners to corresponding src/test/java/grandrue/commercial/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -119,7 +104,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 21
+  expected_changed_path_count: 18
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -137,9 +122,6 @@ expected_residuals:
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
 
 preparation_notes:
-  - all owner blobs and absent GrandRue destinations reconciled against development at 11880c9732aa1f6eb18aa84c9c4af716513bf07a
+  - all owner blobs and absent GrandRue destinations reconciled against development at c6e7404bfa9b0f73e5f384283486a233352e0447
   - no external test consumer of the test-owned classes was discovered
   - Maven tests and GitHub Actions were not run
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

@@ -1,6 +1,6 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;

@@ -1,4 +1,4 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import static mainstreet.commercial.CatalogueResolutionException.Reason.*;
+import static grandrue.commercial.CatalogueResolutionException.Reason.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /** MS-PROT-056 v1.9, designs/MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment.md, §§6, 9–11, 13. */

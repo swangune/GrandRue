@@ -1,7 +1,7 @@
-package mainstreet.commercial;
+package grandrue.commercial;
 
-import mainstreet.money.CurrencyIdentity;
-import mainstreet.money.MonetaryAmount;
+import grandrue.money.CurrencyIdentity;
+import grandrue.money.MonetaryAmount;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
