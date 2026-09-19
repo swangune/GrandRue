@@ -269,8 +269,8 @@ checkpoint:
   target_role: TERMINAL_MIGRATION_CHECKPOINT
   claim_snapshot_digest: 20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
-  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-00.json
-  implementation_handoff: WAITING_FOR_SUCCESSFUL_VERIFICATION_AND_GR_REN_CLOSURE
+  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R001.json
+  implementation_handoff: BLOCKED
   coverage:
     enumeration_complete: true
     baseline_entries: 2258
@@ -283,14 +283,14 @@ checkpoint:
     exception_files: 41
     claims_total: 847
     claims_verified: 0
-    open_findings: 0
+    open_findings: 2
   conclusions:
     file_accounting: PASS
     claim_validation: NOT_RUN
     migration_preservation: NOT_RUN
     master_non_naming_executable_preservation: NOT_RUN
     live_freshness: NOT_RUN
-  next_action: Execute GR-VV-03-R001 against the 1,094-file production Java deterministic region using generated expected bytes from M plus the frozen namespace and 37-file wording overlay; record individual file outcomes and the aggregate region invariant.
+  next_action: Execute GR-VV-03-R002 against the 376-file test Java deterministic region. GR-VV-03-R001 is checkpointed FAIL with 1,092 independent file PASS results and open findings GR-VV-F001 and GR-VV-F002 preserved; continue unaffected verification without repair.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.
