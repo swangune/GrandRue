@@ -41,7 +41,7 @@ class CommercialCatalogueManifestCodecTest {
     @Test
     void unsupported_retained_encoding_is_not_silently_reinterpreted() {
         var encoded = codec.encode(fixture(false));
-        ByteBuffer.wrap(encoded).putInt(0, 2);
+        ByteBuffer.wrap(encoded).putInt(0, 3);
         assertEquals(CatalogueResolutionException.Reason.TECHNICAL_FAILURE,
                 assertThrows(CatalogueResolutionException.class, () -> codec.decode(encoded)).reason());
     }
@@ -64,9 +64,18 @@ class CommercialCatalogueManifestCodecTest {
         var view = new CommercialEntitlementIdentity("fixture-view");
         var target = new CommercialAccessTarget("fixture-owner", "fixture/read", "3");
         var support = new CommercialAccessTarget("fixture-presenter", "fixture/present", "2");
-        var requirement = new CommercialSupportingAccessRequirement(support, Set.of("PRESENT"), "fixture-support-authority");
+        var requirement = new CommercialSupportingAccessRequirement(
+                support, Set.of("PRESENT"), "fixture-support-authority");
+        var conditional = new CommercialConditionalSupportingAccessRequirement(
+                "fixture-condition-authority",
+                Set.of(new CommercialConditionalSupportAlternative(
+                        "REPRESENTED_WITH_VIEW",
+                        support,
+                        Set.of("PRESENT"))),
+                "fixture-conditional-classification-authority");
         var readBinding = new CommercialAccessBinding(root, CommercialEntitlementTargetKind.OPERATION_ACCESS,
-                target, "READ", "fixture-read-authority", Set.of(requirement), "fixture-read-boundary");
+                target, "READ", "fixture-read-authority", Set.of(requirement), Set.of(conditional),
+                "fixture-read-boundary");
         var viewBinding = new CommercialAccessBinding(view, CommercialEntitlementTargetKind.PRESENTATION_PRIVILEGE,
                 support, "PRESENT", "fixture-view-authority", Set.of(), "fixture-view-boundary");
         var grants = new LinkedHashSet<>(reverse ? List.of(view, root) : List.of(root, view));
