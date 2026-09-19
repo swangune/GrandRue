@@ -39,11 +39,11 @@
     "region_id": "GR-VV-03-R001",
     "state": "IN_PROGRESS",
     "total_files": 1094,
-    "verified_files": 390,
-    "passing_files": 389,
+    "verified_files": 439,
+    "passing_files": 438,
     "failing_files": 1,
     "blocked_files": 0,
-    "remaining_files": 704,
+    "remaining_files": 655,
     "progress_evidence": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R001/progress.json"
   }
 }

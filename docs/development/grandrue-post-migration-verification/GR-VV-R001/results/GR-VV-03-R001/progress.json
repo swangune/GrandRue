@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 390,
-  "passing_files": 389,
+  "verified_files": 439,
+  "passing_files": 438,
   "failing_files": 1,
   "blocked_files": 0,
-  "remaining_files": 704,
+  "remaining_files": 655,
   "completed_packages": [
     "(root)",
     "audit",
@@ -39,7 +39,8 @@
     "merchantaccount",
     "workforce",
     "runtime",
-    "publication"
+    "publication",
+    "enquiry"
   ],
   "chunks": [
     {
@@ -217,8 +218,16 @@
       "files": 46,
       "pass": 46,
       "fail": 0
+    },
+    {
+      "chunk": "enquiry",
+      "git_blob": "4a18ddebc94ef72fed01fdb667582385cc3b1040",
+      "sha256": "bbe86c687bf6e4bf2da1a566c9880d4f5cf842ee8cd972bc76894feb252197a1",
+      "files": 49,
+      "pass": 49,
+      "fail": 0
     }
   ],
   "conclusion": "NO_REGION_VERDICT_YET",
-  "next_action": "Continue GR-VV-03-R001 from remaining packages. Preserve GR-VV-F001. Treat onboarding and merchantprofile as claim-lineage packages rather than simple-transform packages; exploratory reads are not counted. Use recorded claim lineage for staged import-transition rows and explicit wording overlays where applicable. Do not repair discrepancies."
+  "next_action": "Continue GR-VV-03-R001 from remaining packages. Preserve GR-VV-F001. Onboarding and merchantprofile remain claim-lineage packages; use recorded claim lineage for staged import-transition rows and explicit wording overlays where applicable. Do not repair discrepancies."
 }
