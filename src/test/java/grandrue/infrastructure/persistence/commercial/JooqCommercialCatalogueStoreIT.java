@@ -1,8 +1,8 @@
-package mainstreet.infrastructure.persistence.commercial;
+package grandrue.infrastructure.persistence.commercial;
 
-import mainstreet.application.TrustedPlatformExecutionContext;
-import mainstreet.commercial.*;
-import mainstreet.runtime.ExecutionPrincipal;
+import grandrue.application.TrustedPlatformExecutionContext;
+import grandrue.commercial.*;
+import grandrue.runtime.ExecutionPrincipal;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

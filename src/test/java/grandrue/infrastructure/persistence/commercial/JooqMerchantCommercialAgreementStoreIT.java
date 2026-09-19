@@ -1,15 +1,15 @@
-package mainstreet.infrastructure.persistence.commercial;
+package grandrue.infrastructure.persistence.commercial;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.commercial.BillingCadence;
-import mainstreet.commercial.CommercialAcceptanceProvenance;
-import mainstreet.commercial.CommercialEntitlementGrant;
-import mainstreet.commercial.CommercialEntitlementIdentity;
-import mainstreet.commercial.CommercialTransitionConflictException;
-import mainstreet.commercial.MerchantCommercialAgreement;
-import mainstreet.commercial.MerchantCommercialAgreementTransition;
-import mainstreet.commercial.StandardPlanLevel;
-import mainstreet.commercial.StandardPlanRevision;
+import grandrue.application.MerchantScope;
+import grandrue.commercial.BillingCadence;
+import grandrue.commercial.CommercialAcceptanceProvenance;
+import grandrue.commercial.CommercialEntitlementGrant;
+import grandrue.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CommercialTransitionConflictException;
+import grandrue.commercial.MerchantCommercialAgreement;
+import grandrue.commercial.MerchantCommercialAgreementTransition;
+import grandrue.commercial.StandardPlanLevel;
+import grandrue.commercial.StandardPlanRevision;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

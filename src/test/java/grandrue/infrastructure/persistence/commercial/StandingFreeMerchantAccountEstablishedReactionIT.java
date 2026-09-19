@@ -1,25 +1,25 @@
-package mainstreet.infrastructure.persistence.commercial;
+package grandrue.infrastructure.persistence.commercial;
 
-import mainstreet.application.StandingFreeEventReactionContract;
-import mainstreet.application.StandingFreeFromMerchantAccountEstablishedHandler;
-import mainstreet.application.StandingFreeMerchantAccountEstablishedReaction;
-import mainstreet.application.TrustedPlatformHumanPrincipal;
-import mainstreet.commercial.CommercialEntitlementIdentity;
-import mainstreet.commercial.StandardPlanLevel;
-import mainstreet.commercial.StandardPlanRevision;
-import mainstreet.commercial.StandingFreeBaseline;
-import mainstreet.infrastructure.persistence.event.JooqMerchantEventReactionStore;
-import mainstreet.infrastructure.persistence.merchantaccount.JooqMerchantAccountBootstrapStore;
-import mainstreet.infrastructure.persistence.merchantaccount.JooqMerchantAccountEstablishmentPublicationOutbox;
-import mainstreet.merchantaccount.MerchantAccountEstablishedEventContract;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
-import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.runtime.RegisteredScheduledEventReactionExecutionAuthority;
-import mainstreet.semantic.event.EventReactionAcknowledgement;
-import mainstreet.semantic.event.EventReactionContractAffinity;
-import mainstreet.semantic.event.EventReactionIdentity;
-import mainstreet.semantic.event.MerchantEventReactionReceipt;
-import mainstreet.semantic.event.MerchantEventReactionStore;
+import grandrue.application.StandingFreeEventReactionContract;
+import grandrue.application.StandingFreeFromMerchantAccountEstablishedHandler;
+import grandrue.application.StandingFreeMerchantAccountEstablishedReaction;
+import grandrue.application.TrustedPlatformHumanPrincipal;
+import grandrue.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.StandardPlanLevel;
+import grandrue.commercial.StandardPlanRevision;
+import grandrue.commercial.StandingFreeBaseline;
+import grandrue.infrastructure.persistence.event.JooqMerchantEventReactionStore;
+import grandrue.infrastructure.persistence.merchantaccount.JooqMerchantAccountBootstrapStore;
+import grandrue.infrastructure.persistence.merchantaccount.JooqMerchantAccountEstablishmentPublicationOutbox;
+import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
+import grandrue.runtime.ExecutionPrincipal;
+import grandrue.runtime.RegisteredScheduledEventReactionExecutionAuthority;
+import grandrue.semantic.event.EventReactionAcknowledgement;
+import grandrue.semantic.event.EventReactionContractAffinity;
+import grandrue.semantic.event.EventReactionIdentity;
+import grandrue.semantic.event.MerchantEventReactionReceipt;
+import grandrue.semantic.event.MerchantEventReactionStore;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -101,9 +101,9 @@ class StandingFreeMerchantAccountEstablishedReactionIT {
         var forgedScope = new MerchantAccountEstablishedOccurrence(
                 authoritative.eventIdentity(),
                 authoritative.contractAffinity(),
-                new mainstreet.merchantaccount.MerchantAccountEstablished(
+                new grandrue.merchantaccount.MerchantAccountEstablished(
                         authoritative.fact().establishmentIdentity(),
-                        new mainstreet.application.MerchantScope("merchant-forged"),
+                        new grandrue.application.MerchantScope("merchant-forged"),
                         authoritative.fact().logicalEstablishmentRequestIdentity(),
                         authoritative.fact().occurredAt()));
 

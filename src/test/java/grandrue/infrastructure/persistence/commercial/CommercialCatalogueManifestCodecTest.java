@@ -1,6 +1,6 @@
-package mainstreet.infrastructure.persistence.commercial;
+package grandrue.infrastructure.persistence.commercial;
 
-import mainstreet.commercial.*;
+import grandrue.commercial.*;
 import org.junit.jupiter.api.Test;
 
 import java.nio.ByteBuffer;

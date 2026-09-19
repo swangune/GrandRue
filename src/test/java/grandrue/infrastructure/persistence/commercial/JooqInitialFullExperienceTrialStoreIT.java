@@ -1,7 +1,7 @@
-package mainstreet.infrastructure.persistence.commercial;
+package grandrue.infrastructure.persistence.commercial;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.commercial.InitialFullExperienceTrial;
+import grandrue.application.MerchantScope;
+import grandrue.commercial.InitialFullExperienceTrial;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

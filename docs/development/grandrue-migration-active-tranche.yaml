@@ -2,72 +2,78 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T036
+tranche: GR-REN-03-T037
 group: GR-REN-03
-state: COMPLETE
-code_commit: f4f87e9fe119d83332d045f9205bfbbf3ca697e1
-expected_parent: ac193552e4ea957d83e16826a0890ce34a58a06e
-validated_head: f4f87e9fe119d83332d045f9205bfbbf3ca697e1
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: c6b0d7cf9f7086e18a4dc1ecdc0783b882da1a98
 
 region:
-  identity: test-infrastructure-persistence-merchantprofile
-  closure_basis: complete live src/test/java/mainstreet/infrastructure/persistence/merchantprofile/** Java test-owner region
+  identity: test-infrastructure-persistence-commercial
+  closure_basis: complete live src/test/java/mainstreet/infrastructure/persistence/commercial/** Java test-owner region; governance occurrence of StandingFreeMerchantAccountEstablishedReactionIT is non-code string evidence and remains preserved
 
 classification:
   normal_closed:
-    owner_count: 7
+    owner_count: 9
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 111
+    executable_namespace_replacement_count: 103
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationAuthorityIT.java
-      blob_sha: 774b2a5c0c5b6d1d9995341e13046819347cd768
-      executable_namespace_replacements: 13
-    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantPublicDescriptorAuthorityIT.java
-      blob_sha: 5136ca90fc650f9204802dac28004760da6b9e84
-      executable_namespace_replacements: 7
-    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantContactPointAuthorityIT.java
-      blob_sha: 9aa102a724754f96f6b044b455703618a01df9b1
-      executable_namespace_replacements: 20
-    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantServiceAreaAuthorityIT.java
-      blob_sha: f3df99c290fa825ef8833571d941d398ce6c422d
-      executable_namespace_replacements: 24
-    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantExternalPresenceLinkAuthorityIT.java
-      blob_sha: 3c52d43f7d179311927953e030d21d0dde9dc5a5
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/CommercialCatalogueManifestCodecTest.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/CommercialCatalogueManifestCodecTest.java
+      blob_sha: d38bd413315307b4a299654fca0ab52f916bc901
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/JooqMerchantCommercialAgreementReplayIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/JooqMerchantCommercialAgreementReplayIT.java
+      blob_sha: a8a53386a27b1768cb33809ee0abbc26a45b123f
+      executable_namespace_replacements: 9
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/JooqEffectiveCommercialEntitlementAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/JooqEffectiveCommercialEntitlementAuthorityIT.java
+      blob_sha: b4a92396bececc9a5622bf313d70e0b45e46da28
       executable_namespace_replacements: 14
-    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantClassificationEntryAuthorityIT.java
-      blob_sha: af387a0003295514384089836cfcc6afe504f346
-      executable_namespace_replacements: 16
-    - from: src/test/java/mainstreet/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/merchantprofile/JooqMerchantLocationExposureChoiceAuthorityIT.java
-      blob_sha: 42a40182a7a596fa3f8e0d9108e05cbedf8acd07
-      executable_namespace_replacements: 17
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/JooqInitialFullExperienceTrialStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/JooqInitialFullExperienceTrialStoreIT.java
+      blob_sha: 1a089e047a716f1ac99fedd4c25f8ae262f16b1d
+      executable_namespace_replacements: 3
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/JooqStandingFreeBaselineStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/JooqStandingFreeBaselineStoreIT.java
+      blob_sha: 01957259928128787411d1e80c1f414960e44e23
+      executable_namespace_replacements: 12
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/JooqCommercialCatalogueStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/JooqCommercialCatalogueStoreIT.java
+      blob_sha: 692f2037fdc704e508d53ec70c071d62fa116f69
+      executable_namespace_replacements: 4
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/JooqMerchantCommercialAgreementStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/JooqMerchantCommercialAgreementStoreIT.java
+      blob_sha: ccdef8eecf64cf80dcc318c25d1bcecc4938c7e6
+      executable_namespace_replacements: 11
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/StandingFreeBackgroundWorkExecutionIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/StandingFreeBackgroundWorkExecutionIT.java
+      blob_sha: 1b9e1afbfd1fae5bbc41e0e51872a5a3ce4fb016
+      executable_namespace_replacements: 25
+    - from: src/test/java/mainstreet/infrastructure/persistence/commercial/StandingFreeMerchantAccountEstablishedReactionIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/commercial/StandingFreeMerchantAccountEstablishedReactionIT.java
+      blob_sha: 3a0e60ed930b536ec30fb8a5b10378533f9be08c
+      executable_namespace_replacements: 23
 
 deterministic_transformations:
   owners:
-    - move all seven declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/merchantprofile/** paths
+    - move all nine declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/commercial/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
     - no assertion, test-data, semantic or behavioural change
+    - no governance-string rewrite
     - no legacy prototype mutation
     - no Maven/build/CI/runtime configuration mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 8
+  expected_changed_path_count: 10
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -75,6 +81,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
