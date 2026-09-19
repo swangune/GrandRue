@@ -269,7 +269,7 @@ checkpoint:
   target_role: TERMINAL_MIGRATION_CHECKPOINT
   claim_snapshot_digest: 20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
-  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-E002.json
+  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-E003.json
   implementation_handoff: BLOCKED
   coverage:
     enumeration_complete: true
@@ -290,7 +290,7 @@ checkpoint:
     migration_preservation: NOT_RUN
     master_non_naming_executable_preservation: NOT_RUN
     live_freshness: NOT_RUN
-  next_action: Execute GR-VV-04-E003 against the frozen 4-file non-migration document-delta exception set. GR-VV-04-E001 and GR-VV-04-E002 are checkpointed PASS; GR-VV-03-R001 remains FAIL because GR-VV-F001 and GR-VV-F002 are open. Continue unaffected exception/claim verification without repair.
+  next_action: Execute GR-VV-04-E004 against the frozen 8-file introduced-operational-evidence exception set. GR-VV-04-E001 through GR-VV-04-E003 are checkpointed PASS; GR-VV-03-R001 remains FAIL because GR-VV-F001 and GR-VV-F002 are open. Continue unaffected exception/claim verification without repair.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.

@@ -417,7 +417,7 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-GR-VV-00-01 snapshot capture, GR-VV-01-01 file accounting, GR-VV-02-01 region preparation and GR-VV-03-00 method validation are checkpointed PASS. GR-VV-03-R001 is checkpointed FAIL with 1,092/1,094 independent production-Java file results PASS and two exact byte-preservation findings (GR-VV-F001 and GR-VV-F002) preserved OPEN. GR-VV-04-E001 is checkpointed PASS for all 26 legacy-prototype compatibility-repair files. GR-VV-04-E002 is checkpointed PASS for all three mixed governance/non-migration files with complete post-baseline object-chain attribution and zero unexplained delta. Unaffected verification continues; no discrepancy is repaired inside this audit.
+GR-VV-00-01 snapshot capture, GR-VV-01-01 file accounting, GR-VV-02-01 region preparation and GR-VV-03-00 method validation are checkpointed PASS. GR-VV-03-R001 is checkpointed FAIL with 1,092/1,094 independent production-Java file results PASS and two exact byte-preservation findings (GR-VV-F001 and GR-VV-F002) preserved OPEN. GR-VV-04-E001 and GR-VV-04-E002 are checkpointed PASS. GR-VV-04-E003 is checkpointed PASS for all four non-migration document deltas: each is exactly the single accepted implementation-rules v2.0 supporting-document revision and has zero unexplained delta. Unaffected verification continues; no discrepancy is repaired inside this audit.
 
 ```yaml
 execution:
@@ -434,20 +434,19 @@ execution:
   historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
   active_packet:
-    id: GR-VV-04-E003
+    id: GR-VV-04-E004
     kind: EXCEPTION_VALIDATION
     state: READY
-    exception_id: GR-VV-EXC-003
+    exception_id: GR-VV-EXC-004
     progress:
-      total_files: 4
+      total_files: 8
       verified_files: 0
       passing_files: 0
       failing_files: 0
       blocked_files: 0
-      remaining_files: 4
+      remaining_files: 8
       progress_evidence: null
   queue:
-    - GR-VV-04-E003
     - GR-VV-04-E004
     - GR-VV-04-C001
   completed_packets:
@@ -481,9 +480,12 @@ execution:
     - id: GR-VV-04-E002
       result: PASS
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-E002.json
+    - id: GR-VV-04-E003
+      result: PASS
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-E003.json
   results_recorded: true
   implementation_handoff: BLOCKED
-  next_action: Execute GR-VV-04-E003 against the frozen 4-file non-migration document-delta exception set. Establish exact same-path post-baseline provenance for each revision and expose any unexplained bytes; preserve GR-VV-F001 and GR-VV-F002 unchanged and do not repair discrepancies.
+  next_action: Execute GR-VV-04-E004 against the frozen 8-file introduced-operational-evidence exception set. Validate each target-only record from its independently evidenced introduction blob through target D; do not invent an empty baseline. Preserve GR-VV-F001 and GR-VV-F002 unchanged and do not repair discrepancies.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.

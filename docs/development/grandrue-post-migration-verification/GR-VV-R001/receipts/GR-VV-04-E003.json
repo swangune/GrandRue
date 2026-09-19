@@ -1,0 +1,55 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-04-E003",
+  "packet_kind": "EXCEPTION_VALIDATION",
+  "exception_id": "GR-VV-EXC-003",
+  "exception_name": "non_migration_document_deltas",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method": {
+    "version": "grandrue-preservation-checker/v1",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+    "exception_rule": "single_hop_non_migration_provenance/v1"
+  },
+  "checks": {
+    "total_files": 4,
+    "passed": 4,
+    "failed": 0,
+    "blocked": 0,
+    "remaining": 0,
+    "complete_object_chains": 4,
+    "unattributed_deltas": 0,
+    "modes_preserved": 4
+  },
+  "provenance_commit": "69f8882a9a66c80ee203d22bcd794d3eff57fc9f",
+  "findings": [],
+  "prior_open_findings_preserved": [
+    "GR-VV-F001",
+    "GR-VV-F002"
+  ],
+  "independent_passing_results_preserved": true,
+  "outputs": {
+    "progress": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-E003/progress.json",
+      "git_blob": "663b9ed2e71046a452378a796367f1b5428f20b4",
+      "sha256": "5b9410881ec9001575ac530ccce62a2b1d3cda24db0518326acb6f0f68df96f9"
+    },
+    "exception_results": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-E003/non-migration-document-deltas.jsonl",
+      "git_blob": "e1cf3058c3f288f4907bc6149b701218cb9fd740",
+      "sha256": "958e812a6e2477cd2bf4cb355ba6e570dd8e59e7c6e2d71d847ade8dffbd98f1",
+      "files": 4,
+      "result": "PASS"
+    }
+  },
+  "conclusion_scope": "non_migration_document_deltas_only",
+  "conclusion": "PASS",
+  "limitations": [
+    "These four documents were intentionally revised outside the naming migration; PASS means the complete M-to-D object change is exactly attributable to the recorded implementation-rules v2.0 governance commit.",
+    "This packet does not re-approve or reinterpret the substantive governance revision.",
+    "Maven tests and GitHub Actions were not run.",
+    "GR-VV-F001 and GR-VV-F002 remain OPEN and are unaffected by this packet."
+  ],
+  "next_packet": "GR-VV-04-E004"
+}
