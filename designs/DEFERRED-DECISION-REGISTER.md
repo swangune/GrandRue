@@ -1,7 +1,7 @@
 # GrandRue Deferred Decision Register
 
 **Document ID:** MS-DEFERRED-DECISION-REGISTER-001
-**Version:** 5.2
+**Version:** 5.3
 **Status:** Accepted governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Provide the single current work-queue view of unresolved, deferred, resolved and deliberately promoted GrandRue design decisions while using Git history and accepted resolving authorities as provenance.
@@ -1193,8 +1193,8 @@ Accepted MS-PROT-051 v1.6 supplies bounded commercial classifications for existi
 |---|---|---|---|---|
 | MS-PROT-051-V11-DQ-001 | **DEFERRED — INACTIVE** | Exact PostgreSQL table/index layout for descriptor/contact/location/service-area/external-presence revisions | Persistence implementation | During production Profile persistence implementation |
 | MS-PROT-051-V11-DQ-002 | **RESOLVED** | Exact structured international postal-address representation | Resolved by MS-PROT-051 v1.2: provider-neutral `PostalAddressV1`, exact original and normalized structured evidence, schema/normalization/country-registry affinity and optional accepted-coordinate provenance | Merchant Location identity remains independent of address; provider/geocoder workflow remains deferred under DQ-003 |
-| MS-PROT-051-V11-DQ-003 | **DEFERRED — INACTIVE** | Exact geocoding/map provider and coordinate-normalisation process | Provider/location implementation | When coordinate/geocoding support is introduced |
-| MS-PROT-051-V11-DQ-004 | **DEFERRED — INACTIVE** | Exact UI/API workflow distinguishing same-place correction from relocation | API/presentation implementation under composite MS-PROT-035 | During merchant Profile API/UX implementation |
+| MS-PROT-051-V11-DQ-003 | **DEFERRED — ACTIVE BEFORE PUBLIC NAVIGATION IMPLEMENTATION** | Exact geocoding/map provider, accepted resolution-evidence contract, deterministic precision/acceptance predicates and coordinate-normalisation process | Provider/location implementation design under MS-PROT-051 v1.7 | Must be resolved before implementation can claim MS-PROT-051 v1.7 public-navigation conformance; provider selection must remain replaceable and must not become Merchant Location semantic authority |
+| MS-PROT-051-V11-DQ-004 | **DEFERRED — ACTIVE BEFORE MERCHANT LOCATION RELOCATION UX/API IMPLEMENTATION** | Exact UI/API workflow distinguishing same-place correction from relocation while preserving the MS-PROT-051 v1.7 ordinary merchant-facing Change address / Move shop interaction | API/presentation implementation under composite MS-PROT-035 and MS-PROT-051 v1.7 | Must be resolved before exposing production merchant location correction/relocation UX or API; merchants must not be required to administer internal Location identities |
 | MS-PROT-051-V11-DQ-005 | **RESOLVED** | Exact Profile projection contracts, freshness and rebuild evidence | Resolved by MS-PROT-027 v1.4 | `platform/merchant-presence` now governs initial request-scoped projection, source-revision provenance, conservative stale-serving, reduced serviceability, rebuild/recompute and Exposure separation |
 | MS-PROT-051-V11-DQ-006 | **RESOLVED** | Exact runtime Profile/Location exposure-policy representation and resolver | Resolved by composite MS-PROT-027 through v1.12 | Exact release-affined Exposure Element Contracts, trusted Audience Observation Context, owner-qualified Profile choices, instance-aware deterministic E4, opaque evaluator submission affinity and fail-closed behaviour govern the Profile/Location Exposure boundary; MS-PROT-051 v1.5 supplies exact Merchant Location choice persistence semantics. |
 | MS-PROT-051-V11-DQ-007 | **DEFERRED — INACTIVE** | Exact registered profile-management privilege identifiers/default Role templates | Access implementation | Before delegated staff Profile administration is exposed |
