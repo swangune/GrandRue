@@ -1,11 +1,11 @@
-package mainstreet.infrastructure.persistence.media;
+package grandrue.infrastructure.persistence.media;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.media.MediaAsset;
-import mainstreet.media.MediaKind;
-import mainstreet.media.MediaProcessingOutcome;
-import mainstreet.media.MediaRendition;
-import mainstreet.media.MediaValidationState;
+import grandrue.application.MerchantScope;
+import grandrue.media.MediaAsset;
+import grandrue.media.MediaKind;
+import grandrue.media.MediaProcessingOutcome;
+import grandrue.media.MediaRendition;
+import grandrue.media.MediaValidationState;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

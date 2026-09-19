@@ -1,12 +1,12 @@
-package mainstreet.infrastructure.persistence.credential;
+package grandrue.infrastructure.persistence.credential;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.credential.CredentialBinding;
-import mainstreet.credential.CredentialBindingScope;
-import mainstreet.credential.CredentialGeneration;
-import mainstreet.credential.CredentialGenerationPolicy;
-import mainstreet.credential.CredentialGenerationState;
-import mainstreet.credential.CredentialTechnicalUse;
+import grandrue.application.MerchantScope;
+import grandrue.credential.CredentialBinding;
+import grandrue.credential.CredentialBindingScope;
+import grandrue.credential.CredentialGeneration;
+import grandrue.credential.CredentialGenerationPolicy;
+import grandrue.credential.CredentialGenerationState;
+import grandrue.credential.CredentialTechnicalUse;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

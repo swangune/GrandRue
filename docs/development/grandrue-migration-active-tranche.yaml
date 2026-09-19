@@ -2,38 +2,51 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T033
+tranche: GR-REN-03-T034
 group: GR-REN-03
-state: COMPLETE
-code_commit: 99556730d3fb75c8826ef56f37ac92238b0e8da1
-expected_parent: de333ecc65a6bdc3447e8afb740b70de80d052f3
-validated_head: 99556730d3fb75c8826ef56f37ac92238b0e8da1
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: b2fefe5fc897016df8a893af952a659dac8fd23b
 
 region:
-  identity: test-infrastructure-persistence-audit
-  closure_basis: complete live src/test/java/mainstreet/infrastructure/persistence/audit/** Java test-owner region
+  identity: test-infrastructure-persistence-singleton-subpackages
+  closure_basis: live independently closed singleton test-owner subpackages under src/test/java/mainstreet/infrastructure/persistence/{media,privacy,release,runtime,credential}/**
 
 classification:
   normal_closed:
-    owner_count: 1
+    owner_count: 5
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 5
+    executable_namespace_replacement_count: 32
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/infrastructure/persistence/audit/JooqAuditStoreIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/audit/JooqAuditStoreIT.java
-      blob_sha: 7280feda3c0b4f507b3cdf682e0f56561df2d5e4
+    - from: src/test/java/mainstreet/infrastructure/persistence/media/JooqMediaStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/media/JooqMediaStoreIT.java
+      blob_sha: 967983b1bfeb3bd8de5ac529eadcd686e1ff0ffe
+      executable_namespace_replacements: 7
+    - from: src/test/java/mainstreet/infrastructure/persistence/privacy/JooqPersonalDataUseBasisStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/privacy/JooqPersonalDataUseBasisStoreIT.java
+      blob_sha: 6e08db7febcd39a202b0a48ec43b1494c9b316cc
       executable_namespace_replacements: 5
+    - from: src/test/java/mainstreet/infrastructure/persistence/release/JooqSemanticReleaseAdmissionAuthorityIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/release/JooqSemanticReleaseAdmissionAuthorityIT.java
+      blob_sha: c510fd0a31553d298af8c615ca352c58d14a47ce
+      executable_namespace_replacements: 9
+    - from: src/test/java/mainstreet/infrastructure/persistence/runtime/JooqSessionRecordStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/runtime/JooqSessionRecordStoreIT.java
+      blob_sha: 253d5fcec5451ab71fb332d7bfb4b671d53b072d
+      executable_namespace_replacements: 3
+    - from: src/test/java/mainstreet/infrastructure/persistence/credential/JooqCredentialSecurityStoreIT.java
+      to: src/test/java/grandrue/infrastructure/persistence/credential/JooqCredentialSecurityStoreIT.java
+      blob_sha: a172daefc199781c27aaf81c8eaaf4e626183116
+      executable_namespace_replacements: 8
 
 deterministic_transformations:
   owners:
-    - move the declared owner to corresponding src/test/java/grandrue/infrastructure/persistence/audit/** path
+    - move all five declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -43,7 +56,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 2
+  expected_changed_path_count: 6
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -51,6 +64,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

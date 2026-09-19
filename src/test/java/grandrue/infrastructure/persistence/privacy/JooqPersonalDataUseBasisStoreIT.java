@@ -1,9 +1,9 @@
-package mainstreet.infrastructure.persistence.privacy;
+package grandrue.infrastructure.persistence.privacy;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.privacy.DataSubjectReference;
-import mainstreet.privacy.DataUsePurpose;
-import mainstreet.privacy.PersonalDataUseBasis;
+import grandrue.application.MerchantScope;
+import grandrue.privacy.DataSubjectReference;
+import grandrue.privacy.DataUsePurpose;
+import grandrue.privacy.PersonalDataUseBasis;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

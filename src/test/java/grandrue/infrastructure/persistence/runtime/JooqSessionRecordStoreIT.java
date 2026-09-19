@@ -1,7 +1,7 @@
-package mainstreet.infrastructure.persistence.runtime;
+package grandrue.infrastructure.persistence.runtime;
 
-import mainstreet.runtime.OpaqueSessionCredential;
-import mainstreet.runtime.SessionRecord;
+import grandrue.runtime.OpaqueSessionCredential;
+import grandrue.runtime.SessionRecord;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
