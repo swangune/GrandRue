@@ -14,7 +14,6 @@ import grandrue.commercial.CataloguePublicationException;
 import grandrue.commercial.CommercialCataloguePublicationAdmission;
 import grandrue.commercial.CatalogueResolutionException;
 import grandrue.application.TrustedPlatformExecutionContext;
-import mainstreet.commercial.*;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record;
