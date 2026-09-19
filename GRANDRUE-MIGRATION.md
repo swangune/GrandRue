@@ -910,6 +910,8 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 - `GR-REN-03-T030`: migrated the complete live `src/test/java/mainstreet/semantic/registry/**` Java test-owner region as one dependency-closed normal subgraph. One owner moved to the corresponding `src/test/java/grandrue/semantic/registry/**` path with 1 deterministic executable namespace replacement. Every string literal, character literal, text block, comment, assertion and test datum was preserved byte-for-byte. Aggregate structural verification proved the exact two-path transaction, the frozen source blob, the expected replacement count, legacy-owner absence, destination presence, and exact destination-blob identity. Code commit `3499d61144e25e58f107c123a08c31e560c4c89d`. No Maven tests or GitHub Actions were run.
 
+- `GR-REN-03-T031`: migrated the complete live `src/test/java/mainstreet/semantic/executable/**` Java test-owner region as one dependency-closed normal subgraph. One owner moved to the corresponding `src/test/java/grandrue/semantic/executable/**` path with 3 deterministic executable namespace replacements. Every string literal, character literal, text block, comment, assertion and test datum was preserved byte-for-byte. Aggregate structural verification proved the exact two-path transaction, the frozen source blob, the expected replacement count, legacy-owner absence, destination presence, and exact destination-blob identity. Code commit `8e7a2f5b549db81348d885f99403d3f05e9713dc`. No Maven tests or GitHub Actions were run.
+
 ### Remaining programme
 
 - `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `IN_PROGRESS`
@@ -935,12 +937,12 @@ status: IN_PROGRESS
 mutation_authorised: true
 active_group: GR-REN-03
 selected_execution_leaf: null
-last_completed_task: GR-REN-03-T030
-last_task_commit: 3499d61144e25e58f107c123a08c31e560c4c89d
+last_completed_task: GR-REN-03-T031
+last_task_commit: 8e7a2f5b549db81348d885f99403d3f05e9713dc
 last_integrity_repair: GR-REN-02-01X6
 last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 3499d61144e25e58f107c123a08c31e560c4c89d
-next_action: Continue GR-REN-03 from the live post-T030 checkpoint. Reuse the whole-region analysis and execute the next largest mechanically provable dependency-closed normal test subgraph; 197 in-scope legacy test Java files remain after T030, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Preserve strings/comments/stable compatibility identities unless explicitly classified; isolate runtime/path/package-assertion exceptions; do not run Maven tests or GitHub Actions without separate authorisation.
+last_verified_head: 8e7a2f5b549db81348d885f99403d3f05e9713dc
+next_action: Continue GR-REN-03 from the live post-T031 checkpoint. Reuse the whole-region analysis and execute the next largest mechanically provable dependency-closed normal test subgraph; 196 in-scope legacy test Java files remain after T031, while 18 src/test/java/mainstreet/prototype/** files remain excluded under NON_MIGRATING_LEGACY_PROTOTYPE. Preserve strings/comments/stable compatibility identities unless explicitly classified; isolate runtime/path/package-assertion exceptions; do not run Maven tests or GitHub Actions without separate authorisation.
 ```
 
 ---
