@@ -1,11 +1,5 @@
 package grandrue.commercial;
 
-import grandrue.commercial.CommercialAccessTarget;
-
-import grandrue.commercial.StandardPlanCatalogueRevision;
-
-import grandrue.commercial.CommercialAccessBinding;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,9 +15,9 @@ import java.util.Set;
  * The publisher must validate the evidence and exact-content approval affinity
  * at its trusted boundary; a nonblank evidence reference is not proof.</p>
  *
- * <p>MS-PROT-056 v1.9 — Commercial Catalogue Binding, Publication & Historical Resolution Amendment,
- * §5 — Binding identity and satisfaction; §6 — Manifest completeness;
- * §8 — Publication operation; §13 — Retention, recovery and runtime boundaries.</p>
+ * <p>MS-PROT-056 v1.9 §§5–6, 8, 13 governs binding/manifest completeness,
+ * publication and retention. MS-PROT-056 v1.10 §§11–15 requires faithful
+ * owner-qualified conditional supporting-commercial relationships.</p>
  */
 public record CommercialCatalogueManifest(
         StandardPlanCatalogueRevision revision,
@@ -83,33 +77,90 @@ public record CommercialCatalogueManifest(
         }
     }
 
-    private static void requireSupportingAccess(StandardPlanCatalogueRevision revision,
-                                               Set<CommercialAccessBinding> bindings,
-                                               Map<Purpose, CommercialAccessBinding> byPurpose) {
+    private static void requireSupportingAccess(
+            StandardPlanCatalogueRevision revision,
+            Set<CommercialAccessBinding> bindings,
+            Map<Purpose, CommercialAccessBinding> byPurpose
+    ) {
         for (var binding : bindings) {
-            for (var support : binding.supportingAccessRequirements()) {
-                if (support.requiredPurposes().isEmpty() && byPurpose.keySet().stream()
-                        .anyMatch(purpose -> purpose.target().equals(support.target()))) {
-                    throw new IllegalArgumentException("Supporting classification conflicts with a protected target");
-                }
-                for (var purpose : support.requiredPurposes()) {
-                    var required = byPurpose.get(new Purpose(support.target(), purpose));
-                    if (required == null) {
-                        throw new IllegalArgumentException("Supporting purpose has no exact retained binding");
-                    }
-                    for (var plan : plans(revision)) {
-                        if (plan.entitlements().contains(binding.entitlementIdentity())
-                                && !plan.entitlements().contains(required.entitlementIdentity())) {
-                            throw new IllegalArgumentException("Granted service lacks required support in the same plan");
-                        }
+            requireUnconditionalSupport(revision, binding, byPurpose);
+            requireConditionalSupport(revision, binding, byPurpose);
+        }
+    }
+
+    private static void requireUnconditionalSupport(
+            StandardPlanCatalogueRevision revision,
+            CommercialAccessBinding binding,
+            Map<Purpose, CommercialAccessBinding> byPurpose
+    ) {
+        for (var support : binding.supportingAccessRequirements()) {
+            if (support.requiredPurposes().isEmpty() && byPurpose.keySet().stream()
+                    .anyMatch(purpose -> purpose.target().equals(support.target()))) {
+                throw new IllegalArgumentException("Supporting classification conflicts with a protected target");
+            }
+            for (var purpose : support.requiredPurposes()) {
+                var required = requireBinding(byPurpose, support.target(), purpose);
+                for (var plan : plans(revision)) {
+                    if (plan.entitlements().contains(binding.entitlementIdentity())
+                            && !plan.entitlements().contains(required.entitlementIdentity())) {
+                        throw new IllegalArgumentException("Granted service lacks required support in the same plan");
                     }
                 }
             }
         }
     }
 
+    private static void requireConditionalSupport(
+            StandardPlanCatalogueRevision revision,
+            CommercialAccessBinding binding,
+            Map<Purpose, CommercialAccessBinding> byPurpose
+    ) {
+        for (var conditional : binding.conditionalSupportingAccessRequirements()) {
+            for (var alternative : conditional.alternatives()) {
+                for (var requiredPurpose : alternative.requiredPurposes()) {
+                    requireBinding(
+                            byPurpose,
+                            requiredPurpose.target(),
+                            requiredPurpose.protectedPurpose());
+                }
+            }
+            for (var plan : plans(revision)) {
+                if (!plan.entitlements().contains(binding.entitlementIdentity())) {
+                    continue;
+                }
+                boolean supportedAlternative = conditional.alternatives().stream()
+                        .anyMatch(alternative -> alternative.requiredPurposes().stream()
+                                .allMatch(requiredPurpose -> {
+                                    var required = requireBinding(
+                                            byPurpose,
+                                            requiredPurpose.target(),
+                                            requiredPurpose.protectedPurpose());
+                                    return plan.entitlements().contains(required.entitlementIdentity());
+                                }));
+                if (!supportedAlternative) {
+                    throw new IllegalArgumentException(
+                            "Granted service has no commercially satisfiable conditional support path in plan "
+                                    + plan.level());
+                }
+            }
+        }
+    }
+
+    private static CommercialAccessBinding requireBinding(
+            Map<Purpose, CommercialAccessBinding> byPurpose,
+            CommercialAccessTarget target,
+            String purpose
+    ) {
+        var required = byPurpose.get(new Purpose(target, purpose));
+        if (required == null) {
+            throw new IllegalArgumentException("Supporting purpose has no exact retained binding");
+        }
+        return required;
+    }
+
     private static Map<CommercialEntitlementIdentity, CommercialAccessBinding> indexIdentities(
-            Set<CommercialAccessBinding> bindings) {
+            Set<CommercialAccessBinding> bindings
+    ) {
         Map<CommercialEntitlementIdentity, CommercialAccessBinding> result = new HashMap<>();
         for (var binding : bindings) {
             if (result.putIfAbsent(binding.entitlementIdentity(), binding) != null) {
@@ -119,7 +170,9 @@ public record CommercialCatalogueManifest(
         return result;
     }
 
-    private static Map<Purpose, CommercialAccessBinding> indexPurposes(Set<CommercialAccessBinding> bindings) {
+    private static Map<Purpose, CommercialAccessBinding> indexPurposes(
+            Set<CommercialAccessBinding> bindings
+    ) {
         Map<Purpose, CommercialAccessBinding> result = new HashMap<>();
         for (var binding : bindings) {
             if (result.putIfAbsent(purposeOf(binding), binding) != null) {
