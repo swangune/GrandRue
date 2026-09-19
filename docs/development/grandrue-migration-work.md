@@ -394,7 +394,7 @@ leaf_role: AUDIT_COORDINATE_NOT_EXECUTION_UNIT
 numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
-active_state: IN_PROGRESS_TEST_EXPECTATION_REPAIR_APPLIED_RERUN_REQUIRED
+active_state: READY_FOR_AUTHORISED_MAVEN_RERUN
 last_completed_leaf: GR-REN-02-01X739
 last_completed_task: GR-REN-09
 last_code_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
@@ -512,7 +512,7 @@ closure_gates:
     open_findings: 0
     negative_controls: RETAINED_PASS_FROM_GR_VV_R001
   gr_ren_10:
-    state: IN_PROGRESS_TEST_EXPECTATION_REPAIR_APPLIED_RERUN_REQUIRED
+    state: READY_FOR_AUTHORISED_MAVEN_RERUN
     structural_migration_validation: PASS
     command: mvn --batch-mode clean verify -Ppostgres-it
     latest_main_compile: PASS_1094_SOURCES
@@ -528,6 +528,8 @@ closure_gates:
     test_repair_commit: a55de294fba72fe071194c13a7ee123d518ea7dc
     test_repair_changed_paths: 13
     production_changes_in_test_repair: 0
+    maven_validation_authorised: true
+    maven_validation_authorised_in_chat: 2026-09-19
     rerun_required: true
     github_actions: NOT_RUN_NOT_AUTHORISED
   gr_ren_11:
@@ -537,7 +539,7 @@ migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
 verification_handoff: COMPLETE_PASS
 verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
 verification_target: THIS_CHECKPOINT_COMMIT
-next_action: RERUN_MVN_BATCH_MODE_CLEAN_VERIFY_POSTGRES_IT
+next_action: EXECUTE_AUTHORISED_MVN_BATCH_MODE_CLEAN_VERIFY_POSTGRES_IT
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.

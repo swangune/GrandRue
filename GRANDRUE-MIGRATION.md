@@ -984,7 +984,7 @@ post_migration_verification_run: GR-VV-R003
 post_migration_verification_result: PASS
 gr_ren_08: COMPLETE
 gr_ren_09: COMPLETE
-gr_ren_10: IN_PROGRESS_TEST_EXPECTATION_REPAIR_APPLIED_RERUN_REQUIRED
+gr_ren_10: READY_FOR_AUTHORISED_MAVEN_RERUN
 gr_ren_10_command: mvn --batch-mode clean verify -Ppostgres-it
 gr_ren_10_latest_run_compile_main: PASS_1094_SOURCES
 gr_ren_10_latest_run_compile_test: PASS_376_SOURCES
@@ -998,12 +998,14 @@ gr_ren_10_latest_run_failure_classes:
   stale_governance_controller_authority_navigation: 7
 gr_ren_10_test_repair_commit: a55de294fba72fe071194c13a7ee123d518ea7dc
 gr_ren_10_test_repair_changed_paths: 13
+gr_ren_10_maven_validation_authorised: true
+gr_ren_10_maven_validation_authorised_in_chat: 2026-09-19
 gr_ren_10_rerun_required: true
 gr_ren_11: BLOCKED_BY_GR_REN_10_FINAL_RERUN
 migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
 verification_handoff: COMPLETE_PASS
 implementation_handoff: BLOCKED
-next_action: RERUN_MVN_BATCH_MODE_CLEAN_VERIFY_POSTGRES_IT
+next_action: EXECUTE_AUTHORISED_MVN_BATCH_MODE_CLEAN_VERIFY_POSTGRES_IT
 ```
 
 ### Post-verification defect repair — GR-REN-REPAIR-T001
