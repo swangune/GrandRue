@@ -102,6 +102,19 @@ class OperationalObservabilityModelTest {
     }
 
     @Test
+    void missing_operational_evidence_can_remain_unknown() {
+        HealthObservation unknown = new HealthObservation(
+                "background:standing-free",
+                OperationalHealthDimension.READINESS,
+                OperationalHealthState.UNKNOWN,
+                T0,
+                Optional.of("evidence-unavailable")
+        );
+
+        assertEquals(OperationalHealthState.UNKNOWN, unknown.state());
+    }
+
+    @Test
     void trace_end_cannot_precede_start() {
         assertThrows(IllegalArgumentException.class, () -> new TraceObservation(
                 "trace-1",
