@@ -2,42 +2,38 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T010
+tranche: GR-REN-03-T011
 group: GR-REN-03
-state: COMPLETE
-code_commit: a7d9e707de107578ea61cda8a2465eba17a9b1b7
-expected_parent: 8b04dbbdff8a1f43f43550e34c89e51ba7185595
-validated_head: a7d9e707de107578ea61cda8a2465eba17a9b1b7
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 59c8b58e919ed8385259303a0fd18dd10321a4b4
 
 region:
-  identity: test-fulfilment
-  closure_basis: complete live src/test/java/mainstreet/fulfilment/** Java test region; no external test consumers
+  identity: test-notification
+  closure_basis: complete live src/test/java/mainstreet/notification/** Java test region; no external test consumers
 
 classification:
   normal_closed:
     owner_count: 2
     external_test_consumer_count: 0
-    production_import_repair_count: 15
+    production_import_repair_count: 0
   embedded_legacy_symbolic_or_wording_residuals:
     count: 0
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/fulfilment/FulfilmentContractRegistrySnapshotTest.java
-      to: src/test/java/grandrue/fulfilment/FulfilmentContractRegistrySnapshotTest.java
-      blob_sha: a4622d0b1ede59f4b13a3770359910355cbb6b93
-    - from: src/test/java/mainstreet/fulfilment/FulfilmentRoutingImpactAssessmentTest.java
-      to: src/test/java/grandrue/fulfilment/FulfilmentRoutingImpactAssessmentTest.java
-      blob_sha: ee91834daf0f800354fd1f2658e32896755a05c0
+    - from: src/test/java/mainstreet/notification/NotificationDeliveryCoordinatorTest.java
+      to: src/test/java/grandrue/notification/NotificationDeliveryCoordinatorTest.java
+      blob_sha: ad6dcb81290111ae2ecffae76281b6677fd98560
+    - from: src/test/java/mainstreet/notification/NotificationSemanticKernelTest.java
+      to: src/test/java/grandrue/notification/NotificationSemanticKernelTest.java
+      blob_sha: 83c885a82b8103a0bfd2c28b3b536cb1c2e065d0
 
 deterministic_transformations:
   owners:
-    - move both declared owners to the corresponding src/test/java/grandrue/fulfilment/** paths
-    - replace exactly two package declarations package mainstreet.fulfilment; with package grandrue.fulfilment;
-    - replace exactly fifteen executable imports from migrated mainstreet.* production namespaces to their grandrue.* counterparts
+    - move both declared owners to the corresponding src/test/java/grandrue/notification/** paths
+    - replace exactly two package declarations package mainstreet.notification; with package grandrue.notification;
   consumers:
     - none; exact class-name search found no external test consumers
   prohibited:
@@ -51,7 +47,7 @@ verification:
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  import_repair_count: 15
+  import_repair_count: 0
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
@@ -65,12 +61,8 @@ expected_residuals:
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - both source blobs and absent GrandRue destinations were reconciled against development at 8b04dbbdff8a1f43f43550e34c89e51ba7185595
-  - all referenced GrandRue fulfilment, application, semantic compiler/configuration, semantic registry, semantic release and surface production owners exist
+  - both source blobs and absent GrandRue destinations were reconciled against development at 59c8b58e919ed8385259303a0fd18dd10321a4b4
+  - all referenced GrandRue notification production owners exist
   - exact class-name searches found no external test consumers
-  - fifteen executable legacy production imports are fully classified for deterministic replacement
-  - no embedded Main Street/current-product identifier was found in this region
+  - no executable legacy import or embedded Main Street/current-product identifier occurs in this region
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
