@@ -961,8 +961,8 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 - `GR-REN-07` — active controls/canonical governance wording: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-08` — whole-repository migration coverage and residual classification: `COMPLETE` — GR-VV-R003 file accounting PASS, 847/847 claims reconciled, zero unexpected incremental paths.
 - `GR-REN-09` — migration falsification and exception/protected-identity validation: `COMPLETE` — checker negative controls retained from R001; R003 preservation/protected-identity checks PASS; zero open findings.
-- `GR-REN-10` — executable structural/build/test validation: `IN_PROGRESS_REPAIR_APPLIED_RERUN_REQUIRED` — user-supplied `mvn --batch-mode clean verify -Ppostgres-it` reached main-source compilation and failed with 38 errors entirely inside excluded `src/main/java/mainstreet/prototype/**`; bounded build repair `f4a95ce81e2a6d7a058b93c46048862b9275aabb` excludes that NON_MIGRATING_LEGACY_PROTOTYPE tree from Maven production compilation; exact rerun required.
-- `GR-REN-11` — final closure/reconciliation and migration completion decision: `BLOCKED_BY_GR_REN_10_RERUN`.
+- `GR-REN-10` — executable structural/build/test validation: `IN_PROGRESS_SECOND_QUARANTINE_APPLIED_RERUN_REQUIRED` — first rerun proved 1,094 production sources compile after production-prototype quarantine, then test compilation failed with 100 errors confined to excluded `src/test/java/mainstreet/prototype/**`; bounded repair `ca2d004b418397fa75abd2e46012f86d7f66fde5` excludes the NON_MIGRATING_LEGACY_PROTOTYPE test tree from Maven test compilation; exact rerun required.
+- `GR-REN-11` — final closure/reconciliation and migration completion decision: `BLOCKED_BY_GR_REN_10_FINAL_RERUN`.
 
 ---
 
@@ -978,45 +978,27 @@ mutation_authorised: true
 active_group: GR-REN-10
 selected_execution_leaf: null
 last_completed_task: GR-REN-09
-last_task_commit: da7be427cb2c7b8c90ee8dcadc87bc0f791e048b
 last_integrity_repair: GR-REN-REPAIR-T001
 last_integrity_repair_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
 post_migration_verification_run: GR-VV-R003
 post_migration_verification_result: PASS
 gr_ren_08: COMPLETE
 gr_ren_09: COMPLETE
-gr_ren_10: IN_PROGRESS_REPAIR_APPLIED_RERUN_REQUIRED
-gr_ren_10_first_maven_command: mvn --batch-mode clean verify -Ppostgres-it
-gr_ren_10_first_maven_result: FAIL_MAIN_SOURCE_COMPILATION
-gr_ren_10_first_maven_error_count: 38
-gr_ren_10_failure_scope: src/main/java/mainstreet/prototype/**
-gr_ren_10_failure_classification: NON_MIGRATING_LEGACY_PROTOTYPE_ACTIVE_SOURCESET_CONTAMINATION
-gr_ren_10_build_repair_commit: f4a95ce81e2a6d7a058b93c46048862b9275aabb
-gr_ren_10_build_rep### GR-REN-10 executable validation — first run and bounded build repair
-
-User-supplied executable validation command:
-
-```text
-mvn --batch-mode clean verify -Ppostgres-it
-```
-
-Result: **FAIL during main-source compilation** after javac began compiling 1,143 source files. The 38 reported errors were confined to `src/main/java/mainstreet/prototype/**`, including stale `mainstreet.runtime` imports and a package/path mismatch in `PrototypeAppointmentSubjectConfiguration.java`.
-
-This is classified under the accepted migration disposition `NON_MIGRATING_LEGACY_PROTOTYPE`, not as evidence that the GrandRue production namespace migration failed. The migration authority explicitly requires quarantine/removal from active source sets when the retained legacy prototype obstructs final build verification rather than migrating or rebranding the prototype.
-
-Bounded repair commit `f4a95ce81e2a6d7a058b93c46048862b9275aabb` changes only `pom.xml` and adds Maven compiler exclusion:
-
-```xml
-<excludes>
-    <exclude>mainstreet/prototype/**</exclude>
-</excludes>
-```
-
-Comparison against parent `5fff16c2effc5a1ccffead2e1d9f3b9aa74defdb` contains exactly one changed path: `pom.xml`. No production GrandRue Java source, test, schema, runtime configuration, design authority or protected identity changed. GR-REN-10 remains open until the exact Maven command is rerun against this repair.
-
-air: EXCLUDE_mainstreet/prototype/**_FROM_MAVEN_PRODUCTION_COMPILATION
+gr_ren_10: IN_PROGRESS_SECOND_QUARANTINE_APPLIED_RERUN_REQUIRED
+gr_ren_10_command: mvn --batch-mode clean verify -Ppostgres-it
+gr_ren_10_initial_result: FAIL_MAIN_SOURCE_COMPILATION
+gr_ren_10_initial_error_count: 38
+gr_ren_10_initial_failure_scope: src/main/java/mainstreet/prototype/**
+gr_ren_10_production_quarantine_commit: f4a95ce81e2a6d7a058b93c46048862b9275aabb
+gr_ren_10_first_rerun_result: FAIL_TEST_SOURCE_COMPILATION
+gr_ren_10_first_rerun_production_compile: PASS_1094_SOURCES
+gr_ren_10_first_rerun_test_compile_attempted_sources: 394
+gr_ren_10_first_rerun_reported_error_count: 100
+gr_ren_10_first_rerun_failure_scope: src/test/java/mainstreet/prototype/**
+gr_ren_10_test_quarantine_commit: ca2d004b418397fa75abd2e46012f86d7f66fde5
+gr_ren_10_test_quarantine: EXCLUDE_mainstreet/prototype/**_FROM_MAVEN_TEST_COMPILATION
 gr_ren_10_rerun_required: true
-gr_ren_11: BLOCKED_BY_GR_REN_10_RERUN
+gr_ren_11: BLOCKED_BY_GR_REN_10_FINAL_RERUN
 migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
 verification_handoff: COMPLETE_PASS
 implementation_handoff: BLOCKED
@@ -1030,7 +1012,27 @@ Post-migration verification runs `GR-VV-R001` and `GR-VV-R002` isolated two exac
 - `GR-VV-F001`: `src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java` — removed one final LF byte, changing blob `3700ba0e2a6af3e9552d5de53834095168f3f4f8` to the independently expected blob `95b85896aa89326927b084a83ea54fcdfde20cc8`.
 - `GR-VV-F002`: `src/main/java/grandrue/infrastructure/persistence/notification/JooqNotificationStore.java` — added one final LF byte, changing blob `0269458ed06c1572d1cba4798fc7476e0bf16b93` to the independently expected blob `ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3`.
 
-Repair code commit: `01e26e1a099c3451165545b5c01f25dd1cbdbb5e`. Aggregate structural verification proved exactly three changed paths: the two declared Java files and the active repair manifest. Both repaired Java blobs exactly equal the verifier's precomputed expected objects. No semantic, design, package, API, persistence, protected-identity or migration-scope change was made. Maven tests and GitHub Actions were not run.
+Repair code commit: `01e26e1a099c3451165545b5c01f25dd1cbdbb5e`. Aggregate structural verification proved exactly three changed paths: the two declared Java files and the active repair manifest. Both repaired Java blobs exactly equal the verifier's precomputed expected objects. No semantic, design, package, API, persistence, prot### GR-REN-10 executable validation — first rerun and legacy prototype test quarantine
+
+After production-prototype quarantine commit `f4a95ce81e2a6d7a058b93c46048862b9275aabb`, the exact validation command was rerun:
+
+```text
+mvn --batch-mode clean verify -Ppostgres-it
+```
+
+The rerun successfully compiled **1,094 production sources**. Maven then entered `testCompile`, attempted 394 test sources, and failed with 100 reported compilation errors. Every reported error was under `src/test/java/mainstreet/prototype/**`, the already-classified legacy prototype test surface. This confirms the production GrandRue source set passed compilation and the remaining blocker was active-source-set contamination from excluded prototype tests.
+
+Bounded repair commit `ca2d004b418397fa75abd2e46012f86d7f66fde5` changes only `pom.xml` and extends the existing compiler quarantine with:
+
+```xml
+<testExcludes>
+    <testExclude>mainstreet/prototype/**</testExclude>
+</testExcludes>
+```
+
+Comparison against parent `c3e5d77048cd9c8ccbe05f34af71c961da0f27fd` contains exactly one changed path: `pom.xml`. No GrandRue production/test source, schema, runtime configuration, semantic authority or protected identity changed. GR-REN-10 remains open until the exact Maven command is rerun against both prototype quarantines.
+
+ected-identity or migration-scope change was made. Maven tests and GitHub Actions were not run.
 
 ---
 
