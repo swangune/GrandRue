@@ -977,11 +977,15 @@ status: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
 mutation_authorised: true
 active_group: POST_MIGRATION_VERIFICATION
 selected_execution_leaf: null
-last_completed_task: GR-REN-07-T001
-last_task_commit: 4752cd2193fa8e895a1784668fe64a71b7329155
-last_integrity_repair: GR-REN-02-01X6
-last_integrity_repair_commit: 075fe5ae53a0e513960c6965634a5720cd1a23eb
-last_verified_head: 4752cd2193fa8e895a1784668fe64a71b7329155
+last_completed_task: GR-REN-REPAIR-T001
+last_task_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
+last_integrity_repair: GR-REN-REPAIR-T001
+last_integrity_repair_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
+last_verified_head: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
+post_verification_repair_findings:
+  - GR-VV-F001
+  - GR-VV-F002
+post_verification_repair_result: STRUCTURAL_PASS_EXACT_EXPECTED_OBJECTS
 migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
 verification_handoff: READY
 verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
@@ -989,6 +993,15 @@ verification_target: THIS_CHECKPOINT_COMMIT
 verification_ledger: GRANDRUE-POST-MIGRATION-VERIFICATION.md
 next_action: BEGIN_GRANDRUE_POST_MIGRATION_VERIFICATION
 ```
+
+### Post-verification defect repair — GR-REN-REPAIR-T001
+
+Post-migration verification runs `GR-VV-R001` and `GR-VV-R002` isolated two exact byte-preservation defects and no semantic discrepancy. Separately authorised migration repair GR-REN-REPAIR-T001 corrected only those bytes:
+
+- `GR-VV-F001`: `src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java` — removed one final LF byte, changing blob `3700ba0e2a6af3e9552d5de53834095168f3f4f8` to the independently expected blob `95b85896aa89326927b084a83ea54fcdfde20cc8`.
+- `GR-VV-F002`: `src/main/java/grandrue/infrastructure/persistence/notification/JooqNotificationStore.java` — added one final LF byte, changing blob `0269458ed06c1572d1cba4798fc7476e0bf16b93` to the independently expected blob `ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3`.
+
+Repair code commit: `01e26e1a099c3451165545b5c01f25dd1cbdbb5e`. Aggregate structural verification proved exactly three changed paths: the two declared Java files and the active repair manifest. Both repaired Java blobs exactly equal the verifier's precomputed expected objects. No semantic, design, package, API, persistence, protected-identity or migration-scope change was made. Maven tests and GitHub Actions were not run.
 
 ---
 

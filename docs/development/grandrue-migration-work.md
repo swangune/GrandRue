@@ -393,13 +393,13 @@ selection_unit: DEPENDENCY_CLOSED_NORMAL_SUBGRAPH
 leaf_role: AUDIT_COORDINATE_NOT_EXECUTION_UNIT
 numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
-active_tranche: null
-active_state: PREPARATION_REQUIRED
+active_tranche: GR-REN-REPAIR-T001
+active_state: COMPLETE
 last_completed_leaf: GR-REN-02-01X739
-last_completed_task: GR-REN-04-T001
-last_code_commit: c8821cf489735d34de341e50c4c2508bda8c4b4f
-last_validation_gate: GR-REN-04-T001_STRUCTURAL
-last_validation_target: c8821cf489735d34de341e50c4c2508bda8c4b4f
+last_completed_task: GR-REN-REPAIR-T001
+last_code_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
+last_validation_gate: GR-REN-REPAIR-T001_STRUCTURAL
+last_validation_target: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
 symbolic_standalone_production_residuals: 0
 
 gr_ren_03:
@@ -481,6 +481,21 @@ gr_ren_07:
   current_product_wording_migrated: true
   historical_titles_preserved: true
   symbolic_identifiers_preserved: true
+
+post_verification_repair:
+  tranche: GR-REN-REPAIR-T001
+  source_findings:
+    - GR-VV-F001
+    - GR-VV-F002
+  code_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
+  changed_source_paths: 2
+  F001_output_blob: 95b85896aa89326927b084a83ea54fcdfde20cc8
+  F002_output_blob: ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3
+  exact_expected_object_match: true
+  structural_result: PASS
+  semantic_change: none
+  maven_tests: not_run_not_authorised
+  github_actions: not_run_not_authorised
 
 migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
 verification_handoff: READY

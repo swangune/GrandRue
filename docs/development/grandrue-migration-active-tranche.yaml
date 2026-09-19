@@ -2,11 +2,13 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: POST_MIGRATION_DEFECT_REPAIR
 tranche: GR-REN-REPAIR-T001
 group: POST_MIGRATION_DEFECT_REPAIR
-state: CODE_COMMITTED
+state: COMPLETE
 
 repository: swangune/GrandRue
 branch: development
 expected_parent: 8121a6d502b72b1ae07dfa09a724c761836f90ff
+code_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
+checkpoint_commit: THIS_COMMIT
 source_findings:
   - GR-VV-F001
   - GR-VV-F002
@@ -26,21 +28,23 @@ repair_scope:
     semantic_change: none
 
 aggregate:
-  permitted_changed_paths:
-    - src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
-    - src/main/java/grandrue/infrastructure/persistence/notification/JooqNotificationStore.java
-    - docs/development/grandrue-migration-active-tranche.yaml
+  code_changed_paths: 3
   changed_path_set: exact
-  protected_identity_check: required
+  structural_result: PASS
+  protected_identity_check: PASS_BY_EXACT_EXPECTED_OBJECT_MATCH
   maven_tests: not_run_not_authorised
   github_actions: not_run_not_authorised
 
 verification:
   F001_expected_blob: 95b85896aa89326927b084a83ea54fcdfde20cc8
+  F001_actual_blob: 95b85896aa89326927b084a83ea54fcdfde20cc8
   F002_expected_blob: ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3
-  source_modes_unchanged: required
-  no_other_source_change: required
-  exact_expected_object_match: required
+  F002_actual_blob: ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3
+  exact_expected_object_match: true
+  source_modes_unchanged: true
+  no_other_source_change: true
+  verified: true
+  validated_head: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
 
 repair_authorisation:
   chat_instruction: Go ahead
@@ -49,4 +53,9 @@ repair_authorisation:
   implementation_change: none
   migration_scope_expansion: none
 
-next_state: VERIFIED_PENDING_CHECKPOINT
+migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
+verification_handoff: READY
+verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
+verification_target: THIS_CHECKPOINT_COMMIT
+next_group: GRANDRUE_POST_MIGRATION_VERIFICATION
+next_state: READY
