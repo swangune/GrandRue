@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 489,
-  "passing_files": 488,
-  "failing_files": 1,
+  "verified_files": 562,
+  "passing_files": 560,
+  "failing_files": 2,
   "blocked_files": 0,
-  "remaining_files": 605,
+  "remaining_files": 532,
   "completed_packages": [
     "(root)",
     "audit",
@@ -41,7 +41,8 @@
     "runtime",
     "publication",
     "enquiry",
-    "commercial"
+    "commercial",
+    "infrastructure"
   ],
   "chunks": [
     {
@@ -235,8 +236,16 @@
       "files": 50,
       "pass": 50,
       "fail": 0
+    },
+    {
+      "chunk": "infrastructure",
+      "git_blob": "720c63d197e50be859935acd4022643f703b080c",
+      "sha256": "12cfb45a39ae8430ddbfcb98a7b70092621236e7cbdc066bb970e05f9685894b",
+      "files": 73,
+      "pass": 72,
+      "fail": 1
     }
   ],
   "conclusion": "NO_REGION_VERDICT_YET",
-  "next_action": "Continue GR-VV-03-R001 from remaining packages. Preserve GR-VV-F001. Onboarding and merchantprofile remain claim-lineage packages; use recorded claim lineage for staged import-transition rows and explicit wording overlays where applicable. Do not repair discrepancies."
+  "next_action": "Continue GR-VV-03-R001 from the durable 562/1094 production-file checkpoint with open findings GR-VV-F001 and GR-VV-F002 preserved. Merchantprofile and onboarding require recorded claim-lineage reconstruction and remain uncounted until closed. Verify semantic and surface package-closed subsets next using complete M blob retrieval, baseline-object self-check, the frozen namespace transformation plus any recorded wording overlay, expected Git blob SHA comparison to D, and exact mode/path obligations. Do not repair discrepancies."
 }

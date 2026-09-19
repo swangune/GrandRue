@@ -25,7 +25,7 @@
     "claims_total": 847,
     "production_leaf_claims": 762,
     "manifest_versions": 152,
-    "open_findings": 0
+    "open_findings": 2
   },
   "conclusions": {
     "file_accounting": "PASS",
@@ -39,11 +39,11 @@
     "region_id": "GR-VV-03-R001",
     "state": "IN_PROGRESS",
     "total_files": 1094,
-    "verified_files": 489,
-    "passing_files": 488,
-    "failing_files": 1,
+    "verified_files": 562,
+    "passing_files": 560,
+    "failing_files": 2,
     "blocked_files": 0,
-    "remaining_files": 605,
+    "remaining_files": 532,
     "progress_evidence": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-03-R001/progress.json"
   }
 }
