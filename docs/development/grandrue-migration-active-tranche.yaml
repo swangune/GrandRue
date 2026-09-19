@@ -1,59 +1,52 @@
 migration: MAIN_STREET_TO_GRANDRUE
+execution_mode: POST_MIGRATION_DEFECT_REPAIR
+tranche: GR-REN-REPAIR-T001
+group: POST_MIGRATION_DEFECT_REPAIR
+state: CODE_COMMITTED
+
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-07-T001
-group: GR-REN-07
-state: COMPLETE
-code_commit: 4752cd2193fa8e895a1784668fe64a71b7329155
-expected_parent: faba9ba269047e991c9abc7c98f9505f5ff008af
+expected_parent: 8121a6d502b72b1ae07dfa09a724c761836f90ff
+source_findings:
+  - GR-VV-F001
+  - GR-VV-F002
 
-region:
-  identity: active-controls-canonical-governance-current-wording
-  files:
-    - SEQUENCE.md
-    - designs/DESIGN-RULES.md
-    - designs/DOCUMENT-GOVERNANCE.md
-    - designs/AUTHORITY-INDEX.md
-    - designs/CANONICAL-SEMANTIC-LEXICON.md
-    - designs/DEFERRED-DECISION-REGISTER.md
-    - designs/DESIGN-CORPUS-CONFORMANCE.md
-    - designs/IMPLEMENTATION-RULES.md
-  agents_current_before_tranche: true
+repair_scope:
+  - id: GR-VV-F001
+    path: src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
+    input_blob: 3700ba0e2a6af3e9552d5de53834095168f3f4f8
+    output_blob: 95b85896aa89326927b084a83ea54fcdfde20cc8
+    exact_change: remove_one_final_LF_byte
+    semantic_change: none
+  - id: GR-VV-F002
+    path: src/main/java/grandrue/infrastructure/persistence/notification/JooqNotificationStore.java
+    input_blob: 0269458ed06c1572d1cba4798fc7476e0bf16b93
+    output_blob: ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3
+    exact_change: add_one_final_LF_byte
+    semantic_change: none
 
-transformations:
-  current_product_phrase:
-    from: Main Street
-    to: GrandRue
-    replaced_occurrences: 146
-  repository_navigation:
-    from: swangune/MainStreet
-    to: swangune/GrandRue
-  authority_index_current_package_identity:
-    from: mainstreet.* implementation/package identifiers remain unchanged
-    to: current implementation/package identifiers use grandrue.*
-  preserved:
-    - MS-FUNDAMENTAL-VISION-001 formal historical title
-    - MS-AVS-001 recovered historical title
-    - HANDLED_OUTSIDE_MAIN_STREET_RECORDED
-    - stable MS-* identifiers
-    - protected mainstreet* compatibility identities
-    - historical provenance
-
-verification:
-  expected_changed_path_count: 9
-  current_phrase_residuals_allowed_only_as_declared_historical: true
-  symbolic_identifier_preservation: required
-  repository_navigation_current: required
+aggregate:
+  permitted_changed_paths:
+    - src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java
+    - src/main/java/grandrue/infrastructure/persistence/notification/JooqNotificationStore.java
+    - docs/development/grandrue-migration-active-tranche.yaml
+  changed_path_set: exact
+  protected_identity_check: required
   maven_tests: not_run_not_authorised
   github_actions: not_run_not_authorised
 
-validated_head: 4752cd2193fa8e895a1784668fe64a71b7329155
-checkpoint_commit: THIS_COMMIT
-verified: true
+verification:
+  F001_expected_blob: 95b85896aa89326927b084a83ea54fcdfde20cc8
+  F002_expected_blob: ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3
+  source_modes_unchanged: required
+  no_other_source_change: required
+  exact_expected_object_match: required
 
-migration_execution_state: COMPLETE_PENDING_POST_MIGRATION_VERIFICATION
-verification_handoff: READY
-verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
-verification_target: THIS_CHECKPOINT_COMMIT
-next_group: GRANDRUE_POST_MIGRATION_VERIFICATION
-next_state: READY
+repair_authorisation:
+  chat_instruction: Go ahead
+  scope: separately_authorised_migration_defect_review_and_exact_repair
+  design_change: none
+  implementation_change: none
+  migration_scope_expansion: none
+
+next_state: VERIFIED_PENDING_CHECKPOINT
