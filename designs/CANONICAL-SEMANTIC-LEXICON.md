@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.52
+**Version:** 1.53
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -679,6 +679,18 @@ Under MS-PROT-036 v1.4 §3, an immutable Storefront-owned selection fact identif
 **Authority:** MS-PROT-056 v1.9 §3.
 
 The Commercial-owned association between one stable entitlement identity and one exact, already-governed access point for one protected commercial purpose.
+
+### MAINTAIN_MERCHANT_OFFERING_DEFINITION
+
+**Authority:** MS-PROT-044 v1.3.
+
+The protected Commercial purpose for otherwise-valid establishment or material revision of Offering-owned merchant proposition truth. It is allocated to FREE + BUSINESS + GROWTH for the current standard catalogue. It does not grant Product, Inventory, Ordering, Booking, Appointment, Payment, Quotation, Invoicing, Exposure, Storefront or Actor Authorisation.
+
+### MAINTAIN_MERCHANT_PRODUCT_DEFINITION
+
+**Authority:** MS-PROT-044 v1.3.
+
+The protected Commercial purpose for otherwise-valid establishment or material revision of Product and, where semantically justified, ProductVariant definition truth. It is allocated to FREE + BUSINESS + GROWTH for the current standard catalogue. Product remains optional, ProductVariant remains Product-owned, and this purpose does not grant Inventory, transaction, Exposure, Storefront or Actor Authorisation.
 
 ### Commercial Catalogue Manifest
 
