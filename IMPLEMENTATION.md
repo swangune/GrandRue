@@ -44,20 +44,20 @@ programme_frontier:
     production composition/rollout ordering and final verification.
 
 slice:
-  id: C3-INITIAL-CATALOGUE-INTEGRATION
+  id: C3-TRUSTED-CATALOGUE-ADMISSION
   state: READY
   behaviour: >
-    Represent the approved standard-commercial-catalogue@1 exactly, including
-    owner-qualified conditional supporting-commercial requirements, and prove
-    its structural/admission boundary before production activation.
+    Admit only the exact approved standard-commercial-catalogue@1 at the trusted
+    publication boundary while keeping exact-content approval distinct from
+    explicit platform publication authorisation.
 
 canonical_graph: docs/development/implementation-programme-state.json
 historical_status_compatibility: docs/development/implementation-status.md
 
 next_action: >
-  Execute the C3 initial-catalogue integration slice tests first. Implement only
-  the minimum accepted v1.10 representation/admission behaviour needed by that
-  slice, verify proportionally, then checkpoint graph/evidence/controller.
+  Execute trusted catalogue-admission tests first. Implement only the minimum
+  accepted v1.9/v1.10 exact-content approval and platform-authorisation
+  composition, verify proportionally, then checkpoint before rollout wiring.
 ```
 
 ## 2. Governing sources
