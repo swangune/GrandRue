@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.53
+**Version:** 1.54
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -3271,3 +3271,65 @@ Invoice Billing Cancellation
 CustomerContext
     ≠ Invoice owner
 ```
+
+---
+
+## 34. Merchant subject categorisation and structured merchandise/listing attributes
+
+### Merchant Subject Category
+
+**Authority:** MS-PROT-044 v1.4.
+
+A merchant-scoped, stable, non-executable classification identity used to organise supported merchant business subjects. The initial target families are exactly Offering, Product and Listing. A Category label or hierarchy does not create price, inventory, lifecycle, Exposure, customer-operation or other capability semantics.
+
+This term is distinct from Merchant Profile `MerchantClassificationEntryV1`, which classifies the merchant/business itself.
+
+### Merchant Category Assignment
+
+**Authority:** MS-PROT-044 v1.4.
+
+A durable owner-qualified relationship between one Merchant Subject Category and one exact eligible semantic target, preserving both target family and target identity. Direct assignment is distinct from derived ancestor membership. Assignment or removal does not mutate the classified target's business truth.
+
+### Merchandise Condition
+
+**Authority:** MS-PROT-044 v1.4 composed with MS-PROT-045.
+
+A registered structured business attribute describing applicable merchandise condition where the relevant schema admits it. The initial values are exactly:
+
+```text
+NEW
+USED
+REFURBISHED
+```
+
+Merchandise Condition is not a Merchant Subject Category and does not automatically establish ProductVariant identity. Where condition varies by independently tracked physical unit, unit-level semantics must not be falsely promoted to Product truth.
+
+### Listing Transaction Mode
+
+**Authority:** MS-PROT-044 v1.4 composed with MS-PROT-045.
+
+A registered Listing-owned structured value describing the market proposition of an applicable Listing. The initial values are exactly:
+
+```text
+SALE
+RENT
+```
+
+Listing Transaction Mode is not a Category and does not itself establish Order, Booking, tenancy, lease or other transaction-execution authority. It belongs to Listing rather than the underlying Property/subject.
+
+Canonical distinctions:
+
+```text
+Category
+    organisation only
+
+Merchandise Condition
+    structured descriptive meaning
+
+Listing Transaction Mode
+    Listing proposition meaning
+
+Capability participation
+    executable customer-operation meaning
+```
+
