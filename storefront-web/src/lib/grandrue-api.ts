@@ -47,7 +47,9 @@ export type PublicOrderIntent = {
 };
 
 const BACKEND_URL =
-  process.env.GRANDRUE_BACKEND_URL ??\n  process.env.MAINSTREET_BACKEND_URL ??\n  "http://localhost:8080";
+  process.env.GRANDRUE_BACKEND_URL ??
+  process.env.MAINSTREET_BACKEND_URL ??
+  "http://localhost:8080";
 
 export async function getStorefrontSurface(
   merchantIdentifier: string,
