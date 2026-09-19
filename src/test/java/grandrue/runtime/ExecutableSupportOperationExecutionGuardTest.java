@@ -1,18 +1,18 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.executable.ActiveOperationResolver;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
-import mainstreet.semantic.executable.ExecutableObjectCreationEffect;
-import mainstreet.semantic.executable.ExecutableOperationalObjectDefinition;
-import mainstreet.semantic.executable.ExecutableOperationalObjectTypeIdentity;
-import mainstreet.semantic.executable.ExecutableOperationDefinition;
-import mainstreet.semantic.execution.ExecutableSupportAdmission;
-import mainstreet.semantic.execution.ExecutableSupportManifest;
-import mainstreet.semantic.execution.ExecutableSupportRegistry;
-import mainstreet.semantic.execution.ExecutableSupportRequirement;
-import mainstreet.semantic.execution.SemanticExecutionContractReference;
-import mainstreet.semantic.execution.UnsupportedExecutableSupportException;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.executable.ActiveOperationResolver;
+import grandrue.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableObjectCreationEffect;
+import grandrue.semantic.executable.ExecutableOperationalObjectDefinition;
+import grandrue.semantic.executable.ExecutableOperationalObjectTypeIdentity;
+import grandrue.semantic.executable.ExecutableOperationDefinition;
+import grandrue.semantic.execution.ExecutableSupportAdmission;
+import grandrue.semantic.execution.ExecutableSupportManifest;
+import grandrue.semantic.execution.ExecutableSupportRegistry;
+import grandrue.semantic.execution.ExecutableSupportRequirement;
+import grandrue.semantic.execution.SemanticExecutionContractReference;
+import grandrue.semantic.execution.UnsupportedExecutableSupportException;
 import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 

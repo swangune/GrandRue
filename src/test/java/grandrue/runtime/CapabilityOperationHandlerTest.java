@@ -1,15 +1,15 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.executable.ActiveOperationResolver;
-import mainstreet.semantic.executable.ApplicableOperation;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
-import mainstreet.semantic.executable.ExecutableObjectCreationEffect;
-import mainstreet.semantic.executable.ExecutableOperationalObjectDefinition;
-import mainstreet.semantic.executable.ExecutableOperationalObjectTypeIdentity;
-import mainstreet.semantic.executable.ExecutableOperationDefinition;
-import mainstreet.semantic.executable.ExecutableOperationEffect;
-import mainstreet.semantic.executable.ExecutableStateTransitionEffect;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.executable.ActiveOperationResolver;
+import grandrue.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableObjectCreationEffect;
+import grandrue.semantic.executable.ExecutableOperationalObjectDefinition;
+import grandrue.semantic.executable.ExecutableOperationalObjectTypeIdentity;
+import grandrue.semantic.executable.ExecutableOperationDefinition;
+import grandrue.semantic.executable.ExecutableOperationEffect;
+import grandrue.semantic.executable.ExecutableStateTransitionEffect;
 import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 

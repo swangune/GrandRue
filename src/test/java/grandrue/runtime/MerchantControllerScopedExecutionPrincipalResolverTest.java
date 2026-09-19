@@ -1,9 +1,9 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.merchantaccount.MerchantControllerRelationship;
-import mainstreet.merchantaccount.MerchantControllerRelationshipAuthority;
-import mainstreet.merchantaccount.MerchantControllerRelationshipLifecycle;
+import grandrue.application.MerchantScope;
+import grandrue.merchantaccount.MerchantControllerRelationship;
+import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
+import grandrue.merchantaccount.MerchantControllerRelationshipLifecycle;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

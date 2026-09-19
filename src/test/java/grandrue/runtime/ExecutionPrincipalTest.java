@@ -1,6 +1,6 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.semantic.Privilege;
+import grandrue.semantic.Privilege;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,7 +1,7 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.executable.ApplicableOperation;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.executable.ApplicableOperation;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;

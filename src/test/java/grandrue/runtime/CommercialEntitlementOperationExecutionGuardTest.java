@@ -1,16 +1,16 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.commercial.CommercialEntitlementAuthority;
-import mainstreet.commercial.CommercialEntitlementException;
-import mainstreet.commercial.CommercialEntitlementIdentity;
-import mainstreet.semantic.executable.ActiveOperationResolver;
-import mainstreet.semantic.executable.ApplicableOperation;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
-import mainstreet.semantic.executable.ExecutableObjectCreationEffect;
-import mainstreet.semantic.executable.ExecutableOperationalObjectDefinition;
-import mainstreet.semantic.executable.ExecutableOperationalObjectTypeIdentity;
-import mainstreet.semantic.executable.ExecutableOperationDefinition;
+import grandrue.application.MerchantScope;
+import grandrue.commercial.CommercialEntitlementAuthority;
+import grandrue.commercial.CommercialEntitlementException;
+import grandrue.commercial.CommercialEntitlementIdentity;
+import grandrue.semantic.executable.ActiveOperationResolver;
+import grandrue.semantic.executable.ApplicableOperation;
+import grandrue.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.executable.ExecutableObjectCreationEffect;
+import grandrue.semantic.executable.ExecutableOperationalObjectDefinition;
+import grandrue.semantic.executable.ExecutableOperationalObjectTypeIdentity;
+import grandrue.semantic.executable.ExecutableOperationDefinition;
 import grandrue.testing.TestConfigurationReleases;
 import org.junit.jupiter.api.Test;
 

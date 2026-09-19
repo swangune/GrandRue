@@ -1,10 +1,10 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.application.TrustedDeviceApplicationContext;
+import grandrue.application.MerchantScope;
+import grandrue.application.TrustedDeviceApplicationContext;
 import grandrue.testing.TestSessionRecordStore;
-import mainstreet.workforce.MerchantMembershipAuthority;
-import mainstreet.workforce.MerchantOperationalDeviceAuthority;
+import grandrue.workforce.MerchantMembershipAuthority;
+import grandrue.workforce.MerchantOperationalDeviceAuthority;
 import org.junit.jupiter.api.Test;
 
 import java.security.SecureRandom;

@@ -1,4 +1,4 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
 import org.junit.jupiter.api.Test;
 

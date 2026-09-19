@@ -1,6 +1,6 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import grandrue.testing.TestSessionRecordStore;
 import org.junit.jupiter.api.Test;
 

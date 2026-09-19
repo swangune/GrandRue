@@ -1,7 +1,7 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.application.StandingFreeEventReactionContract;
+import grandrue.application.MerchantScope;
+import grandrue.application.StandingFreeEventReactionContract;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;

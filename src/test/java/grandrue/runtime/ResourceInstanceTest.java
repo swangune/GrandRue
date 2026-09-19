@@ -1,7 +1,7 @@
-package mainstreet.runtime;
+package grandrue.runtime;
 
-import mainstreet.semantic.Resource;
-import mainstreet.semantic.State;
+import grandrue.semantic.Resource;
+import grandrue.semantic.State;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
