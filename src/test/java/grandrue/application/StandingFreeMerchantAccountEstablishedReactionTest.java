@@ -1,23 +1,23 @@
-package mainstreet.application;
+package grandrue.application;
 
-import mainstreet.commercial.CommercialEntitlementIdentity;
-import mainstreet.commercial.StandardPlanLevel;
-import mainstreet.commercial.StandardPlanRevision;
-import mainstreet.commercial.StandingFreeBaseline;
-import mainstreet.commercial.StandingFreeBaselineStore;
-import mainstreet.merchantaccount.MerchantAccountEstablished;
-import mainstreet.merchantaccount.MerchantAccountEstablishedEventContract;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;
-import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.runtime.RegisteredScheduledEventReactionExecutionAuthority;
-import mainstreet.runtime.ScheduledEventReactionExecutionAuthority;
-import mainstreet.runtime.TrustedExecutionContext;
-import mainstreet.semantic.event.EventReactionAcknowledgement;
-import mainstreet.semantic.event.EventReactionContractRegistrySnapshot;
-import mainstreet.semantic.event.EventReactionIdentity;
-import mainstreet.semantic.event.MerchantEventReactionReceipt;
-import mainstreet.semantic.event.MerchantEventReactionStore;
+import grandrue.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.StandardPlanLevel;
+import grandrue.commercial.StandardPlanRevision;
+import grandrue.commercial.StandingFreeBaseline;
+import grandrue.commercial.StandingFreeBaselineStore;
+import grandrue.merchantaccount.MerchantAccountEstablished;
+import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrenceAuthority;
+import grandrue.runtime.ExecutionPrincipal;
+import grandrue.runtime.RegisteredScheduledEventReactionExecutionAuthority;
+import grandrue.runtime.ScheduledEventReactionExecutionAuthority;
+import grandrue.runtime.TrustedExecutionContext;
+import grandrue.semantic.event.EventReactionAcknowledgement;
+import grandrue.semantic.event.EventReactionContractRegistrySnapshot;
+import grandrue.semantic.event.EventReactionIdentity;
+import grandrue.semantic.event.MerchantEventReactionReceipt;
+import grandrue.semantic.event.MerchantEventReactionStore;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;
@@ -250,7 +250,7 @@ class StandingFreeMerchantAccountEstablishedReactionTest {
 
         @Override
         public List<MerchantEventReactionReceipt> pending(
-                mainstreet.semantic.event.EventReactionContractAffinity affinity, int limit) {
+                grandrue.semantic.event.EventReactionContractAffinity affinity, int limit) {
             var pending = new ArrayList<MerchantEventReactionReceipt>();
             receipts.values().stream()
                     .filter(receipt -> receipt.contractAffinity().equals(affinity))
@@ -294,7 +294,7 @@ class StandingFreeMerchantAccountEstablishedReactionTest {
             return delegate.receipt(identity);
         }
         @Override public List<MerchantEventReactionReceipt> pending(
-                mainstreet.semantic.event.EventReactionContractAffinity affinity, int limit) {
+                grandrue.semantic.event.EventReactionContractAffinity affinity, int limit) {
             return delegate.pending(affinity, limit);
         }
         @Override public EventReactionAcknowledgement acknowledge(EventReactionAcknowledgement candidate) {

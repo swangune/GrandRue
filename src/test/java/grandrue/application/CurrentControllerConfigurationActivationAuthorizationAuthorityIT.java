@@ -1,9 +1,9 @@
-package mainstreet.application;
+package grandrue.application;
 
-import mainstreet.infrastructure.persistence.merchantaccount
+import grandrue.infrastructure.persistence.merchantaccount
         .JooqMerchantAccountLifecycleStore;
-import mainstreet.merchantaccount.MerchantAccountLifecycle;
-import mainstreet.merchantaccount.MerchantAccountLifecycleStore;
+import grandrue.merchantaccount.MerchantAccountLifecycle;
+import grandrue.merchantaccount.MerchantAccountLifecycleStore;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

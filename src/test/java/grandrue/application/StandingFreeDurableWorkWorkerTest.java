@@ -1,15 +1,15 @@
-package mainstreet.application;
+package grandrue.application;
 
-import mainstreet.background.BackgroundExecutionScope;
-import mainstreet.background.BackgroundWorkContractIdentity;
-import mainstreet.background.BackgroundWorkResultClassification;
-import mainstreet.background.ClaimedWork;
-import mainstreet.background.DurableWorkInstruction;
-import mainstreet.background.DurableWorkStore;
-import mainstreet.background.OverdueHandling;
-import mainstreet.background.RegisteredDurableWorkClaimer;
-import mainstreet.background.WorkAttempt;
-import mainstreet.commercial.StandingFreeBaseline;
+import grandrue.background.BackgroundExecutionScope;
+import grandrue.background.BackgroundWorkContractIdentity;
+import grandrue.background.BackgroundWorkResultClassification;
+import grandrue.background.ClaimedWork;
+import grandrue.background.DurableWorkInstruction;
+import grandrue.background.DurableWorkStore;
+import grandrue.background.OverdueHandling;
+import grandrue.background.RegisteredDurableWorkClaimer;
+import grandrue.background.WorkAttempt;
+import grandrue.commercial.StandingFreeBaseline;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;

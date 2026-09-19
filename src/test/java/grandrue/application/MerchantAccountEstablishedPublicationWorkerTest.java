@@ -1,18 +1,18 @@
-package mainstreet.application;
+package grandrue.application;
 
-import mainstreet.merchantaccount.MerchantAccountEstablished;
-import mainstreet.merchantaccount.MerchantAccountEstablishedEventContract;
-import mainstreet.merchantaccount.MerchantAccountEstablishedOccurrence;
-import mainstreet.merchantaccount.MerchantAccountEstablishedPublicationSource;
-import mainstreet.semantic.event.EventReactionAcknowledgement;
-import mainstreet.semantic.event.EventReactionContractAffinity;
-import mainstreet.semantic.event.EventReactionContractDefinition;
-import mainstreet.semantic.event.EventReactionContractIdentity;
-import mainstreet.semantic.event.EventReactionContractRegistrySnapshot;
-import mainstreet.semantic.event.EventReactionIdentity;
-import mainstreet.semantic.event.EventReactionTargetReference;
-import mainstreet.semantic.event.MerchantEventReactionReceipt;
-import mainstreet.semantic.event.MerchantEventReactionStore;
+import grandrue.merchantaccount.MerchantAccountEstablished;
+import grandrue.merchantaccount.MerchantAccountEstablishedEventContract;
+import grandrue.merchantaccount.MerchantAccountEstablishedOccurrence;
+import grandrue.merchantaccount.MerchantAccountEstablishedPublicationSource;
+import grandrue.semantic.event.EventReactionAcknowledgement;
+import grandrue.semantic.event.EventReactionContractAffinity;
+import grandrue.semantic.event.EventReactionContractDefinition;
+import grandrue.semantic.event.EventReactionContractIdentity;
+import grandrue.semantic.event.EventReactionContractRegistrySnapshot;
+import grandrue.semantic.event.EventReactionIdentity;
+import grandrue.semantic.event.EventReactionTargetReference;
+import grandrue.semantic.event.MerchantEventReactionReceipt;
+import grandrue.semantic.event.MerchantEventReactionStore;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;

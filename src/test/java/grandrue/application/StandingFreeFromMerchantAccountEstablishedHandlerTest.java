@@ -1,15 +1,15 @@
-package mainstreet.application;
+package grandrue.application;
 
-import mainstreet.commercial.CommercialEntitlementIdentity;
-import mainstreet.commercial.CatalogueResolutionException;
-import mainstreet.commercial.PublishedStandardPlanCatalogueRevision;
-import mainstreet.commercial.StandardPlanCatalogueHistory;
-import mainstreet.commercial.StandardPlanCatalogueRevision;
-import mainstreet.commercial.StandardPlanLevel;
-import mainstreet.commercial.StandardPlanRevision;
-import mainstreet.commercial.StandingFreeBaseline;
-import mainstreet.commercial.StandingFreeBaselineStore;
-import mainstreet.merchantaccount.MerchantAccountEstablished;
+import grandrue.commercial.CommercialEntitlementIdentity;
+import grandrue.commercial.CatalogueResolutionException;
+import grandrue.commercial.PublishedStandardPlanCatalogueRevision;
+import grandrue.commercial.StandardPlanCatalogueHistory;
+import grandrue.commercial.StandardPlanCatalogueRevision;
+import grandrue.commercial.StandardPlanLevel;
+import grandrue.commercial.StandardPlanRevision;
+import grandrue.commercial.StandingFreeBaseline;
+import grandrue.commercial.StandingFreeBaselineStore;
+import grandrue.merchantaccount.MerchantAccountEstablished;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

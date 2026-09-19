@@ -1,13 +1,13 @@
-package mainstreet.application;
+package grandrue.application;
 
-import mainstreet.booking.BookingResidualObligationAuthority;
-import mainstreet.fulfilment.FulfilmentBindingSetRevisionAuthority;
-import mainstreet.fulfilment.FulfilmentBindingSetRevisionReference;
-import mainstreet.semantic.compiler.ConfigurationCompiler;
-import mainstreet.semantic.configuration.*;
-import mainstreet.semantic.registry.RegisteredCapability;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
-import mainstreet.semantic.release.SemanticReleaseAssemblyRepository;
+import grandrue.booking.BookingResidualObligationAuthority;
+import grandrue.fulfilment.FulfilmentBindingSetRevisionAuthority;
+import grandrue.fulfilment.FulfilmentBindingSetRevisionReference;
+import grandrue.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.configuration.*;
+import grandrue.semantic.registry.RegisteredCapability;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.release.SemanticReleaseAssemblyRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 

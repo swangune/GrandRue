@@ -1,17 +1,17 @@
-package mainstreet.application;
+package grandrue.application;
 
-import mainstreet.runtime.AuthenticationProvenance;
-import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.runtime.TrustedExecutionContext;
-import mainstreet.semantic.configuration.ConfigurationActivation;
-import mainstreet.semantic.configuration.ConfigurationActivationRequest;
-import mainstreet.semantic.configuration.ConfigurationActivationResult;
-import mainstreet.semantic.configuration.ConfigurationActivationStatus;
-import mainstreet.semantic.configuration.ConfigurationPublication;
-import mainstreet.semantic.configuration.ConfigurationRelease;
-import mainstreet.semantic.configuration.ConfigurationReleaseActivation;
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.runtime.AuthenticationProvenance;
+import grandrue.runtime.ExecutionPrincipal;
+import grandrue.runtime.TrustedExecutionContext;
+import grandrue.semantic.configuration.ConfigurationActivation;
+import grandrue.semantic.configuration.ConfigurationActivationRequest;
+import grandrue.semantic.configuration.ConfigurationActivationResult;
+import grandrue.semantic.configuration.ConfigurationActivationStatus;
+import grandrue.semantic.configuration.ConfigurationPublication;
+import grandrue.semantic.configuration.ConfigurationRelease;
+import grandrue.semantic.configuration.ConfigurationReleaseActivation;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
