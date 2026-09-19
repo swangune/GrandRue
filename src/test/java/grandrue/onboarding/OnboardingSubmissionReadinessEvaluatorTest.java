@@ -1,6 +1,6 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
-import mainstreet.application.MerchantScope;
+import grandrue.application.MerchantScope;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

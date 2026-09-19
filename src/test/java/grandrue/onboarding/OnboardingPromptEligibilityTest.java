@@ -1,4 +1,4 @@
-package mainstreet.onboarding;
+package grandrue.onboarding;
 
 import org.junit.jupiter.api.Test;
 
