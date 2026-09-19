@@ -2,42 +2,35 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T029
+tranche: GR-REN-03-T030
 group: GR-REN-03
-state: COMPLETE
-code_commit: 4b105c23ba259a796da7f5fd68df7fa64e13452f
-expected_parent: 30d87cce1c8b593def40da0cf626c2e2271f7045
-validated_head: 4b105c23ba259a796da7f5fd68df7fa64e13452f
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 6b77f7d3acbf87a560e005869ea1ce4d133465f1
 
 region:
-  identity: test-semantic-execution
-  closure_basis: complete live src/test/java/mainstreet/semantic/execution/** Java test-owner region
+  identity: test-semantic-registry
+  closure_basis: complete live src/test/java/mainstreet/semantic/registry/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 2
+    owner_count: 1
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 25
+    executable_namespace_replacement_count: 1
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/semantic/execution/SemanticExecutionSpineConformanceTest.java
-      to: src/test/java/grandrue/semantic/execution/SemanticExecutionSpineConformanceTest.java
-      blob_sha: 1578366d6c7b389d31fa7936e2823beaed593ef6
-      executable_namespace_replacements: 24
-    - from: src/test/java/mainstreet/semantic/execution/ExecutableSupportRegistryTest.java
-      to: src/test/java/grandrue/semantic/execution/ExecutableSupportRegistryTest.java
-      blob_sha: f85e06609230c07c55803fd1ba71794d23e78e43
+    - from: src/test/java/mainstreet/semantic/registry/SemanticRegistrySnapshotTest.java
+      to: src/test/java/grandrue/semantic/registry/SemanticRegistrySnapshotTest.java
+      blob_sha: 4b517db1e716f3413988c2f291edf5e1777bb793
       executable_namespace_replacements: 1
 
 deterministic_transformations:
   owners:
-    - move both declared owners to corresponding src/test/java/grandrue/semantic/execution/** paths
+    - move the declared owner to corresponding src/test/java/grandrue/semantic/registry/** path
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -47,7 +40,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 3
+  expected_changed_path_count: 2
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -55,14 +48,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-protected:
-  - every string literal, character literal, text block and comment unchanged
-  - legacy prototype tests unchanged
-
-expected_residuals:
-  - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
-  - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

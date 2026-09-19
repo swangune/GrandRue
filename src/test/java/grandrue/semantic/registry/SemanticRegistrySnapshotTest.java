@@ -1,4 +1,4 @@
-package mainstreet.semantic.registry;
+package grandrue.semantic.registry;
 
 import org.junit.jupiter.api.Test;
 
