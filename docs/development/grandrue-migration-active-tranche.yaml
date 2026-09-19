@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T016
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: d13a6370e2fb2626b0750ea09c59d0c3e903e105
 expected_parent: befc8a69047ee0f9975b7b59ace8d02d127af625
+validated_head: d13a6370e2fb2626b0750ea09c59d0c3e903e105
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-shared-fixtures
@@ -110,3 +113,6 @@ preparation_notes:
   - every consumer has exactly one executable mainstreet.testing.* import and no quoted fixture-namespace occurrence
   - consumer repairs are intentionally limited to the fixture import so unrelated still-open legacy test namespaces remain untouched
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
