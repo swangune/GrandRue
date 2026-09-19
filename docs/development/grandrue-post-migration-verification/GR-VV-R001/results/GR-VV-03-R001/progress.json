@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 86,
-  "passing_files": 85,
+  "verified_files": 99,
+  "passing_files": 98,
   "failing_files": 1,
   "blocked_files": 0,
-  "remaining_files": 1008,
+  "remaining_files": 995,
   "completed_packages": [
     "(root)",
     "audit",
@@ -22,7 +22,8 @@
     "resilience",
     "observability",
     "api",
-    "application"
+    "application",
+    "background"
   ],
   "chunks": [
     {
@@ -64,6 +65,14 @@
       "files": 21,
       "pass": 20,
       "fail": 1
+    },
+    {
+      "chunk": "background",
+      "git_blob": "8e19f835fa4c45b8d36d472b1d65f7a2154d5e6b",
+      "sha256": "cfc4b7dae9df847cc70c75c2f374fbf927ca5626e9e736f1a3d6a0de4d69f9b4",
+      "files": 13,
+      "pass": 13,
+      "fail": 0
     }
   ],
   "conclusion": "NO_REGION_VERDICT_YET",
