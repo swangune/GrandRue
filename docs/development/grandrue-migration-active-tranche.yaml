@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T012
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 9470af6893f6524abbb48cf387130cf6552be1f5
 expected_parent: 29280eb4c335ff46090e901a003248c92824d801
+validated_head: 9470af6893f6524abbb48cf387130cf6552be1f5
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-resilience
@@ -63,3 +66,6 @@ preparation_notes:
   - exact class-name search found no external test consumers
   - no executable legacy import or embedded Main Street/current-product identifier occurs in this region
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
