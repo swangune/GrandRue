@@ -1,7 +1,7 @@
 # GrandRue Deferred Decision Register
 
 **Document ID:** MS-DEFERRED-DECISION-REGISTER-001
-**Version:** 5.4
+**Version:** 5.5
 **Status:** Accepted governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Provide the single current work-queue view of unresolved, deferred, resolved and deliberately promoted GrandRue design decisions while using Git history and accepted resolving authorities as provenance.
@@ -41,7 +41,7 @@ accepted authority
 | DDR-OD-006 | **RESOLVED** | MS-PROT-042 v1.3 and surviving Booking/Appointment authority — merchant-set policy boundary |
 | DDR-OD-007 | **RESOLVED** | MS-PROT-043 v1.3 and surviving CustomerContext/Enquiry authority |
 | DDR-OD-008 | **RESOLVED** | MS-PROT-027 v1.2 and surviving Projection/Exposure authority |
-| DDR-OD-009 | **RESOLVED** | MS-PROT-044 v1.1 plus composite MS-PROT-058 through v1.2 — Product/Offering/Inventory/variant boundary, Inventory authority and returned-stock receipt/disposition |
+| DDR-OD-009 | **RESOLVED** | Composite MS-PROT-044 through v1.4 plus composite MS-PROT-058 through v1.2 — Product/Offering/Inventory/variant boundary, Inventory authority, returned-stock receipt/disposition, and bounded merchant subject categorisation/structured condition/listing transaction-mode separation |
 
 No original DDR-OD row is currently open.
 
@@ -1670,6 +1670,8 @@ MS-PROT-042 v1.16, accepted 16 September 2026, further narrows DQ-001 through Bo
 MS-PROT-044 v1.2, accepted 16 September 2026, supplies exact owner-qualified Offering/Product/ProductVariant merchant-definition observation and authoring access targets required for later commercial classification. It makes no commercial allocation, mints no entitlement identity or binding, explicitly excludes Listing and public-source access, and does not itself narrow the deferred commercial-classification decision. DQ-001 remains OPEN pending commercial classification of these targets, remaining owner/supporting classifications, concrete entitlement identities, exact bindings and the complete manifest; implementation activation remains NONE.
 
 MS-PROT-044 v1.3, accepted 19 September 2026, resolves the Offering/Product commercial-classification gap for the current standard catalogue: `offering/merchant-definition-authoring-access@1` / `MAINTAIN_MERCHANT_OFFERING_DEFINITION` and `product/merchant-definition-authoring-access@1` / `MAINTAIN_MERCHANT_PRODUCT_DEFINITION` are protected for FREE + BUSINESS + GROWTH, while merchant observation of existing Offering and Product/ProductVariant definition truth requires no independent Commercial Entitlement. Product remains optional; Listing, Inventory, Ordering, Booking, Appointment, Payment, Quotation, Invoicing, Exposure and Storefront authority remain independently governed. Concrete entitlement identities, exact Commercial-owned bindings, any remaining owner/supporting classifications and the complete standard manifest remain outstanding. DQ-001 remains OPEN and implementation activation remains NONE.
+
+MS-PROT-044 v1.4, accepted 19 September 2026, resolves the bounded initial `classification/category system` deferral retained by MS-PROT-044 v1.0. It establishes merchant-scoped non-executable Merchant Subject Categories for Offering, Product and Listing; separates Category meaning from structured `MerchandiseCondition` (`NEW`, `USED`, `REFURBISHED`) and `ListingTransactionMode` (`SALE`, `RENT`); preserves ProductVariant, Inventory, transaction, Exposure and Storefront ownership; and explicitly gives Category maintenance/assignment no independent Commercial Entitlement. It creates no Listing commercial-authoring authority and does not reopen the Offering/Product commercial classifications completed by v1.3. Implementation activation remains NONE.
 
 MS-PROT-095 v1.0, accepted 19 September 2026, admits native Quotation semantics without introducing a duplicate Quotation Request owner: customer requests remain Enquiry-owned, while Quotation owns merchant-issued quoted commercial offers, immutable issued revisions and recipient response facts. It classifies `quotation/commercial-offer-issuance-access@1` / `ISSUE_QUOTATION_COMMERCIAL_OFFER` for BUSINESS + GROWTH and classifies bounded new-offer preparation, existing-offer observation, recipient response and existing-offer resolution without independent Commercial Entitlement. It partially resolves `MS-PROT-056-V17-DQ-004` only for the Quotation reservation and further narrows DQ-001; final `CommercialEntitlementIdentity` definitions, exact bindings and the complete standard catalogue remain open. `MS-PROT-084-DQ-006` was subsequently resolved by MS-PROT-096 v1.0; MS-PROT-095 itself did not resolve it. Implementation activation remains NONE.
 
