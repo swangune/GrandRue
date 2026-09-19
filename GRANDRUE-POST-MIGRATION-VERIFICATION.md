@@ -258,45 +258,48 @@ This structured record is the sole current run pointer. Packet definitions and a
 ```yaml
 checkpoint:
   audit: MAIN_STREET_TO_GRANDRUE_CLAIM_PRESERVATION
-  status: COMPLETE_WITH_FINDINGS
+  status: COMPLETE
   activation_mode: AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT
   activation_state: ACTIVE
-  execution_mode: INCREMENTAL_CLOSED_DELTA
-  run_id: GR-VV-R002
+  execution_mode: POST_REPAIR_INCREMENTAL_REVALIDATION
+  run_id: GR-VV-R003
   baseline_commit: c4153441d8340b229a29884967d796280d949a7d
   baseline_role: ORIGINAL_MIGRATION_START
-  terminal_migration_target: afb0d3631fcd916f3ba9c830c9c19108bb7a4011
-  target_commit: 0a4a7b90364c1aa32262f29da65bc29173e29e81
-  target_role: LATEST_SUBSTANTIVE_POST_MIGRATION_TARGET
-  claim_snapshot_digest: 20dccce2678f207356db714fcefdca954fc8b1cf04faf0993bc8b771eaaea362
-  evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R002
-  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R002/receipts/GR-VV-R002-01.json
-  evidence_publication_commit: 4d7c56ac90821dbf3ab728f35bafa70b9433277f
-  implementation_handoff: BLOCKED
+  previous_target: 0a4a7b90364c1aa32262f29da65bc29173e29e81
+  target_commit: 923db363003976856683a1b353845ecc9a29a714
+  target_role: POST_VERIFICATION_REPAIR_CHECKPOINT
+  evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R003
+  latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R003/receipts/GR-VV-R003-01.json
+  evidence_publication_commit: eacfd433ef68f0bf8b338493e00d4e5bc71c355b
+  implementation_handoff: BLOCKED_PENDING_GR_REN_08_11
   coverage:
-    baseline_entries: 2258
-    terminal_migration_target_entries: 2266
-    target_entries: 2327
-    incremental_added: 61
-    incremental_modified: 5
+    previous_target_entries: 2327
+    target_entries: 2355
+    incremental_added: 28
+    incremental_modified: 9
     incremental_deleted: 0
-    incremental_changed_paths: 66
-    substantive_governance_paths: 5
-    operational_verification_paths: 61
-    unclassified_incremental_paths: 0
+    incremental_changed_paths: 37
+    migration_repair_paths: 2
+    migration_operational_paths: 3
+    verification_operational_paths: 32
+    unexpected_paths: 0
     claims_total: 847
-    claims_passed: 842
-    claims_failed: 5
+    claims_passed: 847
+    claims_failed: 0
     claims_blocked: 0
-    open_findings: 2
+    open_findings: 0
   conclusions:
     file_accounting: PASS
-    claim_validation: FAIL
-    migration_preservation: FAIL
+    claim_validation: PASS
+    migration_preservation: PASS
     master_non_naming_executable_preservation: DIFFERENT
     protected_identities: PASS
     live_freshness: PASS
-  next_action: GR-VV-R002 is complete. GR-VV-F003 is resolved by the new target pin and audit-only freshness reconciliation. GR-VV-F001 and GR-VV-F002 remain OPEN and must be handed to separately authorised migration defect review; do not repair them inside verification. After any governed repair, open a fresh incremental revalidation against the repair target before implementation handoff.
+  resolved_findings:
+    - GR-VV-F001
+    - GR-VV-F002
+    - GR-VV-F003
+  next_action: Reconcile GR-REN-08 through GR-REN-11 using R003 evidence. GR-REN-10 executable build/test validation still requires separate explicit authorisation before Maven tests or GitHub Actions may run.
 ```
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.

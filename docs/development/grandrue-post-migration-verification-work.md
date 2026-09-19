@@ -417,50 +417,40 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-GR-VV-R002 is complete with findings. It reuses the complete R001 M→D evidence and exactly reconciles D→T where T is the latest substantive post-migration target. The complete Git trees contain 2,266 entries at D and 2,327 at T; the incremental delta is 61 additions, 5 modifications and zero deletions. Exactly five changed paths are substantive governance changes (MS-PROT-095/MS-PROT-096 plus their authority-index, lexicon and deferred-register updates); all remaining 61 changed paths are verification/operational evidence. No changed path intersects the frozen migration claim records and no `src/` path changed.
+GR-VV-R003 is complete and passes migration preservation after the governed repair of GR-VV-F001/F002. It reuses complete R001/R002 evidence and revalidates the exact R002-target → repair-checkpoint delta. Whole-target enumeration contains 2,355 tracked entries. The incremental delta contains 28 additions, 9 modifications and zero deletions: 32 verification-operational paths, three migration-controller paths and exactly the two declared migration-repair Java files. There are zero unexpected paths.
 
-All 847 claim outcomes therefore remain stable: 842 PASS and 5 FAIL. GR-VV-F001/F002 persist byte-for-byte and remain the sole migration-preservation defects. GR-VV-F003 is resolved by pinning T and reconciling all subsequent changes through evidence publication commit `4d7c56ac90821dbf3ab728f35bafa70b9433277f` as audit-only. Protected identities remain PASS. No discrepancy is repaired inside this audit.
+The four directly failed migration claims now match their independently established expected objects exactly, so the derived GR-REN-02 parent also passes. Final frozen-claim reconciliation is 847 PASS / 0 FAIL / 0 BLOCKED. All three historical findings are resolved. Protected identities and live freshness pass. The historical master-context executable conclusion remains DIFFERENT because of the previously evidenced pre-migration B→M difference; it is not a migration-preservation defect.
 
 ```yaml
 execution:
-  status: COMPLETE_WITH_FINDINGS
+  status: COMPLETE
   activation_mode: AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT
   activation_state: ACTIVE
-  run_id: GR-VV-R002
-  primary_baseline:
-    commit: c4153441d8340b229a29884967d796280d949a7d
-    tree: 90f13fa113e770023652e40be20c0e7f894e0623
-    role: ORIGINAL_MIGRATION_START
-  terminal_migration_target:
-    commit: afb0d3631fcd916f3ba9c830c9c19108bb7a4011
-    tree: 1614a2be044bff8284ba2b6999dc5418c018430b
-  target_commit: 0a4a7b90364c1aa32262f29da65bc29173e29e81
-  target_tree: 5a27e7f326c163f91656bf3f7192798473a81544
-  historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
-  evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R002
-  evidence_publication_commit: 4d7c56ac90821dbf3ab728f35bafa70b9433277f
+  run_id: GR-VV-R003
+  target_commit: 923db363003976856683a1b353845ecc9a29a714
+  target_tree: 2bf8383dc73a447e366df204d623387ea7518363
+  evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R003
+  evidence_publication_commit: eacfd433ef68f0bf8b338493e00d4e5bc71c355b
   active_packet:
-    id: GR-VV-R002-01
-    kind: INCREMENTAL_LIVE_REVALIDATION
+    id: GR-VV-R003-01
+    kind: POST_REPAIR_INCREMENTAL_REVALIDATION
     state: CHECKPOINTED
-    result: FAIL
+    result: PASS
     progress:
-      incremental_paths: 66
-      substantive_governance_paths: 5
-      operational_verification_paths: 61
       claims_total: 847
-      claims_passed: 842
-      claims_failed: 5
-      open_findings: 2
-      resolved_findings: 1
+      claims_passed: 847
+      claims_failed: 0
+      claims_blocked: 0
+      open_findings: 0
+      resolved_findings: 3
   queue: []
   completed_packets:
-    - id: GR-VV-R002-01
-      result: FAIL
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R002/receipts/GR-VV-R002-01.json
+    - id: GR-VV-R003-01
+      result: PASS
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R003/receipts/GR-VV-R003-01.json
   results_recorded: true
-  implementation_handoff: BLOCKED
-  next_action: Hand GR-VV-F001 and GR-VV-F002 to separately authorised migration defect review. Preserve R001/R002 evidence. After repair, open a fresh incremental verification target; do not repair source files inside verification.
+  implementation_handoff: BLOCKED_PENDING_GR_REN_08_11
+  next_action: Reconcile GR-REN-08 through GR-REN-11. Do not run Maven tests or GitHub Actions without separate explicit authorisation.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
