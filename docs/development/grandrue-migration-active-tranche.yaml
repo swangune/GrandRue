@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T042
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 4ca642960b78253b904f9e684c3aed0518d308fa
 expected_parent: 324cbc3f39fa45e1197665ff2fb309fecf732012
+validated_head: 4ca642960b78253b904f9e684c3aed0518d308fa
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-infrastructure-persistence-root
@@ -47,3 +50,6 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
