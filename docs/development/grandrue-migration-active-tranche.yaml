@@ -2,99 +2,80 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T013
+tranche: GR-REN-03-T014
 group: GR-REN-03
-state: COMPLETE
-code_commit: bcafc8535e4c9d591ce4e46f058df4f4cb473901
-expected_parent: bf9cd6a3f8b0ddc9e628ab6920f25619667753b9
-validated_head: bcafc8535e4c9d591ce4e46f058df4f4cb473901
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 193fb83edd7bc356e82a7a3997493a776755b944
 
 region:
-  identity: isolated-single-owner-top-level-test-packages
-  closure_basis: nine complete live single-owner top-level test package regions with no external test consumers; one documentation-only class-name reference is non-executable and unchanged
+  identity: test-scheduling
+  closure_basis: complete live src/test/java/mainstreet/scheduling/** Java test region; no external test consumers; one documentation-only class-name reference is non-executable and unchanged
 
 classification:
   normal_closed:
-    owner_count: 9
+    owner_count: 2
     external_test_consumer_count: 0
-    production_import_repair_count: 10
+    production_import_repair_count: 14
+    executable_fqcn_repair_count: 1
   embedded_legacy_symbolic_or_wording_residuals:
-    count: 0
+    count: 2
+    disposition: PROTECTED_BUSINESS_FACING_TEST_WORDING
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/audit/AuditRecordTest.java
-      to: src/test/java/grandrue/audit/AuditRecordTest.java
-      blob_sha: 91da902efce76cf970b20c38d3cce65c588a66c2
-    - from: src/test/java/mainstreet/businesshours/StandardBusinessHoursTest.java
-      to: src/test/java/grandrue/businesshours/StandardBusinessHoursTest.java
-      blob_sha: 8713fe376ae84cd703d395c42db709737238abe5
-    - from: src/test/java/mainstreet/credential/CredentialGenerationPolicyTest.java
-      to: src/test/java/grandrue/credential/CredentialGenerationPolicyTest.java
-      blob_sha: 6b4d31a25f404d8634b52c20eca3b545f02af38a
-    - from: src/test/java/mainstreet/customer/CustomerContextAuthorityTest.java
-      to: src/test/java/grandrue/customer/CustomerContextAuthorityTest.java
-      blob_sha: 1f30fe1304f1ecdf7605cb9777630521dc64438d
-    - from: src/test/java/mainstreet/experiments/AllocationGenericityExperimentTest.java
-      to: src/test/java/grandrue/experiments/AllocationGenericityExperimentTest.java
-      blob_sha: 17c673051cf3d19696dced4cc65ec6c825dd9dfc
-    - from: src/test/java/mainstreet/media/MediaSemanticModelTest.java
-      to: src/test/java/grandrue/media/MediaSemanticModelTest.java
-      blob_sha: e146b27b20219dd5955b0da0463bbeebcbd9d8de
-    - from: src/test/java/mainstreet/observability/OperationalObservabilityModelTest.java
-      to: src/test/java/grandrue/observability/OperationalObservabilityModelTest.java
-      blob_sha: e4fb23ed26fe4b7a5f2614804ba196797f5404d6
-    - from: src/test/java/mainstreet/privacy/PersonalMediaUseEligibilityAuthorityTest.java
-      to: src/test/java/grandrue/privacy/PersonalMediaUseEligibilityAuthorityTest.java
-      blob_sha: f359dd716468dec5a7865cef7c5a2b5a0d55cdb8
-    - from: src/test/java/mainstreet/protection/ResourceProtectionModelTest.java
-      to: src/test/java/grandrue/protection/ResourceProtectionModelTest.java
-      blob_sha: e7f07acf557e04006b45140fb21825aaefb972d4
+    - from: src/test/java/mainstreet/scheduling/SchedulingAvailabilityImpactAssessmentTest.java
+      to: src/test/java/grandrue/scheduling/SchedulingAvailabilityImpactAssessmentTest.java
+      blob_sha: cd7fc8430c163389de1b44e4ac8467cb328caeae
+    - from: src/test/java/mainstreet/scheduling/SchedulingIntentAuthorityTest.java
+      to: src/test/java/grandrue/scheduling/SchedulingIntentAuthorityTest.java
+      blob_sha: a180c4ab43352c3140f2d3a41f1342da82321526
 
 deterministic_transformations:
   owners:
-    - move all nine declared owners to their corresponding src/test/java/grandrue/<package>/** paths
-    - replace exactly nine package declarations from package mainstreet.<package>; to package grandrue.<package>;
-    - replace exactly ten executable imports from migrated mainstreet.* production namespaces to their grandrue.* counterparts
+    - move both declared owners to the corresponding src/test/java/grandrue/scheduling/** paths
+    - replace exactly two package declarations package mainstreet.scheduling; with package grandrue.scheduling;
+    - replace exactly fourteen executable imports from migrated mainstreet.* production namespaces to grandrue.* counterparts
+    - replace exactly one executable mainstreet.semantic.AllocationAuthority FQCN with grandrue.semantic.AllocationAuthority
   consumers:
     - none; exact class-name searches found no external test consumers
-    - docs/development/imp-06-conformance-baseline-2026-08-30.md contains a documentation-only ResourceProtectionModelTest name reference and remains unchanged
+    - docs/development/imp-05-r4b-scheduling-impact-progress-2026-09-08.md contains a documentation-only SchedulingAvailabilityImpactAssessmentTest name reference and remains unchanged
   prohibited:
-    - no assertion, method body, string literal, comment, semantic or behavioural change
+    - no assertion, method-body, comment, semantic or behavioural change
+    - do not change the two Main Street Scheduling business-facing test literals
     - no legacy prototype test mutation
     - no documentation mutation
     - no Maven/build/CI/runtime configuration mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 19
+  expected_changed_path_count: 5
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
-  import_repair_count: 10
+  import_repair_count: 14
+  executable_fqcn_repair_count: 1
+  protected_wording_occurrence_count: 2
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
 
 protected:
-  - every assertion, method body, string literal, comment and test-data identity unchanged
-  - documentation-only class-name references unchanged
+  - both Main Street Scheduling business-facing literals remain byte-identical
+  - every assertion and test-data identity outside declared namespace/FQCN repairs remains unchanged
+  - documentation-only class-name reference unchanged
   - legacy prototype tests unchanged
 
 expected_residuals:
+  - the two Main Street Scheduling literals remain for later applicable wording/compatibility classification
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - all nine source blobs and absent GrandRue destinations were reconciled against development at bf9cd6a3f8b0ddc9e628ab6920f25619667753b9
-  - all required migrated GrandRue production import targets exist
+  - both source blobs and absent GrandRue destinations were reconciled against development at 193fb83edd7bc356e82a7a3997493a776755b944
+  - all required migrated GrandRue production import/FQCN targets exist
   - exact class-name searches found no external test consumers
-  - exactly nineteen executable mainstreet.* occurrences are classified as nine package declarations plus ten production imports
-  - no embedded Main Street/current-product wording occurs in the nine-owner region
+  - exactly seventeen executable mainstreet.* occurrences are classified as two package declarations, fourteen imports and one FQCN
+  - exactly two Main Street Scheduling literals are protected and preserved
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

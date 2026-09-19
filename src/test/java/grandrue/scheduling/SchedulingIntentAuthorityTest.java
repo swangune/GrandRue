@@ -1,7 +1,7 @@
-package mainstreet.scheduling;
+package grandrue.scheduling;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.TimeWindowAllocationScope;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.TimeWindowAllocationScope;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -41,7 +41,7 @@ class SchedulingIntentAuthorityTest {
         );
         assertTrue(
                 !(((Object) authority)
-                        instanceof mainstreet.semantic.AllocationAuthority),
+                        instanceof grandrue.semantic.AllocationAuthority),
                 "Scheduling intent authority must not allocate capacity"
         );
     }
