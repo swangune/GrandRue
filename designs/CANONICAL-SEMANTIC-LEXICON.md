@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.49
+**Version:** 1.50
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -3054,3 +3054,95 @@ The share of customers with qualifying represented activity in an exact observat
 
 **Authority:** MS-PROT-083 v1.2.
 A purpose-bound analytical condition in which qualifying current activity follows an exact bounded period with no qualifying activity, given sufficient historical coverage. It does not create `LAPSED`, `REACTIVATED` or `WIN_BACK` CustomerContext state and does not imply Marketing causation.
+---
+
+## 32. Quotation, issued revision and recipient response
+
+These terms are high-risk because customer requests, merchant commercial offers, Orders, Payment Obligations, Inventory and future Invoice truth are independently owned.
+
+### Quotation
+
+**Authority:** MS-PROT-095 v1.0.  
+A merchant-scoped Operational Object representing one merchant commercial-offer lineage addressed to one recipient context.
+
+Quotation owns merchant preparation, immutable issued Quotation revisions, quoted commercial terms and Quotation-owned recipient response facts.
+
+Quotation is not an Enquiry, Order, Appointment, Invoice, Payment Obligation, PDF, email or generic document.
+
+### Issued Quotation Revision
+
+**Authority:** MS-PROT-095 v1.0.  
+An immutable identity-bearing Quotation-owned commercial proposition containing the exact scope and quoted commercial amounts the merchant issued to the recipient at one point in time.
+
+An issued revision MUST NOT be edited in place. A material commercial change requires another revision.
+
+### Quotation Item
+
+**Authority:** MS-PROT-095 v1.0.  
+An identity-bearing component of one Issued Quotation Revision describing one quoted commercial scope and its exact quoted monetary contribution. A source Offering, Product, ProductVariant or other accepted subject reference does not transfer source ownership to Quotation.
+
+### Quotation Acceptance
+
+**Authority:** MS-PROT-095 v1.0.  
+An immutable Quotation-owned fact that an authorised recipient, or an authorised merchant actor recording an externally received response with that provenance, accepted one exact Issued Quotation Revision.
+
+Quotation Acceptance is not an Order and is not payment evidence.
+
+### Quotation Decline
+
+**Authority:** MS-PROT-095 v1.0.  
+An immutable Quotation-owned fact that an authorised recipient, or an authorised merchant actor recording an externally received response with that provenance, declined one exact Issued Quotation Revision.
+
+### Quotation Withdrawal
+
+**Authority:** MS-PROT-095 v1.0.  
+An immutable Quotation-owned fact that an authorised merchant actor withdrew one exact outstanding Issued Quotation Revision before acceptance.
+
+### Quotation Request
+
+**Authority:** MS-PROT-095 v1.0 composed with composite MS-PROT-043.  
+Merchant/customer-facing wording for customer intent to obtain a quotation. It does not identify a separate Operational Object. The authoritative customer request remains an Enquiry; Quotation begins with the merchant commercial-offer lineage.
+
+Canonical distinctions:
+
+```text
+Quotation Request
+    customer intent / Enquiry-owned request
+
+Quotation
+    merchant commercial-offer lineage
+
+Issued Quotation Revision
+    exact immutable merchant offer
+
+Quotation Acceptance
+    response to exact issued revision
+
+Order
+    accepted purchase/order commitment
+
+Payment Obligation
+    Money-owned amount required to be discharged
+
+Invoice
+    not established by MS-PROT-095; native authority remains deferred
+```
+
+Hard boundaries:
+
+```text
+Get a quotation
+    ≠ create QuotationRequest Operational Object
+
+Quotation Acceptance
+    ≠ Order
+
+Quotation Acceptance
+    ≠ Inventory reservation
+
+Quotation Acceptance
+    ≠ Payment Obligation
+
+Quotation Acceptance
+    ≠ Invoice
+```
