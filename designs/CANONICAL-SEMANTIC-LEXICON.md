@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.56
+**Version:** 1.57
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -3372,5 +3372,62 @@ WITHDRAWN
 SALE ↔ RENT
     → new Listing identity
     not ordinary revision
+```
+
+---
+
+## 36. Physical location, navigation resolution and map presentation
+
+### PhysicalLocationBindingV1
+
+**Authority:** MS-PROT-045 v1.2.
+
+Reusable provider-neutral physical-location binding with exactly two initial forms:
+
+```text
+MERCHANT_LOCATION_REFERENCE
+INDEPENDENT_PHYSICAL_PLACE
+```
+
+The first references an existing Merchant Location without copying its address. The second carries an independently located physical-place value owned by the applicable source subject. The binding does not create a universal Location Operational Object.
+
+### PhysicalPlaceValueV1
+
+**Authority:** MS-PROT-045 v1.2.
+
+Reusable structured value for an independently located subject. It may contain a reusable `PostalAddressV1`, merchant-approved place label and an accepted provider-neutral navigation point where applicable. Address and coordinates do not become subject identity.
+
+### AcceptedNavigationPoint
+
+**Authority:** MS-PROT-045 v1.2 composed with MS-PROT-051 v1.2/v1.7.
+
+The precise provider-neutral physical point accepted by the applicable owning operation for navigation/presentation purposes. Coordinates and resolution provenance may exist internally, but ordinary merchants are not required to understand or edit them. A provider response or provider place identifier is candidate/integration evidence, not this authoritative value.
+
+### MapProviderLocationBinding
+
+**Authority:** MS-PROT-045 v1.2.
+
+Provider-specific technical integration evidence relating one authoritative provider-neutral location to an external map/geocoding provider reference. It may be rebuilt or replaced when providers change and MUST NOT replace Physical Location source truth.
+
+### Map Presentation
+
+**Authority:** MS-PROT-045 v1.2 composed with Projection, Exposure and Storefront authority.
+
+A derived customer-facing map, directions or street-level imagery representation produced from already-authorised provider-neutral location truth plus Exposure, provider readiness and Storefront composition. It is not authoritative location state.
+
+Canonical distinctions:
+
+```text
+PostalAddressV1
+    ≠ physical subject identity
+
+AcceptedNavigationPoint
+    ≠ provider identifier
+
+Physical Location
+    ≠ map provider binding
+
+Map / directions / street-level imagery
+    ≠ source business truth
 ```
 
