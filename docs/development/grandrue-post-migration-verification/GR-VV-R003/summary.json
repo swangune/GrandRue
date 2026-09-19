@@ -1,0 +1,43 @@
+{
+  "schema_version": "grandrue-post-migration-summary/v1",
+  "run_id": "GR-VV-R003",
+  "checked_target": "923db363003976856683a1b353845ecc9a29a714",
+  "target_tree": "2bf8383dc73a447e366df204d623387ea7518363",
+  "mode": "INCREMENTAL_REVALIDATION_AFTER_GOVERNED_REPAIR",
+  "coverage": {
+    "previous_target_entries": 2327,
+    "target_entries": 2355,
+    "incremental_added": 28,
+    "incremental_modified": 9,
+    "incremental_deleted": 0,
+    "incremental_changed_paths": 37,
+    "migration_repair_paths": 2,
+    "migration_operational_paths": 3,
+    "verification_operational_paths": 32,
+    "unexpected_paths": 0,
+    "claims_total": 847,
+    "claims_passed": 847,
+    "claims_failed": 0,
+    "claims_blocked": 0,
+    "open_findings": 0
+  },
+  "conclusions": {
+    "file_accounting": "PASS",
+    "claim_validation": "PASS",
+    "migration_preservation": "PASS",
+    "master_non_naming_executable_preservation": "DIFFERENT",
+    "protected_identities": "PASS",
+    "live_freshness": "PASS"
+  },
+  "findings": {
+    "open": [],
+    "resolved": [
+      "GR-VV-F001",
+      "GR-VV-F002",
+      "GR-VV-F003"
+    ]
+  },
+  "overall": "PASS",
+  "implementation_handoff": "BLOCKED_PENDING_GR_REN_08_11",
+  "next_action": "RECONCILE_GR_REN_08_THROUGH_GR_REN_11_USING_R003_EVIDENCE_AND_SEPARATELY_AUTHORISED_EXECUTABLE_VALIDATION"
+}

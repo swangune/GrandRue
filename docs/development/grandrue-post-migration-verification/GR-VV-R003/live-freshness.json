@@ -1,0 +1,8 @@
+{
+  "schema_version": "grandrue-r003-live-freshness/v1",
+  "run_id": "GR-VV-R003",
+  "checked_target": "923db363003976856683a1b353845ecc9a29a714",
+  "observed_branch_head_before_publication": "923db363003976856683a1b353845ecc9a29a714",
+  "result": "PASS",
+  "publication_note": "Subsequent R003 evidence/controller commits are audit-only and will be reconciled by the final controller checkpoint."
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "grandrue-r003-claim-revalidation/v1",
+  "run_id": "GR-VV-R003",
+  "target": "923db363003976856683a1b353845ecc9a29a714",
+  "inherited_claims": {
+    "source_run": "GR-VV-R001",
+    "total": 847,
+    "previous_pass": 842,
+    "previous_fail": 5,
+    "previous_blocked": 0
+  },
+  "repaired_objects": [
+    {
+      "finding_id": "GR-VV-F001",
+      "path": "src/main/java/grandrue/application/ConfigurationImpactReviewApplicationService.java",
+      "expected_object": "95b85896aa89326927b084a83ea54fcdfde20cc8",
+      "actual_object": "95b85896aa89326927b084a83ea54fcdfde20cc8",
+      "match": true
+    },
+    {
+      "finding_id": "GR-VV-F002",
+      "path": "src/main/java/grandrue/infrastructure/persistence/notification/JooqNotificationStore.java",
+      "expected_object": "ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3",
+      "actual_object": "ea858a667a4f3fc0ad1227ddbdd4d04d6cc92bb3",
+      "match": true
+    }
+  ],
+  "revalidated_failed_claims": [
+    {
+      "claim_id": "GR-REN-02-01P",
+      "previous_result": "FAIL",
+      "result": "PASS",
+      "finding_id": "GR-VV-F001",
+      "basis": "REPAIRED_OBJECT_EQUALS_INDEPENDENT_EXPECTED_OBJECT"
+    },
+    {
+      "claim_id": "GR-REN-02-01Q",
+      "previous_result": "FAIL",
+      "result": "PASS",
+      "finding_id": "GR-VV-F002",
+      "basis": "REPAIRED_OBJECT_EQUALS_INDEPENDENT_EXPECTED_OBJECT"
+    },
+    {
+      "claim_id": "GR-REN-02-01X15",
+      "previous_result": "FAIL",
+      "result": "PASS",
+      "finding_id": "GR-VV-F002",
+      "basis": "REPAIRED_OBJECT_EQUALS_INDEPENDENT_EXPECTED_OBJECT"
+    },
+    {
+      "claim_id": "GR-REN-02-01X64",
+      "previous_result": "FAIL",
+      "result": "PASS",
+      "finding_id": "GR-VV-F001",
+      "basis": "REPAIRED_OBJECT_EQUALS_INDEPENDENT_EXPECTED_OBJECT"
+    },
+    {
+      "claim_id": "GR-REN-02",
+      "previous_result": "FAIL",
+      "result": "PASS",
+      "finding_id": null,
+      "basis": "ALL_FAILED_CHILD_CLAIMS_REVALIDATED_PASS"
+    }
+  ],
+  "final_claims": {
+    "pass": 847,
+    "fail": 0,
+    "blocked": 0
+  },
+  "protected_identities": "PASS",
+  "result": "PASS"
+}

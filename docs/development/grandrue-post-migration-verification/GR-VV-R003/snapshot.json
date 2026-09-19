@@ -1,0 +1,39 @@
+{
+  "schema_version": "grandrue-post-migration-incremental-snapshot/v1",
+  "run_id": "GR-VV-R003",
+  "repository": "swangune/GrandRue",
+  "branch": "development",
+  "primary_migration_baseline": {
+    "commit": "c4153441d8340b229a29884967d796280d949a7d",
+    "tree": "90f13fa113e770023652e40be20c0e7f894e0623"
+  },
+  "previous_verified_target": {
+    "commit": "0a4a7b90364c1aa32262f29da65bc29173e29e81",
+    "tree": "5a27e7f326c163f91656bf3f7192798473a81544",
+    "run_id": "GR-VV-R002"
+  },
+  "target": {
+    "commit": "923db363003976856683a1b353845ecc9a29a714",
+    "tree": "2bf8383dc73a447e366df204d623387ea7518363",
+    "role": "POST_VERIFICATION_REPAIR_CHECKPOINT"
+  },
+  "tree_enumeration": {
+    "previous_entries": 2327,
+    "target_entries": 2355,
+    "truncated": false
+  },
+  "incremental_delta": {
+    "added": 28,
+    "modified": 9,
+    "deleted": 0,
+    "total": 37,
+    "migration_repair": 2,
+    "migration_operational": 3,
+    "verification_operational": 32,
+    "unexpected": 0
+  },
+  "limitations": [
+    "No Maven tests, product GitHub Actions, runtime checks or database execution checks were run.",
+    "R003 reuses complete unchanged R001/R002 evidence and revalidates only the changed incremental scope plus previously failed claims."
+  ]
+}

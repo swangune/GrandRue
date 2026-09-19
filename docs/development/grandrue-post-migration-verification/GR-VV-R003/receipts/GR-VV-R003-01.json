@@ -1,0 +1,53 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R003",
+  "packet_id": "GR-VV-R003-01",
+  "packet_kind": "POST_REPAIR_INCREMENTAL_REVALIDATION",
+  "result": "PASS",
+  "checked_target": "923db363003976856683a1b353845ecc9a29a714",
+  "checks": {
+    "file_accounting": "PASS",
+    "claim_validation": "PASS",
+    "migration_preservation": "PASS",
+    "master_non_naming_executable_preservation": "DIFFERENT",
+    "protected_identities": "PASS",
+    "live_freshness": "PASS"
+  },
+  "claims": {
+    "total": 847,
+    "pass": 847,
+    "fail": 0,
+    "blocked": 0
+  },
+  "findings": {
+    "open": 0,
+    "resolved": [
+      "GR-VV-F001",
+      "GR-VV-F002",
+      "GR-VV-F003"
+    ]
+  },
+  "incremental_delta": {
+    "previous_target_entries": 2327,
+    "target_entries": 2355,
+    "incremental_added": 28,
+    "incremental_modified": 9,
+    "incremental_deleted": 0,
+    "incremental_changed_paths": 37,
+    "migration_repair_paths": 2,
+    "migration_operational_paths": 3,
+    "verification_operational_paths": 32,
+    "unexpected_paths": 0,
+    "claims_total": 847,
+    "claims_passed": 847,
+    "claims_failed": 0,
+    "claims_blocked": 0,
+    "open_findings": 0
+  },
+  "conclusion": "PASS",
+  "implementation_handoff": "BLOCKED_PENDING_GR_REN_08_11",
+  "limitations": [
+    "No Maven tests, product GitHub Actions, runtime checks or database execution checks were run."
+  ],
+  "next_action": "RECONCILE_GR_REN_08_THROUGH_GR_REN_11_USING_R003_EVIDENCE_AND_SEPARATELY_AUTHORISED_EXECUTABLE_VALIDATION"
+}
