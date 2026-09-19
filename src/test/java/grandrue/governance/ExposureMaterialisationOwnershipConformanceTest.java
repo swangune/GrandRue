@@ -1,15 +1,15 @@
-package mainstreet.governance;
+package grandrue.governance;
 
-import mainstreet.fulfilment.FulfilmentContractRegistrySnapshot;
-import mainstreet.semantic.registry.SemanticRegistrySnapshot;
-import mainstreet.semantic.release.SemanticDefinitionSectionDecoder;
-import mainstreet.semantic.release.SemanticReleaseAssembly;
-import mainstreet.semantic.release.SemanticReleaseMaterialiser;
-import mainstreet.surface.ExposureDecision;
-import mainstreet.surface.ExposureElementContractRegistrySnapshot;
-import mainstreet.surface.ExposureRequirementReference;
-import mainstreet.surface.MerchantExposureChoiceSourceReference;
-import mainstreet.surface.SurfaceContributionRegistrySnapshot;
+import grandrue.fulfilment.FulfilmentContractRegistrySnapshot;
+import grandrue.semantic.registry.SemanticRegistrySnapshot;
+import grandrue.semantic.release.SemanticDefinitionSectionDecoder;
+import grandrue.semantic.release.SemanticReleaseAssembly;
+import grandrue.semantic.release.SemanticReleaseMaterialiser;
+import grandrue.surface.ExposureDecision;
+import grandrue.surface.ExposureElementContractRegistrySnapshot;
+import grandrue.surface.ExposureRequirementReference;
+import grandrue.surface.MerchantExposureChoiceSourceReference;
+import grandrue.surface.SurfaceContributionRegistrySnapshot;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;

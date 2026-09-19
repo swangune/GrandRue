@@ -1,6 +1,6 @@
-package mainstreet.governance;
+package grandrue.governance;
 
-import mainstreet.semantic.release.SemanticReleaseAssemblyRepository;
+import grandrue.semantic.release.SemanticReleaseAssemblyRepository;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

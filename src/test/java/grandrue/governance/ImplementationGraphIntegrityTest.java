@@ -1,4 +1,4 @@
-package mainstreet.governance;
+package grandrue.governance;
 
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.ObjectMapper;

@@ -1,8 +1,8 @@
-package mainstreet.governance;
+package grandrue.governance;
 
-import mainstreet.surface.InitialProjectionPolicyEvaluatorPortfolio;
-import mainstreet.surface.ProjectionPolicyAssessment;
-import mainstreet.surface.ProjectionPolicyEvaluationContext;
+import grandrue.surface.InitialProjectionPolicyEvaluatorPortfolio;
+import grandrue.surface.ProjectionPolicyAssessment;
+import grandrue.surface.ProjectionPolicyEvaluationContext;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;

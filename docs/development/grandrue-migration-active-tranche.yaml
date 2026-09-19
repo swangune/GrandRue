@@ -2,42 +2,87 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T044
+tranche: GR-REN-03-T045
 group: GR-REN-03
-state: COMPLETE
-code_commit: 7274970d98e57529b5029e54f65537225c846cc6
-expected_parent: 186a352da3ec154e92a31d0e48bdb1776b2e2715
-validated_head: 7274970d98e57529b5029e54f65537225c846cc6
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 6e4ea56acf635c8756511419bbb5fe254969dc8a
 
 region:
-  identity: test-infrastructure-persistence-booking-ordering
-  closure_basis: remaining independently closed booking and ordering persistence integration-test owners
+  identity: test-governance
+  closure_basis: complete live src/test/java/mainstreet/governance/*.java Java test-owner region; whole remaining legacy test graph analysis found no mainstreet.governance consumers
 
 classification:
   normal_closed:
-    owner_count: 2
-    external_test_consumer_count: 0
-    executable_namespace_replacement_count: 20
+    owner_count: 14
+    external_legacy_test_consumer_count: 0
+    executable_namespace_replacement_count: 50
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/infrastructure/persistence/booking/JooqBookingUnitOfWorkIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/booking/JooqBookingUnitOfWorkIT.java
-      blob_sha: bc0eceb09c111a3f13051293fbfce21930d70fce
-      executable_namespace_replacements: 9
-    - from: src/test/java/mainstreet/infrastructure/persistence/ordering/JooqOrderingUnitOfWorkIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/ordering/JooqOrderingUnitOfWorkIT.java
-      blob_sha: 4af7878665676c67ee53717313e16a4459702e70
+    - from: src/test/java/mainstreet/governance/AgentInstructionsConformanceTest.java
+      to: src/test/java/grandrue/governance/AgentInstructionsConformanceTest.java
+      blob_sha: 9d97689e44e0e9bc77264b17db2e6c5d3eeafc4a
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/C4CFrontierEvidenceConformanceTest.java
+      to: src/test/java/grandrue/governance/C4CFrontierEvidenceConformanceTest.java
+      blob_sha: c3575fd1cc862178accbed3b67d6d4d90d8705a6
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/C4D2BTrustedReactionEvidenceConformanceTest.java
+      to: src/test/java/grandrue/governance/C4D2BTrustedReactionEvidenceConformanceTest.java
+      blob_sha: d9242a020b0985bd646d3f1bc56c491da8f842b6
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/DesignCorpusConformanceTest.java
+      to: src/test/java/grandrue/governance/DesignCorpusConformanceTest.java
+      blob_sha: 90dff143bbecf2b2c8a9d8afd10cdd2e3a7d0fc2
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/ExposureMaterialisationOwnershipConformanceTest.java
+      to: src/test/java/grandrue/governance/ExposureMaterialisationOwnershipConformanceTest.java
+      blob_sha: 2ba3751d989ca3b70a6f869880c8431a5fa99d4e
       executable_namespace_replacements: 11
+    - from: src/test/java/mainstreet/governance/ImplementationBoundaryConformanceTest.java
+      to: src/test/java/grandrue/governance/ImplementationBoundaryConformanceTest.java
+      blob_sha: 89fba9abbea90789bb98f9d4645d155264c9d445
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/ImplementationGraphIntegrityTest.java
+      to: src/test/java/grandrue/governance/ImplementationGraphIntegrityTest.java
+      blob_sha: a7c6e0753220664c38a51f38510e09a0f52a36a1
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/ImplementationProgrammeGateConformanceTest.java
+      to: src/test/java/grandrue/governance/ImplementationProgrammeGateConformanceTest.java
+      blob_sha: 2e5d05165466fc62d2f78e8ecaa5a1f0b1217831
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/ModuleDependencyConformanceTest.java
+      to: src/test/java/grandrue/governance/ModuleDependencyConformanceTest.java
+      blob_sha: a75b1250421f3de594420714f73a9524e36cbc26
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/ProfileSurfaceDependencyConformanceTest.java
+      to: src/test/java/grandrue/governance/ProfileSurfaceDependencyConformanceTest.java
+      blob_sha: 508da2b566a803a501b8da0b37ca91c49960ace6
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/governance/ProjectionOwnerChangeAmplificationTest.java
+      to: src/test/java/grandrue/governance/ProjectionOwnerChangeAmplificationTest.java
+      blob_sha: 44e0300687a436dd6f30b625eef05f595a9ddf7e
+      executable_namespace_replacements: 23
+    - from: src/test/java/mainstreet/governance/ProjectionPolicyOwnershipConformanceTest.java
+      to: src/test/java/grandrue/governance/ProjectionPolicyOwnershipConformanceTest.java
+      blob_sha: 1a3b8e8f2ecfdc957745856a942f891dc8a336e4
+      executable_namespace_replacements: 4
+    - from: src/test/java/mainstreet/governance/SemanticReleaseBoundaryConformanceTest.java
+      to: src/test/java/grandrue/governance/SemanticReleaseBoundaryConformanceTest.java
+      blob_sha: 5e4a4595bc97edd0b253940bd8a1fbd342c9f487
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/governance/TimeDeterminismConformanceTest.java
+      to: src/test/java/grandrue/governance/TimeDeterminismConformanceTest.java
+      blob_sha: d68de3e0bbf3425eee5329a47aa7f479ddbd6f0f
+      executable_namespace_replacements: 1
 
 deterministic_transformations:
   owners:
-    - move both declared owners to corresponding GrandRue persistence paths
+    - move all fourteen declared owners to corresponding src/test/java/grandrue/governance/ paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -47,7 +92,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 3
+  expected_changed_path_count: 29
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -55,6 +100,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
