@@ -1,4 +1,4 @@
-package mainstreet.booking;
+package grandrue.booking;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 

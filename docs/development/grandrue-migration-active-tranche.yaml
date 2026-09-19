@@ -2,97 +2,90 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T040
+tranche: GR-REN-03-T041
 group: GR-REN-03
-state: COMPLETE
-code_commit: 45226d6707f1d3c4b0f3d603d415cb4519d9c417
-expected_parent: 093eb18de0391290271218e933ca058332d0936d
-validated_head: 45226d6707f1d3c4b0f3d603d415cb4519d9c417
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: ca8b8c9e3102982b0bd09de34aa15d5ae036eedb
 
 region:
-  identity: test-infrastructure-persistence-configuration
-  closure_basis: complete live src/test/java/mainstreet/infrastructure/persistence/configuration/** Java test-owner region including its nested reinstatement owner and shared MerchantEstablishmentRuntimeFixture
+  identity: test-booking
+  closure_basis: complete live src/test/java/mainstreet/booking/** Java owner region; governance references to test-scope booking helper names are string/path evidence only and remain unchanged
 
 classification:
   normal_closed:
-    owner_count: 13
+    owner_count: 12
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 278
+    executable_namespace_replacement_count: 81
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqMerchantEstablishmentToActiveRuntimeIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqMerchantEstablishmentToActiveRuntimeIT.java
-      blob_sha: f99c78358b96bc376d35fc1b31c5f5bbbcb92257
+    - from: src/test/java/mainstreet/booking/BookingNotificationGateway.java
+      to: src/test/java/grandrue/booking/BookingNotificationGateway.java
+      blob_sha: 38ad73db5ce578ca6fdb8d6715d5c7447944e01c
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/booking/BookingNotificationDelivery.java
+      to: src/test/java/grandrue/booking/BookingNotificationDelivery.java
+      blob_sha: 52c39a0f140fd03a85aed9eba1cf6b49797043c7
+      executable_namespace_replacements: 3
+    - from: src/test/java/mainstreet/booking/NotificationDeliveryException.java
+      to: src/test/java/grandrue/booking/NotificationDeliveryException.java
+      blob_sha: 42b88aa7e85f981266a42dd6f8213c5e290edba0
       executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqInitialConfigurationRevisionApprovalAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqInitialConfigurationRevisionApprovalAuthorityIT.java
-      blob_sha: 7752d8a92169e78287dda73c8d3cdc3d0807b83e
-      executable_namespace_replacements: 9
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqConfigurationNewActivityRequirementSetAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationNewActivityRequirementSetAuthorityIT.java
-      blob_sha: 4c3025d79b2eda02cfe271695744232881c14f49
-      executable_namespace_replacements: 25
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqConfigurationValidationEvidenceAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationValidationEvidenceAuthorityIT.java
-      blob_sha: 42ae65b7cbddc2c5c0a05ed93a7a180fdf9fee09
+    - from: src/test/java/mainstreet/booking/TemporalProvenanceContractTest.java
+      to: src/test/java/grandrue/booking/TemporalProvenanceContractTest.java
+      blob_sha: f2c967a93726c129fd5fe6f02af7e6da266c38f4
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/booking/BookingOutboxPublicationContractTest.java
+      to: src/test/java/grandrue/booking/BookingOutboxPublicationContractTest.java
+      blob_sha: db7debbe1371f2a961629ed66c43f8fd14092ac3
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/booking/BookingAppointmentExecutionContractTest.java
+      to: src/test/java/grandrue/booking/BookingAppointmentExecutionContractTest.java
+      blob_sha: e3c99c09b9aa36b85a9a3ed0129b9477c244b91a
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/booking/AppointmentMutationOwnershipBoundaryTest.java
+      to: src/test/java/grandrue/booking/AppointmentMutationOwnershipBoundaryTest.java
+      blob_sha: 35f36d694c5051e87acf5bbda5e445ce311cbad4
+      executable_namespace_replacements: 8
+    - from: src/test/java/mainstreet/booking/BookingAvailabilityImpactAssessmentTest.java
+      to: src/test/java/grandrue/booking/BookingAvailabilityImpactAssessmentTest.java
+      blob_sha: 09044445792231bb0c4dd34bb791bf13b61356a5
+      executable_namespace_replacements: 5
+    - from: src/test/java/mainstreet/booking/BookingApplicationServiceTest.java
+      to: src/test/java/grandrue/booking/BookingApplicationServiceTest.java
+      blob_sha: 847211d2dca95701123e1a2889d856e2c0bfdfdb
+      executable_namespace_replacements: 6
+    - from: src/test/java/mainstreet/booking/BookingNotificationDeliveryTest.java
+      to: src/test/java/grandrue/booking/BookingNotificationDeliveryTest.java
+      blob_sha: c96d61dbaa9cb03d51fa19d550be98cb77b0d695
+      executable_namespace_replacements: 6
+    - from: src/test/java/mainstreet/booking/BookingOperationHandlerTest.java
+      to: src/test/java/grandrue/booking/BookingOperationHandlerTest.java
+      blob_sha: 44ba0bf2ba1b0b49007242445f2eddf85aed686e
+      executable_namespace_replacements: 22
+    - from: src/test/java/mainstreet/booking/AppointmentOperationalObjectOwnershipTest.java
+      to: src/test/java/grandrue/booking/AppointmentOperationalObjectOwnershipTest.java
+      blob_sha: e83c29ce90fb143598321b4c3071e90db43c382f
       executable_namespace_replacements: 24
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/MerchantEstablishmentRuntimeFixture.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/MerchantEstablishmentRuntimeFixture.java
-      blob_sha: 9c24b6a0195cc3db6f32e28a495764c59d67d36c
-      executable_namespace_replacements: 92
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqConfigurationImpactReviewEvidenceAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationImpactReviewEvidenceAuthorityIT.java
-      blob_sha: 32c4bd4391a37e7bc1f6e49249fc1700e11f0145
-      executable_namespace_replacements: 24
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqNonInitialConfigurationRevisionApprovalAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqNonInitialConfigurationRevisionApprovalAuthorityIT.java
-      blob_sha: 47d097b0ae99ee0ba3cbe4e72bf0892db9a13878
-      executable_namespace_replacements: 10
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/PublicationEnquiryVerticalV1IT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/PublicationEnquiryVerticalV1IT.java
-      blob_sha: fda41f492a2d730941b29366687a5b0020ba43fd
-      executable_namespace_replacements: 15
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqSemanticCompatibilityActivationIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqSemanticCompatibilityActivationIT.java
-      blob_sha: 7ac3251e6c73b0631318f39d62e00d4e01120d17
-      executable_namespace_replacements: 13
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqReplacementConfigurationReleaseActivationIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqReplacementConfigurationReleaseActivationIT.java
-      blob_sha: c4c970e49d40120f9add2304ef3323ea2b3cc2c3
-      executable_namespace_replacements: 28
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/configuration/JooqConfigurationReinstatementApprovalAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/configuration/JooqConfigurationReinstatementApprovalAuthorityIT.java
-      blob_sha: 1a9de340114b579f623b09a49279d2e704430b20
-      executable_namespace_replacements: 9
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqConfigurationRevisionAuthorityIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationRevisionAuthorityIT.java
-      blob_sha: 5de075ef1b42812c47659ac9dff9ff39c2b66366
-      executable_namespace_replacements: 19
-    - from: src/test/java/mainstreet/infrastructure/persistence/configuration/JooqConfigurationActivationPublicationOutboxIT.java
-      to: src/test/java/grandrue/infrastructure/persistence/configuration/JooqConfigurationActivationPublicationOutboxIT.java
-      blob_sha: 429df6dcbc58c17391331574e88497c4f5d3eb82
-      executable_namespace_replacements: 9
 
 deterministic_transformations:
   owners:
-    - move all thirteen declared owners to corresponding src/test/java/grandrue/infrastructure/persistence/configuration/** paths
+    - move all twelve declared owners to corresponding src/test/java/grandrue/booking/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
+    - no governance string/path rewrite
     - no assertion, test-data, semantic or behavioural change
-    - no semantic capability/configuration test mutation
     - no legacy prototype mutation
     - no Maven/build/CI/runtime configuration mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 14
+  expected_changed_path_count: 13
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -100,6 +93,3 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

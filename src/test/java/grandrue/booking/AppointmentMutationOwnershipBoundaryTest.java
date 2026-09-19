@@ -1,12 +1,12 @@
-package mainstreet.booking;
+package grandrue.booking;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.scheduling.Appointment;
-import mainstreet.scheduling.AppointmentConfirmationAuthority;
-import mainstreet.scheduling.AppointmentConfirmationRequest;
-import mainstreet.scheduling.AppointmentMutation;
-import mainstreet.scheduling.AppointmentTransaction;
-import mainstreet.semantic.TimeWindowAllocationScope;
+import grandrue.application.MerchantScope;
+import grandrue.scheduling.Appointment;
+import grandrue.scheduling.AppointmentConfirmationAuthority;
+import grandrue.scheduling.AppointmentConfirmationRequest;
+import grandrue.scheduling.AppointmentMutation;
+import grandrue.scheduling.AppointmentTransaction;
+import grandrue.semantic.TimeWindowAllocationScope;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;

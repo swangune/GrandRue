@@ -1,6 +1,6 @@
-package mainstreet.booking;
+package grandrue.booking;
 
-import mainstreet.scheduling.Appointment;
+import grandrue.scheduling.Appointment;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.RecordComponent;

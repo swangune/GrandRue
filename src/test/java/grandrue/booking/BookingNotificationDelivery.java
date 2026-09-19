@@ -1,7 +1,7 @@
-package mainstreet.booking;
+package grandrue.booking;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.DomainEvent;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.DomainEvent;
 
 import java.util.Objects;
 

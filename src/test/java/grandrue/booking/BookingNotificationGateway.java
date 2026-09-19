@@ -1,6 +1,6 @@
-package mainstreet.booking;
+package grandrue.booking;
 
-import mainstreet.semantic.DomainEvent;
+import grandrue.semantic.DomainEvent;
 
 public interface BookingNotificationGateway {
 

@@ -1,9 +1,9 @@
-package mainstreet.booking;
+package grandrue.booking;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.compiler.ConfigurationCompiler;
-import mainstreet.semantic.configuration.*;
-import mainstreet.semantic.registry.*;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.configuration.*;
+import grandrue.semantic.registry.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

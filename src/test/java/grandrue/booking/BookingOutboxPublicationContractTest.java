@@ -1,4 +1,4 @@
-package mainstreet.booking;
+package grandrue.booking;
 
 import org.junit.jupiter.api.Test;
 

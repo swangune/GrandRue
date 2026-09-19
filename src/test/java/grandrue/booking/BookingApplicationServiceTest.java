@@ -1,10 +1,10 @@
-package mainstreet.booking;
+package grandrue.booking;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.customer.CustomerContext;
-import mainstreet.customer.InMemoryCustomerContextAuthority;
-import mainstreet.semantic.AllocationConflictException;
-import mainstreet.semantic.TimeWindowAllocationScope;
+import grandrue.application.MerchantScope;
+import grandrue.customer.CustomerContext;
+import grandrue.customer.InMemoryCustomerContextAuthority;
+import grandrue.semantic.AllocationConflictException;
+import grandrue.semantic.TimeWindowAllocationScope;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;
