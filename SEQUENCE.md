@@ -1,9 +1,9 @@
-# Main Street Design Dependency Graph
+# GrandRue Design Dependency Graph
 
 **Document type:** Design dependency / roadmap graph
 **Source roadmap:** `Main_Street_Handoff_MS-PROT-084_and_Digital_Operating_Infrastructure_Roadmap.md`
 **Source handoff date:** 8 September 2026
-**Repository:** `swangune/MainStreet`
+**Repository:** `swangune/GrandRue`
 **Target branch:** `development`
 **Handoff snapshot head:** `95b48f9a1699fe55f91bfb9f5247cdf0786e1a73`
 **Current repository overlay inspected after the handoff:** `497be054c9da7606b804c565824d28796a6848c6`
@@ -45,7 +45,7 @@ For material design decisions, the current DESIGN-RULES lifecycle must be consul
 
 ## 0.1 Interpretation rule
 
-This graph does **not** create new Main Street design authority.
+This graph does **not** create new GrandRue design authority.
 
 It has two information layers:
 
@@ -74,10 +74,10 @@ Where the handoff does not state a strict dependency, the graph labels the relat
 
 ```mermaid
 flowchart TD
-    V["Main Street Fundamental Product Direction\nDigital operating infrastructure for micro and small businesses"]
+    V["GrandRue Fundamental Product Direction\nDigital operating infrastructure for micro and small businesses"]
 
     V --> P1["Merchant describes business reality"]
-    P1 --> P2["Main Street translates / infers capabilities"]
+    P1 --> P2["GrandRue translates / infers capabilities"]
     P2 --> P3["Unified governed business semantics"]
     P3 --> P4["Merchant-branded customer presence"]
     P3 --> P5["Commerce + day-to-day operations"]
@@ -539,7 +539,7 @@ For external/untrusted document processing, accepted MS-PROT-092 preserves `MS-P
 
 ```mermaid
 flowchart LR
-    SEM["Main Street semantic contract"] --> PORT[Port]
+    SEM["GrandRue semantic contract"] --> PORT[Port]
     PORT --> ADAPTER[Provider adapter]
     ADAPTER --> P1[Payments]
     ADAPTER --> P2[Banks / open banking]
@@ -553,12 +553,12 @@ flowchart LR
     ADAPTER --> P10[Calendar / messaging / logistics]
 ```
 
-Provider choice is downstream of Main Street semantics.
+Provider choice is downstream of GrandRue semantics.
 
 ```text
 provider API
     MUST NOT define
-Main Street business meaning
+GrandRue business meaning
 ```
 
 ---
@@ -751,7 +751,7 @@ The handoff introduced sixteen explicit future decision gates. They should be re
 | MS-PROT-084-DQ-004 | Financial Evidence Classification Portfolio | Before production evidence classification is operationalised |
 | MS-PROT-084-DQ-005 | Counterparty / Supplier Authority | Before richer supplier/counterparty operations |
 | MS-PROT-084-DQ-006 | Invoice Authority | Before native invoicing semantics |
-| MS-PROT-084-DQ-007 | Outgoing Merchant Payment Execution | Before Main Street initiates outgoing merchant payments |
+| MS-PROT-084-DQ-007 | Outgoing Merchant Payment Execution | Before GrandRue initiates outgoing merchant payments |
 | MS-PROT-084-DQ-008 | Inventory Financial Valuation | Before inventory becomes financial-accounting value |
 | MS-PROT-084-DQ-009 | Capital Asset / Depreciation | Before depreciation / capital-asset accounting |
 | MS-PROT-084-DQ-010 | Profitability Portfolio | Before broad profit claims are made |
@@ -759,7 +759,7 @@ The handoff introduced sixteen explicit future decision gates. They should be re
 | MS-PROT-084-DQ-012 | Professional Accounting Integration | Before concrete accountant/accounting-provider integration |
 | MS-PROT-084-DQ-013 | Financial Document Extraction | Before extracted document facts enter governed financial workflows |
 | MS-PROT-084-DQ-014 | Financial Evidence Retention | Before concrete financial retention policy is enforced |
-| MS-PROT-084-DQ-015 | Statutory Accounting Boundary | Before Main Street enters statutory bookkeeping/accounting scope |
+| MS-PROT-084-DQ-015 | Statutory Accounting Boundary | Before GrandRue enters statutory bookkeeping/accounting scope |
 | MS-PROT-084-DQ-016 | Financing Calculation Contracts | Before authoritative financing calculations are operationalised |
 
 ### DQ grouping graph
@@ -887,7 +887,7 @@ MS-PROT-086 v1.2 resolves `MS-PROT-086-DQ-003`. Registered browser access derive
 
 MS-PROT-086 v1.3 resolves `MS-PROT-086-DQ-002` with exactly seven response-contract families: `customer-service/public-merchant-information@1`, `customer-service/public-offering-information@1`, `customer-service/published-policy-information@1`, `customer-service/current-scheduling-availability@1`, `customer-service/related-booking-appointment-information@1`, `customer-service/related-order-fulfilment-shipment-information@1`, and `customer-service/related-payment-refund-information@1`. Automatic substantive response requires `COMPLETE_FOR_REQUEST` coverage for every material request atom, exact owner-qualified current evidence and protected-source access where required, fact-first response material and deterministic validation. Mixed informational/action requests are not partially auto-answered; judgement, mutation, complaint/dispute, exception, negotiation and explicit human requests go to human handling. AI confidence, generic FAQ/RAG text, web/model knowledge, Conversation participation and Guest Conversation browser access do not create response or source-object authority. Deterministic rendering is preferred when sufficient; AI language is optional, bounded and untrusted until validated. At most one bounded clarification cycle is permitted for one unresolved triggering request.
 
-The v1.3 response portfolio requires the accepted MS-PROT-085 v1.2 `customer-communication / human-response-required@1` durable human-handoff path before production automated customer service can be activated. Main Street may claim that a matter was passed to the business only after the corresponding Merchant Attention occurrence commits. No universal response SLA or source-operation authority is created.
+The v1.3 response portfolio requires the accepted MS-PROT-085 v1.2 `customer-communication / human-response-required@1` durable human-handoff path before production automated customer service can be activated. GrandRue may claim that a matter was passed to the business only after the corresponding Merchant Attention occurrence commits. No universal response SLA or source-operation authority is created.
 
 The exact physical guest credential representation remains separately deferred under `ADR-014-DQ-011` and is a production prerequisite before Guest Conversation browser access implementation. `MS-PROT-086-DQ-004` remains unresolved. No Customer Messaging, CustomerAccount, attachment, automated-customer-service, human-handoff, AI-provider or credential implementation is activated or reprioritised.
 
@@ -897,7 +897,7 @@ No new Customer Messaging design node is automatically selected merely because D
 
 # 17. Design frontier map
 
-The graph reveals that Main Street's architecture now has three distinct classes of remaining work.
+The graph reveals that GrandRue's architecture now has three distinct classes of remaining work.
 
 ## A. Core operating-infrastructure depth
 
@@ -1134,7 +1134,7 @@ flowchart TD
     PROV --> E
 ```
 
-**Architectural reading:** Main Street becomes a digital operating infrastructure when source-owned operational truth can flow safely through evidence, interpretation, attention and governed action without forcing the merchant to manually reconcile separate software systems.
+**Architectural reading:** GrandRue becomes a digital operating infrastructure when source-owned operational truth can flow safely through evidence, interpretation, attention and governed action without forcing the merchant to manually reconcile separate software systems.
 
 ---
 
@@ -1194,7 +1194,7 @@ MS-PROT-089 v1.0 has completed the directly promoted capacity-waitlist lifecycle
 
 ## Subsequent accepted overlay — Review / Reputation
 
-MS-PROT-090 v1.0 is accepted and **DESIGN-CLOSED — INITIAL PORTFOLIO**. It establishes bounded Review/Reputation coordination without creating a native review marketplace or reputation score. Source capabilities retain customer-experience truth; external providers retain review/rating truth; Main Street owns only review-destination binding, source-qualified solicitation coordination, minimum provider review reference/provenance and merchant-approved provider-response coordination.
+MS-PROT-090 v1.0 is accepted and **DESIGN-CLOSED — INITIAL PORTFOLIO**. It establishes bounded Review/Reputation coordination without creating a native review marketplace or reputation score. Source capabilities retain customer-experience truth; external providers retain review/rating truth; GrandRue owns only review-destination binding, source-qualified solicitation coordination, minimum provider review reference/provenance and merchant-approved provider-response coordination.
 
 The initial solicitation portfolio is limited to exact accepted Appointment/Booking Review Experience Contracts, `DISABLED` or neutral `ALL_ELIGIBLE_ONCE` merchant policy, one logical solicitation per `CustomerContext × Review Destination`, EMAIL through Notification, no historical backfill, no repeat reminders and no sentiment/complaint/refund/AI gating. External review observation is sentiment-neutral for Merchant Attention; every provider-bound reply requires exact current merchant approval, and provider uncertainty reconciles before another effect.
 
@@ -1404,7 +1404,7 @@ Members:
 - MS-PROT-082-DQ-001
 - MS-PROT-082-DQ-002
 
-The supported jurisdiction portfolio and the Regulatory Purposes supported within those jurisdictions shall be designed together so that Main Street cannot imply broader regulatory coverage than the exact accepted purpose-qualified scope.
+The supported jurisdiction portfolio and the Regulatory Purposes supported within those jurisdictions shall be designed together so that GrandRue cannot imply broader regulatory coverage than the exact accepted purpose-qualified scope.
 
 Provider selection, physical rule representation and regulatory-source monitoring remain separately governed.
 

@@ -1,10 +1,10 @@
-# Main Street Document Governance
+# GrandRue Document Governance
 
 **Document ID:** MS-DOCUMENT-GOVERNANCE-001  
 **Version:** 2.4  
 **Status:** Accepted  
 **Applies from:** 16 September 2026  
-**Purpose:** Define how Main Street fundamental product-purpose, design, architecture and implementation authorities are created, navigated, changed, validated and kept unambiguous while maintaining one canonical current governance/rule document per responsibility.
+**Purpose:** Define how GrandRue fundamental product-purpose, design, architecture and implementation authorities are created, navigated, changed, validated and kept unambiguous while maintaining one canonical current governance/rule document per responsibility.
 
 ---
 
@@ -18,7 +18,7 @@ Governance makes accepted decisions discoverable and enforceable. It does not be
 
 ## 2. Authority Hierarchy
 
-Main Street uses the following authority direction:
+GrandRue uses the following authority direction:
 
 ```text
 MS-FUNDAMENTAL-VISION-001
@@ -37,7 +37,7 @@ IMPLEMENTATION-RULES.md conformance gates
 Tests / production code / implementation evidence
 ```
 
-`MS-FUNDAMENTAL-VISION-001` governs why Main Street exists and the non-negotiable product-purpose constraints within its scope. It does not create capability-specific business semantics.
+`MS-FUNDAMENTAL-VISION-001` governs why GrandRue exists and the non-negotiable product-purpose constraints within its scope. It does not create capability-specific business semantics.
 
 `DESIGN-RULES.md` governs how material design is reasoned, checked against the Fundamental Vision, specified, falsified and made implementation-ready; it does not replace the substantive semantic authority that owns a business subject.
 
@@ -155,7 +155,7 @@ Acceptance of later MS-PROT identifiers therefore does not require a Document Go
 
 ## 7. Scope-Aware Semantic Amendment Graph
 
-Main Street MUST NOT assume that the numerically highest semantic document version automatically replaces every earlier statement.
+GrandRue MUST NOT assume that the numerically highest semantic document version automatically replaces every earlier statement.
 
 An accepted semantic amendment may fully supersede, narrowly replace, add a more-specific rule, or preserve unrelated earlier rules.
 
@@ -450,7 +450,7 @@ No ambiguity audit may silently reinterpret accepted semantics or weaken the Fun
 
 ## 22. Acceptance Statement
 
-Main Street governance uses `MS-FUNDAMENTAL-VISION-001` as the upstream product-purpose authority, a single-current-document model for design rules, document governance, navigation, terminology, deferred decisions, corpus conformance and implementation rules, and scope-aware semantic amendment chains where those chains are necessary to determine meaning.
+GrandRue governance uses `MS-FUNDAMENTAL-VISION-001` as the upstream product-purpose authority, a single-current-document model for design rules, document governance, navigation, terminology, deferred decisions, corpus conformance and implementation rules, and scope-aware semantic amendment chains where those chains are necessary to determine meaning.
 
 > **One fundamental product purpose; one live governance document per responsibility; one navigable semantic authority graph; Git history for governance revisions; explicit semantic provenance where meaning depends on it.**
 
@@ -776,6 +776,6 @@ The Section 21 invariants remain authoritative and are extended by the following
 
 ## 36. Revised Acceptance Statement
 
-Main Street governance uses `MS-FUNDAMENTAL-VISION-001` as the upstream product-purpose authority, a single-current-document model for governance/navigation responsibilities, scope-aware semantic amendment chains where provenance affects current meaning, and stable-Document-ID physical colocation for accepted authority chains.
+GrandRue governance uses `MS-FUNDAMENTAL-VISION-001` as the upstream product-purpose authority, a single-current-document model for governance/navigation responsibilities, scope-aware semantic amendment chains where provenance affects current meaning, and stable-Document-ID physical colocation for accepted authority chains.
 
 > **One fundamental product purpose; one live governance document per responsibility; one stable physical home per accepted authority chain; one Authority Index; one DDR; Git history for governance revisions; explicit semantic provenance where meaning depends on it.**

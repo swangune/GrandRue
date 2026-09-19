@@ -1,4 +1,4 @@
-# Main Street Implementation Rules
+# GrandRue Implementation Rules
 
 **Document ID:** MS-IMPLEMENTATION-RULES-001  
 **Version:** 2.0  
@@ -6,13 +6,13 @@
 **Approved:** 18 September 2026 — explicit manual approval of the complete v2.0 proposal  
 **Applies from:** 18 September 2026  
 **Last amended:** 18 September 2026  
-**Purpose:** Define the mandatory rules for implementing accepted Main Street design in production code and tests, including MS-IMP-001 integration, dependency-complete behavioural-slice execution, test integrity, proportional checkpoint verification, full node-completion verification, composite architecture/programming-paradigm conformance, evidence integrity, exact design-to-code traceability, the canonical `/IMPLEMENTATION.md` live controller, explicit branch-creation authorisation, DESIGN-RULES-governed escalation, post-migration verification handoff, and context-efficient authority loading.
+**Purpose:** Define the mandatory rules for implementing accepted GrandRue design in production code and tests, including MS-IMP-001 integration, dependency-complete behavioural-slice execution, test integrity, proportional checkpoint verification, full node-completion verification, composite architecture/programming-paradigm conformance, evidence integrity, exact design-to-code traceability, the canonical `/IMPLEMENTATION.md` live controller, explicit branch-creation authorisation, DESIGN-RULES-governed escalation, post-migration verification handoff, and context-efficient authority loading.
 
 ---
 
 ## 1. Governing Principle
 
-Implementation realises accepted Main Street design. It does not silently redefine it.
+Implementation realises accepted GrandRue design. It does not silently redefine it.
 
 ```text
 Accepted design authority
@@ -440,7 +440,7 @@ Cross-capability use cases MUST use accepted internal contracts rather than dire
 
 ## 14. Infrastructure and Adapter Rule
 
-Infrastructure implements ports and technical fulfilment. Adapters MUST translate provider-specific representations into Main Street contracts and vice versa. Provider SDK types SHOULD NOT leak into capability-domain APIs.
+Infrastructure implements ports and technical fulfilment. Adapters MUST translate provider-specific representations into GrandRue contracts and vice versa. Provider SDK types SHOULD NOT leak into capability-domain APIs.
 
 Provider callbacks MUST be validated, correlated and idempotently reconciled before authoritative consequences. Provider failure MUST follow accepted failure semantics.
 
@@ -608,7 +608,7 @@ ChatGPT conversation references, remembered descriptions, handover notes and imp
 
 ### 30.2 Trace-Anchor Placement Rule
 
-Main Street MUST NOT achieve traceability by saturating source files with authority comments.
+GrandRue MUST NOT achieve traceability by saturating source files with authority comments.
 
 A material semantic responsibility SHOULD have the smallest useful stable trace anchor at the boundary that owns or exposes that responsibility, for example:
 
@@ -975,7 +975,7 @@ Before completing a material implementation item verify:
 
 ## 51. Relationship to Design and Programme Governance
 
-This document governs implementation behaviour only and MUST NOT bypass Main Street Design Rules, accepted MS-PROT authorities, accepted TAS/ADR authority, DOCUMENT-GOVERNANCE, Authority Index, Canonical Semantic Lexicon, Current DDR or an accepted implementation-programme authority such as MS-IMP-001.
+This document governs implementation behaviour only and MUST NOT bypass GrandRue Design Rules, accepted MS-PROT authorities, accepted TAS/ADR authority, DOCUMENT-GOVERNANCE, Authority Index, Canonical Semantic Lexicon, Current DDR or an accepted implementation-programme authority such as MS-IMP-001.
 
 Where an accepted implementation-programme authority exists, implementation MUST additionally conform to it.
 
@@ -1432,7 +1432,7 @@ The agent MUST NOT fill a material implementation or design gap merely because o
 
 ## 53. Composite Architecture & Programming Paradigm Conformance
 
-Main Street uses a deliberately composite architecture. Production code, test code and implementation proposals MUST conform to the accepted composite architecture rather than allowing implementation convenience, framework convention or local code simplicity to silently replace an accepted responsibility with another paradigm.
+GrandRue uses a deliberately composite architecture. Production code, test code and implementation proposals MUST conform to the accepted composite architecture rather than allowing implementation convenience, framework convention or local code simplicity to silently replace an accepted responsibility with another paradigm.
 
 The accepted implementation composition is:
 
@@ -1490,7 +1490,7 @@ Simple deterministic value transformation
     → ordinary typed code
 ```
 
-A pattern MUST NOT be introduced merely because it exists elsewhere in Main Street.
+A pattern MUST NOT be introduced merely because it exists elsewhere in GrandRue.
 
 ### 53.2 Paradigm-fit gate
 
@@ -1590,7 +1590,7 @@ If any separate implementation-rule amendment file is later discovered, its acce
 
 ### 55.1 Governing Decision
 
-Main Street implementation agents SHALL use:
+GrandRue implementation agents SHALL use:
 
 ```text
 SMALL PERSISTENT GOVERNANCE KERNEL

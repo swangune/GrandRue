@@ -1,10 +1,10 @@
-# Main Street Deferred Decision Register
+# GrandRue Deferred Decision Register
 
 **Document ID:** MS-DEFERRED-DECISION-REGISTER-001
 **Version:** 5.0
 **Status:** Accepted governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
-**Purpose:** Provide the single current work-queue view of unresolved, deferred, resolved and deliberately promoted Main Street design decisions while using Git history and accepted resolving authorities as provenance.
+**Purpose:** Provide the single current work-queue view of unresolved, deferred, resolved and deliberately promoted GrandRue design decisions while using Git history and accepted resolving authorities as provenance.
 
 ---
 
@@ -1102,7 +1102,7 @@ ADR-014 is Design-Closed while retaining the following narrower questions. Each 
 
 | ID | Status | Deferred question | Classification / future owner | Revisit condition |
 |---|---|---|---|---|
-| ADR-014-DQ-001 | **RESOLVED** | Exact WebAuthn/passkey implementation/provider/library | Resolved by ADR-015 — WebAuthn / Passkey Production Adapter | Spring Security `spring-security-webauthn` is the initial replaceable ceremony/verification adapter; Main Street retains authoritative session and business-authority boundaries |
+| ADR-014-DQ-001 | **RESOLVED** | Exact WebAuthn/passkey implementation/provider/library | Resolved by ADR-015 — WebAuthn / Passkey Production Adapter | Spring Security `spring-security-webauthn` is the initial replaceable ceremony/verification adapter; GrandRue retains authoritative session and business-authority boundaries |
 | ADR-014-DQ-002 | **DEFERRED — INACTIVE** | Exact hardware-security-key requirement for platform/high-risk roles | Security policy | Before high-privilege platform administration is production-enabled |
 | ADR-014-DQ-003 | **DEFERRED — INACTIVE** | Exact password/KDF implementation where fallback passwords exist | Security implementation detail | Before fallback password credentials reach production |
 | ADR-014-DQ-004 | **DEFERRED — INACTIVE** | Exact recovery evidence/mechanism for lost authenticators | Security architecture | Before production account/control recovery |
@@ -1235,7 +1235,7 @@ MS-PROT-057 v1.1 Design-Closes Target 6 while retaining the following narrower i
 | MS-PROT-057-V11-DQ-013 | **DEFERRED — INACTIVE** | Exact inference-record retention periods | Data protection/legal-policy implementation under composite MS-PROT-053 | When concrete inference-record retention policy is implemented; Target 17 deliberately leaves exact durations downstream |
 | MS-PROT-057-V11-DQ-014 | **DEFERRED — INACTIVE** | Exact AI observability dashboards/quality-drift alerts | Observability implementation under composite MS-PROT-068 | During production AI observability implementation |
 | MS-PROT-057-V11-DQ-015 | **DEFERRED — INACTIVE** | Exact API representation of AI results/clarification | API implementation under composite MS-PROT-035 | During production AI API implementation |
-| MS-PROT-057-V11-DQ-016 | **DEFERRED — INACTIVE** | Fine-tuning/distillation dataset governance and pipeline | Future AI learning architecture | Before production data is used to train/distil a Main Street model; MS-PROT-053 v1.2 requires separate accepted purpose/use authority |
+| MS-PROT-057-V11-DQ-016 | **DEFERRED — INACTIVE** | Fine-tuning/distillation dataset governance and pipeline | Future AI learning architecture | Before production data is used to train/distil a GrandRue model; MS-PROT-053 v1.2 requires separate accepted purpose/use authority |
 | MS-PROT-057-V11-DQ-017 | **DEFERRED — INACTIVE** | Self-hosted/small specialised model strategy | Future AI platform architecture | When scale, privacy, latency or cost justifies owning inference infrastructure |
 | MS-PROT-057-V11-DQ-018 | **DEFERRED — INACTIVE** | Persistent conversational memory storage implementation | AI/product implementation | When persistent assistant memory beyond bounded interaction history is introduced |
 | MS-PROT-057-V11-DQ-019 | **DEFERRED — INACTIVE** | Read-only specialist retrieval tool catalogue | Capability-specific later targets | When a later capability needs AI-context retrieval beyond supplied projections |
@@ -1467,7 +1467,7 @@ Composite MS-PROT-082 through v1.1 establishes the generic Jurisdiction & Regula
 | MS-PROT-082-DQ-003 | **DEFERRED — INACTIVE** | Exact persistence/serialization representation of Regulatory Rule Set Releases and evaluator bindings | JRA implementation detail | During conforming JRA implementation when a concrete representation is required; no universal rule DSL is authorised by this deferral |
 | MS-PROT-082-DQ-004 | **DEFERRED — ACTIVE BEFORE PROVIDER-BACKED SUPPORT DECLARATION** | Initial external regulatory-provider portfolio | Provider/integration implementation | Before any corresponding `PROVIDER_BACKED` Jurisdiction Support Declaration is activated |
 | MS-PROT-082-DQ-005 | **DEFERRED — ACTIVE BEFORE PRODUCTION REGULATORY SUPPORT** | Exact regulatory-source change-monitoring mechanism/frequency | Regulatory operations / source-assurance implementation | Before production support; every production pack must nevertheless have a concrete accepted assurance boundary |
-| MS-PROT-082-DQ-006 | **DEFERRED — INACTIVE** | Whether Main Street integrates directly with accountants/tax/legal specialists or supplies evidence for merchant-selected professionals | Future professional-escalation integration | When integrated professional escalation is deliberately productised; `ESCALATION_REQUIRED` remains valid without a professional marketplace |
+| MS-PROT-082-DQ-006 | **DEFERRED — INACTIVE** | Whether GrandRue integrates directly with accountants/tax/legal specialists or supplies evidence for merchant-selected professionals | Future professional-escalation integration | When integrated professional escalation is deliberately productised; `ESCALATION_REQUIRED` remains valid without a professional marketplace |
 | MS-PROT-082-DQ-007 | **RESOLVED** | Canonical Business Health & Financial Intelligence semantics | Resolved compositionally by composite MS-PROT-083 + MS-PROT-084 v1.1 | MS-PROT-083 owns analytical/Business Health semantics; MS-PROT-084 v1.1 supplies the missing Financial Operations/Financial Health source composition without transferring JRA or source-capability ownership |
 
 Traceability rules:
@@ -1523,7 +1523,7 @@ MS-PROT-084 v1.1 is the complete accepted Financial Operations / Financial Evide
 | MS-PROT-084-DQ-004 | **RESOLVED** | Financial Evidence Classification Portfolio | Resolved by MS-PROT-084 v1.1 | Exactly seven evidence-form families; evidence form does not establish economic meaning |
 | MS-PROT-084-DQ-005 | **DEFERRED — INACTIVE** | Counterparty / Supplier Authority | Future supplier/procurement feature admission | Only if richer supplier/counterparty operations pass Feature Admission; bounded Counterparty Reference is sufficient initially |
 | MS-PROT-084-DQ-006 | **DEFERRED — INACTIVE** | Invoice Authority | Future invoicing feature admission | Before native invoicing semantics are introduced; documents may evidence Payables/Receivables without creating Invoice authority |
-| MS-PROT-084-DQ-007 | **DEFERRED — INACTIVE** | Outgoing Merchant Payment Execution | Payment/banking execution architecture | Before Main Street initiates merchant money movement |
+| MS-PROT-084-DQ-007 | **DEFERRED — INACTIVE** | Outgoing Merchant Payment Execution | Payment/banking execution architecture | Before GrandRue initiates merchant money movement |
 | MS-PROT-084-DQ-008 | **DEFERRED — INACTIVE** | Inventory Financial Valuation | Accounting-depth feature admission | Before Inventory becomes authoritative financial-accounting value |
 | MS-PROT-084-DQ-009 | **DEFERRED — INACTIVE** | Capital Asset / Depreciation | Accounting-depth feature admission | Before depreciation or capital-asset accounting is introduced; Capital Acquisition alone does not establish those semantics |
 | MS-PROT-084-DQ-010 | **DEFERRED — INACTIVE** | Profitability Portfolio | Financial/accounting semantic authority | Before broad profit claims are made; initial Financial Health explicitly excludes profit/accounting profit |
@@ -1532,7 +1532,7 @@ MS-PROT-084 v1.1 is the complete accepted Financial Operations / Financial Evide
 | MS-PROT-084-DQ-013 | **RESOLVED** | Financial Document Extraction | Resolved by MS-PROT-084 v1.1 composed with MS-PROT-092 | MS-PROT-092 owns DocumentIntake/ExtractionCandidate/EvidenceHandoff; Financial Operations owns the exact consuming/admission contract only |
 | MS-PROT-084-DQ-014 | **RESOLVED BY OWNERSHIP** | Financial Evidence Retention | Resolved by MS-PROT-084 v1.1 composed with MS-PROT-053/JRA | Financial Operations consumes purpose/lifecycle/legal-retention authority; it does not invent a universal numeric retention period |
 | MS-PROT-084-DQ-015 | **RESOLVED** | Statutory Accounting Boundary | Resolved by MS-PROT-084 v1.1 | Statutory/general-ledger accounting is explicitly outside the current authority and requires fresh Feature Admission/material authority |
-| MS-PROT-084-DQ-016 | **RESOLVED — INITIAL PORTFOLIO EMPTY** | Financing Calculation Contracts | Resolved by MS-PROT-084 v1.1 | Main Street may represent externally supplied/validated schedules; authoritative Main Street APR/interest/amortisation/etc. calculation is not currently admitted |
+| MS-PROT-084-DQ-016 | **RESOLVED — INITIAL PORTFOLIO EMPTY** | Financing Calculation Contracts | Resolved by MS-PROT-084 v1.1 | GrandRue may represent externally supplied/validated schedules; authoritative GrandRue APR/interest/amortisation/etc. calculation is not currently admitted |
 
 Traceability rules:
 
@@ -1598,7 +1598,7 @@ Composite MS-PROT-087 through v1.4 establishes bounded Merchant Marketing Campai
 | MS-PROT-087-DQ-003 | **RESOLVED** | Marketing Permission, Suppression and Contact Policy portfolio | Resolved by MS-PROT-087 v1.3 / `MKT-GRP-01` | Accepted 9 September 2026; direct email requires a current jurisdiction-qualified `DirectMarketingContactPolicyDetermination`; durable endpoint/CustomerContext Marketing suppression dominates permission; unsubscribe is immediate and account-free; initial cross-campaign contact pressure is 1/24h, 2/7d and 6/30d per MerchantScope × normalised EMAIL endpoint; every mutable condition is revalidated before externalisation |
 | MS-PROT-087-DQ-004 | **RESOLVED** | Automated Campaign Trigger and Recurrence portfolio | Resolved by MS-PROT-087 v1.3 / `MKT-GRP-01` | Accepted 9 September 2026; initial automation binds one exact Campaign Revision for at most 12 calendar months, supports exactly `SCHEDULED_SINGLE_OCCURRENCE_V1` and `PERIODIC_AUDIENCE_REEVALUATION_V1`, permits weekly/monthly local recurrence only, applies `ONCE_PER_AUTOMATION_CONTRACT`, forbids catch-up/replay and source-event triggers, and requires current audience/permission/suppression/contact/source/provider revalidation per occurrence |
 | MS-PROT-087-DQ-005 | **RESOLVED** | Campaign Measure and Attribution portfolio | Resolved by MS-PROT-083 v1.1 / `MKT-GRP-02` | Accepted 9 September 2026; initial portfolio contains exactly `campaign / recipient-eligibility-count@1`, `campaign / direct-email-responsibility-count@1`, `campaign / direct-email-delivery-evidence-count@1`, `campaign / campaign-linked-suppression-count@1` and `campaign / website-announcement-publication-count@1`, with exactly `DIRECT_EXECUTION_TRACE_V1`; open/click/conversion/revenue/retention/ROI and downstream commercial-causation claims remain prohibited absent fresh feature admission and applicable analytical authority |
-| MS-PROT-087-DQ-006 | **DEFERRED — ACTIVE BEFORE PAID ADVERTISING OR EXTERNAL CAMPAIGN SPEND** | Paid Advertising, Spend and External Optimisation authority | Future marketing/financial/external-provider design | Before Main Street commits advertising spend, participates in auctions, controls external advertising budgets or performs external ad optimisation |
+| MS-PROT-087-DQ-006 | **DEFERRED — ACTIVE BEFORE PAID ADVERTISING OR EXTERNAL CAMPAIGN SPEND** | Paid Advertising, Spend and External Optimisation authority | Future marketing/financial/external-provider design | Before GrandRue commits advertising spend, participates in auctions, controls external advertising budgets or performs external ad optimisation |
 
 Traceability rules:
 
@@ -1690,7 +1690,7 @@ RESOLVED — FINANCIAL OPERATIONS / FINANCIAL EVIDENCE / FINANCIAL HEALTH COMPLE
 RESOLVED — FIRST-PARTY MERCHANT CLIENT ARCHITECTURE, INSTALLED-CLIENT COMPATIBILITY & NATIVE DELIVERY
     The merchant-client delivery architecture and the previously deferred native-client/session/client-SDK questions were governed under DESIGN-RULES and resolved by accepted MS-PROT-093 v1.0 after Fundamental Vision Conformance, architecture review, falsification, trade-off review, complete pre-approval presentation, structural/UI visualisation and explicit manual approval on 13 September 2026.
     Accepted result:
-        Main Street uses Contract-Driven First-Party Client Architecture. merchant-web remains first-class; Android, iOS, Windows and macOS are admitted native merchant-client platform families without requiring simultaneous release. Independently installed first-party clients require representation-version compatibility and explicit CLIENT_UPDATE_REQUIRED handling. Deterministic first-party client SDK generation, generated-artifact ownership classes, shared design language, cross-platform conformance, platform-local reuse, bounded compile-time declarative generation and purpose-built native UX are accepted. Universal client UI/runtime DSL authority is rejected. Native sessions remain opaque, revocable and server-authoritative; offline consequential mutation is ONLINE REQUIRED unless the owning operation explicitly permits safe deferred submission. ADR-014-DQ-014 and the former first-party client-SDK-generation deferral are resolved. Workforce-specific native/offline semantics such as MS-PROT-081-DQ-019 remain deferred. Implementation sequencing is not activated by this design acceptance.
+        GrandRue uses Contract-Driven First-Party Client Architecture. merchant-web remains first-class; Android, iOS, Windows and macOS are admitted native merchant-client platform families without requiring simultaneous release. Independently installed first-party clients require representation-version compatibility and explicit CLIENT_UPDATE_REQUIRED handling. Deterministic first-party client SDK generation, generated-artifact ownership classes, shared design language, cross-platform conformance, platform-local reuse, bounded compile-time declarative generation and purpose-built native UX are accepted. Universal client UI/runtime DSL authority is rejected. Native sessions remain opaque, revocable and server-authoritative; offline consequential mutation is ONLINE REQUIRED unless the owning operation explicitly permits safe deferred submission. ADR-014-DQ-014 and the former first-party client-SDK-generation deferral are resolved. Workforce-specific native/offline semantics such as MS-PROT-081-DQ-019 remain deferred. Implementation sequencing is not activated by this design acceptance.
 
 RESOLVED — INITIAL GENERAL BUSINESS INTELLIGENCE MEASURE PORTFOLIO
     The remaining initial general Analytical Measure portfolio retained by MS-PROT-083-DQ-001 was governed under DESIGN-RULES and resolved by accepted MS-PROT-083 v1.3 after Feature Admission, Fundamental Vision conformance, ownership review, falsification, ambiguity review and explicit manual approval on 10 September 2026.
@@ -2075,7 +2075,7 @@ RESOLVED — MS-PROT-079 TARGET 7 — PROJECTION CONTRACTS
         authoritative queries and request-scoped composition; no speculative generic projection engine is required;
         `platform/merchant-presence` and `calendar/merchant-calendar` are the initial concrete cross-cutting contracts;
         Merchant Presence preserves independently authoritative Profile/Location/Hours sources, current source-revision
-        evidence, conservative stale-serving and Exposure separation; Calendar preserves Main Street commitments during
+        evidence, conservative stale-serving and Exposure separation; Calendar preserves GrandRue commitments during
         optional external-provider failure while refusing to manufacture current availability from unknown evidence;
         storefront and dashboard composition remain initially request-scoped; cached dashboard state never becomes Actor
         Authorisation; every later capability target must classify required reads under v1.3 before Design-Closure.
@@ -2101,7 +2101,7 @@ RESOLVED — MS-PROT-079 TARGET 8 — EXPOSURE RESOLUTION
     Accepted result:
         Exposure remains an element-level deterministic EXPOSE/WITHHOLD decision over already-legitimate candidates;
         exact owner-qualified Exposure Element Contracts are release-affined and fail closed when missing or unresolved;
-        Audience Observation Context is established by trusted Main Street boundaries rather than client assertion;
+        Audience Observation Context is established by trusted GrandRue boundaries rather than client assertion;
         merchant Exposure choices remain owned by applicable fact/capability authorities; privacy/security and relationship
         constraints outrank merchant choice; Surface membership, Projection Serviceability, authentication, Actor
         Authorisation, Provider Readiness and AI inference remain distinct. v1.10 establishes the positive-only fail-closed
@@ -2225,7 +2225,7 @@ RESOLVED — MS-PROT-079 TARGET 13 — PAYMENT
         use PaymentObligationAdjustment; deterministic registered due conditions resolve as DUE, NOT_DUE or UNRESOLVED,
         keeping outstanding amount distinct from current amount due. Provider financial side effects begin only after durable
         exact Payment execution/refund requests exist with historical binding/correlation provenance; raw provider status does
-        not create Main Street Payment truth; evidence is recorded before reconciliation and uncertain side effects are not
+        not create GrandRue Payment truth; evidence is recorded before reconciliation and uncertain side effects are not
         blindly retried. PaymentApplications preserve obligation/evidence bounds and many-to-many partial application;
         Refund is later Payment-owned truth and does not rewrite payment, obligation or source commitment. Initial Payment
         reads remain request-scoped. `payment / related-customer-payment-obligation` delegates relationship authority to the
@@ -2301,7 +2301,7 @@ RESOLVED — MS-PROT-079 TARGET 16 — NOTIFICATION PROVIDERS
         designs/MS-PROT-075 v1.1 — Production Notification Provider Delivery, Attempt & Evidence Execution Contract Amendment.md
     Accepted result:
         registered platform authorities may own Fulfilment Requirements without being disguised as business capabilities;
-        merchant-routed and platform-routed fulfilment remain distinct; shared Main Street technical infrastructure uses immutable
+        merchant-routed and platform-routed fulfilment remain distinct; shared GrandRue technical infrastructure uses immutable
         serving-affined PlatformFulfilmentBindingSetRevision rather than fake Merchant Scope or mutable global provider choice,
         while historical provider/binding/connection affinity survives provider change. Notifications concretises the
         provider-neutral `notification / message-delivery` role with channel-qualified paths, requires static compatibility
@@ -2647,7 +2647,7 @@ Programme completion does not mutate or authorise production code, tests, migrat
 
 ## 12. Acceptance Statement
 
-Main Street maintains one canonical Deferred Decision Register with explicit design work ordered ahead of implementation assumptions.
+GrandRue maintains one canonical Deferred Decision Register with explicit design work ordered ahead of implementation assumptions.
 
 > **One current queue, explicit resolving authorities, stable deferred-question traceability, Git history for register provenance, and no accidental reopening of settled design.**
 

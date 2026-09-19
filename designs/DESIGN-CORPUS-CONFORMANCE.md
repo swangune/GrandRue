@@ -1,4 +1,4 @@
-# Main Street Design Corpus Conformance Contract
+# GrandRue Design Corpus Conformance Contract
 
 **Document ID:** MS-DESIGN-CORPUS-CONFORMANCE-001  
 **Version:** 2.6  
@@ -106,7 +106,7 @@ Structural checks MUST NOT substitute for the human Fundamental Vision review an
 
 ## 5. Fundamental Vision Authority Conformance
 
-`MS-FUNDAMENTAL-VISION-001` is the accepted upstream authority for Main Street's fundamental product purpose.
+`MS-FUNDAMENTAL-VISION-001` is the accepted upstream authority for GrandRue's fundamental product purpose.
 
 Conformance SHALL verify mechanically that:
 
@@ -128,7 +128,7 @@ A lower-level accepted authority or current governance document that explicitly 
 
 Human conformance review MUST separately evaluate material accepted product/design/architecture authorities for substantive contradiction with the Fundamental Vision.
 
-Conformance SHOULD flag for review high-confidence current/non-historical statements that appear to narrow Main Street's fundamental purpose to only a website builder, online-presence tool, commerce app, marketplace or software-module suite when those statements are presented as current global product purpose rather than bounded capability scope.
+Conformance SHOULD flag for review high-confidence current/non-historical statements that appear to narrow GrandRue's fundamental purpose to only a website builder, online-presence tool, commerce app, marketplace or software-module suite when those statements are presented as current global product purpose rather than bounded capability scope.
 
 Historical evidence MAY retain superseded product-purpose language when its historical/non-authoritative status is clear.
 
@@ -412,7 +412,7 @@ ERROR accepted MS-PROT missing from Authority Index
 ERROR nonexistent normative dependency
 ERROR new/materially amended authority contains an unresolved Governed by reference
 ERROR current governance/rule document treats MS-AVS-001 as normative authority
-WARNING current global product statement appears to narrow Main Street to online presence only
+WARNING current global product statement appears to narrow GrandRue to online presence only
 WARNING proposed and accepted semantic files share unclear identity
 WARNING bare Fulfilment used as cross-domain semantic heading
 INFO historical semantic/product file lacks modern metadata
@@ -476,7 +476,7 @@ prevent future drift
 
 ## 25. Acceptance Statement
 
-Main Street corpus conformance enforces the accepted Fundamental Vision authority, the single-current-document governance model and scope-aware semantic amendment chains while preserving the distinction between mechanically provable structural defects and human review of substantive product/semantic truth.
+GrandRue corpus conformance enforces the accepted Fundamental Vision authority, the single-current-document governance model and scope-aware semantic amendment chains while preserving the distinction between mechanically provable structural defects and human review of substantive product/semantic truth.
 
 > **One current fundamental product purpose; one current governance source per responsibility; structural automation for navigation integrity; human review for product-purpose and semantic truth.**
 
@@ -715,6 +715,6 @@ Where the authority is formalised during a multi-commit governance cycle, interm
 
 ## 36. Revised Acceptance Statement
 
-Main Street corpus conformance enforces the accepted Fundamental Vision authority, single-current governance, scope-aware semantic amendment chains, stable authority identity, recursive authority discovery and deterministic collision prevention while preserving the distinction between mechanically provable structural defects and human review of substantive product/semantic truth.
+GrandRue corpus conformance enforces the accepted Fundamental Vision authority, single-current governance, scope-aware semantic amendment chains, stable authority identity, recursive authority discovery and deterministic collision prevention while preserving the distinction between mechanically provable structural defects and human review of substantive product/semantic truth.
 
 > **One current product purpose; one current governance source per responsibility; one stable authority identity per version; recursive structural checks for navigation integrity; human review for semantic truth.**

@@ -1,43 +1,51 @@
 migration: MAIN_STREET_TO_GRANDRUE
 repository: swangune/GrandRue
 branch: development
-classification_checkpoint: GR-REN-05-06-C001
-state: COMPLETE
-evidence_target: 7591466bf16b165d549161cd9e8369a1dac41674
-checkpoint_commit: THIS_COMMIT
+tranche: GR-REN-07-T001
+group: GR-REN-07
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: faba9ba269047e991c9abc7c98f9505f5ff008af
 
-gr_ren_05:
-  state: COMPLETE_PENDING_FINAL_VERIFICATION
-  executable_mutations: 0
-  classification:
-    excluded:
-      - src/main/resources/application-prototype.properties
-      - compose.prototype.yml
-    protected:
-      - src/main/resources/db/migration/**
-    already_migrated:
-      - storefront backend preference under GR-REN-04
+region:
+  identity: active-controls-canonical-governance-current-wording
+  files:
+    - SEQUENCE.md
+    - designs/DESIGN-RULES.md
+    - designs/DOCUMENT-GOVERNANCE.md
+    - designs/AUTHORITY-INDEX.md
+    - designs/CANONICAL-SEMANTIC-LEXICON.md
+    - designs/DEFERRED-DECISION-REGISTER.md
+    - designs/DESIGN-CORPUS-CONFORMANCE.md
+    - designs/IMPLEMENTATION-RULES.md
+  agents_current_before_tranche: true
 
-gr_ren_06:
-  state: COMPLETE_PENDING_FINAL_VERIFICATION
-  mutations: 0
+transformations:
+  current_product_phrase:
+    from: Main Street
+    to: GrandRue
+    replaced_occurrences: 146
+  repository_navigation:
+    from: swangune/MainStreet
+    to: swangune/GrandRue
+  authority_index_current_package_identity:
+    from: mainstreet.* implementation/package identifiers remain unchanged
+    to: current implementation/package identifiers use grandrue.*
   preserved:
-    - mainstreet_correlation_identifier
-    - mainStreetCorrelationIdentity
-    - mainstreet/enquiry/opportunity-binding/v1/
-    - mainstreet-semantic-bundle-v1
-    - mainstreet-semantic-bundle-v2
-    - mainstreet-exposure-definitions-v1
-    - calendar/current-main-street-commitments
-    - stable MS-* identifiers and historical evidence identities
-    - MAINSTREET_BACKEND_URL compatibility fallback
+    - MS-FUNDAMENTAL-VISION-001 formal historical title
+    - MS-AVS-001 recovered historical title
+    - HANDLED_OUTSIDE_MAIN_STREET_RECORDED
+    - stable MS-* identifiers
+    - protected mainstreet* compatibility identities
+    - historical provenance
 
 verification:
-  repository_tree_inspected: true
-  protected_identity_current_files_inspected: true
-  prototype_profile_inspected_and_excluded: true
+  expected_changed_path_count: 9
+  current_phrase_residuals_allowed_only_as_declared_historical: true
+  symbolic_identifier_preservation: required
+  repository_navigation_current: required
   maven_tests: not_run_not_authorised
   github_actions: not_run_not_authorised
 
-next_group: GR-REN-07
-next_state: PREPARATION_REQUIRED
+next_group: POST_MIGRATION_HANDOFF
+next_state: CODE_COMMITTED

@@ -1,9 +1,9 @@
-# Main Street Canonical Semantic Lexicon
+# GrandRue Canonical Semantic Lexicon
 
 **Version:** 1.49
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
-**Purpose:** Disambiguate high-risk shared terminology across Main Street without replacing the accepted design documents that own substantive semantics.
+**Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
 
 ---
 
@@ -459,7 +459,7 @@ Provider-reported status
 
 A convenient UI status shall not automatically become a domain lifecycle state.
 
-Provider-specific statuses shall not redefine Main Street business semantics unless an accepted authority explicitly maps them into platform-owned facts.
+Provider-specific statuses shall not redefine GrandRue business semantics unless an accepted authority explicitly maps them into platform-owned facts.
 
 ---
 
@@ -476,9 +476,9 @@ Platform/Safety Policy
 Provider Policy/Evidence
 ```
 
-Merchant Policy represents merchant-authoritative operating choices within registered Main Street semantics.
+Merchant Policy represents merchant-authoritative operating choices within registered GrandRue semantics.
 
-Main Street may help infer, validate and deterministically execute merchant-approved policy; it does not decide legitimate merchant operating choices merely because it provides the infrastructure.
+GrandRue may help infer, validate and deterministically execute merchant-approved policy; it does not decide legitimate merchant operating choices merely because it provides the infrastructure.
 
 ---
 
@@ -587,7 +587,7 @@ Activation does not create validation, impact evidence or approval.
 
 **Authority:** composite MS-PROT-040 through v1.8.
 
-For the current MVP, ordinary replacement/reinstatement activation requires a Main Street-established trusted authenticated execution context whose principal is the current ACTIVE Merchant Controller for an OPEN, unsuspended Merchant Account.
+For the current MVP, ordinary replacement/reinstatement activation requires a GrandRue-established trusted authenticated execution context whose principal is the current ACTIVE Merchant Controller for an OPEN, unsuspended Merchant Account.
 
 For reinstatement, the target must be a genuinely superseded previously activated Configuration Revision and the exact Reinstatement Basis Activation recorded by the approval must still own the merchant's current Configuration pointer.
 
@@ -635,7 +635,7 @@ Applicability does not manufacture entitlement.
 
 **Commercial Entitlement** asks:
 
-> Is this merchant commercially permitted to use this Main Street functionality now?
+> Is this merchant commercially permitted to use this GrandRue functionality now?
 
 **Authority:** MS-PROT-056.
 
@@ -707,7 +707,7 @@ PLATFORM_ROUTED
 
 `MERCHANT_ROUTED` uses merchant-specific Fulfilment Binding Set authority where provider routing materially belongs to the Merchant Configuration/provider context.
 
-`PLATFORM_ROUTED` uses shared Main Street technical infrastructure where provider choice is not itself merchant business semantics.
+`PLATFORM_ROUTED` uses shared GrandRue technical infrastructure where provider choice is not itself merchant business semantics.
 
 Hard distinction:
 
@@ -725,12 +725,12 @@ An immutable platform-scoped routing definition identifying the exact release-af
 
 Initial production binds an exact compatible revision to serving/deployment admission rather than using a separately mutable global `currentProvider` pointer.
 
-It MUST NOT be represented by a fake Main Street merchant or copied into every merchant's business configuration.
+It MUST NOT be represented by a fake GrandRue merchant or copied into every merchant's business configuration.
 
 ### ProviderConnection
 
 **Authority:** composite MS-PROT-048 through v1.5.
-A stable Main Street operational identity representing one authorised relationship between an applicable Main Street scope/responsibility and an external provider account/context.
+A stable GrandRue operational identity representing one authorised relationship between an applicable GrandRue scope/responsibility and an external provider account/context.
 
 A ProviderConnection may be merchant-scoped or platform-scoped according to accepted routing/responsibility authority.
 
@@ -1333,7 +1333,7 @@ Dispatch identity MUST NOT be treated as the universal provider idempotency key 
 ### Delivery Evidence
 
 **Authority:** composite MS-PROT-075 through v1.1.
-Notification-owned evidence describing what Main Street can substantiate about a Notification Dispatch/DeliveryAttempt after authenticated, correlated and registered interpretation of synchronous or asynchronous provider-native evidence.
+Notification-owned evidence describing what GrandRue can substantiate about a Notification Dispatch/DeliveryAttempt after authenticated, correlated and registered interpretation of synchronous or asynchronous provider-native evidence.
 
 Canonical distinction:
 
@@ -1400,7 +1400,7 @@ narrow TrustRequirement failure
 ### Merchant Controller Relationship
 
 **Authorities:** MS-PROT-028, MS-PROT-071 v1.1, MS-PROT-076.
-The Main Street account-control relationship linking one authenticated Identity to ultimate control of one non-closed Merchant Account.
+The GrandRue account-control relationship linking one authenticated Identity to ultimate control of one non-closed Merchant Account.
 
 In MS-PROT-076 v1.0, every OPEN/CLOSING Merchant Account has exactly one ACTIVE Merchant Controller relationship. It does not prove legal ownership of the real-world business.
 
@@ -1423,7 +1423,7 @@ Ordinary credential reset may invalidate the Controller Identity's affected sess
 ### Merchant Control Recovery
 
 **Authority:** MS-PROT-076, with trust/security boundaries from MS-PROT-028/MS-PROT-064.
-An exceptional path for replacing/restoring ultimate Main Street merchant control when ordinary current-Controller transfer cannot establish the required change.
+An exceptional path for replacing/restoring ultimate GrandRue merchant control when ordinary current-Controller transfer cannot establish the required change.
 
 It is distinct from credential recovery and from normal Controller transfer.
 
@@ -1506,7 +1506,7 @@ Possession or operational use of the data does not imply this purpose is authori
 
 ### DataSubjectReference
 
-A bounded subject reference used where needed to associate applicable personal-data use requirements/evidence without manufacturing a global Main Street account or broader business relationship.
+A bounded subject reference used where needed to associate applicable personal-data use requirements/evidence without manufacturing a global GrandRue account or broader business relationship.
 
 Canonical distinction:
 
@@ -1518,7 +1518,7 @@ DataSubjectReference
     ≠ Merchant Membership
 ```
 
-Where no applicable personal-data use requirement exists, Main Street must not create fictitious subject/basis semantics merely because an asset is media.
+Where no applicable personal-data use requirement exists, GrandRue must not create fictitious subject/basis semantics merely because an asset is media.
 
 ---
 
@@ -1567,7 +1567,7 @@ It exists before the external financial side effect and retains exact amount, ob
 
 ### ProviderPaymentEvidence
 
-Authenticated/correlated external evidence describing provider-side payment execution. Provider-native result/status vocabulary remains evidence and must pass a registered provider interpretation before it may support Main Street payment truth.
+Authenticated/correlated external evidence describing provider-side payment execution. Provider-native result/status vocabulary remains evidence and must pass a registered provider interpretation before it may support GrandRue payment truth.
 
 ### PaymentApplication
 
@@ -1651,7 +1651,7 @@ There is no universal authoritative `merchant.taxJurisdiction` shared by every c
 
 An immutable DERIVED JRA record of one Regulatory Purpose evaluation bound to exact source-fact revisions, exact Jurisdiction Context, governing time, exact Regulatory Rule Set Release and exact evaluator/provider evidence.
 
-A Regulatory Determination is Main Street's traceable evaluation result. It is not legislation, legal advice, a provider-native status or authority to mutate the source capability facts.
+A Regulatory Determination is GrandRue's traceable evaluation result. It is not legislation, legal advice, a provider-native status or authority to mutate the source capability facts.
 
 ### Regulatory Administrative Requirement / Payment Obligation
 
@@ -1765,7 +1765,7 @@ Scenario assumption
     ≠ Command
 ```
 
-A merchant asking what would happen under a hypothetical change does not thereby instruct Main Street to perform that change.
+A merchant asking what would happen under a hypothetical change does not thereby instruct GrandRue to perform that change.
 
 ### Business Recommendation
 
@@ -2200,7 +2200,7 @@ Excess applied amount is reconciliation evidence only and does not become a cred
 
 ### Financing Arrangement
 
-A Financial-Operations-owned accepted merchant financing relationship that may retain externally supplied terms and evidence. It does not authorise Main Street-generated APR, interest, amortisation, settlement or future-balance calculations.
+A Financial-Operations-owned accepted merchant financing relationship that may retain externally supplied terms and evidence. It does not authorise GrandRue-generated APR, interest, amortisation, settlement or future-balance calculations.
 
 ### Financing Payment Schedule
 
@@ -2471,13 +2471,13 @@ These terms are high-risk because merchant tenancy, public website routing, doma
 
 ### Merchant Brand Infrastructure
 
-The Main Street platform-service concern coordinating a merchant-facing Internet identity across an authorised brand namespace, public website hostname and business email sender identity while absorbing registrar/DNS/certificate/sender-authentication administration.
+The GrandRue platform-service concern coordinating a merchant-facing Internet identity across an authorised brand namespace, public website hostname and business email sender identity while absorbing registrar/DNS/certificate/sender-authentication administration.
 
 It is not the merchant business-semantic model, a registrar console, DNS product, mailbox provider or tenant identity.
 
 ### Merchant Brand Namespace
 
-A domain namespace that Main Street is authorised to use for one Merchant Scope under MS-PROT-088.
+A domain namespace that GrandRue is authorised to use for one Merchant Scope under MS-PROT-088.
 
 Initial families are:
 
@@ -2510,7 +2510,7 @@ An assignment is not Merchant Scope identity, domain ownership, binding authorit
 
 ### Domain Control Evidence
 
-Deterministic, purpose-qualified evidence that the exact Merchant Scope is currently authorised to use a merchant-controlled domain for an accepted Main Street purpose.
+Deterministic, purpose-qualified evidence that the exact Merchant Scope is currently authorised to use a merchant-controlled domain for an accepted GrandRue purpose.
 
 Hard distinction:
 
@@ -2563,7 +2563,7 @@ Plan content is distinct from progression permission, external-effect identity/c
 
 ### Business Email Identity
 
-A merchant-branded public sender identity used by an independently authorised Main Street communication responsibility.
+A merchant-branded public sender identity used by an independently authorised GrandRue communication responsibility.
 
 Examples may render as `bookings@merchant.example` or `support@merchant.example`.
 
@@ -2582,7 +2582,7 @@ Business Email Identity
 
 A **Merchant-Controlled Domain** is a domain or delegated subdomain for which adequate current control has been established for the intended purpose and whose merchant portability is preserved.
 
-A **Platform-Delegated Namespace** is a merchant-qualified child namespace beneath a Main Street-controlled parent domain. It is platform-managed and is not represented as merchant-owned or externally transferable.
+A **Platform-Delegated Namespace** is a merchant-qualified child namespace beneath a GrandRue-controlled parent domain. It is platform-managed and is not represented as merchant-owned or externally transferable.
 
 Canonical cross-domain distinction:
 
@@ -2604,7 +2604,7 @@ Business Email Identity
 
 ## 30. Canonical qualification rule
 
-When a term has more than one valid Main Street meaning:
+When a term has more than one valid GrandRue meaning:
 
 ```text
 cross-domain normative context
@@ -2931,7 +2931,7 @@ Initial membership requires direct customer action or authorised merchant attest
 
 ### Queue Precedence
 
-The immutable Waitlist-owned ordering of current Waitlist Entries for one exact Waitlist Target. The initial policy is FIFO by Main Street authoritative admission order with deterministic total ordering for concurrency. Client timestamps, merchant backdating, VIP/value/AI scores and manual reordering do not create precedence authority.
+The immutable Waitlist-owned ordering of current Waitlist Entries for one exact Waitlist Target. The initial policy is FIFO by GrandRue authoritative admission order with deterministic total ordering for concurrency. Client timestamps, merchant backdating, VIP/value/AI scores and manual reordering do not create precedence authority.
 
 ### Waitlist Promotion
 
@@ -2975,7 +2975,7 @@ The initial target portfolio is limited to exact Appointment interval, exact sha
 
 **Authority:** MS-PROT-042 v1.15.
 
-Overbooking means intentionally permitting authoritative customer commitments beyond ordinary simultaneously satisfiable capacity. It is not the same as stale availability or a concurrency defect. Overbooking is not admitted into the initial Main Street portfolio; merchant policy, AI prediction or inflated capacity configuration cannot create that authority.
+Overbooking means intentionally permitting authoritative customer commitments beyond ordinary simultaneously satisfiable capacity. It is not the same as stale availability or a concurrency defect. Overbooking is not admitted into the initial GrandRue portfolio; merchant policy, AI prediction or inflated capacity configuration cannot create that authority.
 
 ---
 
@@ -2994,12 +2994,12 @@ An immutable versioned source-owner-qualified semantic contract establishing whe
 ### Review Solicitation
 
 **Authority:** MS-PROT-090 v1.0.
-A bounded Main Street coordination responsibility for issuing one neutral targeted external-review request to an independently eligible CustomerContext under current Review Destination, source experience, contact-permission, preference and Notification constraints. Initial policy is `DISABLED` or `ALL_ELIGIBLE_ONCE`; solicitation is not review truth or review-conversion attribution.
+A bounded GrandRue coordination responsibility for issuing one neutral targeted external-review request to an independently eligible CustomerContext under current Review Destination, source experience, contact-permission, preference and Notification constraints. Initial policy is `DISABLED` or `ALL_ELIGIBLE_ONCE`; solicitation is not review truth or review-conversion attribution.
 
 ### External Review Reference
 
 **Authority:** MS-PROT-090 v1.0.
-The minimum provider-qualified locator/provenance retained to coordinate observation and handling of one external provider review. It is not a native Main Street review and does not transfer provider review-content/rating ownership.
+The minimum provider-qualified locator/provenance retained to coordinate observation and handling of one external provider review. It is not a native GrandRue review and does not transfer provider review-content/rating ownership.
 
 ### Merchant Review Response Instruction
 
@@ -3017,10 +3017,10 @@ Review Solicitation
     ≠ customer satisfaction
 
 External Review Reference
-    ≠ native Main Street review
+    ≠ native GrandRue review
 
 provider review content/rating
-    ≠ Main Street reputation score
+    ≠ GrandRue reputation score
 
 merchant reply approval
     ≠ provider reply effect

@@ -1,4 +1,4 @@
-# Main Street Design Rules
+# GrandRue Design Rules
 
 **Document ID:** MS-DESIGN-RULES-001  
 **Version:** 2.5
@@ -6,7 +6,7 @@
 **Applies from:** 16 September 2026  
 **Governed by:** `DOCUMENT-GOVERNANCE.md`  
 **Fundamental product-purpose authority:** `MS-FUNDAMENTAL-VISION-001` — `docs/foundation/Fundamental-Vision-Mission-and-Product-Constitution.md`  
-**Purpose:** Define the mandatory rules for proposing, evaluating, falsifying, presenting, approving, formalising and maintaining Main Street design decisions, including Fundamental Vision Conformance, strict pre-approval repository isolation, established MS-PROT document-format requirements, normative-writing rules and ambiguity-elimination requirements.
+**Purpose:** Define the mandatory rules for proposing, evaluating, falsifying, presenting, approving, formalising and maintaining GrandRue design decisions, including Fundamental Vision Conformance, strict pre-approval repository isolation, established MS-PROT document-format requirements, normative-writing rules and ambiguity-elimination requirements.
 
 ---
 
@@ -14,9 +14,9 @@
 
 ## 0. Fundamental Vision Conformance Authority
 
-Main Street design MUST conform to the accepted `MS-FUNDAMENTAL-VISION-001 — Main Street Fundamental Vision, Mission and Product Constitution`.
+GrandRue design MUST conform to the accepted `MS-FUNDAMENTAL-VISION-001 — Main Street Fundamental Vision, Mission and Product Constitution`.
 
-The Fundamental Vision defines **why Main Street exists**. Design authorities define **how Main Street fulfils that purpose**.
+The Fundamental Vision defines **why GrandRue exists**. Design authorities define **how GrandRue fulfils that purpose**.
 
 Therefore:
 
@@ -38,7 +38,7 @@ Implementation
 
 A lower-level authority MUST NOT silently contradict an applicable higher-level product-purpose constraint.
 
-Technical correctness is insufficient where the resulting design materially undermines Main Street's fundamental mission.
+Technical correctness is insufficient where the resulting design materially undermines GrandRue's fundamental mission.
 
 ### 0.1 Mandatory Vision Conformance Gate
 
@@ -48,21 +48,21 @@ The gate MUST test the following.
 
 #### 0.1.1 Business-to-Software Translation
 
-Does the design allow Main Street to absorb software interpretation/configuration work that would otherwise fall on the merchant?
+Does the design allow GrandRue to absorb software interpretation/configuration work that would otherwise fall on the merchant?
 
 The design SHOULD move toward:
 
 ```text
 merchant describes business reality
         ↓
-Main Street translates
+GrandRue translates
         ↓
 registered supported semantics
         ↓
 approved operating configuration
 ```
 
-It SHOULD NOT unnecessarily require merchants to understand software categories or Main Street's internal architecture.
+It SHOULD NOT unnecessarily require merchants to understand software categories or GrandRue's internal architecture.
 
 #### 0.1.2 Administrative Compression
 
@@ -86,7 +86,7 @@ Implementation convenience alone is insufficient justification.
 
 For routine staff operations, ask:
 
-> Would an ordinary worker need formal Main Street product training to use this correctly?
+> Would an ordinary worker need formal GrandRue product training to use this correctly?
 
 If YES, the proposal is presumptively non-conforming.
 
@@ -99,11 +99,11 @@ legal/compliance obligation
 safety/security requirement
 ```
 
-rather than Main Street's software structure.
+rather than GrandRue's software structure.
 
 Canonical:
 
-> **Staff learn their job and the business. They should not need to learn Main Street.**
+> **Staff learn their job and the business. They should not need to learn GrandRue.**
 
 #### 0.1.4 Role-Native Operation
 
@@ -113,7 +113,7 @@ Role-native projection SHOULD be preferred over universal application/module nav
 
 #### 0.1.5 Target-Market Proportionality
 
-Is the proposed complexity appropriate for Main Street's target:
+Is the proposed complexity appropriate for GrandRue's target:
 
 ```text
 micro and small businesses
@@ -121,7 +121,7 @@ with genuine operational complexity
 but limited software-administration capacity?
 ```
 
-A design MAY correctly model an enterprise requirement while still being inappropriate for Main Street.
+A design MAY correctly model an enterprise requirement while still being inappropriate for GrandRue.
 
 Such scope SHOULD be rejected or deferred rather than accepted merely because the architecture can represent it.
 
@@ -129,7 +129,7 @@ Such scope SHOULD be rejected or deferred rather than accepted merely because th
 
 Where a mature competitor or specialist product already provides similar functionality, ask:
 
-> What minimum depth does Main Street actually require to represent and coordinate the target business correctly?
+> What minimum depth does GrandRue actually require to represent and coordinate the target business correctly?
 
 The goal is NOT:
 
@@ -149,7 +149,7 @@ minimum sufficiently expressive capability
 
 For each proposed capability, ask:
 
-> Does Main Street need authoritative ownership of this business fact to fulfil its operating role?
+> Does GrandRue need authoritative ownership of this business fact to fulfil its operating role?
 
 If YES:
 
@@ -164,11 +164,11 @@ provider integration SHOULD be preferred
 where practical
 ```
 
-A design MUST NOT reproduce mature external infrastructure merely to increase Main Street's feature count.
+A design MUST NOT reproduce mature external infrastructure merely to increase GrandRue's feature count.
 
 #### 0.1.8 Cross-Capability Value
 
-Does the proposal improve Main Street's ability to coordinate already authoritative business facts?
+Does the proposal improve GrandRue's ability to coordinate already authoritative business facts?
 
 Examples:
 
@@ -208,7 +208,7 @@ rather than:
 
 Can the capability be introduced progressively as the merchant's business evolves?
 
-Main Street SHOULD prefer:
+GrandRue SHOULD prefer:
 
 ```text
 new business fact
@@ -239,7 +239,7 @@ VISION-UNRESOLVED
 
 `VISION-CONFORMING WITH JUSTIFIED COMPLEXITY` means the proposal introduces necessary complexity, but that complexity is intrinsic to correct business representation, safety, security, law, privacy or another accepted invariant. The justification MUST be explicit.
 
-`VISION-NON-CONFORMING` means the proposal materially moves Main Street away from its fundamental purpose. It MUST be rejected or fundamentally revised.
+`VISION-NON-CONFORMING` means the proposal materially moves GrandRue away from its fundamental purpose. It MUST be rejected or fundamentally revised.
 
 `VISION-UNRESOLVED` means material uncertainty remains about conformity. The proposal MUST NOT proceed to acceptance until resolved.
 
@@ -247,7 +247,7 @@ VISION-UNRESOLVED
 
 The existence of a feature in Square, Shopify, Zoho, Odoo, Wix, Jobber, vertical SaaS or another competitor is neither evidence for nor against implementing it.
 
-A proposed feature MUST be justified through Main Street's own vision.
+A proposed feature MUST be justified through GrandRue's own vision.
 
 Rejected reasoning:
 
@@ -259,7 +259,7 @@ Required reasoning:
 
 ```text
 "This business operation is materially required
-by Main Street's target merchants,
+by GrandRue's target merchants,
 and this is the simplest conforming way
 to represent or coordinate it."
 ```
@@ -268,17 +268,17 @@ to represent or coordinate it."
 
 A proposed future capability SHOULD satisfy at least one of:
 
-**Representation Test** — Without it, Main Street cannot faithfully represent a material operation of target businesses.
+**Representation Test** — Without it, GrandRue cannot faithfully represent a material operation of target businesses.
 
-**Coordination Test** — Without it, Main Street cannot correctly coordinate existing authoritative capabilities.
+**Coordination Test** — Without it, GrandRue cannot correctly coordinate existing authoritative capabilities.
 
-**Administrative-Compression Test** — Without it, target merchants retain significant avoidable recurring administration that Main Street can safely absorb.
+**Administrative-Compression Test** — Without it, target merchants retain significant avoidable recurring administration that GrandRue can safely absorb.
 
 A proposal satisfying none of these SHOULD normally be rejected.
 
 ### 0.5 Complexity Burden Rule
 
-Main Street MUST absorb more software complexity than it exposes.
+GrandRue MUST absorb more software complexity than it exposes.
 
 Therefore:
 
@@ -294,7 +294,7 @@ A new capability that requires significant additional merchant configuration or 
 
 ### 0.6 Business Language Rule
 
-Merchant and staff interaction SHOULD use the language of the business rather than Main Street's internal semantic model.
+Merchant and staff interaction SHOULD use the language of the business rather than GrandRue's internal semantic model.
 
 Preferred:
 
@@ -382,10 +382,10 @@ No MS-PROT, TAS, ADR, PRD, implementation rule or implementation decision may im
 
 ## 1. Governing Principle
 
-Main Street design begins with the accepted Fundamental Vision and the target-business reality that must be represented, and proceeds toward implementation. Technology, patterns, abstractions and data structures are selected because they fit the domain and its constraints; the domain is not reshaped merely to justify a preferred technical mechanism.
+GrandRue design begins with the accepted Fundamental Vision and the target-business reality that must be represented, and proceeds toward implementation. Technology, patterns, abstractions and data structures are selected because they fit the domain and its constraints; the domain is not reshaped merely to justify a preferred technical mechanism.
 
 ```text
-Fundamental Main Street Vision
+Fundamental GrandRue Vision
         ↓
 Target-business reality / business need
         ↓
@@ -406,17 +406,17 @@ Technology
 Implementation
 ```
 
-Business reality remains authoritative for understanding the merchant domain. The Fundamental Vision determines whether Main Street should solve that problem and under what product constraints.
+Business reality remains authoritative for understanding the merchant domain. The Fundamental Vision determines whether GrandRue should solve that problem and under what product constraints.
 
 A design is not accepted merely because it is technically feasible, familiar, fashionable, easy to implement, or discussed extensively.
 
-Accepted design MUST survive the Main Street validation process, satisfy applicable Fundamental Vision Conformance and remain consistent with the current accepted authorities applicable to its scope as resolved through DOCUMENT-GOVERNANCE.md and AUTHORITY-INDEX.md.
+Accepted design MUST survive the GrandRue validation process, satisfy applicable Fundamental Vision Conformance and remain consistent with the current accepted authorities applicable to its scope as resolved through DOCUMENT-GOVERNANCE.md and AUTHORITY-INDEX.md.
 
 ---
 
 ## 2. Mandatory Design-Decision Lifecycle
 
-Every material Main Street design decision MUST follow this lifecycle:
+Every material GrandRue design decision MUST follow this lifecycle:
 
 ```text
 DESIGN / PROPOSE
@@ -487,20 +487,20 @@ Is this design correct?
 and:
 
 ```text
-Should Main Street work this way?
+Should GrandRue work this way?
 ```
 
 and:
 
 ```text
-Is this the best justified approach for Main Street among the credible alternatives examined?
+Is this the best justified approach for GrandRue among the credible alternatives examined?
 ```
 
-"Best" means the strongest justified fit with Main Street's Fundamental Vision, merchant simplicity, semantic ownership, safety, implementation cost and maintenance cost. It does not require theoretical perfection or exhaustive exploration of every conceivable alternative.
+"Best" means the strongest justified fit with GrandRue's Fundamental Vision, merchant simplicity, semantic ownership, safety, implementation cost and maintenance cost. It does not require theoretical perfection or exhaustive exploration of every conceivable alternative.
 
 Review MUST explain why the chosen approach is preferable to the credible alternatives examined, including a smaller change, reuse of existing authority, or doing nothing where applicable.
 
-A proposal MAY be semantically correct, architecturally clean and technically feasible and still be rejected because it violates the Main Street Fundamental Vision.
+A proposal MAY be semantically correct, architecturally clean and technically feasible and still be rejected because it violates the GrandRue Fundamental Vision.
 
 Review MUST actively seek unnecessary complexity, duplication, hidden coupling, semantic leakage, authority collision, business-type assumptions, speculative machinery, unnecessary merchant configuration, unnecessary staff training and product-suite drift.
 
@@ -514,7 +514,7 @@ Falsification SHOULD use concrete merchant scenarios, state transitions, depende
 
 It SHOULD ask whether the proposal fails for other valid merchant domains, duplicates authoritative state, creates shared mutation authority, confuses configuration/runtime state, lets entitlement or providers redefine semantics, overrides merchant policy, introduces speculative abstraction, or fails under upgrade/downgrade, provider failure, partial fulfilment, concurrency, retries or long-running commitments.
 
-Falsification MUST also attempt to prove that the proposal causes Main Street to drift toward conventional ERP complexity, generic software-suite behaviour, merchant-administered integration, feature accumulation, business-type hard-coding, unnecessary configuration, unnecessary staff training, enterprise complexity inappropriate to target businesses, AI-created semantic authority, or module-centric rather than business-centric interaction.
+Falsification MUST also attempt to prove that the proposal causes GrandRue to drift toward conventional ERP complexity, generic software-suite behaviour, merchant-administered integration, feature accumulation, business-type hard-coding, unnecessary configuration, unnecessary staff training, enterprise complexity inappropriate to target businesses, AI-created semantic authority, or module-centric rather than business-centric interaction.
 
 Falsification MUST include at least one scenario testing the proposal from the perspective of a low-software-capacity target merchant. Where staff are affected, at least one ordinary-staff scenario SHOULD also be tested.
 
@@ -599,7 +599,7 @@ Approval must be attributable to the complete proposed authority presented for a
 
 ### 2.8 Repository Isolation Before Approval
 
-Unapproved design documentation MUST leave no design-documentation trace in the Main Street repository.
+Unapproved design documentation MUST leave no design-documentation trace in the GrandRue repository.
 
 Before explicit manual approval, the following are prohibited for the proposed design:
 
@@ -705,7 +705,7 @@ Normative content MUST use the precision rules in Part II.
 
 ## 6. Required Metadata
 
-Every new or materially amended authority MUST contain the applicable metadata used by the established Main Street MS-PROT authority format.
+Every new or materially amended authority MUST contain the applicable metadata used by the established GrandRue MS-PROT authority format.
 
 At minimum, where applicable:
 
@@ -731,7 +731,7 @@ Current authority navigation belongs in `AUTHORITY-INDEX.md`; substantive semant
 
 ## 7. Composite Architecture Preservation Rule
 
-Designs MUST preserve Main Street's accepted composite/business-driven architecture unless an explicit architectural amendment is separately proposed, falsified and approved.
+Designs MUST preserve GrandRue's accepted composite/business-driven architecture unless an explicit architectural amendment is separately proposed, falsified and approved.
 
 The default composite model is:
 
@@ -791,11 +791,11 @@ Configuration MUST NOT become a container for live operational state. The compil
 
 ## 10. Merchant Authority Rule
 
-Main Street streamlines merchant operations; it does not decide how merchants should operate unless an accepted legal, security, safety or platform invariant requires restriction.
+GrandRue streamlines merchant operations; it does not decide how merchants should operate unless an accepted legal, security, safety or platform invariant requires restriction.
 
-Merchant-set operating, scheduling, delivery, return and similar supported business policies remain merchant decisions within registered Main Street semantics.
+Merchant-set operating, scheduling, delivery, return and similar supported business policies remain merchant decisions within registered GrandRue semantics.
 
-Main Street MAY assist configuration but MUST NOT silently substitute Main Street's preferred policy. Main Street is infrastructure, not a marketplace or general business adjudicator.
+GrandRue MAY assist configuration but MUST NOT silently substitute GrandRue's preferred policy. GrandRue is infrastructure, not a marketplace or general business adjudicator.
 
 ---
 
@@ -833,7 +833,7 @@ Where an AI proposal will become authoritative configuration, the design MUST pr
 
 ## 13. Provider Neutrality Rule
 
-Providers/adapters MUST NOT own Main Street business semantics.
+Providers/adapters MUST NOT own GrandRue business semantics.
 
 Design MUST distinguish business meaning, Provider Fulfilment, provider evidence and Provider Readiness. Provider failure MUST NOT silently rewrite existing business truth.
 
@@ -975,7 +975,7 @@ business-type hard-coding
 unnecessary merchant configuration
 conflicting product-purpose statements
 feature-parity language presented as product justification
-obsolete statements narrowing Main Street to website/online-presence software
+obsolete statements narrowing GrandRue to website/online-presence software
 ```
 
 Mechanical checks MUST NOT claim to prove arbitrary product-purpose or semantic coherence.
@@ -1291,7 +1291,7 @@ Words such as `Requested`, `Completed`, `Failed`, or `Updated` in event names MU
 
 A configuration rule MUST state who chooses the value, allowed semantic values/extension mechanism, validation, default semantics if any, absence semantics, compile-time/runtime resolution, merchant-vs-platform control, effect on future actions vs existing commitments, and version/provenance where historical affinity matters.
 
-`Default` MUST NOT silently mean that Main Street decides merchant policy.
+`Default` MUST NOT silently mean that GrandRue decides merchant policy.
 
 ---
 
@@ -1303,9 +1303,9 @@ Design involving commercial access MUST explicitly distinguish Semantic Applicab
 
 ## 51. Provider Precision Rule
 
-Where a provider participates, identify Main Street semantic owner, provider responsibility, port/adapter boundary, provider identifier/evidence, failure behaviour, retry/idempotency, readiness effects on new operations, survival of existing business truth, and callback classification.
+Where a provider participates, identify GrandRue semantic owner, provider responsibility, port/adapter boundary, provider identifier/evidence, failure behaviour, retry/idempotency, readiness effects on new operations, survival of existing business truth, and callback classification.
 
-Provider terminology MUST NOT replace Main Street business terminology in the owning domain.
+Provider terminology MUST NOT replace GrandRue business terminology in the owning domain.
 
 ---
 
@@ -1324,14 +1324,14 @@ Merchant-set policy MUST be explicit:
 ```text
 Merchant chooses policy
         ↓
-Main Street validates registered semantics
+GrandRue validates registered semantics
         ↓
-Main Street stores/compiles approved configuration
+GrandRue stores/compiles approved configuration
         ↓
-Main Street executes merchant policy consistently
+GrandRue executes merchant policy consistently
 ```
 
-Main Street choosing how the merchant should operate is prohibited unless separately justified by an accepted platform/legal/security invariant.
+GrandRue choosing how the merchant should operate is prohibited unless separately justified by an accepted platform/legal/security invariant.
 
 ---
 
@@ -1584,7 +1584,7 @@ Design acceptance therefore does not require pretending that evidence exists bef
 
 ## 76. Mandatory MS-PROT Document Format Rule
 
-New material Main Street design authorities MUST follow the established format and presentation discipline of the accepted MS-PROT document series.
+New material GrandRue design authorities MUST follow the established format and presentation discipline of the accepted MS-PROT document series.
 
 The format demonstrated by the accepted MS-PROT corpus—not an ad hoc architecture-document template—is the governing design-document style.
 
@@ -1651,11 +1651,11 @@ However, the following characteristics of the established MS-PROT format are man
 
 A new design authority MUST NOT use a materially different document style merely because another documentation convention, ADR template, RFC template or generated architecture template is available.
 
-TAS and ADR documents MAY retain their correct authority classification, but when they constitute material Main Street design authority they MUST use the established MS-PROT presentation discipline unless an explicitly approved reason requires a different representation.
+TAS and ADR documents MAY retain their correct authority classification, but when they constitute material GrandRue design authority they MUST use the established MS-PROT presentation discipline unless an explicitly approved reason requires a different representation.
 
 Non-applicable semantic dimensions MAY be omitted or explicitly marked `NOT APPLICABLE`, but omission MUST NOT create ambiguity.
 
-The objective is consistent engineering reasoning and authority readability across the Main Street corpus, not superficial section-number uniformity.
+The objective is consistent engineering reasoning and authority readability across the GrandRue corpus, not superficial section-number uniformity.
 
 ---
 
@@ -1807,13 +1807,13 @@ The single-current-document rule does not permit an unapproved revision to be co
 
 ## 82. Governing Writing Rule
 
-> **A Main Street design document must not merely communicate intent. It must constrain interpretation sufficiently that implementation cannot legitimately invent, merge, relocate or contradict business semantics that the design failed to state. Where the design does not determine a material business behaviour, reopen design rather than guess.**
+> **A GrandRue design document must not merely communicate intent. It must constrain interpretation sufficiently that implementation cannot legitimately invent, merge, relocate or contradict business semantics that the design failed to state. Where the design does not determine a material business behaviour, reopen design rather than guess.**
 
 ---
 
 ## 83. Repository Authority Boundary
 
-The Main Street repository MUST contain approved design authority, accepted historical authority and permitted implementation/evidence artefacts only.
+The GrandRue repository MUST contain approved design authority, accepted historical authority and permitted implementation/evidence artefacts only.
 
 For material design work:
 
