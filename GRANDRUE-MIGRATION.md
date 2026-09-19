@@ -961,8 +961,8 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 - `GR-REN-07` — active controls/canonical governance wording: `COMPLETE_PENDING_FINAL_VERIFICATION`
 - `GR-REN-08` — whole-repository migration coverage and residual classification: `COMPLETE` — GR-VV-R003 file accounting PASS, 847/847 claims reconciled, zero unexpected incremental paths.
 - `GR-REN-09` — migration falsification and exception/protected-identity validation: `COMPLETE` — checker negative controls retained from R001; R003 preservation/protected-identity checks PASS; zero open findings.
-- `GR-REN-10` — executable structural/build/test validation: `BLOCKED_PENDING_EXPLICIT_EXECUTABLE_VALIDATION_AUTHORISATION` — structural migration evidence passes; Maven tests / GitHub Actions remain unauthorised.
-- `GR-REN-11` — final closure/reconciliation and migration completion decision: `BLOCKED_BY_GR_REN_10`.
+- `GR-REN-10` — executable structural/build/test validation: `IN_PROGRESS_REPAIR_APPLIED_RERUN_REQUIRED` — user-supplied `mvn --batch-mode clean verify -Ppostgres-it` reached main-source compilation and failed with 38 errors entirely inside excluded `src/main/java/mainstreet/prototype/**`; bounded build repair `f4a95ce81e2a6d7a058b93c46048862b9275aabb` excludes that NON_MIGRATING_LEGACY_PROTOTYPE tree from Maven production compilation; exact rerun required.
+- `GR-REN-11` — final closure/reconciliation and migration completion decision: `BLOCKED_BY_GR_REN_10_RERUN`.
 
 ---
 
@@ -982,17 +982,45 @@ last_task_commit: da7be427cb2c7b8c90ee8dcadc87bc0f791e048b
 last_integrity_repair: GR-REN-REPAIR-T001
 last_integrity_repair_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
 post_migration_verification_run: GR-VV-R003
-post_migration_verification_target: 923db363003976856683a1b353845ecc9a29a714
-post_migration_verification_checkpoint: da7be427cb2c7b8c90ee8dcadc87bc0f791e048b
 post_migration_verification_result: PASS
 gr_ren_08: COMPLETE
 gr_ren_09: COMPLETE
-gr_ren_10: BLOCKED_PENDING_EXPLICIT_EXECUTABLE_VALIDATION_AUTHORISATION
-gr_ren_11: BLOCKED_BY_GR_REN_10
+gr_ren_10: IN_PROGRESS_REPAIR_APPLIED_RERUN_REQUIRED
+gr_ren_10_first_maven_command: mvn --batch-mode clean verify -Ppostgres-it
+gr_ren_10_first_maven_result: FAIL_MAIN_SOURCE_COMPILATION
+gr_ren_10_first_maven_error_count: 38
+gr_ren_10_failure_scope: src/main/java/mainstreet/prototype/**
+gr_ren_10_failure_classification: NON_MIGRATING_LEGACY_PROTOTYPE_ACTIVE_SOURCESET_CONTAMINATION
+gr_ren_10_build_repair_commit: f4a95ce81e2a6d7a058b93c46048862b9275aabb
+gr_ren_10_build_rep### GR-REN-10 executable validation — first run and bounded build repair
+
+User-supplied executable validation command:
+
+```text
+mvn --batch-mode clean verify -Ppostgres-it
+```
+
+Result: **FAIL during main-source compilation** after javac began compiling 1,143 source files. The 38 reported errors were confined to `src/main/java/mainstreet/prototype/**`, including stale `mainstreet.runtime` imports and a package/path mismatch in `PrototypeAppointmentSubjectConfiguration.java`.
+
+This is classified under the accepted migration disposition `NON_MIGRATING_LEGACY_PROTOTYPE`, not as evidence that the GrandRue production namespace migration failed. The migration authority explicitly requires quarantine/removal from active source sets when the retained legacy prototype obstructs final build verification rather than migrating or rebranding the prototype.
+
+Bounded repair commit `f4a95ce81e2a6d7a058b93c46048862b9275aabb` changes only `pom.xml` and adds Maven compiler exclusion:
+
+```xml
+<excludes>
+    <exclude>mainstreet/prototype/**</exclude>
+</excludes>
+```
+
+Comparison against parent `5fff16c2effc5a1ccffead2e1d9f3b9aa74defdb` contains exactly one changed path: `pom.xml`. No production GrandRue Java source, test, schema, runtime configuration, design authority or protected identity changed. GR-REN-10 remains open until the exact Maven command is rerun against this repair.
+
+air: EXCLUDE_mainstreet/prototype/**_FROM_MAVEN_PRODUCTION_COMPILATION
+gr_ren_10_rerun_required: true
+gr_ren_11: BLOCKED_BY_GR_REN_10_RERUN
 migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
 verification_handoff: COMPLETE_PASS
 implementation_handoff: BLOCKED
-next_action: EXPLICITLY_AUTHORISE_GR_REN_10_EXECUTABLE_VALIDATION_OR_STOP
+next_action: RERUN_MVN_BATCH_MODE_CLEAN_VERIFY_POSTGRES_IT
 ```
 
 ### Post-verification defect repair — GR-REN-REPAIR-T001

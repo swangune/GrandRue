@@ -394,7 +394,7 @@ leaf_role: AUDIT_COORDINATE_NOT_EXECUTION_UNIT
 numeric_leaf_limit: NONE_USE_NATURAL_GRAPH_CUTS
 active_tranche_manifest: docs/development/grandrue-migration-active-tranche.yaml
 active_tranche: null
-active_state: BLOCKED_PENDING_EXPLICIT_EXECUTABLE_VALIDATION_AUTHORISATION
+active_state: IN_PROGRESS_REPAIR_APPLIED_RERUN_REQUIRED
 last_completed_leaf: GR-REN-02-01X739
 last_completed_task: GR-REN-09
 last_code_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
@@ -512,18 +512,27 @@ closure_gates:
     open_findings: 0
     negative_controls: RETAINED_PASS_FROM_GR_VV_R001
   gr_ren_10:
-    state: BLOCKED_PENDING_EXPLICIT_EXECUTABLE_VALIDATION_AUTHORISATION
+    state: IN_PROGRESS_REPAIR_APPLIED_RERUN_REQUIRED
     structural_migration_validation: PASS
-    maven_tests: NOT_RUN_NOT_AUTHORISED
+    first_maven_command: mvn --batch-mode clean verify -Ppostgres-it
+    first_maven_result: FAIL_MAIN_SOURCE_COMPILATION
+    first_maven_error_count: 38
+    failure_scope: src/main/java/mainstreet/prototype/**
+    classification: NON_MIGRATING_LEGACY_PROTOTYPE_ACTIVE_SOURCESET_CONTAMINATION
+    build_repair_commit: f4a95ce81e2a6d7a058b93c46048862b9275aabb
+    build_repair_changed_paths: 1
+    build_repair_path: pom.xml
+    build_repair: EXCLUDE_mainstreet/prototype/**_FROM_PRODUCTION_COMPILATION
+    rerun_required: true
     github_actions: NOT_RUN_NOT_AUTHORISED
   gr_ren_11:
-    state: BLOCKED_BY_GR_REN_10
+    state: BLOCKED_BY_GR_REN_10_RERUN
 
 migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
 verification_handoff: COMPLETE_PASS
 verification_start_baseline: c4153441d8340b229a29884967d796280d949a7d
 verification_target: THIS_CHECKPOINT_COMMIT
-next_action: AWAIT_EXPLICIT_GR_REN_10_EXECUTABLE_VALIDATION_AUTHORISATION
+next_action: RERUN_MVN_BATCH_MODE_CLEAN_VERIFY_POSTGRES_IT
 ```
 
 Test namespace/runtime-coupled changes remain deferred to `GR-REN-03`. Maven tests and GitHub Actions remain prohibited unless separately authorised.
