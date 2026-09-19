@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T018
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 0d4753fced8197228deef6e0c96fd9a69d82d97a
 expected_parent: bd4ab2566f2562c452af4df05023057661cfbcf1
+validated_head: 0d4753fced8197228deef6e0c96fd9a69d82d97a
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-application
@@ -112,3 +115,6 @@ preparation_notes:
   - all owner blobs and absent GrandRue destinations reconciled against development at bd4ab2566f2562c452af4df05023057661cfbcf1
   - executable fully qualified references are migrated as code; literal compatibility/test identities are preserved
   - Maven tests and GitHub Actions were not run during preparation
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
