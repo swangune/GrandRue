@@ -434,19 +434,24 @@ execution:
   historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
   active_packet:
-    id: GR-VV-03-R004
-    kind: CLOSED_REGION_PRESERVATION
+    id: GR-VV-04-E001
+    kind: EXCEPTION_VALIDATION
     state: READY
+    exception_id: GR-VV-EXC-001
     progress:
-      total_files: 6
+      total_files: 26
       verified_files: 0
       passing_files: 0
       failing_files: 0
       blocked_files: 0
-      remaining_files: 6
+      remaining_files: 26
       progress_evidence: null
   queue:
-    - GR-VV-03-R004
+    - GR-VV-04-E001
+    - GR-VV-04-E002
+    - GR-VV-04-E003
+    - GR-VV-04-E004
+    - GR-VV-04-C001
   completed_packets:
     - id: GR-VV-00-01
       result: PASS
@@ -469,9 +474,12 @@ execution:
     - id: GR-VV-03-R003
       result: PASS
       receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R003.json
+    - id: GR-VV-03-R004
+      result: PASS
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R004.json
   results_recorded: true
   implementation_handoff: BLOCKED
-  next_action: Execute GR-VV-03-R004 against the frozen 6-file pure control/governance wording deterministic region. Preserve GR-VV-F001 and GR-VV-F002 unchanged; continue independent verification without repairing discrepancies.
+  next_action: Execute GR-VV-04-E001 against the frozen 26-file legacy-prototype compatibility-repair exception set. Preserve prototype package/path/API naming and permit only independently mapped migrated-owner dependency repairs. Preserve GR-VV-F001 and GR-VV-F002 unchanged; do not repair discrepancies.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
