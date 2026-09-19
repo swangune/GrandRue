@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T029
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 4b105c23ba259a796da7f5fd68df7fa64e13452f
 expected_parent: 30d87cce1c8b593def40da0cf626c2e2271f7045
+validated_head: 4b105c23ba259a796da7f5fd68df7fa64e13452f
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-semantic-execution
@@ -60,3 +63,6 @@ protected:
 expected_residuals:
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
