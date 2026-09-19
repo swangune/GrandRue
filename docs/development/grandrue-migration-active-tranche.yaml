@@ -4,9 +4,12 @@ repository: swangune/GrandRue
 branch: development
 tranche: GR-REN-03-T041
 group: GR-REN-03
-state: CODE_COMMITTED
-code_commit: THIS_COMMIT
+state: COMPLETE
+code_commit: 4bd709e6fd3797695c162ccd0ed6dbc7ef54acaf
 expected_parent: ca8b8c9e3102982b0bd09de34aa15d5ae036eedb
+validated_head: 4bd709e6fd3797695c162ccd0ed6dbc7ef54acaf
+checkpoint_commit: THIS_COMMIT
+verified: true
 
 region:
   identity: test-booking
@@ -93,3 +96,6 @@ verification:
   protected_identity_check: required
   maven_tests: prohibited_unless_separately_authorised
   github_actions: prohibited_unless_separately_authorised
+
+next_group: GR-REN-03
+next_state: PREPARATION_REQUIRED
