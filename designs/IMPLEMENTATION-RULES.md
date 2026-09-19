@@ -1,12 +1,12 @@
 # GrandRue Implementation Rules
 
 **Document ID:** MS-IMPLEMENTATION-RULES-001  
-**Version:** 2.0  
+**Version:** 2.1  
 **Status:** Accepted  
-**Approved:** 18 September 2026 — explicit manual approval of the complete v2.0 proposal  
-**Applies from:** 18 September 2026  
-**Last amended:** 18 September 2026  
-**Purpose:** Define the mandatory rules for implementing accepted GrandRue design in production code and tests, including MS-IMP-001 integration, dependency-complete behavioural-slice execution, test integrity, proportional checkpoint verification, full node-completion verification, composite architecture/programming-paradigm conformance, evidence integrity, exact design-to-code traceability, the canonical `/IMPLEMENTATION.md` live controller, explicit branch-creation authorisation, DESIGN-RULES-governed escalation, post-migration verification handoff, and context-efficient authority loading.
+**Approved:** 19 September 2026 — explicit manual approval to formalise the complete v2.1 source-rooted defect-correction and import-clarity proposal  
+**Applies from:** 19 September 2026  
+**Last amended:** 19 September 2026  
+**Purpose:** Define the mandatory rules for implementing accepted GrandRue design in production code and tests, including MS-IMP-001 integration, dependency-complete behavioural-slice execution, test integrity, proportional checkpoint verification, full node-completion verification, composite architecture/programming-paradigm conformance, evidence integrity, exact design-to-code traceability, the canonical `/IMPLEMENTATION.md` live controller, explicit branch-creation authorisation, DESIGN-RULES-governed escalation, terminal post-migration handoff, source-rooted defect correction, import clarity, and context-efficient authority loading.
 
 ---
 
@@ -538,7 +538,13 @@ Prefer the smallest implementation satisfying accepted contracts while preservin
 
 Production/test identifiers SHOULD use canonical semantic vocabulary and qualifiers where bare terms are ambiguous. Public/persisted renames with migration/contract impact require the applicable approval process.
 
-Production and test source code MUST use explicit imports. Wildcard imports (`*`), including static wildcard imports, are prohibited because they obscure symbol provenance and can create ambiguous references as packages evolve. Every imported type or static member MUST be named explicitly. Tooling and IDE configuration SHOULD preserve explicit imports rather than automatically collapsing them into wildcard imports.
+Production and test source code SHOULD use explicit imports by default because explicit imports normally provide clearer symbol provenance, dependency ownership, reviewability and refactoring safety.
+
+Wildcard imports (`*`), including static wildcard imports, MAY be used only where they expose one cohesive namespace or vocabulary, materially improve readability or maintainability over the equivalent explicit-import set, and do not obscure dependency provenance, semantic ownership or symbol identity.
+
+Wildcard imports MUST NOT be introduced merely to reduce import count, satisfy an IDE/tool threshold, conceal an unresolved or missing dependency, avoid identifying the correct source type, or shortcut a defect correction. If an actual or reasonably foreseeable ambiguity exists, or provenance becomes materially less clear, explicit imports MUST be used.
+
+Static wildcard imports are subject to the same rule and SHOULD be used more conservatively where unqualified members could obscure their declaring owner. Tooling and IDE configuration SHOULD preserve explicit imports as the default and MUST NOT collapse explicit imports into wildcards solely because an arbitrary numeric import threshold is reached.
 
 ---
 
@@ -850,6 +856,28 @@ Only the first four classes may continue automatically.
 ## 44. Automated Sequence Failure Handling
 
 If accepted behaviour is clear, identify and fix the implementation/test defect and rerun verification. If it is not clear, stop affected work as `DESIGN_ESCALATION`. Automation MUST NOT repeatedly mutate tests/code without establishing authority.
+
+### 44.1 Source-Rooted Defect Correction Rule
+
+When a defect is discovered after a migration, verification programme, implementation node or other bounded execution has closed, implementation MUST correct the current repository state from the earliest authoritative source that owns the incorrect state, behaviour, dependency or representation.
+
+A closed historical programme MUST NOT be reopened merely because it introduced, failed to detect or previously passed over the defect.
+
+The correction process MUST:
+
+1. establish reproducible current evidence of the defect;
+2. resolve the relevant accepted authority through `AUTHORITY-INDEX.md`;
+3. identify the current semantic, architectural or implementation owner;
+4. trace the causal dependency chain to the authoritative source of the incorrect state;
+5. correct that source and only the necessary dependent surfaces;
+6. verify the correction according to its current blast radius; and
+7. enter `DESIGN_ESCALATION` if accepted authority does not determine the correct state or owner.
+
+Historical migration, verification, checkpoint and completion evidence remains immutable provenance of what was executed and checked. It is evidence, not repair authority.
+
+Where the missed defect exposes a reusable weakness in an applicable test, conformance rule or checker, that verification weakness SHOULD be corrected independently and regression-tested or negative-controlled where proportionate. Strengthening the detector does not reopen the historical programme and does not rewrite or retroactively invalidate its historical receipts.
+
+A downstream workaround MUST NOT substitute for a safe source correction merely because the workaround is smaller or produces a faster green build.
 
 ---
 
@@ -2165,7 +2193,7 @@ required post-migration verification complete
 +
 GR-REN-08..11 closure requirements satisfied
 +
-no unresolved migration defect requiring repair
+no unresolved migration defect requiring repair at handoff
 +
 no unresolved DESIGN_ESCALATION preventing implementation
 ```
@@ -2190,7 +2218,15 @@ resume implementation automatically
 
 No separate `continue implementation` prompt is required where MS-IMP-001 and these rules already authorise the READY work.
 
-If post-migration verification returns `FAIL` or a relevant `BLOCKED` outcome, there is NO implementation handoff. Resolve/revalidate the migration finding first.
+At successful handoff, the naming migration and its post-migration verification are closed for implementation purposes. `IMPLEMENTATION-RULES.md` MUST NOT reopen them.
+
+A defect discovered after handoff, including one introduced by migration or missed by post-migration verification, is governed by Section 44.1 using current evidence, current accepted authority and the current authoritative source. No new migration leaf, tranche, repair cycle, checkpoint or migration re-entry is created merely because the defect has migration provenance.
+
+Historical migration and post-migration verification artefacts MAY be inspected to establish what happened and where a defect originated, but they do not become repair authority and MUST NOT be rewritten to imply that a later-discovered defect was detected earlier.
+
+Where the later defect exposes a reusable weakness in a current test, conformance rule or checker, that detector MAY be strengthened independently under Section 44.1. This does not rerun or reopen the historical post-migration verification programme.
+
+If post-migration verification returns `FAIL` or a relevant `BLOCKED` outcome before handoff, there is NO implementation handoff. Resolve the migration finding under the then-current migration authority before handoff.
 
 Naming migration changes MUST NOT be interpreted as semantic implementation completion or as authority to change graph meaning.
 
@@ -2214,10 +2250,10 @@ The implementation process MUST reject these failure modes:
 - status retirement loses history → retain Git and bounded evidence;
 - slice becomes arbitrary huge batch → partition by behavioural/dependency closure and falsifiability;
 - migration rename becomes implementation progress → reconcile factual paths only; preserve programme meaning;
-- post-migration defect exists → block implementation handoff;
+- unresolved migration defect known before handoff → block implementation handoff; later-discovered defect after handoff → apply Section 44.1 from source without reopening migration;
 - security/persistence/concurrency/provider/design uncertainty is treated as routine → widen/escalate;
 - stale full-suite result is reused after invalidating changes → rerun applicable gate.
 
 ### 56.12 Final Governing Rule
 
-> **Implement by the smallest meaningful READY responsibility, but execute that responsibility through dependency-complete behavioural slices rather than file-level cycles. Prepare resolved decisions once, use tests first, apply the minimum complete implementation needed for the slice, verify proportionally at checkpoints, require the full applicable gate before node completion, keep the canonical graph machine-readable and `/IMPLEMENTATION.md` small and restartable, preserve historical evidence without duplicating it, and automatically resume the governed implementation programme only after migration and post-migration verification are completely reconciled. Efficiency never authorises semantic inference, hidden dependency, weakened verification or bypass of a design gate.**
+> **Implement by the smallest meaningful READY responsibility, but execute that responsibility through dependency-complete behavioural slices rather than file-level cycles. Prepare resolved decisions once, use tests first, apply the minimum complete implementation needed for the slice, verify proportionally at checkpoints, require the full applicable gate before node completion, keep the canonical graph machine-readable and `/IMPLEMENTATION.md` small and restartable, and preserve historical evidence without duplicating it. After successful migration handoff, migration remains closed: later defects are corrected from their authoritative source using current evidence and accepted authority, with reusable detector gaps hardened independently where justified. Explicit imports remain the default; wildcard imports are permitted only when they expose a cohesive vocabulary, materially improve clarity and preserve unambiguous dependency provenance. Efficiency never authorises semantic inference, hidden dependency, weakened verification or bypass of a design gate.**

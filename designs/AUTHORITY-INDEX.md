@@ -285,9 +285,9 @@ The handle is GrandRue-generated, opaque and non-PII; it is not the semantic Ide
 | MS-DESIGN-RULES-001 | integrated accepted v2.5 — `designs/DESIGN-RULES.md` |
 | MS-DOCUMENT-GOVERNANCE-001 | integrated accepted v2.4 — `designs/DOCUMENT-GOVERNANCE.md` |
 | MS-DESIGN-CORPUS-CONFORMANCE-001 | integrated accepted v2.6 — `designs/DESIGN-CORPUS-CONFORMANCE.md` |
-| MS-IMPLEMENTATION-RULES-001 | integrated accepted v2.0 — `designs/IMPLEMENTATION-RULES.md` |
+| MS-IMPLEMENTATION-RULES-001 | integrated accepted v2.1 — `designs/IMPLEMENTATION-RULES.md` |
 
-MS-IMP-001 governs the macro production-implementation graph. DESIGN-RULES governs the design lifecycle and Fundamental Vision Conformance before acceptance. DOCUMENT-GOVERNANCE governs canonical authority placement and navigation. DESIGN-CORPUS-CONFORMANCE governs deterministic structural validation. IMPLEMENTATION-RULES governs READY-node execution through dependency-complete behavioural slices, tests-first implementation, proportional slice verification, full node-completion verification, `/IMPLEMENTATION.md` live-controller synchronisation, exact design-to-code traceability, evidence integrity, context-efficient authority loading and mandatory escalation for material unresolved decisions. None of these creates capability-specific business semantics.
+MS-IMP-001 governs the macro production-implementation graph. DESIGN-RULES governs the design lifecycle and Fundamental Vision Conformance before acceptance. DOCUMENT-GOVERNANCE governs canonical authority placement and navigation. DESIGN-CORPUS-CONFORMANCE governs deterministic structural validation. IMPLEMENTATION-RULES governs READY-node execution through dependency-complete behavioural slices, tests-first implementation, proportional slice verification, full node-completion verification, `/IMPLEMENTATION.md` live-controller synchronisation, exact design-to-code traceability, evidence integrity, source-rooted defect correction after closed execution, import clarity, context-efficient authority loading and mandatory escalation for material unresolved decisions. None of these creates capability-specific business semantics.
 
 ---
 
