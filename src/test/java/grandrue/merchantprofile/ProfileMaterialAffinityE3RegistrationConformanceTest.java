@@ -1,29 +1,29 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.runtime.SessionRecordStore;
-import mainstreet.surface.AudienceObservationContextEstablisher;
-import mainstreet.surface.AudienceObservationContextEstablishmentResult;
-import mainstreet.surface.BoundedProjectionRead;
-import mainstreet.surface.ContextualAccessProofRuntimeBindingSnapshot;
-import mainstreet.surface.EstablishedObservationContribution;
-import mainstreet.surface.EstablishedObservationRequest;
-import mainstreet.surface.ExposableElementReference;
-import mainstreet.surface.ExposureCandidateInstanceReference;
-import mainstreet.surface.ExposureCandidateObservation;
-import mainstreet.surface.ObservationContributionConstructionBoundary;
-import mainstreet.surface.ObservationContributionDefinitionRegistrySnapshot;
-import mainstreet.surface.ObservationContributionRuntimeBindingSnapshot;
-import mainstreet.surface.ProjectionContractIdentity;
-import mainstreet.surface.ProjectionMaterialFragment;
-import mainstreet.surface.ProjectionMaterialSourceAffinity;
-import mainstreet.surface.ProjectionReadUseIdentity;
-import mainstreet.surface.ProjectionSourceAvailability;
-import mainstreet.surface.ProjectionSourceCompleteness;
-import mainstreet.surface.ProjectionSourceDependencyReference;
-import mainstreet.surface.ProjectionSourceEvidence;
-import mainstreet.surface.ProjectionSourceRevocationState;
-import mainstreet.surface.TestObservationRequests;
+import grandrue.application.MerchantScope;
+import grandrue.runtime.SessionRecordStore;
+import grandrue.surface.AudienceObservationContextEstablisher;
+import grandrue.surface.AudienceObservationContextEstablishmentResult;
+import grandrue.surface.BoundedProjectionRead;
+import grandrue.surface.ContextualAccessProofRuntimeBindingSnapshot;
+import grandrue.surface.EstablishedObservationContribution;
+import grandrue.surface.EstablishedObservationRequest;
+import grandrue.surface.ExposableElementReference;
+import grandrue.surface.ExposureCandidateInstanceReference;
+import grandrue.surface.ExposureCandidateObservation;
+import grandrue.surface.ObservationContributionConstructionBoundary;
+import grandrue.surface.ObservationContributionDefinitionRegistrySnapshot;
+import grandrue.surface.ObservationContributionRuntimeBindingSnapshot;
+import grandrue.surface.ProjectionContractIdentity;
+import grandrue.surface.ProjectionMaterialFragment;
+import grandrue.surface.ProjectionMaterialSourceAffinity;
+import grandrue.surface.ProjectionReadUseIdentity;
+import grandrue.surface.ProjectionSourceAvailability;
+import grandrue.surface.ProjectionSourceCompleteness;
+import grandrue.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ProjectionSourceEvidence;
+import grandrue.surface.ProjectionSourceRevocationState;
+import grandrue.surface.TestObservationRequests;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -118,27 +118,27 @@ class ProfileMaterialAffinityE3RegistrationConformanceTest {
     private static SessionRecordStore emptySessions() {
         return new SessionRecordStore() {
             @Override
-            public mainstreet.runtime.SessionRecord create(
-                    mainstreet.runtime.SessionRecord candidate
+            public grandrue.runtime.SessionRecord create(
+                    grandrue.runtime.SessionRecord candidate
             ) {
                 throw new UnsupportedOperationException();
             }
 
             @Override
-            public Optional<mainstreet.runtime.SessionRecord> sessionByIdentity(
+            public Optional<grandrue.runtime.SessionRecord> sessionByIdentity(
                     String sessionIdentity
             ) {
                 return Optional.empty();
             }
 
             @Override
-            public Optional<mainstreet.runtime.SessionRecord>
+            public Optional<grandrue.runtime.SessionRecord>
             sessionByCredentialVerifier(String credentialVerifier) {
                 return Optional.empty();
             }
 
             @Override
-            public mainstreet.runtime.SessionRecord revoke(
+            public grandrue.runtime.SessionRecord revoke(
                     String sessionIdentity,
                     Instant revokedAt,
                     String reason

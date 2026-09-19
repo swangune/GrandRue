@@ -2,114 +2,67 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T022
+tranche: GR-REN-03-T023
 group: GR-REN-03
-state: COMPLETE
-code_commit: 35d9fe346b42dddd1f3f91fc4168d0aa4e3f1ac9
-expected_parent: 1fb9f351adb9c91719a2872bc5bcafa2eac9c667
-validated_head: 35d9fe346b42dddd1f3f91fc4168d0aa4e3f1ac9
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 94bd013f7795a6d0b7bc9c765ee2d2312197e685
 
 region:
-  identity: test-runtime
-  closure_basis: complete live src/test/java/mainstreet/runtime/** Java test-owner region
+  identity: test-merchantprofile
+  closure_basis: complete live src/test/java/mainstreet/merchantprofile/** Java test-owner region
 
 classification:
   normal_closed:
-    owner_count: 20
+    owner_count: 9
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 101
+    executable_namespace_replacement_count: 75
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/runtime/ExecutionPrincipalTest.java
-      to: src/test/java/grandrue/runtime/ExecutionPrincipalTest.java
-      blob_sha: 0e235953c9fc75798165c82f7845a44065736095
+    - from: src/test/java/mainstreet/merchantprofile/PostalAddressV1Test.java
+      to: src/test/java/grandrue/merchantprofile/PostalAddressV1Test.java
+      blob_sha: 0e3f3b2efee85a16b1cbcb9c9729cb84af3601fa
+      executable_namespace_replacements: 1
+    - from: src/test/java/mainstreet/merchantprofile/MerchantPublicDescriptorTest.java
+      to: src/test/java/grandrue/merchantprofile/MerchantPublicDescriptorTest.java
+      blob_sha: 2b20a9a97a4db1a78e36e8c046a6f9a80deb7307
       executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/runtime/TrustedExecutionContextTest.java
-      to: src/test/java/grandrue/runtime/TrustedExecutionContextTest.java
-      blob_sha: 427ce37ee286781a0c39d374d68b3808980b4e41
+    - from: src/test/java/mainstreet/merchantprofile/MerchantPublicDescriptorRevisionTest.java
+      to: src/test/java/grandrue/merchantprofile/MerchantPublicDescriptorRevisionTest.java
+      blob_sha: 32ec2781b9b7db8b6b7cdaa4692cc251b31d0dfe
       executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/runtime/SessionLogoutServiceTest.java
-      to: src/test/java/grandrue/runtime/SessionLogoutServiceTest.java
-      blob_sha: 9ba9ff04a6f0159225b8a2aad99c4e0e1fbe6a63
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/runtime/SessionRecordTest.java
-      to: src/test/java/grandrue/runtime/SessionRecordTest.java
-      blob_sha: de551d3a5aec6a48ff0a2343fed76d5cdaea5eec
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/runtime/ScopedRuntimeAuthorisationConformanceTest.java
-      to: src/test/java/grandrue/runtime/ScopedRuntimeAuthorisationConformanceTest.java
-      blob_sha: a146a27ca4ced32ff1be037c0909cb4dfdcb2592
+    - from: src/test/java/mainstreet/merchantprofile/ProfileMaterialAffinityPayloadConformanceTest.java
+      to: src/test/java/grandrue/merchantprofile/ProfileMaterialAffinityPayloadConformanceTest.java
+      blob_sha: 5c4a6b7d39129baa1bb34fb914b84474d11ade6f
       executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/runtime/ResourceInstanceTest.java
-      to: src/test/java/grandrue/runtime/ResourceInstanceTest.java
-      blob_sha: d3ad45790405b87c2dced1b94259f833fdd1a8fe
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/runtime/HumanSessionEstablishmentServiceTest.java
-      to: src/test/java/grandrue/runtime/HumanSessionEstablishmentServiceTest.java
-      blob_sha: c7a7f1a82f221a3f91219e3a6f6073a675de9d1c
+    - from: src/test/java/mainstreet/merchantprofile/MerchantPublicDescriptorProjectionObservationBoundaryTest.java
+      to: src/test/java/grandrue/merchantprofile/MerchantPublicDescriptorProjectionObservationBoundaryTest.java
+      blob_sha: 64b1a14da8b8aa66d867b7a1c67e2a8ecd1ddf85
       executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/runtime/CapabilityOperationHandlerTest.java
-      to: src/test/java/grandrue/runtime/CapabilityOperationHandlerTest.java
-      blob_sha: 0c48cf719887bc1a2aa366a954678ed9c5d6ec49
-      executable_namespace_replacements: 11
-    - from: src/test/java/mainstreet/runtime/SessionTrustedExecutionContextEstablisherTest.java
-      to: src/test/java/grandrue/runtime/SessionTrustedExecutionContextEstablisherTest.java
-      blob_sha: 6fd976ee17210c438c74139f87899126f877c72a
-      executable_namespace_replacements: 2
-    - from: src/test/java/mainstreet/runtime/PrivilegeOperationExecutionGuardTest.java
-      to: src/test/java/grandrue/runtime/PrivilegeOperationExecutionGuardTest.java
-      blob_sha: 1fd16bff74056f4078027edd07a9b64295e23cbd
-      executable_namespace_replacements: 10
-    - from: src/test/java/mainstreet/runtime/RegisteredScheduledEventReactionExecutionAuthorityTest.java
-      to: src/test/java/grandrue/runtime/RegisteredScheduledEventReactionExecutionAuthorityTest.java
-      blob_sha: 9052a59d5f1a6497eb49ed7fc199bf3b792984d0
+    - from: src/test/java/mainstreet/merchantprofile/ProfileMaterialAffinityE3RegistrationConformanceTest.java
+      to: src/test/java/grandrue/merchantprofile/ProfileMaterialAffinityE3RegistrationConformanceTest.java
+      blob_sha: e36a13ec943cd05ff456b370d06eb47c9ba0ea30
+      executable_namespace_replacements: 30
+    - from: src/test/java/mainstreet/merchantprofile/ProfileExposureChoiceReadPortAdapterTest.java
+      to: src/test/java/grandrue/merchantprofile/ProfileExposureChoiceReadPortAdapterTest.java
+      blob_sha: 7f4d8e167f409e463c42e4b75904deb02f0e6cbb
       executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/runtime/MerchantControllerScopedExecutionPrincipalResolverTest.java
-      to: src/test/java/grandrue/runtime/MerchantControllerScopedExecutionPrincipalResolverTest.java
-      blob_sha: 259f2bdb4e65dd79f140121c3483296a87478f0a
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/runtime/RegisteredScheduledBackgroundWorkExecutionAuthorityTest.java
-      to: src/test/java/grandrue/runtime/RegisteredScheduledBackgroundWorkExecutionAuthorityTest.java
-      blob_sha: 4f8694be258e5556f226a8ebcdc360e77de204cf
-      executable_namespace_replacements: 3
-    - from: src/test/java/mainstreet/runtime/ScopedOperationDispatcherTest.java
-      to: src/test/java/grandrue/runtime/ScopedOperationDispatcherTest.java
-      blob_sha: f66827c1434df17bff8a559d7b42dc4f43308e6a
-      executable_namespace_replacements: 9
-    - from: src/test/java/mainstreet/runtime/SessionCredentialResolverTest.java
-      to: src/test/java/grandrue/runtime/SessionCredentialResolverTest.java
-      blob_sha: fcacca76497e497c9c1f1ca1dbd4202f8b2ae052
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/runtime/OperationRequirementEvaluationTest.java
-      to: src/test/java/grandrue/runtime/OperationRequirementEvaluationTest.java
-      blob_sha: a977cdd10e2cc6d9e4bc7f974736313ad88b1f9c
-      executable_namespace_replacements: 12
-    - from: src/test/java/mainstreet/runtime/StaffOperationalTrustedExecutionContextEstablisherTest.java
-      to: src/test/java/grandrue/runtime/StaffOperationalTrustedExecutionContextEstablisherTest.java
-      blob_sha: bfe13b9305efe8a2453a93697841ba53a6957b81
-      executable_namespace_replacements: 5
-    - from: src/test/java/mainstreet/runtime/AuthenticationSessionCurrentnessAuthorityTest.java
-      to: src/test/java/grandrue/runtime/AuthenticationSessionCurrentnessAuthorityTest.java
-      blob_sha: a1b9f7632553a590c4eb09cb918c43103c087bd0
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/runtime/CommercialEntitlementOperationExecutionGuardTest.java
-      to: src/test/java/grandrue/runtime/CommercialEntitlementOperationExecutionGuardTest.java
-      blob_sha: 6c510c07dd270a32565e5237ac462f59a031bba4
-      executable_namespace_replacements: 12
-    - from: src/test/java/mainstreet/runtime/ExecutableSupportOperationExecutionGuardTest.java
-      to: src/test/java/grandrue/runtime/ExecutableSupportOperationExecutionGuardTest.java
-      blob_sha: 6cce1280d41118868c29e1bee2f2cae47a3751ba
-      executable_namespace_replacements: 14
+    - from: src/test/java/mainstreet/merchantprofile/MerchantPublicDescriptorProjectionReadPortTest.java
+      to: src/test/java/grandrue/merchantprofile/MerchantPublicDescriptorProjectionReadPortTest.java
+      blob_sha: f07b3032c2b910effa6b03a8caab4c03ee7a7b97
+      executable_namespace_replacements: 8
+    - from: src/test/java/mainstreet/merchantprofile/ProfileMaterialAffinityObservationContributionTest.java
+      to: src/test/java/grandrue/merchantprofile/ProfileMaterialAffinityObservationContributionTest.java
+      blob_sha: d297357ccc4fa9350ce0f0c2607e3fe9a16150bf
+      executable_namespace_replacements: 25
 
 deterministic_transformations:
   owners:
-    - move all twenty declared owners to corresponding src/test/java/grandrue/runtime/** paths
+    - move all nine declared owners to corresponding src/test/java/grandrue/merchantprofile/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
@@ -119,7 +72,7 @@ deterministic_transformations:
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 21
+  expected_changed_path_count: 10
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -137,9 +90,7 @@ expected_residuals:
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
 
 preparation_notes:
-  - all owner blobs and absent GrandRue destinations reconciled against development at 1fb9f351adb9c91719a2872bc5bcafa2eac9c667
+  - all owner blobs and absent GrandRue destinations reconciled against development at 94bd013f7795a6d0b7bc9c765ee2d2312197e685
   - no external test consumer of the test-owned classes was discovered
+  - semantic/capability and booking regions were isolated for later closed-subgraph handling after external consumer evidence was found
   - Maven tests and GitHub Actions were not run
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED

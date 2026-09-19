@@ -1,7 +1,7 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.surface.ObservationRequestBinding;
+import grandrue.application.MerchantScope;
+import grandrue.surface.ObservationRequestBinding;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;

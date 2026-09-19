@@ -1,12 +1,12 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.surface.ExposableElementReference;
-import mainstreet.surface.ProjectionMaterialSourceAffinity;
-import mainstreet.surface.ProjectionSourceAvailability;
-import mainstreet.surface.ProjectionSourceCompleteness;
-import mainstreet.surface.ProjectionSourceDependencyReference;
-import mainstreet.surface.ProjectionSourceRevocationState;
+import grandrue.application.MerchantScope;
+import grandrue.surface.ExposableElementReference;
+import grandrue.surface.ProjectionMaterialSourceAffinity;
+import grandrue.surface.ProjectionSourceAvailability;
+import grandrue.surface.ProjectionSourceCompleteness;
+import grandrue.surface.ProjectionSourceDependencyReference;
+import grandrue.surface.ProjectionSourceRevocationState;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

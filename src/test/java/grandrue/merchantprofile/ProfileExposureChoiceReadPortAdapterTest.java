@@ -1,7 +1,7 @@
-package mainstreet.merchantprofile;
+package grandrue.merchantprofile;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.runtime.TrustedExecutionContext;
+import grandrue.application.MerchantScope;
+import grandrue.runtime.TrustedExecutionContext;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
