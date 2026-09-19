@@ -954,15 +954,15 @@ During `GR-REN-02-01X25` staging, accidental connector commit `df54c3d21af140229
 
 ### Remaining programme
 
-- `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
-- `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
-- `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `COMPLETE_PENDING_FINAL_VERIFICATION`
-- `GR-REN-06` — compatibility aliases/preserved identities: `COMPLETE_PENDING_FINAL_VERIFICATION`
-- `GR-REN-07` — active controls/canonical governance wording: `COMPLETE_PENDING_FINAL_VERIFICATION`
+- `GR-REN-03` — in-scope test namespace/runtime-coupled fixtures; legacy prototype tests excluded: `COMPLETE` — final preservation and executable validation passed.
+- `GR-REN-04` — essential build/CI naming; legacy prototype compose/config excluded: `COMPLETE` — final preservation and executable validation passed.
+- `GR-REN-05` — essential runtime/config naming; legacy prototype profile/config excluded: `COMPLETE` — final preservation and executable validation passed.
+- `GR-REN-06` — compatibility aliases/preserved identities: `COMPLETE` — protected-identity verification passed.
+- `GR-REN-07` — active controls/canonical governance wording: `COMPLETE` — final reconciliation passed.
 - `GR-REN-08` — whole-repository migration coverage and residual classification: `COMPLETE` — GR-VV-R003 file accounting PASS, 847/847 claims reconciled, zero unexpected incremental paths.
 - `GR-REN-09` — migration falsification and exception/protected-identity validation: `COMPLETE` — checker negative controls retained from R001; R003 preservation/protected-identity checks PASS; zero open findings.
-- `GR-REN-10` — executable structural/build/test validation: `IN_PROGRESS_SECOND_QUARANTINE_APPLIED_RERUN_REQUIRED` — first rerun proved 1,094 production sources compile after production-prototype quarantine, then test compilation failed with 100 errors confined to excluded `src/test/java/mainstreet/prototype/**`; bounded repair `ca2d004b418397fa75abd2e46012f86d7f66fde5` excludes the NON_MIGRATING_LEGACY_PROTOTYPE test tree from Maven test compilation; exact rerun required.
-- `GR-REN-11` — final closure/reconciliation and migration completion decision: `BLOCKED_BY_GR_REN_10_FINAL_RERUN`.
+- `GR-REN-10` — executable structural/build/test validation: `COMPLETE` — exact authorised `mvn --batch-mode clean verify -Ppostgres-it` passed at `be861d2093c390f709f8835942c56e5dc8e72555` in GitHub Actions run `35464062668` / run number `888`: 1,094 production sources compiled, 376 test sources compiled, 1,252 unit/governance tests and 445 PostgreSQL integration tests passed with zero failures/errors/skips.
+- `GR-REN-11` — final closure/reconciliation and migration completion decision: `COMPLETE` — GR-VV-R003 migration-preservation evidence, resolved migration findings and final executable validation reconciled; later post-migration defects were corrected from source under `IMPLEMENTATION-RULES.md` v2.1 without reopening migration.
 
 ---
 
@@ -973,40 +973,62 @@ migration: MAIN_STREET_TO_GRANDRUE
 repository: swangune/GrandRue
 branch: development
 baseline: c4153441d8340b229a29884967d796280d949a7d
-status: COMPLETE_PENDING_EXECUTABLE_VALIDATION
+status: COMPLETE
 mutation_authorised: true
-active_group: GR-REN-10
+active_group: null
 selected_execution_leaf: null
-last_completed_task: GR-REN-09
+last_completed_task: GR-REN-11
 last_integrity_repair: GR-REN-REPAIR-T001
 last_integrity_repair_commit: 01e26e1a099c3451165545b5c01f25dd1cbdbb5e
 post_migration_verification_run: GR-VV-R003
 post_migration_verification_result: PASS
 gr_ren_08: COMPLETE
 gr_ren_09: COMPLETE
-gr_ren_10: READY_FOR_AUTHORISED_MAVEN_RERUN
+gr_ren_10: COMPLETE
 gr_ren_10_command: mvn --batch-mode clean verify -Ppostgres-it
-gr_ren_10_latest_run_compile_main: PASS_1094_SOURCES
-gr_ren_10_latest_run_compile_test: PASS_376_SOURCES
-gr_ren_10_latest_run_unit_tests: 1252
-gr_ren_10_latest_run_failures: 28
-gr_ren_10_latest_run_errors: 2
-gr_ren_10_latest_run_skipped: 0
-gr_ren_10_latest_run_failure_classes:
-  stale_current_product_wording_expectations: 19
-  stale_surface_package_identity_expectations: 4
-  stale_governance_controller_authority_navigation: 7
-gr_ren_10_test_repair_commit: a55de294fba72fe071194c13a7ee123d518ea7dc
-gr_ren_10_test_repair_changed_paths: 13
+gr_ren_10_final_target: be861d2093c390f709f8835942c56e5dc8e72555
+gr_ren_10_workflow_run_id: 35464062668
+gr_ren_10_workflow_run_number: 888
+gr_ren_10_compile_main: PASS_1094_SOURCES
+gr_ren_10_compile_test: PASS_376_SOURCES
+gr_ren_10_unit_governance_tests: 1252
+gr_ren_10_postgres_integration_tests: 445
+gr_ren_10_failures: 0
+gr_ren_10_errors: 0
+gr_ren_10_skipped: 0
+gr_ren_10_build_result: BUILD_SUCCESS
 gr_ren_10_maven_validation_authorised: true
 gr_ren_10_maven_validation_authorised_in_chat: 2026-09-19
-gr_ren_10_rerun_required: true
-gr_ren_11: BLOCKED_BY_GR_REN_10_FINAL_RERUN
-migration_execution_state: COMPLETE_PENDING_EXECUTABLE_VALIDATION
+gr_ren_10_rerun_required: false
+gr_ren_11: COMPLETE
+migration_execution_state: COMPLETE
 verification_handoff: COMPLETE_PASS
-implementation_handoff: BLOCKED
-next_action: EXECUTE_AUTHORISED_MVN_BATCH_MODE_CLEAN_VERIFY_POSTGRES_IT
+implementation_handoff: READY
+next_action: RECONCILE_IMPLEMENTATION_GRAPH_AND_RESUME
 ```
+
+### GR-REN-10 / GR-REN-11 final closure
+
+The separately authorised executable gate completed successfully against current `development` source at `be861d2093c390f709f8835942c56e5dc8e72555`.
+
+```text
+mvn --batch-mode clean verify -Ppostgres-it
+
+production compilation     PASS — 1,094 sources
+test compilation           PASS — 376 sources
+unit/governance tests      PASS — 1,252 / 0 failures / 0 errors / 0 skipped
+PostgreSQL integration     PASS — 445 / 0 failures / 0 errors / 0 skipped
+Maven result               BUILD SUCCESS
+GitHub Actions run         35464062668 / Maven Tests #888
+```
+
+The final source corrections exposed by GR-REN-10 were post-migration defects: obsolete legacy wildcard imports and stale governance-test navigation. They were corrected from their authoritative source under `MS-IMPLEMENTATION-RULES-001 v2.1`; migration scope and migration claims were not reopened.
+
+GR-VV-R003 remains the immutable migration-preservation certificate for the governed migration target. The later source/test corrections are explicitly classified as post-migration defect correction rather than additional migration transformation.
+
+GR-REN-11 therefore closes the migration programme. Implementation re-entry is authorised by the existing automatic handoff contract and requires reconciliation of the canonical implementation graph/current tree before implementation resumes.
+
+---
 
 ### Post-verification defect repair — GR-REN-REPAIR-T001
 
