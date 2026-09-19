@@ -8,11 +8,11 @@
   "method_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
   "state": "IN_PROGRESS",
   "total_files": 1094,
-  "verified_files": 562,
-  "passing_files": 560,
+  "verified_files": 959,
+  "passing_files": 957,
   "failing_files": 2,
   "blocked_files": 0,
-  "remaining_files": 532,
+  "remaining_files": 135,
   "completed_packages": [
     "(root)",
     "audit",
@@ -42,7 +42,9 @@
     "publication",
     "enquiry",
     "commercial",
-    "infrastructure"
+    "infrastructure",
+    "semantic",
+    "surface"
   ],
   "chunks": [
     {
@@ -244,8 +246,24 @@
       "files": 73,
       "pass": 72,
       "fail": 1
+    },
+    {
+      "chunk": "semantic",
+      "git_blob": "811062b0e8f89634cc13626a87ef459afdaf69aa",
+      "sha256": "c62544159ee4a20503fd44a136f44a2160245a9f356e543776f4cdf12b2c7730",
+      "files": 219,
+      "pass": 219,
+      "fail": 0
+    },
+    {
+      "chunk": "surface",
+      "git_blob": "509fecf6e28576c60114ecf247a0b62fc15298bc",
+      "sha256": "d6358ab03db9c4e892732396e7f0c9acbba9ae4aed448c42c807156d1d01538a",
+      "files": 178,
+      "pass": 178,
+      "fail": 0
     }
   ],
   "conclusion": "NO_REGION_VERDICT_YET",
-  "next_action": "Continue GR-VV-03-R001 from the durable 562/1094 production-file checkpoint with open findings GR-VV-F001 and GR-VV-F002 preserved. Merchantprofile and onboarding require recorded claim-lineage reconstruction and remain uncounted until closed. Verify semantic and surface package-closed subsets next using complete M blob retrieval, baseline-object self-check, the frozen namespace transformation plus any recorded wording overlay, expected Git blob SHA comparison to D, and exact mode/path obligations. Do not repair discrepancies."
+  "next_action": "Continue GR-VV-03-R001 from the durable 959/1094 production-file checkpoint with open findings GR-VV-F001 and GR-VV-F002 preserved. Reconstruct recorded claim lineage for merchantprofile (79 files) and onboarding (56 files), then verify each against complete M blobs, exact path/mode obligations, frozen namespace transformation plus any recorded wording overlay, and independently evidenced staged consumer-import transitions. Do not repair discrepancies."
 }
