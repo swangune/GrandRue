@@ -1,16 +1,16 @@
-package mainstreet.infrastructure.persistence.configuration;
+package grandrue.infrastructure.persistence.configuration;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.infrastructure.persistence.onboarding.JooqOnboardingCaseEvidenceStore;
-import mainstreet.onboarding.InitialConfigurationIntentIdentity;
-import mainstreet.onboarding.OnboardingCaseIdentity;
-import mainstreet.onboarding.OnboardingCaseLifecycle;
-import mainstreet.onboarding.OnboardingCaseRevision;
-import mainstreet.semantic.configuration.ConfigurationRevisionFailureCategory;
-import mainstreet.semantic.configuration.ConfigurationRevisionPersistenceException;
-import mainstreet.semantic.configuration.MaterialiseInitialConfigurationRevisionCommand;
-import mainstreet.semantic.configuration.MerchantConfigurationRevision;
-import mainstreet.semantic.configuration.OrdinaryNewConfigurationSemanticReleaseAuthority;
+import grandrue.application.MerchantScope;
+import grandrue.infrastructure.persistence.onboarding.JooqOnboardingCaseEvidenceStore;
+import grandrue.onboarding.InitialConfigurationIntentIdentity;
+import grandrue.onboarding.OnboardingCaseIdentity;
+import grandrue.onboarding.OnboardingCaseLifecycle;
+import grandrue.onboarding.OnboardingCaseRevision;
+import grandrue.semantic.configuration.ConfigurationRevisionFailureCategory;
+import grandrue.semantic.configuration.ConfigurationRevisionPersistenceException;
+import grandrue.semantic.configuration.MaterialiseInitialConfigurationRevisionCommand;
+import grandrue.semantic.configuration.MerchantConfigurationRevision;
+import grandrue.semantic.configuration.OrdinaryNewConfigurationSemanticReleaseAuthority;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -37,11 +37,11 @@ import java.util.concurrent.atomic.AtomicReference;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.runtime.TrustedExecutionContext;
-import mainstreet.semantic.configuration.ConfigurationChangeSet;
-import mainstreet.semantic.configuration.MaterialiseConfigurationChangeCommand;
-import mainstreet.semantic.configuration.ConfigurationChangeAuthorizationAuthority;
+import grandrue.runtime.ExecutionPrincipal;
+import grandrue.runtime.TrustedExecutionContext;
+import grandrue.semantic.configuration.ConfigurationChangeSet;
+import grandrue.semantic.configuration.MaterialiseConfigurationChangeCommand;
+import grandrue.semantic.configuration.ConfigurationChangeAuthorizationAuthority;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
@@ -485,8 +485,8 @@ class JooqConfigurationRevisionAuthorityIT {
         for (var origin : ConfigurationChangeSet.Origin.values()) {
             String id = "change-" + origin;
             var input = new ConfigurationChangeSet(new MerchantScope("merchant-acme"), id, "initial-1",
-                    Set.of("enquiry"), Set.of(new mainstreet.semantic.configuration.PolicySelection("enquiry", "mode", "general")),
-                    Optional.of(new mainstreet.fulfilment.FulfilmentBindingSetRevisionReference("bindings", 2)),
+                    Set.of("enquiry"), Set.of(new grandrue.semantic.configuration.PolicySelection("enquiry", "mode", "general")),
+                    Optional.of(new grandrue.fulfilment.FulfilmentBindingSetRevisionReference("bindings", 2)),
                     new ConfigurationChangeSet.Provenance(origin, "source-" + id, "identity-42", NOW.plusNanos(123456789)));
             var command = new MaterialiseConfigurationChangeCommand(input, "revision-" + origin, NOW);
             var stored = changes().materialise(command, changeContext());

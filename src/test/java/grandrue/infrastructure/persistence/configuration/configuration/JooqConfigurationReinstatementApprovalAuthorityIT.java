@@ -1,13 +1,13 @@
-package mainstreet.infrastructure.persistence.configuration;
+package grandrue.infrastructure.persistence.configuration;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.runtime.AuthenticationProvenance;
-import mainstreet.runtime.ExecutionPrincipal;
-import mainstreet.runtime.TrustedExecutionContext;
-import mainstreet.semantic.configuration.ApproveConfigurationReinstatementCommand;
-import mainstreet.semantic.configuration.ConfigurationReinstatementApproval;
-import mainstreet.semantic.configuration.ConfigurationRevisionApprovalFailureCategory;
-import mainstreet.semantic.configuration.ConfigurationRevisionApprovalPersistenceException;
+import grandrue.application.MerchantScope;
+import grandrue.runtime.AuthenticationProvenance;
+import grandrue.runtime.ExecutionPrincipal;
+import grandrue.runtime.TrustedExecutionContext;
+import grandrue.semantic.configuration.ApproveConfigurationReinstatementCommand;
+import grandrue.semantic.configuration.ConfigurationReinstatementApproval;
+import grandrue.semantic.configuration.ConfigurationRevisionApprovalFailureCategory;
+import grandrue.semantic.configuration.ConfigurationRevisionApprovalPersistenceException;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;

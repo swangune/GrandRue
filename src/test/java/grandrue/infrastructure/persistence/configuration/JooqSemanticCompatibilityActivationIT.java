@@ -1,16 +1,16 @@
-package mainstreet.infrastructure.persistence.configuration;
+package grandrue.infrastructure.persistence.configuration;
 
-import mainstreet.semantic.configuration.ConfigurationActivationRequest;
-import mainstreet.semantic.configuration.ConfigurationActivationStatus;
-import mainstreet.semantic.configuration.ConfigurationPublication;
-import mainstreet.semantic.configuration.ConfigurationRelease;
-import mainstreet.semantic.configuration.ConfigurationRevisionApproval;
-import mainstreet.semantic.configuration.InMemoryConfigurationPublication;
-import mainstreet.semantic.configuration.MerchantConfiguration;
-import mainstreet.semantic.configuration.SemanticCompatibilityDisposition;
-import mainstreet.semantic.configuration.SemanticCompatibilityEvidence;
-import mainstreet.semantic.configuration.SemanticCompatibilityReferenceScope;
-import mainstreet.semantic.executable.ExecutableMerchantModel;
+import grandrue.semantic.configuration.ConfigurationActivationRequest;
+import grandrue.semantic.configuration.ConfigurationActivationStatus;
+import grandrue.semantic.configuration.ConfigurationPublication;
+import grandrue.semantic.configuration.ConfigurationRelease;
+import grandrue.semantic.configuration.ConfigurationRevisionApproval;
+import grandrue.semantic.configuration.InMemoryConfigurationPublication;
+import grandrue.semantic.configuration.MerchantConfiguration;
+import grandrue.semantic.configuration.SemanticCompatibilityDisposition;
+import grandrue.semantic.configuration.SemanticCompatibilityEvidence;
+import grandrue.semantic.configuration.SemanticCompatibilityReferenceScope;
+import grandrue.semantic.executable.ExecutableMerchantModel;
 import grandrue.testing.ConfigurationActivationApprovals;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
@@ -282,7 +282,7 @@ class JooqSemanticCompatibilityActivationIT {
         );
     }
 
-    private static mainstreet.semantic.configuration.ConfigurationRevisionApprovalAuthority
+    private static grandrue.semantic.configuration.ConfigurationRevisionApprovalAuthority
     approvalAuthority() {
         return (merchant, revision) -> Optional.of(
                 new ConfigurationRevisionApproval(
