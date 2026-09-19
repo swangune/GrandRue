@@ -1,6 +1,6 @@
 # GrandRue Canonical Authority Index
 
-**Version:** 4.44
+**Version:** 4.45
 **Status:** ACCEPTED governance navigation authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Identify which accepted GrandRue fundamental product-purpose, semantic/design, implementation-architecture and implementation-programme/governance authorities currently govern, including scope-aware amendment composition and key supersession/closure links.
@@ -85,7 +85,7 @@ The absence of MS-PROT-017 is intentional historical sequencing. The numeric upp
 | MS-PROT-042 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 + v1.7 + v1.8 + v1.9 + v1.10 + v1.11 + v1.12 + v1.13 + v1.14 + v1.15 + v1.16 |
 | MS-PROT-043 | v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
 | MS-PROT-044 | base + v1.1 + v1.2 within Offering/Product/ProductVariant owner-qualified merchant-definition access scope + v1.3 within Offering/Product commercial-access classification scope + v1.4 within merchant subject categorisation, Merchandise Condition and Listing Transaction Mode scope + v1.5 within Listing lifecycle, immutable revision and merchant-definition access scope |
-| MS-PROT-045 | through v1.1 |
+| MS-PROT-045 | through v1.2, including reusable Physical Location, provider-neutral resolution and map-presentation boundary |
 | MS-PROT-046 | v1.1 + v1.2 + v1.3 + v1.4 + v1.5 |
 | MS-PROT-047 | v1.0 |
 | MS-PROT-048 | v1.0 + v1.1 + v1.2 + v1.3 + v1.4 + v1.5 + v1.6 |
@@ -152,6 +152,8 @@ The following cross-authority links are retained explicitly because they materia
 - MS-PROT-044 v1.4 — `MS-PROT-044 v1.4 — Merchant Subject Categories, Merchandise Condition & Listing Transaction Mode Amendment.md` — resolves the bounded initial `classification/category system` deferral through merchant-scoped non-executable Categories over Offering/Product/Listing, establishes `NEW`, `USED`, `REFURBISHED` as initial Merchandise Condition values and `SALE`, `RENT` as initial Listing Transaction Mode values, preserves ProductVariant and capability ownership boundaries, classifies Category maintenance/assignment with no independent Commercial Entitlement, creates no Listing commercial-authoring authority and activates no implementation.
 
 - MS-PROT-044 v1.5 — `MS-PROT-044 v1.5 — Listing Lifecycle, Immutable Revision & Merchant Authoring Access Amendment.md` — establishes stable Listing identity, immutable primary-subject affinity, immutable Listing revisions, exact ACTIVE/WITHDRAWN lifecycle, no reactivation, field-bounded merchant revision, terminal withdrawal and exact Listing observation/authoring/withdrawal access contracts. ACTIVE remains separate from Exposure/availability; changing primary subject or SALE↔RENT requires a new Listing identity; Commercial tier classification remains open and implementation activation is NONE.
+
+- MS-PROT-045 v1.2 — `MS-PROT-045 v1.2 — Reusable Physical Location, Provider-Neutral Resolution & Map Presentation Amendment.md` — establishes reusable `PhysicalLocationBindingV1` with `MERCHANT_LOCATION_REFERENCE` and `INDEPENDENT_PHYSICAL_PLACE`, reuses `PostalAddressV1`, defines provider-neutral `AcceptedNavigationPoint`, preserves source-owner field authority, makes maps/directions/street-level imagery derived presentation, resolves the retained MS-PROT-044 location/map semantic deferrals, narrows `MS-PROT-051-V11-DQ-003` to concrete provider/geocoding implementation, creates no independent Commercial Entitlement and activates no implementation.
 
 
 - MS-PROT-083 v1.7 — `MS-PROT-083 v1.7 — Business Intelligence Commercial Access Classification Amendment.md` — classifies `business-intelligence/business-analytics-evaluation-access@1` / `USE_BUSINESS_ANALYTICS` for BUSINESS + GROWTH, `business-intelligence/campaign-analytics-evaluation-access@1` / `USE_CAMPAIGN_ANALYTICS` for GROWTH, and `business-intelligence/merchant-analytics-presentation-access@1` with no independent Commercial Entitlement. It preserves source-capability ownership, analytical applicability/coverage, retained-history and downgrade boundaries, keeps Campaign execution and source mutation independently governed, and leaves report/export commercial classification plus the final concrete DQ-001 catalogue manifest open.
