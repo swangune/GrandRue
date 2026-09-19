@@ -1,6 +1,6 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
-import mainstreet.infrastructure.persistence.enquiry.*;
+import grandrue.infrastructure.persistence.enquiry.*;
 import org.flywaydb.core.Flyway;
 import org.jooq.*;
 import org.jooq.impl.DSL;
@@ -9,8 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.jdbc.datasource.*;
 import java.util.Optional;
 import java.util.concurrent.atomic.*;
-import static mainstreet.enquiry.PublicGeneralEnquiryDeliveryT2ATest.*;
-import static mainstreet.enquiry.OpportunityEnquirySubmissionPreparationTest.SCOPE;
+import static grandrue.enquiry.PublicGeneralEnquiryDeliveryT2ATest.*;
+import static grandrue.enquiry.OpportunityEnquirySubmissionPreparationTest.SCOPE;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;

@@ -1,7 +1,7 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.semantic.registry.OwnedOperationalObjectTypeReference;
+import grandrue.application.MerchantScope;
+import grandrue.semantic.registry.OwnedOperationalObjectTypeReference;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

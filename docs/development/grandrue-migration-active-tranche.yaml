@@ -2,96 +2,78 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T018
+tranche: GR-REN-03-T019
 group: GR-REN-03
-state: COMPLETE
-code_commit: 0d4753fced8197228deef6e0c96fd9a69d82d97a
-expected_parent: bd4ab2566f2562c452af4df05023057661cfbcf1
-validated_head: 0d4753fced8197228deef6e0c96fd9a69d82d97a
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: f69d84dbaed3a4628c43e931dd5bd448e4cd90f0
 
 region:
-  identity: test-application
-  closure_basis: complete live src/test/java/mainstreet/application/** Java test-owner region
+  identity: test-enquiry
+  closure_basis: complete live src/test/java/mainstreet/enquiry/** Java test-owner region including its internal static test-helper edges
 
 classification:
   normal_closed:
-    owner_count: 13
+    owner_count: 9
     external_test_consumer_count: 0
-    executable_namespace_replacement_count: 157
+    executable_namespace_replacement_count: 64
   embedded_runtime_compatibility_residuals:
     disposition: preserve_all_strings_comments_and_non_code_content
   exceptions: []
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/application/ConfigurationActivationApplicationServiceTest.java
-      to: src/test/java/grandrue/application/ConfigurationActivationApplicationServiceTest.java
-      blob_sha: 15590da2d48a5fded005eaf595983fc8985bef6a
+    - from: src/test/java/mainstreet/enquiry/EnquiryAvailabilityImpactAssessmentTest.java
+      to: src/test/java/grandrue/enquiry/EnquiryAvailabilityImpactAssessmentTest.java
+      blob_sha: 21fa3acc91ac7fe94b67bdb0e3b5b7de4922695f
       executable_namespace_replacements: 13
-    - from: src/test/java/mainstreet/application/ConfigurationImpactReviewApplicationServiceTest.java
-      to: src/test/java/grandrue/application/ConfigurationImpactReviewApplicationServiceTest.java
-      blob_sha: 8b90a9980c1ae06d094e9783a4cd066f72b4dcb1
-      executable_namespace_replacements: 9
-    - from: src/test/java/mainstreet/application/CrossCapabilityApplicationOutcomeTest.java
-      to: src/test/java/grandrue/application/CrossCapabilityApplicationOutcomeTest.java
-      blob_sha: 2eb5afa418edbbe26376482d7be1939b6cc3bb74
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/application/CurrentControllerConfigurationActivationAuthorizationAuthorityIT.java
-      to: src/test/java/grandrue/application/CurrentControllerConfigurationActivationAuthorizationAuthorityIT.java
-      blob_sha: ce4d905365a393cc36834ed663576ea4e3754612
+    - from: src/test/java/mainstreet/enquiry/EnquirySubmissionIntentTest.java
+      to: src/test/java/grandrue/enquiry/EnquirySubmissionIntentTest.java
+      blob_sha: 770289d212804b3bb4fb856582609f1006664679
+      executable_namespace_replacements: 2
+    - from: src/test/java/mainstreet/enquiry/EnquirySubmissionTest.java
+      to: src/test/java/grandrue/enquiry/EnquirySubmissionTest.java
+      blob_sha: 638ec82cf56afc2dc1d0b9c510aacb5fd726cdb9
+      executable_namespace_replacements: 3
+    - from: src/test/java/mainstreet/enquiry/OpportunityEnquirySubmissionE3IT.java
+      to: src/test/java/grandrue/enquiry/OpportunityEnquirySubmissionE3IT.java
+      blob_sha: a9261aefd003e1ef3a38e1af3405749dc8119d3c
+      executable_namespace_replacements: 7
+    - from: src/test/java/mainstreet/enquiry/OpportunityEnquirySubmissionPreparationTest.java
+      to: src/test/java/grandrue/enquiry/OpportunityEnquirySubmissionPreparationTest.java
+      blob_sha: a43ab8865e8e129cb1dfffbc7aa182d62e6baa39
+      executable_namespace_replacements: 8
+    - from: src/test/java/mainstreet/enquiry/PublicGeneralEnquiryDeliveryT2AIT.java
+      to: src/test/java/grandrue/enquiry/PublicGeneralEnquiryDeliveryT2AIT.java
+      blob_sha: 2f408abf3f1bd5a0fb2b98e4648361c2f901b6aa
       executable_namespace_replacements: 4
-    - from: src/test/java/mainstreet/application/InitialTrialFromConfigurationActivationHandlerTest.java
-      to: src/test/java/grandrue/application/InitialTrialFromConfigurationActivationHandlerTest.java
-      blob_sha: 8645d5de8ef8065bb233bbdbaf21a5971e8974f5
-      executable_namespace_replacements: 14
-    - from: src/test/java/mainstreet/application/MerchantAccountEstablishedPublicationWorkerTest.java
-      to: src/test/java/grandrue/application/MerchantAccountEstablishedPublicationWorkerTest.java
-      blob_sha: 9c73bb7128b122e3026536eae75173377ff4e699
-      executable_namespace_replacements: 14
-    - from: src/test/java/mainstreet/application/MerchantScopeTest.java
-      to: src/test/java/grandrue/application/MerchantScopeTest.java
-      blob_sha: 22ffc91ab9ae3e38e2d2aa87622aca9b78949d28
-      executable_namespace_replacements: 1
-    - from: src/test/java/mainstreet/application/StandingFreeBackgroundWorkExecutionTest.java
-      to: src/test/java/grandrue/application/StandingFreeBackgroundWorkExecutionTest.java
-      blob_sha: 82ca04cc88eaa8eb9ef8c38301ecb2506574f25f
-      executable_namespace_replacements: 18
-    - from: src/test/java/mainstreet/application/StandingFreeBackgroundWorkProgressionTest.java
-      to: src/test/java/grandrue/application/StandingFreeBackgroundWorkProgressionTest.java
-      blob_sha: 6b9c730ec16caf0882e9d11a032f8eba4e6738b1
-      executable_namespace_replacements: 20
-    - from: src/test/java/mainstreet/application/StandingFreeDurableWorkExecutionTest.java
-      to: src/test/java/grandrue/application/StandingFreeDurableWorkExecutionTest.java
-      blob_sha: 9773c5ffe29e6117574b38fd62101758fb28e98d
-      executable_namespace_replacements: 20
-    - from: src/test/java/mainstreet/application/StandingFreeDurableWorkWorkerTest.java
-      to: src/test/java/grandrue/application/StandingFreeDurableWorkWorkerTest.java
-      blob_sha: 47dffac0a7976084f0c5dc29707f2b32f8585eb7
-      executable_namespace_replacements: 11
-    - from: src/test/java/mainstreet/application/StandingFreeFromMerchantAccountEstablishedHandlerTest.java
-      to: src/test/java/grandrue/application/StandingFreeFromMerchantAccountEstablishedHandlerTest.java
-      blob_sha: 895e372aad14f60caf76e8a10fe5c5fda4c340fa
-      executable_namespace_replacements: 11
-    - from: src/test/java/mainstreet/application/StandingFreeMerchantAccountEstablishedReactionTest.java
-      to: src/test/java/grandrue/application/StandingFreeMerchantAccountEstablishedReactionTest.java
-      blob_sha: d80a7744ba58a22e302df283da450e7252aa7529
-      executable_namespace_replacements: 21
+    - from: src/test/java/mainstreet/enquiry/PublicGeneralEnquiryDeliveryT2ATest.java
+      to: src/test/java/grandrue/enquiry/PublicGeneralEnquiryDeliveryT2ATest.java
+      blob_sha: 37d4cd66b1f712e7cfafbb096f642642505a6fee
+      executable_namespace_replacements: 8
+    - from: src/test/java/mainstreet/enquiry/PublicOpportunityEnquiryDeliveryT2BIT.java
+      to: src/test/java/grandrue/enquiry/PublicOpportunityEnquiryDeliveryT2BIT.java
+      blob_sha: ea90a62ccaad7f43459e3f29c5aac1588870f5cf
+      executable_namespace_replacements: 6
+    - from: src/test/java/mainstreet/enquiry/PublicOpportunityEnquiryDeliveryT2BTest.java
+      to: src/test/java/grandrue/enquiry/PublicOpportunityEnquiryDeliveryT2BTest.java
+      blob_sha: f4765154f1aa842c360d8577dfc28c77e1ce0891
+      executable_namespace_replacements: 13
 
 deterministic_transformations:
   owners:
-    - move every declared owner to corresponding src/test/java/grandrue/application/** path
+    - move all nine declared owners to corresponding src/test/java/grandrue/enquiry/** paths
     - replace executable Java namespace tokens mainstreet.* with grandrue.* in code only
+    - migrate internal test-owned static imports in the same closed subgraph
     - preserve every string literal, character literal, text block and comment byte-for-byte
   prohibited:
     - no assertion, test-data, semantic or behavioural change
-    - no legacy prototype test mutation
+    - no legacy prototype mutation
     - no Maven/build/CI/runtime configuration mutation
 
 verification:
   aggregate_changed_path_set: exact
-  expected_changed_path_count: 14
+  expected_changed_path_count: 10
   owner_evidence: required
   destination_presence: required
   legacy_owner_absence: required
@@ -101,10 +83,7 @@ verification:
   github_actions: prohibited_unless_separately_authorised
 
 protected:
-  - Main Street product wording in test strings remains unchanged
-  - MAINSTREET_TEST_POSTGRES_* environment-variable strings remain unchanged
-  - mainstreet-compiler-1 test identity remains unchanged
-  - every other string literal, character literal, text block and comment unchanged
+  - every string literal, character literal, text block and comment unchanged
   - legacy prototype tests unchanged
 
 expected_residuals:
@@ -112,9 +91,6 @@ expected_residuals:
   - src/test/java/mainstreet/prototype/** remains NON_MIGRATING_LEGACY_PROTOTYPE
 
 preparation_notes:
-  - all owner blobs and absent GrandRue destinations reconciled against development at bd4ab2566f2562c452af4df05023057661cfbcf1
-  - executable fully qualified references are migrated as code; literal compatibility/test identities are preserved
-  - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
+  - all owner blobs and absent GrandRue destinations reconciled against development at f69d84dbaed3a4628c43e931dd5bd448e4cd90f0
+  - the OpportunityEnquirySubmissionPreparationTest static helper dependencies are internal to this transaction
+  - Maven tests and GitHub Actions were not run

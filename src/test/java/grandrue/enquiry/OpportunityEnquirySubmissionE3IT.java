@@ -1,10 +1,10 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
-import mainstreet.application.ApplicationRequestIdentity;
-import mainstreet.infrastructure.persistence.enquiry.JooqEnquirySubmissionApplicationService;
-import mainstreet.infrastructure.persistence.enquiry.JooqEnquirySubmissionStore;
-import mainstreet.infrastructure.persistence.publication.JooqOpportunityPublicationStateAuthority;
-import mainstreet.publication.*;
+import grandrue.application.ApplicationRequestIdentity;
+import grandrue.infrastructure.persistence.enquiry.JooqEnquirySubmissionApplicationService;
+import grandrue.infrastructure.persistence.enquiry.JooqEnquirySubmissionStore;
+import grandrue.infrastructure.persistence.publication.JooqOpportunityPublicationStateAuthority;
+import grandrue.publication.*;
 import org.flywaydb.core.Flyway;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -23,7 +23,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import static mainstreet.enquiry.OpportunityEnquirySubmissionPreparationTest.*;
+import static grandrue.enquiry.OpportunityEnquirySubmissionPreparationTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OpportunityEnquirySubmissionE3IT {

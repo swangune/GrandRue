@@ -1,21 +1,21 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
-import mainstreet.api.*;
-import mainstreet.application.MerchantScope;
-import mainstreet.enquiry.delivery.*;
-import mainstreet.publication.*;
-import mainstreet.publication.delivery.*;
-import mainstreet.surface.*;
-import mainstreet.runtime.*;
-import mainstreet.merchantaccount.MerchantControllerRelationshipAuthority;
-import mainstreet.workforce.MerchantMembershipAuthority;
+import grandrue.api.*;
+import grandrue.application.MerchantScope;
+import grandrue.enquiry.delivery.*;
+import grandrue.publication.*;
+import grandrue.publication.delivery.*;
+import grandrue.surface.*;
+import grandrue.runtime.*;
+import grandrue.merchantaccount.MerchantControllerRelationshipAuthority;
+import grandrue.workforce.MerchantMembershipAuthority;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.*;
 import java.util.concurrent.atomic.*;
-import static mainstreet.enquiry.OpportunityEnquirySubmissionPreparationTest.*;
+import static grandrue.enquiry.OpportunityEnquirySubmissionPreparationTest.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -64,8 +64,8 @@ class PublicOpportunityEnquiryDeliveryT2BTest {
                     () -> new PublicOpportunityRouteScopeAuthority(Map.of("shop", SCOPE)));
             context.registerBean(PublicEnquiryRouteScopeAuthority.class,
                     () -> new PublicEnquiryRouteScopeAuthority(Map.of("shop", SCOPE)));
-            context.registerBean(mainstreet.semantic.configuration.ConfigurationReleaseActivation.class, () -> f.e3.activation);
-            context.registerBean(mainstreet.semantic.registry.SemanticRegistrySnapshot.class, () -> f.e3.registry);
+            context.registerBean(grandrue.semantic.configuration.ConfigurationReleaseActivation.class, () -> f.e3.activation);
+            context.registerBean(grandrue.semantic.registry.SemanticRegistrySnapshot.class, () -> f.e3.registry);
             context.registerBean(OpportunityPublicationStateAuthority.class, () -> f.e3.publication);
             context.registerBean(OpportunityPublicationSubmissionLock.class, () -> f.e3.lock);
             context.registerBean(AudienceObservationContextEstablisher.class, f::contexts);

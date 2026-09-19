@@ -1,8 +1,8 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
-import mainstreet.api.*;
-import mainstreet.application.*;
-import mainstreet.enquiry.delivery.*;
+import grandrue.api.*;
+import grandrue.application.*;
+import grandrue.enquiry.delivery.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,10 +28,10 @@ class PublicGeneralEnquiryDeliveryT2ATest {
             context.registerBean(PublicEnquirySubmissionAdmissionAuthority.class, f::admission);
             context.registerBean(PublicGeneralEnquiryRequirements.class, f::requirements);
             context.registerBean(EnquirySubmissionApplicationService.class, () -> f.application);
-            context.registerBean(mainstreet.semantic.configuration.ConfigurationReleaseActivation.class, () -> f.e3.activation);
-            context.registerBean(mainstreet.semantic.registry.SemanticRegistrySnapshot.class, () -> f.e3.registry);
-            context.registerBean(mainstreet.publication.OpportunityPublicationStateAuthority.class, () -> f.e3.publication);
-            context.registerBean(mainstreet.publication.OpportunityPublicationSubmissionLock.class, () -> f.e3.lock);
+            context.registerBean(grandrue.semantic.configuration.ConfigurationReleaseActivation.class, () -> f.e3.activation);
+            context.registerBean(grandrue.semantic.registry.SemanticRegistrySnapshot.class, () -> f.e3.registry);
+            context.registerBean(grandrue.publication.OpportunityPublicationStateAuthority.class, () -> f.e3.publication);
+            context.registerBean(grandrue.publication.OpportunityPublicationSubmissionLock.class, () -> f.e3.lock);
             context.registerBean(java.time.Clock.class, () -> f.e3.clock);
             context.register(PublicGeneralEnquiryApiConfiguration.class, PublicGeneralEnquiryController.class);
             context.refresh();

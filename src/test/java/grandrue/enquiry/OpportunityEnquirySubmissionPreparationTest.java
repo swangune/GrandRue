@@ -1,11 +1,11 @@
-package mainstreet.enquiry;
+package grandrue.enquiry;
 
-import mainstreet.application.MerchantScope;
-import mainstreet.publication.*;
-import mainstreet.semantic.compiler.ConfigurationCompiler;
-import mainstreet.semantic.configuration.*;
-import mainstreet.semantic.registry.*;
-import mainstreet.surface.*;
+import grandrue.application.MerchantScope;
+import grandrue.publication.*;
+import grandrue.semantic.compiler.ConfigurationCompiler;
+import grandrue.semantic.configuration.*;
+import grandrue.semantic.registry.*;
+import grandrue.surface.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;
@@ -161,7 +161,7 @@ class OpportunityEnquirySubmissionPreparationTest {
         final MerchantConfiguration configuration = new MerchantConfiguration(
                 SCOPE.merchantIdentifier(), "configuration-1", 1, RELEASE,
                 Set.of("publication", "enquiry"), Set.of(), Optional.empty());
-        final mainstreet.semantic.executable.ExecutableMerchantModel model = new ConfigurationCompiler(
+        final grandrue.semantic.executable.ExecutableMerchantModel model = new ConfigurationCompiler(
                 version -> version.equals(RELEASE) ? Optional.of(registry) : Optional.empty()).compile(configuration);
         final ConfigurationReleaseActivation activation = mock(ConfigurationReleaseActivation.class);
         final OpportunityPublicationStateAuthority publication = mock(OpportunityPublicationStateAuthority.class);
