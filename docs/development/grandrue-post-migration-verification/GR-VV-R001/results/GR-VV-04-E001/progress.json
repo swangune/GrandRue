@@ -1,0 +1,20 @@
+{
+  "schema_version": "grandrue-exception-progress/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-04-E001",
+  "exception_id": "GR-VV-EXC-001",
+  "exception_name": "legacy_prototype_compatibility_repairs",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "state": "CHECKPOINTED",
+  "total_files": 26,
+  "verified_files": 26,
+  "passing_files": 26,
+  "failing_files": 0,
+  "blocked_files": 0,
+  "remaining_files": 0,
+  "changed_imports_verified": 101,
+  "provenance_commits_verified": 15,
+  "prototype_package_path_api_preserved": true,
+  "conclusion": "PASS",
+  "next_action": "Execute GR-VV-04-E002 against the frozen 3-file mixed-governance/non-migration-delta exception set."
+}

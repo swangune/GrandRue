@@ -1,0 +1,74 @@
+{
+  "schema_version": "grandrue-post-migration-receipt/v1",
+  "run_id": "GR-VV-R001",
+  "packet_id": "GR-VV-04-E001",
+  "packet_kind": "EXCEPTION_VALIDATION",
+  "exception_id": "GR-VV-EXC-001",
+  "exception_name": "legacy_prototype_compatibility_repairs",
+  "result": "PASS",
+  "checked_target": "afb0d3631fcd916f3ba9c830c9c19108bb7a4011",
+  "method": {
+    "version": "grandrue-preservation-checker/v1",
+    "checker_sha256": "606931c729ac9620aa6f858b8e03e9e9b52671f964efe40e185038fd62563323",
+    "exception_rule": "legacy_prototype_import_only_dependency_repair/v1"
+  },
+  "checks": {
+    "total_files": 26,
+    "passed": 26,
+    "failed": 0,
+    "blocked": 0,
+    "remaining": 0,
+    "complete_baseline_and_target_blob_checks": 26,
+    "exact_path_mode_checked": 26,
+    "prototype_package_path_api_preserved": 26,
+    "changed_imports_verified": 101,
+    "provenance_commits_verified": 15,
+    "unpermitted_non_import_edits": 0
+  },
+  "provenance_commits": [
+    "0564a76df538c839c8ce7afe48861c948f80b1d3",
+    "11f7b8e3e7706703cadbaa27d257df1ab2752cbb",
+    "2793e116a2f88ffd766de7f15084a09adce5c4e5",
+    "27ea7985770d31dec084e89ddec2c3d4b6feda27",
+    "390c0713ecdab445b8558a6ed6dec6f65bdb8677",
+    "50cc3f9462363b120de8f7e2d47fad60a180487e",
+    "6b641099a6694647d947339031b8185c6a2cd0a8",
+    "6bc63e14f5d8b19d7d9f54803d3eb2c848f6e3f5",
+    "71f61cf6809effdae2f0f91e0a396ff5a6853e6f",
+    "856f88bbef52bd38832f4abd493ae0e2f3726879",
+    "9c36c0720ac5a2b48e22f4f04fc621a8298632c7",
+    "aa1ff2f9ce8cf05fc0cefabf9614b7fb56ad171c",
+    "cdea37fe0b98d0903547f9d950bf5e3f3f800de0",
+    "de95f490823ab080f832c07b9cf8f933b409df84",
+    "f708b20a6e121cce0d699baa026c9a0ddee6366c"
+  ],
+  "findings": [],
+  "prior_open_findings_preserved": [
+    "GR-VV-F001",
+    "GR-VV-F002"
+  ],
+  "independent_passing_results_preserved": true,
+  "outputs": {
+    "progress": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-E001/progress.json",
+      "git_blob": "7f20d2a3919ca049e00a8135eb1d794bc91307e5",
+      "sha256": "1f96c5112a1c82369014026ed165d9af04e7b1f53bb7e64d4688574c85af23d2"
+    },
+    "exception_results": {
+      "path": "docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-04-E001/legacy-prototype-compatibility-repairs.jsonl",
+      "git_blob": "4c516c37fceada8f6cdfa263774279f328c610af",
+      "sha256": "1e5b5e74a8a318aa1d80e23520d2951733cd601faebf6b5242888056cf7369a2",
+      "files": 26,
+      "result": "PASS"
+    }
+  },
+  "conclusion_scope": "legacy_prototype_compatibility_repairs_only",
+  "conclusion": "PASS",
+  "limitations": [
+    "This packet establishes exact same-path/mode and complete-byte preservation outside 101 declared import-only dependency repairs for the frozen 26-file legacy prototype exception set.",
+    "Prototype package namespace, source paths and all bytes outside the independently evidenced migrated-owner import repairs are preserved.",
+    "Maven tests and GitHub Actions were not run.",
+    "GR-VV-F001 and GR-VV-F002 remain OPEN and are unaffected by this packet."
+  ],
+  "next_packet": "GR-VV-04-E002"
+}
