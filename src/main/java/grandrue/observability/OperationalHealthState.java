@@ -4,5 +4,6 @@ package grandrue.observability;
 public enum OperationalHealthState {
     READY,
     DEGRADED,
-    UNAVAILABLE
+    UNAVAILABLE,
+    UNKNOWN
 }

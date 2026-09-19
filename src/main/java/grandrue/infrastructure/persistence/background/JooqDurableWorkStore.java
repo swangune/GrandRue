@@ -7,6 +7,8 @@ import grandrue.background.BackgroundWorkContractIdentity;
 import grandrue.background.BackgroundWorkResultClassification;
 import grandrue.background.ClaimedWork;
 import grandrue.background.DurableWorkInstruction;
+import grandrue.background.DurableWorkOperationalEvidenceSource;
+import grandrue.background.DurableWorkProgressEvidence;
 import grandrue.background.DurableWorkStore;
 import grandrue.background.OverdueHandling;
 import grandrue.background.WorkAttempt;
@@ -32,7 +34,8 @@ import java.util.Optional;
  * authorised or still applicable. It persists only the owning contract's
  * instruction and the technical processing state.</p>
  */
-public final class JooqDurableWorkStore implements DurableWorkStore {
+public final class JooqDurableWorkStore
+        implements DurableWorkStore, DurableWorkOperationalEvidenceSource {
 
     private static final Table<?> WORK =
             DSL.table(DSL.name("durable_work_instruction"));
@@ -342,6 +345,103 @@ public final class JooqDurableWorkStore implements DurableWorkStore {
 
         return Optional.ofNullable(row)
                 .map(this::toInstruction);
+    }
+
+    @Override
+    public List<DurableWorkProgressEvidence> outstanding(
+            BackgroundWorkContractAffinity contractAffinity,
+            int limit
+    ) {
+        Objects.requireNonNull(
+                contractAffinity,
+                "contractAffinity"
+        );
+        if (limit < 1) {
+            throw new IllegalArgumentException(
+                    "Operational evidence limit must be positive"
+            );
+        }
+
+        var rows =
+                dsl.select(
+                                WORK_IDENTIFIER,
+                                MERCHANT_IDENTIFIER,
+                                DUE_AT,
+                                NEXT_ATTEMPT_AT,
+                                CREATED_AT,
+                                CLAIM_EXPIRES_AT
+                        )
+                        .from(WORK)
+                        .where(FINALISED_AT.isNull())
+                        .and(
+                                CONTRACT_OWNER_IDENTIFIER.eq(
+                                        contractAffinity
+                                                .contractIdentity()
+                                                .ownerIdentifier()
+                                )
+                        )
+                        .and(
+                                CONTRACT_IDENTIFIER.eq(
+                                        contractAffinity
+                                                .contractIdentity()
+                                                .contractIdentifier()
+                                )
+                        )
+                        .and(
+                                CONTRACT_SEMANTIC_RELEASE.eq(
+                                        contractAffinity
+                                                .semanticRegistryReleaseIdentifier()
+                                )
+                        )
+                        .orderBy(
+                                CREATED_AT,
+                                WORK_IDENTIFIER
+                        )
+                        .limit(limit)
+                        .fetch();
+
+        List<DurableWorkProgressEvidence> evidence =
+                new ArrayList<>(rows.size());
+
+        for (Record row : rows) {
+            String workIdentity =
+                    row.get(WORK_IDENTIFIER);
+            Optional<WorkAttempt> latest =
+                    latestAttempt(workIdentity);
+            int attemptCount =
+                    dsl.fetchCount(
+                            ATTEMPT,
+                            WORK_IDENTIFIER.eq(workIdentity)
+                    );
+
+            evidence.add(
+                    new DurableWorkProgressEvidence(
+                            workIdentity,
+                            contractAffinity,
+                            Optional.ofNullable(
+                                    row.get(MERCHANT_IDENTIFIER)
+                            ).map(MerchantScope::new),
+                            row.get(DUE_AT),
+                            row.get(NEXT_ATTEMPT_AT),
+                            row.get(CREATED_AT),
+                            Optional.ofNullable(
+                                    row.get(CLAIM_EXPIRES_AT)
+                            ),
+                            attemptCount,
+                            latest.map(
+                                    WorkAttempt::attemptIdentity
+                            ),
+                            latest.map(
+                                    WorkAttempt::attemptedAt
+                            ),
+                            latest.flatMap(
+                                    WorkAttempt::resultClassification
+                            )
+                    )
+            );
+        }
+
+        return List.copyOf(evidence);
     }
 
     @Override
