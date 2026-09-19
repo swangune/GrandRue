@@ -34,9 +34,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SchedulingAvailabilityImpactAssessmentTest {
     private static final Instant AT = Instant.parse("2026-09-08T03:45:00Z");
     private static final String ENABLED_EFFECT =
-            "New appointment scheduling activity can use Main Street Scheduling where applicable scheduling semantics and authority permit it.";
+            "New appointment scheduling activity can use GrandRue Scheduling where applicable scheduling semantics and authority permit it.";
     private static final String DISABLED_EFFECT =
-            "New appointment scheduling activity will no longer be initiated through Main Street Scheduling.";
+            "New appointment scheduling activity will no longer be initiated through GrandRue Scheduling.";
 
     @Test
     void initial_enablement_describes_new_scheduling_activity_without_claiming_current_schedulability() {

@@ -189,24 +189,16 @@ class ImplementationProgrammeGateConformanceTest {
         String status = Files.readString(Path.of(
                 "docs", "development", "implementation-status-history-2026-09-14-pre-c2b-closure.md"
         ));
-        String currentStatus = Files.readString(Path.of(
-                "docs", "development", "implementation-status.md"
+        String controller = Files.readString(Path.of("IMPLEMENTATION.md"));
+        String currentGraph = Files.readString(Path.of(
+                "docs", "development", "implementation-programme-state.json"
         ));
-        assertTrue(currentStatus.contains(
-                "Current programme target:** `IMP-08C — Durable Execution Foundation` — **IN_PROGRESS**"
-        ));
-        assertTrue(currentStatus.contains(
-                "`IMP-08C-C2B — Registered work owner binding/current revalidation` — **CONFORMING_COMPLETE**"
-        ));
-        assertTrue(currentStatus.contains(
-                "`IMP-08C-C2 — Registered durable-work owner execution path` — **CONFORMING_COMPLETE**"
-        ));
-        assertTrue(currentStatus.contains(
-                "`IMP-08C-C3 — Execution failures/outcome ledger` — **READY**"
-        ));
-        assertTrue(currentStatus.contains(
-                "implementation-status-history-2026-09-14-pre-c2b-closure.md"
-        ));
+        assertTrue(controller.contains("id: IMP-08C"));
+        assertTrue(controller.contains("state: IN_PROGRESS"));
+        assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
+        assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C2\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
+        assertTrue(currentGraph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"IN_PROGRESS\""));
+        assertTrue(controller.contains("implementation-status-history-2026-09-14-pre-c2b-closure.md"));
         assertTrue(status.contains(
                 "Restored programme target:** `IMP-07 — Publication → Enquiry vertical slice` — **CONFORMING_COMPLETE from retained scoped proof after prerequisite restoration**"
         ));

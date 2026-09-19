@@ -34,9 +34,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class EnquiryAvailabilityImpactAssessmentTest {
     private static final Instant AT = Instant.parse("2026-09-06T14:00:00Z");
     private static final String ENABLED_EFFECT =
-            "New customer enquiries can be accepted through Main Street where an applicable enquiry interaction is available.";
+            "New customer enquiries can be accepted through GrandRue where an applicable enquiry interaction is available.";
     private static final String DISABLED_EFFECT =
-            "New customer enquiries will no longer be accepted through Main Street.";
+            "New customer enquiries will no longer be accepted through GrandRue.";
 
     @Test
     void initial_enablement_describes_new_enquiry_activity_without_claiming_subject_binding_or_availability() {

@@ -33,9 +33,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class InventoryAvailabilityImpactAssessmentTest {
     private static final Instant AT = Instant.parse("2026-09-07T22:45:00Z");
     private static final String ENABLED_EFFECT =
-            "New inventory-tracked activity can use Main Street Inventory where applicable inventory requirements are satisfied.";
+            "New inventory-tracked activity can use GrandRue Inventory where applicable inventory requirements are satisfied.";
     private static final String DISABLED_EFFECT =
-            "New inventory-tracked activity will no longer be initiated through Main Street Inventory.";
+            "New inventory-tracked activity will no longer be initiated through GrandRue Inventory.";
 
     @Test
     void initial_enablement_describes_new_inventory_activity_without_claiming_stock_or_claims_are_created() {

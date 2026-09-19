@@ -21,9 +21,9 @@ class ExposureSubmissionAffinityArchitectureConformanceTest {
 
     @Test
     void binding_issuance_and_concrete_identity_remain_surface_owned_and_non_public() {
-        assertEquals("mainstreet.surface", ExposureCandidateEvaluationBinding.class.getPackageName());
-        assertEquals("mainstreet.surface", ExposureCandidateEvaluationBindings.class.getPackageName());
-        assertEquals("mainstreet.surface", RuntimeExposureCandidateEvaluationBinding.class.getPackageName());
+        assertEquals("grandrue.surface", ExposureCandidateEvaluationBinding.class.getPackageName());
+        assertEquals("grandrue.surface", ExposureCandidateEvaluationBindings.class.getPackageName());
+        assertEquals("grandrue.surface", RuntimeExposureCandidateEvaluationBinding.class.getPackageName());
 
         assertFalse(Modifier.isPublic(ExposureCandidateEvaluationBindings.class.getModifiers()));
         assertFalse(Modifier.isPublic(RuntimeExposureCandidateEvaluationBinding.class.getModifiers()));
@@ -55,7 +55,7 @@ class ExposureSubmissionAffinityArchitectureConformanceTest {
     @Test
     void evaluator_boundary_uses_submission_wrapper_and_results_do_not_repeat_candidate_identity() {
         assertEquals(
-                "java.util.List<mainstreet.surface.ExposureCandidateEvaluationSubmission>",
+                "java.util.List<grandrue.surface.ExposureCandidateEvaluationSubmission>",
                 Arrays.stream(ExposureRequirementEvaluator.class.getDeclaredMethods())
                         .filter(method -> method.getName().equals("evaluateBatch"))
                         .findFirst()
@@ -64,7 +64,7 @@ class ExposureSubmissionAffinityArchitectureConformanceTest {
                         .getTypeName()
         );
         assertEquals(
-                "java.util.List<mainstreet.surface.ExposureCandidateEvaluationSubmission>",
+                "java.util.List<grandrue.surface.ExposureCandidateEvaluationSubmission>",
                 Arrays.stream(MerchantExposureChoiceEvaluator.class.getDeclaredMethods())
                         .filter(method -> method.getName().equals("evaluateBatch"))
                         .findFirst()
@@ -112,7 +112,7 @@ class ExposureSubmissionAffinityArchitectureConformanceTest {
 
     @Test
     void generic_resolver_retains_no_domain_dependency_as_state_or_public_contract() {
-        assertEquals("mainstreet.surface", ExposureResolver.class.getPackageName());
+        assertEquals("grandrue.surface", ExposureResolver.class.getPackageName());
         assertEquals(0, ExposureResolver.class.getDeclaredFields().length);
         assertTrue(Arrays.stream(ExposureResolver.class.getDeclaredMethods())
                 .flatMap(method -> {

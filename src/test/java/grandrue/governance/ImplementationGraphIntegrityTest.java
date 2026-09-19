@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Completion evidence must not disappear when navigation narrows to one branch.
- * MS-IMP-001 v1.0, designs/MS-IMP-001.md, §33 — Target Completion Gate;
+ * MS-IMP-001 v1.0, designs/authorities/programme/MS-IMP-001/MS-IMP-001.md, §33 — Target Completion Gate;
  * §36 — Graph Refinement; MS-IMPLEMENTATION-RULES-001 v1.7,
  * designs/IMPLEMENTATION-RULES.md, §52.9 — Existing implementation satisfaction.
  */
@@ -34,10 +34,11 @@ class ImplementationGraphIntegrityTest {
 
     @Test
     void current_navigation_closes_configuration_only_with_general_lifecycle_proof() throws Exception {
-        String status = Files.readString(Path.of("docs/development/implementation-status.md"));
+        String controller = Files.readString(Path.of("IMPLEMENTATION.md"));
         String history = Files.readString(HISTORY);
-        assertTrue(status.contains("Current programme target:** `IMP-08C — Durable Execution Foundation` — **IN_PROGRESS**"));
-        assertTrue(status.contains("implementation-status-history-2026-09-14-pre-c2b-closure.md"));
+        assertTrue(controller.contains("id: IMP-08C"));
+        assertTrue(controller.contains("state: IN_PROGRESS"));
+        assertTrue(controller.contains("implementation-status-history-2026-09-14-pre-c2b-closure.md"));
         assertTrue(history.contains("IMP-05") && history.contains("CONFORMING_COMPLETE"));
         assertTrue(history.contains("imp-programme-integrity-review-2026-09-06.md"));
         assertTrue(history.contains("imp-05-r3b-reinstatement-conformance-2026-09-12.md"));
@@ -50,7 +51,7 @@ class ImplementationGraphIntegrityTest {
     @Test
     void every_accepted_macro_and_explicit_hard_or_programme_edge_is_represented() throws Exception {
         var graph = graph();
-        String authority = Files.readString(Path.of("designs/MS-IMP-001.md"));
+        String authority = Files.readString(Path.of("designs/authorities/programme/MS-IMP-001/MS-IMP-001.md"));
         var expected = new HashSet<String>();
         var sections = Pattern.compile("(?m)^## \\d+\\. (IMP-\\d{2}[ABC]?) — ").matcher(authority);
         var starts = new ArrayList<Integer>();
@@ -111,7 +112,7 @@ class ImplementationGraphIntegrityTest {
         assertFalse(graph.edges().stream().anyMatch(e -> e.to().equals("IMP-WC")));
         assertEquals(4, graph.conditionalEdges().stream().filter(e -> e.to().equals("IMP-WF-01")).count());
         assertTrue(Files.readString(Path.of(
-                "designs/MS-PROT-065 v1.1 — Production Durable Background Work, Timer, Attempt & Retry Execution Contract Amendment.md"))
+                "designs/authorities/ms-prot/MS-PROT-065/MS-PROT-065 v1.1 — Production Durable Background Work, Timer, Attempt & Retry Execution Contract Amendment.md"))
                 .contains("Not every Event Reaction requires durable work."));
     }
 

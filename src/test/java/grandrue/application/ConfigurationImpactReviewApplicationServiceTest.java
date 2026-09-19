@@ -70,7 +70,7 @@ class ConfigurationImpactReviewApplicationServiceTest {
 
         assertEquals(
                 List.of(
-                        "New customer enquiries can be accepted through Main Street "
+                        "New customer enquiries can be accepted through GrandRue "
                                 + "where an applicable enquiry interaction is available."
                 ),
                 result.businessFacingEffects()

@@ -32,9 +32,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class OrderingAvailabilityImpactAssessmentTest {
     private static final Instant AT = Instant.parse("2026-09-07T20:30:00Z");
     private static final String ENABLED_EFFECT =
-            "New orders can be accepted through Main Street where applicable ordering requirements are satisfied.";
+            "New orders can be accepted through GrandRue where applicable ordering requirements are satisfied.";
     private static final String DISABLED_EFFECT =
-            "New orders will no longer be accepted through Main Street.";
+            "New orders will no longer be accepted through GrandRue.";
 
     @Test
     void initial_enablement_describes_new_order_activity_without_claiming_commitment_or_fulfilment() {

@@ -34,9 +34,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class PaymentAvailabilityImpactAssessmentTest {
     private static final Instant AT = Instant.parse("2026-09-08T02:30:00Z");
     private static final String ENABLED_EFFECT =
-            "New payment activity can use Main Street Payment where applicable payment semantics and authority permit it.";
+            "New payment activity can use GrandRue Payment where applicable payment semantics and authority permit it.";
     private static final String DISABLED_EFFECT =
-            "New payment activity will no longer be initiated through Main Street Payment.";
+            "New payment activity will no longer be initiated through GrandRue Payment.";
 
     @Test
     void initial_enablement_describes_new_payment_activity_without_claiming_obligation_or_provider_execution() {

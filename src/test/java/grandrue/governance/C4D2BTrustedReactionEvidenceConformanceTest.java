@@ -36,8 +36,7 @@ class C4D2BTrustedReactionEvidenceConformanceTest {
     void c4d_closure_is_preserved_after_c2b_and_active_c3_advance_the_live_frontier() throws Exception {
         String graph = Files.readString(Path.of("docs/development",
                 "implementation-programme-state.json"));
-        String status = Files.readString(Path.of("docs/development",
-                "implementation-status.md"));
+        String controller = Files.readString(Path.of("IMPLEMENTATION.md"));
         String history = Files.readString(HISTORY);
         String frontier = Files.readString(Path.of("docs/development",
                 "imp-08c-live-frontier-v17-2026-09-06.md"));
@@ -48,10 +47,11 @@ class C4D2BTrustedReactionEvidenceConformanceTest {
         assertTrue(graph.contains("\"id\":\"IMP-08C-C4D2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(graph.contains("\"id\":\"IMP-08C-C4D2\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
         assertTrue(graph.contains("\"id\":\"IMP-08C-C4D\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
-        assertTrue(status.contains("`IMP-08C-C2B — Registered work owner binding/current revalidation` — **CONFORMING_COMPLETE**"));
-        assertTrue(status.contains("`IMP-08C-C3 — Execution failures/outcome ledger` — **IN_PROGRESS**"));
-        assertTrue(status.contains("imp-08c-c3-attempt-ledger-checkpoint-2026-09-14.md"));
-        assertTrue(status.contains("| `IMP-08C-C4D2B` | `CONFORMING_COMPLETE` |"));
+        assertTrue(graph.contains("\"id\":\"IMP-08C-C2B\",\"macro\":\"IMP-08C\",\"state\":\"CONFORMING_COMPLETE\""));
+        assertTrue(graph.contains("\"id\":\"IMP-08C-C3\",\"macro\":\"IMP-08C\",\"state\":\"IN_PROGRESS\""));
+        assertTrue(graph.contains("imp-08c-c3-attempt-ledger-checkpoint-2026-09-14.md"));
+        assertTrue(controller.contains("id: IMP-08C-C3"));
+        assertTrue(controller.contains("state: IN_PROGRESS"));
         assertTrue(history.contains("`IMP-08C-C2B — Registered work owner binding/current revalidation` — **READY**"));
     }
 }

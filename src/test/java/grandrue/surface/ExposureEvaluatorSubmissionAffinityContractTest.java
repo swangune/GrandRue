@@ -128,13 +128,13 @@ class ExposureEvaluatorSubmissionAffinityContractTest {
     @Test
     void evaluator_batch_boundary_accepts_submission_wrappers_not_raw_candidates() {
         assertEquals(
-                "java.util.List<mainstreet.surface.ExposureCandidateEvaluationSubmission>",
+                "java.util.List<grandrue.surface.ExposureCandidateEvaluationSubmission>",
                 ExposureRequirementEvaluator.class.getMethods()[0]
                         .getGenericParameterTypes()[2]
                         .getTypeName()
         );
         assertEquals(
-                "java.util.List<mainstreet.surface.ExposureCandidateEvaluationSubmission>",
+                "java.util.List<grandrue.surface.ExposureCandidateEvaluationSubmission>",
                 MerchantExposureChoiceEvaluator.class.getMethods()[0]
                         .getGenericParameterTypes()[2]
                         .getTypeName()
