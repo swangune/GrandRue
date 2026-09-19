@@ -6,7 +6,7 @@
 
 **Comparison:** original migration-start baseline `M = c4153441d8340b229a29884967d796280d949a7d` against the final pinned migration target `D`; `master` is optional contextual evidence only
 
-**Status:** `COMPLETED_WITH_FINDINGS`
+**Status:** `COMPLETE_PASS`
 
 **Activation:** `AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT`
 
@@ -271,7 +271,7 @@ checkpoint:
   evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R003
   latest_receipt: docs/development/grandrue-post-migration-verification/GR-VV-R003/receipts/GR-VV-R003-01.json
   evidence_publication_commit: eacfd433ef68f0bf8b338493e00d4e5bc71c355b
-  implementation_handoff: BLOCKED_PENDING_GR_REN_10_11
+  implementation_handoff: READY
   coverage:
     previous_target_entries: 2327
     target_entries: 2355
@@ -299,8 +299,10 @@ checkpoint:
     - GR-VV-F001
     - GR-VV-F002
     - GR-VV-F003
-  next_action: GR-REN-08 and GR-REN-09 are complete from R003 evidence. GR-REN-10 remains blocked pending explicit executable-validation authorisation; GR-REN-11 remains blocked by GR-REN-10.
+  next_action: GR-REN-08 through GR-REN-11 are closed. Reconcile the canonical implementation graph against the current verified repository, refresh `/IMPLEMENTATION.md`, and resume the eligible implementation frontier automatically.
 ```
+
+Final migration closure note: `GRANDRUE-MIGRATION.md` now records GR-REN-10 and GR-REN-11 complete. The separately authorised executable validation passed at source head `be861d2093c390f709f8835942c56e5dc8e72555` via GitHub Actions run `35464062668` using the exact command `mvn --batch-mode clean verify -Ppostgres-it`: 1,094 production sources and 376 test sources compiled; 1,252 unit/governance and 445 PostgreSQL integration tests passed with zero failures/errors/skips. Later fixes are classified as post-migration source-rooted defect correction and do not change the immutable GR-VV-R003 migration-preservation target.
 
 On restart: read `AGENTS.md`, the migration ledger, this checkpoint and the work file; verify their exact current inputs; identify the last durable receipt; and resume only a fresh `READY` packet. Reconcile unexpected HEAD movement before proceeding. Never recreate a ledger from a summary or truncated response.
 
