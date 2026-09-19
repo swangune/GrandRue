@@ -417,78 +417,50 @@ On restart, validate the latest receipt and its manifests before resuming the ne
 
 ## 10. Current queue and active packet
 
-GR-VV-R001 is structurally complete with findings. File accounting PASS; all 847 claims are reconciled with 842 PASS and 5 FAIL; migration preservation FAILS only on GR-VV-F001/F002; protected identities PASS; historical-master executable preservation is DIFFERENT because pre-migration B→M executable changes exist; live freshness FAILS on GR-VV-F003 because five substantive governance paths changed after D. R001 certifies immutable target D only, not the live development branch. No discrepancy is repaired inside this audit.
+GR-VV-R002 is complete with findings. It reuses the complete R001 M→D evidence and exactly reconciles D→T where T is the latest substantive post-migration target. The complete Git trees contain 2,266 entries at D and 2,327 at T; the incremental delta is 61 additions, 5 modifications and zero deletions. Exactly five changed paths are substantive governance changes (MS-PROT-095/MS-PROT-096 plus their authority-index, lexicon and deferred-register updates); all remaining 61 changed paths are verification/operational evidence. No changed path intersects the frozen migration claim records and no `src/` path changed.
+
+All 847 claim outcomes therefore remain stable: 842 PASS and 5 FAIL. GR-VV-F001/F002 persist byte-for-byte and remain the sole migration-preservation defects. GR-VV-F003 is resolved by pinning T and reconciling all subsequent changes through evidence publication commit `4d7c56ac90821dbf3ab728f35bafa70b9433277f` as audit-only. Protected identities remain PASS. No discrepancy is repaired inside this audit.
 
 ```yaml
 execution:
   status: COMPLETE_WITH_FINDINGS
   activation_mode: AUTOMATIC_FROM_GRANDRUE_MIGRATION_FINAL_CHECKPOINT
   activation_state: ACTIVE
-  run_id: GR-VV-R001
+  run_id: GR-VV-R002
   primary_baseline:
     commit: c4153441d8340b229a29884967d796280d949a7d
     tree: 90f13fa113e770023652e40be20c0e7f894e0623
     role: ORIGINAL_MIGRATION_START
-  target_commit: afb0d3631fcd916f3ba9c830c9c19108bb7a4011
-  target_tree: 1614a2be044bff8284ba2b6999dc5418c018430b
+  terminal_migration_target:
+    commit: afb0d3631fcd916f3ba9c830c9c19108bb7a4011
+    tree: 1614a2be044bff8284ba2b6999dc5418c018430b
+  target_commit: 0a4a7b90364c1aa32262f29da65bc29173e29e81
+  target_tree: 5a27e7f326c163f91656bf3f7192798473a81544
   historical_scope: ALL_COMPLETED_MIGRATION_CLAIMS_FROM_FIRST_MIGRATION
-  evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R001
+  evidence_root: docs/development/grandrue-post-migration-verification/GR-VV-R002
+  evidence_publication_commit: 4d7c56ac90821dbf3ab728f35bafa70b9433277f
   active_packet:
-    id: GR-VV-05-01
-    kind: FINDINGS_CLOSURE_AND_FRESHNESS
+    id: GR-VV-R002-01
+    kind: INCREMENTAL_LIVE_REVALIDATION
     state: CHECKPOINTED
+    result: FAIL
     progress:
-      open_findings: 3
-      conclusions_finalised: 5
-      conclusions_remaining: 0
-      progress_evidence: docs/development/grandrue-post-migration-verification/GR-VV-R001/results/GR-VV-05-01/progress.json
+      incremental_paths: 66
+      substantive_governance_paths: 5
+      operational_verification_paths: 61
+      claims_total: 847
+      claims_passed: 842
+      claims_failed: 5
+      open_findings: 2
+      resolved_findings: 1
   queue: []
   completed_packets:
-    - id: GR-VV-00-01
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-00-01.json
-    - id: GR-VV-01-01
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-01-01.json
-    - id: GR-VV-02-01
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-02-01.json
-    - id: GR-VV-03-00
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-00.json
-    - id: GR-VV-03-R001
+    - id: GR-VV-R002-01
       result: FAIL
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R001.json
-    - id: GR-VV-03-R002
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R002.json
-    - id: GR-VV-03-R003
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R003.json
-    - id: GR-VV-03-R004
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-03-R004.json
-    - id: GR-VV-04-E001
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-E001.json
-    - id: GR-VV-04-E002
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-E002.json
-    - id: GR-VV-04-E003
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-E003.json
-    - id: GR-VV-04-E004
-      result: PASS
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-E004.json
-    - id: GR-VV-04-C001
-      result: FAIL
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-04-C001.json
-    - id: GR-VV-05-01
-      result: FAIL
-      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R001/receipts/GR-VV-05-01.json
+      receipt: docs/development/grandrue-post-migration-verification/GR-VV-R002/receipts/GR-VV-R002-01.json
   results_recorded: true
   implementation_handoff: BLOCKED
-  next_action: Open GR-VV-R002 against the latest substantive pre-audit live target and incrementally revalidate the five non-audit post-D governance changes plus dependent migration claims. Preserve GR-VV-F001, GR-VV-F002 and GR-VV-F003 as historical findings; do not repair discrepancies inside verification.
+  next_action: Hand GR-VV-F001 and GR-VV-F002 to separately authorised migration defect review. Preserve R001/R002 evidence. After repair, open a fresh incremental verification target; do not repair source files inside verification.
 ```
 
 Do not begin against an in-flight migration head. The date this verification ledger was created has no effect on verification coverage.
