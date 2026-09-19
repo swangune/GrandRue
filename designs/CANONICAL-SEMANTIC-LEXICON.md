@@ -1,6 +1,6 @@
 # GrandRue Canonical Semantic Lexicon
 
-**Version:** 1.51
+**Version:** 1.52
 **Status:** ACCEPTED governance terminology authority
 **Governed by:** `DOCUMENT-GOVERNANCE.md`
 **Purpose:** Disambiguate high-risk shared terminology across GrandRue without replacing the accepted design documents that own substantive semantics.
@@ -369,6 +369,35 @@ and country-registry affinity.
 `PostalAddressV1` is a revisioned value, not `MerchantLocation` identity,
 Exposure, verification, deliverability, serviceability, a formatted display
 string, provider place identity or geocoder authority.
+
+
+### Location Resolution
+
+**Authority:** composite MS-PROT-051 through v1.7.  
+The bounded process by which candidate geographical evidence becomes an accepted precise destination for one Merchant Location revision. Location Resolution establishes where customer navigation should lead; it does not establish a Trust Claim that the merchant owns, occupies or is authorised to represent the premises.
+
+### Customer Navigation Point
+
+**Authority:** MS-PROT-051 v1.7.  
+The precise provider-neutral accepted geographic destination used when an eligible Merchant Location is rendered as a public customer destination. A Customer Navigation Point is not Merchant Location identity, PostalAddressV1, Exposure, provider place identity or Location Verification.
+
+### Location Verification
+
+**Authority:** composite MS-PROT-028 through v1.3, composed with MS-PROT-051 v1.7.  
+A Trust-domain process that may substantiate one specific scoped claim concerning a premises, merchant or relationship to a premises. Location Verification is optional for ordinary precise public navigation unless a separately accepted bounded Trust requirement requires it.
+
+Hard distinctions:
+
+    Location Resolution
+        ≠ Location Verification
+
+    Customer Navigation Point
+        ≠ PostalAddressV1
+        ≠ MerchantLocation identity
+        ≠ Exposure
+
+    precise public destination
+        ≠ independently verified premises claim
 
 ---
 
