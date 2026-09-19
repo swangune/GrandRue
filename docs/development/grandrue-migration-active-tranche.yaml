@@ -2,22 +2,19 @@ migration: MAIN_STREET_TO_GRANDRUE
 execution_mode: CLOSED_SUBGRAPH_TRANCHE
 repository: swangune/GrandRue
 branch: development
-tranche: GR-REN-03-T011
+tranche: GR-REN-03-T012
 group: GR-REN-03
-state: COMPLETE
-code_commit: 9664d7a41e8a121542b4f281ff5a3462a989d7a9
-expected_parent: 59c8b58e919ed8385259303a0fd18dd10321a4b4
-validated_head: 9664d7a41e8a121542b4f281ff5a3462a989d7a9
-checkpoint_commit: THIS_COMMIT
-verified: true
+state: CODE_COMMITTED
+code_commit: THIS_COMMIT
+expected_parent: 29280eb4c335ff46090e901a003248c92824d801
 
 region:
-  identity: test-notification
-  closure_basis: complete live src/test/java/mainstreet/notification/** Java test region; no external test consumers
+  identity: test-resilience
+  closure_basis: complete live src/test/java/mainstreet/resilience/** Java test region; no external test consumers
 
 classification:
   normal_closed:
-    owner_count: 2
+    owner_count: 1
     external_test_consumer_count: 0
     production_import_repair_count: 0
   embedded_legacy_symbolic_or_wording_residuals:
@@ -26,17 +23,14 @@ classification:
 
 subgraph:
   owners:
-    - from: src/test/java/mainstreet/notification/NotificationDeliveryCoordinatorTest.java
-      to: src/test/java/grandrue/notification/NotificationDeliveryCoordinatorTest.java
-      blob_sha: ad6dcb81290111ae2ecffae76281b6677fd98560
-    - from: src/test/java/mainstreet/notification/NotificationSemanticKernelTest.java
-      to: src/test/java/grandrue/notification/NotificationSemanticKernelTest.java
-      blob_sha: 83c885a82b8103a0bfd2c28b3b536cb1c2e065d0
+    - from: src/test/java/mainstreet/resilience/ExecutionUncertaintyAndResilienceTest.java
+      to: src/test/java/grandrue/resilience/ExecutionUncertaintyAndResilienceTest.java
+      blob_sha: dc0e207294b49ab5cf6ad711fce165702201851c
 
 deterministic_transformations:
   owners:
-    - move both declared owners to the corresponding src/test/java/grandrue/notification/** paths
-    - replace exactly two package declarations package mainstreet.notification; with package grandrue.notification;
+    - move the declared owner to the corresponding src/test/java/grandrue/resilience/** path
+    - replace exactly one package declaration package mainstreet.resilience; with package grandrue.resilience;
   consumers:
     - none; exact class-name search found no external test consumers
   prohibited:
@@ -64,11 +58,8 @@ expected_residuals:
   - remaining in-scope src/test/java/mainstreet/** stays open under GR-REN-03
 
 preparation_notes:
-  - both source blobs and absent GrandRue destinations were reconciled against development at 59c8b58e919ed8385259303a0fd18dd10321a4b4
-  - all referenced GrandRue notification production owners exist
-  - exact class-name searches found no external test consumers
+  - source blob and absent GrandRue destination were reconciled against development at 29280eb4c335ff46090e901a003248c92824d801
+  - all referenced GrandRue resilience production owners exist
+  - exact class-name search found no external test consumers
   - no executable legacy import or embedded Main Street/current-product identifier occurs in this region
   - Maven tests and GitHub Actions were not run during preparation
-
-next_group: GR-REN-03
-next_state: PREPARATION_REQUIRED
